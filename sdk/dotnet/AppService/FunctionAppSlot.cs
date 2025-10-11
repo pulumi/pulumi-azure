@@ -99,21 +99,21 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
         /// 
-        /// &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+        /// &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `StorageAccountName` and `StorageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `Version`.
         /// 
-        /// &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        /// &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
         /// </summary>
         [Output("appSettings")]
         public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// An `auth_settings` block as defined below.
+        /// An `AuthSettings` block as defined below.
         /// </summary>
         [Output("authSettings")]
         public Output<Outputs.FunctionAppSlotAuthSettings> AuthSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `connection_string` block as defined below.
+        /// A `ConnectionString` block as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.FunctionAppSlotConnectionString>> ConnectionStrings { get; private set; } = null!;
@@ -131,13 +131,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Should the built-in logging of the Function App be enabled? Defaults to `true`.
+        /// Should the built-in logging of the Function App be enabled? Defaults to `True`.
         /// </summary>
         [Output("enableBuiltinLogging")]
         public Output<bool?> EnableBuiltinLogging { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Function App enabled? Defaults to `true`.
+        /// Is the Function App enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -149,13 +149,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> FunctionAppName { get; private set; } = null!;
 
         /// <summary>
-        /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Function App only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.FunctionAppSlotIdentity?> Identity { get; private set; } = null!;
@@ -179,9 +179,9 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
+        /// A string indicating the Operating System type for this function app. The only possible value is `Linux`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+        /// &gt; **NOTE:** This value will be `Linux` for Linux Derivatives or an empty string for Windows (default).
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> OutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
@@ -205,13 +205,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         [Output("siteConfig")]
         public Output<Outputs.FunctionAppSlotSiteConfig> SiteConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
         /// </summary>
         [Output("siteCredentials")]
         public Output<ImmutableArray<Outputs.FunctionAppSlotSiteCredential>> SiteCredentials { get; private set; } = null!;
@@ -304,9 +304,9 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
         /// 
-        /// &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+        /// &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `StorageAccountName` and `StorageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `Version`.
         /// 
-        /// &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        /// &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// An `auth_settings` block as defined below.
+        /// An `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.FunctionAppSlotAuthSettingsArgs>? AuthSettings { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.FunctionAppSlotConnectionStringArgs>? _connectionStrings;
 
         /// <summary>
-        /// A `connection_string` block as defined below.
+        /// A `ConnectionString` block as defined below.
         /// </summary>
         public InputList<Inputs.FunctionAppSlotConnectionStringArgs> ConnectionStrings
         {
@@ -339,13 +339,13 @@ namespace Pulumi.Azure.AppService
         public Input<int>? DailyMemoryTimeQuota { get; set; }
 
         /// <summary>
-        /// Should the built-in logging of the Function App be enabled? Defaults to `true`.
+        /// Should the built-in logging of the Function App be enabled? Defaults to `True`.
         /// </summary>
         [Input("enableBuiltinLogging")]
         public Input<bool>? EnableBuiltinLogging { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled? Defaults to `true`.
+        /// Is the Function App enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -357,13 +357,13 @@ namespace Pulumi.Azure.AppService
         public Input<string> FunctionAppName { get; set; } = null!;
 
         /// <summary>
-        /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Function App only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FunctionAppSlotIdentityArgs>? Identity { get; set; }
@@ -381,9 +381,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
+        /// A string indicating the Operating System type for this function app. The only possible value is `Linux`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+        /// &gt; **NOTE:** This value will be `Linux` for Linux Derivatives or an empty string for Windows (default).
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.FunctionAppSlotSiteConfigArgs>? SiteConfig { get; set; }
@@ -462,9 +462,9 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
         /// 
-        /// &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+        /// &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `StorageAccountName` and `StorageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `Version`.
         /// 
-        /// &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        /// &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -473,7 +473,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// An `auth_settings` block as defined below.
+        /// An `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.FunctionAppSlotAuthSettingsGetArgs>? AuthSettings { get; set; }
@@ -482,7 +482,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.FunctionAppSlotConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// A `connection_string` block as defined below.
+        /// A `ConnectionString` block as defined below.
         /// </summary>
         public InputList<Inputs.FunctionAppSlotConnectionStringGetArgs> ConnectionStrings
         {
@@ -503,13 +503,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultHostname { get; set; }
 
         /// <summary>
-        /// Should the built-in logging of the Function App be enabled? Defaults to `true`.
+        /// Should the built-in logging of the Function App be enabled? Defaults to `True`.
         /// </summary>
         [Input("enableBuiltinLogging")]
         public Input<bool>? EnableBuiltinLogging { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled? Defaults to `true`.
+        /// Is the Function App enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -521,13 +521,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? FunctionAppName { get; set; }
 
         /// <summary>
-        /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Function App only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FunctionAppSlotIdentityGetArgs>? Identity { get; set; }
@@ -551,9 +551,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
+        /// A string indicating the Operating System type for this function app. The only possible value is `Linux`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+        /// &gt; **NOTE:** This value will be `Linux` for Linux Derivatives or an empty string for Windows (default).
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -565,7 +565,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? OutboundIpAddresses { get; set; }
 
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
@@ -577,7 +577,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.FunctionAppSlotSiteConfigGetArgs>? SiteConfig { get; set; }
@@ -586,7 +586,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.FunctionAppSlotSiteCredentialGetArgs>? _siteCredentials;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
         /// </summary>
         public InputList<Inputs.FunctionAppSlotSiteCredentialGetArgs> SiteCredentials
         {

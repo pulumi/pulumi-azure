@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
     public sealed class AIServicesNetworkAclsVirtualNetworkRule
     {
         /// <summary>
-        /// Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
+        /// Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `False`.
         /// </summary>
         public readonly bool? IgnoreMissingVnetServiceEndpoint;
         /// <summary>

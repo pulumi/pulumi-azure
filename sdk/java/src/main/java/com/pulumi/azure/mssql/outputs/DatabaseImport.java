@@ -28,7 +28,7 @@ public final class DatabaseImport {
      */
     private String authenticationType;
     /**
-     * @return The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+     * @return The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
      * 
      */
     private @Nullable String storageAccountId;
@@ -71,7 +71,7 @@ public final class DatabaseImport {
         return this.authenticationType;
     }
     /**
-     * @return The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+     * @return The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
      * 
      */
     public Optional<String> storageAccountId() {

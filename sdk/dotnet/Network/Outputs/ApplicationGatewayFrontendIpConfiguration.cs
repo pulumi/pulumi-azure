@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? PrivateLinkConfigurationName;
         /// <summary>
-        /// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
+        /// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `Sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
         /// </summary>
         public readonly string? PublicIpAddressId;
         /// <summary>

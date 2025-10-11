@@ -20,7 +20,7 @@ public final class PolicyPolicySettings {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+     * @return Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
      * 
      */
     private @Nullable Boolean fileUploadEnforcement;
@@ -35,7 +35,7 @@ public final class PolicyPolicySettings {
      */
     private @Nullable Integer jsChallengeCookieExpirationInMinutes;
     /**
-     * @return One `log_scrubbing` block as defined below.
+     * @return One `logScrubbing` block as defined below.
      * 
      */
     private @Nullable PolicyPolicySettingsLogScrubbing logScrubbing;
@@ -55,7 +55,7 @@ public final class PolicyPolicySettings {
      */
     private @Nullable Boolean requestBodyCheck;
     /**
-     * @return Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+     * @return Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
      * 
      */
     private @Nullable Boolean requestBodyEnforcement;
@@ -74,7 +74,7 @@ public final class PolicyPolicySettings {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+     * @return Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
      * 
      */
     public Optional<Boolean> fileUploadEnforcement() {
@@ -95,7 +95,7 @@ public final class PolicyPolicySettings {
         return Optional.ofNullable(this.jsChallengeCookieExpirationInMinutes);
     }
     /**
-     * @return One `log_scrubbing` block as defined below.
+     * @return One `logScrubbing` block as defined below.
      * 
      */
     public Optional<PolicyPolicySettingsLogScrubbing> logScrubbing() {
@@ -123,7 +123,7 @@ public final class PolicyPolicySettings {
         return Optional.ofNullable(this.requestBodyCheck);
     }
     /**
-     * @return Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+     * @return Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
      * 
      */
     public Optional<Boolean> requestBodyEnforcement() {

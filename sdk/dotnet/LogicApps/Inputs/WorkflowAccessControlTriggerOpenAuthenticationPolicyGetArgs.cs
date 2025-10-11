@@ -16,7 +16,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         private InputList<Inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimGetArgs>? _claims;
 
         /// <summary>
-        /// A `claim` block as defined below.
+        /// A `Claim` block as defined below.
         /// </summary>
         public InputList<Inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimGetArgs> Claims
         {

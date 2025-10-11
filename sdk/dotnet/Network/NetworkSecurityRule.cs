@@ -102,19 +102,19 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A List of destination Application Security Group IDs
         /// 
-        /// &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+        /// &gt; **Note:** One of `DestinationAddressPrefix`, `DestinationAddressPrefixes` or `DestinationApplicationSecurityGroupIds` must be specified.
         /// </summary>
         [Output("destinationApplicationSecurityGroupIds")]
         public Output<string?> DestinationApplicationSecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `DestinationPortRanges` is not specified.
         /// </summary>
         [Output("destinationPortRange")]
         public Output<string?> DestinationPortRange { get; private set; } = null!;
 
         /// <summary>
-        /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        /// List of destination ports or port ranges. This is required if `DestinationPortRange` is not specified.
         /// </summary>
         [Output("destinationPortRanges")]
         public Output<ImmutableArray<string>> DestinationPortRanges { get; private set; } = null!;
@@ -170,19 +170,19 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A List of source Application Security Group IDs
         /// 
-        /// &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+        /// &gt; **Note:** One of `SourceAddressPrefix`, `SourceAddressPrefixes` or `SourceApplicationSecurityGroupIds` must be specified.
         /// </summary>
         [Output("sourceApplicationSecurityGroupIds")]
         public Output<string?> SourceApplicationSecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `SourcePortRanges` is not specified.
         /// </summary>
         [Output("sourcePortRange")]
         public Output<string?> SourcePortRange { get; private set; } = null!;
 
         /// <summary>
-        /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
+        /// List of source ports or port ranges. This is required if `SourcePortRange` is not specified.
         /// </summary>
         [Output("sourcePortRanges")]
         public Output<ImmutableArray<string>> SourcePortRanges { get; private set; } = null!;
@@ -266,13 +266,13 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A List of destination Application Security Group IDs
         /// 
-        /// &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+        /// &gt; **Note:** One of `DestinationAddressPrefix`, `DestinationAddressPrefixes` or `DestinationApplicationSecurityGroupIds` must be specified.
         /// </summary>
         [Input("destinationApplicationSecurityGroupIds")]
         public Input<string>? DestinationApplicationSecurityGroupIds { get; set; }
 
         /// <summary>
-        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `DestinationPortRanges` is not specified.
         /// </summary>
         [Input("destinationPortRange")]
         public Input<string>? DestinationPortRange { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _destinationPortRanges;
 
         /// <summary>
-        /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        /// List of destination ports or port ranges. This is required if `DestinationPortRange` is not specified.
         /// </summary>
         public InputList<string> DestinationPortRanges
         {
@@ -346,13 +346,13 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A List of source Application Security Group IDs
         /// 
-        /// &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+        /// &gt; **Note:** One of `SourceAddressPrefix`, `SourceAddressPrefixes` or `SourceApplicationSecurityGroupIds` must be specified.
         /// </summary>
         [Input("sourceApplicationSecurityGroupIds")]
         public Input<string>? SourceApplicationSecurityGroupIds { get; set; }
 
         /// <summary>
-        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `SourcePortRanges` is not specified.
         /// </summary>
         [Input("sourcePortRange")]
         public Input<string>? SourcePortRange { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _sourcePortRanges;
 
         /// <summary>
-        /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
+        /// List of source ports or port ranges. This is required if `SourcePortRange` is not specified.
         /// </summary>
         public InputList<string> SourcePortRanges
         {
@@ -410,13 +410,13 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A List of destination Application Security Group IDs
         /// 
-        /// &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+        /// &gt; **Note:** One of `DestinationAddressPrefix`, `DestinationAddressPrefixes` or `DestinationApplicationSecurityGroupIds` must be specified.
         /// </summary>
         [Input("destinationApplicationSecurityGroupIds")]
         public Input<string>? DestinationApplicationSecurityGroupIds { get; set; }
 
         /// <summary>
-        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `DestinationPortRanges` is not specified.
         /// </summary>
         [Input("destinationPortRange")]
         public Input<string>? DestinationPortRange { get; set; }
@@ -425,7 +425,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _destinationPortRanges;
 
         /// <summary>
-        /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        /// List of destination ports or port ranges. This is required if `DestinationPortRange` is not specified.
         /// </summary>
         public InputList<string> DestinationPortRanges
         {
@@ -490,13 +490,13 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A List of source Application Security Group IDs
         /// 
-        /// &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+        /// &gt; **Note:** One of `SourceAddressPrefix`, `SourceAddressPrefixes` or `SourceApplicationSecurityGroupIds` must be specified.
         /// </summary>
         [Input("sourceApplicationSecurityGroupIds")]
         public Input<string>? SourceApplicationSecurityGroupIds { get; set; }
 
         /// <summary>
-        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `SourcePortRanges` is not specified.
         /// </summary>
         [Input("sourcePortRange")]
         public Input<string>? SourcePortRange { get; set; }
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _sourcePortRanges;
 
         /// <summary>
-        /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
+        /// List of source ports or port ranges. This is required if `SourcePortRange` is not specified.
         /// </summary>
         public InputList<string> SourcePortRanges
         {

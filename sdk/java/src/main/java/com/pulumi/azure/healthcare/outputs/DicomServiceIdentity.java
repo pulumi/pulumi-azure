@@ -21,7 +21,7 @@ public final class DicomServiceIdentity {
     private @Nullable String principalId;
     private @Nullable String tenantId;
     /**
-     * @return The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
+     * @return The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
      * 
      */
     private String type;
@@ -41,7 +41,7 @@ public final class DicomServiceIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
+     * @return The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
      * 
      */
     public String type() {

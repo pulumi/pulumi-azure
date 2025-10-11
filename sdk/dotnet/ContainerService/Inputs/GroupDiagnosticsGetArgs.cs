@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class GroupDiagnosticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+        /// A `LogAnalytics` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("logAnalytics", required: true)]
         public Input<Inputs.GroupDiagnosticsLogAnalyticsGetArgs> LogAnalytics { get; set; } = null!;

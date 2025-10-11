@@ -143,7 +143,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<string>> AuthorizedResourceIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         [Output("criteria")]
         public Output<Outputs.ScheduledQueryRulesLogCriteria> Criteria { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled. Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         [Input("criteria", required: true)]
         public Input<Inputs.ScheduledQueryRulesLogCriteriaArgs> Criteria { get; set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled. Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         [Input("criteria")]
         public Input<Inputs.ScheduledQueryRulesLogCriteriaGetArgs>? Criteria { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled. Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

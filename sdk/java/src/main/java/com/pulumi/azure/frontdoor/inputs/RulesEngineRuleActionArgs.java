@@ -18,14 +18,14 @@ public final class RulesEngineRuleActionArgs extends com.pulumi.resources.Resour
     public static final RulesEngineRuleActionArgs Empty = new RulesEngineRuleActionArgs();
 
     /**
-     * A `request_header` block as defined below.
+     * A `requestHeader` block as defined below.
      * 
      */
     @Import(name="requestHeaders")
     private @Nullable Output<List<RulesEngineRuleActionRequestHeaderArgs>> requestHeaders;
 
     /**
-     * @return A `request_header` block as defined below.
+     * @return A `requestHeader` block as defined below.
      * 
      */
     public Optional<Output<List<RulesEngineRuleActionRequestHeaderArgs>>> requestHeaders() {
@@ -33,14 +33,14 @@ public final class RulesEngineRuleActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `response_header` block as defined below.
+     * A `responseHeader` block as defined below.
      * 
      */
     @Import(name="responseHeaders")
     private @Nullable Output<List<RulesEngineRuleActionResponseHeaderArgs>> responseHeaders;
 
     /**
-     * @return A `response_header` block as defined below.
+     * @return A `responseHeader` block as defined below.
      * 
      */
     public Optional<Output<List<RulesEngineRuleActionResponseHeaderArgs>>> responseHeaders() {
@@ -73,7 +73,7 @@ public final class RulesEngineRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param requestHeaders A `request_header` block as defined below.
+         * @param requestHeaders A `requestHeader` block as defined below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class RulesEngineRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param requestHeaders A `request_header` block as defined below.
+         * @param requestHeaders A `requestHeader` block as defined below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class RulesEngineRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param requestHeaders A `request_header` block as defined below.
+         * @param requestHeaders A `requestHeader` block as defined below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RulesEngineRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param responseHeaders A `response_header` block as defined below.
+         * @param responseHeaders A `responseHeader` block as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class RulesEngineRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param responseHeaders A `response_header` block as defined below.
+         * @param responseHeaders A `responseHeader` block as defined below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class RulesEngineRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param responseHeaders A `response_header` block as defined below.
+         * @param responseHeaders A `responseHeader` block as defined below.
          * 
          * @return builder
          * 

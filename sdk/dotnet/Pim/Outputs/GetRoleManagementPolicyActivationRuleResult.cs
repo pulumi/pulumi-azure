@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class GetRoleManagementPolicyActivationRuleResult
     {
         /// <summary>
-        /// An `approval_stage` block as defined below.
+        /// An `ApprovalStage` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyActivationRuleApprovalStageResult> ApprovalStages;
         /// <summary>

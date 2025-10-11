@@ -22,11 +22,11 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string ClientCertificateMode;
         /// <summary>
-        /// A `cors` block as detailed below.
+        /// A `Cors` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppIngressCorResult> Cors;
         /// <summary>
-        /// One or more `custom_domain` block as detailed below.
+        /// One or more `CustomDomain` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppIngressCustomDomainResult> CustomDomains;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
-        /// One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        /// One or more `IpSecurityRestriction` blocks for IP-filtering rules as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppIngressIpSecurityRestrictionResult> IpSecurityRestrictions;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int TargetPort;
         /// <summary>
-        /// A `traffic_weight` block as detailed below.
+        /// A `TrafficWeight` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppIngressTrafficWeightResult> TrafficWeights;
         /// <summary>

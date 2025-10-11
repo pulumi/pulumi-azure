@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `route` blocks as defined below.
+        /// One or more `Route` blocks as defined below.
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.VirtualHubRouteTableRoute>> Routes { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualHubRouteTableRouteArgs>? _routes;
 
         /// <summary>
-        /// One or more `route` blocks as defined below.
+        /// One or more `Route` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualHubRouteTableRouteArgs> Routes
         {
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualHubRouteTableRouteGetArgs>? _routes;
 
         /// <summary>
-        /// One or more `route` blocks as defined below.
+        /// One or more `Route` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualHubRouteTableRouteGetArgs> Routes
         {

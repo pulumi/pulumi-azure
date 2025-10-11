@@ -33,14 +33,14 @@ public final class RoutingIntentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `routing_policy` blocks as defined below.
+     * One or more `routingPolicy` blocks as defined below.
      * 
      */
     @Import(name="routingPolicies")
     private @Nullable Output<List<RoutingIntentRoutingPolicyArgs>> routingPolicies;
 
     /**
-     * @return One or more `routing_policy` blocks as defined below.
+     * @return One or more `routingPolicy` blocks as defined below.
      * 
      */
     public Optional<Output<List<RoutingIntentRoutingPolicyArgs>>> routingPolicies() {
@@ -110,7 +110,7 @@ public final class RoutingIntentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param routingPolicies One or more `routing_policy` blocks as defined below.
+         * @param routingPolicies One or more `routingPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RoutingIntentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param routingPolicies One or more `routing_policy` blocks as defined below.
+         * @param routingPolicies One or more `routingPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RoutingIntentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param routingPolicies One or more `routing_policy` blocks as defined below.
+         * @param routingPolicies One or more `routingPolicy` blocks as defined below.
          * 
          * @return builder
          * 

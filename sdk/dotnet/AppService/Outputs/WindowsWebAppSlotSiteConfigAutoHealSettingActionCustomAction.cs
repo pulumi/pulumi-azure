@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction
     {
         /// <summary>
-        /// The executable to run for the `custom_action`.
+        /// The executable to run for the `CustomAction`.
         /// </summary>
         public readonly string Executable;
         /// <summary>
-        /// The parameters to pass to the specified `executable`.
+        /// The parameters to pass to the specified `Executable`.
         /// </summary>
         public readonly string? Parameters;
 

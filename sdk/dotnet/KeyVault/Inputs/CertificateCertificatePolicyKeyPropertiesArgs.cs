@@ -13,7 +13,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
     public sealed class CertificateCertificatePolicyKeyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `KeyType` is `EC` or `EC-HSM`.
         /// </summary>
         [Input("curve")]
         public Input<string>? Curve { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
+        /// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `Oct`.
         /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;

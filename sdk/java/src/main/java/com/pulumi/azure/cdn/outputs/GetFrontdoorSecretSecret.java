@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class GetFrontdoorSecretSecret {
     /**
-     * @return A `customer_certificate` block as defined below.
+     * @return A `customerCertificate` block as defined below.
      * 
      */
     private List<GetFrontdoorSecretSecretCustomerCertificate> customerCertificates;
 
     private GetFrontdoorSecretSecret() {}
     /**
-     * @return A `customer_certificate` block as defined below.
+     * @return A `customerCertificate` block as defined below.
      * 
      */
     public List<GetFrontdoorSecretSecretCustomerCertificate> customerCertificates() {

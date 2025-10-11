@@ -13,7 +13,7 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class VirtualMachineStorageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `storage_settings` block as defined below.
+        /// A `StorageSettings` block as defined below.
         /// </summary>
         [Input("dataSettings")]
         public Input<Inputs.VirtualMachineStorageConfigurationDataSettingsGetArgs>? DataSettings { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string> DiskType { get; set; } = null!;
 
         /// <summary>
-        /// A `storage_settings` block as defined below.
+        /// A `StorageSettings` block as defined below.
         /// </summary>
         [Input("logSettings")]
         public Input<Inputs.VirtualMachineStorageConfigurationLogSettingsGetArgs>? LogSettings { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string> StorageWorkloadType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+        /// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `True` and `False`. Defaults to `False`.
         /// </summary>
         [Input("systemDbOnDataDiskEnabled")]
         public Input<bool>? SystemDbOnDataDiskEnabled { get; set; }
 
         /// <summary>
-        /// An `temp_db_settings` block as defined below.
+        /// An `TempDbSettings` block as defined below.
         /// </summary>
         [Input("tempDbSettings")]
         public Input<Inputs.VirtualMachineStorageConfigurationTempDbSettingsGetArgs>? TempDbSettings { get; set; }

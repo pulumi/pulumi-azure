@@ -100,9 +100,9 @@ namespace Pulumi.Azure.Policy
     public sealed class GetPolicyDefintionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the display name of the Policy Definition. Conflicts with `name`.
+        /// Specifies the display name of the Policy Definition. Conflicts with `Name`.
         /// 
-        /// &gt; **Note:** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
+        /// &gt; **Note:** Looking up policies by `DisplayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `Name` property instead.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Policy
         public string? ManagementGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Policy Definition. Conflicts with `display_name`.
+        /// Specifies the name of the Policy Definition. Conflicts with `DisplayName`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -128,9 +128,9 @@ namespace Pulumi.Azure.Policy
     public sealed class GetPolicyDefintionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the display name of the Policy Definition. Conflicts with `name`.
+        /// Specifies the display name of the Policy Definition. Conflicts with `Name`.
         /// 
-        /// &gt; **Note:** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
+        /// &gt; **Note:** Looking up policies by `DisplayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `Name` property instead.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? ManagementGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Policy Definition. Conflicts with `display_name`.
+        /// Specifies the name of the Policy Definition. Conflicts with `DisplayName`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public readonly string PolicyType;
         /// <summary>
-        /// A list of role definition id extracted from `policy_rule` required for remediation.
+        /// A list of role definition id extracted from `PolicyRule` required for remediation.
         /// </summary>
         public readonly ImmutableArray<string> RoleDefinitionIds;
         /// <summary>

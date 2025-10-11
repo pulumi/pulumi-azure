@@ -132,13 +132,13 @@ namespace Pulumi.Azure.AppService
     public partial class EnvironmentV3 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+        /// Should new Private Endpoint Connections be allowed. Defaults to `True`.
         /// </summary>
         [Output("allowNewPrivateEndpointConnections")]
         public Output<bool?> AllowNewPrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// Zero or more `cluster_setting` blocks as defined below.
+        /// Zero or more `ClusterSetting` blocks as defined below.
         /// </summary>
         [Output("clusterSettings")]
         public Output<ImmutableArray<Outputs.EnvironmentV3ClusterSetting>> ClusterSettings { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> ExternalInboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// An `inbound_network_dependencies` block as defined below.
+        /// An `InboundNetworkDependencies` block as defined below.
         /// </summary>
         [Output("inboundNetworkDependencies")]
         public Output<ImmutableArray<Outputs.EnvironmentV3InboundNetworkDependency>> InboundNetworkDependencies { get; private set; } = null!;
@@ -210,13 +210,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> PricingTier { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable remote debug. Defaults to `false`.
+        /// Whether to enable remote debug. Defaults to `False`.
         /// </summary>
         [Output("remoteDebuggingEnabled")]
         public Output<bool?> RemoteDebuggingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
+        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `SubnetId`). Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> WindowsOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
+        /// Set to `True` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `DedicatedHostCount` or `ZoneRedundant` but not both. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
         /// </summary>
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.AppService
     public sealed class EnvironmentV3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+        /// Should new Private Endpoint Connections be allowed. Defaults to `True`.
         /// </summary>
         [Input("allowNewPrivateEndpointConnections")]
         public Input<bool>? AllowNewPrivateEndpointConnections { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.EnvironmentV3ClusterSettingArgs>? _clusterSettings;
 
         /// <summary>
-        /// Zero or more `cluster_setting` blocks as defined below.
+        /// Zero or more `ClusterSetting` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EnvironmentV3ClusterSettingArgs> ClusterSettings
         {
@@ -331,13 +331,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to enable remote debug. Defaults to `false`.
+        /// Whether to enable remote debug. Defaults to `False`.
         /// </summary>
         [Input("remoteDebuggingEnabled")]
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
+        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `SubnetId`). Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
+        /// Set to `True` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `DedicatedHostCount` or `ZoneRedundant` but not both. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
         /// </summary>
@@ -377,7 +377,7 @@ namespace Pulumi.Azure.AppService
     public sealed class EnvironmentV3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+        /// Should new Private Endpoint Connections be allowed. Defaults to `True`.
         /// </summary>
         [Input("allowNewPrivateEndpointConnections")]
         public Input<bool>? AllowNewPrivateEndpointConnections { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.EnvironmentV3ClusterSettingGetArgs>? _clusterSettings;
 
         /// <summary>
-        /// Zero or more `cluster_setting` blocks as defined below.
+        /// Zero or more `ClusterSetting` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EnvironmentV3ClusterSettingGetArgs> ClusterSettings
         {
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.EnvironmentV3InboundNetworkDependencyGetArgs>? _inboundNetworkDependencies;
 
         /// <summary>
-        /// An `inbound_network_dependencies` block as defined below.
+        /// An `InboundNetworkDependencies` block as defined below.
         /// </summary>
         public InputList<Inputs.EnvironmentV3InboundNetworkDependencyGetArgs> InboundNetworkDependencies
         {
@@ -485,13 +485,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? PricingTier { get; set; }
 
         /// <summary>
-        /// Whether to enable remote debug. Defaults to `false`.
+        /// Whether to enable remote debug. Defaults to `False`.
         /// </summary>
         [Input("remoteDebuggingEnabled")]
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
+        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `SubnetId`). Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
+        /// Set to `True` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `DedicatedHostCount` or `ZoneRedundant` but not both. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
         /// </summary>

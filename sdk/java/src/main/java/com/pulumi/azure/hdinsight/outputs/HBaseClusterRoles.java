@@ -13,38 +13,38 @@ import java.util.Objects;
 @CustomType
 public final class HBaseClusterRoles {
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     private HBaseClusterRolesHeadNode headNode;
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     private HBaseClusterRolesWorkerNode workerNode;
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     private HBaseClusterRolesZookeeperNode zookeeperNode;
 
     private HBaseClusterRoles() {}
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     public HBaseClusterRolesHeadNode headNode() {
         return this.headNode;
     }
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     public HBaseClusterRolesWorkerNode workerNode() {
         return this.workerNode;
     }
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     public HBaseClusterRolesZookeeperNode zookeeperNode() {

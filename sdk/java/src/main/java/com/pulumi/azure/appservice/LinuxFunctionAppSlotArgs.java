@@ -43,14 +43,14 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * an `auth_settings` block as detailed below.
+     * an `authSettings` block as detailed below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<LinuxFunctionAppSlotAuthSettingsArgs> authSettings;
 
     /**
-     * @return an `auth_settings` block as detailed below.
+     * @return an `authSettings` block as detailed below.
      * 
      */
     public Optional<Output<LinuxFunctionAppSlotAuthSettingsArgs>> authSettings() {
@@ -58,14 +58,14 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * an `auth_settings_v2` block as detailed below.
+     * an `authSettingsV2` block as detailed below.
      * 
      */
     @Import(name="authSettingsV2")
     private @Nullable Output<LinuxFunctionAppSlotAuthSettingsV2Args> authSettingsV2;
 
     /**
-     * @return an `auth_settings_v2` block as detailed below.
+     * @return an `authSettingsV2` block as detailed below.
      * 
      */
     public Optional<Output<LinuxFunctionAppSlotAuthSettingsV2Args>> authSettingsV2() {
@@ -148,14 +148,14 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * a `connection_string` block as detailed below.
+     * a `connectionString` block as detailed below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<LinuxFunctionAppSlotConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return a `connection_string` block as detailed below.
+     * @return a `connectionString` block as detailed below.
      * 
      */
     public Optional<Output<List<LinuxFunctionAppSlotConnectionStringArgs>>> connectionStrings() {
@@ -343,14 +343,14 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * a `site_config` block as detailed below.
+     * a `siteConfig` block as detailed below.
      * 
      */
     @Import(name="siteConfig", required=true)
     private Output<LinuxFunctionAppSlotSiteConfigArgs> siteConfig;
 
     /**
-     * @return a `site_config` block as detailed below.
+     * @return a `siteConfig` block as detailed below.
      * 
      */
     public Output<LinuxFunctionAppSlotSiteConfigArgs> siteConfig() {
@@ -388,14 +388,14 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<LinuxFunctionAppSlotStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<LinuxFunctionAppSlotStorageAccountArgs>>> storageAccounts() {
@@ -405,9 +405,9 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     @Import(name="storageKeyVaultSecretId")
@@ -416,9 +416,9 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     /**
      * @return The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     public Optional<Output<String>> storageKeyVaultSecretId() {
@@ -428,7 +428,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     /**
      * Should the Function App Slot use its Managed Identity to access storage.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     @Import(name="storageUsesManagedIdentity")
@@ -437,7 +437,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     /**
      * @return Should the Function App Slot use its Managed Identity to access storage.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     public Optional<Output<Boolean>> storageUsesManagedIdentity() {
@@ -592,7 +592,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authSettings an `auth_settings` block as detailed below.
+         * @param authSettings an `authSettings` block as detailed below.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authSettings an `auth_settings` block as detailed below.
+         * @param authSettings an `authSettings` block as detailed below.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authSettingsV2 an `auth_settings_v2` block as detailed below.
+         * @param authSettingsV2 an `authSettingsV2` block as detailed below.
          * 
          * @return builder
          * 
@@ -624,7 +624,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authSettingsV2 an `auth_settings_v2` block as detailed below.
+         * @param authSettingsV2 an `authSettingsV2` block as detailed below.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionStrings a `connection_string` block as detailed below.
+         * @param connectionStrings a `connectionString` block as detailed below.
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionStrings a `connection_string` block as detailed below.
+         * @param connectionStrings a `connectionString` block as detailed below.
          * 
          * @return builder
          * 
@@ -760,7 +760,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionStrings a `connection_string` block as detailed below.
+         * @param connectionStrings a `connectionString` block as detailed below.
          * 
          * @return builder
          * 
@@ -1022,7 +1022,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param siteConfig a `site_config` block as detailed below.
+         * @param siteConfig a `siteConfig` block as detailed below.
          * 
          * @return builder
          * 
@@ -1033,7 +1033,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param siteConfig a `site_config` block as detailed below.
+         * @param siteConfig a `siteConfig` block as detailed below.
          * 
          * @return builder
          * 
@@ -1085,7 +1085,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1096,7 +1096,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1106,7 +1106,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1118,9 +1118,9 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1133,9 +1133,9 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1147,7 +1147,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         /**
          * @param storageUsesManagedIdentity Should the Function App Slot use its Managed Identity to access storage.
          * 
-         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
          * 
          * @return builder
          * 
@@ -1160,7 +1160,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         /**
          * @param storageUsesManagedIdentity Should the Function App Slot use its Managed Identity to access storage.
          * 
-         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
          * 
          * @return builder
          * 

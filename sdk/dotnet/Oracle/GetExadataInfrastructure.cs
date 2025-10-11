@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly int CpuCount;
         /// <summary>
-        /// A `customer_contacts` block as defined below.
+        /// A `CustomerContacts` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> CustomerContacts;
         /// <summary>
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string DbServerVersion;
         /// <summary>
-        /// A `defined_file_system_configuration` block as defined below.
+        /// A `DefinedFileSystemConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExadataInfrastructureDefinedFileSystemConfigurationResult> DefinedFileSystemConfigurations;
         /// <summary>
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// A `estimated_patching_time` block as defined below.
+        /// A `EstimatedPatchingTime` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExadataInfrastructureEstimatedPatchingTimeResult> EstimatedPatchingTimes;
         /// <summary>
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExadataInfrastructureMaintenanceWindowResult> MaintenanceWindows;
         /// <summary>

@@ -27,7 +27,7 @@ public final class FirewallPolicyCustomRule {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+     * @return One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
      * 
      */
     private @Nullable List<FirewallPolicyCustomRuleMatchCondition> matchConditions;
@@ -73,7 +73,7 @@ public final class FirewallPolicyCustomRule {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+     * @return One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
      * 
      */
     public List<FirewallPolicyCustomRuleMatchCondition> matchConditions() {

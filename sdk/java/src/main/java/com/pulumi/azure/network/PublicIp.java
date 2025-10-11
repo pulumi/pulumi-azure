@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Public IP Address.
  * 
- * &gt; **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
+ * &gt; **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `createBeforeDestroy = true`. Otherwise, it can fail to disassociate on destruction.
  * 
  * ## Example Usage
  * 
@@ -87,7 +87,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
-     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      * 
      */
     @Export(name="allocationMethod", refs={String.class}, tree="[0]")
@@ -96,7 +96,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * @return Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
-     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      * 
      */
     public Output<String> allocationMethod() {
@@ -119,7 +119,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The ID of DDoS protection plan associated with the public IP.
      * 
-     * &gt; **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
+     * &gt; **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      * 
      */
     @Export(name="ddosProtectionPlanId", refs={String.class}, tree="[0]")
@@ -128,7 +128,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of DDoS protection plan associated with the public IP.
      * 
-     * &gt; **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
+     * &gt; **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      * 
      */
     public Output<Optional<String>> ddosProtectionPlanId() {
@@ -177,14 +177,14 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
-     * Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
+     * Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
      * 
      */
     @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
     /**
-     * @return Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
+     * @return Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
      * 
      */
     public Output<String> fqdn() {
@@ -327,7 +327,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+     * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
@@ -336,7 +336,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+     * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      * 
      */
     public Output<Optional<String>> sku() {
@@ -345,7 +345,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+     * &gt; **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     @Export(name="skuTier", refs={String.class}, tree="[0]")
@@ -354,7 +354,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+     * &gt; **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     public Output<Optional<String>> skuTier() {

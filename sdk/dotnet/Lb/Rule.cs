@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Lb
         /// <summary>
         /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         /// 
-        /// &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+        /// &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `BackendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `BackendAddressPoolIds`.
         /// </summary>
         [Output("backendAddressPoolIds")]
         public Output<ImmutableArray<string>> BackendAddressPoolIds { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Lb
         public Output<int> BackendPort { get; private set; } = null!;
 
         /// <summary>
-        /// Is snat enabled for this Load Balancer Rule? Default `false`.
+        /// Is snat enabled for this Load Balancer Rule? Default `False`.
         /// </summary>
         [Output("disableOutboundSnat")]
         public Output<bool?> DisableOutboundSnat { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Lb
         public Output<bool> EnableTcpReset { get; private set; } = null!;
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `False`.
         /// </summary>
         [Output("floatingIpEnabled")]
         public Output<bool> FloatingIpEnabled { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.Lb
         /// <summary>
         /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         /// 
-        /// &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+        /// &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `BackendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `BackendAddressPoolIds`.
         /// </summary>
         public InputList<string> BackendAddressPoolIds
         {
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Lb
         public Input<int> BackendPort { get; set; } = null!;
 
         /// <summary>
-        /// Is snat enabled for this Load Balancer Rule? Default `false`.
+        /// Is snat enabled for this Load Balancer Rule? Default `False`.
         /// </summary>
         [Input("disableOutboundSnat")]
         public Input<bool>? DisableOutboundSnat { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? EnableTcpReset { get; set; }
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `False`.
         /// </summary>
         [Input("floatingIpEnabled")]
         public Input<bool>? FloatingIpEnabled { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.Lb
         /// <summary>
         /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         /// 
-        /// &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+        /// &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `BackendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `BackendAddressPoolIds`.
         /// </summary>
         public InputList<string> BackendAddressPoolIds
         {
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.Lb
         public Input<int>? BackendPort { get; set; }
 
         /// <summary>
-        /// Is snat enabled for this Load Balancer Rule? Default `false`.
+        /// Is snat enabled for this Load Balancer Rule? Default `False`.
         /// </summary>
         [Input("disableOutboundSnat")]
         public Input<bool>? DisableOutboundSnat { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? EnableTcpReset { get; set; }
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `False`.
         /// </summary>
         [Input("floatingIpEnabled")]
         public Input<bool>? FloatingIpEnabled { get; set; }

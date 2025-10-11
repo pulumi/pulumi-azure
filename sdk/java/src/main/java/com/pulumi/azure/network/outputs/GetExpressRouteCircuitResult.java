@@ -37,7 +37,7 @@ public final class GetExpressRouteCircuitResult {
      */
     private String serviceKey;
     /**
-     * @return A `service_provider_properties` block for the ExpressRoute circuit as documented below
+     * @return A `serviceProviderProperties` block for the ExpressRoute circuit as documented below
      * 
      */
     private List<GetExpressRouteCircuitServiceProviderProperty> serviceProviderProperties;
@@ -88,7 +88,7 @@ public final class GetExpressRouteCircuitResult {
         return this.serviceKey;
     }
     /**
-     * @return A `service_provider_properties` block for the ExpressRoute circuit as documented below
+     * @return A `serviceProviderProperties` block for the ExpressRoute circuit as documented below
      * 
      */
     public List<GetExpressRouteCircuitServiceProviderProperty> serviceProviderProperties() {

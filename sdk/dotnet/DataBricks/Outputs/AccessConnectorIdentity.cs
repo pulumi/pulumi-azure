@@ -16,7 +16,7 @@ namespace Pulumi.Azure.DataBricks.Outputs
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
         /// 
-        /// &gt; **Note:** `identity_ids` are required when `type` is set to `UserAssigned`.
+        /// &gt; **Note:** `IdentityIds` are required when `Type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

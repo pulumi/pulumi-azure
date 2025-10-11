@@ -38,14 +38,14 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+     * The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
      * 
      */
     @Import(name="defaultAction", required=true)
     private Output<String> defaultAction;
 
     /**
-     * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+     * @return The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
      * 
      */
     public Output<String> defaultAction() {
@@ -68,14 +68,14 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `virtual_network_rules` block as defined below.
+     * A `virtualNetworkRules` block as defined below.
      * 
      */
     @Import(name="virtualNetworkRules")
     private @Nullable Output<List<AccountNetworkAclsVirtualNetworkRuleArgs>> virtualNetworkRules;
 
     /**
-     * @return A `virtual_network_rules` block as defined below.
+     * @return A `virtualNetworkRules` block as defined below.
      * 
      */
     public Optional<Output<List<AccountNetworkAclsVirtualNetworkRuleArgs>>> virtualNetworkRules() {
@@ -135,7 +135,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultAction The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+         * @param defaultAction The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultAction The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+         * @param defaultAction The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param virtualNetworkRules A `virtual_network_rules` block as defined below.
+         * @param virtualNetworkRules A `virtualNetworkRules` block as defined below.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param virtualNetworkRules A `virtual_network_rules` block as defined below.
+         * @param virtualNetworkRules A `virtualNetworkRules` block as defined below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param virtualNetworkRules A `virtual_network_rules` block as defined below.
+         * @param virtualNetworkRules A `virtualNetworkRules` block as defined below.
          * 
          * @return builder
          * 

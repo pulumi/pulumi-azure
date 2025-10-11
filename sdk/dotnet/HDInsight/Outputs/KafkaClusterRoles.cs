@@ -14,21 +14,21 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class KafkaClusterRoles
     {
         /// <summary>
-        /// A `head_node` block as defined above.
+        /// A `HeadNode` block as defined above.
         /// </summary>
         public readonly Outputs.KafkaClusterRolesHeadNode HeadNode;
         /// <summary>
-        /// A `kafka_management_node` block as defined below.
+        /// A `KafkaManagementNode` block as defined below.
         /// 
         /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
         /// </summary>
         public readonly Outputs.KafkaClusterRolesKafkaManagementNode? KafkaManagementNode;
         /// <summary>
-        /// A `worker_node` block as defined below.
+        /// A `WorkerNode` block as defined below.
         /// </summary>
         public readonly Outputs.KafkaClusterRolesWorkerNode WorkerNode;
         /// <summary>
-        /// A `zookeeper_node` block as defined below.
+        /// A `ZookeeperNode` block as defined below.
         /// </summary>
         public readonly Outputs.KafkaClusterRolesZookeeperNode ZookeeperNode;
 

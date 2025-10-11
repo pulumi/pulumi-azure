@@ -36,16 +36,16 @@ namespace Pulumi.Azure.Automation.Outputs
         /// </summary>
         public readonly string Frequency;
         /// <summary>
-        /// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
+        /// The number of `Frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         /// </summary>
         public readonly int? Interval;
         /// <summary>
-        /// Whether the schedule is enabled. Defaults to `true`.
+        /// Whether the schedule is enabled. Defaults to `True`.
         /// </summary>
         public readonly bool? IsEnabled;
         public readonly string? LastModifiedTime;
         /// <summary>
-        /// List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+        /// List of `MonthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `MonthlyOccurrence` block supports fields as defined below.
         /// </summary>
         public readonly Outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence? MonthlyOccurrence;
         public readonly string? NextRun;

@@ -7,6 +7,15 @@ import * as utilities from "../utilities";
 /**
  * Manages a Redis Linked Server (ie Geo Location)
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cache` - 2024-11-01
+ *
  * ## Import
  *
  * Redis can be imported using the `resource id`, e.g.

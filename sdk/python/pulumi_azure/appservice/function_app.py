@@ -971,6 +971,10 @@ class FunctionApp(pulumi.CustomResource):
 
         > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
 
+        ### Python In A Consumption Plan)
+
+        > **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
+
         ## Import
 
         Function Apps can be imported using the `resource id`, e.g.
@@ -1129,6 +1133,10 @@ class FunctionApp(pulumi.CustomResource):
         ```
 
         > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
+
+        ### Python In A Consumption Plan)
+
+        > **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
 
         ## Import
 

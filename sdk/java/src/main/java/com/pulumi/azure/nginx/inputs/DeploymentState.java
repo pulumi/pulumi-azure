@@ -27,14 +27,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     public static final DeploymentState Empty = new DeploymentState();
 
     /**
-     * An `auto_scale_profile` block as defined below.
+     * An `autoScaleProfile` block as defined below.
      * 
      */
     @Import(name="autoScaleProfiles")
     private @Nullable Output<List<DeploymentAutoScaleProfileArgs>> autoScaleProfiles;
 
     /**
-     * @return An `auto_scale_profile` block as defined below.
+     * @return An `autoScaleProfile` block as defined below.
      * 
      */
     public Optional<Output<List<DeploymentAutoScaleProfileArgs>>> autoScaleProfiles() {
@@ -121,14 +121,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `frontend_private` blocks as defined below.
+     * One or more `frontendPrivate` blocks as defined below.
      * 
      */
     @Import(name="frontendPrivates")
     private @Nullable Output<List<DeploymentFrontendPrivateArgs>> frontendPrivates;
 
     /**
-     * @return One or more `frontend_private` blocks as defined below.
+     * @return One or more `frontendPrivate` blocks as defined below.
      * 
      */
     public Optional<Output<List<DeploymentFrontendPrivateArgs>>> frontendPrivates() {
@@ -136,14 +136,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `frontend_public` block as defined below.
+     * A `frontendPublic` block as defined below.
      * 
      */
     @Import(name="frontendPublic")
     private @Nullable Output<DeploymentFrontendPublicArgs> frontendPublic;
 
     /**
-     * @return A `frontend_public` block as defined below.
+     * @return A `frontendPublic` block as defined below.
      * 
      */
     public Optional<Output<DeploymentFrontendPublicArgs>> frontendPublic() {
@@ -197,38 +197,38 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
-    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
     @Import(name="loggingStorageAccounts")
     private @Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts;
 
     /**
      * @deprecated
-     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
-    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
     public Optional<Output<List<DeploymentLoggingStorageAccountArgs>>> loggingStorageAccounts() {
         return Optional.ofNullable(this.loggingStorageAccounts);
     }
 
     /**
      * @deprecated
-     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     @Import(name="managedResourceGroup")
     private @Nullable Output<String> managedResourceGroup;
 
     /**
      * @deprecated
-     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<String>> managedResourceGroup() {
         return Optional.ofNullable(this.managedResourceGroup);
     }
@@ -249,14 +249,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `network_interface` blocks as defined below.
+     * One or more `networkInterface` blocks as defined below.
      * 
      */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<DeploymentNetworkInterfaceArgs>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` blocks as defined below.
+     * @return One or more `networkInterface` blocks as defined below.
      * 
      */
     public Optional<Output<List<DeploymentNetworkInterfaceArgs>>> networkInterfaces() {
@@ -316,14 +316,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `web_application_firewall` blocks as defined below.
+     * A `webApplicationFirewall` blocks as defined below.
      * 
      */
     @Import(name="webApplicationFirewall")
     private @Nullable Output<DeploymentWebApplicationFirewallArgs> webApplicationFirewall;
 
     /**
-     * @return A `web_application_firewall` blocks as defined below.
+     * @return A `webApplicationFirewall` blocks as defined below.
      * 
      */
     public Optional<Output<DeploymentWebApplicationFirewallArgs>> webApplicationFirewall() {
@@ -374,7 +374,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoScaleProfiles An `auto_scale_profile` block as defined below.
+         * @param autoScaleProfiles An `autoScaleProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoScaleProfiles An `auto_scale_profile` block as defined below.
+         * @param autoScaleProfiles An `autoScaleProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoScaleProfiles An `auto_scale_profile` block as defined below.
+         * @param autoScaleProfiles An `autoScaleProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPrivates One or more `frontend_private` blocks as defined below.
+         * @param frontendPrivates One or more `frontendPrivate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPrivates One or more `frontend_private` blocks as defined below.
+         * @param frontendPrivates One or more `frontendPrivate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPrivates One or more `frontend_private` blocks as defined below.
+         * @param frontendPrivates One or more `frontendPrivate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPublic A `frontend_public` block as defined below.
+         * @param frontendPublic A `frontendPublic` block as defined below.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPublic A `frontend_public` block as defined below.
+         * @param frontendPublic A `frontendPublic` block as defined below.
          * 
          * @return builder
          * 
@@ -632,10 +632,10 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
          * 
          */
-        @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+        @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
         public Builder loggingStorageAccounts(@Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts) {
             $.loggingStorageAccounts = loggingStorageAccounts;
             return this;
@@ -645,10 +645,10 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
          * 
          */
-        @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+        @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
         public Builder loggingStorageAccounts(List<DeploymentLoggingStorageAccountArgs> loggingStorageAccounts) {
             return loggingStorageAccounts(Output.of(loggingStorageAccounts));
         }
@@ -657,10 +657,10 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
          * 
          */
-        @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+        @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
         public Builder loggingStorageAccounts(DeploymentLoggingStorageAccountArgs... loggingStorageAccounts) {
             return loggingStorageAccounts(List.of(loggingStorageAccounts));
         }
@@ -669,10 +669,10 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+         * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managedResourceGroup(@Nullable Output<String> managedResourceGroup) {
             $.managedResourceGroup = managedResourceGroup;
             return this;
@@ -682,10 +682,10 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+         * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managedResourceGroup(String managedResourceGroup) {
             return managedResourceGroup(Output.of(managedResourceGroup));
         }
@@ -712,7 +712,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` blocks as defined below.
+         * @param networkInterfaces One or more `networkInterface` blocks as defined below.
          * 
          * @return builder
          * 
@@ -723,7 +723,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` blocks as defined below.
+         * @param networkInterfaces One or more `networkInterface` blocks as defined below.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` blocks as defined below.
+         * @param networkInterfaces One or more `networkInterface` blocks as defined below.
          * 
          * @return builder
          * 
@@ -815,7 +815,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webApplicationFirewall A `web_application_firewall` blocks as defined below.
+         * @param webApplicationFirewall A `webApplicationFirewall` blocks as defined below.
          * 
          * @return builder
          * 
@@ -826,7 +826,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webApplicationFirewall A `web_application_firewall` blocks as defined below.
+         * @param webApplicationFirewall A `webApplicationFirewall` blocks as defined below.
          * 
          * @return builder
          * 

@@ -63,14 +63,14 @@ public final class JobCredentialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+     * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      * 
      */
     @Import(name="passwordWoVersion")
     private @Nullable Output<Integer> passwordWoVersion;
 
     /**
-     * @return An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+     * @return An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      * 
      */
     public Optional<Output<Integer>> passwordWoVersion() {
@@ -184,7 +184,7 @@ public final class JobCredentialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordWoVersion An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+         * @param passwordWoVersion An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class JobCredentialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordWoVersion An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+         * @param passwordWoVersion An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
          * 
          * @return builder
          * 

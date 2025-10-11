@@ -67,13 +67,13 @@ namespace Pulumi.Azure.EventGrid
         public Output<int?> Capacity { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.NamespaceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         [Output("inboundIpRules")]
         public Output<ImmutableArray<Outputs.NamespaceInboundIpRule>> InboundIpRules { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `topic_spaces_configuration` block as defined below.
+        /// A `TopicSpacesConfiguration` block as defined below.
         /// </summary>
         [Output("topicSpacesConfigurations")]
         public Output<ImmutableArray<Outputs.NamespaceTopicSpacesConfiguration>> TopicSpacesConfigurations { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NamespaceIdentityArgs>? Identity { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.NamespaceInboundIpRuleArgs>? _inboundIpRules;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NamespaceInboundIpRuleArgs> InboundIpRules
         {
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.NamespaceTopicSpacesConfigurationArgs>? _topicSpacesConfigurations;
 
         /// <summary>
-        /// A `topic_spaces_configuration` block as defined below.
+        /// A `TopicSpacesConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.NamespaceTopicSpacesConfigurationArgs> TopicSpacesConfigurations
         {
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NamespaceIdentityGetArgs>? Identity { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.NamespaceInboundIpRuleGetArgs>? _inboundIpRules;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NamespaceInboundIpRuleGetArgs> InboundIpRules
         {
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.NamespaceTopicSpacesConfigurationGetArgs>? _topicSpacesConfigurations;
 
         /// <summary>
-        /// A `topic_spaces_configuration` block as defined below.
+        /// A `TopicSpacesConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.NamespaceTopicSpacesConfigurationGetArgs> TopicSpacesConfigurations
         {

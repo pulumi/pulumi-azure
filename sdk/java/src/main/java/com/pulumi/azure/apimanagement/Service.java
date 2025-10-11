@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:apimanagement/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `additional_location` blocks as defined below.
+     * One or more `additionalLocation` blocks as defined below.
      * 
      */
     @Export(name="additionalLocations", refs={List.class,ServiceAdditionalLocation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceAdditionalLocation>> additionalLocations;
 
     /**
-     * @return One or more `additional_location` blocks as defined below.
+     * @return One or more `additionalLocation` blocks as defined below.
      * 
      */
     public Output<Optional<List<ServiceAdditionalLocation>>> additionalLocations() {
@@ -163,14 +163,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.developerPortalUrl;
     }
     /**
-     * Disable the gateway in main region? This is only supported when `additional_location` is set.
+     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
      * 
      */
     @Export(name="gatewayDisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> gatewayDisabled;
 
     /**
-     * @return Disable the gateway in main region? This is only supported when `additional_location` is set.
+     * @return Disable the gateway in main region? This is only supported when `additionalLocation` is set.
      * 
      */
     public Output<Optional<Boolean>> gatewayDisabled() {
@@ -205,14 +205,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.gatewayUrl;
     }
     /**
-     * A `hostname_configuration` block as defined below.
+     * A `hostnameConfiguration` block as defined below.
      * 
      */
     @Export(name="hostnameConfiguration", refs={ServiceHostnameConfiguration.class}, tree="[0]")
     private Output<ServiceHostnameConfiguration> hostnameConfiguration;
 
     /**
-     * @return A `hostname_configuration` block as defined below.
+     * @return A `hostnameConfiguration` block as defined below.
      * 
      */
     public Output<ServiceHostnameConfiguration> hostnameConfiguration() {
@@ -465,35 +465,35 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.security;
     }
     /**
-     * A `sign_in` block as defined below.
+     * A `signIn` block as defined below.
      * 
      */
     @Export(name="signIn", refs={ServiceSignIn.class}, tree="[0]")
     private Output<ServiceSignIn> signIn;
 
     /**
-     * @return A `sign_in` block as defined below.
+     * @return A `signIn` block as defined below.
      * 
      */
     public Output<ServiceSignIn> signIn() {
         return this.signIn;
     }
     /**
-     * A `sign_up` block as defined below.
+     * A `signUp` block as defined below.
      * 
      */
     @Export(name="signUp", refs={ServiceSignUp.class}, tree="[0]")
     private Output<ServiceSignUp> signUp;
 
     /**
-     * @return A `sign_up` block as defined below.
+     * @return A `signUp` block as defined below.
      * 
      */
     public Output<ServiceSignUp> signUp() {
         return this.signUp;
     }
     /**
-     * `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
      * &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      * 
@@ -504,7 +504,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     private Output<String> skuName;
 
     /**
-     * @return `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * @return `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
      * &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      * 
@@ -529,28 +529,28 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `tenant_access` block as defined below.
+     * A `tenantAccess` block as defined below.
      * 
      */
     @Export(name="tenantAccess", refs={ServiceTenantAccess.class}, tree="[0]")
     private Output<ServiceTenantAccess> tenantAccess;
 
     /**
-     * @return A `tenant_access` block as defined below.
+     * @return A `tenantAccess` block as defined below.
      * 
      */
     public Output<ServiceTenantAccess> tenantAccess() {
         return this.tenantAccess;
     }
     /**
-     * A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      * 
      */
     @Export(name="virtualNetworkConfiguration", refs={ServiceVirtualNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceVirtualNetworkConfiguration> virtualNetworkConfiguration;
 
     /**
-     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      * 
      */
     public Output<Optional<ServiceVirtualNetworkConfiguration>> virtualNetworkConfiguration() {
@@ -559,7 +559,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      * 
-     * &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     @Export(name="virtualNetworkType", refs={String.class}, tree="[0]")
@@ -568,7 +568,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      * 
-     * &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     public Output<Optional<String>> virtualNetworkType() {

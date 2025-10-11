@@ -71,7 +71,7 @@ namespace Pulumi.Azure.ManagedApplication
     public partial class Definition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `authorization` block defined below.
+        /// One or more `Authorization` block defined below.
         /// </summary>
         [Output("authorizations")]
         public Output<ImmutableArray<Outputs.DefinitionAuthorization>> Authorizations { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Is the package enabled? Defaults to `true`.
+        /// Is the package enabled? Defaults to `True`.
         /// </summary>
         [Output("packageEnabled")]
         public Output<bool?> PackageEnabled { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.ManagedApplication
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
+        /// &gt; **Note:** If either `CreateUiDefinition` or `MainTemplate` is set they both must be set.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.ManagedApplication
         private InputList<Inputs.DefinitionAuthorizationArgs>? _authorizations;
 
         /// <summary>
-        /// One or more `authorization` block defined below.
+        /// One or more `Authorization` block defined below.
         /// </summary>
         public InputList<Inputs.DefinitionAuthorizationArgs> Authorizations
         {
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Is the package enabled? Defaults to `true`.
+        /// Is the package enabled? Defaults to `True`.
         /// </summary>
         [Input("packageEnabled")]
         public Input<bool>? PackageEnabled { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.ManagedApplication
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
+        /// &gt; **Note:** If either `CreateUiDefinition` or `MainTemplate` is set they both must be set.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.ManagedApplication
         private InputList<Inputs.DefinitionAuthorizationGetArgs>? _authorizations;
 
         /// <summary>
-        /// One or more `authorization` block defined below.
+        /// One or more `Authorization` block defined below.
         /// </summary>
         public InputList<Inputs.DefinitionAuthorizationGetArgs> Authorizations
         {
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Is the package enabled? Defaults to `true`.
+        /// Is the package enabled? Defaults to `True`.
         /// </summary>
         [Input("packageEnabled")]
         public Input<bool>? PackageEnabled { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Azure.ManagedApplication
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
+        /// &gt; **Note:** If either `CreateUiDefinition` or `MainTemplate` is set they both must be set.
         /// </summary>
         public InputMap<string> Tags
         {

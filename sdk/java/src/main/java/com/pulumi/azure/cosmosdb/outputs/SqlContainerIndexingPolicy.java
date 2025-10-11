@@ -17,17 +17,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SqlContainerIndexingPolicy {
     /**
-     * @return One or more `composite_index` blocks as defined below.
+     * @return One or more `compositeIndex` blocks as defined below.
      * 
      */
     private @Nullable List<SqlContainerIndexingPolicyCompositeIndex> compositeIndices;
     /**
-     * @return One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+     * @return One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
      * 
      */
     private @Nullable List<SqlContainerIndexingPolicyExcludedPath> excludedPaths;
     /**
-     * @return One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+     * @return One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
      * 
      */
     private @Nullable List<SqlContainerIndexingPolicyIncludedPath> includedPaths;
@@ -37,28 +37,28 @@ public final class SqlContainerIndexingPolicy {
      */
     private @Nullable String indexingMode;
     /**
-     * @return One or more `spatial_index` blocks as defined below.
+     * @return One or more `spatialIndex` blocks as defined below.
      * 
      */
     private @Nullable List<SqlContainerIndexingPolicySpatialIndex> spatialIndices;
 
     private SqlContainerIndexingPolicy() {}
     /**
-     * @return One or more `composite_index` blocks as defined below.
+     * @return One or more `compositeIndex` blocks as defined below.
      * 
      */
     public List<SqlContainerIndexingPolicyCompositeIndex> compositeIndices() {
         return this.compositeIndices == null ? List.of() : this.compositeIndices;
     }
     /**
-     * @return One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+     * @return One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
      * 
      */
     public List<SqlContainerIndexingPolicyExcludedPath> excludedPaths() {
         return this.excludedPaths == null ? List.of() : this.excludedPaths;
     }
     /**
-     * @return One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+     * @return One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
      * 
      */
     public List<SqlContainerIndexingPolicyIncludedPath> includedPaths() {
@@ -72,7 +72,7 @@ public final class SqlContainerIndexingPolicy {
         return Optional.ofNullable(this.indexingMode);
     }
     /**
-     * @return One or more `spatial_index` blocks as defined below.
+     * @return One or more `spatialIndex` blocks as defined below.
      * 
      */
     public List<SqlContainerIndexingPolicySpatialIndex> spatialIndices() {

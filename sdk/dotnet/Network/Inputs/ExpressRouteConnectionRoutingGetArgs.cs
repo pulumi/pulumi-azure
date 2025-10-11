@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? OutboundRouteMapId { get; set; }
 
         /// <summary>
-        /// A `propagated_route_table` block as defined below.
+        /// A `PropagatedRouteTable` block as defined below.
         /// </summary>
         [Input("propagatedRouteTable")]
         public Input<Inputs.ExpressRouteConnectionRoutingPropagatedRouteTableGetArgs>? PropagatedRouteTable { get; set; }

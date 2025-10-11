@@ -166,23 +166,23 @@ namespace Pulumi.Azure.Network
     public sealed class GetApplicationGatewayResult
     {
         /// <summary>
-        /// One or more `authentication_certificate` blocks as defined below.
+        /// One or more `AuthenticationCertificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayAuthenticationCertificateResult> AuthenticationCertificates;
         /// <summary>
-        /// An `autoscale_configuration` block as defined below.
+        /// An `AutoscaleConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayAutoscaleConfigurationResult> AutoscaleConfigurations;
         /// <summary>
-        /// One or more `backend_address_pool` blocks as defined below.
+        /// One or more `BackendAddressPool` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendAddressPoolResult> BackendAddressPools;
         /// <summary>
-        /// One or more `backend_http_settings` blocks as defined below.
+        /// One or more `BackendHttpSettings` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingResult> BackendHttpSettings;
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `CustomErrorConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayCustomErrorConfigurationResult> CustomErrorConfigurations;
         /// <summary>
@@ -198,19 +198,19 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly bool ForceFirewallPolicyAssociation;
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as defined below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayFrontendIpConfigurationResult> FrontendIpConfigurations;
         /// <summary>
-        /// One or more `frontend_port` blocks as defined below.
+        /// One or more `FrontendPort` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayFrontendPortResult> FrontendPorts;
         /// <summary>
-        /// One or more `gateway_ip_configuration` blocks as defined below.
+        /// One or more `GatewayIpConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayGatewayIpConfigurationResult> GatewayIpConfigurations;
         /// <summary>
-        /// A `global` block as defined below.
+        /// A `Global` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayGlobalResult> Globals;
         /// <summary>
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
-        /// One or more `http_listener` blocks as defined below.
+        /// One or more `HttpListener` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayHttpListenerResult> HttpListeners;
         /// <summary>
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayIdentityResult> Identities;
         /// <summary>
@@ -239,40 +239,40 @@ namespace Pulumi.Azure.Network
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetApplicationGatewayPrivateEndpointConnectionResult> PrivateEndpointConnections;
         /// <summary>
-        /// One or more `private_link_configuration` blocks as defined below.
+        /// One or more `PrivateLinkConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayPrivateLinkConfigurationResult> PrivateLinkConfigurations;
         /// <summary>
-        /// One or more `probe` blocks as defined below.
+        /// One or more `Probe` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayProbeResult> Probes;
         /// <summary>
-        /// One or more `redirect_configuration` blocks as defined below.
+        /// One or more `RedirectConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayRedirectConfigurationResult> RedirectConfigurations;
         /// <summary>
-        /// One or more `request_routing_rule` blocks as defined below.
+        /// One or more `RequestRoutingRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayRequestRoutingRuleResult> RequestRoutingRules;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// One or more `rewrite_rule_set` blocks as defined below.
+        /// One or more `RewriteRuleSet` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayRewriteRuleSetResult> RewriteRuleSets;
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewaySkusResult> Skus;
         /// <summary>
-        /// One or more `ssl_certificate` blocks as defined below.
+        /// One or more `SslCertificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewaySslCertificateResult> SslCertificates;
         /// <summary>
-        /// a `ssl_policy` block as defined below.
+        /// a `SslPolicy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewaySslPolicyResult> SslPolicies;
         /// <summary>
-        /// One or more `ssl_profile` blocks as defined below.
+        /// One or more `SslProfile` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewaySslProfileResult> SslProfiles;
         /// <summary>
@@ -280,19 +280,19 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// One or more `trusted_client_certificate` blocks as defined below.
+        /// One or more `TrustedClientCertificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayTrustedClientCertificateResult> TrustedClientCertificates;
         /// <summary>
-        /// One or more `trusted_root_certificate` blocks as defined below.
+        /// One or more `TrustedRootCertificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayTrustedRootCertificateResult> TrustedRootCertificates;
         /// <summary>
-        /// One or more `url_path_map` blocks as defined below.
+        /// One or more `UrlPathMap` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayUrlPathMapResult> UrlPathMaps;
         /// <summary>
-        /// A `waf_configuration` block as defined below.
+        /// A `WafConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayWafConfigurationResult> WafConfigurations;
         /// <summary>

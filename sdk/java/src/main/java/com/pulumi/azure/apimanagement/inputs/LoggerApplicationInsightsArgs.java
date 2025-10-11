@@ -33,7 +33,7 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
     /**
      * The instrumentation key used to push data to Application Insights.
      * 
-     * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+     * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
      * 
      */
     @Import(name="instrumentationKey")
@@ -42,7 +42,7 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
     /**
      * @return The instrumentation key used to push data to Application Insights.
      * 
-     * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+     * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
      * 
      */
     public Optional<Output<String>> instrumentationKey() {
@@ -98,7 +98,7 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
         /**
          * @param instrumentationKey The instrumentation key used to push data to Application Insights.
          * 
-         * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+         * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
         /**
          * @param instrumentationKey The instrumentation key used to push data to Application Insights.
          * 
-         * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+         * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
          * 
          * @return builder
          * 

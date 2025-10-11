@@ -18,9 +18,9 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly int? BackendPoolsSendReceiveTimeoutSeconds;
         /// <summary>
-        /// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+        /// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `True` or `False`.
         /// 
-        /// &gt; **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
+        /// &gt; **NOTE:** `BackendPoolsSendReceiveTimeoutSeconds` and `EnforceBackendPoolsCertificateNameCheck` apply to all backend pools.
         /// </summary>
         public readonly bool EnforceBackendPoolsCertificateNameCheck;
 

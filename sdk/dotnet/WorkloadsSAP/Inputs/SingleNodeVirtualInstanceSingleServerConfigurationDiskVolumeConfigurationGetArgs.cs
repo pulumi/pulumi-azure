@@ -31,7 +31,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+        /// Specifies the volumn name of the database disk. Possible values are `Backup`, `hana/data`, `hana/log`, `hana/shared`, `Os` and `usr/sap`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("volumeName", required: true)]
         public Input<string> VolumeName { get; set; } = null!;

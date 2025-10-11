@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AddressSpaces;
         /// <summary>
-        /// An `ipsec_policy` block as defined below.
+        /// An `IpsecPolicy` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy? IpsecPolicy;
         /// <summary>
@@ -43,33 +43,33 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? RadiusServerSecret;
         /// <summary>
-        /// One or more `radius_server` blocks as defined below.
+        /// One or more `RadiusServer` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServer> RadiusServers;
         /// <summary>
-        /// One or more `revoked_certificate` blocks which are defined below.
+        /// One or more `RevokedCertificate` blocks which are defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> RevokedCertificates;
         /// <summary>
-        /// One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+        /// One or more `RootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate> RootCertificates;
         /// <summary>
-        /// One or more `virtual_network_gateway_client_connection` blocks as defined below.
+        /// One or more `VirtualNetworkGatewayClientConnection` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> VirtualNetworkGatewayClientConnections;
         /// <summary>
         /// List of the vpn authentication types for the virtual network gateway.
         /// The supported values are `AAD`, `Radius` and `Certificate`.
         /// 
-        /// &gt; **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+        /// &gt; **Note:** `VpnAuthTypes` must be set when using multiple vpn authentication types.
         /// </summary>
         public readonly ImmutableArray<string> VpnAuthTypes;
         /// <summary>
         /// List of the protocols supported by the vpn client.
         /// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
         /// Values `SSTP` and `IkeV2` are incompatible with the use of
-        /// `aad_tenant`, `aad_audience` and `aad_issuer`.
+        /// `AadTenant`, `AadAudience` and `AadIssuer`.
         /// </summary>
         public readonly ImmutableArray<string> VpnClientProtocols;
 

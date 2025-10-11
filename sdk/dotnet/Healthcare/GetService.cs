@@ -182,11 +182,11 @@ namespace Pulumi.Azure.Healthcare
     {
         public readonly ImmutableArray<string> AccessPolicyObjectIds;
         /// <summary>
-        /// An `authentication_configuration` block as defined below.
+        /// An `AuthenticationConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceAuthenticationConfigurationResult> AuthenticationConfigurations;
         /// <summary>
-        /// A `cors_configuration` block as defined below.
+        /// A `CorsConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceCorsConfigurationResult> CorsConfigurations;
         /// <summary>

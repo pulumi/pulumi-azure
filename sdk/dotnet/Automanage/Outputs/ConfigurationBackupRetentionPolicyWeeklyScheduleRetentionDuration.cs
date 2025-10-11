@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Automanage.Outputs
     public sealed class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration
     {
         /// <summary>
-        /// The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
+        /// The count of the retention duration of the backup policy. Valid value inside `DailySchedule` is `7` to `9999` and inside `WeeklySchedule` is `1` to `5163`.
         /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
+        /// The duration type of the retention duration of the backup policy. Valid value inside `DailySchedule` is `Days` and inside `WeeklySchedule` is `Weeks`. Defaults to `Days`.
         /// </summary>
         public readonly string? DurationType;
 

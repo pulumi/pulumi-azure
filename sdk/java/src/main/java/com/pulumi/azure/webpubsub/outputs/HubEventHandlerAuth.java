@@ -13,7 +13,7 @@ public final class HubEventHandlerAuth {
     /**
      * @return Specify the identity ID of the target resource.
      * 
-     * &gt; **Note:** `managed_identity_id` is required if the auth block is defined
+     * &gt; **Note:** `managedIdentityId` is required if the auth block is defined
      * 
      */
     private String managedIdentityId;
@@ -22,7 +22,7 @@ public final class HubEventHandlerAuth {
     /**
      * @return Specify the identity ID of the target resource.
      * 
-     * &gt; **Note:** `managed_identity_id` is required if the auth block is defined
+     * &gt; **Note:** `managedIdentityId` is required if the auth block is defined
      * 
      */
     public String managedIdentityId() {

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.DomainServices.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
+        /// Whether to enable external access to LDAPS over the Internet. Defaults to `False`.
         /// </summary>
         [Input("externalAccessEnabled")]
         public Input<bool>? ExternalAccessEnabled { get; set; }

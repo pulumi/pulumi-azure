@@ -98,14 +98,14 @@ public final class LinkedServiceAzureFunctionState extends com.pulumi.resources.
     }
 
     /**
-     * The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
+     * The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
+     * @return The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
      * 
      */
     public Optional<Output<String>> key() {
@@ -113,14 +113,14 @@ public final class LinkedServiceAzureFunctionState extends com.pulumi.resources.
     }
 
     /**
-     * A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+     * A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
      * 
      */
     @Import(name="keyVaultKey")
     private @Nullable Output<LinkedServiceAzureFunctionKeyVaultKeyArgs> keyVaultKey;
 
     /**
-     * @return A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+     * @return A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
      * 
      */
     public Optional<Output<LinkedServiceAzureFunctionKeyVaultKeyArgs>> keyVaultKey() {
@@ -325,7 +325,7 @@ public final class LinkedServiceAzureFunctionState extends com.pulumi.resources.
         }
 
         /**
-         * @param key The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
+         * @param key The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class LinkedServiceAzureFunctionState extends com.pulumi.resources.
         }
 
         /**
-         * @param key The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
+         * @param key The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class LinkedServiceAzureFunctionState extends com.pulumi.resources.
         }
 
         /**
-         * @param keyVaultKey A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+         * @param keyVaultKey A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class LinkedServiceAzureFunctionState extends com.pulumi.resources.
         }
 
         /**
-         * @param keyVaultKey A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+         * @param keyVaultKey A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
          * 
          * @return builder
          * 

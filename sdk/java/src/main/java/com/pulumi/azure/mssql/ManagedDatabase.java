@@ -114,14 +114,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mssql/managedDatabase:ManagedDatabase")
 public class ManagedDatabase extends com.pulumi.resources.CustomResource {
     /**
-     * A `long_term_retention_policy` block as defined below.
+     * A `longTermRetentionPolicy` block as defined below.
      * 
      */
     @Export(name="longTermRetentionPolicy", refs={ManagedDatabaseLongTermRetentionPolicy.class}, tree="[0]")
     private Output<ManagedDatabaseLongTermRetentionPolicy> longTermRetentionPolicy;
 
     /**
-     * @return A `long_term_retention_policy` block as defined below.
+     * @return A `longTermRetentionPolicy` block as defined below.
      * 
      */
     public Output<ManagedDatabaseLongTermRetentionPolicy> longTermRetentionPolicy() {
@@ -156,14 +156,14 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="pointInTimeRestore", refs={ManagedDatabasePointInTimeRestore.class}, tree="[0]")
     private Output</* @Nullable */ ManagedDatabasePointInTimeRestore> pointInTimeRestore;
 
     /**
-     * @return A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+     * @return A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<ManagedDatabasePointInTimeRestore>> pointInTimeRestore() {

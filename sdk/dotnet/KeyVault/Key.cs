@@ -16,7 +16,7 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// &gt; **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
     /// 
-    /// &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_keys_on_destroy` for more information.
+    /// &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `PurgeSoftDeletedKeysOnDestroy` for more information.
     /// 
     /// ### Additional Examples
     /// 
@@ -110,7 +110,7 @@ namespace Pulumi.Azure.KeyVault
     public partial class Key : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `KeyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("curve")]
         public Output<string> Curve { get; private set; } = null!;
@@ -130,13 +130,13 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify` and `wrapKey`. Please note these values are case sensitive.
         /// </summary>
         [Output("keyOpts")]
         public Output<ImmutableArray<string>> KeyOpts { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `KeyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keySize")]
         public Output<int?> KeySize { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         /// 
-        /// &gt; **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+        /// &gt; **Note:** Once `ExpirationDate` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
         /// </summary>
         [Output("notBeforeDate")]
         public Output<string?> NotBeforeDate { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> ResourceVersionlessId { get; private set; } = null!;
 
         /// <summary>
-        /// A `rotation_policy` block as defined below.
+        /// A `RotationPolicy` block as defined below.
         /// </summary>
         [Output("rotationPolicy")]
         public Output<Outputs.KeyRotationPolicy?> RotationPolicy { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `KeyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("curve")]
         public Input<string>? Curve { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _keyOpts;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify` and `wrapKey`. Please note these values are case sensitive.
         /// </summary>
         public InputList<string> KeyOpts
         {
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `KeyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
@@ -332,13 +332,13 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         /// 
-        /// &gt; **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+        /// &gt; **Note:** Once `ExpirationDate` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
         /// </summary>
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }
 
         /// <summary>
-        /// A `rotation_policy` block as defined below.
+        /// A `RotationPolicy` block as defined below.
         /// </summary>
         [Input("rotationPolicy")]
         public Input<Inputs.KeyRotationPolicyArgs>? RotationPolicy { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class KeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `KeyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("curve")]
         public Input<string>? Curve { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _keyOpts;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify` and `wrapKey`. Please note these values are case sensitive.
         /// </summary>
         public InputList<string> KeyOpts
         {
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `KeyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         /// 
-        /// &gt; **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+        /// &gt; **Note:** Once `ExpirationDate` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
         /// </summary>
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }
@@ -458,7 +458,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ResourceVersionlessId { get; set; }
 
         /// <summary>
-        /// A `rotation_policy` block as defined below.
+        /// A `RotationPolicy` block as defined below.
         /// </summary>
         [Input("rotationPolicy")]
         public Input<Inputs.KeyRotationPolicyGetArgs>? RotationPolicy { get; set; }

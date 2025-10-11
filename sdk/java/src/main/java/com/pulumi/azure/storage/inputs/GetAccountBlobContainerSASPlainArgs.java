@@ -33,14 +33,14 @@ public final class GetAccountBlobContainerSASPlainArgs extends com.pulumi.resour
     }
 
     /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      * 
      */
     @Import(name="connectionString", required=true)
     private String connectionString;
 
     /**
-     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      * 
      */
     public String connectionString() {
@@ -248,7 +248,7 @@ public final class GetAccountBlobContainerSASPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
          * 
          * @return builder
          * 

@@ -50,14 +50,14 @@ public final class LinkedServiceOdataArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `basic_authentication` block as defined below.
+     * A `basicAuthentication` block as defined below.
      * 
      */
     @Import(name="basicAuthentication")
     private @Nullable Output<LinkedServiceOdataBasicAuthenticationArgs> basicAuthentication;
 
     /**
-     * @return A `basic_authentication` block as defined below.
+     * @return A `basicAuthentication` block as defined below.
      * 
      */
     public Optional<Output<LinkedServiceOdataBasicAuthenticationArgs>> basicAuthentication() {
@@ -239,7 +239,7 @@ public final class LinkedServiceOdataArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param basicAuthentication A `basic_authentication` block as defined below.
+         * @param basicAuthentication A `basicAuthentication` block as defined below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class LinkedServiceOdataArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param basicAuthentication A `basic_authentication` block as defined below.
+         * @param basicAuthentication A `basicAuthentication` block as defined below.
          * 
          * @return builder
          * 

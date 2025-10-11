@@ -41,7 +41,7 @@ public final class GetManagedDisksDisk {
      */
     private Integer diskSizeInGb;
     /**
-     * @return An `encryption_settings` block as defined below.
+     * @return An `encryptionSettings` block as defined below.
      * 
      */
     private List<GetManagedDisksDiskEncryptionSetting> encryptionSettings;
@@ -82,7 +82,7 @@ public final class GetManagedDisksDisk {
      */
     private String sourceUri;
     /**
-     * @return The ID of the Storage Account where the `source_uri` is located.
+     * @return The ID of the Storage Account where the `sourceUri` is located.
      * 
      */
     private String storageAccountId;
@@ -142,7 +142,7 @@ public final class GetManagedDisksDisk {
         return this.diskSizeInGb;
     }
     /**
-     * @return An `encryption_settings` block as defined below.
+     * @return An `encryptionSettings` block as defined below.
      * 
      */
     public List<GetManagedDisksDiskEncryptionSetting> encryptionSettings() {
@@ -201,7 +201,7 @@ public final class GetManagedDisksDisk {
         return this.sourceUri;
     }
     /**
-     * @return The ID of the Storage Account where the `source_uri` is located.
+     * @return The ID of the Storage Account where the `sourceUri` is located.
      * 
      */
     public String storageAccountId() {

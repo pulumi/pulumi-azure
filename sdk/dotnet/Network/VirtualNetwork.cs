@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
         /// 
-        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressSpace` or `IpAddressPool` must be specified.
         /// </summary>
         [Output("addressSpaces")]
         public Output<ImmutableArray<string>> AddressSpaces { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> BgpCommunity { get; private set; } = null!;
 
         /// <summary>
-        /// A `ddos_protection_plan` block as documented below.
+        /// A `DdosProtectionPlan` block as documented below.
         /// </summary>
         [Output("ddosProtectionPlan")]
         public Output<Outputs.VirtualNetworkDdosProtectionPlan?> DdosProtectionPlan { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// List of IP addresses of DNS servers
         /// 
-        /// &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** Since `DnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("dnsServers")]
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// A `encryption` block as defined below.
+        /// A `Encryption` block as defined below.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.VirtualNetworkEncryption?> Encryption { get; private set; } = null!;
@@ -158,9 +158,9 @@ namespace Pulumi.Azure.Network
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        /// One or two `IpAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
         /// 
-        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressSpace` or `IpAddressPool` must be specified.
         /// </summary>
         [Output("ipAddressPools")]
         public Output<ImmutableArray<Outputs.VirtualNetworkIpAddressPool>> IpAddressPools { get; private set; } = null!;
@@ -190,9 +190,9 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        /// Can be specified multiple times to define multiple subnets. Each `Subnet` block supports fields documented below.
         /// 
-        /// &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** Since `Subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<Outputs.VirtualNetworkSubnet>> Subnets { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
         /// 
-        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressSpace` or `IpAddressPool` must be specified.
         /// </summary>
         public InputList<string> AddressSpaces
         {
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? BgpCommunity { get; set; }
 
         /// <summary>
-        /// A `ddos_protection_plan` block as documented below.
+        /// A `DdosProtectionPlan` block as documented below.
         /// </summary>
         [Input("ddosProtectionPlan")]
         public Input<Inputs.VirtualNetworkDdosProtectionPlanArgs>? DdosProtectionPlan { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// List of IP addresses of DNS servers
         /// 
-        /// &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** Since `DnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> DnsServers
         {
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// A `encryption` block as defined below.
+        /// A `Encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VirtualNetworkEncryptionArgs>? Encryption { get; set; }
@@ -313,9 +313,9 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkIpAddressPoolArgs>? _ipAddressPools;
 
         /// <summary>
-        /// One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        /// One or two `IpAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
         /// 
-        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressSpace` or `IpAddressPool` must be specified.
         /// </summary>
         public InputList<Inputs.VirtualNetworkIpAddressPoolArgs> IpAddressPools
         {
@@ -351,9 +351,9 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkSubnetArgs>? _subnets;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        /// Can be specified multiple times to define multiple subnets. Each `Subnet` block supports fields documented below.
         /// 
-        /// &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** Since `Subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.VirtualNetworkSubnetArgs> Subnets
         {
@@ -387,7 +387,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
         /// 
-        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressSpace` or `IpAddressPool` must be specified.
         /// </summary>
         public InputList<string> AddressSpaces
         {
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? BgpCommunity { get; set; }
 
         /// <summary>
-        /// A `ddos_protection_plan` block as documented below.
+        /// A `DdosProtectionPlan` block as documented below.
         /// </summary>
         [Input("ddosProtectionPlan")]
         public Input<Inputs.VirtualNetworkDdosProtectionPlanGetArgs>? DdosProtectionPlan { get; set; }
@@ -415,7 +415,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// List of IP addresses of DNS servers
         /// 
-        /// &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** Since `DnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> DnsServers
         {
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// A `encryption` block as defined below.
+        /// A `Encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VirtualNetworkEncryptionGetArgs>? Encryption { get; set; }
@@ -451,9 +451,9 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkIpAddressPoolGetArgs>? _ipAddressPools;
 
         /// <summary>
-        /// One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        /// One or two `IpAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
         /// 
-        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressSpace` or `IpAddressPool` must be specified.
         /// </summary>
         public InputList<Inputs.VirtualNetworkIpAddressPoolGetArgs> IpAddressPools
         {
@@ -489,9 +489,9 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkSubnetGetArgs>? _subnets;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        /// Can be specified multiple times to define multiple subnets. Each `Subnet` block supports fields documented below.
         /// 
-        /// &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** Since `Subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.VirtualNetworkSubnetGetArgs> Subnets
         {

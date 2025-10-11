@@ -90,7 +90,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+     * &gt; **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
      * 
      */
     @Export(name="baseSizeInTib", refs={Integer.class}, tree="[0]")
@@ -99,7 +99,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+     * &gt; **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
      * 
      */
     public Output<Integer> baseSizeInTib() {
@@ -108,7 +108,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * &gt; **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      * 
      */
     @Export(name="extendedSizeInTib", refs={Integer.class}, tree="[0]")
@@ -117,7 +117,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * &gt; **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      * 
      */
     public Output<Optional<Integer>> extendedSizeInTib() {

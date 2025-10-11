@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetWindowsWebAppSiteConfigCorResult
     {
         /// <summary>
-        /// A `allowed_origins` block as defined above.
+        /// A `AllowedOrigins` block as defined above.
         /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
         /// <summary>

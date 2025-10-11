@@ -113,32 +113,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:storage/accountQueueProperties:AccountQueueProperties")
 public class AccountQueueProperties extends com.pulumi.resources.CustomResource {
     /**
-     * A `cors_rule` block as defined above.
+     * A `corsRule` block as defined above.
      * 
      */
     @Export(name="corsRules", refs={List.class,AccountQueuePropertiesCorsRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountQueuePropertiesCorsRule>> corsRules;
 
     /**
-     * @return A `cors_rule` block as defined above.
+     * @return A `corsRule` block as defined above.
      * 
      */
     public Output<Optional<List<AccountQueuePropertiesCorsRule>>> corsRules() {
         return Codegen.optional(this.corsRules);
     }
     /**
-     * A `hour_metrics` block as defined below.
+     * A `hourMetrics` block as defined below.
      * 
-     * &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+     * &gt; **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
      * 
      */
     @Export(name="hourMetrics", refs={AccountQueuePropertiesHourMetrics.class}, tree="[0]")
     private Output<AccountQueuePropertiesHourMetrics> hourMetrics;
 
     /**
-     * @return A `hour_metrics` block as defined below.
+     * @return A `hourMetrics` block as defined below.
      * 
-     * &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+     * &gt; **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
      * 
      */
     public Output<AccountQueuePropertiesHourMetrics> hourMetrics() {
@@ -159,14 +159,14 @@ public class AccountQueueProperties extends com.pulumi.resources.CustomResource 
         return this.logging;
     }
     /**
-     * A `minute_metrics` block as defined below.
+     * A `minuteMetrics` block as defined below.
      * 
      */
     @Export(name="minuteMetrics", refs={AccountQueuePropertiesMinuteMetrics.class}, tree="[0]")
     private Output<AccountQueuePropertiesMinuteMetrics> minuteMetrics;
 
     /**
-     * @return A `minute_metrics` block as defined below.
+     * @return A `minuteMetrics` block as defined below.
      * 
      */
     public Output<AccountQueuePropertiesMinuteMetrics> minuteMetrics() {

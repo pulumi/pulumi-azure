@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
  * 
- * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_keys_on_destroy` for more information.
+ * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedKeysOnDestroy` for more information.
  * 
  * ### Additional Examples
  * 
@@ -127,14 +127,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/key:Key")
 public class Key extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="curve", refs={String.class}, tree="[0]")
     private Output<String> curve;
 
     /**
-     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> curve() {
@@ -187,14 +187,14 @@ public class Key extends com.pulumi.resources.CustomResource {
         return this.keyOpts;
     }
     /**
-     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="keySize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> keySize;
 
     /**
-     * @return Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Integer>> keySize() {
@@ -259,7 +259,7 @@ public class Key extends com.pulumi.resources.CustomResource {
     /**
      * Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
-     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+     * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
      * 
      */
     @Export(name="notBeforeDate", refs={String.class}, tree="[0]")
@@ -268,7 +268,7 @@ public class Key extends com.pulumi.resources.CustomResource {
     /**
      * @return Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
-     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+     * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
      * 
      */
     public Output<Optional<String>> notBeforeDate() {
@@ -331,14 +331,14 @@ public class Key extends com.pulumi.resources.CustomResource {
         return this.resourceVersionlessId;
     }
     /**
-     * A `rotation_policy` block as defined below.
+     * A `rotationPolicy` block as defined below.
      * 
      */
     @Export(name="rotationPolicy", refs={KeyRotationPolicy.class}, tree="[0]")
     private Output</* @Nullable */ KeyRotationPolicy> rotationPolicy;
 
     /**
-     * @return A `rotation_policy` block as defined below.
+     * @return A `rotationPolicy` block as defined below.
      * 
      */
     public Output<Optional<KeyRotationPolicy>> rotationPolicy() {

@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> IothubName { get; private set; } = null!;
 
         /// <summary>
-        /// Is the certificate verified? Defaults to `false`.
+        /// Is the certificate verified? Defaults to `False`.
         /// </summary>
         [Output("isVerified")]
         public Output<bool?> IsVerified { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> IothubName { get; set; } = null!;
 
         /// <summary>
-        /// Is the certificate verified? Defaults to `false`.
+        /// Is the certificate verified? Defaults to `False`.
         /// </summary>
         [Input("isVerified")]
         public Input<bool>? IsVerified { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? IothubName { get; set; }
 
         /// <summary>
-        /// Is the certificate verified? Defaults to `false`.
+        /// Is the certificate verified? Defaults to `False`.
         /// </summary>
         [Input("isVerified")]
         public Input<bool>? IsVerified { get; set; }

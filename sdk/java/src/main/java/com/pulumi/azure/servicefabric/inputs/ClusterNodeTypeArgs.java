@@ -22,14 +22,14 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
     public static final ClusterNodeTypeArgs Empty = new ClusterNodeTypeArgs();
 
     /**
-     * A `application_ports` block as defined below.
+     * A `applicationPorts` block as defined below.
      * 
      */
     @Import(name="applicationPorts")
     private @Nullable Output<ClusterNodeTypeApplicationPortsArgs> applicationPorts;
 
     /**
-     * @return A `application_ports` block as defined below.
+     * @return A `applicationPorts` block as defined below.
      * 
      */
     public Optional<Output<ClusterNodeTypeApplicationPortsArgs>> applicationPorts() {
@@ -82,14 +82,14 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `ephemeral_ports` block as defined below.
+     * A `ephemeralPorts` block as defined below.
      * 
      */
     @Import(name="ephemeralPorts")
     private @Nullable Output<ClusterNodeTypeEphemeralPortsArgs> ephemeralPorts;
 
     /**
-     * @return A `ephemeral_ports` block as defined below.
+     * @return A `ephemeralPorts` block as defined below.
      * 
      */
     public Optional<Output<ClusterNodeTypeEphemeralPortsArgs>> ephemeralPorts() {
@@ -253,7 +253,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param applicationPorts A `application_ports` block as defined below.
+         * @param applicationPorts A `applicationPorts` block as defined below.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param applicationPorts A `application_ports` block as defined below.
+         * @param applicationPorts A `applicationPorts` block as defined below.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ephemeralPorts A `ephemeral_ports` block as defined below.
+         * @param ephemeralPorts A `ephemeralPorts` block as defined below.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ephemeralPorts A `ephemeral_ports` block as defined below.
+         * @param ephemeralPorts A `ephemeralPorts` block as defined below.
          * 
          * @return builder
          * 

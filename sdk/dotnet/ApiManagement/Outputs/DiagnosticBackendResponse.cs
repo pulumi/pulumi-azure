@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly int? BodyBytes;
         /// <summary>
-        /// A `data_masking` block as defined below.
+        /// A `DataMasking` block as defined below.
         /// </summary>
         public readonly Outputs.DiagnosticBackendResponseDataMasking? DataMasking;
         /// <summary>

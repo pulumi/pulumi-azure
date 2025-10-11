@@ -58,7 +58,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * Should the app be loaded at all times? Defaults to `false`.
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `alwaysOn` must be set to `false`.
      * 
      */
     @Import(name="alwaysOn")
@@ -67,7 +67,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return Should the app be loaded at all times? Defaults to `false`.
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `alwaysOn` must be set to `false`.
      * 
      */
     public Optional<Output<Boolean>> alwaysOn() {
@@ -197,7 +197,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * A list of objects representing ip restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="ipRestrictions")
@@ -206,7 +206,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return A list of objects representing ip restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<AppServiceSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -214,14 +214,14 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+     * The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
      * 
      */
     @Import(name="javaContainer")
     private @Nullable Output<String> javaContainer;
 
     /**
-     * @return The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+     * @return The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
      * 
      */
     public Optional<Output<String>> javaContainer() {
@@ -229,14 +229,14 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+     * The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
      * 
      */
     @Import(name="javaContainerVersion")
     private @Nullable Output<String> javaContainerVersion;
 
     /**
-     * @return The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+     * @return The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
      * 
      */
     public Optional<Output<String>> javaContainerVersion() {
@@ -244,14 +244,14 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+     * The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+     * @return The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -327,14 +327,14 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+     * The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
      * 
      */
     @Import(name="numberOfWorkers")
     private @Nullable Output<Integer> numberOfWorkers;
 
     /**
-     * @return The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+     * @return The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
      * 
      */
     public Optional<Output<Integer>> numberOfWorkers() {
@@ -402,18 +402,18 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+     * A list of `scmIpRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<AppServiceSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
-     * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `scmIpRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<AppServiceSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -438,7 +438,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
@@ -447,7 +447,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -457,7 +457,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     @Import(name="use32BitWorkerProcess")
@@ -466,7 +466,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorkerProcess() {
@@ -613,7 +613,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param alwaysOn Should the app be loaded at all times? Defaults to `false`.
          * 
-         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `alwaysOn` must be set to `false`.
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param alwaysOn Should the app be loaded at all times? Defaults to `false`.
          * 
-         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `alwaysOn` must be set to `false`.
          * 
          * @return builder
          * 
@@ -816,7 +816,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param ipRestrictions A list of objects representing ip restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -829,7 +829,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param ipRestrictions A list of objects representing ip restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -841,7 +841,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param ipRestrictions A list of objects representing ip restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param javaContainer The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+         * @param javaContainer The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
          * 
          * @return builder
          * 
@@ -862,7 +862,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param javaContainer The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+         * @param javaContainer The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param javaContainerVersion The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+         * @param javaContainerVersion The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
          * 
          * @return builder
          * 
@@ -883,7 +883,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param javaContainerVersion The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+         * @param javaContainerVersion The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
          * 
          * @return builder
          * 
@@ -893,7 +893,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param javaVersion The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+         * @param javaVersion The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
          * 
          * @return builder
          * 
@@ -904,7 +904,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param javaVersion The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+         * @param javaVersion The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
          * 
          * @return builder
          * 
@@ -1006,7 +1006,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param numberOfWorkers The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+         * @param numberOfWorkers The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
          * 
          * @return builder
          * 
@@ -1017,7 +1017,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param numberOfWorkers The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+         * @param numberOfWorkers The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
          * 
          * @return builder
          * 
@@ -1111,9 +1111,9 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scmIpRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -1124,9 +1124,9 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scmIpRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -1136,9 +1136,9 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scmIpRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -1171,7 +1171,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
-         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+         * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          * 
          * @return builder
          * 
@@ -1184,7 +1184,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
-         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+         * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          * 
          * @return builder
          * 
@@ -1196,7 +1196,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param use32BitWorkerProcess Should the App Service run in 32 bit mode, rather than 64 bit mode?
          * 
-         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 
@@ -1209,7 +1209,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param use32BitWorkerProcess Should the App Service run in 32 bit mode, rather than 64 bit mode?
          * 
-         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 

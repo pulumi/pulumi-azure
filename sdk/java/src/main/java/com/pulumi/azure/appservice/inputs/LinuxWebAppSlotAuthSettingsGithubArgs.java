@@ -33,14 +33,14 @@ public final class LinuxWebAppSlotAuthSettingsGithubArgs extends com.pulumi.reso
     }
 
     /**
-     * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+     * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+     * @return The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     public Optional<Output<String>> clientSecret() {
@@ -48,14 +48,14 @@ public final class LinuxWebAppSlotAuthSettingsGithubArgs extends com.pulumi.reso
     }
 
     /**
-     * The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+     * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
      * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
-     * @return The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+     * @return The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -126,7 +126,7 @@ public final class LinuxWebAppSlotAuthSettingsGithubArgs extends com.pulumi.reso
         }
 
         /**
-         * @param clientSecret The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+         * @param clientSecret The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class LinuxWebAppSlotAuthSettingsGithubArgs extends com.pulumi.reso
         }
 
         /**
-         * @param clientSecret The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+         * @param clientSecret The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class LinuxWebAppSlotAuthSettingsGithubArgs extends com.pulumi.reso
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class LinuxWebAppSlotAuthSettingsGithubArgs extends com.pulumi.reso
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          * 
          * @return builder
          * 

@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? BgpPeeringAddress { get; set; }
 
         /// <summary>
-        /// An `instance_bgp_peering_address` block as defined below.
+        /// An `InstanceBgpPeeringAddress` block as defined below.
         /// </summary>
         [Input("instance0BgpPeeringAddress")]
         public Input<Inputs.VpnGatewayBgpSettingsInstance0BgpPeeringAddressGetArgs>? Instance0BgpPeeringAddress { get; set; }
 
         /// <summary>
-        /// An `instance_bgp_peering_address` block as defined below.
+        /// An `InstanceBgpPeeringAddress` block as defined below.
         /// </summary>
         [Input("instance1BgpPeeringAddress")]
         public Input<Inputs.VpnGatewayBgpSettingsInstance1BgpPeeringAddressGetArgs>? Instance1BgpPeeringAddress { get; set; }

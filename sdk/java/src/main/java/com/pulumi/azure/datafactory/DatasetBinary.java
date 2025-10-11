@@ -130,14 +130,14 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.annotations);
     }
     /**
-     * A `azure_blob_storage_location` block as defined below.
+     * A `azureBlobStorageLocation` block as defined below.
      * 
      */
     @Export(name="azureBlobStorageLocation", refs={DatasetBinaryAzureBlobStorageLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetBinaryAzureBlobStorageLocation> azureBlobStorageLocation;
 
     /**
-     * @return A `azure_blob_storage_location` block as defined below.
+     * @return A `azureBlobStorageLocation` block as defined below.
      * 
      */
     public Output<Optional<DatasetBinaryAzureBlobStorageLocation>> azureBlobStorageLocation() {
@@ -200,14 +200,14 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.folder);
     }
     /**
-     * A `http_server_location` block as defined below.
+     * A `httpServerLocation` block as defined below.
      * 
      */
     @Export(name="httpServerLocation", refs={DatasetBinaryHttpServerLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetBinaryHttpServerLocation> httpServerLocation;
 
     /**
-     * @return A `http_server_location` block as defined below.
+     * @return A `httpServerLocation` block as defined below.
      * 
      */
     public Output<Optional<DatasetBinaryHttpServerLocation>> httpServerLocation() {
@@ -260,14 +260,14 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * A `sftp_server_location` block as defined below.
+     * A `sftpServerLocation` block as defined below.
      * 
      */
     @Export(name="sftpServerLocation", refs={DatasetBinarySftpServerLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetBinarySftpServerLocation> sftpServerLocation;
 
     /**
-     * @return A `sftp_server_location` block as defined below.
+     * @return A `sftpServerLocation` block as defined below.
      * 
      */
     public Output<Optional<DatasetBinarySftpServerLocation>> sftpServerLocation() {

@@ -49,7 +49,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs exten
     }
 
     /**
-     * Selector for the value in the `match_variable` attribute this exclusion applies to.
+     * Selector for the value in the `matchVariable` attribute this exclusion applies to.
      * 
      * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
      * 
@@ -58,7 +58,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs exten
     private Output<String> selector;
 
     /**
-     * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
+     * @return Selector for the value in the `matchVariable` attribute this exclusion applies to.
      * 
      * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
      * 
@@ -140,7 +140,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs exten
         }
 
         /**
-         * @param selector Selector for the value in the `match_variable` attribute this exclusion applies to.
+         * @param selector Selector for the value in the `matchVariable` attribute this exclusion applies to.
          * 
          * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          * 
@@ -153,7 +153,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs exten
         }
 
         /**
-         * @param selector Selector for the value in the `match_variable` attribute this exclusion applies to.
+         * @param selector Selector for the value in the `matchVariable` attribute this exclusion applies to.
          * 
          * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          * 

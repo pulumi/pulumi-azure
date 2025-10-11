@@ -20,7 +20,7 @@ public final class ExpressRouteCircuitPeeringIpv6 {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return A `microsoft_peering` block as defined below.
+     * @return A `microsoftPeering` block as defined below.
      * 
      */
     private @Nullable ExpressRouteCircuitPeeringIpv6MicrosoftPeering microsoftPeering;
@@ -30,9 +30,9 @@ public final class ExpressRouteCircuitPeeringIpv6 {
      */
     private String primaryPeerAddressPrefix;
     /**
-     * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * @return The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
      * 
-     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     private @Nullable String routeFilterId;
@@ -51,7 +51,7 @@ public final class ExpressRouteCircuitPeeringIpv6 {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return A `microsoft_peering` block as defined below.
+     * @return A `microsoftPeering` block as defined below.
      * 
      */
     public Optional<ExpressRouteCircuitPeeringIpv6MicrosoftPeering> microsoftPeering() {
@@ -65,9 +65,9 @@ public final class ExpressRouteCircuitPeeringIpv6 {
         return this.primaryPeerAddressPrefix;
     }
     /**
-     * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * @return The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
      * 
-     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     public Optional<String> routeFilterId() {

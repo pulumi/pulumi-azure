@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below.
+        /// One or more `IpConfiguration` blocks as defined below.
         /// 
         /// &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
         /// 

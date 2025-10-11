@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
         /// 
-        /// &gt; **Note:** The Routes can alternatively be created using the virtual_hub_route_table_route resource. Using both inline and external routes is not supported and may result in unexpected configuration.
+        /// &gt; **Note:** The Routes can alternatively be created using the VirtualHubRouteTableRoute resource. Using both inline and external routes is not supported and may result in unexpected configuration.
         /// </summary>
         public readonly string? NextHopType;
 

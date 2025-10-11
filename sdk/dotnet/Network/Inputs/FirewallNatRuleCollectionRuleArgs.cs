@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `Action` is `Dnat`, protocols can only be `TCP` and `UDP`.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// A list of source IP Group IDs for the rule.
         /// 
-        /// &gt; **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        /// &gt; **Note:** At least one of `SourceAddresses` and `SourceIpGroups` must be specified for a rule.
         /// </summary>
         public InputList<string> SourceIpGroups
         {

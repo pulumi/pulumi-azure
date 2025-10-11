@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int FailureCountThreshold;
         /// <summary>
-        /// A `header` block as detailed below.
+        /// A `Header` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerStartupProbeHeaderResult> Headers;
         /// <summary>

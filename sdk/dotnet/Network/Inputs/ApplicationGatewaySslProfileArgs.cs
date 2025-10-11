@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// a `ssl_policy` block as defined below.
+        /// a `SslPolicy` block as defined below.
         /// </summary>
         [Input("sslPolicy")]
         public Input<Inputs.ApplicationGatewaySslProfileSslPolicyArgs>? SslPolicy { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// Should client certificate issuer DN be verified? Defaults to `false`.
+        /// Should client certificate issuer DN be verified? Defaults to `False`.
         /// </summary>
         [Input("verifyClientCertIssuerDn")]
         public Input<bool>? VerifyClientCertIssuerDn { get; set; }

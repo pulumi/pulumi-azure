@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter
     {
         /// <summary>
-        /// The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        /// The label of the filter. This label should be unique across all `LabelIncludeFileter` block. Possible value is `MicrosoftMetricsIncludeLabel`.
         /// </summary>
         public readonly string Label;
         /// <summary>

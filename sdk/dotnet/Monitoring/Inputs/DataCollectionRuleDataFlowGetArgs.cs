@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<string>? _destinations;
 
         /// <summary>
-        /// Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+        /// Specifies a list of destination names. A `AzureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
         /// </summary>
         public InputList<string> Destinations
         {

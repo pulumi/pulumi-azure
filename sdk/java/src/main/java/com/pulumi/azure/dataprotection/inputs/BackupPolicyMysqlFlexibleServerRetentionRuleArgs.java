@@ -34,14 +34,14 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleArgs extends com.
     }
 
     /**
-     * A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="lifeCycles", required=true)
     private Output<List<BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs>> lifeCycles;
 
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs>> lifeCycles() {
@@ -127,7 +127,7 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleArgs extends com.
         }
 
         /**
-         * @param lifeCycles A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+         * @param lifeCycles A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleArgs extends com.
         }
 
         /**
-         * @param lifeCycles A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+         * @param lifeCycles A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleArgs extends com.
         }
 
         /**
-         * @param lifeCycles A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+         * @param lifeCycles A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

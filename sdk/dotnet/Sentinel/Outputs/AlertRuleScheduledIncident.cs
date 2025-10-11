@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly bool CreateIncidentEnabled;
         /// <summary>
-        /// A `grouping` block as defined below.
+        /// A `Grouping` block as defined below.
         /// </summary>
         public readonly Outputs.AlertRuleScheduledIncidentGrouping Grouping;
 

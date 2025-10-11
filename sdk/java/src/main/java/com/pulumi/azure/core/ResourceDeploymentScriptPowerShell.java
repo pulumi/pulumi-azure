@@ -153,14 +153,14 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
         return Codegen.optional(this.container);
     }
     /**
-     * An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     @Export(name="environmentVariables", refs={List.class,ResourceDeploymentScriptPowerShellEnvironmentVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceDeploymentScriptPowerShellEnvironmentVariable>> environmentVariables;
 
     /**
-     * @return An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * @return An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     public Output<Optional<List<ResourceDeploymentScriptPowerShellEnvironmentVariable>>> environmentVariables() {
@@ -293,14 +293,14 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
         return Codegen.optional(this.scriptContent);
     }
     /**
-     * A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     @Export(name="storageAccount", refs={ResourceDeploymentScriptPowerShellStorageAccount.class}, tree="[0]")
     private Output</* @Nullable */ ResourceDeploymentScriptPowerShellStorageAccount> storageAccount;
 
     /**
-     * @return A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * @return A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     public Output<Optional<ResourceDeploymentScriptPowerShellStorageAccount>> storageAccount() {

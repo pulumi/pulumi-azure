@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVpnGatewayResult {
     /**
-     * @return A `bgp_settings` block as defined below.
+     * @return A `bgpSettings` block as defined below.
      * 
      */
     private List<GetVpnGatewayBgpSetting> bgpSettings;
@@ -26,7 +26,7 @@ public final class GetVpnGatewayResult {
      */
     private String id;
     /**
-     * @return An `ip_configuration` block as defined below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     private List<GetVpnGatewayIpConfiguration> ipConfigurations;
@@ -55,7 +55,7 @@ public final class GetVpnGatewayResult {
 
     private GetVpnGatewayResult() {}
     /**
-     * @return A `bgp_settings` block as defined below.
+     * @return A `bgpSettings` block as defined below.
      * 
      */
     public List<GetVpnGatewayBgpSetting> bgpSettings() {
@@ -69,7 +69,7 @@ public final class GetVpnGatewayResult {
         return this.id;
     }
     /**
-     * @return An `ip_configuration` block as defined below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     public List<GetVpnGatewayIpConfiguration> ipConfigurations() {

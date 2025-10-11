@@ -50,14 +50,14 @@ public final class VpnGatewayBgpSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * An `instance_bgp_peering_address` block as defined below.
+     * An `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     @Import(name="instance0BgpPeeringAddress")
     private @Nullable Output<VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs> instance0BgpPeeringAddress;
 
     /**
-     * @return An `instance_bgp_peering_address` block as defined below.
+     * @return An `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     public Optional<Output<VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs>> instance0BgpPeeringAddress() {
@@ -65,14 +65,14 @@ public final class VpnGatewayBgpSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * An `instance_bgp_peering_address` block as defined below.
+     * An `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     @Import(name="instance1BgpPeeringAddress")
     private @Nullable Output<VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs> instance1BgpPeeringAddress;
 
     /**
-     * @return An `instance_bgp_peering_address` block as defined below.
+     * @return An `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     public Optional<Output<VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs>> instance1BgpPeeringAddress() {
@@ -165,7 +165,7 @@ public final class VpnGatewayBgpSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param instance0BgpPeeringAddress An `instance_bgp_peering_address` block as defined below.
+         * @param instance0BgpPeeringAddress An `instanceBgpPeeringAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class VpnGatewayBgpSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param instance0BgpPeeringAddress An `instance_bgp_peering_address` block as defined below.
+         * @param instance0BgpPeeringAddress An `instanceBgpPeeringAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class VpnGatewayBgpSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param instance1BgpPeeringAddress An `instance_bgp_peering_address` block as defined below.
+         * @param instance1BgpPeeringAddress An `instanceBgpPeeringAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class VpnGatewayBgpSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param instance1BgpPeeringAddress An `instance_bgp_peering_address` block as defined below.
+         * @param instance1BgpPeeringAddress An `instanceBgpPeeringAddress` block as defined below.
          * 
          * @return builder
          * 

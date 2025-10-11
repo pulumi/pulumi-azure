@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.AlertPrometheusRuleGroupRuleActionArgs>? _actions;
 
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         public InputList<Inputs.AlertPrometheusRuleGroupRuleActionArgs> Actions
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string>? Alert { get; set; }
 
         /// <summary>
-        /// An `alert_resolution` block as defined below.
+        /// An `AlertResolution` block as defined below.
         /// </summary>
         [Input("alertResolution")]
         public Input<Inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs>? AlertResolution { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// Is this rule enabled? Possible values are `true` and `false`.
+        /// Is this rule enabled? Possible values are `True` and `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+        /// Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `Interval` and record the result as a new set of time series with the metric name given by `Record`.
         /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;

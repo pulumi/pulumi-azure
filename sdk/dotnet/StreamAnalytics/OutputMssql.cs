@@ -114,7 +114,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
+        /// Password used together with username, to login to the Microsoft SQL Server. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Table { get; private set; } = null!;
 
         /// <summary>
-        /// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
+        /// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         [Output("user")]
         public Output<string?> User { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private Input<string>? _password;
 
         /// <summary>
-        /// Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
+        /// Password used together with username, to login to the Microsoft SQL Server. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         public Input<string>? Password
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> Table { get; set; } = null!;
 
         /// <summary>
-        /// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
+        /// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private Input<string>? _password;
 
         /// <summary>
-        /// Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
+        /// Password used together with username, to login to the Microsoft SQL Server. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         public Input<string>? Password
         {
@@ -354,7 +354,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Table { get; set; }
 
         /// <summary>
-        /// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
+        /// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }

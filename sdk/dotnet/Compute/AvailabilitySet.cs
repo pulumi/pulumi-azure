@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
+        /// Specifies whether the availability set is managed or not. Possible values are `True` (to specify aligned) or `False` (to specify classic). Default is `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managed")]
         public Output<bool?> Managed { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
+        /// Specifies whether the availability set is managed or not. Possible values are `True` (to specify aligned) or `False` (to specify classic). Default is `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managed")]
         public Input<bool>? Managed { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
+        /// Specifies whether the availability set is managed or not. Possible values are `True` (to specify aligned) or `False` (to specify classic). Default is `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managed")]
         public Input<bool>? Managed { get; set; }

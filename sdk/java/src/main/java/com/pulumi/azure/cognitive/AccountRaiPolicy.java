@@ -127,14 +127,14 @@ public class AccountRaiPolicy extends com.pulumi.resources.CustomResource {
         return this.cognitiveAccountId;
     }
     /**
-     * A `content_filter` block as defined below.
+     * A `contentFilter` block as defined below.
      * 
      */
     @Export(name="contentFilters", refs={List.class,AccountRaiPolicyContentFilter.class}, tree="[0,1]")
     private Output<List<AccountRaiPolicyContentFilter>> contentFilters;
 
     /**
-     * @return A `content_filter` block as defined below.
+     * @return A `contentFilter` block as defined below.
      * 
      */
     public Output<List<AccountRaiPolicyContentFilter>> contentFilters() {

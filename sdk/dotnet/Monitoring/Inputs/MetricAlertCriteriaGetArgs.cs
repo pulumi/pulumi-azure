@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.MetricAlertCriteriaDimensionGetArgs>? _dimensions;
 
         /// <summary>
-        /// One or more `dimension` blocks as defined below.
+        /// One or more `Dimension` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MetricAlertCriteriaDimensionGetArgs> Dimensions
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `False`.
         /// </summary>
         [Input("skipMetricValidation")]
         public Input<bool>? SkipMetricValidation { get; set; }

@@ -14,6 +14,8 @@ import (
 
 // Manages a Container App Custom Domain.
 //
+// ## Example Usage
+//
 // ### Managed Certificate
 //
 // ```go

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly bool Nfsv41Enabled;
         /// <summary>
-        /// Is root access permitted to this volume? Defaults to `true`.
+        /// Is root access permitted to this volume? Defaults to `True`.
         /// </summary>
         public readonly bool? RootAccessEnabled;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly bool? UnixReadOnly;
         /// <summary>
-        /// Is the file system on unix read and write? Defaults to `true`.
+        /// Is the file system on unix read and write? Defaults to `True`.
         /// </summary>
         public readonly bool? UnixReadWrite;
 

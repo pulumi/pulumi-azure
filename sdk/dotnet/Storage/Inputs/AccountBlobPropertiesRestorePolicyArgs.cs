@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountBlobPropertiesRestorePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+        /// Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `Days` specified for `DeleteRetentionPolicy`.
         /// </summary>
         [Input("days", required: true)]
         public Input<int> Days { get; set; } = null!;

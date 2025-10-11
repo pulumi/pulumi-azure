@@ -61,14 +61,14 @@ public final class SpringCloudCustomDomainState extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
+     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="thumbprint")
     private @Nullable Output<String> thumbprint;
 
     /**
-     * @return Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
+     * @return Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> thumbprint() {
@@ -166,7 +166,7 @@ public final class SpringCloudCustomDomainState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param thumbprint Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
+         * @param thumbprint Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class SpringCloudCustomDomainState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param thumbprint Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
+         * @param thumbprint Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

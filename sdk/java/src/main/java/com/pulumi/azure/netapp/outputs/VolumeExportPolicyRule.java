@@ -51,7 +51,7 @@ public final class VolumeExportPolicyRule {
      */
     private @Nullable Boolean kerberos5pReadWriteEnabled;
     /**
-     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
      * 
      */
     private @Nullable String protocol;
@@ -134,7 +134,7 @@ public final class VolumeExportPolicyRule {
         return Optional.ofNullable(this.kerberos5pReadWriteEnabled);
     }
     /**
-     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
      * 
      */
     public Optional<String> protocol() {

@@ -218,7 +218,7 @@ public final class SocketioState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+     * &gt; **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
      * 
      */
     @Import(name="publicNetworkAccess")
@@ -227,7 +227,7 @@ public final class SocketioState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+     * &gt; **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
      * 
      */
     public Optional<Output<String>> publicNetworkAccess() {
@@ -357,7 +357,7 @@ public final class SocketioState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
      * 
      */
     @Import(name="tlsClientCertEnabled")
@@ -366,7 +366,7 @@ public final class SocketioState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
      * 
      */
     public Optional<Output<Boolean>> tlsClientCertEnabled() {
@@ -695,7 +695,7 @@ public final class SocketioState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccess Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
          * 
-         * &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+         * &gt; **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
          * 
          * @return builder
          * 
@@ -708,7 +708,7 @@ public final class SocketioState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccess Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
          * 
-         * &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+         * &gt; **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
          * 
          * @return builder
          * 
@@ -888,7 +888,7 @@ public final class SocketioState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tlsClientCertEnabled Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
          * 
-         * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+         * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
          * 
          * @return builder
          * 
@@ -901,7 +901,7 @@ public final class SocketioState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tlsClientCertEnabled Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
          * 
-         * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+         * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
          * 
          * @return builder
          * 

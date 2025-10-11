@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Route in a Virtual Hub Route Table.
     /// 
-    /// &gt; **Note:** Route table routes can managed with this resource, or in-line with the virtual_hub_route_table resource. Using both is not supported.
+    /// &gt; **Note:** Route table routes can managed with this resource, or in-line with the VirtualHubRouteTable resource. Using both is not supported.
     /// 
     /// ## Example Usage
     /// 

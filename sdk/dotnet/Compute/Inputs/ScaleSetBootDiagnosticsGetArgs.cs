@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class ScaleSetBootDiagnosticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
+        /// Whether to enable boot diagnostics for the virtual machine. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

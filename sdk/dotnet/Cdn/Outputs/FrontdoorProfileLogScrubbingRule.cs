@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// <summary>
         /// The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
         /// 
-        /// &gt; **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+        /// &gt; **Note:** The `Operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
         /// </summary>
         public readonly string MatchVariable;
 

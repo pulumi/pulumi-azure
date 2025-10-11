@@ -174,19 +174,19 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as documented below.
+        /// An `Identity` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainIdentityResult> Identities;
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainInboundIpRuleResult> InboundIpRules;
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below.
+        /// A `InputMappingDefaultValues` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainInputMappingDefaultValueResult> InputMappingDefaultValues;
         /// <summary>
-        /// A `input_mapping_fields` block as defined below.
+        /// A `InputMappingFields` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainInputMappingFieldResult> InputMappingFields;
         /// <summary>

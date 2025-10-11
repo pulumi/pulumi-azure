@@ -61,7 +61,7 @@ namespace Pulumi.Azure.DesktopVirtualization.Inputs
         public Input<int> RampDownCapacityThresholdPercent { get; set; } = null!;
 
         /// <summary>
-        /// Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
+        /// Whether users will be forced to log-off session hosts once the `RampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `True` and `False`.
         /// </summary>
         [Input("rampDownForceLogoffUsers", required: true)]
         public Input<bool> RampDownForceLogoffUsers { get; set; } = null!;

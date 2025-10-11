@@ -207,14 +207,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessKeyMetadataWritesEnabled);
     }
     /**
-     * An `analytical_storage` block as defined below.
+     * An `analyticalStorage` block as defined below.
      * 
      */
     @Export(name="analyticalStorage", refs={AccountAnalyticalStorage.class}, tree="[0]")
     private Output<AccountAnalyticalStorage> analyticalStorage;
 
     /**
-     * @return An `analytical_storage` block as defined below.
+     * @return An `analyticalStorage` block as defined below.
      * 
      */
     public Output<AccountAnalyticalStorage> analyticalStorage() {
@@ -279,7 +279,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
+     * &gt; **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
      * 
      */
     @Export(name="createMode", refs={String.class}, tree="[0]")
@@ -288,7 +288,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
+     * &gt; **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
      * 
      */
     public Output<String> createMode() {

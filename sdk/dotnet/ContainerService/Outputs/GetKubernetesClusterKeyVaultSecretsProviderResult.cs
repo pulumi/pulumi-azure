@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterKeyVaultSecretsProviderResult
     {
         /// <summary>
-        /// A `secret_identity` block as documented below.
+        /// A `SecretIdentity` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult> SecretIdentities;
         /// <summary>

@@ -30,12 +30,12 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      */
     private @Nullable String diskEncryptionSetId;
     /**
-     * @return The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
+     * @return The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
      * 
      */
     private @Nullable Integer diskSizeGb;
     /**
-     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
+     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
      * 
      */
     private @Nullable Integer lun;
@@ -45,12 +45,12 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      */
     private String storageAccountType;
     /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     private @Nullable Integer ultraSsdDiskIopsReadWrite;
     /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     private @Nullable Integer ultraSsdDiskMbpsReadWrite;
@@ -83,14 +83,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
     /**
-     * @return The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
+     * @return The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
      * 
      */
     public Optional<Integer> diskSizeGb() {
         return Optional.ofNullable(this.diskSizeGb);
     }
     /**
-     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
+     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
      * 
      */
     public Optional<Integer> lun() {
@@ -104,14 +104,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         return this.storageAccountType;
     }
     /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     public Optional<Integer> ultraSsdDiskIopsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
     }
     /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     public Optional<Integer> ultraSsdDiskMbpsReadWrite() {

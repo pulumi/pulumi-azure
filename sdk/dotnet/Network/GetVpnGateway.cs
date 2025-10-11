@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Network
     public sealed class GetVpnGatewayResult
     {
         /// <summary>
-        /// A `bgp_settings` block as defined below.
+        /// A `BgpSettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpnGatewayBgpSettingResult> BgpSettings;
         /// <summary>
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `ip_configuration` block as defined below.
+        /// An `IpConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpnGatewayIpConfigurationResult> IpConfigurations;
         /// <summary>

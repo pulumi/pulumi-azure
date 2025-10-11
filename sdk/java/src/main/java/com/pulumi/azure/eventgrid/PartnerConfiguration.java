@@ -102,14 +102,14 @@ public class PartnerConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultMaximumExpirationTimeInDays);
     }
     /**
-     * One or more `partner_authorization` blocks as defined below.
+     * One or more `partnerAuthorization` blocks as defined below.
      * 
      */
     @Export(name="partnerAuthorizations", refs={List.class,PartnerConfigurationPartnerAuthorization.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PartnerConfigurationPartnerAuthorization>> partnerAuthorizations;
 
     /**
-     * @return One or more `partner_authorization` blocks as defined below.
+     * @return One or more `partnerAuthorization` blocks as defined below.
      * 
      */
     public Output<Optional<List<PartnerConfigurationPartnerAuthorization>>> partnerAuthorizations() {

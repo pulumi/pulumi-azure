@@ -62,14 +62,14 @@ public final class DatabaseImportArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+     * The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
      * 
      */
     @Import(name="storageAccountId")
     private @Nullable Output<String> storageAccountId;
 
     /**
-     * @return The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+     * @return The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -215,7 +215,7 @@ public final class DatabaseImportArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageAccountId The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+         * @param storageAccountId The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class DatabaseImportArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageAccountId The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+         * @param storageAccountId The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
          * 
          * @return builder
          * 

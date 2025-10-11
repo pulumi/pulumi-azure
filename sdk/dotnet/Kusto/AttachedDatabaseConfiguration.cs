@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Kusto
     public partial class AttachedDatabaseConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
+        /// The list of databases from the `ClusterResourceId` which are currently attached to the cluster.
         /// </summary>
         [Output("attachedDatabaseNames")]
         public Output<ImmutableArray<string>> AttachedDatabaseNames { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `sharing` block as defined below.
+        /// A `Sharing` block as defined below.
         /// </summary>
         [Output("sharing")]
         public Output<Outputs.AttachedDatabaseConfigurationSharing?> Sharing { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `sharing` block as defined below.
+        /// A `Sharing` block as defined below.
         /// </summary>
         [Input("sharing")]
         public Input<Inputs.AttachedDatabaseConfigurationSharingArgs>? Sharing { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _attachedDatabaseNames;
 
         /// <summary>
-        /// The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
+        /// The list of databases from the `ClusterResourceId` which are currently attached to the cluster.
         /// </summary>
         public InputList<string> AttachedDatabaseNames
         {
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `sharing` block as defined below.
+        /// A `Sharing` block as defined below.
         /// </summary>
         [Input("sharing")]
         public Input<Inputs.AttachedDatabaseConfigurationSharingGetArgs>? Sharing { get; set; }

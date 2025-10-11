@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachine {
     /**
-     * @return One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDisk> dataDisks;
@@ -41,7 +41,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
 
     private ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachine() {}
     /**
-     * @return One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDisk> dataDisks() {

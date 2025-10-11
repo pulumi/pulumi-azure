@@ -44,7 +44,7 @@ public final class GetWindowsFunctionAppSiteConfig {
      */
     private Integer appScaleLimit;
     /**
-     * @return A `app_service_logs` block as defined above.
+     * @return A `appServiceLogs` block as defined above.
      * 
      */
     private List<GetWindowsFunctionAppSiteConfigAppServiceLog> appServiceLogs;
@@ -59,7 +59,7 @@ public final class GetWindowsFunctionAppSiteConfig {
      */
     private String applicationInsightsKey;
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     private List<GetWindowsFunctionAppSiteConfigApplicationStack> applicationStacks;
@@ -104,12 +104,12 @@ public final class GetWindowsFunctionAppSiteConfig {
      */
     private Boolean http2Enabled;
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule.
      * 
      */
     private String ipRestrictionDefaultAction;
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     private List<GetWindowsFunctionAppSiteConfigIpRestriction> ipRestrictions;
@@ -149,12 +149,12 @@ public final class GetWindowsFunctionAppSiteConfig {
      */
     private Boolean runtimeScaleMonitoringEnabled;
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
     private String scmIpRestrictionDefaultAction;
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     private List<GetWindowsFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -169,7 +169,7 @@ public final class GetWindowsFunctionAppSiteConfig {
      */
     private String scmType;
     /**
-     * @return Is the `ip_restriction` configuration used for the SCM?.
+     * @return Is the `ipRestriction` configuration used for the SCM?.
      * 
      */
     private Boolean scmUseMainIpRestriction;
@@ -236,7 +236,7 @@ public final class GetWindowsFunctionAppSiteConfig {
         return this.appScaleLimit;
     }
     /**
-     * @return A `app_service_logs` block as defined above.
+     * @return A `appServiceLogs` block as defined above.
      * 
      */
     public List<GetWindowsFunctionAppSiteConfigAppServiceLog> appServiceLogs() {
@@ -257,7 +257,7 @@ public final class GetWindowsFunctionAppSiteConfig {
         return this.applicationInsightsKey;
     }
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     public List<GetWindowsFunctionAppSiteConfigApplicationStack> applicationStacks() {
@@ -320,14 +320,14 @@ public final class GetWindowsFunctionAppSiteConfig {
         return this.http2Enabled;
     }
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule.
      * 
      */
     public String ipRestrictionDefaultAction() {
         return this.ipRestrictionDefaultAction;
     }
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     public List<GetWindowsFunctionAppSiteConfigIpRestriction> ipRestrictions() {
@@ -383,14 +383,14 @@ public final class GetWindowsFunctionAppSiteConfig {
         return this.runtimeScaleMonitoringEnabled;
     }
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
     public String scmIpRestrictionDefaultAction() {
         return this.scmIpRestrictionDefaultAction;
     }
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     public List<GetWindowsFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -411,7 +411,7 @@ public final class GetWindowsFunctionAppSiteConfig {
         return this.scmType;
     }
     /**
-     * @return Is the `ip_restriction` configuration used for the SCM?.
+     * @return Is the `ipRestriction` configuration used for the SCM?.
      * 
      */
     public Boolean scmUseMainIpRestriction() {

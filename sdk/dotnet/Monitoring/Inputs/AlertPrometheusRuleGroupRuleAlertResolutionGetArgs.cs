@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class AlertPrometheusRuleGroupRuleAlertResolutionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the alert auto-resolution? Possible values are `true` and `false`.
+        /// Is the alert auto-resolution? Possible values are `True` and `False`.
         /// </summary>
         [Input("autoResolved")]
         public Input<bool>? AutoResolved { get; set; }

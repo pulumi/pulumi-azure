@@ -39,27 +39,27 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationGatewayResult {
     /**
-     * @return One or more `authentication_certificate` blocks as defined below.
+     * @return One or more `authenticationCertificate` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayAuthenticationCertificate> authenticationCertificates;
     /**
-     * @return An `autoscale_configuration` block as defined below.
+     * @return An `autoscaleConfiguration` block as defined below.
      * 
      */
     private List<GetApplicationGatewayAutoscaleConfiguration> autoscaleConfigurations;
     /**
-     * @return One or more `backend_address_pool` blocks as defined below.
+     * @return One or more `backendAddressPool` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayBackendAddressPool> backendAddressPools;
     /**
-     * @return One or more `backend_http_settings` blocks as defined below.
+     * @return One or more `backendHttpSettings` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayBackendHttpSetting> backendHttpSettings;
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayCustomErrorConfiguration> customErrorConfigurations;
@@ -79,17 +79,17 @@ public final class GetApplicationGatewayResult {
      */
     private Boolean forceFirewallPolicyAssociation;
     /**
-     * @return One or more `frontend_ip_configuration` blocks as defined below.
+     * @return One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayFrontendIpConfiguration> frontendIpConfigurations;
     /**
-     * @return One or more `frontend_port` blocks as defined below.
+     * @return One or more `frontendPort` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayFrontendPort> frontendPorts;
     /**
-     * @return One or more `gateway_ip_configuration` blocks as defined below.
+     * @return One or more `gatewayIpConfiguration` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayGatewayIpConfiguration> gatewayIpConfigurations;
@@ -104,7 +104,7 @@ public final class GetApplicationGatewayResult {
      */
     private Boolean http2Enabled;
     /**
-     * @return One or more `http_listener` blocks as defined below.
+     * @return One or more `httpListener` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayHttpListener> httpListeners;
@@ -130,7 +130,7 @@ public final class GetApplicationGatewayResult {
     private String name;
     private List<GetApplicationGatewayPrivateEndpointConnection> privateEndpointConnections;
     /**
-     * @return One or more `private_link_configuration` blocks as defined below.
+     * @return One or more `privateLinkConfiguration` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayPrivateLinkConfiguration> privateLinkConfigurations;
@@ -140,18 +140,18 @@ public final class GetApplicationGatewayResult {
      */
     private List<GetApplicationGatewayProbe> probes;
     /**
-     * @return One or more `redirect_configuration` blocks as defined below.
+     * @return One or more `redirectConfiguration` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayRedirectConfiguration> redirectConfigurations;
     /**
-     * @return One or more `request_routing_rule` blocks as defined below.
+     * @return One or more `requestRoutingRule` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayRequestRoutingRule> requestRoutingRules;
     private String resourceGroupName;
     /**
-     * @return One or more `rewrite_rule_set` blocks as defined below.
+     * @return One or more `rewriteRuleSet` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayRewriteRuleSet> rewriteRuleSets;
@@ -161,17 +161,17 @@ public final class GetApplicationGatewayResult {
      */
     private List<GetApplicationGatewaySkus> skus;
     /**
-     * @return One or more `ssl_certificate` blocks as defined below.
+     * @return One or more `sslCertificate` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewaySslCertificate> sslCertificates;
     /**
-     * @return a `ssl_policy` block as defined below.
+     * @return a `sslPolicy` block as defined below.
      * 
      */
     private List<GetApplicationGatewaySslPolicy> sslPolicies;
     /**
-     * @return One or more `ssl_profile` blocks as defined below.
+     * @return One or more `sslProfile` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewaySslProfile> sslProfiles;
@@ -181,22 +181,22 @@ public final class GetApplicationGatewayResult {
      */
     private Map<String,String> tags;
     /**
-     * @return One or more `trusted_client_certificate` blocks as defined below.
+     * @return One or more `trustedClientCertificate` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayTrustedClientCertificate> trustedClientCertificates;
     /**
-     * @return One or more `trusted_root_certificate` blocks as defined below.
+     * @return One or more `trustedRootCertificate` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayTrustedRootCertificate> trustedRootCertificates;
     /**
-     * @return One or more `url_path_map` blocks as defined below.
+     * @return One or more `urlPathMap` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayUrlPathMap> urlPathMaps;
     /**
-     * @return A `waf_configuration` block as defined below.
+     * @return A `wafConfiguration` block as defined below.
      * 
      */
     private List<GetApplicationGatewayWafConfiguration> wafConfigurations;
@@ -208,35 +208,35 @@ public final class GetApplicationGatewayResult {
 
     private GetApplicationGatewayResult() {}
     /**
-     * @return One or more `authentication_certificate` blocks as defined below.
+     * @return One or more `authenticationCertificate` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayAuthenticationCertificate> authenticationCertificates() {
         return this.authenticationCertificates;
     }
     /**
-     * @return An `autoscale_configuration` block as defined below.
+     * @return An `autoscaleConfiguration` block as defined below.
      * 
      */
     public List<GetApplicationGatewayAutoscaleConfiguration> autoscaleConfigurations() {
         return this.autoscaleConfigurations;
     }
     /**
-     * @return One or more `backend_address_pool` blocks as defined below.
+     * @return One or more `backendAddressPool` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayBackendAddressPool> backendAddressPools() {
         return this.backendAddressPools;
     }
     /**
-     * @return One or more `backend_http_settings` blocks as defined below.
+     * @return One or more `backendHttpSettings` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayBackendHttpSetting> backendHttpSettings() {
         return this.backendHttpSettings;
     }
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayCustomErrorConfiguration> customErrorConfigurations() {
@@ -264,21 +264,21 @@ public final class GetApplicationGatewayResult {
         return this.forceFirewallPolicyAssociation;
     }
     /**
-     * @return One or more `frontend_ip_configuration` blocks as defined below.
+     * @return One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayFrontendIpConfiguration> frontendIpConfigurations() {
         return this.frontendIpConfigurations;
     }
     /**
-     * @return One or more `frontend_port` blocks as defined below.
+     * @return One or more `frontendPort` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayFrontendPort> frontendPorts() {
         return this.frontendPorts;
     }
     /**
-     * @return One or more `gateway_ip_configuration` blocks as defined below.
+     * @return One or more `gatewayIpConfiguration` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayGatewayIpConfiguration> gatewayIpConfigurations() {
@@ -299,7 +299,7 @@ public final class GetApplicationGatewayResult {
         return this.http2Enabled;
     }
     /**
-     * @return One or more `http_listener` blocks as defined below.
+     * @return One or more `httpListener` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayHttpListener> httpListeners() {
@@ -337,7 +337,7 @@ public final class GetApplicationGatewayResult {
         return this.privateEndpointConnections;
     }
     /**
-     * @return One or more `private_link_configuration` blocks as defined below.
+     * @return One or more `privateLinkConfiguration` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayPrivateLinkConfiguration> privateLinkConfigurations() {
@@ -351,14 +351,14 @@ public final class GetApplicationGatewayResult {
         return this.probes;
     }
     /**
-     * @return One or more `redirect_configuration` blocks as defined below.
+     * @return One or more `redirectConfiguration` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayRedirectConfiguration> redirectConfigurations() {
         return this.redirectConfigurations;
     }
     /**
-     * @return One or more `request_routing_rule` blocks as defined below.
+     * @return One or more `requestRoutingRule` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayRequestRoutingRule> requestRoutingRules() {
@@ -368,7 +368,7 @@ public final class GetApplicationGatewayResult {
         return this.resourceGroupName;
     }
     /**
-     * @return One or more `rewrite_rule_set` blocks as defined below.
+     * @return One or more `rewriteRuleSet` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayRewriteRuleSet> rewriteRuleSets() {
@@ -382,21 +382,21 @@ public final class GetApplicationGatewayResult {
         return this.skus;
     }
     /**
-     * @return One or more `ssl_certificate` blocks as defined below.
+     * @return One or more `sslCertificate` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewaySslCertificate> sslCertificates() {
         return this.sslCertificates;
     }
     /**
-     * @return a `ssl_policy` block as defined below.
+     * @return a `sslPolicy` block as defined below.
      * 
      */
     public List<GetApplicationGatewaySslPolicy> sslPolicies() {
         return this.sslPolicies;
     }
     /**
-     * @return One or more `ssl_profile` blocks as defined below.
+     * @return One or more `sslProfile` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewaySslProfile> sslProfiles() {
@@ -410,28 +410,28 @@ public final class GetApplicationGatewayResult {
         return this.tags;
     }
     /**
-     * @return One or more `trusted_client_certificate` blocks as defined below.
+     * @return One or more `trustedClientCertificate` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayTrustedClientCertificate> trustedClientCertificates() {
         return this.trustedClientCertificates;
     }
     /**
-     * @return One or more `trusted_root_certificate` blocks as defined below.
+     * @return One or more `trustedRootCertificate` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayTrustedRootCertificate> trustedRootCertificates() {
         return this.trustedRootCertificates;
     }
     /**
-     * @return One or more `url_path_map` blocks as defined below.
+     * @return One or more `urlPathMap` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayUrlPathMap> urlPathMaps() {
         return this.urlPathMaps;
     }
     /**
-     * @return A `waf_configuration` block as defined below.
+     * @return A `wafConfiguration` block as defined below.
      * 
      */
     public List<GetApplicationGatewayWafConfiguration> wafConfigurations() {

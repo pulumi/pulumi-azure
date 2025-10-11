@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Core.Inputs
         private InputList<Inputs.ResourceGroupPolicyAssignmentOverrideSelectorArgs>? _selectors;
 
         /// <summary>
-        /// One or more `override_selector` block as defined below.
+        /// One or more `OverrideSelector` block as defined below.
         /// </summary>
         public InputList<Inputs.ResourceGroupPolicyAssignmentOverrideSelectorArgs> Selectors
         {

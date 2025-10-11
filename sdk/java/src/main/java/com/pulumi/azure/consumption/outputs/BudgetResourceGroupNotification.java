@@ -33,7 +33,7 @@ public final class BudgetResourceGroupNotification {
     /**
      * @return Should the notification be enabled? Defaults to `true`.
      * 
-     * &gt; **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+     * &gt; **Note:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
      * 
      */
     private @Nullable Boolean enabled;
@@ -78,7 +78,7 @@ public final class BudgetResourceGroupNotification {
     /**
      * @return Should the notification be enabled? Defaults to `true`.
      * 
-     * &gt; **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+     * &gt; **Note:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
      * 
      */
     public Optional<Boolean> enabled() {

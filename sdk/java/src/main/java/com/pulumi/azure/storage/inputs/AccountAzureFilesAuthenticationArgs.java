@@ -18,14 +18,14 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
     public static final AccountAzureFilesAuthenticationArgs Empty = new AccountAzureFilesAuthenticationArgs();
 
     /**
-     * A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+     * A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
      * 
      */
     @Import(name="activeDirectory")
     private @Nullable Output<AccountAzureFilesAuthenticationActiveDirectoryArgs> activeDirectory;
 
     /**
-     * @return A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+     * @return A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
      * 
      */
     public Optional<Output<AccountAzureFilesAuthenticationActiveDirectoryArgs>> activeDirectory() {
@@ -89,7 +89,7 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+         * @param activeDirectory A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+         * @param activeDirectory A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
          * 
          * @return builder
          * 

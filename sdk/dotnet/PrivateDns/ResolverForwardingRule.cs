@@ -150,7 +150,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+        /// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+        /// Can be specified multiple times to define multiple target DNS servers. Each `TargetDnsServers` block as defined below.
         /// </summary>
         [Output("targetDnsServers")]
         public Output<ImmutableArray<Outputs.ResolverForwardingRuleTargetDnsServer>> TargetDnsServers { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+        /// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.ResolverForwardingRuleTargetDnsServerArgs>? _targetDnsServers;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+        /// Can be specified multiple times to define multiple target DNS servers. Each `TargetDnsServers` block as defined below.
         /// </summary>
         public InputList<Inputs.ResolverForwardingRuleTargetDnsServerArgs> TargetDnsServers
         {
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+        /// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.ResolverForwardingRuleTargetDnsServerGetArgs>? _targetDnsServers;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+        /// Can be specified multiple times to define multiple target DNS servers. Each `TargetDnsServers` block as defined below.
         /// </summary>
         public InputList<Inputs.ResolverForwardingRuleTargetDnsServerGetArgs> TargetDnsServers
         {

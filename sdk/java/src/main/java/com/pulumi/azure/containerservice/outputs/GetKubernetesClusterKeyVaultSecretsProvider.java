@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetKubernetesClusterKeyVaultSecretsProvider {
     /**
-     * @return A `secret_identity` block as documented below.
+     * @return A `secretIdentity` block as documented below.
      * 
      */
     private List<GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities;
@@ -31,7 +31,7 @@ public final class GetKubernetesClusterKeyVaultSecretsProvider {
 
     private GetKubernetesClusterKeyVaultSecretsProvider() {}
     /**
-     * @return A `secret_identity` block as documented below.
+     * @return A `secretIdentity` block as documented below.
      * 
      */
     public List<GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities() {

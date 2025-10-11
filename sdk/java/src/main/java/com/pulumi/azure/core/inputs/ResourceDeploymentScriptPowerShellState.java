@@ -67,14 +67,14 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
     }
 
     /**
-     * An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     @Import(name="environmentVariables")
     private @Nullable Output<List<ResourceDeploymentScriptPowerShellEnvironmentVariableArgs>> environmentVariables;
 
     /**
-     * @return An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * @return An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     public Optional<Output<List<ResourceDeploymentScriptPowerShellEnvironmentVariableArgs>>> environmentVariables() {
@@ -217,14 +217,14 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
     }
 
     /**
-     * A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     @Import(name="storageAccount")
     private @Nullable Output<ResourceDeploymentScriptPowerShellStorageAccountArgs> storageAccount;
 
     /**
-     * @return A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * @return A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     public Optional<Output<ResourceDeploymentScriptPowerShellStorageAccountArgs>> storageAccount() {
@@ -396,7 +396,7 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
         }
 
         /**
-         * @param environmentVariables An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+         * @param environmentVariables An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
         }
 
         /**
-         * @param environmentVariables An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+         * @param environmentVariables An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
         }
 
         /**
-         * @param environmentVariables An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+         * @param environmentVariables An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
         }
 
         /**
-         * @param storageAccount A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+         * @param storageAccount A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
          * 
          * @return builder
          * 
@@ -627,7 +627,7 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
         }
 
         /**
-         * @param storageAccount A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+         * @param storageAccount A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
          * 
          * @return builder
          * 

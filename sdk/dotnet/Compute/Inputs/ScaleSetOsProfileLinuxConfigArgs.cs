@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class ScaleSetOsProfileLinuxConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies whether password authentication should be disabled. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("disablePasswordAuthentication")]
         public Input<bool>? DisablePasswordAuthentication { get; set; }
@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs>? _sshKeys;
 
         /// <summary>
-        /// One or more `ssh_keys` blocks as defined below.
+        /// One or more `SshKeys` blocks as defined below.
         /// 
-        /// &gt; **Note:** Please note that the only allowed `path` is `/home/&lt;username&gt;/.ssh/authorized_keys` due to a limitation of Azure.
+        /// &gt; **Note:** Please note that the only allowed `Path` is `/home/&lt;username&gt;/.ssh/authorized_keys` due to a limitation of Azure.
         /// 
-        /// &gt; **NOTE:** At least one `ssh_keys` block is required if `disable_password_authentication` is set to `true`.
+        /// &gt; **NOTE:** At least one `SshKeys` block is required if `DisablePasswordAuthentication` is set to `True`.
         /// </summary>
         public InputList<Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs> SshKeys
         {

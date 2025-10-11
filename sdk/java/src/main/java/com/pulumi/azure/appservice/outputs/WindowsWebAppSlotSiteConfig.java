@@ -42,12 +42,12 @@ public final class WindowsWebAppSlotSiteConfig {
      */
     private @Nullable String appCommandLine;
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     private @Nullable WindowsWebAppSlotSiteConfigApplicationStack applicationStack;
     /**
-     * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+     * @return A `autoHealSetting` block as defined above. Required with `autoHeal`.
      * 
      */
     private @Nullable WindowsWebAppSlotSiteConfigAutoHealSetting autoHealSetting;
@@ -81,12 +81,12 @@ public final class WindowsWebAppSlotSiteConfig {
     private @Nullable Boolean detailedErrorLoggingEnabled;
     private @Nullable String ftpsState;
     /**
-     * @return One or more `handler_mapping` blocks as defined below.
+     * @return One or more `handlerMapping` blocks as defined below.
      * 
      */
     private @Nullable List<WindowsWebAppSlotSiteConfigHandlerMapping> handlerMappings;
     /**
-     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     private @Nullable Integer healthCheckEvictionTimeInMin;
@@ -101,12 +101,12 @@ public final class WindowsWebAppSlotSiteConfig {
      */
     private @Nullable Boolean http2Enabled;
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String ipRestrictionDefaultAction;
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     private @Nullable List<WindowsWebAppSlotSiteConfigIpRestriction> ipRestrictions;
@@ -141,12 +141,12 @@ public final class WindowsWebAppSlotSiteConfig {
      */
     private @Nullable String remoteDebuggingVersion;
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String scmIpRestrictionDefaultAction;
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     private @Nullable List<WindowsWebAppSlotSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -157,7 +157,7 @@ public final class WindowsWebAppSlotSiteConfig {
     private @Nullable String scmMinimumTlsVersion;
     private @Nullable String scmType;
     /**
-     * @return Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Windows Web App Slot `ipRestriction` configuration be used for the SCM also.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
@@ -167,7 +167,7 @@ public final class WindowsWebAppSlotSiteConfig {
      */
     private @Nullable Boolean use32BitWorker;
     /**
-     * @return One or more `virtual_application` blocks as defined below.
+     * @return One or more `virtualApplication` blocks as defined below.
      * 
      */
     private @Nullable List<WindowsWebAppSlotSiteConfigVirtualApplication> virtualApplications;
@@ -218,14 +218,14 @@ public final class WindowsWebAppSlotSiteConfig {
         return Optional.ofNullable(this.appCommandLine);
     }
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     public Optional<WindowsWebAppSlotSiteConfigApplicationStack> applicationStack() {
         return Optional.ofNullable(this.applicationStack);
     }
     /**
-     * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+     * @return A `autoHealSetting` block as defined above. Required with `autoHeal`.
      * 
      */
     public Optional<WindowsWebAppSlotSiteConfigAutoHealSetting> autoHealSetting() {
@@ -275,14 +275,14 @@ public final class WindowsWebAppSlotSiteConfig {
         return Optional.ofNullable(this.ftpsState);
     }
     /**
-     * @return One or more `handler_mapping` blocks as defined below.
+     * @return One or more `handlerMapping` blocks as defined below.
      * 
      */
     public List<WindowsWebAppSlotSiteConfigHandlerMapping> handlerMappings() {
         return this.handlerMappings == null ? List.of() : this.handlerMappings;
     }
     /**
-     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     public Optional<Integer> healthCheckEvictionTimeInMin() {
@@ -303,14 +303,14 @@ public final class WindowsWebAppSlotSiteConfig {
         return Optional.ofNullable(this.http2Enabled);
     }
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> ipRestrictionDefaultAction() {
         return Optional.ofNullable(this.ipRestrictionDefaultAction);
     }
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     public List<WindowsWebAppSlotSiteConfigIpRestriction> ipRestrictions() {
@@ -359,14 +359,14 @@ public final class WindowsWebAppSlotSiteConfig {
         return Optional.ofNullable(this.remoteDebuggingVersion);
     }
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> scmIpRestrictionDefaultAction() {
         return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     public List<WindowsWebAppSlotSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -383,7 +383,7 @@ public final class WindowsWebAppSlotSiteConfig {
         return Optional.ofNullable(this.scmType);
     }
     /**
-     * @return Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Windows Web App Slot `ipRestriction` configuration be used for the SCM also.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {
@@ -397,7 +397,7 @@ public final class WindowsWebAppSlotSiteConfig {
         return Optional.ofNullable(this.use32BitWorker);
     }
     /**
-     * @return One or more `virtual_application` blocks as defined below.
+     * @return One or more `virtualApplication` blocks as defined below.
      * 
      */
     public List<WindowsWebAppSlotSiteConfigVirtualApplication> virtualApplications() {

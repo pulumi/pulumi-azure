@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ExtendedLocation
     public partial class CustomLocation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `authentication` block as defined below.
+        /// An `Authentication` block as defined below.
         /// </summary>
         [Output("authentication")]
         public Output<Outputs.CustomLocationAuthentication?> Authentication { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.ExtendedLocation
     public sealed class CustomLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication` block as defined below.
+        /// An `Authentication` block as defined below.
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.CustomLocationAuthenticationArgs>? Authentication { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.ExtendedLocation
     public sealed class CustomLocationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authentication` block as defined below.
+        /// An `Authentication` block as defined below.
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.CustomLocationAuthenticationGetArgs>? Authentication { get; set; }

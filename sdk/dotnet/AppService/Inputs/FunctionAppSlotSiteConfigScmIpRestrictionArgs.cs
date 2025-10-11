@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// The `headers` block for this specific `scm_ip_restriction` as defined below.
+        /// The `Headers` block for this specific `ScmIpRestriction` as defined below.
         /// </summary>
         [Input("headers")]
         public Input<Inputs.FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs>? Headers { get; set; }
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// 
-        /// &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        /// &gt; **NOTE:** One of either `IpAddress`, `ServiceTag` or `VirtualNetworkSubnetId` must be specified
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }

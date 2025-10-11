@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:fluidrelay/server:Server")
 public class Server extends com.pulumi.resources.CustomResource {
     /**
-     * A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="customerManagedKey", refs={ServerCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ ServerCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+     * @return A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<ServerCustomerManagedKey>> customerManagedKey() {

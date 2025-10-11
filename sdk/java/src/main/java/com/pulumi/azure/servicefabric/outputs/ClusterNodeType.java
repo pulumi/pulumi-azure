@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterNodeType {
     /**
-     * @return A `application_ports` block as defined below.
+     * @return A `applicationPorts` block as defined below.
      * 
      */
     private @Nullable ClusterNodeTypeApplicationPorts applicationPorts;
@@ -38,7 +38,7 @@ public final class ClusterNodeType {
      */
     private @Nullable String durabilityLevel;
     /**
-     * @return A `ephemeral_ports` block as defined below.
+     * @return A `ephemeralPorts` block as defined below.
      * 
      */
     private @Nullable ClusterNodeTypeEphemeralPorts ephemeralPorts;
@@ -85,7 +85,7 @@ public final class ClusterNodeType {
 
     private ClusterNodeType() {}
     /**
-     * @return A `application_ports` block as defined below.
+     * @return A `applicationPorts` block as defined below.
      * 
      */
     public Optional<ClusterNodeTypeApplicationPorts> applicationPorts() {
@@ -113,7 +113,7 @@ public final class ClusterNodeType {
         return Optional.ofNullable(this.durabilityLevel);
     }
     /**
-     * @return A `ephemeral_ports` block as defined below.
+     * @return A `ephemeralPorts` block as defined below.
      * 
      */
     public Optional<ClusterNodeTypeEphemeralPorts> ephemeralPorts() {

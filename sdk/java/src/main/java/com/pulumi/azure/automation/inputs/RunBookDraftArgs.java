@@ -20,14 +20,14 @@ public final class RunBookDraftArgs extends com.pulumi.resources.ResourceArgs {
     public static final RunBookDraftArgs Empty = new RunBookDraftArgs();
 
     /**
-     * A `publish_content_link` block as defined above.
+     * A `publishContentLink` block as defined above.
      * 
      */
     @Import(name="contentLink")
     private @Nullable Output<RunBookDraftContentLinkArgs> contentLink;
 
     /**
-     * @return A `publish_content_link` block as defined above.
+     * @return A `publishContentLink` block as defined above.
      * 
      */
     public Optional<Output<RunBookDraftContentLinkArgs>> contentLink() {
@@ -123,7 +123,7 @@ public final class RunBookDraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentLink A `publish_content_link` block as defined above.
+         * @param contentLink A `publishContentLink` block as defined above.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class RunBookDraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentLink A `publish_content_link` block as defined above.
+         * @param contentLink A `publishContentLink` block as defined above.
          * 
          * @return builder
          * 

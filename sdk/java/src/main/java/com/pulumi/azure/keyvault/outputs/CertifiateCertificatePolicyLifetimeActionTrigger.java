@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CertifiateCertificatePolicyLifetimeActionTrigger {
     /**
-     * @return The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+     * @return The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
      * 
      */
     private @Nullable Integer daysBeforeExpiry;
     /**
-     * @return The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+     * @return The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
      * 
      */
     private @Nullable Integer lifetimePercentage;
 
     private CertifiateCertificatePolicyLifetimeActionTrigger() {}
     /**
-     * @return The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+     * @return The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
      * 
      */
     public Optional<Integer> daysBeforeExpiry() {
         return Optional.ofNullable(this.daysBeforeExpiry);
     }
     /**
-     * @return The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+     * @return The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
      * 
      */
     public Optional<Integer> lifetimePercentage() {

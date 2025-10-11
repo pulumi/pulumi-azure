@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class BackendCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `authorization` block as defined below.
+        /// An `Authorization` block as defined below.
         /// </summary>
         [Input("authorization")]
         public Input<Inputs.BackendCredentialsAuthorizationGetArgs>? Authorization { get; set; }

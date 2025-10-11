@@ -31,14 +31,14 @@ public final class GetHostPoolRegistrationInfoState extends com.pulumi.resources
     }
 
     /**
-     * The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtual_desktop_host_pool_registration_info resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
+     * The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtualDesktopHostPoolRegistrationInfo resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
      * 
      */
     @Import(name="hostpoolId")
     private @Nullable Output<String> hostpoolId;
 
     /**
-     * @return The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtual_desktop_host_pool_registration_info resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
+     * @return The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtualDesktopHostPoolRegistrationInfo resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
      * 
      */
     public Optional<Output<String>> hostpoolId() {
@@ -108,7 +108,7 @@ public final class GetHostPoolRegistrationInfoState extends com.pulumi.resources
         }
 
         /**
-         * @param hostpoolId The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtual_desktop_host_pool_registration_info resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
+         * @param hostpoolId The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtualDesktopHostPoolRegistrationInfo resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GetHostPoolRegistrationInfoState extends com.pulumi.resources
         }
 
         /**
-         * @param hostpoolId The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtual_desktop_host_pool_registration_info resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
+         * @param hostpoolId The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtualDesktopHostPoolRegistrationInfo resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
          * 
          * @return builder
          * 

@@ -33,14 +33,14 @@ public final class AppFlexConsumptionAuthSettingsFacebookArgs extends com.pulumi
     }
 
     /**
-     * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+     * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
      * 
      */
     @Import(name="appSecret")
     private @Nullable Output<String> appSecret;
 
     /**
-     * @return The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+     * @return The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
      * 
      */
     public Optional<Output<String>> appSecret() {
@@ -48,14 +48,14 @@ public final class AppFlexConsumptionAuthSettingsFacebookArgs extends com.pulumi
     }
 
     /**
-     * The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+     * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
      * 
      */
     @Import(name="appSecretSettingName")
     private @Nullable Output<String> appSecretSettingName;
 
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+     * @return The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
      * 
      */
     public Optional<Output<String>> appSecretSettingName() {
@@ -126,7 +126,7 @@ public final class AppFlexConsumptionAuthSettingsFacebookArgs extends com.pulumi
         }
 
         /**
-         * @param appSecret The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+         * @param appSecret The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class AppFlexConsumptionAuthSettingsFacebookArgs extends com.pulumi
         }
 
         /**
-         * @param appSecret The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+         * @param appSecret The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class AppFlexConsumptionAuthSettingsFacebookArgs extends com.pulumi
         }
 
         /**
-         * @param appSecretSettingName The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+         * @param appSecretSettingName The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class AppFlexConsumptionAuthSettingsFacebookArgs extends com.pulumi
         }
 
         /**
-         * @param appSecretSettingName The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+         * @param appSecretSettingName The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          * 
          * @return builder
          * 

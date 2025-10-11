@@ -13,19 +13,19 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class HadoopClusterMetastoresArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `ambari` block as defined below.
+        /// An `Ambari` block as defined below.
         /// </summary>
         [Input("ambari")]
         public Input<Inputs.HadoopClusterMetastoresAmbariArgs>? Ambari { get; set; }
 
         /// <summary>
-        /// A `hive` block as defined below.
+        /// A `Hive` block as defined below.
         /// </summary>
         [Input("hive")]
         public Input<Inputs.HadoopClusterMetastoresHiveArgs>? Hive { get; set; }
 
         /// <summary>
-        /// An `oozie` block as defined below.
+        /// An `Oozie` block as defined below.
         /// </summary>
         [Input("oozie")]
         public Input<Inputs.HadoopClusterMetastoresOozieArgs>? Oozie { get; set; }

@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Storage
     public partial class DataLakeGen2Filesystem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        /// One or more `Ace` blocks as defined below to specify the entries for the ACL for the path.
         /// </summary>
         [Output("aces")]
         public Output<ImmutableArray<Outputs.DataLakeGen2FilesystemAce>> Aces { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// 
-        /// &gt; **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+        /// &gt; **Note:** The Storage Account requires `AccountKind` to be either `StorageV2` or `BlobStorage`. In addition, `IsHnsEnabled` has to be set to `True`.
         /// </summary>
         [Output("group")]
         public Output<string> Group { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.DataLakeGen2FilesystemAceArgs>? _aces;
 
         /// <summary>
-        /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        /// One or more `Ace` blocks as defined below to specify the entries for the ACL for the path.
         /// </summary>
         public InputList<Inputs.DataLakeGen2FilesystemAceArgs> Aces
         {
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// 
-        /// &gt; **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+        /// &gt; **Note:** The Storage Account requires `AccountKind` to be either `StorageV2` or `BlobStorage`. In addition, `IsHnsEnabled` has to be set to `True`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.DataLakeGen2FilesystemAceGetArgs>? _aces;
 
         /// <summary>
-        /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        /// One or more `Ace` blocks as defined below to specify the entries for the ACL for the path.
         /// </summary>
         public InputList<Inputs.DataLakeGen2FilesystemAceGetArgs> Aces
         {
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// 
-        /// &gt; **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+        /// &gt; **Note:** The Storage Account requires `AccountKind` to be either `StorageV2` or `BlobStorage`. In addition, `IsHnsEnabled` has to be set to `True`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }

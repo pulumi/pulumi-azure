@@ -73,13 +73,13 @@ namespace Pulumi.Azure.IotCentral
     public partial class Organization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Custom `display_name` for the organization.
+        /// Custom `DisplayName` for the organization.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The application `id`. Changing this forces a new resource to be created.
+        /// The application `Id`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("iotcentralApplicationId")]
         public Output<string> IotcentralApplicationId { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.IotCentral
         public Output<string> OrganizationId { get; private set; } = null!;
 
         /// <summary>
-        /// The `organization_id` of the parent organization. Changing this forces a new resource to be created.
+        /// The `OrganizationId` of the parent organization. Changing this forces a new resource to be created.
         /// </summary>
         [Output("parentOrganizationId")]
         public Output<string?> ParentOrganizationId { get; private set; } = null!;
@@ -143,13 +143,13 @@ namespace Pulumi.Azure.IotCentral
     public sealed class OrganizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom `display_name` for the organization.
+        /// Custom `DisplayName` for the organization.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The application `id`. Changing this forces a new resource to be created.
+        /// The application `Id`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("iotcentralApplicationId", required: true)]
         public Input<string> IotcentralApplicationId { get; set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.IotCentral
         public Input<string> OrganizationId { get; set; } = null!;
 
         /// <summary>
-        /// The `organization_id` of the parent organization. Changing this forces a new resource to be created.
+        /// The `OrganizationId` of the parent organization. Changing this forces a new resource to be created.
         /// </summary>
         [Input("parentOrganizationId")]
         public Input<string>? ParentOrganizationId { get; set; }
@@ -175,13 +175,13 @@ namespace Pulumi.Azure.IotCentral
     public sealed class OrganizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom `display_name` for the organization.
+        /// Custom `DisplayName` for the organization.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The application `id`. Changing this forces a new resource to be created.
+        /// The application `Id`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("iotcentralApplicationId")]
         public Input<string>? IotcentralApplicationId { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.IotCentral
         public Input<string>? OrganizationId { get; set; }
 
         /// <summary>
-        /// The `organization_id` of the parent organization. Changing this forces a new resource to be created.
+        /// The `OrganizationId` of the parent organization. Changing this forces a new resource to be created.
         /// </summary>
         [Input("parentOrganizationId")]
         public Input<string>? ParentOrganizationId { get; set; }

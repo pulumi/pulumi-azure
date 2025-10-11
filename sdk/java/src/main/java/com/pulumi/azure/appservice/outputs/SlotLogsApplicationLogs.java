@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SlotLogsApplicationLogs {
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     private @Nullable SlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
@@ -25,7 +25,7 @@ public final class SlotLogsApplicationLogs {
 
     private SlotLogsApplicationLogs() {}
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     public Optional<SlotLogsApplicationLogsAzureBlobStorage> azureBlobStorage() {

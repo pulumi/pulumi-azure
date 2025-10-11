@@ -14,20 +14,20 @@ import java.util.Objects;
 @CustomType
 public final class GetManagedDiskEncryptionSetting {
     /**
-     * @return A `disk_encryption_key` block as defined above.
+     * @return A `diskEncryptionKey` block as defined above.
      * 
      */
     private List<GetManagedDiskEncryptionSettingDiskEncryptionKey> diskEncryptionKeys;
     private Boolean enabled;
     /**
-     * @return A `key_encryption_key` block as defined below.
+     * @return A `keyEncryptionKey` block as defined below.
      * 
      */
     private List<GetManagedDiskEncryptionSettingKeyEncryptionKey> keyEncryptionKeys;
 
     private GetManagedDiskEncryptionSetting() {}
     /**
-     * @return A `disk_encryption_key` block as defined above.
+     * @return A `diskEncryptionKey` block as defined above.
      * 
      */
     public List<GetManagedDiskEncryptionSettingDiskEncryptionKey> diskEncryptionKeys() {
@@ -37,7 +37,7 @@ public final class GetManagedDiskEncryptionSetting {
         return this.enabled;
     }
     /**
-     * @return A `key_encryption_key` block as defined below.
+     * @return A `keyEncryptionKey` block as defined below.
      * 
      */
     public List<GetManagedDiskEncryptionSettingKeyEncryptionKey> keyEncryptionKeys() {

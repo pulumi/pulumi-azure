@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPolicyAssignmentIdentity {
     /**
-     * @return A `identity_ids` block as defined below.
+     * @return A `identityIds` block as defined below.
      * 
      */
     private List<String> identityIds;
@@ -34,7 +34,7 @@ public final class GetPolicyAssignmentIdentity {
 
     private GetPolicyAssignmentIdentity() {}
     /**
-     * @return A `identity_ids` block as defined below.
+     * @return A `identityIds` block as defined below.
      * 
      */
     public List<String> identityIds() {

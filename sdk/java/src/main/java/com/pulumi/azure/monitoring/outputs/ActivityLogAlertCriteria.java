@@ -50,7 +50,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
      * 
-     * &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
+     * &gt; **Note:** The `recommendationType`, `recommendationCategory`, and `recommendationImpact` fields can only be defined if the `category` field has been set to `Recommendation`.
      * 
      */
     private @Nullable String recommendationImpact;
@@ -67,7 +67,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of names of resource groups monitored by the activity log alert.
      * 
-     * &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
+     * &gt; **Note:** `resourceGroup` and `resourceGroups` are mutually exclusive.
      * 
      */
     private @Nullable List<String> resourceGroups;
@@ -84,7 +84,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
      * 
-     * &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
+     * &gt; **Note:** `resourceId` and `resourceIds` are mutually exclusive.
      * 
      */
     private @Nullable List<String> resourceIds;
@@ -96,7 +96,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of names of resource providers monitored by the activity log alert.
      * 
-     * &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * &gt; **Note:** `resourceProvider` and `resourceProviders` are mutually exclusive.
      * 
      */
     private @Nullable List<String> resourceProviders;
@@ -108,7 +108,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of resource types monitored by the activity log alert.
      * 
-     * &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
+     * &gt; **Note:** `resourceType` and `resourceTypes` are mutually exclusive.
      * 
      */
     private @Nullable List<String> resourceTypes;
@@ -137,7 +137,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of sub status of the event.
      * 
-     * &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * &gt; **Note:** `subStatus` and `subStatuses` are mutually exclusive.
      * 
      */
     private @Nullable List<String> subStatuses;
@@ -190,7 +190,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
      * 
-     * &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
+     * &gt; **Note:** The `recommendationType`, `recommendationCategory`, and `recommendationImpact` fields can only be defined if the `category` field has been set to `Recommendation`.
      * 
      */
     public Optional<String> recommendationImpact() {
@@ -213,7 +213,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of names of resource groups monitored by the activity log alert.
      * 
-     * &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
+     * &gt; **Note:** `resourceGroup` and `resourceGroups` are mutually exclusive.
      * 
      */
     public List<String> resourceGroups() {
@@ -236,7 +236,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
      * 
-     * &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
+     * &gt; **Note:** `resourceId` and `resourceIds` are mutually exclusive.
      * 
      */
     public List<String> resourceIds() {
@@ -252,7 +252,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of names of resource providers monitored by the activity log alert.
      * 
-     * &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * &gt; **Note:** `resourceProvider` and `resourceProviders` are mutually exclusive.
      * 
      */
     public List<String> resourceProviders() {
@@ -268,7 +268,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of resource types monitored by the activity log alert.
      * 
-     * &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
+     * &gt; **Note:** `resourceType` and `resourceTypes` are mutually exclusive.
      * 
      */
     public List<String> resourceTypes() {
@@ -307,7 +307,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of sub status of the event.
      * 
-     * &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * &gt; **Note:** `subStatus` and `subStatuses` are mutually exclusive.
      * 
      */
     public List<String> subStatuses() {

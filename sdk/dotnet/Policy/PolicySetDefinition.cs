@@ -111,13 +111,13 @@ namespace Pulumi.Azure.Policy
         public Output<string?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `policy_definition_group` blocks as defined below.
+        /// One or more `PolicyDefinitionGroup` blocks as defined below.
         /// </summary>
         [Output("policyDefinitionGroups")]
         public Output<ImmutableArray<Outputs.PolicySetDefinitionPolicyDefinitionGroup>> PolicyDefinitionGroups { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `policy_definition_reference` blocks as defined below.
+        /// One or more `PolicyDefinitionReference` blocks as defined below.
         /// </summary>
         [Output("policyDefinitionReferences")]
         public Output<ImmutableArray<Outputs.PolicySetDefinitionPolicyDefinitionReference>> PolicyDefinitionReferences { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Policy
         private InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupArgs>? _policyDefinitionGroups;
 
         /// <summary>
-        /// One or more `policy_definition_group` blocks as defined below.
+        /// One or more `PolicyDefinitionGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupArgs> PolicyDefinitionGroups
         {
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Policy
         private InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs>? _policyDefinitionReferences;
 
         /// <summary>
-        /// One or more `policy_definition_reference` blocks as defined below.
+        /// One or more `PolicyDefinitionReference` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs> PolicyDefinitionReferences
         {
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Policy
         private InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupGetArgs>? _policyDefinitionGroups;
 
         /// <summary>
-        /// One or more `policy_definition_group` blocks as defined below.
+        /// One or more `PolicyDefinitionGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupGetArgs> PolicyDefinitionGroups
         {
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.Policy
         private InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceGetArgs>? _policyDefinitionReferences;
 
         /// <summary>
-        /// One or more `policy_definition_reference` blocks as defined below.
+        /// One or more `PolicyDefinitionReference` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceGetArgs> PolicyDefinitionReferences
         {

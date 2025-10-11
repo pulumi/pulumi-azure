@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsFunctionAppSlotAuthSettings
     {
         /// <summary>
-        /// an `active_directory` block as detailed below.
+        /// an `ActiveDirectory` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsActiveDirectory? ActiveDirectory;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
         /// 
-        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `UnauthenticatedClientAction` is set to "RedirectToLoginPage".
         /// </summary>
         public readonly string? DefaultProvider;
         /// <summary>
@@ -36,15 +36,15 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// a `facebook` block as detailed below.
+        /// a `Facebook` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsFacebook? Facebook;
         /// <summary>
-        /// a `github` block as detailed below.
+        /// a `Github` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsGithub? Github;
         /// <summary>
-        /// a `google` block as detailed below.
+        /// a `Google` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsGoogle? Google;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Issuer;
         /// <summary>
-        /// a `microsoft` block as detailed below.
+        /// a `Microsoft` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsMicrosoft? Microsoft;
         /// <summary>
@@ -66,11 +66,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly double? TokenRefreshExtensionHours;
         /// <summary>
-        /// Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        /// Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `False`.
         /// </summary>
         public readonly bool? TokenStoreEnabled;
         /// <summary>
-        /// a `twitter` block as detailed below.
+        /// a `Twitter` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsTwitter? Twitter;
         /// <summary>

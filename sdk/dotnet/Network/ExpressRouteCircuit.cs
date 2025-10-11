@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Network
     public partial class ExpressRouteCircuit : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `False`.
         /// </summary>
         [Output("allowClassicOperations")]
         public Output<bool?> AllowClassicOperations { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
         /// 
-        /// &gt; **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+        /// &gt; **Note:** The `ExpressRoutePortId` and the `BandwidthInGbps` should be set together and they conflict with `ServiceProviderName`, `PeeringLocation` and `BandwidthInMbps`.
         /// </summary>
         [Output("bandwidthInGbps")]
         public Output<double?> BandwidthInGbps { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
         /// 
-        /// &gt; **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+        /// &gt; **Note:** The `ServiceProviderName`, the `PeeringLocation` and the `BandwidthInMbps` should be set together and they conflict with `ExpressRoutePortId` and `BandwidthInGbps`.
         /// </summary>
         [Output("bandwidthInMbps")]
         public Output<int?> BandwidthInMbps { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> PeeringLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `False`.
         /// </summary>
         [Output("rateLimitingEnabled")]
         public Output<bool?> RateLimitingEnabled { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ServiceProviderProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block for the ExpressRoute circuit as documented below.
+        /// A `Sku` block for the ExpressRoute circuit as documented below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ExpressRouteCircuitSku> Sku { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Network
     public sealed class ExpressRouteCircuitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `False`.
         /// </summary>
         [Input("allowClassicOperations")]
         public Input<bool>? AllowClassicOperations { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
         /// 
-        /// &gt; **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+        /// &gt; **Note:** The `ExpressRoutePortId` and the `BandwidthInGbps` should be set together and they conflict with `ServiceProviderName`, `PeeringLocation` and `BandwidthInMbps`.
         /// </summary>
         [Input("bandwidthInGbps")]
         public Input<double>? BandwidthInGbps { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
         /// 
-        /// &gt; **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+        /// &gt; **Note:** The `ServiceProviderName`, the `PeeringLocation` and the `BandwidthInMbps` should be set together and they conflict with `ExpressRoutePortId` and `BandwidthInGbps`.
         /// </summary>
         [Input("bandwidthInMbps")]
         public Input<int>? BandwidthInMbps { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? PeeringLocation { get; set; }
 
         /// <summary>
-        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `False`.
         /// </summary>
         [Input("rateLimitingEnabled")]
         public Input<bool>? RateLimitingEnabled { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ServiceProviderName { get; set; }
 
         /// <summary>
-        /// A `sku` block for the ExpressRoute circuit as documented below.
+        /// A `Sku` block for the ExpressRoute circuit as documented below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ExpressRouteCircuitSkuArgs> Sku { get; set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Network
     public sealed class ExpressRouteCircuitState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `False`.
         /// </summary>
         [Input("allowClassicOperations")]
         public Input<bool>? AllowClassicOperations { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
         /// 
-        /// &gt; **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+        /// &gt; **Note:** The `ExpressRoutePortId` and the `BandwidthInGbps` should be set together and they conflict with `ServiceProviderName`, `PeeringLocation` and `BandwidthInMbps`.
         /// </summary>
         [Input("bandwidthInGbps")]
         public Input<double>? BandwidthInGbps { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
         /// 
-        /// &gt; **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+        /// &gt; **Note:** The `ServiceProviderName`, the `PeeringLocation` and the `BandwidthInMbps` should be set together and they conflict with `ExpressRoutePortId` and `BandwidthInGbps`.
         /// </summary>
         [Input("bandwidthInMbps")]
         public Input<int>? BandwidthInMbps { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? PeeringLocation { get; set; }
 
         /// <summary>
-        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `False`.
         /// </summary>
         [Input("rateLimitingEnabled")]
         public Input<bool>? RateLimitingEnabled { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ServiceProviderProvisioningState { get; set; }
 
         /// <summary>
-        /// A `sku` block for the ExpressRoute circuit as documented below.
+        /// A `Sku` block for the ExpressRoute circuit as documented below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ExpressRouteCircuitSkuGetArgs>? Sku { get; set; }

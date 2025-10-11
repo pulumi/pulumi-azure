@@ -149,7 +149,7 @@ namespace Pulumi.Azure.CosmosDB
     {
         public readonly string AccountName;
         /// <summary>
-        /// An `autoscale_settings` block as defined below.
+        /// An `AutoscaleSettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSqlDatabaseAutoscaleSettingResult> AutoscaleSettings;
         /// <summary>

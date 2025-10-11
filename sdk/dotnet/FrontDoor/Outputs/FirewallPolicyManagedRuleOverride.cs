@@ -14,7 +14,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class FirewallPolicyManagedRuleOverride
     {
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyManagedRuleOverrideExclusion> Exclusions;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string RuleGroupName;
         /// <summary>
-        /// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        /// One or more `Rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyManagedRuleOverrideRule> Rules;
 

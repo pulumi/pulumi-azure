@@ -169,14 +169,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
      * 
      */
     @Import(name="environment")
     private @Nullable Output<String> environment;
 
     /**
-     * @return The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
+     * @return The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
      * 
      */
     public Optional<Output<String>> environment() {
@@ -326,14 +326,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
+     * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
      * 
      */
     @Import(name="resourceProvidersToRegisters", json=true)
     private @Nullable Output<List<String>> resourceProvidersToRegisters;
 
     /**
-     * @return A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
+     * @return A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
      * 
      */
     public Optional<Output<List<String>>> resourceProvidersToRegisters() {
@@ -344,10 +344,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
      * 
      * @deprecated
-     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
+     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
      * 
      */
-    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead. */
+    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
     @Import(name="skipProviderRegistration", json=true)
     private @Nullable Output<Boolean> skipProviderRegistration;
 
@@ -355,10 +355,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * @return Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
      * 
      * @deprecated
-     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
+     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
      * 
      */
-    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead. */
+    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
     public Optional<Output<Boolean>> skipProviderRegistration() {
         return Optional.ofNullable(this.skipProviderRegistration);
     }
@@ -734,7 +734,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
+         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
+         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
          * 
          * @return builder
          * 
@@ -953,7 +953,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
+         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
          * 
          * @return builder
          * 
@@ -964,7 +964,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
+         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
          * 
          * @return builder
          * 
@@ -974,7 +974,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
+         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
          * 
          * @return builder
          * 
@@ -989,10 +989,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
+         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
          * 
          */
-        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead. */
+        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
         public Builder skipProviderRegistration(@Nullable Output<Boolean> skipProviderRegistration) {
             $.skipProviderRegistration = skipProviderRegistration;
             return this;
@@ -1004,10 +1004,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
+         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
          * 
          */
-        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead. */
+        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
         public Builder skipProviderRegistration(Boolean skipProviderRegistration) {
             return skipProviderRegistration(Output.of(skipProviderRegistration));
         }

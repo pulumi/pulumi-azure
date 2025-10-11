@@ -169,7 +169,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+     * &gt; **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
      * 
      */
     @Export(name="infrastructureResourceGroupName", refs={String.class}, tree="[0]")
@@ -178,7 +178,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * @return Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+     * &gt; **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
      * 
      */
     public Output<Optional<String>> infrastructureResourceGroupName() {
@@ -205,7 +205,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * &gt; **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
      * 
      */
     @Export(name="internalLoadBalancerEnabled", refs={Boolean.class}, tree="[0]")
@@ -214,7 +214,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * @return Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * &gt; **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
      * 
      */
     public Output<Optional<Boolean>> internalLoadBalancerEnabled() {
@@ -237,7 +237,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
-     * &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+     * &gt; **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
      * 
      */
     @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
@@ -246,7 +246,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
-     * &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+     * &gt; **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
      * 
      */
     public Output<Optional<String>> logAnalyticsWorkspaceId() {
@@ -313,14 +313,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.platformReservedCidr;
     }
     /**
-     * The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+     * The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
      * 
      */
     @Export(name="platformReservedDnsIpAddress", refs={String.class}, tree="[0]")
     private Output<String> platformReservedDnsIpAddress;
 
     /**
-     * @return The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+     * @return The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
      * 
      */
     public Output<String> platformReservedDnsIpAddress() {
@@ -369,14 +369,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * One or more `workload_profile` blocks as defined below.
+     * One or more `workloadProfile` blocks as defined below.
      * 
      */
     @Export(name="workloadProfiles", refs={List.class,EnvironmentWorkloadProfile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentWorkloadProfile>> workloadProfiles;
 
     /**
-     * @return One or more `workload_profile` blocks as defined below.
+     * @return One or more `workloadProfile` blocks as defined below.
      * 
      */
     public Output<Optional<List<EnvironmentWorkloadProfile>>> workloadProfiles() {
@@ -385,7 +385,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * &gt; **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
      * 
      */
     @Export(name="zoneRedundancyEnabled", refs={Boolean.class}, tree="[0]")
@@ -394,7 +394,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * @return Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * &gt; **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
      * 
      */
     public Output<Optional<Boolean>> zoneRedundancyEnabled() {

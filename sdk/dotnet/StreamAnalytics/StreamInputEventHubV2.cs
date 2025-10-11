@@ -130,7 +130,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string?> PartitionKey { get; private set; } = null!;
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Output("serialization")]
         public Output<Outputs.StreamInputEventHubV2Serialization> Serialization { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization", required: true)]
         public Input<Inputs.StreamInputEventHubV2SerializationArgs> Serialization { get; set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization")]
         public Input<Inputs.StreamInputEventHubV2SerializationGetArgs>? Serialization { get; set; }

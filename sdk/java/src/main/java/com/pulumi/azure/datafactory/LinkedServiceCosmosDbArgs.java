@@ -19,14 +19,14 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
     public static final LinkedServiceCosmosDbArgs Empty = new LinkedServiceCosmosDbArgs();
 
     /**
-     * The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
+     * The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
      * 
      */
     @Import(name="accountEndpoint")
     private @Nullable Output<String> accountEndpoint;
 
     /**
-     * @return The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
+     * @return The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
      * 
      */
     public Optional<Output<String>> accountEndpoint() {
@@ -34,14 +34,14 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
+     * The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
      * 
      */
     @Import(name="accountKey")
     private @Nullable Output<String> accountKey;
 
     /**
-     * @return The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
+     * @return The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
      * 
      */
     public Optional<Output<String>> accountKey() {
@@ -83,14 +83,14 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+     * The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+     * @return The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -113,14 +113,14 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the database. Required if `connection_string` is unspecified.
+     * The name of the database. Required if `connectionString` is unspecified.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The name of the database. Required if `connection_string` is unspecified.
+     * @return The name of the database. Required if `connectionString` is unspecified.
      * 
      */
     public Optional<Output<String>> database() {
@@ -222,7 +222,7 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountEndpoint The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
+         * @param accountEndpoint The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountEndpoint The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
+         * @param accountEndpoint The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountKey The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
+         * @param accountKey The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountKey The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
+         * @param accountKey The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param connectionString The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+         * @param connectionString The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param connectionString The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+         * @param connectionString The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param database The name of the database. Required if `connection_string` is unspecified.
+         * @param database The name of the database. Required if `connectionString` is unspecified.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class LinkedServiceCosmosDbArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param database The name of the database. Required if `connection_string` is unspecified.
+         * @param database The name of the database. Required if `connectionString` is unspecified.
          * 
          * @return builder
          * 

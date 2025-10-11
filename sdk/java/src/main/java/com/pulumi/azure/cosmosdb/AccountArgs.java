@@ -37,14 +37,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `analytical_storage` block as defined below.
+     * An `analyticalStorage` block as defined below.
      * 
      */
     @Import(name="analyticalStorage")
     private @Nullable Output<AccountAnalyticalStorageArgs> analyticalStorage;
 
     /**
-     * @return An `analytical_storage` block as defined below.
+     * @return An `analyticalStorage` block as defined below.
      * 
      */
     public Optional<Output<AccountAnalyticalStorageArgs>> analyticalStorage() {
@@ -118,7 +118,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
+     * &gt; **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
      * 
      */
     @Import(name="createMode")
@@ -127,7 +127,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
+     * &gt; **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
      * 
      */
     public Optional<Output<String>> createMode() {
@@ -430,7 +430,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param analyticalStorage An `analytical_storage` block as defined below.
+         * @param analyticalStorage An `analyticalStorage` block as defined below.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param analyticalStorage An `analytical_storage` block as defined below.
+         * @param analyticalStorage An `analyticalStorage` block as defined below.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param createMode The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
+         * &gt; **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param createMode The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
+         * &gt; **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
          * 
          * @return builder
          * 

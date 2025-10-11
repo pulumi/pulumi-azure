@@ -34,14 +34,14 @@ public final class ApiDiagnosticFrontendResponseArgs extends com.pulumi.resource
     }
 
     /**
-     * A `data_masking` block as defined below.
+     * A `dataMasking` block as defined below.
      * 
      */
     @Import(name="dataMasking")
     private @Nullable Output<ApiDiagnosticFrontendResponseDataMaskingArgs> dataMasking;
 
     /**
-     * @return A `data_masking` block as defined below.
+     * @return A `dataMasking` block as defined below.
      * 
      */
     public Optional<Output<ApiDiagnosticFrontendResponseDataMaskingArgs>> dataMasking() {
@@ -111,7 +111,7 @@ public final class ApiDiagnosticFrontendResponseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dataMasking A `data_masking` block as defined below.
+         * @param dataMasking A `dataMasking` block as defined below.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ApiDiagnosticFrontendResponseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dataMasking A `data_masking` block as defined below.
+         * @param dataMasking A `dataMasking` block as defined below.
          * 
          * @return builder
          * 

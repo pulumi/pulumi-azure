@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class AutoscaleSettingNotification
     {
         /// <summary>
-        /// A `email` block as defined below.
+        /// A `Email` block as defined below.
         /// </summary>
         public readonly Outputs.AutoscaleSettingNotificationEmail? Email;
         /// <summary>
-        /// One or more `webhook` blocks as defined below.
+        /// One or more `Webhook` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutoscaleSettingNotificationWebhook> Webhooks;
 

@@ -38,11 +38,11 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
      * 
      * &gt; **Note:** Only standard types of storage accounts are allowed.
      * 
-     * &gt; **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
+     * &gt; **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
      * 
-     * &gt; **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
      * 
-     * &gt; **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
      * 
      */
     @Import(name="defaultLogStorageAccountId")
@@ -53,11 +53,11 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
      * 
      * &gt; **Note:** Only standard types of storage accounts are allowed.
      * 
-     * &gt; **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
+     * &gt; **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
      * 
-     * &gt; **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
      * 
-     * &gt; **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> defaultLogStorageAccountId() {
@@ -67,11 +67,11 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     /**
      * The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
      * 
-     * &gt; **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
+     * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
      * 
-     * &gt; **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
      * 
-     * &gt; **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
      * 
      */
     @Import(name="defaultRecoveryDiskType")
@@ -80,11 +80,11 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     /**
      * @return The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
      * 
-     * &gt; **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
+     * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
      * 
-     * &gt; **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
      * 
-     * &gt; **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> defaultRecoveryDiskType() {
@@ -94,9 +94,9 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     /**
      * The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
      * 
-     * &gt; **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
      * 
-     * &gt; **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
      * 
      */
     @Import(name="defaultTargetDiskEncryptionSetId")
@@ -105,9 +105,9 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     /**
      * @return The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
      * 
-     * &gt; **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
      * 
-     * &gt; **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> defaultTargetDiskEncryptionSetId() {
@@ -130,18 +130,18 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `managed_disk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
+     * One or more `managedDisk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
      * 
-     * &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+     * &gt; **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
      * 
      */
     @Import(name="managedDisks")
     private @Nullable Output<List<VmwareReplicatedVmManagedDiskArgs>> managedDisks;
 
     /**
-     * @return One or more `managed_disk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
+     * @return One or more `managedDisk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
      * 
-     * &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+     * &gt; **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
      * 
      */
     public Optional<Output<List<VmwareReplicatedVmManagedDiskArgs>>> managedDisks() {
@@ -179,14 +179,14 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `network_interface` block as defined below.
+     * One or more `networkInterface` block as defined below.
      * 
      */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<VmwareReplicatedVmNetworkInterfaceArgs>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` block as defined below.
+     * @return One or more `networkInterface` block as defined below.
      * 
      */
     public Optional<Output<List<VmwareReplicatedVmNetworkInterfaceArgs>>> networkInterfaces() {
@@ -286,7 +286,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     /**
      * The ID of network to use when a failover is done.
      * 
-     * &gt; **Note:** `target_network_id` is required when `network_interface` is specified.
+     * &gt; **Note:** `targetNetworkId` is required when `networkInterface` is specified.
      * 
      */
     @Import(name="targetNetworkId")
@@ -295,7 +295,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     /**
      * @return The ID of network to use when a failover is done.
      * 
-     * &gt; **Note:** `target_network_id` is required when `network_interface` is specified.
+     * &gt; **Note:** `targetNetworkId` is required when `networkInterface` is specified.
      * 
      */
     public Optional<Output<String>> targetNetworkId() {
@@ -305,7 +305,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     /**
      * The ID of Proximity Placement Group the new VM should belong to when a failover is done.
      * 
-     * &gt; **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
+     * &gt; **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
      * 
      */
     @Import(name="targetProximityPlacementGroupId")
@@ -314,7 +314,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     /**
      * @return The ID of Proximity Placement Group the new VM should belong to when a failover is done.
      * 
-     * &gt; **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
+     * &gt; **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
      * 
      */
     public Optional<Output<String>> targetProximityPlacementGroupId() {
@@ -467,11 +467,11 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** Only standard types of storage accounts are allowed.
          * 
-         * &gt; **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
+         * &gt; **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
          * 
-         * &gt; **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
+         * &gt; **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
          * 
-         * &gt; **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
+         * &gt; **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -486,11 +486,11 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** Only standard types of storage accounts are allowed.
          * 
-         * &gt; **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
+         * &gt; **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
          * 
-         * &gt; **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
+         * &gt; **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
          * 
-         * &gt; **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
+         * &gt; **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -502,11 +502,11 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         /**
          * @param defaultRecoveryDiskType The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
          * 
-         * &gt; **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
+         * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
          * 
-         * &gt; **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
+         * &gt; **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
          * 
-         * &gt; **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
+         * &gt; **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -519,11 +519,11 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         /**
          * @param defaultRecoveryDiskType The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
          * 
-         * &gt; **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
+         * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
          * 
-         * &gt; **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
+         * &gt; **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
          * 
-         * &gt; **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
+         * &gt; **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -535,9 +535,9 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         /**
          * @param defaultTargetDiskEncryptionSetId The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
          * 
-         * &gt; **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
+         * &gt; **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
          * 
-         * &gt; **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
+         * &gt; **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -550,9 +550,9 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         /**
          * @param defaultTargetDiskEncryptionSetId The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
          * 
-         * &gt; **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
+         * &gt; **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
          * 
-         * &gt; **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
+         * &gt; **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -583,9 +583,9 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
+         * @param managedDisks One or more `managedDisk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
          * 
-         * &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+         * &gt; **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -596,9 +596,9 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
+         * @param managedDisks One or more `managedDisk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
          * 
-         * &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+         * &gt; **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -608,9 +608,9 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
+         * @param managedDisks One or more `managedDisk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
          * 
-         * &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+         * &gt; **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` block as defined below.
+         * @param networkInterfaces One or more `networkInterface` block as defined below.
          * 
          * @return builder
          * 
@@ -673,7 +673,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` block as defined below.
+         * @param networkInterfaces One or more `networkInterface` block as defined below.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` block as defined below.
+         * @param networkInterfaces One or more `networkInterface` block as defined below.
          * 
          * @return builder
          * 
@@ -821,7 +821,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         /**
          * @param targetNetworkId The ID of network to use when a failover is done.
          * 
-         * &gt; **Note:** `target_network_id` is required when `network_interface` is specified.
+         * &gt; **Note:** `targetNetworkId` is required when `networkInterface` is specified.
          * 
          * @return builder
          * 
@@ -834,7 +834,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         /**
          * @param targetNetworkId The ID of network to use when a failover is done.
          * 
-         * &gt; **Note:** `target_network_id` is required when `network_interface` is specified.
+         * &gt; **Note:** `targetNetworkId` is required when `networkInterface` is specified.
          * 
          * @return builder
          * 
@@ -846,7 +846,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         /**
          * @param targetProximityPlacementGroupId The ID of Proximity Placement Group the new VM should belong to when a failover is done.
          * 
-         * &gt; **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
+         * &gt; **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
          * 
          * @return builder
          * 
@@ -859,7 +859,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         /**
          * @param targetProximityPlacementGroupId The ID of Proximity Placement Group the new VM should belong to when a failover is done.
          * 
-         * &gt; **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
+         * &gt; **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
          * 
          * @return builder
          * 

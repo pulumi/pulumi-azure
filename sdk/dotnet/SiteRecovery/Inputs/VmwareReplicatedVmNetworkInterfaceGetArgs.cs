@@ -13,7 +13,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class VmwareReplicatedVmNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether this `network_interface` is primary for the replicated VM.
+        /// Whether this `NetworkInterface` is primary for the replicated VM.
         /// </summary>
         [Input("isPrimary", required: true)]
         public Input<bool> IsPrimary { get; set; } = null!;

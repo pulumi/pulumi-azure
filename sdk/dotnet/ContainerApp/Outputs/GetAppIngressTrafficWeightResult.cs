@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int Percentage;
         /// <summary>
-        /// The suffix string to which this `traffic_weight` applies.
+        /// The suffix string to which this `TrafficWeight` applies.
         /// </summary>
         public readonly string RevisionSuffix;
 

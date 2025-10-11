@@ -64,7 +64,7 @@ public final class NamespaceSchemaGroupArgs extends com.pulumi.resources.Resourc
     /**
      * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
+     * &gt; **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
      * 
      */
     @Import(name="schemaType", required=true)
@@ -73,7 +73,7 @@ public final class NamespaceSchemaGroupArgs extends com.pulumi.resources.Resourc
     /**
      * @return Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
+     * &gt; **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
      * 
      */
     public Output<String> schemaType() {
@@ -173,7 +173,7 @@ public final class NamespaceSchemaGroupArgs extends com.pulumi.resources.Resourc
         /**
          * @param schemaType Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
+         * &gt; **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class NamespaceSchemaGroupArgs extends com.pulumi.resources.Resourc
         /**
          * @param schemaType Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
+         * &gt; **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
          * 
          * @return builder
          * 

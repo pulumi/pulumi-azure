@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string> Destination { get; set; } = null!;
 
         /// <summary>
-        /// Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+        /// Append the remaining path after the source pattern to the new destination path? Possible values `True` or `False`. Defaults to `False`.
         /// </summary>
         [Input("preserveUnmatchedPath")]
         public Input<bool>? PreserveUnmatchedPath { get; set; }

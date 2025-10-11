@@ -188,14 +188,14 @@ public class ThreeTierVirtualInstance extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.tags);
     }
     /**
-     * A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `threeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="threeTierConfiguration", refs={ThreeTierVirtualInstanceThreeTierConfiguration.class}, tree="[0]")
     private Output<ThreeTierVirtualInstanceThreeTierConfiguration> threeTierConfiguration;
 
     /**
-     * @return A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `threeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ThreeTierVirtualInstanceThreeTierConfiguration> threeTierConfiguration() {

@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppAuthSettings {
     /**
-     * @return An `active_directory` block as defined above.
+     * @return An `activeDirectory` block as defined above.
      * 
      */
     private @Nullable LinuxWebAppAuthSettingsActiveDirectory activeDirectory;
@@ -40,7 +40,7 @@ public final class LinuxWebAppAuthSettings {
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
      * 
-     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     private @Nullable String defaultProvider;
@@ -104,7 +104,7 @@ public final class LinuxWebAppAuthSettings {
 
     private LinuxWebAppAuthSettings() {}
     /**
-     * @return An `active_directory` block as defined above.
+     * @return An `activeDirectory` block as defined above.
      * 
      */
     public Optional<LinuxWebAppAuthSettingsActiveDirectory> activeDirectory() {
@@ -127,7 +127,7 @@ public final class LinuxWebAppAuthSettings {
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
      * 
-     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     public Optional<String> defaultProvider() {

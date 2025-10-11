@@ -18,11 +18,11 @@ namespace Pulumi.Azure.WorkloadsSAP.Outputs
         /// </summary>
         public readonly string? AvailabilitySetName;
         /// <summary>
-        /// A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+        /// A `LoadBalancer` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancer? LoadBalancer;
         /// <summary>
-        /// One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `VirtualMachine` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachine> VirtualMachines;
 

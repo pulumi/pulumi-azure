@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class GetDataCollectionRuleDataSourceSyslogResult
     {
         /// <summary>
-        /// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+        /// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `Auth`, `Authpriv`, `Cron`, `Daemon`, `Kern`, `Lpr`, `Mail`, `Mark`, `News`, `Syslog`, `User`, `Uucp`, `Local0`, `Local1`, `Local2`, `Local3`, `Local4`, `Local5`, `Local6`, `Local7`,and `*`.
         /// </summary>
         public readonly ImmutableArray<string> FacilityNames;
         /// <summary>

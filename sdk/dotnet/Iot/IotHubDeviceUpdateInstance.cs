@@ -101,13 +101,13 @@ namespace Pulumi.Azure.Iot
         public Output<string> DeviceUpdateAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        /// Whether the diagnostic log collection is enabled. Possible values are `True` and `False`. Defaults to `False`.
         /// </summary>
         [Output("diagnosticEnabled")]
         public Output<bool?> DiagnosticEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `diagnostic_storage_account` block as defined below.
+        /// A `DiagnosticStorageAccount` block as defined below.
         /// </summary>
         [Output("diagnosticStorageAccount")]
         public Output<Outputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccount?> DiagnosticStorageAccount { get; private set; } = null!;
@@ -183,13 +183,13 @@ namespace Pulumi.Azure.Iot
         public Input<string> DeviceUpdateAccountId { get; set; } = null!;
 
         /// <summary>
-        /// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        /// Whether the diagnostic log collection is enabled. Possible values are `True` and `False`. Defaults to `False`.
         /// </summary>
         [Input("diagnosticEnabled")]
         public Input<bool>? DiagnosticEnabled { get; set; }
 
         /// <summary>
-        /// A `diagnostic_storage_account` block as defined below.
+        /// A `DiagnosticStorageAccount` block as defined below.
         /// </summary>
         [Input("diagnosticStorageAccount")]
         public Input<Inputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs>? DiagnosticStorageAccount { get; set; }
@@ -233,13 +233,13 @@ namespace Pulumi.Azure.Iot
         public Input<string>? DeviceUpdateAccountId { get; set; }
 
         /// <summary>
-        /// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        /// Whether the diagnostic log collection is enabled. Possible values are `True` and `False`. Defaults to `False`.
         /// </summary>
         [Input("diagnosticEnabled")]
         public Input<bool>? DiagnosticEnabled { get; set; }
 
         /// <summary>
-        /// A `diagnostic_storage_account` block as defined below.
+        /// A `DiagnosticStorageAccount` block as defined below.
         /// </summary>
         [Input("diagnosticStorageAccount")]
         public Input<Inputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccountGetArgs>? DiagnosticStorageAccount { get; set; }

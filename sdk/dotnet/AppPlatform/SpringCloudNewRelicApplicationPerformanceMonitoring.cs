@@ -77,7 +77,7 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudNewRelicApplicationPerformanceMonitoring : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether enable the agent. Defaults to `true`.
+        /// Specifies whether enable the agent. Defaults to `True`.
         /// </summary>
         [Output("agentEnabled")]
         public Output<bool?> AgentEnabled { get; private set; } = null!;
@@ -95,31 +95,31 @@ namespace Pulumi.Azure.AppPlatform
         public Output<int?> AppServerPort { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `false`.
+        /// Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `False`.
         /// </summary>
         [Output("auditModeEnabled")]
         public Output<bool?> AuditModeEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether enable the reporting of data separately for each web app. Defaults to `false`.
+        /// Specifies whether enable the reporting of data separately for each web app. Defaults to `False`.
         /// </summary>
         [Output("autoAppNamingEnabled")]
         public Output<bool?> AutoAppNamingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether enable the component-based transaction naming. Defaults to `true`.
+        /// Specifies whether enable the component-based transaction naming. Defaults to `True`.
         /// </summary>
         [Output("autoTransactionNamingEnabled")]
         public Output<bool?> AutoTransactionNamingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
+        /// Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `True`.
         /// </summary>
         [Output("customTracingEnabled")]
         public Output<bool?> CustomTracingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
+        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `False`.
         /// </summary>
         [Output("globallyEnabled")]
         public Output<bool?> GloballyEnabled { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudNewRelicApplicationPerformanceMonitoringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether enable the agent. Defaults to `true`.
+        /// Specifies whether enable the agent. Defaults to `True`.
         /// </summary>
         [Input("agentEnabled")]
         public Input<bool>? AgentEnabled { get; set; }
@@ -217,31 +217,31 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? AppServerPort { get; set; }
 
         /// <summary>
-        /// Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `false`.
+        /// Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `False`.
         /// </summary>
         [Input("auditModeEnabled")]
         public Input<bool>? AuditModeEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether enable the reporting of data separately for each web app. Defaults to `false`.
+        /// Specifies whether enable the reporting of data separately for each web app. Defaults to `False`.
         /// </summary>
         [Input("autoAppNamingEnabled")]
         public Input<bool>? AutoAppNamingEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether enable the component-based transaction naming. Defaults to `true`.
+        /// Specifies whether enable the component-based transaction naming. Defaults to `True`.
         /// </summary>
         [Input("autoTransactionNamingEnabled")]
         public Input<bool>? AutoTransactionNamingEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
+        /// Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `True`.
         /// </summary>
         [Input("customTracingEnabled")]
         public Input<bool>? CustomTracingEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
+        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `False`.
         /// </summary>
         [Input("globallyEnabled")]
         public Input<bool>? GloballyEnabled { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudNewRelicApplicationPerformanceMonitoringState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether enable the agent. Defaults to `true`.
+        /// Specifies whether enable the agent. Defaults to `True`.
         /// </summary>
         [Input("agentEnabled")]
         public Input<bool>? AgentEnabled { get; set; }
@@ -313,31 +313,31 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? AppServerPort { get; set; }
 
         /// <summary>
-        /// Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `false`.
+        /// Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `False`.
         /// </summary>
         [Input("auditModeEnabled")]
         public Input<bool>? AuditModeEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether enable the reporting of data separately for each web app. Defaults to `false`.
+        /// Specifies whether enable the reporting of data separately for each web app. Defaults to `False`.
         /// </summary>
         [Input("autoAppNamingEnabled")]
         public Input<bool>? AutoAppNamingEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether enable the component-based transaction naming. Defaults to `true`.
+        /// Specifies whether enable the component-based transaction naming. Defaults to `True`.
         /// </summary>
         [Input("autoTransactionNamingEnabled")]
         public Input<bool>? AutoTransactionNamingEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
+        /// Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `True`.
         /// </summary>
         [Input("customTracingEnabled")]
         public Input<bool>? CustomTracingEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
+        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `False`.
         /// </summary>
         [Input("globallyEnabled")]
         public Input<bool>? GloballyEnabled { get; set; }

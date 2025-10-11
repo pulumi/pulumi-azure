@@ -18,7 +18,7 @@ public final class WindowsVirtualMachineSecretCertificate {
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
-     * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     private String url;
@@ -34,7 +34,7 @@ public final class WindowsVirtualMachineSecretCertificate {
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
-     * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     public String url() {

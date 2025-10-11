@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SubscriptionPolicyAssignmentNonComplianceMessage {
     /**
-     * @return The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+     * @return The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
      * 
      */
     private String content;
@@ -25,7 +25,7 @@ public final class SubscriptionPolicyAssignmentNonComplianceMessage {
 
     private SubscriptionPolicyAssignmentNonComplianceMessage() {}
     /**
-     * @return The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+     * @return The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
      * 
      */
     public String content() {

@@ -91,7 +91,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * 
      * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
      * 
-     * &gt; **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
+     * &gt; **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
      * 
      */
     @Export(name="customerManagedKeyEnabled", refs={Boolean.class}, tree="[0]")
@@ -102,7 +102,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * 
      * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
      * 
-     * &gt; **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
+     * &gt; **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
      * 
      */
     public Output<Optional<Boolean>> customerManagedKeyEnabled() {

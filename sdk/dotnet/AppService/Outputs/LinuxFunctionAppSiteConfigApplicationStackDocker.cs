@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The password for the account to use to connect to the registry.
         /// 
-        /// &gt; **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        /// &gt; **Note:** This value is required if `ContainerRegistryUseManagedIdentity` is not set to `True`.
         /// </summary>
         public readonly string? RegistryPassword;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The username to use for connections to the registry.
         /// 
-        /// &gt; **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        /// &gt; **Note:** This value is required if `ContainerRegistryUseManagedIdentity` is not set to `True`.
         /// </summary>
         public readonly string? RegistryUsername;
 

@@ -19,13 +19,13 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<bool>? AllowInsecureConnections { get; set; }
 
         /// <summary>
-        /// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+        /// The client certificate mode for the Ingress. Possible values are `Require`, `Accept`, and `Ignore`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.AppIngressCorsArgs>? Cors { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppIngressCustomDomainArgs>? _customDomains;
 
         /// <summary>
-        /// One or more `custom_domain` block as detailed below.
+        /// One or more `CustomDomain` block as detailed below.
         /// </summary>
         public InputList<Inputs.AppIngressCustomDomainArgs> CustomDomains
         {
@@ -45,13 +45,13 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The exposed port on the container for the Ingress traffic.
         /// 
-        /// &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+        /// &gt; **Note:** `ExposedPort` can only be specified when `Transport` is set to `Tcp`.
         /// </summary>
         [Input("exposedPort")]
         public Input<int>? ExposedPort { get; set; }
 
         /// <summary>
-        /// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
+        /// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `False`.
         /// </summary>
         [Input("externalEnabled")]
         public Input<bool>? ExternalEnabled { get; set; }
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppIngressIpSecurityRestrictionArgs>? _ipSecurityRestrictions;
 
         /// <summary>
-        /// One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        /// One or more `IpSecurityRestriction` blocks for IP-filtering rules as defined below.
         /// </summary>
         public InputList<Inputs.AppIngressIpSecurityRestrictionArgs> IpSecurityRestrictions
         {
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppIngressTrafficWeightArgs>? _trafficWeights;
 
         /// <summary>
-        /// One or more `traffic_weight` blocks as detailed below.
+        /// One or more `TrafficWeight` blocks as detailed below.
         /// </summary>
         public InputList<Inputs.AppIngressTrafficWeightArgs> TrafficWeights
         {
@@ -93,9 +93,9 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         }
 
         /// <summary>
-        /// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+        /// The transport method for the Ingress. Possible values are `Auto`, `Http`, `Http2` and `Tcp`. Defaults to `Auto`.
         /// 
-        /// &gt; **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+        /// &gt; **Note:** if `Transport` is set to `Tcp`, `ExposedPort` and `TargetPort` should be set at the same time.
         /// </summary>
         [Input("transport")]
         public Input<string>? Transport { get; set; }

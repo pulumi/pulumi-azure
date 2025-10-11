@@ -53,14 +53,14 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `ip_filter_rule` block as defined below.
+     * An `ipFilterRule` block as defined below.
      * 
      */
     @Import(name="ipFilterRules")
     private @Nullable Output<List<IotHubDpsIpFilterRuleArgs>> ipFilterRules;
 
     /**
-     * @return An `ip_filter_rule` block as defined below.
+     * @return An `ipFilterRule` block as defined below.
      * 
      */
     public Optional<Output<List<IotHubDpsIpFilterRuleArgs>>> ipFilterRules() {
@@ -68,14 +68,14 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `linked_hub` block as defined below.
+     * A `linkedHub` block as defined below.
      * 
      */
     @Import(name="linkedHubs")
     private @Nullable Output<List<IotHubDpsLinkedHubArgs>> linkedHubs;
 
     /**
-     * @return A `linked_hub` block as defined below.
+     * @return A `linkedHub` block as defined below.
      * 
      */
     public Optional<Output<List<IotHubDpsLinkedHubArgs>>> linkedHubs() {
@@ -248,7 +248,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipFilterRules An `ip_filter_rule` block as defined below.
+         * @param ipFilterRules An `ipFilterRule` block as defined below.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipFilterRules An `ip_filter_rule` block as defined below.
+         * @param ipFilterRules An `ipFilterRule` block as defined below.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipFilterRules An `ip_filter_rule` block as defined below.
+         * @param ipFilterRules An `ipFilterRule` block as defined below.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param linkedHubs A `linked_hub` block as defined below.
+         * @param linkedHubs A `linkedHub` block as defined below.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param linkedHubs A `linked_hub` block as defined below.
+         * @param linkedHubs A `linkedHub` block as defined below.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param linkedHubs A `linked_hub` block as defined below.
+         * @param linkedHubs A `linkedHub` block as defined below.
          * 
          * @return builder
          * 

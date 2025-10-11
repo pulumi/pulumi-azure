@@ -41,7 +41,7 @@ public final class GetNetworkPacketCoreControlPlaneResult {
      */
     private String interoperabilitySettingsJson;
     /**
-     * @return One or more `local_diagnostics_access` blocks as defined below. The Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+     * @return One or more `localDiagnosticsAccess` blocks as defined below. The Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
      * 
      */
     private List<GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess> localDiagnosticsAccesses;
@@ -129,7 +129,7 @@ public final class GetNetworkPacketCoreControlPlaneResult {
         return this.interoperabilitySettingsJson;
     }
     /**
-     * @return One or more `local_diagnostics_access` blocks as defined below. The Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+     * @return One or more `localDiagnosticsAccess` blocks as defined below. The Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
      * 
      */
     public List<GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess> localDiagnosticsAccesses() {

@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an implicit Data Disk of a Virtual Machine.
  * 
- * &gt; **Note:** The Implicit Data Disk will be deleted instantly after this resource is destroyed. If you want to detach this disk only, you may set `detach_implicit_data_disk_on_deletion` field to `true` within the `virtual_machine` block in the provider `features` block.
+ * &gt; **Note:** The Implicit Data Disk will be deleted instantly after this resource is destroyed. If you want to detach this disk only, you may set `detachImplicitDataDiskOnDeletion` field to `true` within the `virtualMachine` block in the provider `features` block.
  * 
  * ## Example Usage
  * 

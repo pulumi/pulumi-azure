@@ -141,18 +141,18 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.actions);
     }
     /**
-     * A `application_insights_web_test_location_availability_criteria` block as defined below.
+     * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     @Export(name="applicationInsightsWebTestLocationAvailabilityCriteria", refs={MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria.class}, tree="[0]")
     private Output</* @Nullable */ MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria> applicationInsightsWebTestLocationAvailabilityCriteria;
 
     /**
-     * @return A `application_insights_web_test_location_availability_criteria` block as defined below.
+     * @return A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     public Output<Optional<MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>> applicationInsightsWebTestLocationAvailabilityCriteria() {
@@ -175,7 +175,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * One or more (static) `criteria` blocks as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     @Export(name="criterias", refs={List.class,MetricAlertCriteria.class}, tree="[0,1]")
@@ -184,7 +184,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more (static) `criteria` blocks as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     public Output<Optional<List<MetricAlertCriteria>>> criterias() {
@@ -205,18 +205,18 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A `dynamic_criteria` block as defined below.
+     * A `dynamicCriteria` block as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     @Export(name="dynamicCriteria", refs={MetricAlertDynamicCriteria.class}, tree="[0]")
     private Output</* @Nullable */ MetricAlertDynamicCriteria> dynamicCriteria;
 
     /**
-     * @return A `dynamic_criteria` block as defined below.
+     * @return A `dynamicCriteria` block as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     public Output<Optional<MetricAlertDynamicCriteria>> dynamicCriteria() {

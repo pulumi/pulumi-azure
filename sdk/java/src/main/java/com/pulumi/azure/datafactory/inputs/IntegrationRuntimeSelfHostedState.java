@@ -79,14 +79,14 @@ public final class IntegrationRuntimeSelfHostedState extends com.pulumi.resource
     }
 
     /**
-     * A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+     * A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="rbacAuthorizations")
     private @Nullable Output<List<IntegrationRuntimeSelfHostedRbacAuthorizationArgs>> rbacAuthorizations;
 
     /**
-     * @return A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+     * @return A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<IntegrationRuntimeSelfHostedRbacAuthorizationArgs>>> rbacAuthorizations() {
@@ -238,7 +238,7 @@ public final class IntegrationRuntimeSelfHostedState extends com.pulumi.resource
         }
 
         /**
-         * @param rbacAuthorizations A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+         * @param rbacAuthorizations A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class IntegrationRuntimeSelfHostedState extends com.pulumi.resource
         }
 
         /**
-         * @param rbacAuthorizations A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+         * @param rbacAuthorizations A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class IntegrationRuntimeSelfHostedState extends com.pulumi.resource
         }
 
         /**
-         * @param rbacAuthorizations A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+         * @param rbacAuthorizations A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

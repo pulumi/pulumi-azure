@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string InternalDnsNameLabel;
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below.
+        /// One or more `IpConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceIpConfigurationResult> IpConfigurations;
         /// <summary>

@@ -20,7 +20,7 @@ public final class InteractiveQueryClusterStorageAccountArgs extends com.pulumi.
     /**
      * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * &gt; **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
      * 
      */
     @Import(name="isDefault", required=true)
@@ -29,7 +29,7 @@ public final class InteractiveQueryClusterStorageAccountArgs extends com.pulumi.
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * &gt; **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
      * 
      */
     public Output<Boolean> isDefault() {
@@ -54,7 +54,7 @@ public final class InteractiveQueryClusterStorageAccountArgs extends com.pulumi.
     /**
      * The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
+     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
      * 
      */
     @Import(name="storageContainerId", required=true)
@@ -63,7 +63,7 @@ public final class InteractiveQueryClusterStorageAccountArgs extends com.pulumi.
     /**
      * @return The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
+     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
      * 
      */
     public Output<String> storageContainerId() {
@@ -115,7 +115,7 @@ public final class InteractiveQueryClusterStorageAccountArgs extends com.pulumi.
         /**
          * @param isDefault Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+         * &gt; **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class InteractiveQueryClusterStorageAccountArgs extends com.pulumi.
         /**
          * @param isDefault Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+         * &gt; **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class InteractiveQueryClusterStorageAccountArgs extends com.pulumi.
         /**
          * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
+         * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class InteractiveQueryClusterStorageAccountArgs extends com.pulumi.
         /**
          * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
+         * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
          * 
          * @return builder
          * 

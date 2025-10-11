@@ -36,14 +36,14 @@ public final class ScaleSetPacketCaptureState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+     * A `machineScope` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="machineScope")
     private @Nullable Output<ScaleSetPacketCaptureMachineScopeArgs> machineScope;
 
     /**
-     * @return A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+     * @return A `machineScope` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ScaleSetPacketCaptureMachineScopeArgs>> machineScope() {
@@ -126,14 +126,14 @@ public final class ScaleSetPacketCaptureState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageLocation")
     private @Nullable Output<ScaleSetPacketCaptureStorageLocationArgs> storageLocation;
 
     /**
-     * @return A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * @return A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ScaleSetPacketCaptureStorageLocationArgs>> storageLocation() {
@@ -219,7 +219,7 @@ public final class ScaleSetPacketCaptureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param machineScope A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+         * @param machineScope A `machineScope` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ScaleSetPacketCaptureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param machineScope A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+         * @param machineScope A `machineScope` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class ScaleSetPacketCaptureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param storageLocation A `storage_location` block as defined below. Changing this forces a new resource to be created.
+         * @param storageLocation A `storageLocation` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class ScaleSetPacketCaptureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param storageLocation A `storage_location` block as defined below. Changing this forces a new resource to be created.
+         * @param storageLocation A `storageLocation` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

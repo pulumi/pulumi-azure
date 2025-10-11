@@ -106,14 +106,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule")
 public class SmartDetectorAlertRule extends com.pulumi.resources.CustomResource {
     /**
-     * An `action_group` block as defined below.
+     * An `actionGroup` block as defined below.
      * 
      */
     @Export(name="actionGroup", refs={SmartDetectorAlertRuleActionGroup.class}, tree="[0]")
     private Output<SmartDetectorAlertRuleActionGroup> actionGroup;
 
     /**
-     * @return An `action_group` block as defined below.
+     * @return An `actionGroup` block as defined below.
      * 
      */
     public Output<SmartDetectorAlertRuleActionGroup> actionGroup() {

@@ -30,14 +30,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+     * If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
      */
     @Import(name="customBlockResponseBody")
     private @Nullable Output<String> customBlockResponseBody;
 
     /**
-     * @return If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
      */
     public Optional<Output<String>> customBlockResponseBody() {
@@ -45,14 +45,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      * 
      */
     @Import(name="customBlockResponseStatusCode")
     private @Nullable Output<Integer> customBlockResponseStatusCode;
 
     /**
-     * @return If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      * 
      */
     public Optional<Output<Integer>> customBlockResponseStatusCode() {
@@ -60,14 +60,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `custom_rule` blocks as defined below.
+     * One or more `customRule` blocks as defined below.
      * 
      */
     @Import(name="customRules")
     private @Nullable Output<List<FrontdoorFirewallPolicyCustomRuleArgs>> customRules;
 
     /**
-     * @return One or more `custom_rule` blocks as defined below.
+     * @return One or more `customRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorFirewallPolicyCustomRuleArgs>>> customRules() {
@@ -112,18 +112,18 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * A `log_scrubbing` block as defined below.
+     * A `logScrubbing` block as defined below.
      * 
-     * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * !&gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     @Import(name="logScrubbing")
     private @Nullable Output<FrontdoorFirewallPolicyLogScrubbingArgs> logScrubbing;
 
     /**
-     * @return A `log_scrubbing` block as defined below.
+     * @return A `logScrubbing` block as defined below.
      * 
-     * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * !&gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     public Optional<Output<FrontdoorFirewallPolicyLogScrubbingArgs>> logScrubbing() {
@@ -131,14 +131,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `managed_rule` blocks as defined below.
+     * One or more `managedRule` blocks as defined below.
      * 
      */
     @Import(name="managedRules")
     private @Nullable Output<List<FrontdoorFirewallPolicyManagedRuleArgs>> managedRules;
 
     /**
-     * @return One or more `managed_rule` blocks as defined below.
+     * @return One or more `managedRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorFirewallPolicyManagedRuleArgs>>> managedRules() {
@@ -307,7 +307,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customBlockResponseBody If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+         * @param customBlockResponseBody If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customBlockResponseBody If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+         * @param customBlockResponseBody If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customBlockResponseStatusCode If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+         * @param customBlockResponseStatusCode If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customBlockResponseStatusCode If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+         * @param customBlockResponseStatusCode If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customRules One or more `custom_rule` blocks as defined below.
+         * @param customRules One or more `customRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customRules One or more `custom_rule` blocks as defined below.
+         * @param customRules One or more `customRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customRules One or more `custom_rule` blocks as defined below.
+         * @param customRules One or more `customRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -441,9 +441,9 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param logScrubbing A `log_scrubbing` block as defined below.
+         * @param logScrubbing A `logScrubbing` block as defined below.
          * 
-         * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * !&gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          * 
          * @return builder
          * 
@@ -454,9 +454,9 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param logScrubbing A `log_scrubbing` block as defined below.
+         * @param logScrubbing A `logScrubbing` block as defined below.
          * 
-         * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * !&gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param managedRules One or more `managed_rule` blocks as defined below.
+         * @param managedRules One or more `managedRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param managedRules One or more `managed_rule` blocks as defined below.
+         * @param managedRules One or more `managedRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param managedRules One or more `managed_rule` blocks as defined below.
+         * @param managedRules One or more `managedRule` blocks as defined below.
          * 
          * @return builder
          * 

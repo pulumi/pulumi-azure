@@ -81,7 +81,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> DatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.JobAgentIdentity?> Identity { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string> DatabaseId { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.JobAgentIdentityArgs>? Identity { get; set; }
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? DatabaseId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.JobAgentIdentityGetArgs>? Identity { get; set; }

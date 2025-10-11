@@ -9,6 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+ *
  * ## Import
  *
  * Container Registry Token Passwords can be imported using the `resource id`, e.g.

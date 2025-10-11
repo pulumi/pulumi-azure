@@ -143,14 +143,14 @@ public class TagRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.azureActiveDirectoryLogEnabled);
     }
     /**
-     * A `log_tag_filter` block as defined below.
+     * A `logTagFilter` block as defined below.
      * 
      */
     @Export(name="logTagFilters", refs={List.class,TagRuleLogTagFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TagRuleLogTagFilter>> logTagFilters;
 
     /**
-     * @return A `log_tag_filter` block as defined below.
+     * @return A `logTagFilter` block as defined below.
      * 
      */
     public Output<Optional<List<TagRuleLogTagFilter>>> logTagFilters() {
@@ -171,14 +171,14 @@ public class TagRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.metricEnabled);
     }
     /**
-     * A `metric_tag_filter` block as defined below.
+     * A `metricTagFilter` block as defined below.
      * 
      */
     @Export(name="metricTagFilters", refs={List.class,TagRuleMetricTagFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TagRuleMetricTagFilter>> metricTagFilters;
 
     /**
-     * @return A `metric_tag_filter` block as defined below.
+     * @return A `metricTagFilter` block as defined below.
      * 
      */
     public Output<Optional<List<TagRuleMetricTagFilter>>> metricTagFilters() {

@@ -19,7 +19,7 @@ public final class KafkaClusterNetworkArgs extends com.pulumi.resources.Resource
     /**
      * The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+     * &gt; **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
      * 
      */
     @Import(name="connectionDirection")
@@ -28,7 +28,7 @@ public final class KafkaClusterNetworkArgs extends com.pulumi.resources.Resource
     /**
      * @return The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+     * &gt; **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
      * 
      */
     public Optional<Output<String>> connectionDirection() {
@@ -78,7 +78,7 @@ public final class KafkaClusterNetworkArgs extends com.pulumi.resources.Resource
         /**
          * @param connectionDirection The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+         * &gt; **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class KafkaClusterNetworkArgs extends com.pulumi.resources.Resource
         /**
          * @param connectionDirection The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+         * &gt; **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
          * 
          * @return builder
          * 

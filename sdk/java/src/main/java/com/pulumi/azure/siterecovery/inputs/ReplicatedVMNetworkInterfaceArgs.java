@@ -92,14 +92,14 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
     }
 
     /**
-     * (Required if the network_interface block is specified) Id source network interface.
+     * (Required if the networkInterface block is specified) Id source network interface.
      * 
      */
     @Import(name="sourceNetworkInterfaceId")
     private @Nullable Output<String> sourceNetworkInterfaceId;
 
     /**
-     * @return (Required if the network_interface block is specified) Id source network interface.
+     * @return (Required if the networkInterface block is specified) Id source network interface.
      * 
      */
     public Optional<Output<String>> sourceNetworkInterfaceId() {
@@ -283,7 +283,7 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sourceNetworkInterfaceId (Required if the network_interface block is specified) Id source network interface.
+         * @param sourceNetworkInterfaceId (Required if the networkInterface block is specified) Id source network interface.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sourceNetworkInterfaceId (Required if the network_interface block is specified) Id source network interface.
+         * @param sourceNetworkInterfaceId (Required if the networkInterface block is specified) Id source network interface.
          * 
          * @return builder
          * 

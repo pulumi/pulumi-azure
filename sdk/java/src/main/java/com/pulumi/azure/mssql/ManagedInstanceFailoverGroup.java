@@ -361,28 +361,28 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
         return this.partnerManagedInstanceId;
     }
     /**
-     * A `partner_region` block as defined below.
+     * A `partnerRegion` block as defined below.
      * 
      */
     @Export(name="partnerRegions", refs={List.class,ManagedInstanceFailoverGroupPartnerRegion.class}, tree="[0,1]")
     private Output<List<ManagedInstanceFailoverGroupPartnerRegion>> partnerRegions;
 
     /**
-     * @return A `partner_region` block as defined below.
+     * @return A `partnerRegion` block as defined below.
      * 
      */
     public Output<List<ManagedInstanceFailoverGroupPartnerRegion>> partnerRegions() {
         return this.partnerRegions;
     }
     /**
-     * A `read_write_endpoint_failover_policy` block as defined below.
+     * A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     @Export(name="readWriteEndpointFailoverPolicy", refs={ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy.class}, tree="[0]")
     private Output<ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicy;
 
     /**
-     * @return A `read_write_endpoint_failover_policy` block as defined below.
+     * @return A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     public Output<ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicy() {

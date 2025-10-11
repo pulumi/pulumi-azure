@@ -22,7 +22,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+        /// The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `AdministratorUsername` and `AdministratorPassword` if available in the state.
         /// </summary>
         public readonly string? Value;
 

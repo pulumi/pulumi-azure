@@ -31,13 +31,13 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
+        /// The size of the Data Disk which should be created. Required if `CreateOption` is specified as `Empty`.
         /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
         /// <summary>
-        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
+        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `CreateOption` is specified as `Empty`.
         /// </summary>
         [Input("lun")]
         public Input<int>? Lun { get; set; }
@@ -49,19 +49,19 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> StorageAccountType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         /// </summary>
         [Input("ultraSsdDiskIopsReadWrite")]
         public Input<int>? UltraSsdDiskIopsReadWrite { get; set; }
 
         /// <summary>
-        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         /// </summary>
         [Input("ultraSsdDiskMbpsReadWrite")]
         public Input<int>? UltraSsdDiskMbpsReadWrite { get; set; }
 
         /// <summary>
-        /// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+        /// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `False`.
         /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }

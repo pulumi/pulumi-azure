@@ -24,11 +24,11 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
         /// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
-        /// When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
+        /// When setting this field `OsType` needs to be specified. Cannot be used when `VhdContainers`, `ManagedDiskType` or `StorageProfileImageReference` are specified.
         /// </summary>
         public readonly string? Image;
         /// <summary>
-        /// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
+        /// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `VhdContainers` or `Image` is specified.
         /// </summary>
         public readonly string? ManagedDiskType;
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? OsType;
         /// <summary>
-        /// Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
+        /// Specifies the VHD URI. Cannot be used when `Image` or `ManagedDiskType` is specified.
         /// </summary>
         public readonly ImmutableArray<string> VhdContainers;
 

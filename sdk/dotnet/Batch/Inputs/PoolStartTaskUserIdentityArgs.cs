@@ -13,9 +13,9 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class PoolStartTaskUserIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `auto_user` block that describes the user identity under which the start task runs as defined below.
+        /// A `AutoUser` block that describes the user identity under which the start task runs as defined below.
         /// 
-        /// &gt; **Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
+        /// &gt; **Note:** `UserName` and `AutoUser` blocks cannot be used both at the same time, but you need to define one or the other.
         /// </summary>
         [Input("autoUser")]
         public Input<Inputs.PoolStartTaskUserIdentityAutoUserArgs>? AutoUser { get; set; }

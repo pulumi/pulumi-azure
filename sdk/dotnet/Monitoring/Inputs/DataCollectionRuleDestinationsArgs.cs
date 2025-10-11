@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class DataCollectionRuleDestinationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `azure_monitor_metrics` block as defined above.
+        /// A `AzureMonitorMetrics` block as defined above.
         /// </summary>
         [Input("azureMonitorMetrics")]
         public Input<Inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs>? AzureMonitorMetrics { get; set; }
 
         /// <summary>
-        /// One or more `event_hub` blocks as defined below.
+        /// One or more `EventHub` blocks as defined below.
         /// </summary>
         [Input("eventHub")]
         public Input<Inputs.DataCollectionRuleDestinationsEventHubArgs>? EventHub { get; set; }
 
         /// <summary>
-        /// One or more `event_hub` blocks as defined below.
+        /// One or more `EventHub` blocks as defined below.
         /// </summary>
         [Input("eventHubDirect")]
         public Input<Inputs.DataCollectionRuleDestinationsEventHubDirectArgs>? EventHubDirect { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDestinationsLogAnalyticArgs>? _logAnalytics;
 
         /// <summary>
-        /// One or more `log_analytics` blocks as defined below.
+        /// One or more `LogAnalytics` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDestinationsLogAnalyticArgs> LogAnalytics
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDestinationsMonitorAccountArgs>? _monitorAccounts;
 
         /// <summary>
-        /// One or more `monitor_account` blocks as defined below.
+        /// One or more `MonitorAccount` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDestinationsMonitorAccountArgs> MonitorAccounts
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDestinationsStorageBlobDirectArgs>? _storageBlobDirects;
 
         /// <summary>
-        /// One or more `storage_blob_direct` blocks as defined below.
+        /// One or more `StorageBlobDirect` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDestinationsStorageBlobDirectArgs> StorageBlobDirects
         {
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDestinationsStorageBlobArgs>? _storageBlobs;
 
         /// <summary>
-        /// One or more `storage_blob` blocks as defined below.
+        /// One or more `StorageBlob` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDestinationsStorageBlobArgs> StorageBlobs
         {
@@ -82,11 +82,11 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDestinationsStorageTableDirectArgs>? _storageTableDirects;
 
         /// <summary>
-        /// One or more `storage_table_direct` blocks as defined below.
+        /// One or more `StorageTableDirect` blocks as defined below.
         /// 
-        /// &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+        /// &gt; **Note:** `EventHubDirect`, `StorageBlobDirect`, and `StorageTableDirect` are only available for rules of kind `AgentDirectToStore`.
         /// 
-        /// &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+        /// &gt; **Note:** At least one of `AzureMonitorMetrics`, `EventHub`, `EventHubDirect`, `LogAnalytics`, `MonitorAccount`, `StorageBlob`, `StorageBlobDirect`,and `StorageTableDirect` blocks must be specified.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDestinationsStorageTableDirectArgs> StorageTableDirects
         {

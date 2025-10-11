@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string OutboundRouteMapId;
         /// <summary>
-        /// A `propagated_route_table` block as defined below.
+        /// A `PropagatedRouteTable` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualHubConnectionRoutingPropagatedRouteTableResult> PropagatedRouteTables;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool StaticVnetPropagateStaticRoutesEnabled;
         /// <summary>
-        /// A `static_vnet_route` block as defined below.
+        /// A `StaticVnetRoute` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualHubConnectionRoutingStaticVnetRouteResult> StaticVnetRoutes;
 

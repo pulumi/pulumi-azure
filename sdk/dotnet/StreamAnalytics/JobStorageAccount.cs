@@ -12,7 +12,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Job Storage Account. Use this resource for managing the Job Storage Account using `Msi` authentication with a `SystemAssigned` identity.
     /// 
-    /// &gt; **Note:** The Job Storage Account for a Stream Analytics Job can be managed on the `azure.streamanalytics.Job` resource with the `job_storage_account` block, or with this resource. We do not recommend managing the Job Storage Account through both means as this can lead to conflicts.
+    /// &gt; **Note:** The Job Storage Account for a Stream Analytics Job can be managed on the `azure.streamanalytics.Job` resource with the `JobStorageAccount` block, or with this resource. We do not recommend managing the Job Storage Account through both means as this can lead to conflicts.
     /// 
     /// ## Example Usage
     /// 

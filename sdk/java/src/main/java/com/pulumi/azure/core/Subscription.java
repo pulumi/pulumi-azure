@@ -228,7 +228,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      * 
-     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+     * &gt; **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      * 
      */
     @Export(name="subscriptionId", refs={String.class}, tree="[0]")
@@ -239,7 +239,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      * 
-     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+     * &gt; **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      * 
      */
     public Output<String> subscriptionId() {

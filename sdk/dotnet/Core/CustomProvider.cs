@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Core
     public partial class CustomProvider : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+        /// Any number of `Action` block as defined below. One of `ResourceType` or `Action` must be specified.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.CustomProviderAction>> Actions { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Core
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+        /// Any number of `ResourceType` block as defined below. One of `ResourceType` or `Action` must be specified.
         /// </summary>
         [Output("resourceTypes")]
         public Output<ImmutableArray<Outputs.CustomProviderResourceType>> ResourceTypes { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Any number of `validation` block as defined below.
+        /// Any number of `Validation` block as defined below.
         /// </summary>
         [Output("validations")]
         public Output<ImmutableArray<Outputs.CustomProviderValidation>> Validations { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.CustomProviderActionArgs>? _actions;
 
         /// <summary>
-        /// Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+        /// Any number of `Action` block as defined below. One of `ResourceType` or `Action` must be specified.
         /// </summary>
         public InputList<Inputs.CustomProviderActionArgs> Actions
         {
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.CustomProviderResourceTypeArgs>? _resourceTypes;
 
         /// <summary>
-        /// Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+        /// Any number of `ResourceType` block as defined below. One of `ResourceType` or `Action` must be specified.
         /// </summary>
         public InputList<Inputs.CustomProviderResourceTypeArgs> ResourceTypes
         {
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.CustomProviderValidationArgs>? _validations;
 
         /// <summary>
-        /// Any number of `validation` block as defined below.
+        /// Any number of `Validation` block as defined below.
         /// </summary>
         public InputList<Inputs.CustomProviderValidationArgs> Validations
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.CustomProviderActionGetArgs>? _actions;
 
         /// <summary>
-        /// Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+        /// Any number of `Action` block as defined below. One of `ResourceType` or `Action` must be specified.
         /// </summary>
         public InputList<Inputs.CustomProviderActionGetArgs> Actions
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.CustomProviderResourceTypeGetArgs>? _resourceTypes;
 
         /// <summary>
-        /// Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+        /// Any number of `ResourceType` block as defined below. One of `ResourceType` or `Action` must be specified.
         /// </summary>
         public InputList<Inputs.CustomProviderResourceTypeGetArgs> ResourceTypes
         {
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.CustomProviderValidationGetArgs>? _validations;
 
         /// <summary>
-        /// Any number of `validation` block as defined below.
+        /// Any number of `Validation` block as defined below.
         /// </summary>
         public InputList<Inputs.CustomProviderValidationGetArgs> Validations
         {

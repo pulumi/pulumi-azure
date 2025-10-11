@@ -47,14 +47,14 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs e
     }
 
     /**
-     * A `port_range` block as defined below.
+     * A `portRange` block as defined below.
      * 
      */
     @Import(name="portRange")
     private @Nullable Output<NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs> portRange;
 
     /**
-     * @return A `port_range` block as defined below.
+     * @return A `portRange` block as defined below.
      * 
      */
     public Optional<Output<NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs>> portRange() {
@@ -194,7 +194,7 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs e
         }
 
         /**
-         * @param portRange A `port_range` block as defined below.
+         * @param portRange A `portRange` block as defined below.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs e
         }
 
         /**
-         * @param portRange A `port_range` block as defined below.
+         * @param portRange A `portRange` block as defined below.
          * 
          * @return builder
          * 

@@ -64,7 +64,7 @@ namespace Pulumi.Azure.DataFactory
     public partial class IntegrationRuntimeRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
+        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `False`. Defaults to `True`.
         /// </summary>
         [Output("cleanupEnabled")]
         public Output<bool?> CleanupEnabled { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class IntegrationRuntimeRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
+        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `False`. Defaults to `True`.
         /// </summary>
         [Input("cleanupEnabled")]
         public Input<bool>? CleanupEnabled { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class IntegrationRuntimeRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
+        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `False`. Defaults to `True`.
         /// </summary>
         [Input("cleanupEnabled")]
         public Input<bool>? CleanupEnabled { get; set; }

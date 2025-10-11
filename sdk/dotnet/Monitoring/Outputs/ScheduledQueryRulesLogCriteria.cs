@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ScheduledQueryRulesLogCriteria
     {
         /// <summary>
-        /// A `dimension` block as defined below.
+        /// A `Dimension` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryRulesLogCriteriaDimension> Dimensions;
         /// <summary>

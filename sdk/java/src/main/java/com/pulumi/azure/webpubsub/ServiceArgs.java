@@ -71,14 +71,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `live_trace` block as defined below.
+     * A `liveTrace` block as defined below.
      * 
      */
     @Import(name="liveTrace")
     private @Nullable Output<ServiceLiveTraceArgs> liveTrace;
 
     /**
-     * @return A `live_trace` block as defined below.
+     * @return A `liveTrace` block as defined below.
      * 
      */
     public Optional<Output<ServiceLiveTraceArgs>> liveTrace() {
@@ -308,7 +308,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param liveTrace A `live_trace` block as defined below.
+         * @param liveTrace A `liveTrace` block as defined below.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param liveTrace A `live_trace` block as defined below.
+         * @param liveTrace A `liveTrace` block as defined below.
          * 
          * @return builder
          * 

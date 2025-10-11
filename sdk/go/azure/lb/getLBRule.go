@@ -12,6 +12,15 @@ import (
 )
 
 // Use this data source to access information about an existing Load Balancer Rule.
+//
+// ## Example Usage
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network` - 2023-09-01
 func GetLBRule(ctx *pulumi.Context, args *GetLBRuleArgs, opts ...pulumi.InvokeOption) (*GetLBRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLBRuleResult

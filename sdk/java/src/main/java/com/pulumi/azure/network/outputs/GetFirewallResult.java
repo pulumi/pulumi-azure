@@ -37,7 +37,7 @@ public final class GetFirewallResult {
      */
     private String id;
     /**
-     * @return A `ip_configuration` block as defined below.
+     * @return A `ipConfiguration` block as defined below.
      * 
      */
     private List<GetFirewallIpConfiguration> ipConfigurations;
@@ -47,7 +47,7 @@ public final class GetFirewallResult {
      */
     private String location;
     /**
-     * @return A `management_ip_configuration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
+     * @return A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
      * 
      */
     private List<GetFirewallManagementIpConfiguration> managementIpConfigurations;
@@ -74,7 +74,7 @@ public final class GetFirewallResult {
      */
     private String threatIntelMode;
     /**
-     * @return A `virtual_hub` block as defined below.
+     * @return A `virtualHub` block as defined below.
      * 
      */
     private List<GetFirewallVirtualHub> virtualHubs;
@@ -114,7 +114,7 @@ public final class GetFirewallResult {
         return this.id;
     }
     /**
-     * @return A `ip_configuration` block as defined below.
+     * @return A `ipConfiguration` block as defined below.
      * 
      */
     public List<GetFirewallIpConfiguration> ipConfigurations() {
@@ -128,7 +128,7 @@ public final class GetFirewallResult {
         return this.location;
     }
     /**
-     * @return A `management_ip_configuration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
+     * @return A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
      * 
      */
     public List<GetFirewallManagementIpConfiguration> managementIpConfigurations() {
@@ -169,7 +169,7 @@ public final class GetFirewallResult {
         return this.threatIntelMode;
     }
     /**
-     * @return A `virtual_hub` block as defined below.
+     * @return A `virtualHub` block as defined below.
      * 
      */
     public List<GetFirewallVirtualHub> virtualHubs() {

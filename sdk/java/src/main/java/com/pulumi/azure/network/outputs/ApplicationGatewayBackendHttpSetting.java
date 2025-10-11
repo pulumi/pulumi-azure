@@ -23,12 +23,12 @@ public final class ApplicationGatewayBackendHttpSetting {
      */
     private @Nullable String affinityCookieName;
     /**
-     * @return One or more `authentication_certificate_backend` blocks as defined below.
+     * @return One or more `authenticationCertificateBackend` blocks as defined below.
      * 
      */
     private @Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
     /**
-     * @return A `connection_draining` block as defined below.
+     * @return A `connectionDraining` block as defined below.
      * 
      */
     private @Nullable ApplicationGatewayBackendHttpSettingConnectionDraining connectionDraining;
@@ -38,7 +38,7 @@ public final class ApplicationGatewayBackendHttpSetting {
      */
     private String cookieBasedAffinity;
     /**
-     * @return Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+     * @return Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
      * 
      */
     private @Nullable String hostName;
@@ -88,7 +88,7 @@ public final class ApplicationGatewayBackendHttpSetting {
      */
     private @Nullable Integer requestTimeout;
     /**
-     * @return A list of `trusted_root_certificate` names.
+     * @return A list of `trustedRootCertificate` names.
      * 
      */
     private @Nullable List<String> trustedRootCertificateNames;
@@ -102,14 +102,14 @@ public final class ApplicationGatewayBackendHttpSetting {
         return Optional.ofNullable(this.affinityCookieName);
     }
     /**
-     * @return One or more `authentication_certificate_backend` blocks as defined below.
+     * @return One or more `authenticationCertificateBackend` blocks as defined below.
      * 
      */
     public List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates() {
         return this.authenticationCertificates == null ? List.of() : this.authenticationCertificates;
     }
     /**
-     * @return A `connection_draining` block as defined below.
+     * @return A `connectionDraining` block as defined below.
      * 
      */
     public Optional<ApplicationGatewayBackendHttpSettingConnectionDraining> connectionDraining() {
@@ -123,7 +123,7 @@ public final class ApplicationGatewayBackendHttpSetting {
         return this.cookieBasedAffinity;
     }
     /**
-     * @return Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+     * @return Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
      * 
      */
     public Optional<String> hostName() {
@@ -193,7 +193,7 @@ public final class ApplicationGatewayBackendHttpSetting {
         return Optional.ofNullable(this.requestTimeout);
     }
     /**
-     * @return A list of `trusted_root_certificate` names.
+     * @return A list of `trustedRootCertificate` names.
      * 
      */
     public List<String> trustedRootCertificateNames() {

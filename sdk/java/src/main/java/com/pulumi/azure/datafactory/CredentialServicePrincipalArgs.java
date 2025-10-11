@@ -94,14 +94,14 @@ public final class CredentialServicePrincipalArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `service_principal_key` block as defined below.
+     * A `servicePrincipalKey` block as defined below.
      * 
      */
     @Import(name="servicePrincipalKey")
     private @Nullable Output<CredentialServicePrincipalServicePrincipalKeyArgs> servicePrincipalKey;
 
     /**
-     * @return A `service_principal_key` block as defined below.
+     * @return A `servicePrincipalKey` block as defined below.
      * 
      */
     public Optional<Output<CredentialServicePrincipalServicePrincipalKeyArgs>> servicePrincipalKey() {
@@ -269,7 +269,7 @@ public final class CredentialServicePrincipalArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param servicePrincipalKey A `service_principal_key` block as defined below.
+         * @param servicePrincipalKey A `servicePrincipalKey` block as defined below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class CredentialServicePrincipalArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param servicePrincipalKey A `service_principal_key` block as defined below.
+         * @param servicePrincipalKey A `servicePrincipalKey` block as defined below.
          * 
          * @return builder
          * 

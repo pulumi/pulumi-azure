@@ -35,7 +35,7 @@ public final class PoolStartTask {
      */
     private @Nullable List<PoolStartTaskContainer> containers;
     /**
-     * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
+     * @return One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
      * 
      */
     private @Nullable List<PoolStartTaskResourceFile> resourceFiles;
@@ -45,7 +45,7 @@ public final class PoolStartTask {
      */
     private @Nullable Integer taskRetryMaximum;
     /**
-     * @return A `user_identity` block that describes the user identity under which the start task runs as defined below.
+     * @return A `userIdentity` block that describes the user identity under which the start task runs as defined below.
      * 
      */
     private PoolStartTaskUserIdentity userIdentity;
@@ -78,7 +78,7 @@ public final class PoolStartTask {
         return this.containers == null ? List.of() : this.containers;
     }
     /**
-     * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
+     * @return One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
      * 
      */
     public List<PoolStartTaskResourceFile> resourceFiles() {
@@ -92,7 +92,7 @@ public final class PoolStartTask {
         return Optional.ofNullable(this.taskRetryMaximum);
     }
     /**
-     * @return A `user_identity` block that describes the user identity under which the start task runs as defined below.
+     * @return A `userIdentity` block that describes the user identity under which the start task runs as defined below.
      * 
      */
     public PoolStartTaskUserIdentity userIdentity() {

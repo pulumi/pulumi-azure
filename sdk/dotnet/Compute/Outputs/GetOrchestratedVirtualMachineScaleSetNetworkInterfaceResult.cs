@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
         /// <summary>
-        /// An `ip_configuration` block as documented below.
+        /// An `IpConfiguration` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult> IpConfigurations;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string NetworkSecurityGroupId;
         /// <summary>
-        /// If this ip_configuration is the primary one.
+        /// If this IpConfiguration is the primary one.
         /// </summary>
         public readonly bool Primary;
 

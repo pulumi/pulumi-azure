@@ -25,7 +25,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string> BackupVaultId { get; set; } = null!;
 
         /// <summary>
-        /// Enables the backup policy on the volume, defaults to `true`.
+        /// Enables the backup policy on the volume, defaults to `True`.
         /// 
         /// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
         /// </summary>

@@ -139,14 +139,14 @@ public final class NetworkSimArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `static_ip_configuration` block as defined below.
+     * A `staticIpConfiguration` block as defined below.
      * 
      */
     @Import(name="staticIpConfigurations")
     private @Nullable Output<List<NetworkSimStaticIpConfigurationArgs>> staticIpConfigurations;
 
     /**
-     * @return A `static_ip_configuration` block as defined below.
+     * @return A `staticIpConfiguration` block as defined below.
      * 
      */
     public Optional<Output<List<NetworkSimStaticIpConfigurationArgs>>> staticIpConfigurations() {
@@ -354,7 +354,7 @@ public final class NetworkSimArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param staticIpConfigurations A `static_ip_configuration` block as defined below.
+         * @param staticIpConfigurations A `staticIpConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class NetworkSimArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param staticIpConfigurations A `static_ip_configuration` block as defined below.
+         * @param staticIpConfigurations A `staticIpConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class NetworkSimArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param staticIpConfigurations A `static_ip_configuration` block as defined below.
+         * @param staticIpConfigurations A `staticIpConfiguration` block as defined below.
          * 
          * @return builder
          * 

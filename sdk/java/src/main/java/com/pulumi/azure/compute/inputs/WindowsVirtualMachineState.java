@@ -33,14 +33,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     public static final WindowsVirtualMachineState Empty = new WindowsVirtualMachineState();
 
     /**
-     * A `additional_capabilities` block as defined below.
+     * A `additionalCapabilities` block as defined below.
      * 
      */
     @Import(name="additionalCapabilities")
     private @Nullable Output<WindowsVirtualMachineAdditionalCapabilitiesArgs> additionalCapabilities;
 
     /**
-     * @return A `additional_capabilities` block as defined below.
+     * @return A `additionalCapabilities` block as defined below.
      * 
      */
     public Optional<Output<WindowsVirtualMachineAdditionalCapabilitiesArgs>> additionalCapabilities() {
@@ -48,14 +48,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="additionalUnattendContents")
     private @Nullable Output<List<WindowsVirtualMachineAdditionalUnattendContentArgs>> additionalUnattendContents;
 
     /**
-     * @return One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineAdditionalUnattendContentArgs>>> additionalUnattendContents() {
@@ -65,7 +65,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      * 
      */
     @Import(name="adminPassword")
@@ -74,7 +74,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      * 
      */
     public Optional<Output<String>> adminPassword() {
@@ -84,7 +84,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      * 
      */
     @Import(name="adminUsername")
@@ -93,7 +93,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      * 
      */
     public Optional<Output<String>> adminUsername() {
@@ -138,14 +138,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `boot_diagnostics` block as defined below.
+     * A `bootDiagnostics` block as defined below.
      * 
      */
     @Import(name="bootDiagnostics")
     private @Nullable Output<WindowsVirtualMachineBootDiagnosticsArgs> bootDiagnostics;
 
     /**
-     * @return A `boot_diagnostics` block as defined below.
+     * @return A `bootDiagnostics` block as defined below.
      * 
      */
     public Optional<Output<WindowsVirtualMachineBootDiagnosticsArgs>> bootDiagnostics() {
@@ -155,7 +155,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
      * 
      */
     @Import(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
@@ -164,7 +164,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
      * 
      */
     public Optional<Output<Boolean>> bypassPlatformSafetyChecksOnUserScheduleEnabled() {
@@ -174,7 +174,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
-     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+     * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      * 
      */
     @Import(name="capacityReservationGroupId")
@@ -183,7 +183,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
-     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+     * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      * 
      */
     public Optional<Output<String>> capacityReservationGroupId() {
@@ -191,14 +191,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+     * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="computerName")
     private @Nullable Output<String> computerName;
 
     /**
-     * @return Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+     * @return Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> computerName() {
@@ -221,14 +221,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+     * The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
      * 
      */
     @Import(name="dedicatedHostGroupId")
     private @Nullable Output<String> dedicatedHostGroupId;
 
     /**
-     * @return The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+     * @return The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
      * 
      */
     public Optional<Output<String>> dedicatedHostGroupId() {
@@ -236,14 +236,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+     * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      * 
      */
     @Import(name="dedicatedHostId")
     private @Nullable Output<String> dedicatedHostId;
 
     /**
-     * @return The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+     * @return The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      * 
      */
     public Optional<Output<String>> dedicatedHostId() {
@@ -284,10 +284,10 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      * @deprecated
-     * this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.
+     * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider. */
+    @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
     @Import(name="enableAutomaticUpdates")
     private @Nullable Output<Boolean> enableAutomaticUpdates;
 
@@ -295,10 +295,10 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
      * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      * @deprecated
-     * this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.
+     * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider. */
+    @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
     public Optional<Output<Boolean>> enableAutomaticUpdates() {
         return Optional.ofNullable(this.enableAutomaticUpdates);
     }
@@ -353,18 +353,18 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `gallery_application` blocks as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      * 
-     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     @Import(name="galleryApplications")
     private @Nullable Output<List<WindowsVirtualMachineGalleryApplicationArgs>> galleryApplications;
 
     /**
-     * @return One or more `gallery_application` blocks as defined below.
+     * @return One or more `galleryApplication` blocks as defined below.
      * 
-     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineGalleryApplicationArgs>>> galleryApplications() {
@@ -374,7 +374,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
-     * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+     * &gt; **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatchingEnabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
      * 
      */
     @Import(name="hotpatchingEnabled")
@@ -383,7 +383,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
-     * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+     * &gt; **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatchingEnabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
      * 
      */
     public Optional<Output<Boolean>> hotpatchingEnabled() {
@@ -436,7 +436,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+     * The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      * 
      * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
@@ -445,7 +445,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     private @Nullable Output<Double> maxBidPrice;
 
     /**
-     * @return The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+     * @return The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      * 
      * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
@@ -485,14 +485,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * An `os_disk` block as defined below.
+     * An `osDisk` block as defined below.
      * 
      */
     @Import(name="osDisk")
     private @Nullable Output<WindowsVirtualMachineOsDiskArgs> osDisk;
 
     /**
-     * @return An `os_disk` block as defined below.
+     * @return An `osDisk` block as defined below.
      * 
      */
     public Optional<Output<WindowsVirtualMachineOsDiskArgs>> osDisk() {
@@ -500,14 +500,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `os_image_notification` block as defined below.
+     * A `osImageNotification` block as defined below.
      * 
      */
     @Import(name="osImageNotification")
     private @Nullable Output<WindowsVirtualMachineOsImageNotificationArgs> osImageNotification;
 
     /**
-     * @return A `os_image_notification` block as defined below.
+     * @return A `osImageNotification` block as defined below.
      * 
      */
     public Optional<Output<WindowsVirtualMachineOsImageNotificationArgs>> osImageNotification() {
@@ -517,7 +517,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
      * 
-     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
      * 
      */
     @Import(name="osManagedDiskId")
@@ -526,7 +526,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
      * 
-     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
      * 
      */
     public Optional<Output<String>> osManagedDiskId() {
@@ -536,7 +536,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * &gt; **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      * 
      */
     @Import(name="patchAssessmentMode")
@@ -545,7 +545,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * &gt; **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      * 
      */
     public Optional<Output<String>> patchAssessmentMode() {
@@ -555,7 +555,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+     * &gt; **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
      * 
      */
     @Import(name="patchMode")
@@ -564,7 +564,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+     * &gt; **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
      * 
      */
     public Optional<Output<String>> patchMode() {
@@ -649,7 +649,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+     * &gt; **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      * 
      */
     @Import(name="provisionVmAgent")
@@ -658,7 +658,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+     * &gt; **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      * 
      */
     public Optional<Output<Boolean>> provisionVmAgent() {
@@ -713,7 +713,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
      * 
-     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
      * 
      */
     @Import(name="rebootSetting")
@@ -722,7 +722,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
      * 
-     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
      * 
      */
     public Optional<Output<String>> rebootSetting() {
@@ -792,7 +792,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      * 
      */
     @Import(name="sourceImageId")
@@ -801,7 +801,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      * 
      */
     public Optional<Output<String>> sourceImageId() {
@@ -809,18 +809,18 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+     * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      * 
      */
     @Import(name="sourceImageReference")
     private @Nullable Output<WindowsVirtualMachineSourceImageReferenceArgs> sourceImageReference;
 
     /**
-     * @return A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+     * @return A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      * 
      */
     public Optional<Output<WindowsVirtualMachineSourceImageReferenceArgs>> sourceImageReference() {
@@ -843,14 +843,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `termination_notification` block as defined below.
+     * A `terminationNotification` block as defined below.
      * 
      */
     @Import(name="terminationNotification")
     private @Nullable Output<WindowsVirtualMachineTerminationNotificationArgs> terminationNotification;
 
     /**
-     * @return A `termination_notification` block as defined below.
+     * @return A `terminationNotification` block as defined below.
      * 
      */
     public Optional<Output<WindowsVirtualMachineTerminationNotificationArgs>> terminationNotification() {
@@ -905,11 +905,11 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
      * 
-     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+     * &gt; **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
      * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
-     * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+     * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      * 
      */
     @Import(name="virtualMachineScaleSetId")
@@ -918,11 +918,11 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
      * 
-     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+     * &gt; **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
      * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
-     * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+     * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      * 
      */
     public Optional<Output<String>> virtualMachineScaleSetId() {
@@ -968,14 +968,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="winrmListeners")
     private @Nullable Output<List<WindowsVirtualMachineWinrmListenerArgs>> winrmListeners;
 
     /**
-     * @return One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineWinrmListenerArgs>>> winrmListeners() {
@@ -1080,7 +1080,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param additionalCapabilities A `additional_capabilities` block as defined below.
+         * @param additionalCapabilities A `additionalCapabilities` block as defined below.
          * 
          * @return builder
          * 
@@ -1091,7 +1091,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param additionalCapabilities A `additional_capabilities` block as defined below.
+         * @param additionalCapabilities A `additionalCapabilities` block as defined below.
          * 
          * @return builder
          * 
@@ -1101,7 +1101,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param additionalUnattendContents One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+         * @param additionalUnattendContents One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1112,7 +1112,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param additionalUnattendContents One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+         * @param additionalUnattendContents One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1122,7 +1122,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param additionalUnattendContents One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+         * @param additionalUnattendContents One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1134,7 +1134,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -1147,7 +1147,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -1159,7 +1159,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param adminUsername The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -1172,7 +1172,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param adminUsername The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -1233,7 +1233,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bootDiagnostics A `boot_diagnostics` block as defined below.
+         * @param bootDiagnostics A `bootDiagnostics` block as defined below.
          * 
          * @return builder
          * 
@@ -1244,7 +1244,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bootDiagnostics A `boot_diagnostics` block as defined below.
+         * @param bootDiagnostics A `bootDiagnostics` block as defined below.
          * 
          * @return builder
          * 
@@ -1256,7 +1256,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param bypassPlatformSafetyChecksOnUserScheduleEnabled Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+         * &gt; **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -1269,7 +1269,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param bypassPlatformSafetyChecksOnUserScheduleEnabled Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+         * &gt; **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -1281,7 +1281,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
          * 
-         * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+         * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
          * 
          * @return builder
          * 
@@ -1294,7 +1294,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
          * 
-         * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+         * &gt; **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
          * 
          * @return builder
          * 
@@ -1304,7 +1304,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param computerName Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+         * @param computerName Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1315,7 +1315,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param computerName Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+         * @param computerName Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1346,7 +1346,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dedicatedHostGroupId The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+         * @param dedicatedHostGroupId The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
          * 
          * @return builder
          * 
@@ -1357,7 +1357,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dedicatedHostGroupId The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+         * @param dedicatedHostGroupId The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
          * 
          * @return builder
          * 
@@ -1367,7 +1367,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dedicatedHostId The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+         * @param dedicatedHostId The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
          * 
          * @return builder
          * 
@@ -1378,7 +1378,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dedicatedHostId The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+         * @param dedicatedHostId The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
          * 
          * @return builder
          * 
@@ -1435,10 +1435,10 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
          * @return builder
          * 
          * @deprecated
-         * this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.
+         * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
          * 
          */
-        @Deprecated /* this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider. */
+        @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
         public Builder enableAutomaticUpdates(@Nullable Output<Boolean> enableAutomaticUpdates) {
             $.enableAutomaticUpdates = enableAutomaticUpdates;
             return this;
@@ -1450,10 +1450,10 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
          * @return builder
          * 
          * @deprecated
-         * this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.
+         * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
          * 
          */
-        @Deprecated /* this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider. */
+        @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
         public Builder enableAutomaticUpdates(Boolean enableAutomaticUpdates) {
             return enableAutomaticUpdates(Output.of(enableAutomaticUpdates));
         }
@@ -1526,9 +1526,9 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param galleryApplications One or more `gallery_application` blocks as defined below.
+         * @param galleryApplications One or more `galleryApplication` blocks as defined below.
          * 
-         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
          * 
          * @return builder
          * 
@@ -1539,9 +1539,9 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param galleryApplications One or more `gallery_application` blocks as defined below.
+         * @param galleryApplications One or more `galleryApplication` blocks as defined below.
          * 
-         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
          * 
          * @return builder
          * 
@@ -1551,9 +1551,9 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param galleryApplications One or more `gallery_application` blocks as defined below.
+         * @param galleryApplications One or more `galleryApplication` blocks as defined below.
          * 
-         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
          * 
          * @return builder
          * 
@@ -1565,7 +1565,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param hotpatchingEnabled Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
          * 
-         * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+         * &gt; **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatchingEnabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
          * 
          * @return builder
          * 
@@ -1578,7 +1578,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param hotpatchingEnabled Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
          * 
-         * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+         * &gt; **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatchingEnabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
          * 
          * @return builder
          * 
@@ -1651,7 +1651,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxBidPrice The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+         * @param maxBidPrice The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
          * 
          * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
          * 
@@ -1664,7 +1664,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxBidPrice The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+         * @param maxBidPrice The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
          * 
          * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
          * 
@@ -1728,7 +1728,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param osDisk An `os_disk` block as defined below.
+         * @param osDisk An `osDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -1739,7 +1739,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param osDisk An `os_disk` block as defined below.
+         * @param osDisk An `osDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -1749,7 +1749,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param osImageNotification A `os_image_notification` block as defined below.
+         * @param osImageNotification A `osImageNotification` block as defined below.
          * 
          * @return builder
          * 
@@ -1760,7 +1760,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param osImageNotification A `os_image_notification` block as defined below.
+         * @param osImageNotification A `osImageNotification` block as defined below.
          * 
          * @return builder
          * 
@@ -1772,7 +1772,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
          * 
-         * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+         * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
          * 
          * @return builder
          * 
@@ -1785,7 +1785,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
          * 
-         * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+         * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
          * 
          * @return builder
          * 
@@ -1797,7 +1797,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
-         * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+         * &gt; **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          * 
          * @return builder
          * 
@@ -1810,7 +1810,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
-         * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+         * &gt; **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          * 
          * @return builder
          * 
@@ -1822,7 +1822,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param patchMode Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          * 
-         * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+         * &gt; **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -1835,7 +1835,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param patchMode Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          * 
-         * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+         * &gt; **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -1962,7 +1962,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param provisionVmAgent Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+         * &gt; **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
          * 
          * @return builder
          * 
@@ -1975,7 +1975,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param provisionVmAgent Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+         * &gt; **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
          * 
          * @return builder
          * 
@@ -2060,7 +2060,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param rebootSetting Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
          * 
-         * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+         * &gt; **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -2073,7 +2073,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param rebootSetting Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
          * 
-         * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+         * &gt; **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -2179,7 +2179,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param sourceImageId The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
          * 
          * @return builder
          * 
@@ -2192,7 +2192,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param sourceImageId The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
          * 
          * @return builder
          * 
@@ -2202,9 +2202,9 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sourceImageReference A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+         * @param sourceImageReference A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
          * 
          * @return builder
          * 
@@ -2215,9 +2215,9 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sourceImageReference A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+         * @param sourceImageReference A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
          * 
          * @return builder
          * 
@@ -2248,7 +2248,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param terminationNotification A `termination_notification` block as defined below.
+         * @param terminationNotification A `terminationNotification` block as defined below.
          * 
          * @return builder
          * 
@@ -2259,7 +2259,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param terminationNotification A `termination_notification` block as defined below.
+         * @param terminationNotification A `terminationNotification` block as defined below.
          * 
          * @return builder
          * 
@@ -2334,11 +2334,11 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param virtualMachineScaleSetId Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
          * 
-         * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+         * &gt; **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
          * 
          * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
          * 
-         * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+         * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
          * 
          * @return builder
          * 
@@ -2351,11 +2351,11 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param virtualMachineScaleSetId Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
          * 
-         * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+         * &gt; **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
          * 
          * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
          * 
-         * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+         * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
          * 
          * @return builder
          * 
@@ -2415,7 +2415,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param winrmListeners One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+         * @param winrmListeners One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -2426,7 +2426,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param winrmListeners One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+         * @param winrmListeners One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -2436,7 +2436,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param winrmListeners One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+         * @param winrmListeners One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

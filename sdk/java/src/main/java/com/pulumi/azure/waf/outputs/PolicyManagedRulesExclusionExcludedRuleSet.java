@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyManagedRulesExclusionExcludedRuleSet {
     /**
-     * @return One or more `rule_group` block defined below.
+     * @return One or more `ruleGroup` block defined below.
      * 
      */
     private @Nullable List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> ruleGroups;
@@ -31,7 +31,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
 
     private PolicyManagedRulesExclusionExcludedRuleSet() {}
     /**
-     * @return One or more `rule_group` block defined below.
+     * @return One or more `ruleGroup` block defined below.
      * 
      */
     public List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> ruleGroups() {

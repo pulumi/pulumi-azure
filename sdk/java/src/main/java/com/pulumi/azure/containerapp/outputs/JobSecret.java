@@ -15,14 +15,14 @@ public final class JobSecret {
     /**
      * @return The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
      * 
-     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+     * !&gt; **Note:** `identity` must be used together with `keyVaultSecretId`
      * 
      */
     private @Nullable String identity;
     /**
      * @return The ID of a Key Vault secret. This can be a versioned or version-less ID.
      * 
-     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+     * !&gt; **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
      * 
      */
     private @Nullable String keyVaultSecretId;
@@ -34,7 +34,7 @@ public final class JobSecret {
     /**
      * @return The value for this secret.
      * 
-     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * !&gt; **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
      * 
      */
     private @Nullable String value;
@@ -43,7 +43,7 @@ public final class JobSecret {
     /**
      * @return The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
      * 
-     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+     * !&gt; **Note:** `identity` must be used together with `keyVaultSecretId`
      * 
      */
     public Optional<String> identity() {
@@ -52,7 +52,7 @@ public final class JobSecret {
     /**
      * @return The ID of a Key Vault secret. This can be a versioned or version-less ID.
      * 
-     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+     * !&gt; **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
      * 
      */
     public Optional<String> keyVaultSecretId() {
@@ -68,7 +68,7 @@ public final class JobSecret {
     /**
      * @return The value for this secret.
      * 
-     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * !&gt; **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
      * 
      */
     public Optional<String> value() {

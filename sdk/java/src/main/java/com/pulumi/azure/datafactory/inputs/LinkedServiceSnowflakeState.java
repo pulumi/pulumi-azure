@@ -109,14 +109,14 @@ public final class LinkedServiceSnowflakeState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * A `keyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     @Import(name="keyVaultPassword")
     private @Nullable Output<LinkedServiceSnowflakeKeyVaultPasswordArgs> keyVaultPassword;
 
     /**
-     * @return A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * @return A `keyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     public Optional<Output<LinkedServiceSnowflakeKeyVaultPasswordArgs>> keyVaultPassword() {
@@ -322,7 +322,7 @@ public final class LinkedServiceSnowflakeState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class LinkedServiceSnowflakeState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 

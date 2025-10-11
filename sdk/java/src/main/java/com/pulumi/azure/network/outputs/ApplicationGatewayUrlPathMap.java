@@ -20,7 +20,7 @@ public final class ApplicationGatewayUrlPathMap {
      */
     private @Nullable String defaultBackendAddressPoolId;
     /**
-     * @return The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+     * @return The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
      * 
      */
     private @Nullable String defaultBackendAddressPoolName;
@@ -30,7 +30,7 @@ public final class ApplicationGatewayUrlPathMap {
      */
     private @Nullable String defaultBackendHttpSettingsId;
     /**
-     * @return The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+     * @return The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
      * 
      */
     private @Nullable String defaultBackendHttpSettingsName;
@@ -40,9 +40,9 @@ public final class ApplicationGatewayUrlPathMap {
      */
     private @Nullable String defaultRedirectConfigurationId;
     /**
-     * @return The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+     * @return The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
      * 
-     * &gt; **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+     * &gt; **Note:** Both `defaultBackendAddressPoolName` and `defaultBackendHttpSettingsName` or `defaultRedirectConfigurationName` should be specified.
      * 
      */
     private @Nullable String defaultRedirectConfigurationName;
@@ -63,7 +63,7 @@ public final class ApplicationGatewayUrlPathMap {
      */
     private String name;
     /**
-     * @return One or more `path_rule` blocks as defined above.
+     * @return One or more `pathRule` blocks as defined above.
      * 
      */
     private List<ApplicationGatewayUrlPathMapPathRule> pathRules;
@@ -77,7 +77,7 @@ public final class ApplicationGatewayUrlPathMap {
         return Optional.ofNullable(this.defaultBackendAddressPoolId);
     }
     /**
-     * @return The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+     * @return The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
      * 
      */
     public Optional<String> defaultBackendAddressPoolName() {
@@ -91,7 +91,7 @@ public final class ApplicationGatewayUrlPathMap {
         return Optional.ofNullable(this.defaultBackendHttpSettingsId);
     }
     /**
-     * @return The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+     * @return The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
      * 
      */
     public Optional<String> defaultBackendHttpSettingsName() {
@@ -105,9 +105,9 @@ public final class ApplicationGatewayUrlPathMap {
         return Optional.ofNullable(this.defaultRedirectConfigurationId);
     }
     /**
-     * @return The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+     * @return The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
      * 
-     * &gt; **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+     * &gt; **Note:** Both `defaultBackendAddressPoolName` and `defaultBackendHttpSettingsName` or `defaultRedirectConfigurationName` should be specified.
      * 
      */
     public Optional<String> defaultRedirectConfigurationName() {
@@ -138,7 +138,7 @@ public final class ApplicationGatewayUrlPathMap {
         return this.name;
     }
     /**
-     * @return One or more `path_rule` blocks as defined above.
+     * @return One or more `pathRule` blocks as defined above.
      * 
      */
     public List<ApplicationGatewayUrlPathMapPathRule> pathRules() {

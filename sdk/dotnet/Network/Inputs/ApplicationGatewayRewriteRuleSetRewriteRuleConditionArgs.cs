@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Perform a case in-sensitive comparison. Defaults to `false`
+        /// Perform a case in-sensitive comparison. Defaults to `False`
         /// </summary>
         [Input("ignoreCase")]
         public Input<bool>? IgnoreCase { get; set; }
 
         /// <summary>
-        /// Negate the result of the condition evaluation. Defaults to `false`
+        /// Negate the result of the condition evaluation. Defaults to `False`
         /// </summary>
         [Input("negate")]
         public Input<bool>? Negate { get; set; }

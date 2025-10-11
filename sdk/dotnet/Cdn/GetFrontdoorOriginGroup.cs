@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         public readonly string CdnFrontdoorProfileId;
         /// <summary>
-        /// A `health_probe` block as defined below.
+        /// A `HealthProbe` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFrontdoorOriginGroupHealthProbeResult> HealthProbes;
         /// <summary>
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `load_balancing` block as defined below.
+        /// A `LoadBalancing` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFrontdoorOriginGroupLoadBalancingResult> LoadBalancings;
         public readonly string Name;

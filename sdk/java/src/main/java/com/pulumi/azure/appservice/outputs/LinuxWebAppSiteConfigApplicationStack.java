@@ -19,12 +19,12 @@ public final class LinuxWebAppSiteConfigApplicationStack {
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
      * 
      */
     private @Nullable String dockerRegistryPassword;
     /**
-     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * @return The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
      * 
      */
     private @Nullable String dockerRegistryUrl;
@@ -51,21 +51,21 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      */
     private @Nullable String javaServer;
     /**
-     * @return The Version of the `java_server` to use.
+     * @return The Version of the `javaServer` to use.
      * 
      */
     private @Nullable String javaServerVersion;
     /**
      * @return The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
      * 
-     * &gt; **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
+     * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
-     * &gt; **Note:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
+     * &gt; **Note:** `javaServer`, `javaServerVersion`, and `javaVersion` must all be specified if building a java app
      * 
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
+     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `javaVersion`.
      * 
      * &gt; **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
      * 
@@ -100,14 +100,14 @@ public final class LinuxWebAppSiteConfigApplicationStack {
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
      * 
      */
     public Optional<String> dockerRegistryPassword() {
         return Optional.ofNullable(this.dockerRegistryPassword);
     }
     /**
-     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * @return The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
      * 
      */
     public Optional<String> dockerRegistryUrl() {
@@ -144,7 +144,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaServer);
     }
     /**
-     * @return The Version of the `java_server` to use.
+     * @return The Version of the `javaServer` to use.
      * 
      */
     public Optional<String> javaServerVersion() {
@@ -153,16 +153,16 @@ public final class LinuxWebAppSiteConfigApplicationStack {
     /**
      * @return The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
      * 
-     * &gt; **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
+     * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
-     * &gt; **Note:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
+     * &gt; **Note:** `javaServer`, `javaServerVersion`, and `javaVersion` must all be specified if building a java app
      * 
      */
     public Optional<String> javaVersion() {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
+     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `javaVersion`.
      * 
      * &gt; **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
      * 

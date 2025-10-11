@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        /// A `PccRule` block as defined below. The set of PCC Rules that make up this service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkServicePccRuleResult> PccRules;
         /// <summary>
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public readonly int ServicePrecedence;
         /// <summary>
-        /// A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service.
+        /// A `ServiceQosPolicy` block as defined below. The QoS policy to use for packets matching this service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkServiceServiceQosPolicyResult> ServiceQosPolicies;
         /// <summary>

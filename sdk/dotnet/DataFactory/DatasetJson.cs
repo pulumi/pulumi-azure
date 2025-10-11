@@ -86,7 +86,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// A `AzureBlobStorageLocation` block as defined below.
         /// 
         /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Folder { get; private set; } = null!;
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// </summary>
         [Output("httpServerLocation")]
         public Output<Outputs.DatasetJsonHttpServerLocation?> HttpServerLocation { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
         public Output<ImmutableArray<Outputs.DatasetJsonSchemaColumn>> SchemaColumns { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// A `AzureBlobStorageLocation` block as defined below.
         /// 
         /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// </summary>
         [Input("httpServerLocation")]
         public Input<Inputs.DatasetJsonHttpServerLocationArgs>? HttpServerLocation { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetJsonSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetJsonSchemaColumnArgs> SchemaColumns
         {
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// A `AzureBlobStorageLocation` block as defined below.
         /// 
         /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// </summary>
         [Input("httpServerLocation")]
         public Input<Inputs.DatasetJsonHttpServerLocationGetArgs>? HttpServerLocation { get; set; }
@@ -393,7 +393,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetJsonSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetJsonSchemaColumnGetArgs> SchemaColumns
         {

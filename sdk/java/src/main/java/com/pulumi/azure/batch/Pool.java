@@ -197,14 +197,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.accountName;
     }
     /**
-     * A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+     * A `autoScale` block that describes the scale settings when using auto scale as defined below.
      * 
      */
     @Export(name="autoScale", refs={PoolAutoScale.class}, tree="[0]")
     private Output</* @Nullable */ PoolAutoScale> autoScale;
 
     /**
-     * @return A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+     * @return A `autoScale` block that describes the scale settings when using auto scale as defined below.
      * 
      */
     public Output<Optional<PoolAutoScale>> autoScale() {
@@ -225,42 +225,42 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.certificates);
     }
     /**
-     * The container configuration used in the pool&#39;s VMs. One `container_configuration` block as defined below.
+     * The container configuration used in the pool&#39;s VMs. One `containerConfiguration` block as defined below.
      * 
      */
     @Export(name="containerConfiguration", refs={PoolContainerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PoolContainerConfiguration> containerConfiguration;
 
     /**
-     * @return The container configuration used in the pool&#39;s VMs. One `container_configuration` block as defined below.
+     * @return The container configuration used in the pool&#39;s VMs. One `containerConfiguration` block as defined below.
      * 
      */
     public Output<Optional<PoolContainerConfiguration>> containerConfiguration() {
         return Codegen.optional(this.containerConfiguration);
     }
     /**
-     * A `data_disks` block describes the data disk settings as defined below.
+     * A `dataDisks` block describes the data disk settings as defined below.
      * 
      */
     @Export(name="dataDisks", refs={List.class,PoolDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolDataDisk>> dataDisks;
 
     /**
-     * @return A `data_disks` block describes the data disk settings as defined below.
+     * @return A `dataDisks` block describes the data disk settings as defined below.
      * 
      */
     public Output<Optional<List<PoolDataDisk>>> dataDisks() {
         return Codegen.optional(this.dataDisks);
     }
     /**
-     * A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+     * A `diskEncryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
      * 
      */
     @Export(name="diskEncryptions", refs={List.class,PoolDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolDiskEncryption>> diskEncryptions;
 
     /**
-     * @return A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+     * @return A `diskEncryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
      * 
      */
     public Output<Optional<List<PoolDiskEncryption>>> diskEncryptions() {
@@ -295,14 +295,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.extensions);
     }
     /**
-     * A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
+     * A `fixedScale` block that describes the scale settings when using fixed scale as defined below.
      * 
      */
     @Export(name="fixedScale", refs={PoolFixedScale.class}, tree="[0]")
     private Output</* @Nullable */ PoolFixedScale> fixedScale;
 
     /**
-     * @return A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
+     * @return A `fixedScale` block that describes the scale settings when using fixed scale as defined below.
      * 
      */
     public Output<Optional<PoolFixedScale>> fixedScale() {
@@ -407,14 +407,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="networkConfiguration", refs={PoolNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PoolNetworkConfiguration> networkConfiguration;
 
     /**
-     * @return A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
+     * @return A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<PoolNetworkConfiguration>> networkConfiguration() {
@@ -435,14 +435,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.nodeAgentSkuId;
     }
     /**
-     * A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
+     * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool as defined below.
      * 
      */
     @Export(name="nodePlacements", refs={List.class,PoolNodePlacement.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolNodePlacement>> nodePlacements;
 
     /**
-     * @return A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
+     * @return A `nodePlacement` block that describes the placement policy for allocating nodes in the pool as defined below.
      * 
      */
     public Output<Optional<List<PoolNodePlacement>>> nodePlacements() {
@@ -477,28 +477,28 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+     * A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="securityProfile", refs={PoolSecurityProfile.class}, tree="[0]")
     private Output</* @Nullable */ PoolSecurityProfile> securityProfile;
 
     /**
-     * @return A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+     * @return A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<PoolSecurityProfile>> securityProfile() {
         return Codegen.optional(this.securityProfile);
     }
     /**
-     * A `start_task` block that describes the start task settings for the Batch pool as defined below.
+     * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      * 
      */
     @Export(name="startTask", refs={PoolStartTask.class}, tree="[0]")
     private Output</* @Nullable */ PoolStartTask> startTask;
 
     /**
-     * @return A `start_task` block that describes the start task settings for the Batch pool as defined below.
+     * @return A `startTask` block that describes the start task settings for the Batch pool as defined below.
      * 
      */
     public Output<Optional<PoolStartTask>> startTask() {
@@ -519,14 +519,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.stopPendingResizeOperation);
     }
     /**
-     * A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
+     * A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageImageReference", refs={PoolStorageImageReference.class}, tree="[0]")
     private Output<PoolStorageImageReference> storageImageReference;
 
     /**
-     * @return A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
+     * @return A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<PoolStorageImageReference> storageImageReference() {
@@ -547,28 +547,28 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.targetNodeCommunicationMode);
     }
     /**
-     * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
+     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      * 
      */
     @Export(name="taskSchedulingPolicies", refs={List.class,PoolTaskSchedulingPolicy.class}, tree="[0,1]")
     private Output<List<PoolTaskSchedulingPolicy>> taskSchedulingPolicies;
 
     /**
-     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
+     * @return A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      * 
      */
     public Output<List<PoolTaskSchedulingPolicy>> taskSchedulingPolicies() {
         return this.taskSchedulingPolicies;
     }
     /**
-     * A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
+     * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
      * 
      */
     @Export(name="userAccounts", refs={List.class,PoolUserAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolUserAccount>> userAccounts;
 
     /**
-     * @return A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
+     * @return A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
      * 
      */
     public Output<Optional<List<PoolUserAccount>>> userAccounts() {
@@ -593,7 +593,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
      * 
-     * &gt; **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      * 
      */
     @Export(name="windows", refs={List.class,PoolWindow.class}, tree="[0,1]")
@@ -604,7 +604,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
      * 
-     * &gt; **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      * 
      */
     public Output<Optional<List<PoolWindow>>> windows() {

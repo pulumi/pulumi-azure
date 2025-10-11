@@ -84,9 +84,9 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
+        /// The format of the Policy Fragment. Possible values are `Xml` or `Rawxml`. Default is `Xml`.
         /// 
-        /// &gt; **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+        /// &gt; **Note:** The `Value` property will be updated to reflect the corresponding format when `Format` is updated.
         /// </summary>
         [Output("format")]
         public Output<string?> Format { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The value of the Policy Fragment.
         /// 
-        /// &gt; **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+        /// &gt; **Note:** Be aware of the two format possibilities. If the `Value` is not applied and continues to cause a diff the format could be wrong.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -164,9 +164,9 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
+        /// The format of the Policy Fragment. Possible values are `Xml` or `Rawxml`. Default is `Xml`.
         /// 
-        /// &gt; **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+        /// &gt; **Note:** The `Value` property will be updated to reflect the corresponding format when `Format` is updated.
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The value of the Policy Fragment.
         /// 
-        /// &gt; **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+        /// &gt; **Note:** Be aware of the two format possibilities. If the `Value` is not applied and continues to cause a diff the format could be wrong.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -206,9 +206,9 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
+        /// The format of the Policy Fragment. Possible values are `Xml` or `Rawxml`. Default is `Xml`.
         /// 
-        /// &gt; **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+        /// &gt; **Note:** The `Value` property will be updated to reflect the corresponding format when `Format` is updated.
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The value of the Policy Fragment.
         /// 
-        /// &gt; **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+        /// &gt; **Note:** Be aware of the two format possibilities. If the `Value` is not applied and continues to cause a diff the format could be wrong.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

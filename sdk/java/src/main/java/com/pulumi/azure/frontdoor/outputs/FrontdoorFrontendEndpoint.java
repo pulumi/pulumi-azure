@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorFrontendEndpoint {
     /**
-     * @return Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
+     * @return Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
      * 
      */
     private String hostName;
@@ -25,7 +25,7 @@ public final class FrontdoorFrontendEndpoint {
      */
     private @Nullable String id;
     /**
-     * @return Specifies the name of the `frontend_endpoint`.
+     * @return Specifies the name of the `frontendEndpoint`.
      * 
      */
     private String name;
@@ -47,7 +47,7 @@ public final class FrontdoorFrontendEndpoint {
 
     private FrontdoorFrontendEndpoint() {}
     /**
-     * @return Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
+     * @return Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
      * 
      */
     public String hostName() {
@@ -61,7 +61,7 @@ public final class FrontdoorFrontendEndpoint {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Specifies the name of the `frontend_endpoint`.
+     * @return Specifies the name of the `frontendEndpoint`.
      * 
      */
     public String name() {

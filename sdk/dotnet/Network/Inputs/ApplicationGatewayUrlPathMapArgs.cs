@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? DefaultBackendAddressPoolId { get; set; }
 
         /// <summary>
-        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `DefaultRedirectConfigurationName` is set.
         /// </summary>
         [Input("defaultBackendAddressPoolName")]
         public Input<string>? DefaultBackendAddressPoolName { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? DefaultBackendHttpSettingsId { get; set; }
 
         /// <summary>
-        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `DefaultRedirectConfigurationName` is set.
         /// </summary>
         [Input("defaultBackendHttpSettingsName")]
         public Input<string>? DefaultBackendHttpSettingsName { get; set; }
@@ -43,9 +43,9 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? DefaultRedirectConfigurationId { get; set; }
 
         /// <summary>
-        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `DefaultBackendAddressPoolName` or `DefaultBackendHttpSettingsName` is set.
         /// 
-        /// &gt; **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+        /// &gt; **Note:** Both `DefaultBackendAddressPoolName` and `DefaultBackendHttpSettingsName` or `DefaultRedirectConfigurationName` should be specified.
         /// </summary>
         [Input("defaultRedirectConfigurationName")]
         public Input<string>? DefaultRedirectConfigurationName { get; set; }
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayUrlPathMapPathRuleArgs>? _pathRules;
 
         /// <summary>
-        /// One or more `path_rule` blocks as defined above.
+        /// One or more `PathRule` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayUrlPathMapPathRuleArgs> PathRules
         {

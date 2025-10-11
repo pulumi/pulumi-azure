@@ -17,6 +17,15 @@ import javax.annotation.Nullable;
 /**
  * Manages a Kusto / Cosmos Database Data Connection.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Kusto` - 2024-04-13
+ * 
  * ## Import
  * 
  * Kusto / Cosmos Database Data Connection can be imported using the `resource id`, e.g.

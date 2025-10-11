@@ -31,7 +31,7 @@ public final class FluxConfigurationBlobStorage {
      */
     private @Nullable String localAuthReference;
     /**
-     * @return A `managed_identity` block as defined below.
+     * @return A `managedIdentity` block as defined below.
      * 
      */
     private @Nullable FluxConfigurationBlobStorageManagedIdentity managedIdentity;
@@ -41,7 +41,7 @@ public final class FluxConfigurationBlobStorage {
      */
     private @Nullable String sasToken;
     /**
-     * @return A `service_principal` block as defined below.
+     * @return A `servicePrincipal` block as defined below.
      * 
      */
     private @Nullable FluxConfigurationBlobStorageServicePrincipal servicePrincipal;
@@ -79,7 +79,7 @@ public final class FluxConfigurationBlobStorage {
         return Optional.ofNullable(this.localAuthReference);
     }
     /**
-     * @return A `managed_identity` block as defined below.
+     * @return A `managedIdentity` block as defined below.
      * 
      */
     public Optional<FluxConfigurationBlobStorageManagedIdentity> managedIdentity() {
@@ -93,7 +93,7 @@ public final class FluxConfigurationBlobStorage {
         return Optional.ofNullable(this.sasToken);
     }
     /**
-     * @return A `service_principal` block as defined below.
+     * @return A `servicePrincipal` block as defined below.
      * 
      */
     public Optional<FluxConfigurationBlobStorageServicePrincipal> servicePrincipal() {

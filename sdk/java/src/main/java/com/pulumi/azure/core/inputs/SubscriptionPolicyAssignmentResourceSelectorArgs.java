@@ -34,14 +34,14 @@ public final class SubscriptionPolicyAssignmentResourceSelectorArgs extends com.
     }
 
     /**
-     * One or more `resource_selector` block as defined below.
+     * One or more `resourceSelector` block as defined below.
      * 
      */
     @Import(name="selectors", required=true)
     private Output<List<SubscriptionPolicyAssignmentResourceSelectorSelectorArgs>> selectors;
 
     /**
-     * @return One or more `resource_selector` block as defined below.
+     * @return One or more `resourceSelector` block as defined below.
      * 
      */
     public Output<List<SubscriptionPolicyAssignmentResourceSelectorSelectorArgs>> selectors() {
@@ -95,7 +95,7 @@ public final class SubscriptionPolicyAssignmentResourceSelectorArgs extends com.
         }
 
         /**
-         * @param selectors One or more `resource_selector` block as defined below.
+         * @param selectors One or more `resourceSelector` block as defined below.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class SubscriptionPolicyAssignmentResourceSelectorArgs extends com.
         }
 
         /**
-         * @param selectors One or more `resource_selector` block as defined below.
+         * @param selectors One or more `resourceSelector` block as defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class SubscriptionPolicyAssignmentResourceSelectorArgs extends com.
         }
 
         /**
-         * @param selectors One or more `resource_selector` block as defined below.
+         * @param selectors One or more `resourceSelector` block as defined below.
          * 
          * @return builder
          * 

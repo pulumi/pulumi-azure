@@ -25,14 +25,14 @@ public final class NamespaceNetworkRuleSet {
      */
     private @Nullable List<String> ipRules;
     /**
-     * @return One or more `network_rules` blocks as defined below.
+     * @return One or more `networkRules` blocks as defined below.
      * 
      */
     private @Nullable List<NamespaceNetworkRuleSetNetworkRule> networkRules;
     /**
      * @return Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
+     * &gt; **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
      * 
      */
     private @Nullable Boolean publicNetworkAccessEnabled;
@@ -58,7 +58,7 @@ public final class NamespaceNetworkRuleSet {
         return this.ipRules == null ? List.of() : this.ipRules;
     }
     /**
-     * @return One or more `network_rules` blocks as defined below.
+     * @return One or more `networkRules` blocks as defined below.
      * 
      */
     public List<NamespaceNetworkRuleSetNetworkRule> networkRules() {
@@ -67,7 +67,7 @@ public final class NamespaceNetworkRuleSet {
     /**
      * @return Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
+     * &gt; **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
      * 
      */
     public Optional<Boolean> publicNetworkAccessEnabled() {
