@@ -49,14 +49,14 @@ public final class ScaleSetExtensionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
     @Import(name="protectedSettings")
     private @Nullable Output<String> protectedSettings;
 
     /**
-     * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * @return The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
     public Optional<Output<String>> protectedSettings() {
@@ -212,7 +212,7 @@ public final class ScaleSetExtensionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+         * @param protectedSettings The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class ScaleSetExtensionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+         * @param protectedSettings The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
          * @return builder
          * 

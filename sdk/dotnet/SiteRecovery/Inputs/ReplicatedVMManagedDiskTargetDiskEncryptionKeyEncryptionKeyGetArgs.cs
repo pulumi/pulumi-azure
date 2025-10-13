@@ -13,13 +13,13 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `azure.keyvault.Key` resource. Changing this forces a new resource to be created.
+        /// The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `Id` on the `azure.keyvault.Key` resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyUrl", required: true)]
         public Input<string> KeyUrl { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        /// The ID of the Key Vault. This can be found as `Id` on the `azure.keyvault.KeyVault` resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vaultId", required: true)]
         public Input<string> VaultId { get; set; } = null!;

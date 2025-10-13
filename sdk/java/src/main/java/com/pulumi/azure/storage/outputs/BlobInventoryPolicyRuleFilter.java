@@ -15,9 +15,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BlobInventoryPolicyRuleFilter {
     /**
-     * @return A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
+     * @return A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn&#39;t support `pageBlob`.
      * 
-     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
      * 
      */
     private List<String> blobTypes;
@@ -29,21 +29,21 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return Includes blob versions in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
      * 
      */
     private @Nullable Boolean includeBlobVersions;
     /**
      * @return Includes deleted blobs in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+     * &gt; **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storageAccountId` has hierarchical namespaces enabled (`isHnsEnabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`.
      * 
      */
     private @Nullable Boolean includeDeleted;
     /**
      * @return Includes blob snapshots in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
      * 
      */
     private @Nullable Boolean includeSnapshots;
@@ -55,9 +55,9 @@ public final class BlobInventoryPolicyRuleFilter {
 
     private BlobInventoryPolicyRuleFilter() {}
     /**
-     * @return A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
+     * @return A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn&#39;t support `pageBlob`.
      * 
-     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
      * 
      */
     public List<String> blobTypes() {
@@ -73,7 +73,7 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return Includes blob versions in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
      * 
      */
     public Optional<Boolean> includeBlobVersions() {
@@ -82,7 +82,7 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return Includes deleted blobs in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+     * &gt; **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storageAccountId` has hierarchical namespaces enabled (`isHnsEnabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`.
      * 
      */
     public Optional<Boolean> includeDeleted() {
@@ -91,7 +91,7 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return Includes blob snapshots in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
      * 
      */
     public Optional<Boolean> includeSnapshots() {

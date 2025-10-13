@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecurityPolicySecurityPolicies
     {
         /// <summary>
-        /// An `firewall` block as defined below.
+        /// An `Firewall` block as defined below.
         /// </summary>
         public readonly Outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall Firewall;
 

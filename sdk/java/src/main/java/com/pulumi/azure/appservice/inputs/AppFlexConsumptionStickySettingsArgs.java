@@ -17,14 +17,14 @@ public final class AppFlexConsumptionStickySettingsArgs extends com.pulumi.resou
     public static final AppFlexConsumptionStickySettingsArgs Empty = new AppFlexConsumptionStickySettingsArgs();
 
     /**
-     * A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+     * A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
     @Import(name="appSettingNames")
     private @Nullable Output<List<String>> appSettingNames;
 
     /**
-     * @return A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
     public Optional<Output<List<String>>> appSettingNames() {
@@ -32,14 +32,14 @@ public final class AppFlexConsumptionStickySettingsArgs extends com.pulumi.resou
     }
 
     /**
-     * A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+     * A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
     @Import(name="connectionStringNames")
     private @Nullable Output<List<String>> connectionStringNames;
 
     /**
-     * @return A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
     public Optional<Output<List<String>>> connectionStringNames() {
@@ -72,7 +72,7 @@ public final class AppFlexConsumptionStickySettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param appSettingNames A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         * @param appSettingNames A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AppFlexConsumptionStickySettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param appSettingNames A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         * @param appSettingNames A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AppFlexConsumptionStickySettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param appSettingNames A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         * @param appSettingNames A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AppFlexConsumptionStickySettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param connectionStringNames A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         * @param connectionStringNames A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AppFlexConsumptionStickySettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param connectionStringNames A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         * @param connectionStringNames A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class AppFlexConsumptionStickySettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param connectionStringNames A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         * @param connectionStringNames A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 

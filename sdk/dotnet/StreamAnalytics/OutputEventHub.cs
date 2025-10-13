@@ -125,7 +125,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Output("serialization")]
         public Output<Outputs.OutputEventHubSerialization> Serialization { get; private set; } = null!;
@@ -137,13 +137,13 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> ServicebusNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
+        /// The shared access policy key for the specified shared access policy. Required when `AuthenticationMode` is set to `ConnectionString`.
         /// </summary>
         [Output("sharedAccessPolicyKey")]
         public Output<string?> SharedAccessPolicyKey { get; private set; } = null!;
 
         /// <summary>
-        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
+        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `AuthenticationMode` is set to `ConnectionString`.
         /// </summary>
         [Output("sharedAccessPolicyName")]
         public Output<string?> SharedAccessPolicyName { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization", required: true)]
         public Input<Inputs.OutputEventHubSerializationArgs> Serialization { get; set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private Input<string>? _sharedAccessPolicyKey;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
+        /// The shared access policy key for the specified shared access policy. Required when `AuthenticationMode` is set to `ConnectionString`.
         /// </summary>
         public Input<string>? SharedAccessPolicyKey
         {
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
 
         /// <summary>
-        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
+        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `AuthenticationMode` is set to `ConnectionString`.
         /// </summary>
         [Input("sharedAccessPolicyName")]
         public Input<string>? SharedAccessPolicyName { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization")]
         public Input<Inputs.OutputEventHubSerializationGetArgs>? Serialization { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private Input<string>? _sharedAccessPolicyKey;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
+        /// The shared access policy key for the specified shared access policy. Required when `AuthenticationMode` is set to `ConnectionString`.
         /// </summary>
         public Input<string>? SharedAccessPolicyKey
         {
@@ -365,7 +365,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
 
         /// <summary>
-        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
+        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `AuthenticationMode` is set to `ConnectionString`.
         /// </summary>
         [Input("sharedAccessPolicyName")]
         public Input<string>? SharedAccessPolicyName { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppTemplateAzureQueueScaleRule
     {
         /// <summary>
-        /// One or more `authentication` blocks as defined below.
+        /// One or more `Authentication` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateAzureQueueScaleRuleAuthentication> Authentications;
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Names;
         /// <summary>
-        /// The name of the Volume. The only possible value is `default`. Changing this forces a new resource to be created.
+        /// The name of the Volume. The only possible value is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string VolumeName;
 

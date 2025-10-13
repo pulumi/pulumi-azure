@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetLinuxWebAppLogApplicationLogResult
     {
         /// <summary>
-        /// A `azure_blob_storage` block as defined above.
+        /// A `AzureBlobStorage` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppLogApplicationLogAzureBlobStorageResult> AzureBlobStorages;
         /// <summary>

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+        /// The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `ServiceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `ServiceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
         /// </summary>
         public readonly string? Service;
         /// <summary>
         /// Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
         /// 
-        /// &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+        /// &gt; **Note:** The `ServiceResources` property must contain either Aliases or Resource IDs, but not both.
         /// </summary>
         public readonly ImmutableArray<string> ServiceResources;
 

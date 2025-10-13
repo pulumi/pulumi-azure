@@ -22,7 +22,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
     /**
      * Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
-     * &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+     * &gt; **Note:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
      * 
      */
     @Import(name="dhcpEnabled")
@@ -31,7 +31,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
     /**
      * @return Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
-     * &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+     * &gt; **Note:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
      * 
      */
     public Optional<Output<Boolean>> dhcpEnabled() {
@@ -69,14 +69,14 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
     }
 
     /**
-     * One or more `ip_pool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="ipPools", required=true)
     private Output<List<HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs>> ipPools;
 
     /**
-     * @return One or more `ip_pool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Output<List<HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs>> ipPools() {
@@ -129,7 +129,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
         /**
          * @param dhcpEnabled Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
-         * &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+         * &gt; **Note:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
         /**
          * @param dhcpEnabled Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
-         * &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+         * &gt; **Note:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
         }
 
         /**
-         * @param ipPools One or more `ip_pool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param ipPools One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
         }
 
         /**
-         * @param ipPools One or more `ip_pool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param ipPools One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
         }
 
         /**
-         * @param ipPools One or more `ip_pool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param ipPools One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 

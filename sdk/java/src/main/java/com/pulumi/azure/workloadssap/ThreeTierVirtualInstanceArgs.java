@@ -185,14 +185,14 @@ public final class ThreeTierVirtualInstanceArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `threeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="threeTierConfiguration", required=true)
     private Output<ThreeTierVirtualInstanceThreeTierConfigurationArgs> threeTierConfiguration;
 
     /**
-     * @return A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `threeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ThreeTierVirtualInstanceThreeTierConfigurationArgs> threeTierConfiguration() {
@@ -466,7 +466,7 @@ public final class ThreeTierVirtualInstanceArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param threeTierConfiguration A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param threeTierConfiguration A `threeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class ThreeTierVirtualInstanceArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param threeTierConfiguration A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param threeTierConfiguration A `threeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

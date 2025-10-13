@@ -90,7 +90,7 @@ namespace Pulumi.Azure.MSSql
     public partial class ManagedDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `long_term_retention_policy` block as defined below.
+        /// A `LongTermRetentionPolicy` block as defined below.
         /// </summary>
         [Output("longTermRetentionPolicy")]
         public Output<Outputs.ManagedDatabaseLongTermRetentionPolicy> LongTermRetentionPolicy { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        /// A `PointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("pointInTimeRestore")]
         public Output<Outputs.ManagedDatabasePointInTimeRestore?> PointInTimeRestore { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ManagedDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `long_term_retention_policy` block as defined below.
+        /// A `LongTermRetentionPolicy` block as defined below.
         /// </summary>
         [Input("longTermRetentionPolicy")]
         public Input<Inputs.ManagedDatabaseLongTermRetentionPolicyArgs>? LongTermRetentionPolicy { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        /// A `PointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("pointInTimeRestore")]
         public Input<Inputs.ManagedDatabasePointInTimeRestoreArgs>? PointInTimeRestore { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ManagedDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `long_term_retention_policy` block as defined below.
+        /// A `LongTermRetentionPolicy` block as defined below.
         /// </summary>
         [Input("longTermRetentionPolicy")]
         public Input<Inputs.ManagedDatabaseLongTermRetentionPolicyGetArgs>? LongTermRetentionPolicy { get; set; }
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+        /// A `PointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("pointInTimeRestore")]
         public Input<Inputs.ManagedDatabasePointInTimeRestoreGetArgs>? PointInTimeRestore { get; set; }

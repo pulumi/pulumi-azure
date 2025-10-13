@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyVMWorkloadSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The compression setting for the VM Workload Backup Policy. Defaults to `false`.
+        /// The compression setting for the VM Workload Backup Policy. Defaults to `False`.
         /// </summary>
         [Input("compressionEnabled")]
         public Input<bool>? CompressionEnabled { get; set; }

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleCondition
     {
         /// <summary>
-        /// Perform a case in-sensitive comparison. Defaults to `false`
+        /// Perform a case in-sensitive comparison. Defaults to `False`
         /// </summary>
         public readonly bool? IgnoreCase;
         /// <summary>
-        /// Negate the result of the condition evaluation. Defaults to `false`
+        /// Negate the result of the condition evaluation. Defaults to `False`
         /// </summary>
         public readonly bool? Negate;
         /// <summary>

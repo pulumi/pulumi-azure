@@ -111,23 +111,23 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_password` block as defined below.
+        /// A `KeyVaultPassword` block as defined below.
         /// 
-        /// &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+        /// &gt; **Note:** Either `Password` or `KeyVaultPassword` is required when `AuthenticationType` is set to `Basic`.
         /// </summary>
         [Output("keyVaultPasswords")]
         public Output<ImmutableArray<Outputs.LinkedServiceSftpKeyVaultPassword>> KeyVaultPasswords { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_private_key_content_base64` block as defined below.
+        /// A `KeyVaultPrivateKeyContentBase64` block as defined below.
         /// </summary>
         [Output("keyVaultPrivateKeyContentBase64")]
         public Output<Outputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64?> KeyVaultPrivateKeyContentBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_private_key_passphrase` block as defined below.
+        /// A `KeyVaultPrivateKeyPassphrase` block as defined below.
         /// 
-        /// &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+        /// &gt; **Note:** One of `PrivateKeyContentBase64` or `PrivateKeyPath` (or their Key Vault equivalent) is required when `AuthenticationType` is set to `SshPublicKey`.
         /// </summary>
         [Output("keyVaultPrivateKeyPassphrase")]
         public Output<Outputs.LinkedServiceSftpKeyVaultPrivateKeyPassphrase?> KeyVaultPrivateKeyPassphrase { get; private set; } = null!;
@@ -171,13 +171,13 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The absolute path to the private key file that the self-hosted integration runtime can access.
         /// 
-        /// &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+        /// &gt; **Note:** `PrivateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `IntegrationRuntimeName`.
         /// </summary>
         [Output("privateKeyPath")]
         public Output<string?> PrivateKeyPath { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+        /// Whether to validate host key fingerprint while connecting. If set to `False`, `HostKeyFingerprint` must also be set.
         /// </summary>
         [Output("skipHostKeyValidation")]
         public Output<bool?> SkipHostKeyValidation { get; private set; } = null!;
@@ -306,9 +306,9 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.LinkedServiceSftpKeyVaultPasswordArgs>? _keyVaultPasswords;
 
         /// <summary>
-        /// A `key_vault_password` block as defined below.
+        /// A `KeyVaultPassword` block as defined below.
         /// 
-        /// &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+        /// &gt; **Note:** Either `Password` or `KeyVaultPassword` is required when `AuthenticationType` is set to `Basic`.
         /// </summary>
         public InputList<Inputs.LinkedServiceSftpKeyVaultPasswordArgs> KeyVaultPasswords
         {
@@ -317,15 +317,15 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `key_vault_private_key_content_base64` block as defined below.
+        /// A `KeyVaultPrivateKeyContentBase64` block as defined below.
         /// </summary>
         [Input("keyVaultPrivateKeyContentBase64")]
         public Input<Inputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args>? KeyVaultPrivateKeyContentBase64 { get; set; }
 
         /// <summary>
-        /// A `key_vault_private_key_passphrase` block as defined below.
+        /// A `KeyVaultPrivateKeyPassphrase` block as defined below.
         /// 
-        /// &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+        /// &gt; **Note:** One of `PrivateKeyContentBase64` or `PrivateKeyPath` (or their Key Vault equivalent) is required when `AuthenticationType` is set to `SshPublicKey`.
         /// </summary>
         [Input("keyVaultPrivateKeyPassphrase")]
         public Input<Inputs.LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs>? KeyVaultPrivateKeyPassphrase { get; set; }
@@ -405,13 +405,13 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The absolute path to the private key file that the self-hosted integration runtime can access.
         /// 
-        /// &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+        /// &gt; **Note:** `PrivateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `IntegrationRuntimeName`.
         /// </summary>
         [Input("privateKeyPath")]
         public Input<string>? PrivateKeyPath { get; set; }
 
         /// <summary>
-        /// Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+        /// Whether to validate host key fingerprint while connecting. If set to `False`, `HostKeyFingerprint` must also be set.
         /// </summary>
         [Input("skipHostKeyValidation")]
         public Input<bool>? SkipHostKeyValidation { get; set; }
@@ -496,9 +496,9 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.LinkedServiceSftpKeyVaultPasswordGetArgs>? _keyVaultPasswords;
 
         /// <summary>
-        /// A `key_vault_password` block as defined below.
+        /// A `KeyVaultPassword` block as defined below.
         /// 
-        /// &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+        /// &gt; **Note:** Either `Password` or `KeyVaultPassword` is required when `AuthenticationType` is set to `Basic`.
         /// </summary>
         public InputList<Inputs.LinkedServiceSftpKeyVaultPasswordGetArgs> KeyVaultPasswords
         {
@@ -507,15 +507,15 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `key_vault_private_key_content_base64` block as defined below.
+        /// A `KeyVaultPrivateKeyContentBase64` block as defined below.
         /// </summary>
         [Input("keyVaultPrivateKeyContentBase64")]
         public Input<Inputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64GetArgs>? KeyVaultPrivateKeyContentBase64 { get; set; }
 
         /// <summary>
-        /// A `key_vault_private_key_passphrase` block as defined below.
+        /// A `KeyVaultPrivateKeyPassphrase` block as defined below.
         /// 
-        /// &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+        /// &gt; **Note:** One of `PrivateKeyContentBase64` or `PrivateKeyPath` (or their Key Vault equivalent) is required when `AuthenticationType` is set to `SshPublicKey`.
         /// </summary>
         [Input("keyVaultPrivateKeyPassphrase")]
         public Input<Inputs.LinkedServiceSftpKeyVaultPrivateKeyPassphraseGetArgs>? KeyVaultPrivateKeyPassphrase { get; set; }
@@ -595,13 +595,13 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The absolute path to the private key file that the self-hosted integration runtime can access.
         /// 
-        /// &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+        /// &gt; **Note:** `PrivateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `IntegrationRuntimeName`.
         /// </summary>
         [Input("privateKeyPath")]
         public Input<string>? PrivateKeyPath { get; set; }
 
         /// <summary>
-        /// Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+        /// Whether to validate host key fingerprint while connecting. If set to `False`, `HostKeyFingerprint` must also be set.
         /// </summary>
         [Input("skipHostKeyValidation")]
         public Input<bool>? SkipHostKeyValidation { get; set; }

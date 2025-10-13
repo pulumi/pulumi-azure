@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Oracle
     {
         public readonly string CloudVmClusterId;
         /// <summary>
-        /// A `db_nodes` block as defined below.
+        /// A `DbNodes` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbNodesDbNodeResult> DbNodes;
         /// <summary>

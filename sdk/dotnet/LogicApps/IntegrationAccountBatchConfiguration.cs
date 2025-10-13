@@ -94,7 +94,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+        /// A `ReleaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         /// </summary>
         [Output("releaseCriteria")]
         public Output<Outputs.IntegrationAccountBatchConfigurationReleaseCriteria> ReleaseCriteria { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+        /// A `ReleaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         /// </summary>
         [Input("releaseCriteria", required: true)]
         public Input<Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaArgs> ReleaseCriteria { get; set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+        /// A `ReleaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         /// </summary>
         [Input("releaseCriteria")]
         public Input<Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaGetArgs>? ReleaseCriteria { get; set; }

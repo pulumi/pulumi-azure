@@ -43,7 +43,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
      */
     @Import(name="appSettings")
@@ -52,7 +52,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -60,14 +60,14 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<FunctionAppAuthSettingsArgs> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Optional<Output<FunctionAppAuthSettingsArgs>> authSettings() {
@@ -90,14 +90,14 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `connection_string` block as defined below.
+     * An `connectionString` block as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<FunctionAppConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return An `connection_string` block as defined below.
+     * @return An `connectionString` block as defined below.
      * 
      */
     public Optional<Output<List<FunctionAppConnectionStringArgs>>> connectionStrings() {
@@ -259,14 +259,14 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<FunctionAppSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` object as defined below.
+     * @return A `siteConfig` object as defined below.
      * 
      */
     public Optional<Output<FunctionAppSiteConfigArgs>> siteConfig() {
@@ -274,14 +274,14 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `source_control` block, as defined below.
+     * A `sourceControl` block, as defined below.
      * 
      */
     @Import(name="sourceControl")
     private @Nullable Output<FunctionAppSourceControlArgs> sourceControl;
 
     /**
-     * @return A `source_control` block, as defined below.
+     * @return A `sourceControl` block, as defined below.
      * 
      */
     public Optional<Output<FunctionAppSourceControlArgs>> sourceControl() {
@@ -293,7 +293,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
      * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     @Import(name="storageAccountAccessKey", required=true)
@@ -304,7 +304,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
      * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     public Output<String> storageAccountAccessKey() {
@@ -424,7 +424,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
          * 
-         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
          * 
-         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings An `connection_string` block as defined below.
+         * @param connectionStrings An `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings An `connection_string` block as defined below.
+         * @param connectionStrings An `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings An `connection_string` block as defined below.
+         * @param connectionStrings An `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -734,7 +734,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` object as defined below.
+         * @param siteConfig A `siteConfig` object as defined below.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` object as defined below.
+         * @param siteConfig A `siteConfig` object as defined below.
          * 
          * @return builder
          * 
@@ -755,7 +755,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceControl A `source_control` block, as defined below.
+         * @param sourceControl A `sourceControl` block, as defined below.
          * 
          * @return builder
          * 
@@ -766,7 +766,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceControl A `source_control` block, as defined below.
+         * @param sourceControl A `sourceControl` block, as defined below.
          * 
          * @return builder
          * 
@@ -780,7 +780,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
          * 
-         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 
@@ -795,7 +795,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
          * 
-         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 

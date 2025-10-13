@@ -207,14 +207,14 @@ public class Backend extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourceId);
     }
     /**
-     * A `service_fabric_cluster` block as documented below.
+     * A `serviceFabricCluster` block as documented below.
      * 
      */
     @Export(name="serviceFabricCluster", refs={BackendServiceFabricCluster.class}, tree="[0]")
     private Output</* @Nullable */ BackendServiceFabricCluster> serviceFabricCluster;
 
     /**
-     * @return A `service_fabric_cluster` block as documented below.
+     * @return A `serviceFabricCluster` block as documented below.
      * 
      */
     public Output<Optional<BackendServiceFabricCluster>> serviceFabricCluster() {

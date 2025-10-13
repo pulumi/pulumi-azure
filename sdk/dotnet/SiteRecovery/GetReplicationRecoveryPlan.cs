@@ -182,7 +182,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// `recovery_group` block defined as below.
+        /// `RecoveryGroup` block defined as below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetReplicationRecoveryPlanRecoveryGroupResult> RecoveryGroups;
         public readonly string RecoveryVaultId;

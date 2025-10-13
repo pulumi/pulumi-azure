@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetLinuxWebAppSiteConfigScmIpRestrictionResult
     {
         /// <summary>
-        /// A `action` block as defined above.
+        /// A `Action` block as defined above.
         /// </summary>
         public readonly string Action;
         /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The priority value of this `ip_restriction`.
+        /// The priority value of this `IpRestriction`.
         /// </summary>
         public readonly int Priority;
         /// <summary>

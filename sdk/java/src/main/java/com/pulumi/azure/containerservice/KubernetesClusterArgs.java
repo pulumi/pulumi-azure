@@ -49,14 +49,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     public static final KubernetesClusterArgs Empty = new KubernetesClusterArgs();
 
     /**
-     * A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+     * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
      * 
      */
     @Import(name="aciConnectorLinux")
     private @Nullable Output<KubernetesClusterAciConnectorLinuxArgs> aciConnectorLinux;
 
     /**
-     * @return A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+     * @return A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
      * 
      */
     public Optional<Output<KubernetesClusterAciConnectorLinuxArgs>> aciConnectorLinux() {
@@ -64,14 +64,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An `api_server_access_profile` block as defined below.
+     * An `apiServerAccessProfile` block as defined below.
      * 
      */
     @Import(name="apiServerAccessProfile")
     private @Nullable Output<KubernetesClusterApiServerAccessProfileArgs> apiServerAccessProfile;
 
     /**
-     * @return An `api_server_access_profile` block as defined below.
+     * @return An `apiServerAccessProfile` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterApiServerAccessProfileArgs>> apiServerAccessProfile() {
@@ -79,14 +79,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `auto_scaler_profile` block as defined below.
+     * A `autoScalerProfile` block as defined below.
      * 
      */
     @Import(name="autoScalerProfile")
     private @Nullable Output<KubernetesClusterAutoScalerProfileArgs> autoScalerProfile;
 
     /**
-     * @return A `auto_scaler_profile` block as defined below.
+     * @return A `autoScalerProfile` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterAutoScalerProfileArgs>> autoScalerProfile() {
@@ -117,14 +117,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `azure_active_directory_role_based_access_control` block as defined below.
+     * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      * 
      */
     @Import(name="azureActiveDirectoryRoleBasedAccessControl")
     private @Nullable Output<KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs> azureActiveDirectoryRoleBasedAccessControl;
 
     /**
-     * @return A `azure_active_directory_role_based_access_control` block as defined below.
+     * @return A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs>> azureActiveDirectoryRoleBasedAccessControl() {
@@ -147,14 +147,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `bootstrap_profile` block as defined below.
+     * A `bootstrapProfile` block as defined below.
      * 
      */
     @Import(name="bootstrapProfile")
     private @Nullable Output<KubernetesClusterBootstrapProfileArgs> bootstrapProfile;
 
     /**
-     * @return A `bootstrap_profile` block as defined below.
+     * @return A `bootstrapProfile` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterBootstrapProfileArgs>> bootstrapProfile() {
@@ -162,14 +162,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      * 
      */
     @Import(name="confidentialComputing")
     private @Nullable Output<KubernetesClusterConfidentialComputingArgs> confidentialComputing;
 
     /**
-     * @return A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * @return A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      * 
      */
     public Optional<Output<KubernetesClusterConfidentialComputingArgs>> confidentialComputing() {
@@ -177,14 +177,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
      * 
      */
     @Import(name="costAnalysisEnabled")
     private @Nullable Output<Boolean> costAnalysisEnabled;
 
     /**
-     * @return Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * @return Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
      * 
      */
     public Optional<Output<Boolean>> costAnalysisEnabled() {
@@ -207,14 +207,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
+     * Specifies configuration for &#34;System&#34; mode node pool. A `defaultNodePool` block as defined below.
      * 
      */
     @Import(name="defaultNodePool", required=true)
     private Output<KubernetesClusterDefaultNodePoolArgs> defaultNodePool;
 
     /**
-     * @return Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
+     * @return Specifies configuration for &#34;System&#34; mode node pool. A `defaultNodePool` block as defined below.
      * 
      */
     public Output<KubernetesClusterDefaultNodePoolArgs> defaultNodePool() {
@@ -254,9 +254,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
+     * &gt; **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
      * 
-     * In addition, one of either `identity` or `service_principal` blocks must be specified.
+     * In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
      * 
      */
     @Import(name="dnsPrefixPrivateCluster")
@@ -265,9 +265,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
+     * &gt; **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
      * 
-     * In addition, one of either `identity` or `service_principal` blocks must be specified.
+     * In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
      * 
      */
     public Optional<Output<String>> dnsPrefixPrivateCluster() {
@@ -309,14 +309,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `http_proxy_config` block as defined below.
+     * A `httpProxyConfig` block as defined below.
      * 
      */
     @Import(name="httpProxyConfig")
     private @Nullable Output<KubernetesClusterHttpProxyConfigArgs> httpProxyConfig;
 
     /**
-     * @return A `http_proxy_config` block as defined below.
+     * @return A `httpProxyConfig` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterHttpProxyConfigArgs>> httpProxyConfig() {
@@ -324,18 +324,18 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+     * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     @Import(name="identity")
     private @Nullable Output<KubernetesClusterIdentityArgs> identity;
 
     /**
-     * @return An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+     * @return An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     public Optional<Output<KubernetesClusterIdentityArgs>> identity() {
@@ -373,7 +373,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `ingress_application_gateway` block as defined below.
+     * A `ingressApplicationGateway` block as defined below.
      * 
      * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      * 
@@ -382,7 +382,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     private @Nullable Output<KubernetesClusterIngressApplicationGatewayArgs> ingressApplicationGateway;
 
     /**
-     * @return A `ingress_application_gateway` block as defined below.
+     * @return A `ingressApplicationGateway` block as defined below.
      * 
      * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      * 
@@ -392,14 +392,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
      * 
      */
     @Import(name="keyManagementService")
     private @Nullable Output<KubernetesClusterKeyManagementServiceArgs> keyManagementService;
 
     /**
-     * @return A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * @return A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
      * 
      */
     public Optional<Output<KubernetesClusterKeyManagementServiceArgs>> keyManagementService() {
@@ -407,14 +407,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+     * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      * 
      */
     @Import(name="keyVaultSecretsProvider")
     private @Nullable Output<KubernetesClusterKeyVaultSecretsProviderArgs> keyVaultSecretsProvider;
 
     /**
-     * @return A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+     * @return A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      * 
      */
     public Optional<Output<KubernetesClusterKeyVaultSecretsProviderArgs>> keyVaultSecretsProvider() {
@@ -422,14 +422,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `kubelet_identity` block as defined below.
+     * A `kubeletIdentity` block as defined below.
      * 
      */
     @Import(name="kubeletIdentity")
     private @Nullable Output<KubernetesClusterKubeletIdentityArgs> kubeletIdentity;
 
     /**
-     * @return A `kubelet_identity` block as defined below.
+     * @return A `kubeletIdentity` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterKubeletIdentityArgs>> kubeletIdentity() {
@@ -456,14 +456,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `linux_profile` block as defined below.
+     * A `linuxProfile` block as defined below.
      * 
      */
     @Import(name="linuxProfile")
     private @Nullable Output<KubernetesClusterLinuxProfileArgs> linuxProfile;
 
     /**
-     * @return A `linux_profile` block as defined below.
+     * @return A `linuxProfile` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterLinuxProfileArgs>> linuxProfile() {
@@ -473,7 +473,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
-     * &gt; **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
+     * &gt; **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
      * 
      */
     @Import(name="localAccountDisabled")
@@ -482,7 +482,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
-     * &gt; **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
+     * &gt; **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
      * 
      */
     public Optional<Output<Boolean>> localAccountDisabled() {
@@ -505,14 +505,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `maintenance_window` block as defined below.
+     * A `maintenanceWindow` block as defined below.
      * 
      */
     @Import(name="maintenanceWindow")
     private @Nullable Output<KubernetesClusterMaintenanceWindowArgs> maintenanceWindow;
 
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterMaintenanceWindowArgs>> maintenanceWindow() {
@@ -520,14 +520,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `maintenance_window_auto_upgrade` block as defined below.
+     * A `maintenanceWindowAutoUpgrade` block as defined below.
      * 
      */
     @Import(name="maintenanceWindowAutoUpgrade")
     private @Nullable Output<KubernetesClusterMaintenanceWindowAutoUpgradeArgs> maintenanceWindowAutoUpgrade;
 
     /**
-     * @return A `maintenance_window_auto_upgrade` block as defined below.
+     * @return A `maintenanceWindowAutoUpgrade` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterMaintenanceWindowAutoUpgradeArgs>> maintenanceWindowAutoUpgrade() {
@@ -535,14 +535,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `maintenance_window_node_os` block as defined below.
+     * A `maintenanceWindowNodeOs` block as defined below.
      * 
      */
     @Import(name="maintenanceWindowNodeOs")
     private @Nullable Output<KubernetesClusterMaintenanceWindowNodeOsArgs> maintenanceWindowNodeOs;
 
     /**
-     * @return A `maintenance_window_node_os` block as defined below.
+     * @return A `maintenanceWindowNodeOs` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterMaintenanceWindowNodeOsArgs>> maintenanceWindowNodeOs() {
@@ -550,14 +550,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `microsoft_defender` block as defined below.
+     * A `microsoftDefender` block as defined below.
      * 
      */
     @Import(name="microsoftDefender")
     private @Nullable Output<KubernetesClusterMicrosoftDefenderArgs> microsoftDefender;
 
     /**
-     * @return A `microsoft_defender` block as defined below.
+     * @return A `microsoftDefender` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterMicrosoftDefenderArgs>> microsoftDefender() {
@@ -565,18 +565,18 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
      * 
-     * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+     * &gt; **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      * 
      */
     @Import(name="monitorMetrics")
     private @Nullable Output<KubernetesClusterMonitorMetricsArgs> monitorMetrics;
 
     /**
-     * @return Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * @return Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
      * 
-     * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+     * &gt; **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      * 
      */
     public Optional<Output<KubernetesClusterMonitorMetricsArgs>> monitorMetrics() {
@@ -599,18 +599,18 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `network_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+     * &gt; **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
      * 
      */
     @Import(name="networkProfile")
     private @Nullable Output<KubernetesClusterNetworkProfileArgs> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+     * &gt; **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
      * 
      */
     public Optional<Output<KubernetesClusterNetworkProfileArgs>> networkProfile() {
@@ -620,7 +620,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      * 
-     * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+     * &gt; **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      * 
      */
     @Import(name="nodeOsUpgradeChannel")
@@ -629,7 +629,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      * 
-     * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+     * &gt; **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      * 
      */
     public Optional<Output<String>> nodeOsUpgradeChannel() {
@@ -671,14 +671,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `oms_agent` block as defined below.
+     * A `omsAgent` block as defined below.
      * 
      */
     @Import(name="omsAgent")
     private @Nullable Output<KubernetesClusterOmsAgentArgs> omsAgent;
 
     /**
-     * @return A `oms_agent` block as defined below.
+     * @return A `omsAgent` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterOmsAgentArgs>> omsAgent() {
@@ -933,14 +933,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `service_mesh_profile` block as defined below.
+     * A `serviceMeshProfile` block as defined below.
      * 
      */
     @Import(name="serviceMeshProfile")
     private @Nullable Output<KubernetesClusterServiceMeshProfileArgs> serviceMeshProfile;
 
     /**
-     * @return A `service_mesh_profile` block as defined below.
+     * @return A `serviceMeshProfile` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterServiceMeshProfileArgs>> serviceMeshProfile() {
@@ -948,18 +948,18 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+     * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     @Import(name="servicePrincipal")
     private @Nullable Output<KubernetesClusterServicePrincipalArgs> servicePrincipal;
 
     /**
-     * @return A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+     * @return A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     public Optional<Output<KubernetesClusterServicePrincipalArgs>> servicePrincipal() {
@@ -986,14 +986,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `storage_profile` block as defined below.
+     * A `storageProfile` block as defined below.
      * 
      */
     @Import(name="storageProfile")
     private @Nullable Output<KubernetesClusterStorageProfileArgs> storageProfile;
 
     /**
-     * @return A `storage_profile` block as defined below.
+     * @return A `storageProfile` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterStorageProfileArgs>> storageProfile() {
@@ -1031,14 +1031,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `upgrade_override` block as defined below.
+     * A `upgradeOverride` block as defined below.
      * 
      */
     @Import(name="upgradeOverride")
     private @Nullable Output<KubernetesClusterUpgradeOverrideArgs> upgradeOverride;
 
     /**
-     * @return A `upgrade_override` block as defined below.
+     * @return A `upgradeOverride` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterUpgradeOverrideArgs>> upgradeOverride() {
@@ -1046,14 +1046,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `web_app_routing` block as defined below.
+     * A `webAppRouting` block as defined below.
      * 
      */
     @Import(name="webAppRouting")
     private @Nullable Output<KubernetesClusterWebAppRoutingArgs> webAppRouting;
 
     /**
-     * @return A `web_app_routing` block as defined below.
+     * @return A `webAppRouting` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterWebAppRoutingArgs>> webAppRouting() {
@@ -1061,14 +1061,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `windows_profile` block as defined below.
+     * A `windowsProfile` block as defined below.
      * 
      */
     @Import(name="windowsProfile")
     private @Nullable Output<KubernetesClusterWindowsProfileArgs> windowsProfile;
 
     /**
-     * @return A `windows_profile` block as defined below.
+     * @return A `windowsProfile` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterWindowsProfileArgs>> windowsProfile() {
@@ -1076,14 +1076,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `workload_autoscaler_profile` block defined below.
+     * A `workloadAutoscalerProfile` block defined below.
      * 
      */
     @Import(name="workloadAutoscalerProfile")
     private @Nullable Output<KubernetesClusterWorkloadAutoscalerProfileArgs> workloadAutoscalerProfile;
 
     /**
-     * @return A `workload_autoscaler_profile` block defined below.
+     * @return A `workloadAutoscalerProfile` block defined below.
      * 
      */
     public Optional<Output<KubernetesClusterWorkloadAutoscalerProfileArgs>> workloadAutoscalerProfile() {
@@ -1093,7 +1093,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      * 
-     * &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
+     * &gt; **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
      * 
      * &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
      * 
@@ -1104,7 +1104,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      * 
-     * &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
+     * &gt; **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
      * 
      * &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
      * 
@@ -1194,7 +1194,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param aciConnectorLinux A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+         * @param aciConnectorLinux A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
          * 
          * @return builder
          * 
@@ -1205,7 +1205,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param aciConnectorLinux A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+         * @param aciConnectorLinux A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
          * 
          * @return builder
          * 
@@ -1215,7 +1215,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiServerAccessProfile An `api_server_access_profile` block as defined below.
+         * @param apiServerAccessProfile An `apiServerAccessProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1226,7 +1226,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiServerAccessProfile An `api_server_access_profile` block as defined below.
+         * @param apiServerAccessProfile An `apiServerAccessProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1236,7 +1236,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoScalerProfile A `auto_scaler_profile` block as defined below.
+         * @param autoScalerProfile A `autoScalerProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1247,7 +1247,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoScalerProfile A `auto_scaler_profile` block as defined below.
+         * @param autoScalerProfile A `autoScalerProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1286,7 +1286,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param azureActiveDirectoryRoleBasedAccessControl A `azure_active_directory_role_based_access_control` block as defined below.
+         * @param azureActiveDirectoryRoleBasedAccessControl A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
          * 
          * @return builder
          * 
@@ -1297,7 +1297,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param azureActiveDirectoryRoleBasedAccessControl A `azure_active_directory_role_based_access_control` block as defined below.
+         * @param azureActiveDirectoryRoleBasedAccessControl A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
          * 
          * @return builder
          * 
@@ -1328,7 +1328,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param bootstrapProfile A `bootstrap_profile` block as defined below.
+         * @param bootstrapProfile A `bootstrapProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1339,7 +1339,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param bootstrapProfile A `bootstrap_profile` block as defined below.
+         * @param bootstrapProfile A `bootstrapProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1349,7 +1349,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param confidentialComputing A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+         * @param confidentialComputing A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
          * 
          * @return builder
          * 
@@ -1360,7 +1360,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param confidentialComputing A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+         * @param confidentialComputing A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
          * 
          * @return builder
          * 
@@ -1370,7 +1370,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param costAnalysisEnabled Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+         * @param costAnalysisEnabled Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
          * 
          * @return builder
          * 
@@ -1381,7 +1381,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param costAnalysisEnabled Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+         * @param costAnalysisEnabled Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
          * 
          * @return builder
          * 
@@ -1422,7 +1422,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultNodePool Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
+         * @param defaultNodePool Specifies configuration for &#34;System&#34; mode node pool. A `defaultNodePool` block as defined below.
          * 
          * @return builder
          * 
@@ -1433,7 +1433,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultNodePool Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
+         * @param defaultNodePool Specifies configuration for &#34;System&#34; mode node pool. A `defaultNodePool` block as defined below.
          * 
          * @return builder
          * 
@@ -1487,9 +1487,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param dnsPrefixPrivateCluster Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
+         * &gt; **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
          * 
-         * In addition, one of either `identity` or `service_principal` blocks must be specified.
+         * In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
          * 
          * @return builder
          * 
@@ -1502,9 +1502,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param dnsPrefixPrivateCluster Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
+         * &gt; **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
          * 
-         * In addition, one of either `identity` or `service_principal` blocks must be specified.
+         * In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
          * 
          * @return builder
          * 
@@ -1560,7 +1560,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param httpProxyConfig A `http_proxy_config` block as defined below.
+         * @param httpProxyConfig A `httpProxyConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1571,7 +1571,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param httpProxyConfig A `http_proxy_config` block as defined below.
+         * @param httpProxyConfig A `httpProxyConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1581,9 +1581,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param identity An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+         * @param identity An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
          * 
-         * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+         * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
          * 
          * @return builder
          * 
@@ -1594,9 +1594,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param identity An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+         * @param identity An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
          * 
-         * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+         * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
          * 
          * @return builder
          * 
@@ -1648,7 +1648,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ingressApplicationGateway A `ingress_application_gateway` block as defined below.
+         * @param ingressApplicationGateway A `ingressApplicationGateway` block as defined below.
          * 
          * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
          * 
@@ -1661,7 +1661,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ingressApplicationGateway A `ingress_application_gateway` block as defined below.
+         * @param ingressApplicationGateway A `ingressApplicationGateway` block as defined below.
          * 
          * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
          * 
@@ -1673,7 +1673,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyManagementService A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+         * @param keyManagementService A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
          * 
          * @return builder
          * 
@@ -1684,7 +1684,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyManagementService A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+         * @param keyManagementService A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
          * 
          * @return builder
          * 
@@ -1694,7 +1694,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultSecretsProvider A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+         * @param keyVaultSecretsProvider A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
          * 
          * @return builder
          * 
@@ -1705,7 +1705,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultSecretsProvider A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+         * @param keyVaultSecretsProvider A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
          * 
          * @return builder
          * 
@@ -1715,7 +1715,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kubeletIdentity A `kubelet_identity` block as defined below.
+         * @param kubeletIdentity A `kubeletIdentity` block as defined below.
          * 
          * @return builder
          * 
@@ -1726,7 +1726,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kubeletIdentity A `kubelet_identity` block as defined below.
+         * @param kubeletIdentity A `kubeletIdentity` block as defined below.
          * 
          * @return builder
          * 
@@ -1761,7 +1761,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param linuxProfile A `linux_profile` block as defined below.
+         * @param linuxProfile A `linuxProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1772,7 +1772,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param linuxProfile A `linux_profile` block as defined below.
+         * @param linuxProfile A `linuxProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -1784,7 +1784,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param localAccountDisabled If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
          * 
-         * &gt; **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
+         * &gt; **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
          * 
          * @return builder
          * 
@@ -1797,7 +1797,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param localAccountDisabled If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
          * 
-         * &gt; **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
+         * &gt; **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
          * 
          * @return builder
          * 
@@ -1828,7 +1828,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maintenanceWindow A `maintenance_window` block as defined below.
+         * @param maintenanceWindow A `maintenanceWindow` block as defined below.
          * 
          * @return builder
          * 
@@ -1839,7 +1839,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maintenanceWindow A `maintenance_window` block as defined below.
+         * @param maintenanceWindow A `maintenanceWindow` block as defined below.
          * 
          * @return builder
          * 
@@ -1849,7 +1849,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maintenanceWindowAutoUpgrade A `maintenance_window_auto_upgrade` block as defined below.
+         * @param maintenanceWindowAutoUpgrade A `maintenanceWindowAutoUpgrade` block as defined below.
          * 
          * @return builder
          * 
@@ -1860,7 +1860,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maintenanceWindowAutoUpgrade A `maintenance_window_auto_upgrade` block as defined below.
+         * @param maintenanceWindowAutoUpgrade A `maintenanceWindowAutoUpgrade` block as defined below.
          * 
          * @return builder
          * 
@@ -1870,7 +1870,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maintenanceWindowNodeOs A `maintenance_window_node_os` block as defined below.
+         * @param maintenanceWindowNodeOs A `maintenanceWindowNodeOs` block as defined below.
          * 
          * @return builder
          * 
@@ -1881,7 +1881,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maintenanceWindowNodeOs A `maintenance_window_node_os` block as defined below.
+         * @param maintenanceWindowNodeOs A `maintenanceWindowNodeOs` block as defined below.
          * 
          * @return builder
          * 
@@ -1891,7 +1891,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param microsoftDefender A `microsoft_defender` block as defined below.
+         * @param microsoftDefender A `microsoftDefender` block as defined below.
          * 
          * @return builder
          * 
@@ -1902,7 +1902,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param microsoftDefender A `microsoft_defender` block as defined below.
+         * @param microsoftDefender A `microsoftDefender` block as defined below.
          * 
          * @return builder
          * 
@@ -1912,9 +1912,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param monitorMetrics Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+         * @param monitorMetrics Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
          * 
-         * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+         * &gt; **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
          * 
          * @return builder
          * 
@@ -1925,9 +1925,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param monitorMetrics Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+         * @param monitorMetrics Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
          * 
-         * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+         * &gt; **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
          * 
          * @return builder
          * 
@@ -1958,9 +1958,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param networkProfile A `networkProfile` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+         * &gt; **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
          * 
          * @return builder
          * 
@@ -1971,9 +1971,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param networkProfile A `networkProfile` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+         * &gt; **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
          * 
          * @return builder
          * 
@@ -1985,7 +1985,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param nodeOsUpgradeChannel The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
          * 
-         * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+         * &gt; **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
          * 
          * @return builder
          * 
@@ -1998,7 +1998,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param nodeOsUpgradeChannel The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
          * 
-         * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+         * &gt; **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
          * 
          * @return builder
          * 
@@ -2054,7 +2054,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param omsAgent A `oms_agent` block as defined below.
+         * @param omsAgent A `omsAgent` block as defined below.
          * 
          * @return builder
          * 
@@ -2065,7 +2065,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param omsAgent A `oms_agent` block as defined below.
+         * @param omsAgent A `omsAgent` block as defined below.
          * 
          * @return builder
          * 
@@ -2364,7 +2364,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param serviceMeshProfile A `service_mesh_profile` block as defined below.
+         * @param serviceMeshProfile A `serviceMeshProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -2375,7 +2375,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param serviceMeshProfile A `service_mesh_profile` block as defined below.
+         * @param serviceMeshProfile A `serviceMeshProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -2385,9 +2385,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param servicePrincipal A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+         * @param servicePrincipal A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
          * 
-         * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+         * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
          * 
          * @return builder
          * 
@@ -2398,9 +2398,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param servicePrincipal A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+         * @param servicePrincipal A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
          * 
-         * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+         * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
          * 
          * @return builder
          * 
@@ -2435,7 +2435,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageProfile A `storage_profile` block as defined below.
+         * @param storageProfile A `storageProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -2446,7 +2446,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageProfile A `storage_profile` block as defined below.
+         * @param storageProfile A `storageProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -2498,7 +2498,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param upgradeOverride A `upgrade_override` block as defined below.
+         * @param upgradeOverride A `upgradeOverride` block as defined below.
          * 
          * @return builder
          * 
@@ -2509,7 +2509,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param upgradeOverride A `upgrade_override` block as defined below.
+         * @param upgradeOverride A `upgradeOverride` block as defined below.
          * 
          * @return builder
          * 
@@ -2519,7 +2519,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param webAppRouting A `web_app_routing` block as defined below.
+         * @param webAppRouting A `webAppRouting` block as defined below.
          * 
          * @return builder
          * 
@@ -2530,7 +2530,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param webAppRouting A `web_app_routing` block as defined below.
+         * @param webAppRouting A `webAppRouting` block as defined below.
          * 
          * @return builder
          * 
@@ -2540,7 +2540,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param windowsProfile A `windows_profile` block as defined below.
+         * @param windowsProfile A `windowsProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -2551,7 +2551,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param windowsProfile A `windows_profile` block as defined below.
+         * @param windowsProfile A `windowsProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -2561,7 +2561,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param workloadAutoscalerProfile A `workload_autoscaler_profile` block defined below.
+         * @param workloadAutoscalerProfile A `workloadAutoscalerProfile` block defined below.
          * 
          * @return builder
          * 
@@ -2572,7 +2572,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param workloadAutoscalerProfile A `workload_autoscaler_profile` block defined below.
+         * @param workloadAutoscalerProfile A `workloadAutoscalerProfile` block defined below.
          * 
          * @return builder
          * 
@@ -2584,7 +2584,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param workloadIdentityEnabled Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
          * 
-         * &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
+         * &gt; **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
          * 
          * &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
          * 
@@ -2599,7 +2599,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param workloadIdentityEnabled Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
          * 
-         * &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
+         * &gt; **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
          * 
          * &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
          * 

@@ -209,21 +209,21 @@ namespace Pulumi.Azure.DomainServices
         public readonly string Location;
         public readonly string Name;
         /// <summary>
-        /// A `notifications` block as defined below.
+        /// A `Notifications` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceNotificationResult> Notifications;
         /// <summary>
-        /// One or more `replica_set` blocks as defined below.
+        /// One or more `ReplicaSet` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceReplicaSetResult> ReplicaSets;
         public readonly string ResourceGroupName;
         public readonly string ResourceId;
         /// <summary>
-        /// A `secure_ldap` block as defined below.
+        /// A `SecureLdap` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceSecureLdapResult> SecureLdaps;
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceSecurityResult> Securities;
         /// <summary>

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private Input<string>? _accountKey;
 
         /// <summary>
-        /// The Azure Storage Account key. This property is mutually exclusive with both `sas_key` and `identity_id`; exactly one must be specified.
+        /// The Azure Storage Account key. This property is mutually exclusive with both `SasKey` and `IdentityId`; exactly one must be specified.
         /// </summary>
         public Input<string>? AccountKey
         {
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+        /// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `AccountKey` and `SasKey`; exactly one must be specified.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private Input<string>? _sasKey;
 
         /// <summary>
-        /// The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+        /// The Azure Storage SAS token. This property is mutually exclusive with both `AccountKey` and `IdentityId`; exactly one must be specified.
         /// </summary>
         public Input<string>? SasKey
         {

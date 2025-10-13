@@ -18,14 +18,14 @@ public final class LinuxWebAppLogsApplicationLogsArgs extends com.pulumi.resourc
     public static final LinuxWebAppLogsApplicationLogsArgs Empty = new LinuxWebAppLogsApplicationLogsArgs();
 
     /**
-     * An `azure_blob_storage` block as defined below.
+     * An `azureBlobStorage` block as defined below.
      * 
      */
     @Import(name="azureBlobStorage")
     private @Nullable Output<LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs> azureBlobStorage;
 
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     public Optional<Output<LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs>> azureBlobStorage() {
@@ -73,7 +73,7 @@ public final class LinuxWebAppLogsApplicationLogsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param azureBlobStorage An `azure_blob_storage` block as defined below.
+         * @param azureBlobStorage An `azureBlobStorage` block as defined below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class LinuxWebAppLogsApplicationLogsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param azureBlobStorage An `azure_blob_storage` block as defined below.
+         * @param azureBlobStorage An `azureBlobStorage` block as defined below.
          * 
          * @return builder
          * 

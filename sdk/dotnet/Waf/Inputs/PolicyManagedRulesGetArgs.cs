@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyManagedRulesExclusionGetArgs>? _exclusions;
 
         /// <summary>
-        /// One or more `exclusion` block defined below.
+        /// One or more `Exclusion` block defined below.
         /// </summary>
         public InputList<Inputs.PolicyManagedRulesExclusionGetArgs> Exclusions
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyManagedRulesManagedRuleSetGetArgs>? _managedRuleSets;
 
         /// <summary>
-        /// One or more `managed_rule_set` block defined below.
+        /// One or more `ManagedRuleSet` block defined below.
         /// </summary>
         public InputList<Inputs.PolicyManagedRulesManagedRuleSetGetArgs> ManagedRuleSets
         {

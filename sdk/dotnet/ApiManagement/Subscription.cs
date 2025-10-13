@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ApiManagement
     public partial class Subscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Determines whether tracing can be enabled. Defaults to `true`.
+        /// Determines whether tracing can be enabled. Defaults to `True`.
         /// </summary>
         [Output("allowTracing")]
         public Output<bool?> AllowTracing { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+        /// &gt; **Note:** Only one of `ProductId` and `ApiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         /// </summary>
         [Output("apiId")]
         public Output<string?> ApiId { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+        /// &gt; **Note:** Only one of `ProductId` and `ApiId` can be set. If both are missing `AllApis` scope is used for the subscription.
         /// </summary>
         [Output("productId")]
         public Output<string?> ProductId { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
+        /// The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether tracing can be enabled. Defaults to `true`.
+        /// Determines whether tracing can be enabled. Defaults to `True`.
         /// </summary>
         [Input("allowTracing")]
         public Input<bool>? AllowTracing { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+        /// &gt; **Note:** Only one of `ProductId` and `ApiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+        /// &gt; **Note:** Only one of `ProductId` and `ApiId` can be set. If both are missing `AllApis` scope is used for the subscription.
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
+        /// The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class SubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether tracing can be enabled. Defaults to `true`.
+        /// Determines whether tracing can be enabled. Defaults to `True`.
         /// </summary>
         [Input("allowTracing")]
         public Input<bool>? AllowTracing { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+        /// &gt; **Note:** Only one of `ProductId` and `ApiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+        /// &gt; **Note:** Only one of `ProductId` and `ApiId` can be set. If both are missing `AllApis` scope is used for the subscription.
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
+        /// The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

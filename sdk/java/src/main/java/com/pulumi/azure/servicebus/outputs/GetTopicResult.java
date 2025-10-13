@@ -56,10 +56,10 @@ public final class GetTopicResult {
     private @Nullable String namespaceId;
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider.
+     * `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider. */
     private @Nullable String namespaceName;
     /**
      * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
@@ -73,10 +73,10 @@ public final class GetTopicResult {
     private Boolean requiresDuplicateDetection;
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider.
+     * `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider. */
     private @Nullable String resourceGroupName;
     /**
      * @return The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
@@ -156,10 +156,10 @@ public final class GetTopicResult {
     }
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider.
+     * `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -179,10 +179,10 @@ public final class GetTopicResult {
     }
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider.
+     * `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }

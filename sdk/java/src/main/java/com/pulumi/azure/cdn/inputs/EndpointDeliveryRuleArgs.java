@@ -39,14 +39,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     public static final EndpointDeliveryRuleArgs Empty = new EndpointDeliveryRuleArgs();
 
     /**
-     * A `cache_expiration_action` block as defined above.
+     * A `cacheExpirationAction` block as defined above.
      * 
      */
     @Import(name="cacheExpirationAction")
     private @Nullable Output<EndpointDeliveryRuleCacheExpirationActionArgs> cacheExpirationAction;
 
     /**
-     * @return A `cache_expiration_action` block as defined above.
+     * @return A `cacheExpirationAction` block as defined above.
      * 
      */
     public Optional<Output<EndpointDeliveryRuleCacheExpirationActionArgs>> cacheExpirationAction() {
@@ -54,14 +54,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `cache_key_query_string_action` block as defined above.
+     * A `cacheKeyQueryStringAction` block as defined above.
      * 
      */
     @Import(name="cacheKeyQueryStringAction")
     private @Nullable Output<EndpointDeliveryRuleCacheKeyQueryStringActionArgs> cacheKeyQueryStringAction;
 
     /**
-     * @return A `cache_key_query_string_action` block as defined above.
+     * @return A `cacheKeyQueryStringAction` block as defined above.
      * 
      */
     public Optional<Output<EndpointDeliveryRuleCacheKeyQueryStringActionArgs>> cacheKeyQueryStringAction() {
@@ -69,14 +69,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `cookies_condition` block as defined above.
+     * A `cookiesCondition` block as defined above.
      * 
      */
     @Import(name="cookiesConditions")
     private @Nullable Output<List<EndpointDeliveryRuleCookiesConditionArgs>> cookiesConditions;
 
     /**
-     * @return A `cookies_condition` block as defined above.
+     * @return A `cookiesCondition` block as defined above.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleCookiesConditionArgs>>> cookiesConditions() {
@@ -84,14 +84,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `device_condition` block as defined below.
+     * A `deviceCondition` block as defined below.
      * 
      */
     @Import(name="deviceCondition")
     private @Nullable Output<EndpointDeliveryRuleDeviceConditionArgs> deviceCondition;
 
     /**
-     * @return A `device_condition` block as defined below.
+     * @return A `deviceCondition` block as defined below.
      * 
      */
     public Optional<Output<EndpointDeliveryRuleDeviceConditionArgs>> deviceCondition() {
@@ -99,14 +99,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `http_version_condition` block as defined below.
+     * A `httpVersionCondition` block as defined below.
      * 
      */
     @Import(name="httpVersionConditions")
     private @Nullable Output<List<EndpointDeliveryRuleHttpVersionConditionArgs>> httpVersionConditions;
 
     /**
-     * @return A `http_version_condition` block as defined below.
+     * @return A `httpVersionCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleHttpVersionConditionArgs>>> httpVersionConditions() {
@@ -114,14 +114,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `modify_request_header_action` block as defined below.
+     * A `modifyRequestHeaderAction` block as defined below.
      * 
      */
     @Import(name="modifyRequestHeaderActions")
     private @Nullable Output<List<EndpointDeliveryRuleModifyRequestHeaderActionArgs>> modifyRequestHeaderActions;
 
     /**
-     * @return A `modify_request_header_action` block as defined below.
+     * @return A `modifyRequestHeaderAction` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleModifyRequestHeaderActionArgs>>> modifyRequestHeaderActions() {
@@ -129,14 +129,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `modify_response_header_action` block as defined below.
+     * A `modifyResponseHeaderAction` block as defined below.
      * 
      */
     @Import(name="modifyResponseHeaderActions")
     private @Nullable Output<List<EndpointDeliveryRuleModifyResponseHeaderActionArgs>> modifyResponseHeaderActions;
 
     /**
-     * @return A `modify_response_header_action` block as defined below.
+     * @return A `modifyResponseHeaderAction` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleModifyResponseHeaderActionArgs>>> modifyResponseHeaderActions() {
@@ -174,14 +174,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `post_arg_condition` block as defined below.
+     * A `postArgCondition` block as defined below.
      * 
      */
     @Import(name="postArgConditions")
     private @Nullable Output<List<EndpointDeliveryRulePostArgConditionArgs>> postArgConditions;
 
     /**
-     * @return A `post_arg_condition` block as defined below.
+     * @return A `postArgCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRulePostArgConditionArgs>>> postArgConditions() {
@@ -189,14 +189,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `query_string_condition` block as defined below.
+     * A `queryStringCondition` block as defined below.
      * 
      */
     @Import(name="queryStringConditions")
     private @Nullable Output<List<EndpointDeliveryRuleQueryStringConditionArgs>> queryStringConditions;
 
     /**
-     * @return A `query_string_condition` block as defined below.
+     * @return A `queryStringCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleQueryStringConditionArgs>>> queryStringConditions() {
@@ -204,14 +204,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `remote_address_condition` block as defined below.
+     * A `remoteAddressCondition` block as defined below.
      * 
      */
     @Import(name="remoteAddressConditions")
     private @Nullable Output<List<EndpointDeliveryRuleRemoteAddressConditionArgs>> remoteAddressConditions;
 
     /**
-     * @return A `remote_address_condition` block as defined below.
+     * @return A `remoteAddressCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleRemoteAddressConditionArgs>>> remoteAddressConditions() {
@@ -219,14 +219,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `request_body_condition` block as defined below.
+     * A `requestBodyCondition` block as defined below.
      * 
      */
     @Import(name="requestBodyConditions")
     private @Nullable Output<List<EndpointDeliveryRuleRequestBodyConditionArgs>> requestBodyConditions;
 
     /**
-     * @return A `request_body_condition` block as defined below.
+     * @return A `requestBodyCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleRequestBodyConditionArgs>>> requestBodyConditions() {
@@ -234,14 +234,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `request_header_condition` block as defined below.
+     * A `requestHeaderCondition` block as defined below.
      * 
      */
     @Import(name="requestHeaderConditions")
     private @Nullable Output<List<EndpointDeliveryRuleRequestHeaderConditionArgs>> requestHeaderConditions;
 
     /**
-     * @return A `request_header_condition` block as defined below.
+     * @return A `requestHeaderCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleRequestHeaderConditionArgs>>> requestHeaderConditions() {
@@ -249,14 +249,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `request_method_condition` block as defined below.
+     * A `requestMethodCondition` block as defined below.
      * 
      */
     @Import(name="requestMethodCondition")
     private @Nullable Output<EndpointDeliveryRuleRequestMethodConditionArgs> requestMethodCondition;
 
     /**
-     * @return A `request_method_condition` block as defined below.
+     * @return A `requestMethodCondition` block as defined below.
      * 
      */
     public Optional<Output<EndpointDeliveryRuleRequestMethodConditionArgs>> requestMethodCondition() {
@@ -264,14 +264,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `request_scheme_condition` block as defined below.
+     * A `requestSchemeCondition` block as defined below.
      * 
      */
     @Import(name="requestSchemeCondition")
     private @Nullable Output<EndpointDeliveryRuleRequestSchemeConditionArgs> requestSchemeCondition;
 
     /**
-     * @return A `request_scheme_condition` block as defined below.
+     * @return A `requestSchemeCondition` block as defined below.
      * 
      */
     public Optional<Output<EndpointDeliveryRuleRequestSchemeConditionArgs>> requestSchemeCondition() {
@@ -279,14 +279,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `request_uri_condition` block as defined below.
+     * A `requestUriCondition` block as defined below.
      * 
      */
     @Import(name="requestUriConditions")
     private @Nullable Output<List<EndpointDeliveryRuleRequestUriConditionArgs>> requestUriConditions;
 
     /**
-     * @return A `request_uri_condition` block as defined below.
+     * @return A `requestUriCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleRequestUriConditionArgs>>> requestUriConditions() {
@@ -294,14 +294,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `url_file_extension_condition` block as defined below.
+     * A `urlFileExtensionCondition` block as defined below.
      * 
      */
     @Import(name="urlFileExtensionConditions")
     private @Nullable Output<List<EndpointDeliveryRuleUrlFileExtensionConditionArgs>> urlFileExtensionConditions;
 
     /**
-     * @return A `url_file_extension_condition` block as defined below.
+     * @return A `urlFileExtensionCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleUrlFileExtensionConditionArgs>>> urlFileExtensionConditions() {
@@ -309,14 +309,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `url_file_name_condition` block as defined below.
+     * A `urlFileNameCondition` block as defined below.
      * 
      */
     @Import(name="urlFileNameConditions")
     private @Nullable Output<List<EndpointDeliveryRuleUrlFileNameConditionArgs>> urlFileNameConditions;
 
     /**
-     * @return A `url_file_name_condition` block as defined below.
+     * @return A `urlFileNameCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleUrlFileNameConditionArgs>>> urlFileNameConditions() {
@@ -324,14 +324,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `url_path_condition` block as defined below.
+     * A `urlPathCondition` block as defined below.
      * 
      */
     @Import(name="urlPathConditions")
     private @Nullable Output<List<EndpointDeliveryRuleUrlPathConditionArgs>> urlPathConditions;
 
     /**
-     * @return A `url_path_condition` block as defined below.
+     * @return A `urlPathCondition` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleUrlPathConditionArgs>>> urlPathConditions() {
@@ -339,14 +339,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `url_redirect_action` block as defined below.
+     * A `urlRedirectAction` block as defined below.
      * 
      */
     @Import(name="urlRedirectAction")
     private @Nullable Output<EndpointDeliveryRuleUrlRedirectActionArgs> urlRedirectAction;
 
     /**
-     * @return A `url_redirect_action` block as defined below.
+     * @return A `urlRedirectAction` block as defined below.
      * 
      */
     public Optional<Output<EndpointDeliveryRuleUrlRedirectActionArgs>> urlRedirectAction() {
@@ -354,14 +354,14 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `url_rewrite_action` block as defined below.
+     * A `urlRewriteAction` block as defined below.
      * 
      */
     @Import(name="urlRewriteAction")
     private @Nullable Output<EndpointDeliveryRuleUrlRewriteActionArgs> urlRewriteAction;
 
     /**
-     * @return A `url_rewrite_action` block as defined below.
+     * @return A `urlRewriteAction` block as defined below.
      * 
      */
     public Optional<Output<EndpointDeliveryRuleUrlRewriteActionArgs>> urlRewriteAction() {
@@ -414,7 +414,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cacheExpirationAction A `cache_expiration_action` block as defined above.
+         * @param cacheExpirationAction A `cacheExpirationAction` block as defined above.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cacheExpirationAction A `cache_expiration_action` block as defined above.
+         * @param cacheExpirationAction A `cacheExpirationAction` block as defined above.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cacheKeyQueryStringAction A `cache_key_query_string_action` block as defined above.
+         * @param cacheKeyQueryStringAction A `cacheKeyQueryStringAction` block as defined above.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cacheKeyQueryStringAction A `cache_key_query_string_action` block as defined above.
+         * @param cacheKeyQueryStringAction A `cacheKeyQueryStringAction` block as defined above.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cookiesConditions A `cookies_condition` block as defined above.
+         * @param cookiesConditions A `cookiesCondition` block as defined above.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cookiesConditions A `cookies_condition` block as defined above.
+         * @param cookiesConditions A `cookiesCondition` block as defined above.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cookiesConditions A `cookies_condition` block as defined above.
+         * @param cookiesConditions A `cookiesCondition` block as defined above.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param deviceCondition A `device_condition` block as defined below.
+         * @param deviceCondition A `deviceCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param deviceCondition A `device_condition` block as defined below.
+         * @param deviceCondition A `deviceCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param httpVersionConditions A `http_version_condition` block as defined below.
+         * @param httpVersionConditions A `httpVersionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param httpVersionConditions A `http_version_condition` block as defined below.
+         * @param httpVersionConditions A `httpVersionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param httpVersionConditions A `http_version_condition` block as defined below.
+         * @param httpVersionConditions A `httpVersionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param modifyRequestHeaderActions A `modify_request_header_action` block as defined below.
+         * @param modifyRequestHeaderActions A `modifyRequestHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param modifyRequestHeaderActions A `modify_request_header_action` block as defined below.
+         * @param modifyRequestHeaderActions A `modifyRequestHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param modifyRequestHeaderActions A `modify_request_header_action` block as defined below.
+         * @param modifyRequestHeaderActions A `modifyRequestHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param modifyResponseHeaderActions A `modify_response_header_action` block as defined below.
+         * @param modifyResponseHeaderActions A `modifyResponseHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param modifyResponseHeaderActions A `modify_response_header_action` block as defined below.
+         * @param modifyResponseHeaderActions A `modifyResponseHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param modifyResponseHeaderActions A `modify_response_header_action` block as defined below.
+         * @param modifyResponseHeaderActions A `modifyResponseHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param postArgConditions A `post_arg_condition` block as defined below.
+         * @param postArgConditions A `postArgCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -654,7 +654,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param postArgConditions A `post_arg_condition` block as defined below.
+         * @param postArgConditions A `postArgCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -664,7 +664,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param postArgConditions A `post_arg_condition` block as defined below.
+         * @param postArgConditions A `postArgCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param queryStringConditions A `query_string_condition` block as defined below.
+         * @param queryStringConditions A `queryStringCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param queryStringConditions A `query_string_condition` block as defined below.
+         * @param queryStringConditions A `queryStringCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -695,7 +695,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param queryStringConditions A `query_string_condition` block as defined below.
+         * @param queryStringConditions A `queryStringCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -705,7 +705,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param remoteAddressConditions A `remote_address_condition` block as defined below.
+         * @param remoteAddressConditions A `remoteAddressCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -716,7 +716,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param remoteAddressConditions A `remote_address_condition` block as defined below.
+         * @param remoteAddressConditions A `remoteAddressCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -726,7 +726,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param remoteAddressConditions A `remote_address_condition` block as defined below.
+         * @param remoteAddressConditions A `remoteAddressCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestBodyConditions A `request_body_condition` block as defined below.
+         * @param requestBodyConditions A `requestBodyCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -747,7 +747,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestBodyConditions A `request_body_condition` block as defined below.
+         * @param requestBodyConditions A `requestBodyCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestBodyConditions A `request_body_condition` block as defined below.
+         * @param requestBodyConditions A `requestBodyCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestHeaderConditions A `request_header_condition` block as defined below.
+         * @param requestHeaderConditions A `requestHeaderCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestHeaderConditions A `request_header_condition` block as defined below.
+         * @param requestHeaderConditions A `requestHeaderCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestHeaderConditions A `request_header_condition` block as defined below.
+         * @param requestHeaderConditions A `requestHeaderCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -798,7 +798,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestMethodCondition A `request_method_condition` block as defined below.
+         * @param requestMethodCondition A `requestMethodCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestMethodCondition A `request_method_condition` block as defined below.
+         * @param requestMethodCondition A `requestMethodCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestSchemeCondition A `request_scheme_condition` block as defined below.
+         * @param requestSchemeCondition A `requestSchemeCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -830,7 +830,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestSchemeCondition A `request_scheme_condition` block as defined below.
+         * @param requestSchemeCondition A `requestSchemeCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestUriConditions A `request_uri_condition` block as defined below.
+         * @param requestUriConditions A `requestUriCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestUriConditions A `request_uri_condition` block as defined below.
+         * @param requestUriConditions A `requestUriCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestUriConditions A `request_uri_condition` block as defined below.
+         * @param requestUriConditions A `requestUriCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlFileExtensionConditions A `url_file_extension_condition` block as defined below.
+         * @param urlFileExtensionConditions A `urlFileExtensionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlFileExtensionConditions A `url_file_extension_condition` block as defined below.
+         * @param urlFileExtensionConditions A `urlFileExtensionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -892,7 +892,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlFileExtensionConditions A `url_file_extension_condition` block as defined below.
+         * @param urlFileExtensionConditions A `urlFileExtensionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -902,7 +902,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlFileNameConditions A `url_file_name_condition` block as defined below.
+         * @param urlFileNameConditions A `urlFileNameCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -913,7 +913,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlFileNameConditions A `url_file_name_condition` block as defined below.
+         * @param urlFileNameConditions A `urlFileNameCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -923,7 +923,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlFileNameConditions A `url_file_name_condition` block as defined below.
+         * @param urlFileNameConditions A `urlFileNameCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -933,7 +933,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlPathConditions A `url_path_condition` block as defined below.
+         * @param urlPathConditions A `urlPathCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -944,7 +944,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlPathConditions A `url_path_condition` block as defined below.
+         * @param urlPathConditions A `urlPathCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -954,7 +954,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlPathConditions A `url_path_condition` block as defined below.
+         * @param urlPathConditions A `urlPathCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -964,7 +964,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlRedirectAction A `url_redirect_action` block as defined below.
+         * @param urlRedirectAction A `urlRedirectAction` block as defined below.
          * 
          * @return builder
          * 
@@ -975,7 +975,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlRedirectAction A `url_redirect_action` block as defined below.
+         * @param urlRedirectAction A `urlRedirectAction` block as defined below.
          * 
          * @return builder
          * 
@@ -985,7 +985,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlRewriteAction A `url_rewrite_action` block as defined below.
+         * @param urlRewriteAction A `urlRewriteAction` block as defined below.
          * 
          * @return builder
          * 
@@ -996,7 +996,7 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlRewriteAction A `url_rewrite_action` block as defined below.
+         * @param urlRewriteAction A `urlRewriteAction` block as defined below.
          * 
          * @return builder
          * 

@@ -324,14 +324,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/runCommand:RunCommand")
 public class RunCommand extends com.pulumi.resources.CustomResource {
     /**
-     * An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+     * An `errorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
      * 
      */
     @Export(name="errorBlobManagedIdentity", refs={RunCommandErrorBlobManagedIdentity.class}, tree="[0]")
     private Output</* @Nullable */ RunCommandErrorBlobManagedIdentity> errorBlobManagedIdentity;
 
     /**
-     * @return An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+     * @return An `errorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
      * 
      */
     public Output<Optional<RunCommandErrorBlobManagedIdentity>> errorBlobManagedIdentity() {
@@ -386,14 +386,14 @@ public class RunCommand extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+     * An `outputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
      * 
      */
     @Export(name="outputBlobManagedIdentity", refs={RunCommandOutputBlobManagedIdentity.class}, tree="[0]")
     private Output</* @Nullable */ RunCommandOutputBlobManagedIdentity> outputBlobManagedIdentity;
 
     /**
-     * @return An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+     * @return An `outputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
      * 
      */
     public Output<Optional<RunCommandOutputBlobManagedIdentity>> outputBlobManagedIdentity() {
@@ -428,14 +428,14 @@ public class RunCommand extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+     * A list of `protectedParameter` blocks as defined below. The protected parameters used by the script.
      * 
      */
     @Export(name="protectedParameters", refs={List.class,RunCommandProtectedParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RunCommandProtectedParameter>> protectedParameters;
 
     /**
-     * @return A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+     * @return A list of `protectedParameter` blocks as defined below. The protected parameters used by the script.
      * 
      */
     public Output<Optional<List<RunCommandProtectedParameter>>> protectedParameters() {

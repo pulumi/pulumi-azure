@@ -21,7 +21,7 @@ public final class FirewallPolicyManagedRuleOverrideRuleExclusion {
      */
     private String operator;
     /**
-     * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
+     * @return Selector for the value in the `matchVariable` attribute this exclusion applies to.
      * 
      */
     private String selector;
@@ -42,7 +42,7 @@ public final class FirewallPolicyManagedRuleOverrideRuleExclusion {
         return this.operator;
     }
     /**
-     * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
+     * @return Selector for the value in the `matchVariable` attribute this exclusion applies to.
      * 
      */
     public String selector() {

@@ -31,14 +31,14 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `auto_storage_container_name` or `storage_container_url` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+     * The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `autoStorageContainerName` or `storageContainerUrl` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
      * 
      */
     @Import(name="blobPrefix")
     private @Nullable Output<String> blobPrefix;
 
     /**
-     * @return The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `auto_storage_container_name` or `storage_container_url` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+     * @return The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `autoStorageContainerName` or `storageContainerUrl` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
      * 
      */
     public Optional<Output<String>> blobPrefix() {
@@ -46,14 +46,14 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The file permission mode represented as a string in octal format (e.g. `&#34;0644&#34;`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resource_file` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+     * The file permission mode represented as a string in octal format (e.g. `&#34;0644&#34;`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resourceFile` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
      * 
      */
     @Import(name="fileMode")
     private @Nullable Output<String> fileMode;
 
     /**
-     * @return The file permission mode represented as a string in octal format (e.g. `&#34;0644&#34;`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resource_file` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+     * @return The file permission mode represented as a string in octal format (e.g. `&#34;0644&#34;`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resourceFile` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
      * 
      */
     public Optional<Output<String>> fileMode() {
@@ -61,14 +61,14 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified, `file_path` is optional and is the directory to download the files to. In the case where `file_path` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task&#39;s working directory (for example by using &#39;..&#39;).
+     * The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified, `filePath` is optional and is the directory to download the files to. In the case where `filePath` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task&#39;s working directory (for example by using &#39;..&#39;).
      * 
      */
     @Import(name="filePath")
     private @Nullable Output<String> filePath;
 
     /**
-     * @return The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified, `file_path` is optional and is the directory to download the files to. In the case where `file_path` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task&#39;s working directory (for example by using &#39;..&#39;).
+     * @return The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified, `filePath` is optional and is the directory to download the files to. In the case where `filePath` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task&#39;s working directory (for example by using &#39;..&#39;).
      * 
      */
     public Optional<Output<String>> filePath() {
@@ -108,7 +108,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
     /**
      * An identity reference from pool&#39;s user assigned managed identity list.
      * 
-     * &gt; **Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+     * &gt; **Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
      * 
      */
     @Import(name="userAssignedIdentityId")
@@ -117,7 +117,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
     /**
      * @return An identity reference from pool&#39;s user assigned managed identity list.
      * 
-     * &gt; **Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+     * &gt; **Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -176,7 +176,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param blobPrefix The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `auto_storage_container_name` or `storage_container_url` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+         * @param blobPrefix The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `autoStorageContainerName` or `storageContainerUrl` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param blobPrefix The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `auto_storage_container_name` or `storage_container_url` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+         * @param blobPrefix The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `autoStorageContainerName` or `storageContainerUrl` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileMode The file permission mode represented as a string in octal format (e.g. `&#34;0644&#34;`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resource_file` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+         * @param fileMode The file permission mode represented as a string in octal format (e.g. `&#34;0644&#34;`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resourceFile` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileMode The file permission mode represented as a string in octal format (e.g. `&#34;0644&#34;`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resource_file` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+         * @param fileMode The file permission mode represented as a string in octal format (e.g. `&#34;0644&#34;`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resourceFile` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param filePath The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified, `file_path` is optional and is the directory to download the files to. In the case where `file_path` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task&#39;s working directory (for example by using &#39;..&#39;).
+         * @param filePath The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified, `filePath` is optional and is the directory to download the files to. In the case where `filePath` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task&#39;s working directory (for example by using &#39;..&#39;).
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param filePath The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified, `file_path` is optional and is the directory to download the files to. In the case where `file_path` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task&#39;s working directory (for example by using &#39;..&#39;).
+         * @param filePath The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified, `filePath` is optional and is the directory to download the files to. In the case where `filePath` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task&#39;s working directory (for example by using &#39;..&#39;).
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         /**
          * @param userAssignedIdentityId An identity reference from pool&#39;s user assigned managed identity list.
          * 
-         * &gt; **Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+         * &gt; **Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         /**
          * @param userAssignedIdentityId An identity reference from pool&#39;s user assigned managed identity list.
          * 
-         * &gt; **Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+         * &gt; **Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
          * 
          * @return builder
          * 

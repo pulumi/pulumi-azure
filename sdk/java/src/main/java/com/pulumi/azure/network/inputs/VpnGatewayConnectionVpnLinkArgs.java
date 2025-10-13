@@ -67,14 +67,14 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `custom_bgp_address` blocks as defined below.
+     * One or more `customBgpAddress` blocks as defined below.
      * 
      */
     @Import(name="customBgpAddresses")
     private @Nullable Output<List<VpnGatewayConnectionVpnLinkCustomBgpAddressArgs>> customBgpAddresses;
 
     /**
-     * @return One or more `custom_bgp_address` blocks as defined below.
+     * @return One or more `customBgpAddress` blocks as defined below.
      * 
      */
     public Optional<Output<List<VpnGatewayConnectionVpnLinkCustomBgpAddressArgs>>> customBgpAddresses() {
@@ -127,14 +127,14 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `ipsec_policy` blocks as defined above.
+     * One or more `ipsecPolicy` blocks as defined above.
      * 
      */
     @Import(name="ipsecPolicies")
     private @Nullable Output<List<VpnGatewayConnectionVpnLinkIpsecPolicyArgs>> ipsecPolicies;
 
     /**
-     * @return One or more `ipsec_policy` blocks as defined above.
+     * @return One or more `ipsecPolicy` blocks as defined above.
      * 
      */
     public Optional<Output<List<VpnGatewayConnectionVpnLinkIpsecPolicyArgs>>> ipsecPolicies() {
@@ -364,7 +364,7 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param customBgpAddresses One or more `custom_bgp_address` blocks as defined below.
+         * @param customBgpAddresses One or more `customBgpAddress` blocks as defined below.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param customBgpAddresses One or more `custom_bgp_address` blocks as defined below.
+         * @param customBgpAddresses One or more `customBgpAddress` blocks as defined below.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param customBgpAddresses One or more `custom_bgp_address` blocks as defined below.
+         * @param customBgpAddresses One or more `customBgpAddress` blocks as defined below.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipsecPolicies One or more `ipsec_policy` blocks as defined above.
+         * @param ipsecPolicies One or more `ipsecPolicy` blocks as defined above.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipsecPolicies One or more `ipsec_policy` blocks as defined above.
+         * @param ipsecPolicies One or more `ipsecPolicy` blocks as defined above.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipsecPolicies One or more `ipsec_policy` blocks as defined above.
+         * @param ipsecPolicies One or more `ipsecPolicy` blocks as defined above.
          * 
          * @return builder
          * 

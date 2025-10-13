@@ -18,7 +18,7 @@ public final class GetVirtualMachineManagerInventoryItemsResult {
      */
     private String id;
     /**
-     * @return One or more `inventory_items` blocks as defined below.
+     * @return One or more `inventoryItems` blocks as defined below.
      * 
      */
     private List<GetVirtualMachineManagerInventoryItemsInventoryItem> inventoryItems;
@@ -34,7 +34,7 @@ public final class GetVirtualMachineManagerInventoryItemsResult {
         return this.id;
     }
     /**
-     * @return One or more `inventory_items` blocks as defined below.
+     * @return One or more `inventoryItems` blocks as defined below.
      * 
      */
     public List<GetVirtualMachineManagerInventoryItemsInventoryItem> inventoryItems() {

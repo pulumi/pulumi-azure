@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
         /// 
-        /// &gt; **Note:** `level` and `levels` are mutually exclusive.
+        /// &gt; **Note:** `Level` and `Levels` are mutually exclusive.
         /// </summary>
         public InputList<string> Levels
         {
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
         /// 
-        /// &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
+        /// &gt; **Note:** The `RecommendationType`, `RecommendationCategory`, and `RecommendationImpact` fields can only be defined if the `Category` field has been set to `Recommendation`.
         /// </summary>
         [Input("recommendationImpact")]
         public Input<string>? RecommendationImpact { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// A list of names of resource groups monitored by the activity log alert.
         /// 
-        /// &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
+        /// &gt; **Note:** `ResourceGroup` and `ResourceGroups` are mutually exclusive.
         /// </summary>
         public InputList<string> ResourceGroups
         {
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<Inputs.ActivityLogAlertCriteriaResourceHealthGetArgs>? ResourceHealth { get; set; }
 
         /// <summary>
-        /// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+        /// The specific resource monitored by the activity log alert. It should be within one of the `Scopes`.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
@@ -106,9 +106,9 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<string>? _resourceIds;
 
         /// <summary>
-        /// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+        /// A list of specific resources monitored by the activity log alert. It should be within one of the `Scopes`.
         /// 
-        /// &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
+        /// &gt; **Note:** `ResourceId` and `ResourceIds` are mutually exclusive.
         /// </summary>
         public InputList<string> ResourceIds
         {
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// A list of names of resource providers monitored by the activity log alert.
         /// 
-        /// &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
+        /// &gt; **Note:** `ResourceProvider` and `ResourceProviders` are mutually exclusive.
         /// </summary>
         public InputList<string> ResourceProviders
         {
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// A list of resource types monitored by the activity log alert.
         /// 
-        /// &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
+        /// &gt; **Note:** `ResourceType` and `ResourceTypes` are mutually exclusive.
         /// </summary>
         public InputList<string> ResourceTypes
         {
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         /// 
-        /// &gt; **Note:** `status` and `statuses` are mutually exclusive.
+        /// &gt; **Note:** `Status` and `Statuses` are mutually exclusive.
         /// </summary>
         public InputList<string> Statuses
         {
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// A list of sub status of the event.
         /// 
-        /// &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
+        /// &gt; **Note:** `SubStatus` and `SubStatuses` are mutually exclusive.
         /// </summary>
         public InputList<string> SubStatuses
         {

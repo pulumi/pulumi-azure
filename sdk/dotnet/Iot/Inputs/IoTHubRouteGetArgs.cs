@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Iot.Inputs
     public sealed class IoTHubRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
+        /// The condition that is evaluated to apply the routing rule. Defaults to `True`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }

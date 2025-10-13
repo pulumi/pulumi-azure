@@ -64,7 +64,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Frequency { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
+        /// Specifies interval used for the Frequency, for example a value of `4` for `Interval` and `Hour` for `Frequency` would run the Trigger every 4 hours.
         /// </summary>
         [Output("interval")]
         public Output<int> Interval { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as specified below.
+        /// A `Schedule` block as specified below.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.TriggerRecurrenceSchedule?> Schedule { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> Frequency { get; set; } = null!;
 
         /// <summary>
-        /// Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
+        /// Specifies interval used for the Frequency, for example a value of `4` for `Interval` and `Hour` for `Frequency` would run the Trigger every 4 hours.
         /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `schedule` block as specified below.
+        /// A `Schedule` block as specified below.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.TriggerRecurrenceScheduleArgs>? Schedule { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Frequency { get; set; }
 
         /// <summary>
-        /// Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
+        /// Specifies interval used for the Frequency, for example a value of `4` for `Interval` and `Hour` for `Frequency` would run the Trigger every 4 hours.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `schedule` block as specified below.
+        /// A `Schedule` block as specified below.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.TriggerRecurrenceScheduleGetArgs>? Schedule { get; set; }

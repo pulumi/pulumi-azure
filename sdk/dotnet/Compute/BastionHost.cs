@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Compute
     public partial class BastionHost : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `True`.
         /// </summary>
         [Output("copyPasteEnabled")]
         public Output<bool?> CopyPasteEnabled { get; private set; } = null!;
@@ -108,31 +108,31 @@ namespace Pulumi.Azure.Compute
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is File Copy feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `FileCopyEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Output("fileCopyEnabled")]
         public Output<bool?> FileCopyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `IpConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ipConfiguration")]
         public Output<Outputs.BastionHostIpConfiguration?> IpConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is IP Connect feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `IpConnectEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Output("ipConnectEnabled")]
         public Output<bool?> IpConnectEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `KerberosEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Output("kerberosEnabled")]
         public Output<bool?> KerberosEnabled { get; private set; } = null!;
@@ -158,23 +158,23 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
         /// 
-        /// &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
+        /// &gt; **Note:** `ScaleUnits` only can be changed when `Sku` is `Standard` or `Premium`. `ScaleUnits` is always `2` when `Sku` is `Basic`.
         /// </summary>
         [Output("scaleUnits")]
         public Output<int?> ScaleUnits { get; private set; } = null!;
 
         /// <summary>
-        /// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Session Recording feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+        /// &gt; **Note:** `SessionRecordingEnabled` is only supported when `Sku` is `Premium`.
         /// </summary>
         [Output("sessionRecordingEnabled")]
         public Output<bool?> SessionRecordingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `ShareableLinkEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Output("shareableLinkEnabled")]
         public Output<bool?> ShareableLinkEnabled { get; private set; } = null!;
@@ -194,9 +194,9 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Tunneling feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `TunnelingEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Output("tunnelingEnabled")]
         public Output<bool?> TunnelingEnabled { get; private set; } = null!;
@@ -260,37 +260,37 @@ namespace Pulumi.Azure.Compute
     public sealed class BastionHostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `True`.
         /// </summary>
         [Input("copyPasteEnabled")]
         public Input<bool>? CopyPasteEnabled { get; set; }
 
         /// <summary>
-        /// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is File Copy feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `FileCopyEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("fileCopyEnabled")]
         public Input<bool>? FileCopyEnabled { get; set; }
 
         /// <summary>
-        /// A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `IpConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ipConfiguration")]
         public Input<Inputs.BastionHostIpConfigurationArgs>? IpConfiguration { get; set; }
 
         /// <summary>
-        /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is IP Connect feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `IpConnectEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("ipConnectEnabled")]
         public Input<bool>? IpConnectEnabled { get; set; }
 
         /// <summary>
-        /// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `KerberosEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("kerberosEnabled")]
         public Input<bool>? KerberosEnabled { get; set; }
@@ -316,23 +316,23 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
         /// 
-        /// &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
+        /// &gt; **Note:** `ScaleUnits` only can be changed when `Sku` is `Standard` or `Premium`. `ScaleUnits` is always `2` when `Sku` is `Basic`.
         /// </summary>
         [Input("scaleUnits")]
         public Input<int>? ScaleUnits { get; set; }
 
         /// <summary>
-        /// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Session Recording feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+        /// &gt; **Note:** `SessionRecordingEnabled` is only supported when `Sku` is `Premium`.
         /// </summary>
         [Input("sessionRecordingEnabled")]
         public Input<bool>? SessionRecordingEnabled { get; set; }
 
         /// <summary>
-        /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `ShareableLinkEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("shareableLinkEnabled")]
         public Input<bool>? ShareableLinkEnabled { get; set; }
@@ -358,9 +358,9 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Tunneling feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `TunnelingEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("tunnelingEnabled")]
         public Input<bool>? TunnelingEnabled { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Azure.Compute
     public sealed class BastionHostState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `True`.
         /// </summary>
         [Input("copyPasteEnabled")]
         public Input<bool>? CopyPasteEnabled { get; set; }
@@ -404,31 +404,31 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is File Copy feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `FileCopyEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("fileCopyEnabled")]
         public Input<bool>? FileCopyEnabled { get; set; }
 
         /// <summary>
-        /// A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `IpConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ipConfiguration")]
         public Input<Inputs.BastionHostIpConfigurationGetArgs>? IpConfiguration { get; set; }
 
         /// <summary>
-        /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is IP Connect feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `IpConnectEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("ipConnectEnabled")]
         public Input<bool>? IpConnectEnabled { get; set; }
 
         /// <summary>
-        /// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `KerberosEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("kerberosEnabled")]
         public Input<bool>? KerberosEnabled { get; set; }
@@ -454,23 +454,23 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
         /// 
-        /// &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
+        /// &gt; **Note:** `ScaleUnits` only can be changed when `Sku` is `Standard` or `Premium`. `ScaleUnits` is always `2` when `Sku` is `Basic`.
         /// </summary>
         [Input("scaleUnits")]
         public Input<int>? ScaleUnits { get; set; }
 
         /// <summary>
-        /// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Session Recording feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+        /// &gt; **Note:** `SessionRecordingEnabled` is only supported when `Sku` is `Premium`.
         /// </summary>
         [Input("sessionRecordingEnabled")]
         public Input<bool>? SessionRecordingEnabled { get; set; }
 
         /// <summary>
-        /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `ShareableLinkEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("shareableLinkEnabled")]
         public Input<bool>? ShareableLinkEnabled { get; set; }
@@ -496,9 +496,9 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        /// Is Tunneling feature enabled for the Bastion Host. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
+        /// &gt; **Note:** `TunnelingEnabled` is only supported when `Sku` is `Standard` or `Premium`.
         /// </summary>
         [Input("tunnelingEnabled")]
         public Input<bool>? TunnelingEnabled { get; set; }

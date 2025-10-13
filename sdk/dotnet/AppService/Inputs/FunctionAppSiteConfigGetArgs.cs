@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class FunctionAppSiteConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Function App be loaded at all times? Defaults to `false`.
+        /// Should the Function App be loaded at all times? Defaults to `False`.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? AutoSwapSlotName { get; set; }
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.FunctionAppSiteConfigCorsGetArgs>? Cors { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? HealthCheckPath { get; set; }
 
         /// <summary>
-        /// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        /// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `False`.
         /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
@@ -72,9 +72,9 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.FunctionAppSiteConfigIpRestrictionGetArgs>? _ipRestrictions;
 
         /// <summary>
-        /// A list of `ip_restriction` objects representing IP restrictions as defined below.
+        /// A list of `IpRestriction` objects representing IP restrictions as defined below.
         /// 
-        /// &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** User has to explicitly set `IpRestriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.FunctionAppSiteConfigIpRestrictionGetArgs> IpRestrictions
         {
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<int>? PreWarmedInstanceCount { get; set; }
 
         /// <summary>
-        /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `False`.
         /// </summary>
         [Input("runtimeScaleMonitoringEnabled")]
         public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }
@@ -116,9 +116,9 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.FunctionAppSiteConfigScmIpRestrictionGetArgs>? _scmIpRestrictions;
 
         /// <summary>
-        /// A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+        /// A list of `ScmIpRestriction` objects representing IP restrictions as defined below.
         /// 
-        /// &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** User has to explicitly set `ScmIpRestriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.FunctionAppSiteConfigScmIpRestrictionGetArgs> ScmIpRestrictions
         {
@@ -129,23 +129,23 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
         /// 
-        /// &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+        /// &gt; **NOTE:** This setting is incompatible with the `SourceControl` block which updates this value based on the setting provided.
         /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
 
         /// <summary>
-        /// IP security restrictions for scm to use main. Defaults to `false`.
+        /// IP security restrictions for scm to use main. Defaults to `False`.
         /// 
-        /// &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+        /// &gt; **NOTE** Any `ScmIpRestriction` blocks configured are ignored by the service when `ScmUseMainIpRestriction` is set to `True`. Any scm restrictions will become active if this is subsequently set to `False` or removed.
         /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
-        /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+        /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `True`.
         /// 
-        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
         /// </summary>
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }

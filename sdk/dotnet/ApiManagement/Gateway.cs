@@ -86,7 +86,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `location_data` block as documented below.
+        /// A `LocationData` block as documented below.
         /// </summary>
         [Output("locationData")]
         public Output<Outputs.GatewayLocationData> LocationData { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `location_data` block as documented below.
+        /// A `LocationData` block as documented below.
         /// </summary>
         [Input("locationData", required: true)]
         public Input<Inputs.GatewayLocationDataArgs> LocationData { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `location_data` block as documented below.
+        /// A `LocationData` block as documented below.
         /// </summary>
         [Input("locationData")]
         public Input<Inputs.GatewayLocationDataGetArgs>? LocationData { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class GremlinGraphAutoscaleSettings
     {
         /// <summary>
-        /// The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        /// The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `Throughput`.
         /// </summary>
         public readonly int? MaxThroughput;
 

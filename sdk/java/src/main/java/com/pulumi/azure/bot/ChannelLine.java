@@ -106,14 +106,14 @@ public class ChannelLine extends com.pulumi.resources.CustomResource {
         return this.botName;
     }
     /**
-     * One or more `line_channel` blocks as defined below.
+     * One or more `lineChannel` blocks as defined below.
      * 
      */
     @Export(name="lineChannels", refs={List.class,ChannelLineLineChannel.class}, tree="[0,1]")
     private Output<List<ChannelLineLineChannel>> lineChannels;
 
     /**
-     * @return One or more `line_channel` blocks as defined below.
+     * @return One or more `lineChannel` blocks as defined below.
      * 
      */
     public Output<List<ChannelLineLineChannel>> lineChannels() {

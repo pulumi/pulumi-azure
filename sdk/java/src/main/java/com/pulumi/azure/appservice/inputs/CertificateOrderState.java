@@ -83,7 +83,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
     /**
      * The Distinguished Name for the App Service Certificate Order.
      * 
-     * &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
+     * &gt; **Note:** Either `csr` or `distinguishedName` must be set - but not both.
      * 
      */
     @Import(name="distinguishedName")
@@ -92,7 +92,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
     /**
      * @return The Distinguished Name for the App Service Certificate Order.
      * 
-     * &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
+     * &gt; **Note:** Either `csr` or `distinguishedName` must be set - but not both.
      * 
      */
     public Optional<Output<String>> distinguishedName() {
@@ -458,7 +458,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         /**
          * @param distinguishedName The Distinguished Name for the App Service Certificate Order.
          * 
-         * &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
+         * &gt; **Note:** Either `csr` or `distinguishedName` must be set - but not both.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         /**
          * @param distinguishedName The Distinguished Name for the App Service Certificate Order.
          * 
-         * &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
+         * &gt; **Note:** Either `csr` or `distinguishedName` must be set - but not both.
          * 
          * @return builder
          * 

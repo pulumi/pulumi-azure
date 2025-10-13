@@ -19,7 +19,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     @Import(name="certificateUrl")
@@ -28,7 +28,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * @return The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     public Optional<Output<String>> certificateUrl() {
@@ -78,7 +78,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+         * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+         * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          * 
          * @return builder
          * 

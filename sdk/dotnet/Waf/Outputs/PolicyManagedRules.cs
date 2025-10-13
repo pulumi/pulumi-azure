@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyManagedRules
     {
         /// <summary>
-        /// One or more `exclusion` block defined below.
+        /// One or more `Exclusion` block defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyManagedRulesExclusion> Exclusions;
         /// <summary>
-        /// One or more `managed_rule_set` block defined below.
+        /// One or more `ManagedRuleSet` block defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyManagedRulesManagedRuleSet> ManagedRuleSets;
 

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ArcMachine.Outputs
     public sealed class GetAgentResult
     {
         /// <summary>
-        /// A `extensions_allow_list` block as defined below.
+        /// A `ExtensionsAllowList` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAgentExtensionsAllowListResult> ExtensionsAllowLists;
         /// <summary>
-        /// A `extensions_block_list` block as defined below.
+        /// A `ExtensionsBlockList` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAgentExtensionsBlockListResult> ExtensionsBlockLists;
         /// <summary>

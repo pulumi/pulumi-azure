@@ -40,14 +40,14 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="dataProtectionReplication")
     private @Nullable Output<VolumeGroupOracleVolumeDataProtectionReplicationArgs> dataProtectionReplication;
 
     /**
-     * @return A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Optional<Output<VolumeGroupOracleVolumeDataProtectionReplicationArgs>> dataProtectionReplication() {
@@ -55,14 +55,14 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `data_protection_snapshot_policy` block as defined below.
+     * A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     @Import(name="dataProtectionSnapshotPolicy")
     private @Nullable Output<VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs> dataProtectionSnapshotPolicy;
 
     /**
-     * @return A `data_protection_snapshot_policy` block as defined below.
+     * @return A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     public Optional<Output<VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs>> dataProtectionSnapshotPolicy() {
@@ -70,14 +70,14 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="encryptionKeySource")
     private @Nullable Output<String> encryptionKeySource;
 
     /**
-     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> encryptionKeySource() {
@@ -85,14 +85,14 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `export_policy_rule` blocks as defined below.
+     * One or more `exportPolicyRule` blocks as defined below.
      * 
      */
     @Import(name="exportPolicyRules", required=true)
     private Output<List<VolumeGroupOracleVolumeExportPolicyRuleArgs>> exportPolicyRules;
 
     /**
-     * @return One or more `export_policy_rule` blocks as defined below.
+     * @return One or more `exportPolicyRule` blocks as defined below.
      * 
      */
     public Output<List<VolumeGroupOracleVolumeExportPolicyRuleArgs>> exportPolicyRules() {
@@ -115,14 +115,14 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="keyVaultPrivateEndpointId")
     private @Nullable Output<String> keyVaultPrivateEndpointId;
 
     /**
-     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> keyVaultPrivateEndpointId() {
@@ -167,18 +167,18 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
+     * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
      * 
-     * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
+     * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3Enabled` and `nfsv41Enabled` flags to match the new protocol.
      * 
      */
     @Import(name="protocols", required=true)
     private Output<String> protocols;
 
     /**
-     * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
+     * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
      * 
-     * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
+     * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3Enabled` and `nfsv41Enabled` flags to match the new protocol.
      * 
      */
     public Output<String> protocols() {
@@ -340,14 +340,14 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
      * 
      */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
     /**
-     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
      * 
      */
     public Optional<Output<String>> zone() {
@@ -421,7 +421,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataProtectionReplication A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param dataProtectionReplication A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataProtectionReplication A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param dataProtectionReplication A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataProtectionSnapshotPolicy A `data_protection_snapshot_policy` block as defined below.
+         * @param dataProtectionSnapshotPolicy A `dataProtectionSnapshotPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataProtectionSnapshotPolicy A `data_protection_snapshot_policy` block as defined below.
+         * @param dataProtectionSnapshotPolicy A `dataProtectionSnapshotPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param encryptionKeySource The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+         * @param encryptionKeySource The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param encryptionKeySource The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+         * @param encryptionKeySource The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param exportPolicyRules One or more `export_policy_rule` blocks as defined below.
+         * @param exportPolicyRules One or more `exportPolicyRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param exportPolicyRules One or more `export_policy_rule` blocks as defined below.
+         * @param exportPolicyRules One or more `exportPolicyRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param exportPolicyRules One or more `export_policy_rule` blocks as defined below.
+         * @param exportPolicyRules One or more `exportPolicyRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param keyVaultPrivateEndpointId The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+         * @param keyVaultPrivateEndpointId The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param keyVaultPrivateEndpointId The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+         * @param keyVaultPrivateEndpointId The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -612,9 +612,9 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param protocols The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
+         * @param protocols The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
          * 
-         * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
+         * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3Enabled` and `nfsv41Enabled` flags to match the new protocol.
          * 
          * @return builder
          * 
@@ -625,9 +625,9 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param protocols The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
+         * @param protocols The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
          * 
-         * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
+         * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3Enabled` and `nfsv41Enabled` flags to match the new protocol.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param zone Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+         * @param zone Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
          * 
          * @return builder
          * 
@@ -862,7 +862,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param zone Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+         * @param zone Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
          * 
          * @return builder
          * 

@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Mobile
     public partial class NetworkSimPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
+        /// The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `Slice` block.
         /// </summary>
         [Output("defaultSliceId")]
         public Output<string> DefaultSliceId { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Mobile
         public Output<int?> RegistrationTimerInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        /// An array of `Slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         /// </summary>
         [Output("slices")]
         public Output<ImmutableArray<Outputs.NetworkSimPolicySlice>> Slices { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Mobile
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+        /// A `UserEquipmentAggregateMaximumBitRate` block as defined below.
         /// </summary>
         [Output("userEquipmentAggregateMaximumBitRate")]
         public Output<Outputs.NetworkSimPolicyUserEquipmentAggregateMaximumBitRate> UserEquipmentAggregateMaximumBitRate { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.Mobile
     public sealed class NetworkSimPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
+        /// The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `Slice` block.
         /// </summary>
         [Input("defaultSliceId", required: true)]
         public Input<string> DefaultSliceId { get; set; } = null!;
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.Mobile
         private InputList<Inputs.NetworkSimPolicySliceArgs>? _slices;
 
         /// <summary>
-        /// An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        /// An array of `Slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         /// </summary>
         public InputList<Inputs.NetworkSimPolicySliceArgs> Slices
         {
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.Mobile
         }
 
         /// <summary>
-        /// A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+        /// A `UserEquipmentAggregateMaximumBitRate` block as defined below.
         /// </summary>
         [Input("userEquipmentAggregateMaximumBitRate", required: true)]
         public Input<Inputs.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs> UserEquipmentAggregateMaximumBitRate { get; set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Mobile
     public sealed class NetworkSimPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
+        /// The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `Slice` block.
         /// </summary>
         [Input("defaultSliceId")]
         public Input<string>? DefaultSliceId { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Azure.Mobile
         private InputList<Inputs.NetworkSimPolicySliceGetArgs>? _slices;
 
         /// <summary>
-        /// An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        /// An array of `Slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         /// </summary>
         public InputList<Inputs.NetworkSimPolicySliceGetArgs> Slices
         {
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.Mobile
         }
 
         /// <summary>
-        /// A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+        /// A `UserEquipmentAggregateMaximumBitRate` block as defined below.
         /// </summary>
         [Input("userEquipmentAggregateMaximumBitRate")]
         public Input<Inputs.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateGetArgs>? UserEquipmentAggregateMaximumBitRate { get; set; }

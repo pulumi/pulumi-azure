@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TagRulesMetricRule {
     /**
-     * @return Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+     * @return Filtering tag for the metric rule. A `filteringTag` block as defined below.
      * 
      */
     private List<TagRulesMetricRuleFilteringTag> filteringTags;
@@ -27,7 +27,7 @@ public final class TagRulesMetricRule {
 
     private TagRulesMetricRule() {}
     /**
-     * @return Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+     * @return Filtering tag for the metric rule. A `filteringTag` block as defined below.
      * 
      */
     public List<TagRulesMetricRuleFilteringTag> filteringTags() {

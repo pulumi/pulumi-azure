@@ -109,46 +109,46 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:sentinel/authomationRule:AuthomationRule")
 public class AuthomationRule extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `action_incident_task` blocks as defined below.
+     * One or more `actionIncidentTask` blocks as defined below.
      * 
      */
     @Export(name="actionIncidentTasks", refs={List.class,AuthomationRuleActionIncidentTask.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AuthomationRuleActionIncidentTask>> actionIncidentTasks;
 
     /**
-     * @return One or more `action_incident_task` blocks as defined below.
+     * @return One or more `actionIncidentTask` blocks as defined below.
      * 
      */
     public Output<Optional<List<AuthomationRuleActionIncidentTask>>> actionIncidentTasks() {
         return Codegen.optional(this.actionIncidentTasks);
     }
     /**
-     * One or more `action_incident` blocks as defined below.
+     * One or more `actionIncident` blocks as defined below.
      * 
      */
     @Export(name="actionIncidents", refs={List.class,AuthomationRuleActionIncident.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AuthomationRuleActionIncident>> actionIncidents;
 
     /**
-     * @return One or more `action_incident` blocks as defined below.
+     * @return One or more `actionIncident` blocks as defined below.
      * 
      */
     public Output<Optional<List<AuthomationRuleActionIncident>>> actionIncidents() {
         return Codegen.optional(this.actionIncidents);
     }
     /**
-     * One or more `action_playbook` blocks as defined below.
+     * One or more `actionPlaybook` blocks as defined below.
      * 
-     * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+     * &gt; **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      * 
      */
     @Export(name="actionPlaybooks", refs={List.class,AuthomationRuleActionPlaybook.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AuthomationRuleActionPlaybook>> actionPlaybooks;
 
     /**
-     * @return One or more `action_playbook` blocks as defined below.
+     * @return One or more `actionPlaybook` blocks as defined below.
      * 
-     * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+     * &gt; **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      * 
      */
     public Output<Optional<List<AuthomationRuleActionPlaybook>>> actionPlaybooks() {

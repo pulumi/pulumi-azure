@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Compute
     public partial class DedicatedHostGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("automaticPlacementEnabled")]
         public Output<bool?> AutomaticPlacementEnabled { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Compute
     public sealed class DedicatedHostGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("automaticPlacementEnabled")]
         public Input<bool>? AutomaticPlacementEnabled { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Compute
     public sealed class DedicatedHostGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("automaticPlacementEnabled")]
         public Input<bool>? AutomaticPlacementEnabled { get; set; }

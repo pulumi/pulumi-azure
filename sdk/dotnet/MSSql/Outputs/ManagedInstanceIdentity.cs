@@ -14,9 +14,9 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class ManagedInstanceIdentity
     {
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `Type` includes `UserAssigned`.
         /// 
-        /// &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+        /// &gt; **Note:** The assigned `PrincipalId` and `TenantId` can be retrieved after the identity `Type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int IdleTimeoutInMinutes;
         /// <summary>
-        /// A list of `ip_tag` blocks as defined below.
+        /// A list of `IpTag` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult> IpTags;
         /// <summary>

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
-        /// An `ssh_key` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+        /// An `SshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
         /// </summary>
         [Input("sshKey", required: true)]
         public Input<Inputs.KubernetesClusterLinuxProfileSshKeyArgs> SshKey { get; set; } = null!;

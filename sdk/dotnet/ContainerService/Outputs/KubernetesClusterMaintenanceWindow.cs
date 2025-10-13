@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterMaintenanceWindow
     {
         /// <summary>
-        /// One or more `allowed` blocks as defined below.
+        /// One or more `Allowed` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.KubernetesClusterMaintenanceWindowAllowed> Alloweds;
         /// <summary>
-        /// One or more `not_allowed` block as defined below.
+        /// One or more `NotAllowed` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.KubernetesClusterMaintenanceWindowNotAllowed> NotAlloweds;
 

@@ -39,12 +39,12 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfig
      */
     private String name;
     /**
-     * @return If this ip_configuration is the primary one.
+     * @return If this ipConfiguration is the primary one.
      * 
      */
     private Boolean primary;
     /**
-     * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address` is documented below.
+     * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddress` is documented below.
      * 
      */
     private List<GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
@@ -96,14 +96,14 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfig
         return this.name;
     }
     /**
-     * @return If this ip_configuration is the primary one.
+     * @return If this ipConfiguration is the primary one.
      * 
      */
     public Boolean primary() {
         return this.primary;
     }
     /**
-     * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address` is documented below.
+     * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddress` is documented below.
      * 
      */
     public List<GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses() {

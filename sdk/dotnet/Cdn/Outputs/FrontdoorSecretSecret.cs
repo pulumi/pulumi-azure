@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecretSecret
     {
         /// <summary>
-        /// A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
+        /// A `CustomerCertificate` block as defined below. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorSecretSecretCustomerCertificate> CustomerCertificates;
 

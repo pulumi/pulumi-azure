@@ -108,18 +108,18 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+     * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * &gt; **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      * 
      */
     @Import(name="synchronousMode")
     private @Nullable Output<String> synchronousMode;
 
     /**
-     * @return The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+     * @return The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * &gt; **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      * 
      */
     public Optional<Output<String>> synchronousMode() {
@@ -127,14 +127,14 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `tunnel_interface` blocks as defined below.
+     * One or more `tunnelInterface` blocks as defined below.
      * 
      */
     @Import(name="tunnelInterfaces")
     private @Nullable Output<List<BackendAddressPoolTunnelInterfaceArgs>> tunnelInterfaces;
 
     /**
-     * @return One or more `tunnel_interface` blocks as defined below.
+     * @return One or more `tunnelInterface` blocks as defined below.
      * 
      */
     public Optional<Output<List<BackendAddressPoolTunnelInterfaceArgs>>> tunnelInterfaces() {
@@ -355,9 +355,9 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param synchronousMode The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+         * @param synchronousMode The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+         * &gt; **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
          * 
          * @return builder
          * 
@@ -368,9 +368,9 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param synchronousMode The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+         * @param synchronousMode The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+         * &gt; **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tunnelInterfaces One or more `tunnel_interface` blocks as defined below.
+         * @param tunnelInterfaces One or more `tunnelInterface` blocks as defined below.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tunnelInterfaces One or more `tunnel_interface` blocks as defined below.
+         * @param tunnelInterfaces One or more `tunnelInterface` blocks as defined below.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tunnelInterfaces One or more `tunnel_interface` blocks as defined below.
+         * @param tunnelInterfaces One or more `tunnelInterface` blocks as defined below.
          * 
          * @return builder
          * 

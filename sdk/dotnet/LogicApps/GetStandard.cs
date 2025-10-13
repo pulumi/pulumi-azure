@@ -186,7 +186,7 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly string ClientCertificateMode;
         /// <summary>
-        /// A `connection_string` block as defined below.
+        /// A `ConnectionString` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardConnectionStringResult> ConnectionStrings;
         /// <summary>
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardIdentityResult> Identities;
         /// <summary>
@@ -247,11 +247,11 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly bool ScmPublishBasicAuthenticationEnabled;
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         public readonly Outputs.GetStandardSiteConfigResult SiteConfig;
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardSiteCredentialResult> SiteCredentials;
         /// <summary>

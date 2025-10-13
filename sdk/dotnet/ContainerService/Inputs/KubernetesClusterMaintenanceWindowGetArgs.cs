@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.KubernetesClusterMaintenanceWindowAllowedGetArgs>? _alloweds;
 
         /// <summary>
-        /// One or more `allowed` blocks as defined below.
+        /// One or more `Allowed` blocks as defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterMaintenanceWindowAllowedGetArgs> Alloweds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.KubernetesClusterMaintenanceWindowNotAllowedGetArgs>? _notAlloweds;
 
         /// <summary>
-        /// One or more `not_allowed` block as defined below.
+        /// One or more `NotAllowed` block as defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterMaintenanceWindowNotAllowedGetArgs> NotAlloweds
         {

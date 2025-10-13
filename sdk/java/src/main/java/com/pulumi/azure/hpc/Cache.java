@@ -145,60 +145,60 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return this.cacheSizeInGb;
     }
     /**
-     * A `default_access_policy` block as defined below.
+     * A `defaultAccessPolicy` block as defined below.
      * 
      */
     @Export(name="defaultAccessPolicy", refs={CacheDefaultAccessPolicy.class}, tree="[0]")
     private Output<CacheDefaultAccessPolicy> defaultAccessPolicy;
 
     /**
-     * @return A `default_access_policy` block as defined below.
+     * @return A `defaultAccessPolicy` block as defined below.
      * 
      */
     public Output<CacheDefaultAccessPolicy> defaultAccessPolicy() {
         return this.defaultAccessPolicy;
     }
     /**
-     * A `directory_active_directory` block as defined below.
+     * A `directoryActiveDirectory` block as defined below.
      * 
      */
     @Export(name="directoryActiveDirectory", refs={CacheDirectoryActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ CacheDirectoryActiveDirectory> directoryActiveDirectory;
 
     /**
-     * @return A `directory_active_directory` block as defined below.
+     * @return A `directoryActiveDirectory` block as defined below.
      * 
      */
     public Output<Optional<CacheDirectoryActiveDirectory>> directoryActiveDirectory() {
         return Codegen.optional(this.directoryActiveDirectory);
     }
     /**
-     * A `directory_flat_file` block as defined below.
+     * A `directoryFlatFile` block as defined below.
      * 
      */
     @Export(name="directoryFlatFile", refs={CacheDirectoryFlatFile.class}, tree="[0]")
     private Output</* @Nullable */ CacheDirectoryFlatFile> directoryFlatFile;
 
     /**
-     * @return A `directory_flat_file` block as defined below.
+     * @return A `directoryFlatFile` block as defined below.
      * 
      */
     public Output<Optional<CacheDirectoryFlatFile>> directoryFlatFile() {
         return Codegen.optional(this.directoryFlatFile);
     }
     /**
-     * A `directory_ldap` block as defined below.
+     * A `directoryLdap` block as defined below.
      * 
-     * &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+     * &gt; **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      * 
      */
     @Export(name="directoryLdap", refs={CacheDirectoryLdap.class}, tree="[0]")
     private Output</* @Nullable */ CacheDirectoryLdap> directoryLdap;
 
     /**
-     * @return A `directory_ldap` block as defined below.
+     * @return A `directoryLdap` block as defined below.
      * 
-     * &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+     * &gt; **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      * 
      */
     public Output<Optional<CacheDirectoryLdap>> directoryLdap() {

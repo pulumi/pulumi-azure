@@ -14,14 +14,14 @@ public final class KubernetesClusterBootstrapProfile {
     /**
      * @return The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
      * 
-     * &gt; **Note:** If the `artifact_source` is set to `Cache` and the `outbound_type` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+     * &gt; **Note:** If the `artifactSource` is set to `Cache` and the `outboundType` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
      * 
      */
     private @Nullable String artifactSource;
     /**
      * @return The resource Id of Azure Container Registry.
      * 
-     * &gt; **Note:** The `container_registry_id` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+     * &gt; **Note:** The `containerRegistryId` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
      * 
      */
     private @Nullable String containerRegistryId;
@@ -30,7 +30,7 @@ public final class KubernetesClusterBootstrapProfile {
     /**
      * @return The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
      * 
-     * &gt; **Note:** If the `artifact_source` is set to `Cache` and the `outbound_type` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+     * &gt; **Note:** If the `artifactSource` is set to `Cache` and the `outboundType` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
      * 
      */
     public Optional<String> artifactSource() {
@@ -39,7 +39,7 @@ public final class KubernetesClusterBootstrapProfile {
     /**
      * @return The resource Id of Azure Container Registry.
      * 
-     * &gt; **Note:** The `container_registry_id` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+     * &gt; **Note:** The `containerRegistryId` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
      * 
      */
     public Optional<String> containerRegistryId() {

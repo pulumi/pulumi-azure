@@ -106,13 +106,13 @@ namespace Pulumi.Azure.DigitalTwins
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
+        /// The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `Send` permission. .
         /// </summary>
         [Output("servicebusPrimaryConnectionString")]
         public Output<string> ServicebusPrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
+        /// The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `Send` permission.
         /// </summary>
         [Output("servicebusSecondaryConnectionString")]
         public Output<string> ServicebusSecondaryConnectionString { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.DigitalTwins
         private Input<string>? _servicebusPrimaryConnectionString;
 
         /// <summary>
-        /// The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
+        /// The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `Send` permission. .
         /// </summary>
         public Input<string>? ServicebusPrimaryConnectionString
         {
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.DigitalTwins
         private Input<string>? _servicebusSecondaryConnectionString;
 
         /// <summary>
-        /// The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
+        /// The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `Send` permission.
         /// </summary>
         public Input<string>? ServicebusSecondaryConnectionString
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.DigitalTwins
         private Input<string>? _servicebusPrimaryConnectionString;
 
         /// <summary>
-        /// The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
+        /// The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `Send` permission. .
         /// </summary>
         public Input<string>? ServicebusPrimaryConnectionString
         {
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.DigitalTwins
         private Input<string>? _servicebusSecondaryConnectionString;
 
         /// <summary>
-        /// The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
+        /// The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `Send` permission.
         /// </summary>
         public Input<string>? ServicebusSecondaryConnectionString
         {

@@ -19,14 +19,14 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs extend
     public static final KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs Empty = new KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs();
 
     /**
-     * One or more `allowed_host_ports` blocks as defined below.
+     * One or more `allowedHostPorts` blocks as defined below.
      * 
      */
     @Import(name="allowedHostPorts")
     private @Nullable Output<List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs>> allowedHostPorts;
 
     /**
-     * @return One or more `allowed_host_ports` blocks as defined below.
+     * @return One or more `allowedHostPorts` blocks as defined below.
      * 
      */
     public Optional<Output<List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs>>> allowedHostPorts() {
@@ -90,7 +90,7 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs extend
         }
 
         /**
-         * @param allowedHostPorts One or more `allowed_host_ports` blocks as defined below.
+         * @param allowedHostPorts One or more `allowedHostPorts` blocks as defined below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs extend
         }
 
         /**
-         * @param allowedHostPorts One or more `allowed_host_ports` blocks as defined below.
+         * @param allowedHostPorts One or more `allowedHostPorts` blocks as defined below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs extend
         }
 
         /**
-         * @param allowedHostPorts One or more `allowed_host_ports` blocks as defined below.
+         * @param allowedHostPorts One or more `allowedHostPorts` blocks as defined below.
          * 
          * @return builder
          * 

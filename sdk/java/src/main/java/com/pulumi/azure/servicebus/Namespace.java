@@ -102,14 +102,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.capacity);
     }
     /**
-     * An `customer_managed_key` block as defined below.
+     * An `customerManagedKey` block as defined below.
      * 
      */
     @Export(name="customerManagedKey", refs={NamespaceCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ NamespaceCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return An `customer_managed_key` block as defined below.
+     * @return An `customerManagedKey` block as defined below.
      * 
      */
     public Output<Optional<NamespaceCustomerManagedKey>> customerManagedKey() {
@@ -260,14 +260,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An `network_rule_set` block as defined below.
+     * An `networkRuleSet` block as defined below.
      * 
      */
     @Export(name="networkRuleSet", refs={NamespaceNetworkRuleSet.class}, tree="[0]")
     private Output<NamespaceNetworkRuleSet> networkRuleSet;
 
     /**
-     * @return An `network_rule_set` block as defined below.
+     * @return An `networkRuleSet` block as defined below.
      * 
      */
     public Output<NamespaceNetworkRuleSet> networkRuleSet() {

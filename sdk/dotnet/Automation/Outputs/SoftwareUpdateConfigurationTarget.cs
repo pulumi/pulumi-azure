@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Automation.Outputs
     public sealed class SoftwareUpdateConfigurationTarget
     {
         /// <summary>
-        /// One or more `azure_query` blocks as defined above.
+        /// One or more `AzureQuery` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.SoftwareUpdateConfigurationTargetAzureQuery> AzureQueries;
         /// <summary>
-        /// One or more `non_azure_query` blocks as defined above.
+        /// One or more `NonAzureQuery` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.SoftwareUpdateConfigurationTargetNonAzureQuery> NonAzureQueries;
 

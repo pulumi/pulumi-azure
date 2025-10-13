@@ -20,14 +20,14 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
     public static final IntegrationRuntimeSsisExpressCustomSetupArgs Empty = new IntegrationRuntimeSsisExpressCustomSetupArgs();
 
     /**
-     * One or more `command_key` blocks as defined below.
+     * One or more `commandKey` blocks as defined below.
      * 
      */
     @Import(name="commandKeys")
     private @Nullable Output<List<IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs>> commandKeys;
 
     /**
-     * @return One or more `command_key` blocks as defined below.
+     * @return One or more `commandKey` blocks as defined below.
      * 
      */
     public Optional<Output<List<IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs>>> commandKeys() {
@@ -67,7 +67,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
     /**
      * The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
      * 
-     * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+     * &gt; **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
      * 
      */
     @Import(name="powershellVersion")
@@ -76,7 +76,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
     /**
      * @return The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
      * 
-     * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+     * &gt; **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
      * 
      */
     public Optional<Output<String>> powershellVersion() {
@@ -111,7 +111,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
         }
 
         /**
-         * @param commandKeys One or more `command_key` blocks as defined below.
+         * @param commandKeys One or more `commandKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
         }
 
         /**
-         * @param commandKeys One or more `command_key` blocks as defined below.
+         * @param commandKeys One or more `commandKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
         }
 
         /**
-         * @param commandKeys One or more `command_key` blocks as defined below.
+         * @param commandKeys One or more `commandKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
         /**
          * @param powershellVersion The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
          * 
-         * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+         * &gt; **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
         /**
          * @param powershellVersion The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
          * 
-         * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+         * &gt; **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
          * 
          * @return builder
          * 

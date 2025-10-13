@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppServiceLogs {
     /**
-     * @return An `application_logs` block as defined below.
+     * @return An `applicationLogs` block as defined below.
      * 
      */
     private @Nullable AppServiceLogsApplicationLogs applicationLogs;
@@ -29,14 +29,14 @@ public final class AppServiceLogs {
      */
     private @Nullable Boolean failedRequestTracingEnabled;
     /**
-     * @return An `http_logs` block as defined below.
+     * @return An `httpLogs` block as defined below.
      * 
      */
     private @Nullable AppServiceLogsHttpLogs httpLogs;
 
     private AppServiceLogs() {}
     /**
-     * @return An `application_logs` block as defined below.
+     * @return An `applicationLogs` block as defined below.
      * 
      */
     public Optional<AppServiceLogsApplicationLogs> applicationLogs() {
@@ -57,7 +57,7 @@ public final class AppServiceLogs {
         return Optional.ofNullable(this.failedRequestTracingEnabled);
     }
     /**
-     * @return An `http_logs` block as defined below.
+     * @return An `httpLogs` block as defined below.
      * 
      */
     public Optional<AppServiceLogsHttpLogs> httpLogs() {

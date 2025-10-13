@@ -33,14 +33,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
     }
 
     /**
-     * One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualMachines")
     private @Nullable Output<List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs>> virtualMachines;
 
     /**
-     * @return One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs>>> virtualMachines() {
@@ -94,7 +94,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
         }
 
         /**
-         * @param virtualMachines One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachines One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
         }
 
         /**
-         * @param virtualMachines One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachines One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
         }
 
         /**
-         * @param virtualMachines One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachines One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -13,18 +13,51 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure SQL Azure Managed Database.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// 
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Sql` - 2023-08-01-preview
         /// </summary>
         public static Task<GetManagedDatabaseResult> InvokeAsync(GetManagedDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure:mssql/getManagedDatabase:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure SQL Azure Managed Database.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// 
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Sql` - 2023-08-01-preview
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure:mssql/getManagedDatabase:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure SQL Azure Managed Database.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// 
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Sql` - 2023-08-01-preview
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure:mssql/getManagedDatabase:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
@@ -80,7 +113,7 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `long_term_retention_policy` block as defined below.
+        /// A `LongTermRetentionPolicy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedDatabaseLongTermRetentionPolicyResult> LongTermRetentionPolicies;
         public readonly string ManagedInstanceId;
@@ -90,7 +123,7 @@ namespace Pulumi.Azure.MSSql
         public readonly string ManagedInstanceName;
         public readonly string Name;
         /// <summary>
-        /// A `point_in_time_restore` block as defined below.
+        /// A `PointInTimeRestore` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedDatabasePointInTimeRestoreResult> PointInTimeRestores;
         /// <summary>

@@ -171,18 +171,18 @@ public class BackupPolicyBlobStorage extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.operationalDefaultRetentionDuration);
     }
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
-     * &gt; **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
+     * &gt; **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
      * 
      */
     @Export(name="retentionRules", refs={List.class,BackupPolicyBlobStorageRetentionRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BackupPolicyBlobStorageRetentionRule>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
-     * &gt; **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
+     * &gt; **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
      * 
      */
     public Output<Optional<List<BackupPolicyBlobStorageRetentionRule>>> retentionRules() {
@@ -205,7 +205,7 @@ public class BackupPolicyBlobStorage extends com.pulumi.resources.CustomResource
     /**
      * The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
-     * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
+     * &gt; **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration` or `vaultDefaultRetentionDuration` must be specified.
      * 
      */
     @Export(name="vaultDefaultRetentionDuration", refs={String.class}, tree="[0]")
@@ -214,7 +214,7 @@ public class BackupPolicyBlobStorage extends com.pulumi.resources.CustomResource
     /**
      * @return The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
-     * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
+     * &gt; **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration` or `vaultDefaultRetentionDuration` must be specified.
      * 
      */
     public Output<Optional<String>> vaultDefaultRetentionDuration() {

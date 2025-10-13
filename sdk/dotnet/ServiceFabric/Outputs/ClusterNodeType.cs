@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
     public sealed class ClusterNodeType
     {
         /// <summary>
-        /// A `application_ports` block as defined below.
+        /// A `ApplicationPorts` block as defined below.
         /// </summary>
         public readonly Outputs.ClusterNodeTypeApplicationPorts? ApplicationPorts;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly string? DurabilityLevel;
         /// <summary>
-        /// A `ephemeral_ports` block as defined below.
+        /// A `EphemeralPorts` block as defined below.
         /// </summary>
         public readonly Outputs.ClusterNodeTypeEphemeralPorts? EphemeralPorts;
         /// <summary>

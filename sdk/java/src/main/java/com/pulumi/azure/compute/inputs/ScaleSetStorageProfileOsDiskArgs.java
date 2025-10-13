@@ -50,7 +50,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
     /**
      * Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
      * Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
-     * When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
+     * When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
      * 
      */
     @Import(name="image")
@@ -59,7 +59,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
     /**
      * @return Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
      * Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
-     * When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
+     * When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
      * 
      */
     public Optional<Output<String>> image() {
@@ -67,14 +67,14 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
+     * Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
      * 
      */
     @Import(name="managedDiskType")
     private @Nullable Output<String> managedDiskType;
 
     /**
-     * @return Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
+     * @return Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
      * 
      */
     public Optional<Output<String>> managedDiskType() {
@@ -112,14 +112,14 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
+     * Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
      * 
      */
     @Import(name="vhdContainers")
     private @Nullable Output<List<String>> vhdContainers;
 
     /**
-     * @return Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
+     * @return Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
      * 
      */
     public Optional<Output<List<String>>> vhdContainers() {
@@ -201,7 +201,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
         /**
          * @param image Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
          * Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
-         * When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
+         * When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
         /**
          * @param image Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
          * Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
-         * When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
+         * When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managedDiskType Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
+         * @param managedDiskType Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managedDiskType Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
+         * @param managedDiskType Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
         }
 
         /**
-         * @param vhdContainers Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
+         * @param vhdContainers Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
         }
 
         /**
-         * @param vhdContainers Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
+         * @param vhdContainers Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
         }
 
         /**
-         * @param vhdContainers Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
+         * @param vhdContainers Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
          * 
          * @return builder
          * 

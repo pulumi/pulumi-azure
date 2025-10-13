@@ -213,14 +213,14 @@ public class CredentialServicePrincipal extends com.pulumi.resources.CustomResou
         return this.servicePrincipalId;
     }
     /**
-     * A `service_principal_key` block as defined below.
+     * A `servicePrincipalKey` block as defined below.
      * 
      */
     @Export(name="servicePrincipalKey", refs={CredentialServicePrincipalServicePrincipalKey.class}, tree="[0]")
     private Output</* @Nullable */ CredentialServicePrincipalServicePrincipalKey> servicePrincipalKey;
 
     /**
-     * @return A `service_principal_key` block as defined below.
+     * @return A `servicePrincipalKey` block as defined below.
      * 
      */
     public Output<Optional<CredentialServicePrincipalServicePrincipalKey>> servicePrincipalKey() {

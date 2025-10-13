@@ -20,106 +20,106 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataCollectionRuleDestinations {
     /**
-     * @return A `azure_monitor_metrics` block as defined above.
+     * @return A `azureMonitorMetrics` block as defined above.
      * 
      */
     private @Nullable DataCollectionRuleDestinationsAzureMonitorMetrics azureMonitorMetrics;
     /**
-     * @return One or more `event_hub` blocks as defined below.
+     * @return One or more `eventHub` blocks as defined below.
      * 
      */
     private @Nullable DataCollectionRuleDestinationsEventHub eventHub;
     /**
-     * @return One or more `event_hub` blocks as defined below.
+     * @return One or more `eventHub` blocks as defined below.
      * 
      */
     private @Nullable DataCollectionRuleDestinationsEventHubDirect eventHubDirect;
     /**
-     * @return One or more `log_analytics` blocks as defined below.
+     * @return One or more `logAnalytics` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDestinationsLogAnalytic> logAnalytics;
     /**
-     * @return One or more `monitor_account` blocks as defined below.
+     * @return One or more `monitorAccount` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDestinationsMonitorAccount> monitorAccounts;
     /**
-     * @return One or more `storage_blob_direct` blocks as defined below.
+     * @return One or more `storageBlobDirect` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDestinationsStorageBlobDirect> storageBlobDirects;
     /**
-     * @return One or more `storage_blob` blocks as defined below.
+     * @return One or more `storageBlob` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDestinationsStorageBlob> storageBlobs;
     /**
-     * @return One or more `storage_table_direct` blocks as defined below.
+     * @return One or more `storageTableDirect` blocks as defined below.
      * 
-     * &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+     * &gt; **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
      * 
-     * &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+     * &gt; **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
      * 
      */
     private @Nullable List<DataCollectionRuleDestinationsStorageTableDirect> storageTableDirects;
 
     private DataCollectionRuleDestinations() {}
     /**
-     * @return A `azure_monitor_metrics` block as defined above.
+     * @return A `azureMonitorMetrics` block as defined above.
      * 
      */
     public Optional<DataCollectionRuleDestinationsAzureMonitorMetrics> azureMonitorMetrics() {
         return Optional.ofNullable(this.azureMonitorMetrics);
     }
     /**
-     * @return One or more `event_hub` blocks as defined below.
+     * @return One or more `eventHub` blocks as defined below.
      * 
      */
     public Optional<DataCollectionRuleDestinationsEventHub> eventHub() {
         return Optional.ofNullable(this.eventHub);
     }
     /**
-     * @return One or more `event_hub` blocks as defined below.
+     * @return One or more `eventHub` blocks as defined below.
      * 
      */
     public Optional<DataCollectionRuleDestinationsEventHubDirect> eventHubDirect() {
         return Optional.ofNullable(this.eventHubDirect);
     }
     /**
-     * @return One or more `log_analytics` blocks as defined below.
+     * @return One or more `logAnalytics` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDestinationsLogAnalytic> logAnalytics() {
         return this.logAnalytics == null ? List.of() : this.logAnalytics;
     }
     /**
-     * @return One or more `monitor_account` blocks as defined below.
+     * @return One or more `monitorAccount` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDestinationsMonitorAccount> monitorAccounts() {
         return this.monitorAccounts == null ? List.of() : this.monitorAccounts;
     }
     /**
-     * @return One or more `storage_blob_direct` blocks as defined below.
+     * @return One or more `storageBlobDirect` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDestinationsStorageBlobDirect> storageBlobDirects() {
         return this.storageBlobDirects == null ? List.of() : this.storageBlobDirects;
     }
     /**
-     * @return One or more `storage_blob` blocks as defined below.
+     * @return One or more `storageBlob` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDestinationsStorageBlob> storageBlobs() {
         return this.storageBlobs == null ? List.of() : this.storageBlobs;
     }
     /**
-     * @return One or more `storage_table_direct` blocks as defined below.
+     * @return One or more `storageTableDirect` blocks as defined below.
      * 
-     * &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+     * &gt; **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
      * 
-     * &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+     * &gt; **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
      * 
      */
     public List<DataCollectionRuleDestinationsStorageTableDirect> storageTableDirects() {

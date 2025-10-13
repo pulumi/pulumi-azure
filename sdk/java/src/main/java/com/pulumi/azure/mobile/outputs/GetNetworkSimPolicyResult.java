@@ -53,7 +53,7 @@ public final class GetNetworkSimPolicyResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+     * @return A `userEquipmentAggregateMaximumBitRate` block as defined below.
      * 
      */
     private List<GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate> userEquipmentAggregateMaximumBitRates;
@@ -115,7 +115,7 @@ public final class GetNetworkSimPolicyResult {
         return this.tags;
     }
     /**
-     * @return A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+     * @return A `userEquipmentAggregateMaximumBitRate` block as defined below.
      * 
      */
     public List<GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate> userEquipmentAggregateMaximumBitRates() {

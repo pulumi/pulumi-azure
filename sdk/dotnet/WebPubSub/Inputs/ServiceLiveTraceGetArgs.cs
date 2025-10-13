@@ -13,25 +13,25 @@ namespace Pulumi.Azure.WebPubSub.Inputs
     public sealed class ServiceLiveTraceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+        /// Whether the log category `ConnectivityLogs` is enabled? Defaults to `True`
         /// </summary>
         [Input("connectivityLogsEnabled")]
         public Input<bool>? ConnectivityLogsEnabled { get; set; }
 
         /// <summary>
-        /// Whether the live trace is enabled? Defaults to `true`.
+        /// Whether the live trace is enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+        /// Whether the log category `HttpRequestLogs` is enabled? Defaults to `True`
         /// </summary>
         [Input("httpRequestLogsEnabled")]
         public Input<bool>? HttpRequestLogsEnabled { get; set; }
 
         /// <summary>
-        /// Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+        /// Whether the log category `MessagingLogs` is enabled? Defaults to `True`
         /// </summary>
         [Input("messagingLogsEnabled")]
         public Input<bool>? MessagingLogsEnabled { get; set; }

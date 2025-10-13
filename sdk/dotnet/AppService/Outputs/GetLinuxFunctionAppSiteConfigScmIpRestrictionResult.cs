@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// A `headers` block as defined above.
+        /// A `Headers` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderResult> Headers;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The priority value of this `ip_restriction`.
+        /// The priority value of this `IpRestriction`.
         /// </summary>
         public readonly int Priority;
         /// <summary>

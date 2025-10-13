@@ -119,14 +119,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessPolicyObjectIds);
     }
     /**
-     * An `authentication_configuration` block as defined below.
+     * An `authenticationConfiguration` block as defined below.
      * 
      */
     @Export(name="authenticationConfiguration", refs={ServiceAuthenticationConfiguration.class}, tree="[0]")
     private Output<ServiceAuthenticationConfiguration> authenticationConfiguration;
 
     /**
-     * @return An `authentication_configuration` block as defined below.
+     * @return An `authenticationConfiguration` block as defined below.
      * 
      */
     public Output<ServiceAuthenticationConfiguration> authenticationConfiguration() {
@@ -147,14 +147,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.configurationExportStorageAccountName);
     }
     /**
-     * A `cors_configuration` block as defined below.
+     * A `corsConfiguration` block as defined below.
      * 
      */
     @Export(name="corsConfiguration", refs={ServiceCorsConfiguration.class}, tree="[0]")
     private Output<ServiceCorsConfiguration> corsConfiguration;
 
     /**
-     * @return A `cors_configuration` block as defined below.
+     * @return A `corsConfiguration` block as defined below.
      * 
      */
     public Output<ServiceCorsConfiguration> corsConfiguration() {

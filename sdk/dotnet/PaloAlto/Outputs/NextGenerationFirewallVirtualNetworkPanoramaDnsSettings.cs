@@ -19,7 +19,7 @@ namespace Pulumi.Azure.PaloAlto.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
         /// <summary>
-        /// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        /// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `False`.
         /// </summary>
         public readonly bool? UseAzureDns;
 

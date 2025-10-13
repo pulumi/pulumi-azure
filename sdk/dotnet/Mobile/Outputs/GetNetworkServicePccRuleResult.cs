@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Mobile.Outputs
         /// </summary>
         public readonly int Precedence;
         /// <summary>
-        /// A `rule_qos_policy` block as defined below. The QoS policy to use for packets matching this rule.
+        /// A `RuleQosPolicy` block as defined below. The QoS policy to use for packets matching this rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkServicePccRuleQosPolicyResult> QosPolicies;
         /// <summary>
-        /// A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+        /// A `ServiceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkServicePccRuleServiceDataFlowTemplateResult> ServiceDataFlowTemplates;
         /// <summary>

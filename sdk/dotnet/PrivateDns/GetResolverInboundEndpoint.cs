@@ -158,7 +158,7 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of `ip_configurations` block as defined below.
+        /// A list of `IpConfigurations` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResolverInboundEndpointIpConfigurationResult> IpConfigurations;
         /// <summary>

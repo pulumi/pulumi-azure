@@ -118,7 +118,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `request` block as defined below.
+        /// A `Request` block as defined below.
         /// </summary>
         [Output("request")]
         public Output<Outputs.StandardWebTestRequest> Request { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<int?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// A `validation_rules` block as defined below.
+        /// A `ValidationRules` block as defined below.
         /// </summary>
         [Output("validationRules")]
         public Output<Outputs.StandardWebTestValidationRules?> ValidationRules { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `request` block as defined below.
+        /// A `Request` block as defined below.
         /// </summary>
         [Input("request", required: true)]
         public Input<Inputs.StandardWebTestRequestArgs> Request { get; set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// A `validation_rules` block as defined below.
+        /// A `ValidationRules` block as defined below.
         /// </summary>
         [Input("validationRules")]
         public Input<Inputs.StandardWebTestValidationRulesArgs>? ValidationRules { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `request` block as defined below.
+        /// A `Request` block as defined below.
         /// </summary>
         [Input("request")]
         public Input<Inputs.StandardWebTestRequestGetArgs>? Request { get; set; }
@@ -398,7 +398,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// A `validation_rules` block as defined below.
+        /// A `ValidationRules` block as defined below.
         /// </summary>
         [Input("validationRules")]
         public Input<Inputs.StandardWebTestValidationRulesGetArgs>? ValidationRules { get; set; }

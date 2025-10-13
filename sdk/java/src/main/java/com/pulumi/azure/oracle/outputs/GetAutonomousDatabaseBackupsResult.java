@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAutonomousDatabaseBackupsResult {
     /**
-     * @return An `autonomous_database_backups` block as defined below.
+     * @return An `autonomousDatabaseBackups` block as defined below.
      * 
      */
     private List<GetAutonomousDatabaseBackupsAutonomousDatabaseBackup> autonomousDatabaseBackups;
@@ -26,7 +26,7 @@ public final class GetAutonomousDatabaseBackupsResult {
 
     private GetAutonomousDatabaseBackupsResult() {}
     /**
-     * @return An `autonomous_database_backups` block as defined below.
+     * @return An `autonomousDatabaseBackups` block as defined below.
      * 
      */
     public List<GetAutonomousDatabaseBackupsAutonomousDatabaseBackup> autonomousDatabaseBackups() {

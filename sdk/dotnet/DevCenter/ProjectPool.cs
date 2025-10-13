@@ -159,7 +159,7 @@ namespace Pulumi.Azure.DevCenter
         /// <summary>
         /// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
         /// 
-        /// &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+        /// &gt; **Note:** Currently only one region can be specified for `ManagedVirtualNetworkRegions`.
         /// </summary>
         [Output("managedVirtualNetworkRegions")]
         public Output<string?> ManagedVirtualNetworkRegions { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.DevCenter
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `False`.
         /// </summary>
         [Output("singleSignOnEnabled")]
         public Output<bool?> SingleSignOnEnabled { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.DevCenter
         /// <summary>
         /// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
         /// 
-        /// &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+        /// &gt; **Note:** Currently only one region can be specified for `ManagedVirtualNetworkRegions`.
         /// </summary>
         [Input("managedVirtualNetworkRegions")]
         public Input<string>? ManagedVirtualNetworkRegions { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `False`.
         /// </summary>
         [Input("singleSignOnEnabled")]
         public Input<bool>? SingleSignOnEnabled { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.DevCenter
         /// <summary>
         /// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
         /// 
-        /// &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+        /// &gt; **Note:** Currently only one region can be specified for `ManagedVirtualNetworkRegions`.
         /// </summary>
         [Input("managedVirtualNetworkRegions")]
         public Input<string>? ManagedVirtualNetworkRegions { get; set; }
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `False`.
         /// </summary>
         [Input("singleSignOnEnabled")]
         public Input<bool>? SingleSignOnEnabled { get; set; }

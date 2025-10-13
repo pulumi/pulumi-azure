@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public readonly int RegistrationTimerInSeconds;
         /// <summary>
-        /// An array of `slice` block as defined below. The allowed slices and the settings to use for them.
+        /// An array of `Slice` block as defined below. The allowed slices and the settings to use for them.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkSimPolicySliceResult> Slices;
         /// <summary>
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+        /// A `UserEquipmentAggregateMaximumBitRate` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateResult> UserEquipmentAggregateMaximumBitRates;
 

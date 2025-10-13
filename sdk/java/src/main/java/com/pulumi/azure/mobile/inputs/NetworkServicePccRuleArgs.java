@@ -52,14 +52,14 @@ public final class NetworkServicePccRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+     * A `qosPolicy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
      * 
      */
     @Import(name="qosPolicy")
     private @Nullable Output<NetworkServicePccRuleQosPolicyArgs> qosPolicy;
 
     /**
-     * @return A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+     * @return A `qosPolicy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
      * 
      */
     public Optional<Output<NetworkServicePccRuleQosPolicyArgs>> qosPolicy() {
@@ -67,14 +67,14 @@ public final class NetworkServicePccRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+     * A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
      * 
      */
     @Import(name="serviceDataFlowTemplates", required=true)
     private Output<List<NetworkServicePccRuleServiceDataFlowTemplateArgs>> serviceDataFlowTemplates;
 
     /**
-     * @return A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+     * @return A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
      * 
      */
     public Output<List<NetworkServicePccRuleServiceDataFlowTemplateArgs>> serviceDataFlowTemplates() {
@@ -167,7 +167,7 @@ public final class NetworkServicePccRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param qosPolicy A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+         * @param qosPolicy A `qosPolicy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class NetworkServicePccRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param qosPolicy A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+         * @param qosPolicy A `qosPolicy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class NetworkServicePccRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param serviceDataFlowTemplates A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+         * @param serviceDataFlowTemplates A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class NetworkServicePccRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param serviceDataFlowTemplates A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+         * @param serviceDataFlowTemplates A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class NetworkServicePccRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param serviceDataFlowTemplates A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+         * @param serviceDataFlowTemplates A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
          * 
          * @return builder
          * 

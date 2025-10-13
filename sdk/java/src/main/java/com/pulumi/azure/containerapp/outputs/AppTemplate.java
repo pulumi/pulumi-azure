@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppTemplate {
     /**
-     * @return One or more `azure_queue_scale_rule` blocks as defined below.
+     * @return One or more `azureQueueScaleRule` blocks as defined below.
      * 
      */
     private @Nullable List<AppTemplateAzureQueueScaleRule> azureQueueScaleRules;
@@ -32,17 +32,17 @@ public final class AppTemplate {
      */
     private List<AppTemplateContainer> containers;
     /**
-     * @return One or more `custom_scale_rule` blocks as defined below.
+     * @return One or more `customScaleRule` blocks as defined below.
      * 
      */
     private @Nullable List<AppTemplateCustomScaleRule> customScaleRules;
     /**
-     * @return One or more `http_scale_rule` blocks as defined below.
+     * @return One or more `httpScaleRule` blocks as defined below.
      * 
      */
     private @Nullable List<AppTemplateHttpScaleRule> httpScaleRules;
     /**
-     * @return The definition of an init container that is part of the group as documented in the `init_container` block below.
+     * @return The definition of an init container that is part of the group as documented in the `initContainer` block below.
      * 
      */
     private @Nullable List<AppTemplateInitContainer> initContainers;
@@ -62,7 +62,7 @@ public final class AppTemplate {
      */
     private @Nullable String revisionSuffix;
     /**
-     * @return One or more `tcp_scale_rule` blocks as defined below.
+     * @return One or more `tcpScaleRule` blocks as defined below.
      * 
      */
     private @Nullable List<AppTemplateTcpScaleRule> tcpScaleRules;
@@ -79,7 +79,7 @@ public final class AppTemplate {
 
     private AppTemplate() {}
     /**
-     * @return One or more `azure_queue_scale_rule` blocks as defined below.
+     * @return One or more `azureQueueScaleRule` blocks as defined below.
      * 
      */
     public List<AppTemplateAzureQueueScaleRule> azureQueueScaleRules() {
@@ -93,21 +93,21 @@ public final class AppTemplate {
         return this.containers;
     }
     /**
-     * @return One or more `custom_scale_rule` blocks as defined below.
+     * @return One or more `customScaleRule` blocks as defined below.
      * 
      */
     public List<AppTemplateCustomScaleRule> customScaleRules() {
         return this.customScaleRules == null ? List.of() : this.customScaleRules;
     }
     /**
-     * @return One or more `http_scale_rule` blocks as defined below.
+     * @return One or more `httpScaleRule` blocks as defined below.
      * 
      */
     public List<AppTemplateHttpScaleRule> httpScaleRules() {
         return this.httpScaleRules == null ? List.of() : this.httpScaleRules;
     }
     /**
-     * @return The definition of an init container that is part of the group as documented in the `init_container` block below.
+     * @return The definition of an init container that is part of the group as documented in the `initContainer` block below.
      * 
      */
     public List<AppTemplateInitContainer> initContainers() {
@@ -135,7 +135,7 @@ public final class AppTemplate {
         return Optional.ofNullable(this.revisionSuffix);
     }
     /**
-     * @return One or more `tcp_scale_rule` blocks as defined below.
+     * @return One or more `tcpScaleRule` blocks as defined below.
      * 
      */
     public List<AppTemplateTcpScaleRule> tcpScaleRules() {

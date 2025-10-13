@@ -69,7 +69,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        /// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `ConnectionString` or `KeyVaultConnectionString` is required.
         /// </summary>
         [Output("connectionString")]
         public Output<string?> ConnectionString { get; private set; } = null!;
@@ -99,13 +99,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        /// A `KeyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `ConnectionString` or `KeyVaultConnectionString` is required.
         /// </summary>
         [Output("keyVaultConnectionString")]
         public Output<Outputs.LinkedServiceAzureSqlDatabaseKeyVaultConnectionString?> KeyVaultConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// A `KeyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         /// </summary>
         [Output("keyVaultPassword")]
         public Output<Outputs.LinkedServiceAzureSqlDatabaseKeyVaultPassword?> KeyVaultPassword { get; private set; } = null!;
@@ -123,13 +123,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        /// The service principal id in which to authenticate against the Azure SQL Database. Required if `ServicePrincipalKey` is set.
         /// </summary>
         [Output("servicePrincipalId")]
         public Output<string?> ServicePrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        /// The service principal key in which to authenticate against the Azure SQL Database. Required if `ServicePrincipalId` is set.
         /// </summary>
         [Output("servicePrincipalKey")]
         public Output<string?> ServicePrincipalKey { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `ServicePrincipalId` and `ServicePrincipalKey`
         /// </summary>
         [Output("useManagedIdentity")]
         public Output<bool?> UseManagedIdentity { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        /// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `ConnectionString` or `KeyVaultConnectionString` is required.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
@@ -247,13 +247,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        /// A `KeyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `ConnectionString` or `KeyVaultConnectionString` is required.
         /// </summary>
         [Input("keyVaultConnectionString")]
         public Input<Inputs.LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs>? KeyVaultConnectionString { get; set; }
 
         /// <summary>
-        /// A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// A `KeyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         /// </summary>
         [Input("keyVaultPassword")]
         public Input<Inputs.LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs>? KeyVaultPassword { get; set; }
@@ -277,13 +277,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        /// The service principal id in which to authenticate against the Azure SQL Database. Required if `ServicePrincipalKey` is set.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        /// The service principal key in which to authenticate against the Azure SQL Database. Required if `ServicePrincipalId` is set.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<string>? ServicePrincipalKey { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `ServicePrincipalId` and `ServicePrincipalKey`
         /// </summary>
         [Input("useManagedIdentity")]
         public Input<bool>? UseManagedIdentity { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        /// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `ConnectionString` or `KeyVaultConnectionString` is required.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
@@ -363,13 +363,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        /// A `KeyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `ConnectionString` or `KeyVaultConnectionString` is required.
         /// </summary>
         [Input("keyVaultConnectionString")]
         public Input<Inputs.LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringGetArgs>? KeyVaultConnectionString { get; set; }
 
         /// <summary>
-        /// A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// A `KeyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         /// </summary>
         [Input("keyVaultPassword")]
         public Input<Inputs.LinkedServiceAzureSqlDatabaseKeyVaultPasswordGetArgs>? KeyVaultPassword { get; set; }
@@ -393,13 +393,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        /// The service principal id in which to authenticate against the Azure SQL Database. Required if `ServicePrincipalKey` is set.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        /// The service principal key in which to authenticate against the Azure SQL Database. Required if `ServicePrincipalId` is set.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<string>? ServicePrincipalKey { get; set; }
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `ServicePrincipalId` and `ServicePrincipalKey`
         /// </summary>
         [Input("useManagedIdentity")]
         public Input<bool>? UseManagedIdentity { get; set; }

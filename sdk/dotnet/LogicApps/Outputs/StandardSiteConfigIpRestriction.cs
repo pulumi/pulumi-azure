@@ -22,7 +22,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The `headers` block for this specific as a `ip_restriction` block as defined below.
+        /// The `Headers` block for this specific as a `IpRestriction` block as defined below.
         /// </summary>
         public readonly Outputs.StandardSiteConfigIpRestrictionHeaders? Headers;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// 
-        /// &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        /// &gt; **Note:** One of either `IpAddress`, `ServiceTag` or `VirtualNetworkSubnetId` must be specified
         /// </summary>
         public readonly string? VirtualNetworkSubnetId;
 

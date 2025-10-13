@@ -79,14 +79,14 @@ public final class FluxConfigurationBlobStorageArgs extends com.pulumi.resources
     }
 
     /**
-     * A `service_principal` block as defined below.
+     * A `servicePrincipal` block as defined below.
      * 
      */
     @Import(name="servicePrincipal")
     private @Nullable Output<FluxConfigurationBlobStorageServicePrincipalArgs> servicePrincipal;
 
     /**
-     * @return A `service_principal` block as defined below.
+     * @return A `servicePrincipal` block as defined below.
      * 
      */
     public Optional<Output<FluxConfigurationBlobStorageServicePrincipalArgs>> servicePrincipal() {
@@ -238,7 +238,7 @@ public final class FluxConfigurationBlobStorageArgs extends com.pulumi.resources
         }
 
         /**
-         * @param servicePrincipal A `service_principal` block as defined below.
+         * @param servicePrincipal A `servicePrincipal` block as defined below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class FluxConfigurationBlobStorageArgs extends com.pulumi.resources
         }
 
         /**
-         * @param servicePrincipal A `service_principal` block as defined below.
+         * @param servicePrincipal A `servicePrincipal` block as defined below.
          * 
          * @return builder
          * 

@@ -21,14 +21,14 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
     public static final PostgresqlClusterArgs Empty = new PostgresqlClusterArgs();
 
     /**
-     * The password of the administrator login. This is required when `source_resource_id` is not set.
+     * The password of the administrator login. This is required when `sourceResourceId` is not set.
      * 
      */
     @Import(name="administratorLoginPassword")
     private @Nullable Output<String> administratorLoginPassword;
 
     /**
-     * @return The password of the administrator login. This is required when `source_resource_id` is not set.
+     * @return The password of the administrator login. This is required when `sourceResourceId` is not set.
      * 
      */
     public Optional<Output<String>> administratorLoginPassword() {
@@ -145,14 +145,14 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `maintenance_window` block as defined below.
+     * A `maintenanceWindow` block as defined below.
      * 
      */
     @Import(name="maintenanceWindow")
     private @Nullable Output<PostgresqlClusterMaintenanceWindowArgs> maintenanceWindow;
 
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     public Optional<Output<PostgresqlClusterMaintenanceWindowArgs>> maintenanceWindow() {
@@ -416,7 +416,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param administratorLoginPassword The password of the administrator login. This is required when `source_resource_id` is not set.
+         * @param administratorLoginPassword The password of the administrator login. This is required when `sourceResourceId` is not set.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param administratorLoginPassword The password of the administrator login. This is required when `source_resource_id` is not set.
+         * @param administratorLoginPassword The password of the administrator login. This is required when `sourceResourceId` is not set.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maintenanceWindow A `maintenance_window` block as defined below.
+         * @param maintenanceWindow A `maintenanceWindow` block as defined below.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maintenanceWindow A `maintenance_window` block as defined below.
+         * @param maintenanceWindow A `maintenanceWindow` block as defined below.
          * 
          * @return builder
          * 

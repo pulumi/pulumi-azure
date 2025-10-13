@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class ActiveRoleAssignmentSchedule
     {
         /// <summary>
-        /// An `expiration` block as defined above.
+        /// An `Expiration` block as defined above.
         /// </summary>
         public readonly Outputs.ActiveRoleAssignmentScheduleExpiration? Expiration;
         /// <summary>

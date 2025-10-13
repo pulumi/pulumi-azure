@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// The client certificate resource id for the management endpoint.
         /// 
-        /// &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+        /// &gt; **Note:** At least one of `ClientCertificateThumbprint`, and `ClientCertificateId` must be set.
         /// </summary>
         [Input("clientCertificateId")]
         public Input<string>? ClientCertificateId { get; set; }
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.BackendServiceFabricClusterServerX509NameGetArgs>? _serverX509Names;
 
         /// <summary>
-        /// One or more `server_x509_name` blocks as documented below.
+        /// One or more `ServerX509Name` blocks as documented below.
         /// </summary>
         public InputList<Inputs.BackendServiceFabricClusterServerX509NameGetArgs> ServerX509Names
         {

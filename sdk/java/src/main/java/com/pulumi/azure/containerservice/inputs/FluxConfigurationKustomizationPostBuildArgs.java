@@ -34,14 +34,14 @@ public final class FluxConfigurationKustomizationPostBuildArgs extends com.pulum
     }
 
     /**
-     * A `substitute_from` block as defined below.
+     * A `substituteFrom` block as defined below.
      * 
      */
     @Import(name="substituteFroms")
     private @Nullable Output<List<FluxConfigurationKustomizationPostBuildSubstituteFromArgs>> substituteFroms;
 
     /**
-     * @return A `substitute_from` block as defined below.
+     * @return A `substituteFrom` block as defined below.
      * 
      */
     public Optional<Output<List<FluxConfigurationKustomizationPostBuildSubstituteFromArgs>>> substituteFroms() {
@@ -95,7 +95,7 @@ public final class FluxConfigurationKustomizationPostBuildArgs extends com.pulum
         }
 
         /**
-         * @param substituteFroms A `substitute_from` block as defined below.
+         * @param substituteFroms A `substituteFrom` block as defined below.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class FluxConfigurationKustomizationPostBuildArgs extends com.pulum
         }
 
         /**
-         * @param substituteFroms A `substitute_from` block as defined below.
+         * @param substituteFroms A `substituteFrom` block as defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class FluxConfigurationKustomizationPostBuildArgs extends com.pulum
         }
 
         /**
-         * @param substituteFroms A `substitute_from` block as defined below.
+         * @param substituteFroms A `substituteFrom` block as defined below.
          * 
          * @return builder
          * 

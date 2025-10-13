@@ -13,9 +13,9 @@ namespace Pulumi.Azure.MachineLearning.Inputs
     public sealed class WorkspaceServerlessComputeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+        /// Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `False`.
         /// 
-        /// &gt; **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+        /// &gt; **Note:** `PublicIpEnabled` cannot be updated from `True` to `False` when `SubnetId` is not set. `PublicIpEnabled` must be set to `True` if `SubnetId` is not set and when `PublicNetworkAccessEnabled` is `False`.
         /// </summary>
         [Input("publicIpEnabled")]
         public Input<bool>? PublicIpEnabled { get; set; }

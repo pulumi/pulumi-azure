@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Sentinel
     public partial class AlertRuleNrt : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `alert_details_override` block as defined below.
+        /// An `AlertDetailsOverride` block as defined below.
         /// </summary>
         [Output("alertDetailsOverrides")]
         public Output<ImmutableArray<Outputs.AlertRuleNrtAlertDetailsOverride>> AlertDetailsOverrides { get; private set; } = null!;
@@ -112,25 +112,25 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
+        /// Should the Sentinel NRT Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `entity_mapping` blocks as defined below.
+        /// A list of `EntityMapping` blocks as defined below.
         /// </summary>
         [Output("entityMappings")]
         public Output<ImmutableArray<Outputs.AlertRuleNrtEntityMapping>> EntityMappings { get; private set; } = null!;
 
         /// <summary>
-        /// A `event_grouping` block as defined below.
+        /// A `EventGrouping` block as defined below.
         /// </summary>
         [Output("eventGrouping")]
         public Output<Outputs.AlertRuleNrtEventGrouping> EventGrouping { get; private set; } = null!;
 
         /// <summary>
-        /// A `incident` block as defined below.
+        /// A `Incident` block as defined below.
         /// </summary>
         [Output("incident")]
         public Output<Outputs.AlertRuleNrtIncident> Incident { get; private set; } = null!;
@@ -154,9 +154,9 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// A list of `SentinelEntityMapping` blocks as defined below.
         /// 
-        /// &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        /// &gt; **Note:** `EntityMapping` and `SentinelEntityMapping` together can't exceed 5.
         /// </summary>
         [Output("sentinelEntityMappings")]
         public Output<ImmutableArray<Outputs.AlertRuleNrtSentinelEntityMapping>> SentinelEntityMappings { get; private set; } = null!;
@@ -168,13 +168,13 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Severity { get; private set; } = null!;
 
         /// <summary>
-        /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        /// If `SuppressionEnabled` is `True`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         /// </summary>
         [Output("suppressionDuration")]
         public Output<string?> SuppressionDuration { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
+        /// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `False`.
         /// </summary>
         [Output("suppressionEnabled")]
         public Output<bool?> SuppressionEnabled { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleNrtAlertDetailsOverrideArgs>? _alertDetailsOverrides;
 
         /// <summary>
-        /// An `alert_details_override` block as defined below.
+        /// An `AlertDetailsOverride` block as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleNrtAlertDetailsOverrideArgs> AlertDetailsOverrides
         {
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
+        /// Should the Sentinel NRT Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleNrtEntityMappingArgs>? _entityMappings;
 
         /// <summary>
-        /// A list of `entity_mapping` blocks as defined below.
+        /// A list of `EntityMapping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleNrtEntityMappingArgs> EntityMappings
         {
@@ -304,13 +304,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// A `event_grouping` block as defined below.
+        /// A `EventGrouping` block as defined below.
         /// </summary>
         [Input("eventGrouping", required: true)]
         public Input<Inputs.AlertRuleNrtEventGroupingArgs> EventGrouping { get; set; } = null!;
 
         /// <summary>
-        /// A `incident` block as defined below.
+        /// A `Incident` block as defined below.
         /// </summary>
         [Input("incident")]
         public Input<Inputs.AlertRuleNrtIncidentArgs>? Incident { get; set; }
@@ -337,9 +337,9 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleNrtSentinelEntityMappingArgs>? _sentinelEntityMappings;
 
         /// <summary>
-        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// A list of `SentinelEntityMapping` blocks as defined below.
         /// 
-        /// &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        /// &gt; **Note:** `EntityMapping` and `SentinelEntityMapping` together can't exceed 5.
         /// </summary>
         public InputList<Inputs.AlertRuleNrtSentinelEntityMappingArgs> SentinelEntityMappings
         {
@@ -354,13 +354,13 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> Severity { get; set; } = null!;
 
         /// <summary>
-        /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        /// If `SuppressionEnabled` is `True`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         /// </summary>
         [Input("suppressionDuration")]
         public Input<string>? SuppressionDuration { get; set; }
 
         /// <summary>
-        /// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
+        /// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `False`.
         /// </summary>
         [Input("suppressionEnabled")]
         public Input<bool>? SuppressionEnabled { get; set; }
@@ -401,7 +401,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleNrtAlertDetailsOverrideGetArgs>? _alertDetailsOverrides;
 
         /// <summary>
-        /// An `alert_details_override` block as defined below.
+        /// An `AlertDetailsOverride` block as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleNrtAlertDetailsOverrideGetArgs> AlertDetailsOverrides
         {
@@ -446,7 +446,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
+        /// Should the Sentinel NRT Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -455,7 +455,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleNrtEntityMappingGetArgs>? _entityMappings;
 
         /// <summary>
-        /// A list of `entity_mapping` blocks as defined below.
+        /// A list of `EntityMapping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleNrtEntityMappingGetArgs> EntityMappings
         {
@@ -464,13 +464,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// A `event_grouping` block as defined below.
+        /// A `EventGrouping` block as defined below.
         /// </summary>
         [Input("eventGrouping")]
         public Input<Inputs.AlertRuleNrtEventGroupingGetArgs>? EventGrouping { get; set; }
 
         /// <summary>
-        /// A `incident` block as defined below.
+        /// A `Incident` block as defined below.
         /// </summary>
         [Input("incident")]
         public Input<Inputs.AlertRuleNrtIncidentGetArgs>? Incident { get; set; }
@@ -497,9 +497,9 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleNrtSentinelEntityMappingGetArgs>? _sentinelEntityMappings;
 
         /// <summary>
-        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// A list of `SentinelEntityMapping` blocks as defined below.
         /// 
-        /// &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        /// &gt; **Note:** `EntityMapping` and `SentinelEntityMapping` together can't exceed 5.
         /// </summary>
         public InputList<Inputs.AlertRuleNrtSentinelEntityMappingGetArgs> SentinelEntityMappings
         {
@@ -514,13 +514,13 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Severity { get; set; }
 
         /// <summary>
-        /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        /// If `SuppressionEnabled` is `True`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         /// </summary>
         [Input("suppressionDuration")]
         public Input<string>? SuppressionDuration { get; set; }
 
         /// <summary>
-        /// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
+        /// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `False`.
         /// </summary>
         [Input("suppressionEnabled")]
         public Input<bool>? SuppressionEnabled { get; set; }

@@ -77,15 +77,15 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
+        /// The connection string. Conflicts with `ConnectionStringInsecure`, `SasUri` and `ServiceEndpoint`.
         /// </summary>
         [Output("connectionString")]
         public Output<string?> ConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+        /// The connection string sent insecurely. Conflicts with `ConnectionString`, `SasUri` and `ServiceEndpoint`.
         /// 
-        /// &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
         /// </summary>
         [Output("connectionStringInsecure")]
         public Output<string?> ConnectionStringInsecure { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        /// A `KeyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
         /// </summary>
         [Output("keyVaultSasToken")]
         public Output<Outputs.LinkedServiceAzureBlobStorageKeyVaultSasToken?> KeyVaultSasToken { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
+        /// The SAS URI. Conflicts with `ConnectionStringInsecure`, `ConnectionString` and `ServiceEndpoint`.
         /// </summary>
         [Output("sasUri")]
         public Output<string?> SasUri { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
+        /// The connection string. Conflicts with `ConnectionStringInsecure`, `SasUri` and `ServiceEndpoint`.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -248,9 +248,9 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+        /// The connection string sent insecurely. Conflicts with `ConnectionString`, `SasUri` and `ServiceEndpoint`.
         /// 
-        /// &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
         /// </summary>
         [Input("connectionStringInsecure")]
         public Input<string>? ConnectionStringInsecure { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        /// A `KeyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
         /// </summary>
         [Input("keyVaultSasToken")]
         public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs>? KeyVaultSasToken { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _sasUri;
 
         /// <summary>
-        /// The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
+        /// The SAS URI. Conflicts with `ConnectionStringInsecure`, `ConnectionString` and `ServiceEndpoint`.
         /// </summary>
         public Input<string>? SasUri
         {
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
+        /// The connection string. Conflicts with `ConnectionStringInsecure`, `SasUri` and `ServiceEndpoint`.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -394,9 +394,9 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+        /// The connection string sent insecurely. Conflicts with `ConnectionString`, `SasUri` and `ServiceEndpoint`.
         /// 
-        /// &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
         /// </summary>
         [Input("connectionStringInsecure")]
         public Input<string>? ConnectionStringInsecure { get; set; }
@@ -420,7 +420,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        /// A `KeyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
         /// </summary>
         [Input("keyVaultSasToken")]
         public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenGetArgs>? KeyVaultSasToken { get; set; }
@@ -447,7 +447,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _sasUri;
 
         /// <summary>
-        /// The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
+        /// The SAS URI. Conflicts with `ConnectionStringInsecure`, `ConnectionString` and `ServiceEndpoint`.
         /// </summary>
         public Input<string>? SasUri
         {

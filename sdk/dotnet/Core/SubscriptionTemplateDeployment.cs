@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Core
     public partial class SubscriptionTemplateDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `None`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         /// </summary>
         [Output("debugLevel")]
         public Output<string?> DebugLevel { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Azure.Core
         public Output<string> TemplateContent { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+        /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `TemplateContent`.
         /// </summary>
         [Output("templateSpecVersionId")]
         public Output<string?> TemplateSpecVersionId { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Core
     public sealed class SubscriptionTemplateDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `None`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         /// </summary>
         [Input("debugLevel")]
         public Input<string>? DebugLevel { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? TemplateContent { get; set; }
 
         /// <summary>
-        /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+        /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `TemplateContent`.
         /// </summary>
         [Input("templateSpecVersionId")]
         public Input<string>? TemplateSpecVersionId { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Core
     public sealed class SubscriptionTemplateDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `None`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         /// </summary>
         [Input("debugLevel")]
         public Input<string>? DebugLevel { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? TemplateContent { get; set; }
 
         /// <summary>
-        /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+        /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `TemplateContent`.
         /// </summary>
         [Input("templateSpecVersionId")]
         public Input<string>? TemplateSpecVersionId { get; set; }

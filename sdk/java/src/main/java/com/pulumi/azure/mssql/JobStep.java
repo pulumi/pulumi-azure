@@ -164,7 +164,7 @@ public class JobStep extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
      * 
-     * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+     * !&gt; **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      * 
      */
     @Export(name="jobCredentialId", refs={String.class}, tree="[0]")
@@ -173,7 +173,7 @@ public class JobStep extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
      * 
-     * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+     * !&gt; **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      * 
      */
     public Output<Optional<String>> jobCredentialId() {
@@ -228,7 +228,7 @@ public class JobStep extends com.pulumi.resources.CustomResource {
     /**
      * The maximum retry interval in seconds. Defaults to `120`.
      * 
-     * &gt; **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
+     * &gt; **Note:** `maximumRetryIntervalSeconds` must be greater than `initialRetryIntervalSeconds`.
      * 
      */
     @Export(name="maximumRetryIntervalSeconds", refs={Integer.class}, tree="[0]")
@@ -237,7 +237,7 @@ public class JobStep extends com.pulumi.resources.CustomResource {
     /**
      * @return The maximum retry interval in seconds. Defaults to `120`.
      * 
-     * &gt; **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
+     * &gt; **Note:** `maximumRetryIntervalSeconds` must be greater than `initialRetryIntervalSeconds`.
      * 
      */
     public Output<Optional<Integer>> maximumRetryIntervalSeconds() {
@@ -258,14 +258,14 @@ public class JobStep extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An `output_target` block as defined below.
+     * An `outputTarget` block as defined below.
      * 
      */
     @Export(name="outputTarget", refs={JobStepOutputTarget.class}, tree="[0]")
     private Output</* @Nullable */ JobStepOutputTarget> outputTarget;
 
     /**
-     * @return An `output_target` block as defined below.
+     * @return An `outputTarget` block as defined below.
      * 
      */
     public Output<Optional<JobStepOutputTarget>> outputTarget() {

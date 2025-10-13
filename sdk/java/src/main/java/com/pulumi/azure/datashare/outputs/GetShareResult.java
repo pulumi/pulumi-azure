@@ -34,7 +34,7 @@ public final class GetShareResult {
      */
     private String name;
     /**
-     * @return A `snapshot_schedule` block as defined below.
+     * @return A `snapshotSchedule` block as defined below.
      * 
      */
     private List<GetShareSnapshotSchedule> snapshotSchedules;
@@ -77,7 +77,7 @@ public final class GetShareResult {
         return this.name;
     }
     /**
-     * @return A `snapshot_schedule` block as defined below.
+     * @return A `snapshotSchedule` block as defined below.
      * 
      */
     public List<GetShareSnapshotSchedule> snapshotSchedules() {

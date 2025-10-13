@@ -19,14 +19,14 @@ public final class ScheduledQueryRulesAlertTriggerArgs extends com.pulumi.resour
     public static final ScheduledQueryRulesAlertTriggerArgs Empty = new ScheduledQueryRulesAlertTriggerArgs();
 
     /**
-     * A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+     * A `metricTrigger` block as defined above. Trigger condition for metric query rule.
      * 
      */
     @Import(name="metricTrigger")
     private @Nullable Output<ScheduledQueryRulesAlertTriggerMetricTriggerArgs> metricTrigger;
 
     /**
-     * @return A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+     * @return A `metricTrigger` block as defined above. Trigger condition for metric query rule.
      * 
      */
     public Optional<Output<ScheduledQueryRulesAlertTriggerMetricTriggerArgs>> metricTrigger() {
@@ -90,7 +90,7 @@ public final class ScheduledQueryRulesAlertTriggerArgs extends com.pulumi.resour
         }
 
         /**
-         * @param metricTrigger A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+         * @param metricTrigger A `metricTrigger` block as defined above. Trigger condition for metric query rule.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ScheduledQueryRulesAlertTriggerArgs extends com.pulumi.resour
         }
 
         /**
-         * @param metricTrigger A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+         * @param metricTrigger A `metricTrigger` block as defined above. Trigger condition for metric query rule.
          * 
          * @return builder
          * 

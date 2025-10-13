@@ -35,14 +35,14 @@ public final class BackupPolicyPostgresqlFlexibleServerArgs extends com.pulumi.r
     }
 
     /**
-     * A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="defaultRetentionRule", required=true)
     private Output<BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs> defaultRetentionRule;
 
     /**
-     * @return A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * @return A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs> defaultRetentionRule() {
@@ -65,14 +65,14 @@ public final class BackupPolicyPostgresqlFlexibleServerArgs extends com.pulumi.r
     }
 
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="retentionRules")
     private @Nullable Output<List<BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs>>> retentionRules() {
@@ -170,7 +170,7 @@ public final class BackupPolicyPostgresqlFlexibleServerArgs extends com.pulumi.r
         }
 
         /**
-         * @param defaultRetentionRule A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+         * @param defaultRetentionRule A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class BackupPolicyPostgresqlFlexibleServerArgs extends com.pulumi.r
         }
 
         /**
-         * @param defaultRetentionRule A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+         * @param defaultRetentionRule A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class BackupPolicyPostgresqlFlexibleServerArgs extends com.pulumi.r
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class BackupPolicyPostgresqlFlexibleServerArgs extends com.pulumi.r
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class BackupPolicyPostgresqlFlexibleServerArgs extends com.pulumi.r
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

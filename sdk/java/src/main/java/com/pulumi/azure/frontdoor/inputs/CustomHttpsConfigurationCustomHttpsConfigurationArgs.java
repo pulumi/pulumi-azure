@@ -67,7 +67,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
     /**
      * Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
      * 
-     * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+     * The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
      * 
      */
     @Import(name="certificateSource")
@@ -76,7 +76,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
     /**
      * @return Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
      * 
-     * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+     * The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
      * 
      */
     public Optional<Output<String>> certificateSource() {
@@ -212,7 +212,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
         /**
          * @param certificateSource Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
          * 
-         * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+         * The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
         /**
          * @param certificateSource Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
          * 
-         * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+         * The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
          * 
          * @return builder
          * 

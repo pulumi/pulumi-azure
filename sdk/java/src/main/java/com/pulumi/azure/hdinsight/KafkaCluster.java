@@ -167,35 +167,35 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return this.clusterVersion;
     }
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      * 
      */
     @Export(name="componentVersion", refs={KafkaClusterComponentVersion.class}, tree="[0]")
     private Output<KafkaClusterComponentVersion> componentVersion;
 
     /**
-     * @return A `component_version` block as defined below.
+     * @return A `componentVersion` block as defined below.
      * 
      */
     public Output<KafkaClusterComponentVersion> componentVersion() {
         return this.componentVersion;
     }
     /**
-     * A `compute_isolation` block as defined below.
+     * A `computeIsolation` block as defined below.
      * 
      */
     @Export(name="computeIsolation", refs={KafkaClusterComputeIsolation.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterComputeIsolation> computeIsolation;
 
     /**
-     * @return A `compute_isolation` block as defined below.
+     * @return A `computeIsolation` block as defined below.
      * 
      */
     public Output<Optional<KafkaClusterComputeIsolation>> computeIsolation() {
         return Codegen.optional(this.computeIsolation);
     }
     /**
-     * One or more `disk_encryption` block as defined below.
+     * One or more `diskEncryption` block as defined below.
      * 
      * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
@@ -204,7 +204,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<KafkaClusterDiskEncryption>> diskEncryptions;
 
     /**
-     * @return One or more `disk_encryption` block as defined below.
+     * @return One or more `diskEncryption` block as defined below.
      * 
      * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
@@ -353,14 +353,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.network);
     }
     /**
-     * A `private_link_configuration` block as defined below.
+     * A `privateLinkConfiguration` block as defined below.
      * 
      */
     @Export(name="privateLinkConfiguration", refs={KafkaClusterPrivateLinkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterPrivateLinkConfiguration> privateLinkConfiguration;
 
     /**
-     * @return A `private_link_configuration` block as defined below.
+     * @return A `privateLinkConfiguration` block as defined below.
      * 
      */
     public Output<Optional<KafkaClusterPrivateLinkConfiguration>> privateLinkConfiguration() {
@@ -381,14 +381,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `rest_proxy` block as defined below.
+     * A `restProxy` block as defined below.
      * 
      */
     @Export(name="restProxy", refs={KafkaClusterRestProxy.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterRestProxy> restProxy;
 
     /**
-     * @return A `rest_proxy` block as defined below.
+     * @return A `restProxy` block as defined below.
      * 
      */
     public Output<Optional<KafkaClusterRestProxy>> restProxy() {
@@ -409,14 +409,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return this.roles;
     }
     /**
-     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="securityProfile", refs={KafkaClusterSecurityProfile.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterSecurityProfile> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<KafkaClusterSecurityProfile>> securityProfile() {
@@ -437,28 +437,28 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return this.sshEndpoint;
     }
     /**
-     * A `storage_account_gen2` block as defined below.
+     * A `storageAccountGen2` block as defined below.
      * 
      */
     @Export(name="storageAccountGen2", refs={KafkaClusterStorageAccountGen2.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterStorageAccountGen2> storageAccountGen2;
 
     /**
-     * @return A `storage_account_gen2` block as defined below.
+     * @return A `storageAccountGen2` block as defined below.
      * 
      */
     public Output<Optional<KafkaClusterStorageAccountGen2>> storageAccountGen2() {
         return Codegen.optional(this.storageAccountGen2);
     }
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      * 
      */
     @Export(name="storageAccounts", refs={List.class,KafkaClusterStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KafkaClusterStorageAccount>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` block as defined below.
+     * @return One or more `storageAccount` block as defined below.
      * 
      */
     public Output<Optional<List<KafkaClusterStorageAccount>>> storageAccounts() {

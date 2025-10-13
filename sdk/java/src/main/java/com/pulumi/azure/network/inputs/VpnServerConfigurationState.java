@@ -44,14 +44,14 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `ipsec_policy` block as defined below.
+     * A `ipsecPolicy` block as defined below.
      * 
      */
     @Import(name="ipsecPolicy")
     private @Nullable Output<VpnServerConfigurationIpsecPolicyArgs> ipsecPolicy;
 
     /**
-     * @return A `ipsec_policy` block as defined below.
+     * @return A `ipsecPolicy` block as defined below.
      * 
      */
     public Optional<Output<VpnServerConfigurationIpsecPolicyArgs>> ipsecPolicy() {
@@ -229,7 +229,7 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipsecPolicy A `ipsec_policy` block as defined below.
+         * @param ipsecPolicy A `ipsecPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipsecPolicy A `ipsec_policy` block as defined below.
+         * @param ipsecPolicy A `ipsecPolicy` block as defined below.
          * 
          * @return builder
          * 

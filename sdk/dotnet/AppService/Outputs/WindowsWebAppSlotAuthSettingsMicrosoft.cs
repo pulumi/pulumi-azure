@@ -18,11 +18,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        /// The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `ClientSecretSettingName`.
         /// </summary>
         public readonly string? ClientSecret;
         /// <summary>
-        /// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        /// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `ClientSecret`.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>

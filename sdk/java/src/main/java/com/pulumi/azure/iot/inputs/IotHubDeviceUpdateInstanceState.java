@@ -49,14 +49,14 @@ public final class IotHubDeviceUpdateInstanceState extends com.pulumi.resources.
     }
 
     /**
-     * A `diagnostic_storage_account` block as defined below.
+     * A `diagnosticStorageAccount` block as defined below.
      * 
      */
     @Import(name="diagnosticStorageAccount")
     private @Nullable Output<IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs> diagnosticStorageAccount;
 
     /**
-     * @return A `diagnostic_storage_account` block as defined below.
+     * @return A `diagnosticStorageAccount` block as defined below.
      * 
      */
     public Optional<Output<IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs>> diagnosticStorageAccount() {
@@ -180,7 +180,7 @@ public final class IotHubDeviceUpdateInstanceState extends com.pulumi.resources.
         }
 
         /**
-         * @param diagnosticStorageAccount A `diagnostic_storage_account` block as defined below.
+         * @param diagnosticStorageAccount A `diagnosticStorageAccount` block as defined below.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class IotHubDeviceUpdateInstanceState extends com.pulumi.resources.
         }
 
         /**
-         * @param diagnosticStorageAccount A `diagnostic_storage_account` block as defined below.
+         * @param diagnosticStorageAccount A `diagnosticStorageAccount` block as defined below.
          * 
          * @return builder
          * 

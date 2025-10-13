@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly double Cpu;
         /// <summary>
-        /// One or more `env` blocks as detailed below.
+        /// One or more `Env` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerEnvResult> Envs;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Image;
         /// <summary>
-        /// A `liveness_probe` block as detailed below.
+        /// A `LivenessProbe` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerLivenessProbeResult> LivenessProbes;
         /// <summary>
@@ -50,15 +50,15 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `readiness_probe` block as detailed below.
+        /// A `ReadinessProbe` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerReadinessProbeResult> ReadinessProbes;
         /// <summary>
-        /// A `startup_probe` block as detailed below.
+        /// A `StartupProbe` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerStartupProbeResult> StartupProbes;
         /// <summary>
-        /// A `volume_mounts` block as detailed below.
+        /// A `VolumeMounts` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerVolumeMountResult> VolumeMounts;
 

@@ -110,7 +110,7 @@ namespace Pulumi.Azure.ApiManagement
         public readonly string Note;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The current state of this User, for example `active`, `blocked` or `pending`.
+        /// The current state of this User, for example `Active`, `Blocked` or `Pending`.
         /// </summary>
         public readonly string State;
         public readonly string UserId;

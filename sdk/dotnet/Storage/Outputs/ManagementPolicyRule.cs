@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ManagementPolicyRule
     {
         /// <summary>
-        /// An `actions` block as documented below.
+        /// An `Actions` block as documented below.
         /// </summary>
         public readonly Outputs.ManagementPolicyRuleActions Actions;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A `filters` block as documented below.
+        /// A `Filters` block as documented below.
         /// </summary>
         public readonly Outputs.ManagementPolicyRuleFilters Filters;
         /// <summary>

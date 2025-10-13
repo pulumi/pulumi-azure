@@ -59,7 +59,7 @@ public final class GetApplicationGatewayUrlPathMap {
      */
     private String name;
     /**
-     * @return One or more `path_rule` blocks as defined above.
+     * @return One or more `pathRule` blocks as defined above.
      * 
      */
     private List<GetApplicationGatewayUrlPathMapPathRule> pathRules;
@@ -132,7 +132,7 @@ public final class GetApplicationGatewayUrlPathMap {
         return this.name;
     }
     /**
-     * @return One or more `path_rule` blocks as defined above.
+     * @return One or more `pathRule` blocks as defined above.
      * 
      */
     public List<GetApplicationGatewayUrlPathMapPathRule> pathRules() {

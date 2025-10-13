@@ -72,13 +72,13 @@ namespace Pulumi.Azure.Relay
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Grants listen access to this Authorization Rule. Defaults to `false`.
+        /// Grants listen access to this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Output("listen")]
         public Output<bool?> Listen { get; private set; } = null!;
 
         /// <summary>
-        /// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be set to `true` too. Defaults to `false`.
+        /// Grants manage access to this Authorization Rule. When this property is `True` - both `Listen` and `Send` must be set to `True` too. Defaults to `False`.
         /// </summary>
         [Output("manage")]
         public Output<bool?> Manage { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.Relay
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Grants send access to this Authorization Rule. Defaults to `false`.
+        /// Grants send access to this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Output("send")]
         public Output<bool?> Send { get; private set; } = null!;
@@ -185,13 +185,13 @@ namespace Pulumi.Azure.Relay
     public sealed class NamespaceAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Grants listen access to this Authorization Rule. Defaults to `false`.
+        /// Grants listen access to this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be set to `true` too. Defaults to `false`.
+        /// Grants manage access to this Authorization Rule. When this property is `True` - both `Listen` and `Send` must be set to `True` too. Defaults to `False`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Relay
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Grants send access to this Authorization Rule. Defaults to `false`.
+        /// Grants send access to this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }
@@ -229,13 +229,13 @@ namespace Pulumi.Azure.Relay
     public sealed class NamespaceAuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Grants listen access to this Authorization Rule. Defaults to `false`.
+        /// Grants listen access to this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be set to `true` too. Defaults to `false`.
+        /// Grants manage access to this Authorization Rule. When this property is `True` - both `Listen` and `Send` must be set to `True` too. Defaults to `False`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Relay
         }
 
         /// <summary>
-        /// Grants send access to this Authorization Rule. Defaults to `false`.
+        /// Grants send access to this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }

@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// One or more `path_rule` blocks as defined above.
+        /// One or more `PathRule` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayUrlPathMapPathRuleResult> PathRules;
 

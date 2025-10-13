@@ -19,14 +19,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
     public static final NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs Empty = new NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs();
 
     /**
-     * A `backend_config` block as defined above.
+     * A `backendConfig` block as defined above.
      * 
      */
     @Import(name="backendConfig")
     private @Nullable Output<NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs> backendConfig;
 
     /**
-     * @return A `backend_config` block as defined above.
+     * @return A `backendConfig` block as defined above.
      * 
      */
     public Optional<Output<NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs>> backendConfig() {
@@ -34,14 +34,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
     }
 
     /**
-     * A `frontend_config` block as defined below.
+     * A `frontendConfig` block as defined below.
      * 
      */
     @Import(name="frontendConfig")
     private @Nullable Output<NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs> frontendConfig;
 
     /**
-     * @return A `frontend_config` block as defined below.
+     * @return A `frontendConfig` block as defined below.
      * 
      */
     public Optional<Output<NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs>> frontendConfig() {
@@ -106,7 +106,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
         }
 
         /**
-         * @param backendConfig A `backend_config` block as defined above.
+         * @param backendConfig A `backendConfig` block as defined above.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
         }
 
         /**
-         * @param backendConfig A `backend_config` block as defined above.
+         * @param backendConfig A `backendConfig` block as defined above.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
         }
 
         /**
-         * @param frontendConfig A `frontend_config` block as defined below.
+         * @param frontendConfig A `frontendConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
         }
 
         /**
-         * @param frontendConfig A `frontend_config` block as defined below.
+         * @param frontendConfig A `frontendConfig` block as defined below.
          * 
          * @return builder
          * 

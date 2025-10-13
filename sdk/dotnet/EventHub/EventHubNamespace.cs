@@ -117,13 +117,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultSecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.EventHubNamespaceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
+        /// Is SAS authentication enabled for the EventHub Namespace? Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -155,13 +155,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_rulesets` block as defined below.
+        /// A `NetworkRulesets` block as defined below.
         /// </summary>
         [Output("networkRulesets")]
         public Output<Outputs.EventHubNamespaceNetworkRulesets> NetworkRulesets { get; private set; } = null!;
 
         /// <summary>
-        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -258,13 +258,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DedicatedClusterId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.EventHubNamespaceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
+        /// Is SAS authentication enabled for the EventHub Namespace? Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -296,13 +296,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_rulesets` block as defined below.
+        /// A `NetworkRulesets` block as defined below.
         /// </summary>
         [Input("networkRulesets")]
         public Input<Inputs.EventHubNamespaceNetworkRulesetsArgs>? NetworkRulesets { get; set; }
 
         /// <summary>
-        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -454,13 +454,13 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.EventHubNamespaceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
+        /// Is SAS authentication enabled for the EventHub Namespace? Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -492,13 +492,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_rulesets` block as defined below.
+        /// A `NetworkRulesets` block as defined below.
         /// </summary>
         [Input("networkRulesets")]
         public Input<Inputs.EventHubNamespaceNetworkRulesetsGetArgs>? NetworkRulesets { get; set; }
 
         /// <summary>
-        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

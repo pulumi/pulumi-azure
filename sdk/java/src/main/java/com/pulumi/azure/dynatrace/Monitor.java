@@ -24,6 +24,15 @@ import javax.annotation.Nullable;
 /**
  * Manages a Dynatrace monitor.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Dynatrace.Observability` - 2023-04-27
+ * 
  * ## Import
  * 
  * Dynatrace monitor can be imported using the `resource id`, e.g.
@@ -36,14 +45,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:dynatrace/monitor:Monitor")
 public class Monitor extends com.pulumi.resources.CustomResource {
     /**
-     * Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+     * Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
      * 
      */
     @Export(name="environmentProperties", refs={List.class,MonitorEnvironmentProperty.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitorEnvironmentProperty>> environmentProperties;
 
     /**
-     * @return Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+     * @return Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
      * 
      */
     public Output<Optional<List<MonitorEnvironmentProperty>>> environmentProperties() {

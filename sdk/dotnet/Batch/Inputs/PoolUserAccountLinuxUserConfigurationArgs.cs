@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class PoolUserAccountLinuxUserConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+        /// The user ID of the user account. The `Uid` and `Gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
         /// </summary>
         [Input("gid")]
         public Input<int>? Gid { get; set; }
@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Batch.Inputs
         }
 
         /// <summary>
-        /// The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+        /// The group ID for the user account. The `Uid` and `Gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
         /// </summary>
         [Input("uid")]
         public Input<int>? Uid { get; set; }

@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IotHubDeviceUpdateAccountIdentity?> Identity { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.
+        /// Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Iot
     public sealed class IotHubDeviceUpdateAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IotHubDeviceUpdateAccountIdentityArgs>? Identity { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.
+        /// Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? HostName { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IotHubDeviceUpdateAccountIdentityGetArgs>? Identity { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.
+        /// Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

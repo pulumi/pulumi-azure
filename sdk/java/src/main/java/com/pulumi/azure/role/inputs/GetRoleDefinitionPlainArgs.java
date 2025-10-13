@@ -51,7 +51,7 @@ public final class GetRoleDefinitionPlainArgs extends com.pulumi.resources.Invok
     /**
      * Specifies the Scope at which the Custom Role Definition exists.
      * 
-     * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+     * &gt; **Note:** One of `name` or `roleDefinitionId` must be specified.
      * 
      */
     @Import(name="scope")
@@ -60,7 +60,7 @@ public final class GetRoleDefinitionPlainArgs extends com.pulumi.resources.Invok
     /**
      * @return Specifies the Scope at which the Custom Role Definition exists.
      * 
-     * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+     * &gt; **Note:** One of `name` or `roleDefinitionId` must be specified.
      * 
      */
     public Optional<String> scope() {
@@ -120,7 +120,7 @@ public final class GetRoleDefinitionPlainArgs extends com.pulumi.resources.Invok
         /**
          * @param scope Specifies the Scope at which the Custom Role Definition exists.
          * 
-         * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+         * &gt; **Note:** One of `name` or `roleDefinitionId` must be specified.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ public final class ThreatIntelligenceIndicatorParsedPattern {
      */
     private @Nullable String patternTypeKey;
     /**
-     * @return A `pattern_type_values` block as defined below.
+     * @return A `patternTypeValues` block as defined below.
      * 
      */
     private @Nullable List<ThreatIntelligenceIndicatorParsedPatternPatternTypeValue> patternTypeValues;
@@ -33,7 +33,7 @@ public final class ThreatIntelligenceIndicatorParsedPattern {
         return Optional.ofNullable(this.patternTypeKey);
     }
     /**
-     * @return A `pattern_type_values` block as defined below.
+     * @return A `patternTypeValues` block as defined below.
      * 
      */
     public List<ThreatIntelligenceIndicatorParsedPatternPatternTypeValue> patternTypeValues() {

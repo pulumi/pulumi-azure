@@ -20,7 +20,7 @@ public final class JobTemplate {
      */
     private List<JobTemplateContainer> containers;
     /**
-     * @return A `init_container` block as defined below.
+     * @return A `initContainer` block as defined below.
      * 
      */
     private @Nullable List<JobTemplateInitContainer> initContainers;
@@ -39,7 +39,7 @@ public final class JobTemplate {
         return this.containers;
     }
     /**
-     * @return A `init_container` block as defined below.
+     * @return A `initContainer` block as defined below.
      * 
      */
     public List<JobTemplateInitContainer> initContainers() {

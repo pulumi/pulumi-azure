@@ -18,14 +18,14 @@ public final class SnapshotEncryptionSettingsArgs extends com.pulumi.resources.R
     public static final SnapshotEncryptionSettingsArgs Empty = new SnapshotEncryptionSettingsArgs();
 
     /**
-     * A `disk_encryption_key` block as defined below.
+     * A `diskEncryptionKey` block as defined below.
      * 
      */
     @Import(name="diskEncryptionKey", required=true)
     private Output<SnapshotEncryptionSettingsDiskEncryptionKeyArgs> diskEncryptionKey;
 
     /**
-     * @return A `disk_encryption_key` block as defined below.
+     * @return A `diskEncryptionKey` block as defined below.
      * 
      */
     public Output<SnapshotEncryptionSettingsDiskEncryptionKeyArgs> diskEncryptionKey() {
@@ -33,14 +33,14 @@ public final class SnapshotEncryptionSettingsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `key_encryption_key` block as defined below.
+     * A `keyEncryptionKey` block as defined below.
      * 
      */
     @Import(name="keyEncryptionKey")
     private @Nullable Output<SnapshotEncryptionSettingsKeyEncryptionKeyArgs> keyEncryptionKey;
 
     /**
-     * @return A `key_encryption_key` block as defined below.
+     * @return A `keyEncryptionKey` block as defined below.
      * 
      */
     public Optional<Output<SnapshotEncryptionSettingsKeyEncryptionKeyArgs>> keyEncryptionKey() {
@@ -73,7 +73,7 @@ public final class SnapshotEncryptionSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param diskEncryptionKey A `disk_encryption_key` block as defined below.
+         * @param diskEncryptionKey A `diskEncryptionKey` block as defined below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class SnapshotEncryptionSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param diskEncryptionKey A `disk_encryption_key` block as defined below.
+         * @param diskEncryptionKey A `diskEncryptionKey` block as defined below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class SnapshotEncryptionSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyEncryptionKey A `key_encryption_key` block as defined below.
+         * @param keyEncryptionKey A `keyEncryptionKey` block as defined below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class SnapshotEncryptionSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyEncryptionKey A `key_encryption_key` block as defined below.
+         * @param keyEncryptionKey A `keyEncryptionKey` block as defined below.
          * 
          * @return builder
          * 

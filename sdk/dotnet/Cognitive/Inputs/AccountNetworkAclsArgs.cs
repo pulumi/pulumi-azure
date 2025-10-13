@@ -15,13 +15,13 @@ namespace Pulumi.Azure.Cognitive.Inputs
         /// <summary>
         /// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
         /// 
-        /// &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+        /// &gt; **Note:** `Bypass` can only be set when `Kind` is set to `OpenAI` or `AIServices`.
         /// </summary>
         [Input("bypass")]
         public Input<string>? Bypass { get; set; }
 
         /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+        /// The Default Action to use when no rules match from `IpRules` / `VirtualNetworkRules`. Possible values are `Allow` and `Deny`.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         private InputList<Inputs.AccountNetworkAclsVirtualNetworkRuleArgs>? _virtualNetworkRules;
 
         /// <summary>
-        /// A `virtual_network_rules` block as defined below.
+        /// A `VirtualNetworkRules` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountNetworkAclsVirtualNetworkRuleArgs> VirtualNetworkRules
         {

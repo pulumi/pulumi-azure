@@ -62,14 +62,14 @@ public final class CacheNfsTargetNamespaceJunctionArgs extends com.pulumi.resour
     }
 
     /**
-     * The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `&#34;&#34;`, in which case the whole `nfs_export` is exported.
+     * The relative subdirectory path from the `nfsExport` to map to the `namespacePath`. Defaults to `&#34;&#34;`, in which case the whole `nfsExport` is exported.
      * 
      */
     @Import(name="targetPath")
     private @Nullable Output<String> targetPath;
 
     /**
-     * @return The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `&#34;&#34;`, in which case the whole `nfs_export` is exported.
+     * @return The relative subdirectory path from the `nfsExport` to map to the `namespacePath`. Defaults to `&#34;&#34;`, in which case the whole `nfsExport` is exported.
      * 
      */
     public Optional<Output<String>> targetPath() {
@@ -167,7 +167,7 @@ public final class CacheNfsTargetNamespaceJunctionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param targetPath The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `&#34;&#34;`, in which case the whole `nfs_export` is exported.
+         * @param targetPath The relative subdirectory path from the `nfsExport` to map to the `namespacePath`. Defaults to `&#34;&#34;`, in which case the whole `nfsExport` is exported.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class CacheNfsTargetNamespaceJunctionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param targetPath The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `&#34;&#34;`, in which case the whole `nfs_export` is exported.
+         * @param targetPath The relative subdirectory path from the `nfsExport` to map to the `namespacePath`. Defaults to `&#34;&#34;`, in which case the whole `nfsExport` is exported.
          * 
          * @return builder
          * 

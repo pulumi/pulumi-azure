@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Automation
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
+        /// Specifies if the Automation Variable is encrypted. Defaults to `False`.
         /// </summary>
         [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
+        /// Specifies if the Automation Variable is encrypted. Defaults to `False`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
+        /// Specifies if the Automation Variable is encrypted. Defaults to `False`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }

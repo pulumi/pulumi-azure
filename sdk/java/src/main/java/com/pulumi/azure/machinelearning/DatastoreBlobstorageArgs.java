@@ -19,14 +19,14 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
     public static final DatastoreBlobstorageArgs Empty = new DatastoreBlobstorageArgs();
 
     /**
-     * The access key of the Storage Account. Conflicts with `shared_access_signature`.
+     * The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      * 
      */
     @Import(name="accountKey")
     private @Nullable Output<String> accountKey;
 
     /**
-     * @return The access key of the Storage Account. Conflicts with `shared_access_signature`.
+     * @return The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      * 
      */
     public Optional<Output<String>> accountKey() {
@@ -51,7 +51,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
     /**
      * Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
      * 
-     * &gt; **Note:** `is_default` can only be set to `true` on update.
+     * &gt; **Note:** `isDefault` can only be set to `true` on update.
      * 
      */
     @Import(name="isDefault")
@@ -60,7 +60,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
     /**
      * @return Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
      * 
-     * &gt; **Note:** `is_default` can only be set to `true` on update.
+     * &gt; **Note:** `isDefault` can only be set to `true` on update.
      * 
      */
     public Optional<Output<Boolean>> isDefault() {
@@ -98,18 +98,18 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+     * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      * 
-     * &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
+     * &gt; **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
      * 
      */
     @Import(name="sharedAccessSignature")
     private @Nullable Output<String> sharedAccessSignature;
 
     /**
-     * @return The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+     * @return The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      * 
-     * &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
+     * &gt; **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
      * 
      */
     public Optional<Output<String>> sharedAccessSignature() {
@@ -194,7 +194,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountKey The access key of the Storage Account. Conflicts with `shared_access_signature`.
+         * @param accountKey The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountKey The access key of the Storage Account. Conflicts with `shared_access_signature`.
+         * @param accountKey The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
         /**
          * @param isDefault Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
          * 
-         * &gt; **Note:** `is_default` can only be set to `true` on update.
+         * &gt; **Note:** `isDefault` can only be set to `true` on update.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
         /**
          * @param isDefault Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
          * 
-         * &gt; **Note:** `is_default` can only be set to `true` on update.
+         * &gt; **Note:** `isDefault` can only be set to `true` on update.
          * 
          * @return builder
          * 
@@ -303,9 +303,9 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+         * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
          * 
-         * &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
+         * &gt; **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
          * 
          * @return builder
          * 
@@ -316,9 +316,9 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+         * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
          * 
-         * &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
+         * &gt; **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
          * 
          * @return builder
          * 

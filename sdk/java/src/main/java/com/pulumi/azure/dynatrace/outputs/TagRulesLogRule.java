@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TagRulesLogRule {
     /**
-     * @return Filtering tag for the log rule. A `filtering_tag` block as defined below.
+     * @return Filtering tag for the log rule. A `filteringTag` block as defined below.
      * 
      */
     private List<TagRulesLogRuleFilteringTag> filteringTags;
@@ -37,7 +37,7 @@ public final class TagRulesLogRule {
 
     private TagRulesLogRule() {}
     /**
-     * @return Filtering tag for the log rule. A `filtering_tag` block as defined below.
+     * @return Filtering tag for the log rule. A `filteringTag` block as defined below.
      * 
      */
     public List<TagRulesLogRuleFilteringTag> filteringTags() {

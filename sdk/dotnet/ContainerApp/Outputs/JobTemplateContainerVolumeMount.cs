@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class JobTemplateContainerVolumeMount
     {
         /// <summary>
-        /// The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+        /// The name of the volume to mount. This must match the name of a volume defined in the `Volume` block.
         /// </summary>
         public readonly string Name;
         /// <summary>

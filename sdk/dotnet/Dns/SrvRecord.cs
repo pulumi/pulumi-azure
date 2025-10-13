@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+        /// A list of values that make up the SRV record. Each `Record` block supports fields documented below.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<Outputs.SrvRecordRecord>> Records { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.Dns
         private InputList<Inputs.SrvRecordRecordArgs>? _records;
 
         /// <summary>
-        /// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+        /// A list of values that make up the SRV record. Each `Record` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.SrvRecordRecordArgs> Records
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Dns
         private InputList<Inputs.SrvRecordRecordGetArgs>? _records;
 
         /// <summary>
-        /// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+        /// A list of values that make up the SRV record. Each `Record` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.SrvRecordRecordGetArgs> Records
         {

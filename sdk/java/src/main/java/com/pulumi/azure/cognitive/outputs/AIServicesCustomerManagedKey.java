@@ -17,12 +17,12 @@ public final class AIServicesCustomerManagedKey {
      */
     private @Nullable String identityClientId;
     /**
-     * @return The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+     * @return The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
      */
     private @Nullable String keyVaultKeyId;
     /**
-     * @return The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+     * @return The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
      */
     private @Nullable String managedHsmKeyId;
@@ -36,14 +36,14 @@ public final class AIServicesCustomerManagedKey {
         return Optional.ofNullable(this.identityClientId);
     }
     /**
-     * @return The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+     * @return The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
      */
     public Optional<String> keyVaultKeyId() {
         return Optional.ofNullable(this.keyVaultKeyId);
     }
     /**
-     * @return The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+     * @return The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
      */
     public Optional<String> managedHsmKeyId() {

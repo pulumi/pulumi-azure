@@ -101,7 +101,7 @@ namespace Pulumi.Azure.Iot
     public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;. Defaults to `true`.
+        /// The condition that is evaluated to apply the routing rule. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;. Defaults to `True`.
         /// </summary>
         [Output("condition")]
         public Output<string?> Condition { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Iot
     public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;. Defaults to `true`.
+        /// The condition that is evaluated to apply the routing rule. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;. Defaults to `True`.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Iot
     public sealed class RouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;. Defaults to `true`.
+        /// The condition that is evaluated to apply the routing rule. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;. Defaults to `True`.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }

@@ -42,14 +42,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+     * An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
      * 
      */
     @Import(name="autoBackup")
     private @Nullable Output<VirtualMachineAutoBackupArgs> autoBackup;
 
     /**
-     * @return An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+     * @return An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
      * 
      */
     public Optional<Output<VirtualMachineAutoBackupArgs>> autoBackup() {
@@ -57,14 +57,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An `auto_patching` block as defined below.
+     * An `autoPatching` block as defined below.
      * 
      */
     @Import(name="autoPatching")
     private @Nullable Output<VirtualMachineAutoPatchingArgs> autoPatching;
 
     /**
-     * @return An `auto_patching` block as defined below.
+     * @return An `autoPatching` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineAutoPatchingArgs>> autoPatching() {
@@ -72,14 +72,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An `key_vault_credential` block as defined below.
+     * An `keyVaultCredential` block as defined below.
      * 
      */
     @Import(name="keyVaultCredential")
     private @Nullable Output<VirtualMachineKeyVaultCredentialArgs> keyVaultCredential;
 
     /**
-     * @return An `key_vault_credential` block as defined below.
+     * @return An `keyVaultCredential` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineKeyVaultCredentialArgs>> keyVaultCredential() {
@@ -162,14 +162,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `sql_instance` block as defined below.
+     * A `sqlInstance` block as defined below.
      * 
      */
     @Import(name="sqlInstance")
     private @Nullable Output<VirtualMachineSqlInstanceArgs> sqlInstance;
 
     /**
-     * @return A `sql_instance` block as defined below.
+     * @return A `sqlInstance` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineSqlInstanceArgs>> sqlInstance() {
@@ -207,14 +207,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An `storage_configuration` block as defined below.
+     * An `storageConfiguration` block as defined below.
      * 
      */
     @Import(name="storageConfiguration")
     private @Nullable Output<VirtualMachineStorageConfigurationArgs> storageConfiguration;
 
     /**
-     * @return An `storage_configuration` block as defined below.
+     * @return An `storageConfiguration` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineStorageConfigurationArgs>> storageConfiguration() {
@@ -252,14 +252,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `wsfc_domain_credential` block as defined below
+     * A `wsfcDomainCredential` block as defined below
      * 
      */
     @Import(name="wsfcDomainCredential")
     private @Nullable Output<VirtualMachineWsfcDomainCredentialArgs> wsfcDomainCredential;
 
     /**
-     * @return A `wsfc_domain_credential` block as defined below
+     * @return A `wsfcDomainCredential` block as defined below
      * 
      */
     public Optional<Output<VirtualMachineWsfcDomainCredentialArgs>> wsfcDomainCredential() {
@@ -327,7 +327,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param autoBackup An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+         * @param autoBackup An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param autoBackup An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+         * @param autoBackup An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param autoPatching An `auto_patching` block as defined below.
+         * @param autoPatching An `autoPatching` block as defined below.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param autoPatching An `auto_patching` block as defined below.
+         * @param autoPatching An `autoPatching` block as defined below.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param keyVaultCredential An `key_vault_credential` block as defined below.
+         * @param keyVaultCredential An `keyVaultCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param keyVaultCredential An `key_vault_credential` block as defined below.
+         * @param keyVaultCredential An `keyVaultCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sqlInstance A `sql_instance` block as defined below.
+         * @param sqlInstance A `sqlInstance` block as defined below.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sqlInstance A `sql_instance` block as defined below.
+         * @param sqlInstance A `sqlInstance` block as defined below.
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageConfiguration An `storage_configuration` block as defined below.
+         * @param storageConfiguration An `storageConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageConfiguration An `storage_configuration` block as defined below.
+         * @param storageConfiguration An `storageConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -621,7 +621,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param wsfcDomainCredential A `wsfc_domain_credential` block as defined below
+         * @param wsfcDomainCredential A `wsfcDomainCredential` block as defined below
          * 
          * @return builder
          * 
@@ -632,7 +632,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param wsfcDomainCredential A `wsfc_domain_credential` block as defined below
+         * @param wsfcDomainCredential A `wsfcDomainCredential` block as defined below
          * 
          * @return builder
          * 

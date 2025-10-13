@@ -47,7 +47,7 @@ public final class GetProjectEnvironmentTypeResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A `user_role_assignment` block as defined below.
+     * @return A `userRoleAssignment` block as defined below.
      * 
      */
     private List<GetProjectEnvironmentTypeUserRoleAssignment> userRoleAssignments;
@@ -102,7 +102,7 @@ public final class GetProjectEnvironmentTypeResult {
         return this.tags;
     }
     /**
-     * @return A `user_role_assignment` block as defined below.
+     * @return A `userRoleAssignment` block as defined below.
      * 
      */
     public List<GetProjectEnvironmentTypeUserRoleAssignment> userRoleAssignments() {

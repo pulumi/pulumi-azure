@@ -59,7 +59,7 @@ namespace Pulumi.Azure.NotificationHub
     public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is this Notification Hub Namespace enabled? Defaults to `true`.
+        /// Is this Notification Hub Namespace enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.NotificationHub
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is this Notification Hub Namespace enabled? Defaults to `true`.
+        /// Is this Notification Hub Namespace enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.NotificationHub
     public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is this Notification Hub Namespace enabled? Defaults to `true`.
+        /// Is this Notification Hub Namespace enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

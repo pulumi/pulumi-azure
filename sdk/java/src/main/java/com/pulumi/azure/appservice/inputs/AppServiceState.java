@@ -58,14 +58,14 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<AppServiceAuthSettingsArgs> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Optional<Output<AppServiceAuthSettingsArgs>> authSettings() {
@@ -118,14 +118,14 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+     * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
      * 
      */
     @Import(name="clientCertMode")
     private @Nullable Output<String> clientCertMode;
 
     /**
-     * @return Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+     * @return Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
      * 
      */
     public Optional<Output<String>> clientCertMode() {
@@ -133,14 +133,14 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<AppServiceConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppServiceConnectionStringArgs>>> connectionStrings() {
@@ -313,14 +313,14 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+     * A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
      * 
      */
     @Import(name="possibleOutboundIpAddressLists")
     private @Nullable Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+     * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
      * 
      */
     public Optional<Output<List<String>>> possibleOutboundIpAddressLists() {
@@ -328,14 +328,14 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -358,14 +358,14 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<AppServiceSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Optional<Output<AppServiceSiteConfigArgs>> siteConfig() {
@@ -373,14 +373,14 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     @Import(name="siteCredentials")
     private @Nullable Output<List<AppServiceSiteCredentialArgs>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     public Optional<Output<List<AppServiceSiteCredentialArgs>>> siteCredentials() {
@@ -388,14 +388,14 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `source_control` block as defined below.
+     * A `sourceControl` block as defined below.
      * 
      */
     @Import(name="sourceControl")
     private @Nullable Output<AppServiceSourceControlArgs> sourceControl;
 
     /**
-     * @return A `source_control` block as defined below.
+     * @return A `sourceControl` block as defined below.
      * 
      */
     public Optional<Output<AppServiceSourceControlArgs>> sourceControl() {
@@ -403,14 +403,14 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<AppServiceStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppServiceStorageAccountArgs>>> storageAccounts() {
@@ -525,7 +525,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertMode Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+         * @param clientCertMode Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
          * 
          * @return builder
          * 
@@ -620,7 +620,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertMode Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+         * @param clientCertMode Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -902,7 +902,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+         * @param possibleOutboundIpAddressLists A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
          * 
          * @return builder
          * 
@@ -913,7 +913,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+         * @param possibleOutboundIpAddressLists A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
          * 
          * @return builder
          * 
@@ -923,7 +923,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+         * @param possibleOutboundIpAddressLists A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
          * 
          * @return builder
          * 
@@ -933,7 +933,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -944,7 +944,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -975,7 +975,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -986,7 +986,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -996,7 +996,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+         * @param siteCredentials A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
          * 
          * @return builder
          * 
@@ -1007,7 +1007,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+         * @param siteCredentials A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
          * 
          * @return builder
          * 
@@ -1017,7 +1017,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+         * @param siteCredentials A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
          * 
          * @return builder
          * 
@@ -1027,7 +1027,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceControl A `source_control` block as defined below.
+         * @param sourceControl A `sourceControl` block as defined below.
          * 
          * @return builder
          * 
@@ -1038,7 +1038,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceControl A `source_control` block as defined below.
+         * @param sourceControl A `sourceControl` block as defined below.
          * 
          * @return builder
          * 
@@ -1048,7 +1048,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1059,7 +1059,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1069,7 +1069,7 @@ public final class AppServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 

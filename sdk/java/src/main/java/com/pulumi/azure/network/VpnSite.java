@@ -99,7 +99,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      * 
-     * &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
+     * &gt; **Note:** The `addressCidrs` has to be set when the `link.bgp` isn&#39;t specified.
      * 
      */
     @Export(name="addressCidrs", refs={List.class,String.class}, tree="[0,1]")
@@ -108,7 +108,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      * 
-     * &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
+     * &gt; **Note:** The `addressCidrs` has to be set when the `link.bgp` isn&#39;t specified.
      * 
      */
     public Output<Optional<List<String>>> addressCidrs() {
@@ -185,14 +185,14 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An `o365_policy` block as defined below.
+     * An `o365Policy` block as defined below.
      * 
      */
     @Export(name="o365Policy", refs={VpnSiteO365Policy.class}, tree="[0]")
     private Output<VpnSiteO365Policy> o365Policy;
 
     /**
-     * @return An `o365_policy` block as defined below.
+     * @return An `o365Policy` block as defined below.
      * 
      */
     public Output<VpnSiteO365Policy> o365Policy() {

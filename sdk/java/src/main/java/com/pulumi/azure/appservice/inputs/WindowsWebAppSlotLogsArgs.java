@@ -18,14 +18,14 @@ public final class WindowsWebAppSlotLogsArgs extends com.pulumi.resources.Resour
     public static final WindowsWebAppSlotLogsArgs Empty = new WindowsWebAppSlotLogsArgs();
 
     /**
-     * A `application_logs` block as defined above.
+     * A `applicationLogs` block as defined above.
      * 
      */
     @Import(name="applicationLogs")
     private @Nullable Output<WindowsWebAppSlotLogsApplicationLogsArgs> applicationLogs;
 
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     public Optional<Output<WindowsWebAppSlotLogsApplicationLogsArgs>> applicationLogs() {
@@ -63,14 +63,14 @@ public final class WindowsWebAppSlotLogsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * An `http_logs` block as defined above.
+     * An `httpLogs` block as defined above.
      * 
      */
     @Import(name="httpLogs")
     private @Nullable Output<WindowsWebAppSlotLogsHttpLogsArgs> httpLogs;
 
     /**
-     * @return An `http_logs` block as defined above.
+     * @return An `httpLogs` block as defined above.
      * 
      */
     public Optional<Output<WindowsWebAppSlotLogsHttpLogsArgs>> httpLogs() {
@@ -105,7 +105,7 @@ public final class WindowsWebAppSlotLogsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param applicationLogs A `application_logs` block as defined above.
+         * @param applicationLogs A `applicationLogs` block as defined above.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class WindowsWebAppSlotLogsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param applicationLogs A `application_logs` block as defined above.
+         * @param applicationLogs A `applicationLogs` block as defined above.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WindowsWebAppSlotLogsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param httpLogs An `http_logs` block as defined above.
+         * @param httpLogs An `httpLogs` block as defined above.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class WindowsWebAppSlotLogsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param httpLogs An `http_logs` block as defined above.
+         * @param httpLogs An `httpLogs` block as defined above.
          * 
          * @return builder
          * 

@@ -24,6 +24,15 @@ import javax.annotation.Nullable;
 /**
  * Manages a Cloud VM Cluster.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Oracle.Database` - 2025-03-01
+ * 
  * ## Import
  * 
  * Cloud VM Clusters can be imported using the `resource id`, e.g.
@@ -92,14 +101,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.cpuCoreCount;
     }
     /**
-     * A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+     * A `dataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="dataCollectionOptions", refs={CloudVmClusterDataCollectionOptions.class}, tree="[0]")
     private Output<CloudVmClusterDataCollectionOptions> dataCollectionOptions;
 
     /**
-     * @return A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+     * @return A `dataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<CloudVmClusterDataCollectionOptions> dataCollectionOptions() {
@@ -190,14 +199,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.domain;
     }
     /**
-     * A `file_system_configuration` block as defined below.
+     * A `fileSystemConfiguration` block as defined below.
      * 
      */
     @Export(name="fileSystemConfigurations", refs={List.class,CloudVmClusterFileSystemConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CloudVmClusterFileSystemConfiguration>> fileSystemConfigurations;
 
     /**
-     * @return A `file_system_configuration` block as defined below.
+     * @return A `fileSystemConfiguration` block as defined below.
      * 
      */
     public Output<Optional<List<CloudVmClusterFileSystemConfiguration>>> fileSystemConfigurations() {

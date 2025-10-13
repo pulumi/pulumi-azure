@@ -324,32 +324,32 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventHubRetentionInDays);
     }
     /**
-     * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      * 
-     * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+     * &gt; **Note:** If `fallbackRoute` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
     @Export(name="fallbackRoute", refs={IoTHubFallbackRoute.class}, tree="[0]")
     private Output<IoTHubFallbackRoute> fallbackRoute;
 
     /**
-     * @return A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     * @return A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      * 
-     * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+     * &gt; **Note:** If `fallbackRoute` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
     public Output<IoTHubFallbackRoute> fallbackRoute() {
         return this.fallbackRoute;
     }
     /**
-     * A `file_upload` block as defined below.
+     * A `fileUpload` block as defined below.
      * 
      */
     @Export(name="fileUpload", refs={IoTHubFileUpload.class}, tree="[0]")
     private Output</* @Nullable */ IoTHubFileUpload> fileUpload;
 
     /**
-     * @return A `file_upload` block as defined below.
+     * @return A `fileUpload` block as defined below.
      * 
      */
     public Output<Optional<IoTHubFileUpload>> fileUpload() {
@@ -432,14 +432,14 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_rule_set` block as defined below.
+     * A `networkRuleSet` block as defined below.
      * 
      */
     @Export(name="networkRuleSets", refs={List.class,IoTHubNetworkRuleSet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IoTHubNetworkRuleSet>> networkRuleSets;
 
     /**
-     * @return A `network_rule_set` block as defined below.
+     * @return A `networkRuleSet` block as defined below.
      * 
      */
     public Output<Optional<List<IoTHubNetworkRuleSet>>> networkRuleSets() {
@@ -472,14 +472,14 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
         return this.routes;
     }
     /**
-     * One or more `shared_access_policy` blocks as defined below.
+     * One or more `sharedAccessPolicy` blocks as defined below.
      * 
      */
     @Export(name="sharedAccessPolicies", refs={List.class,IoTHubSharedAccessPolicy.class}, tree="[0,1]")
     private Output<List<IoTHubSharedAccessPolicy>> sharedAccessPolicies;
 
     /**
-     * @return One or more `shared_access_policy` blocks as defined below.
+     * @return One or more `sharedAccessPolicy` blocks as defined below.
      * 
      */
     public Output<List<IoTHubSharedAccessPolicy>> sharedAccessPolicies() {

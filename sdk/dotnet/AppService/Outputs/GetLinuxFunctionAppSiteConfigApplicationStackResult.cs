@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetLinuxFunctionAppSiteConfigApplicationStackResult
     {
         /// <summary>
-        /// One or more `docker` blocks as defined below.
+        /// One or more `Docker` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteConfigApplicationStackDockerResult> Dockers;
         /// <summary>

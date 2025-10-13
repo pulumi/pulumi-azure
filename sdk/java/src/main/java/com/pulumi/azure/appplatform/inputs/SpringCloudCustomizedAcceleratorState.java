@@ -78,14 +78,14 @@ public final class SpringCloudCustomizedAcceleratorState extends com.pulumi.reso
     }
 
     /**
-     * A `git_repository` block as defined below.
+     * A `gitRepository` block as defined below.
      * 
      */
     @Import(name="gitRepository")
     private @Nullable Output<SpringCloudCustomizedAcceleratorGitRepositoryArgs> gitRepository;
 
     /**
-     * @return A `git_repository` block as defined below.
+     * @return A `gitRepository` block as defined below.
      * 
      */
     public Optional<Output<SpringCloudCustomizedAcceleratorGitRepositoryArgs>> gitRepository() {
@@ -263,7 +263,7 @@ public final class SpringCloudCustomizedAcceleratorState extends com.pulumi.reso
         }
 
         /**
-         * @param gitRepository A `git_repository` block as defined below.
+         * @param gitRepository A `gitRepository` block as defined below.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class SpringCloudCustomizedAcceleratorState extends com.pulumi.reso
         }
 
         /**
-         * @param gitRepository A `git_repository` block as defined below.
+         * @param gitRepository A `gitRepository` block as defined below.
          * 
          * @return builder
          * 

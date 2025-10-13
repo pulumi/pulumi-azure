@@ -81,14 +81,14 @@ public final class FluxConfigurationKustomizationArgs extends com.pulumi.resourc
     }
 
     /**
-     * A `post_build` block as defined below.
+     * A `postBuild` block as defined below.
      * 
      */
     @Import(name="postBuild")
     private @Nullable Output<FluxConfigurationKustomizationPostBuildArgs> postBuild;
 
     /**
-     * @return A `post_build` block as defined below.
+     * @return A `postBuild` block as defined below.
      * 
      */
     public Optional<Output<FluxConfigurationKustomizationPostBuildArgs>> postBuild() {
@@ -298,7 +298,7 @@ public final class FluxConfigurationKustomizationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param postBuild A `post_build` block as defined below.
+         * @param postBuild A `postBuild` block as defined below.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class FluxConfigurationKustomizationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param postBuild A `post_build` block as defined below.
+         * @param postBuild A `postBuild` block as defined below.
          * 
          * @return builder
          * 

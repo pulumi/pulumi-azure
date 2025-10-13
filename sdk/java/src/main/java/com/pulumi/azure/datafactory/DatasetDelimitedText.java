@@ -140,28 +140,28 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.annotations);
     }
     /**
-     * An `azure_blob_fs_location` block as defined below.
+     * An `azureBlobFsLocation` block as defined below.
      * 
      */
     @Export(name="azureBlobFsLocation", refs={DatasetDelimitedTextAzureBlobFsLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetDelimitedTextAzureBlobFsLocation> azureBlobFsLocation;
 
     /**
-     * @return An `azure_blob_fs_location` block as defined below.
+     * @return An `azureBlobFsLocation` block as defined below.
      * 
      */
     public Output<Optional<DatasetDelimitedTextAzureBlobFsLocation>> azureBlobFsLocation() {
         return Codegen.optional(this.azureBlobFsLocation);
     }
     /**
-     * An `azure_blob_storage_location` block as defined below.
+     * An `azureBlobStorageLocation` block as defined below.
      * 
      */
     @Export(name="azureBlobStorageLocation", refs={DatasetDelimitedTextAzureBlobStorageLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetDelimitedTextAzureBlobStorageLocation> azureBlobStorageLocation;
 
     /**
-     * @return An `azure_blob_storage_location` block as defined below.
+     * @return An `azureBlobStorageLocation` block as defined below.
      * 
      */
     public Output<Optional<DatasetDelimitedTextAzureBlobStorageLocation>> azureBlobStorageLocation() {
@@ -294,7 +294,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.folder);
     }
     /**
-     * A `http_server_location` block as defined below.
+     * A `httpServerLocation` block as defined below.
      * 
      * The following supported arguments are specific to Delimited Text Dataset:
      * 
@@ -303,7 +303,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ DatasetDelimitedTextHttpServerLocation> httpServerLocation;
 
     /**
-     * @return A `http_server_location` block as defined below.
+     * @return A `httpServerLocation` block as defined below.
      * 
      * The following supported arguments are specific to Delimited Text Dataset:
      * 
@@ -396,14 +396,14 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rowDelimiter);
     }
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Export(name="schemaColumns", refs={List.class,DatasetDelimitedTextSchemaColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DatasetDelimitedTextSchemaColumn>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Output<Optional<List<DatasetDelimitedTextSchemaColumn>>> schemaColumns() {

@@ -21,98 +21,98 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetDataCollectionRuleDestination {
     /**
-     * @return A `azure_monitor_metrics` block as defined above.
+     * @return A `azureMonitorMetrics` block as defined above.
      * 
      */
     private List<GetDataCollectionRuleDestinationAzureMonitorMetric> azureMonitorMetrics;
     /**
-     * @return One or more `event_hub` blocks as defined below.
+     * @return One or more `eventHub` blocks as defined below.
      * 
      */
     private @Nullable GetDataCollectionRuleDestinationEventHub eventHub;
     /**
-     * @return One or more `event_hub_direct` blocks as defined below.
+     * @return One or more `eventHubDirect` blocks as defined below.
      * 
      */
     private @Nullable GetDataCollectionRuleDestinationEventHubDirect eventHubDirect;
     /**
-     * @return One or more `log_analytics` blocks as defined below.
+     * @return One or more `logAnalytics` blocks as defined below.
      * 
      */
     private List<GetDataCollectionRuleDestinationLogAnalytic> logAnalytics;
     /**
-     * @return One or more `monitor_account` blocks as defined below.
+     * @return One or more `monitorAccount` blocks as defined below.
      * 
      */
     private List<GetDataCollectionRuleDestinationMonitorAccount> monitorAccounts;
     /**
-     * @return One or more `storage_blob_direct` blocks as defined below.
+     * @return One or more `storageBlobDirect` blocks as defined below.
      * 
      */
     private List<GetDataCollectionRuleDestinationStorageBlobDirect> storageBlobDirects;
     /**
-     * @return One or more `storage_blob` blocks as defined below.
+     * @return One or more `storageBlob` blocks as defined below.
      * 
      */
     private List<GetDataCollectionRuleDestinationStorageBlob> storageBlobs;
     /**
-     * @return One or more `storage_table_direct` blocks as defined below.
+     * @return One or more `storageTableDirect` blocks as defined below.
      * 
      */
     private List<GetDataCollectionRuleDestinationStorageTableDirect> storageTableDirects;
 
     private GetDataCollectionRuleDestination() {}
     /**
-     * @return A `azure_monitor_metrics` block as defined above.
+     * @return A `azureMonitorMetrics` block as defined above.
      * 
      */
     public List<GetDataCollectionRuleDestinationAzureMonitorMetric> azureMonitorMetrics() {
         return this.azureMonitorMetrics;
     }
     /**
-     * @return One or more `event_hub` blocks as defined below.
+     * @return One or more `eventHub` blocks as defined below.
      * 
      */
     public Optional<GetDataCollectionRuleDestinationEventHub> eventHub() {
         return Optional.ofNullable(this.eventHub);
     }
     /**
-     * @return One or more `event_hub_direct` blocks as defined below.
+     * @return One or more `eventHubDirect` blocks as defined below.
      * 
      */
     public Optional<GetDataCollectionRuleDestinationEventHubDirect> eventHubDirect() {
         return Optional.ofNullable(this.eventHubDirect);
     }
     /**
-     * @return One or more `log_analytics` blocks as defined below.
+     * @return One or more `logAnalytics` blocks as defined below.
      * 
      */
     public List<GetDataCollectionRuleDestinationLogAnalytic> logAnalytics() {
         return this.logAnalytics;
     }
     /**
-     * @return One or more `monitor_account` blocks as defined below.
+     * @return One or more `monitorAccount` blocks as defined below.
      * 
      */
     public List<GetDataCollectionRuleDestinationMonitorAccount> monitorAccounts() {
         return this.monitorAccounts;
     }
     /**
-     * @return One or more `storage_blob_direct` blocks as defined below.
+     * @return One or more `storageBlobDirect` blocks as defined below.
      * 
      */
     public List<GetDataCollectionRuleDestinationStorageBlobDirect> storageBlobDirects() {
         return this.storageBlobDirects;
     }
     /**
-     * @return One or more `storage_blob` blocks as defined below.
+     * @return One or more `storageBlob` blocks as defined below.
      * 
      */
     public List<GetDataCollectionRuleDestinationStorageBlob> storageBlobs() {
         return this.storageBlobs;
     }
     /**
-     * @return One or more `storage_table_direct` blocks as defined below.
+     * @return One or more `storageTableDirect` blocks as defined below.
      * 
      */
     public List<GetDataCollectionRuleDestinationStorageTableDirect> storageTableDirects() {

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class FleetUpdateRunManagedClusterUpdate
     {
         /// <summary>
-        /// A `node_image_selection` block as defined below.
+        /// A `NodeImageSelection` block as defined below.
         /// </summary>
         public readonly Outputs.FleetUpdateRunManagedClusterUpdateNodeImageSelection? NodeImageSelection;
         /// <summary>
-        /// A `upgrade` block as defined below.
+        /// A `Upgrade` block as defined below.
         /// </summary>
         public readonly Outputs.FleetUpdateRunManagedClusterUpdateUpgrade Upgrade;
 

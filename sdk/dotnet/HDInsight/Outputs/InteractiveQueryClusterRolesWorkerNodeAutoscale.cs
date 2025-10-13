@@ -14,7 +14,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscale
     {
         /// <summary>
-        /// A `recurrence` block as defined below.
+        /// A `Recurrence` block as defined below.
         /// </summary>
         public readonly Outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence? Recurrence;
 

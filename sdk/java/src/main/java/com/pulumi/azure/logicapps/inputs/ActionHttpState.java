@@ -113,14 +113,14 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+     * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
      * 
      */
     @Import(name="runAfters")
     private @Nullable Output<List<ActionHttpRunAfterArgs>> runAfters;
 
     /**
-     * @return Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+     * @return Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
      * 
      */
     public Optional<Output<List<ActionHttpRunAfterArgs>>> runAfters() {
@@ -304,7 +304,7 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runAfters Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+         * @param runAfters Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runAfters Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+         * @param runAfters Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runAfters Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+         * @param runAfters Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
          * 
          * @return builder
          * 

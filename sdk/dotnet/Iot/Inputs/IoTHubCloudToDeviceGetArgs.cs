@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Iot.Inputs
         private InputList<Inputs.IoTHubCloudToDeviceFeedbackGetArgs>? _feedbacks;
 
         /// <summary>
-        /// A `feedback` block as defined below.
+        /// A `Feedback` block as defined below.
         /// </summary>
         public InputList<Inputs.IoTHubCloudToDeviceFeedbackGetArgs> Feedbacks
         {

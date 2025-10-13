@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class RegistryTaskBaseImageTriggerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the trigger be enabled? Defaults to `true`.
+        /// Should the trigger be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

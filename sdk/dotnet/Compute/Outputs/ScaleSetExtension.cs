@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+        /// The ProtectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
         /// </summary>
         public readonly string? ProtectedSettings;
         /// <summary>

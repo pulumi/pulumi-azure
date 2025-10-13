@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+        /// &gt; **Note:** This can be sourced from the `SecretId` field within the `azure.keyvault.Certificate` Resource.
         /// </summary>
         [Input("certificateUrl")]
         public Input<string>? CertificateUrl { get; set; }

@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatedVMManagedDiskTargetDiskEncryption {
     /**
-     * @return A `disk_encryption_key` block as defined below.
+     * @return A `diskEncryptionKey` block as defined below.
      * 
      */
     private ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey diskEncryptionKey;
     /**
-     * @return A `key_encryption_key` block as defined below.
+     * @return A `keyEncryptionKey` block as defined below.
      * 
      */
     private @Nullable ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey keyEncryptionKey;
 
     private ReplicatedVMManagedDiskTargetDiskEncryption() {}
     /**
-     * @return A `disk_encryption_key` block as defined below.
+     * @return A `diskEncryptionKey` block as defined below.
      * 
      */
     public ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey diskEncryptionKey() {
         return this.diskEncryptionKey;
     }
     /**
-     * @return A `key_encryption_key` block as defined below.
+     * @return A `keyEncryptionKey` block as defined below.
      * 
      */
     public Optional<ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey> keyEncryptionKey() {

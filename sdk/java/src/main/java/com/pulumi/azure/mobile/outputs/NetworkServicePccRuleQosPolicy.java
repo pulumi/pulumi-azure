@@ -16,17 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NetworkServicePccRuleQosPolicy {
     /**
-     * @return QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+     * @return QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
      * 
      */
     private @Nullable Integer allocationAndRetentionPriorityLevel;
     /**
-     * @return A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it&#39;s not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
+     * @return A `guaranteedBitRate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it&#39;s not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
      * 
      */
     private @Nullable NetworkServicePccRuleQosPolicyGuaranteedBitRate guaranteedBitRate;
     /**
-     * @return A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+     * @return A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
      * 
      */
     private NetworkServicePccRuleQosPolicyMaximumBitRate maximumBitRate;
@@ -48,21 +48,21 @@ public final class NetworkServicePccRuleQosPolicy {
 
     private NetworkServicePccRuleQosPolicy() {}
     /**
-     * @return QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+     * @return QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
      * 
      */
     public Optional<Integer> allocationAndRetentionPriorityLevel() {
         return Optional.ofNullable(this.allocationAndRetentionPriorityLevel);
     }
     /**
-     * @return A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it&#39;s not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
+     * @return A `guaranteedBitRate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it&#39;s not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
      * 
      */
     public Optional<NetworkServicePccRuleQosPolicyGuaranteedBitRate> guaranteedBitRate() {
         return Optional.ofNullable(this.guaranteedBitRate);
     }
     /**
-     * @return A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+     * @return A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
      * 
      */
     public NetworkServicePccRuleQosPolicyMaximumBitRate maximumBitRate() {

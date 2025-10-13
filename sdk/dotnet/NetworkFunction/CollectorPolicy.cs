@@ -127,13 +127,13 @@ namespace Pulumi.Azure.NetworkFunction
     public partial class CollectorPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        /// An `IpfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         /// </summary>
         [Output("ipfxEmission")]
         public Output<Outputs.CollectorPolicyIpfxEmission> IpfxEmission { get; private set; } = null!;
 
         /// <summary>
-        /// An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        /// An `IpfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         /// </summary>
         [Output("ipfxIngestion")]
         public Output<Outputs.CollectorPolicyIpfxIngestion> IpfxIngestion { get; private set; } = null!;
@@ -209,13 +209,13 @@ namespace Pulumi.Azure.NetworkFunction
     public sealed class CollectorPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        /// An `IpfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         /// </summary>
         [Input("ipfxEmission", required: true)]
         public Input<Inputs.CollectorPolicyIpfxEmissionArgs> IpfxEmission { get; set; } = null!;
 
         /// <summary>
-        /// An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        /// An `IpfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         /// </summary>
         [Input("ipfxIngestion", required: true)]
         public Input<Inputs.CollectorPolicyIpfxIngestionArgs> IpfxIngestion { get; set; } = null!;
@@ -259,13 +259,13 @@ namespace Pulumi.Azure.NetworkFunction
     public sealed class CollectorPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        /// An `IpfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         /// </summary>
         [Input("ipfxEmission")]
         public Input<Inputs.CollectorPolicyIpfxEmissionGetArgs>? IpfxEmission { get; set; }
 
         /// <summary>
-        /// An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        /// An `IpfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         /// </summary>
         [Input("ipfxIngestion")]
         public Input<Inputs.CollectorPolicyIpfxIngestionGetArgs>? IpfxIngestion { get; set; }

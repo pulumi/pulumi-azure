@@ -14,49 +14,49 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class AlertProcessingRuleActionGroupCondition
     {
         /// <summary>
-        /// A `alert_context` block as defined above.
+        /// A `AlertContext` block as defined above.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionAlertContext? AlertContext;
         /// <summary>
-        /// A `alert_rule_id` block as defined above.
+        /// A `AlertRuleId` block as defined above.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionAlertRuleId? AlertRuleId;
         /// <summary>
-        /// A `alert_rule_name` block as defined above.
+        /// A `AlertRuleName` block as defined above.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionAlertRuleName? AlertRuleName;
         /// <summary>
-        /// A `description` block as defined below.
+        /// A `Description` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionDescription? Description;
         /// <summary>
-        /// A `monitor_condition` block as defined below.
+        /// A `MonitorCondition` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionMonitorCondition? MonitorCondition;
         /// <summary>
-        /// A `monitor_service` block as defined below.
+        /// A `MonitorService` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionMonitorService? MonitorService;
         /// <summary>
-        /// A `severity` block as defined below.
+        /// A `Severity` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionSeverity? Severity;
         /// <summary>
-        /// A `signal_type` block as defined below.
+        /// A `SignalType` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionSignalType? SignalType;
         /// <summary>
-        /// A `target_resource` block as defined below.
+        /// A `TargetResource` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionTargetResource? TargetResource;
         /// <summary>
-        /// A `target_resource_group` block as defined below.
+        /// A `TargetResourceGroup` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionTargetResourceGroup? TargetResourceGroup;
         /// <summary>
-        /// A `target_resource_type` block as defined below.
+        /// A `TargetResourceType` block as defined below.
         /// 
-        /// &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+        /// &gt; **Note:** At least one of the `AlertContext`, `AlertRuleId`, `AlertRuleName`, `Description`, `MonitorCondition`, `MonitorService`, `Severity`, `SignalType`, `TargetResource`, `TargetResourceGroup`, `TargetResourceType` must be specified.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupConditionTargetResourceType? TargetResourceType;
 

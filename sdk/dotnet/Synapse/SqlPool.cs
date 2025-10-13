@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Synapse
     public partial class SqlPool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
+        /// The name of the collation to use with this pool, only applicable when `CreateMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("collation")]
         public Output<string> Collation { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Synapse
         public Output<bool?> DataEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Is geo-backup policy enabled? Defaults to `true`.
+        /// Is geo-backup policy enabled? Defaults to `True`.
         /// </summary>
         [Output("geoBackupPolicyEnabled")]
         public Output<bool?> GeoBackupPolicyEnabled { get; private set; } = null!;
@@ -112,13 +112,13 @@ namespace Pulumi.Azure.Synapse
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
+        /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `CreateMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("recoveryDatabaseId")]
         public Output<string?> RecoveryDatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+        /// A `Restore` block as defined below. Only applicable when `CreateMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("restore")]
         public Output<Outputs.SqlPoolRestore?> Restore { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class SqlPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
+        /// The name of the collation to use with this pool, only applicable when `CreateMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("collation")]
         public Input<string>? Collation { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
-        /// Is geo-backup policy enabled? Defaults to `true`.
+        /// Is geo-backup policy enabled? Defaults to `True`.
         /// </summary>
         [Input("geoBackupPolicyEnabled")]
         public Input<bool>? GeoBackupPolicyEnabled { get; set; }
@@ -224,13 +224,13 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
+        /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `CreateMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("recoveryDatabaseId")]
         public Input<string>? RecoveryDatabaseId { get; set; }
 
         /// <summary>
-        /// A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+        /// A `Restore` block as defined below. Only applicable when `CreateMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("restore")]
         public Input<Inputs.SqlPoolRestoreArgs>? Restore { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class SqlPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
+        /// The name of the collation to use with this pool, only applicable when `CreateMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("collation")]
         public Input<string>? Collation { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
-        /// Is geo-backup policy enabled? Defaults to `true`.
+        /// Is geo-backup policy enabled? Defaults to `True`.
         /// </summary>
         [Input("geoBackupPolicyEnabled")]
         public Input<bool>? GeoBackupPolicyEnabled { get; set; }
@@ -304,13 +304,13 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
+        /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `CreateMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("recoveryDatabaseId")]
         public Input<string>? RecoveryDatabaseId { get; set; }
 
         /// <summary>
-        /// A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+        /// A `Restore` block as defined below. Only applicable when `CreateMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("restore")]
         public Input<Inputs.SqlPoolRestoreGetArgs>? Restore { get; set; }

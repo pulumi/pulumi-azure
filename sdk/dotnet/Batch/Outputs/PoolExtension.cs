@@ -18,9 +18,9 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
-        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `True` and `False`.
         /// 
-        /// &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+        /// &gt; **Note:** When `AutomaticUpgradeEnabled` is set to `True`, the `TypeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `TypeHandlerVersion` should be manually ignored by user.
         /// </summary>
         public readonly bool? AutomaticUpgradeEnabled;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+        /// JSON formatted protected settings for the extension, the value should be encoded with `Jsonencode` function. The extension can contain either `ProtectedSettings` or `ProvisionAfterExtensions` or no protected settings at all.
         /// </summary>
         public readonly string? ProtectedSettings;
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string Publisher;
         /// <summary>
-        /// JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
+        /// JSON formatted public settings for the extension, the value should be encoded with `Jsonencode` function.
         /// </summary>
         public readonly string? SettingsJson;
         /// <summary>

@@ -24,7 +24,7 @@ public final class StandardSiteConfigScmIpRestriction {
      */
     private @Nullable String description;
     /**
-     * @return The `headers` block for this specific `ip_restriction` as defined below.
+     * @return The `headers` block for this specific `ipRestriction` as defined below.
      * 
      */
     private @Nullable StandardSiteConfigScmIpRestrictionHeaders headers;
@@ -51,7 +51,7 @@ public final class StandardSiteConfigScmIpRestriction {
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
      * 
      */
     private @Nullable String virtualNetworkSubnetId;
@@ -72,7 +72,7 @@ public final class StandardSiteConfigScmIpRestriction {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The `headers` block for this specific `ip_restriction` as defined below.
+     * @return The `headers` block for this specific `ipRestriction` as defined below.
      * 
      */
     public Optional<StandardSiteConfigScmIpRestrictionHeaders> headers() {
@@ -109,7 +109,7 @@ public final class StandardSiteConfigScmIpRestriction {
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
      * 
      */
     public Optional<String> virtualNetworkSubnetId() {

@@ -16,6 +16,15 @@ import javax.annotation.Nullable;
 /**
  * Manages a Firewall Rule associated with a Redis Cache.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cache` - 2024-11-01
+ * 
  * ## Import
  * 
  * Redis Firewall Rules can be imported using the `resource id`, e.g.

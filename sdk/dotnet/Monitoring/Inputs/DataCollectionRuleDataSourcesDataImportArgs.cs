@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs>? _eventHubDataSources;
 
         /// <summary>
-        /// An `event_hub_data_source` block as defined below.
+        /// An `EventHubDataSource` block as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs> EventHubDataSources
         {

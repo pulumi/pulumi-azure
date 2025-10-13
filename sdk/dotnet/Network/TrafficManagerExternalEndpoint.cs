@@ -84,19 +84,19 @@ namespace Pulumi.Azure.Network
     public partial class TrafficManagerExternalEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `False`.
         /// </summary>
         [Output("alwaysServeEnabled")]
         public Output<bool?> AlwaysServeEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `custom_header` blocks as defined below.
+        /// One or more `CustomHeader` blocks as defined below.
         /// </summary>
         [Output("customHeaders")]
         public Output<ImmutableArray<Outputs.TrafficManagerExternalEndpointCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Is the endpoint enabled? Defaults to `true`.
+        /// Is the endpoint enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<Outputs.TrafficManagerExternalEndpointSubnet>> Subnets { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerExternalEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `False`.
         /// </summary>
         [Input("alwaysServeEnabled")]
         public Input<bool>? AlwaysServeEnabled { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerExternalEndpointCustomHeaderArgs>? _customHeaders;
 
         /// <summary>
-        /// One or more `custom_header` blocks as defined below.
+        /// One or more `CustomHeader` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TrafficManagerExternalEndpointCustomHeaderArgs> CustomHeaders
         {
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Is the endpoint enabled? Defaults to `true`.
+        /// Is the endpoint enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerExternalEndpointSubnetArgs>? _subnets;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TrafficManagerExternalEndpointSubnetArgs> Subnets
         {
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerExternalEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `False`.
         /// </summary>
         [Input("alwaysServeEnabled")]
         public Input<bool>? AlwaysServeEnabled { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerExternalEndpointCustomHeaderGetArgs>? _customHeaders;
 
         /// <summary>
-        /// One or more `custom_header` blocks as defined below.
+        /// One or more `CustomHeader` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TrafficManagerExternalEndpointCustomHeaderGetArgs> CustomHeaders
         {
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Is the endpoint enabled? Defaults to `true`.
+        /// Is the endpoint enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerExternalEndpointSubnetGetArgs>? _subnets;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TrafficManagerExternalEndpointSubnetGetArgs> Subnets
         {

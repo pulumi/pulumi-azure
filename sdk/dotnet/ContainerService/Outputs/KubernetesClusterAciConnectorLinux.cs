@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAciConnectorLinux
     {
         /// <summary>
-        /// A `connector_identity` block is exported. The exported attributes are defined below.
+        /// A `ConnectorIdentity` block is exported. The exported attributes are defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.KubernetesClusterAciConnectorLinuxConnectorIdentity> ConnectorIdentities;
         /// <summary>

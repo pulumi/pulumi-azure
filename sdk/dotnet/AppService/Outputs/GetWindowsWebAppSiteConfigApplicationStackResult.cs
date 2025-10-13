@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string DockerRegistryPassword;
         /// <summary>
-        /// The URL of the container registry where the `docker_image_name` is located.
+        /// The URL of the container registry where the `DockerImageName` is located.
         /// </summary>
         public readonly string DockerRegistryUrl;
         /// <summary>

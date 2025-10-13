@@ -127,14 +127,14 @@ public final class BudgetResourceGroupArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `time_period` block as defined below.
+     * A `timePeriod` block as defined below.
      * 
      */
     @Import(name="timePeriod", required=true)
     private Output<BudgetResourceGroupTimePeriodArgs> timePeriod;
 
     /**
-     * @return A `time_period` block as defined below.
+     * @return A `timePeriod` block as defined below.
      * 
      */
     public Output<BudgetResourceGroupTimePeriodArgs> timePeriod() {
@@ -330,7 +330,7 @@ public final class BudgetResourceGroupArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param timePeriod A `time_period` block as defined below.
+         * @param timePeriod A `timePeriod` block as defined below.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class BudgetResourceGroupArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param timePeriod A `time_period` block as defined below.
+         * @param timePeriod A `timePeriod` block as defined below.
          * 
          * @return builder
          * 

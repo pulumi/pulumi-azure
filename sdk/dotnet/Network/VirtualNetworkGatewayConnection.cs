@@ -296,8 +296,8 @@ namespace Pulumi.Azure.Network
         public Output<string> ConnectionProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// A `custom_bgp_addresses` block which is documented below.
-        /// The block can only be used on `IPSec` / `activeactive` connections,
+        /// A `CustomBgpAddresses` block which is documented below.
+        /// The block can only be used on `IPSec` / `Activeactive` connections,
         /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
         [Output("customBgpAddresses")]
@@ -316,19 +316,19 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> EgressNatRuleIds { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
         /// </summary>
         [Output("enableBgp")]
         public Output<bool> EnableBgp { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `Type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Output("expressRouteCircuitId")]
         public Output<string?> ExpressRouteCircuitId { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+        /// If `True`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         /// </summary>
         [Output("expressRouteGatewayBypass")]
         public Output<bool> ExpressRouteGatewayBypass { get; private set; } = null!;
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> IngressNatRuleIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `ipsec_policy` block which is documented below.
+        /// A `IpsecPolicy` block which is documented below.
         /// Only a single policy can be defined for a connection. For details on
         /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
@@ -354,7 +354,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> LocalAzureIpAddressEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+        /// The ID of the local network gateway when creating Site-to-Site connection (i.e. when `Type` is `IPsec`).
         /// </summary>
         [Output("localNetworkGatewayId")]
         public Output<string?> LocalNetworkGatewayId { get; private set; } = null!;
@@ -372,13 +372,13 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        /// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `Type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Output("peerVirtualNetworkGatewayId")]
         public Output<string?> PeerVirtualNetworkGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+        /// Bypass the Express Route gateway when accessing private-links. When enabled `ExpressRouteGatewayBypass` must be set to `True`. Defaults to `False`.
         /// </summary>
         [Output("privateLinkFastPathEnabled")]
         public Output<bool?> PrivateLinkFastPathEnabled { get; private set; } = null!;
@@ -408,8 +408,8 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `traffic_selector_policy` blocks which are documented below.
-        /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
+        /// One or more `TrafficSelectorPolicy` blocks which are documented below.
+        /// A `TrafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         [Output("trafficSelectorPolicy")]
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
+        /// If `True`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `IpsecPolicy` block. Defaults to `False`.
         /// </summary>
         [Output("usePolicyBasedTrafficSelectors")]
         public Output<bool> UsePolicyBasedTrafficSelectors { get; private set; } = null!;
@@ -514,8 +514,8 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionProtocol { get; set; }
 
         /// <summary>
-        /// A `custom_bgp_addresses` block which is documented below.
-        /// The block can only be used on `IPSec` / `activeactive` connections,
+        /// A `CustomBgpAddresses` block which is documented below.
+        /// The block can only be used on `IPSec` / `Activeactive` connections,
         /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
         [Input("customBgpAddresses")]
@@ -540,19 +540,19 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `Type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRouteCircuitId")]
         public Input<string>? ExpressRouteCircuitId { get; set; }
 
         /// <summary>
-        /// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+        /// If `True`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         /// </summary>
         [Input("expressRouteGatewayBypass")]
         public Input<bool>? ExpressRouteGatewayBypass { get; set; }
@@ -570,7 +570,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `ipsec_policy` block which is documented below.
+        /// A `IpsecPolicy` block which is documented below.
         /// Only a single policy can be defined for a connection. For details on
         /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
@@ -584,7 +584,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? LocalAzureIpAddressEnabled { get; set; }
 
         /// <summary>
-        /// The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+        /// The ID of the local network gateway when creating Site-to-Site connection (i.e. when `Type` is `IPsec`).
         /// </summary>
         [Input("localNetworkGatewayId")]
         public Input<string>? LocalNetworkGatewayId { get; set; }
@@ -602,13 +602,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        /// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `Type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peerVirtualNetworkGatewayId")]
         public Input<string>? PeerVirtualNetworkGatewayId { get; set; }
 
         /// <summary>
-        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+        /// Bypass the Express Route gateway when accessing private-links. When enabled `ExpressRouteGatewayBypass` must be set to `True`. Defaults to `False`.
         /// </summary>
         [Input("privateLinkFastPathEnabled")]
         public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
@@ -654,8 +654,8 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// One or more `traffic_selector_policy` blocks which are documented below.
-        /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
+        /// One or more `TrafficSelectorPolicy` blocks which are documented below.
+        /// A `TrafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         [Input("trafficSelectorPolicy")]
@@ -668,7 +668,7 @@ namespace Pulumi.Azure.Network
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
+        /// If `True`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `IpsecPolicy` block. Defaults to `False`.
         /// </summary>
         [Input("usePolicyBasedTrafficSelectors")]
         public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }
@@ -717,8 +717,8 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionProtocol { get; set; }
 
         /// <summary>
-        /// A `custom_bgp_addresses` block which is documented below.
-        /// The block can only be used on `IPSec` / `activeactive` connections,
+        /// A `CustomBgpAddresses` block which is documented below.
+        /// The block can only be used on `IPSec` / `Activeactive` connections,
         /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
         [Input("customBgpAddresses")]
@@ -743,19 +743,19 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `Type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRouteCircuitId")]
         public Input<string>? ExpressRouteCircuitId { get; set; }
 
         /// <summary>
-        /// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+        /// If `True`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         /// </summary>
         [Input("expressRouteGatewayBypass")]
         public Input<bool>? ExpressRouteGatewayBypass { get; set; }
@@ -773,7 +773,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `ipsec_policy` block which is documented below.
+        /// A `IpsecPolicy` block which is documented below.
         /// Only a single policy can be defined for a connection. For details on
         /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
@@ -787,7 +787,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? LocalAzureIpAddressEnabled { get; set; }
 
         /// <summary>
-        /// The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+        /// The ID of the local network gateway when creating Site-to-Site connection (i.e. when `Type` is `IPsec`).
         /// </summary>
         [Input("localNetworkGatewayId")]
         public Input<string>? LocalNetworkGatewayId { get; set; }
@@ -805,13 +805,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        /// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `Type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peerVirtualNetworkGatewayId")]
         public Input<string>? PeerVirtualNetworkGatewayId { get; set; }
 
         /// <summary>
-        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+        /// Bypass the Express Route gateway when accessing private-links. When enabled `ExpressRouteGatewayBypass` must be set to `True`. Defaults to `False`.
         /// </summary>
         [Input("privateLinkFastPathEnabled")]
         public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
@@ -857,8 +857,8 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// One or more `traffic_selector_policy` blocks which are documented below.
-        /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
+        /// One or more `TrafficSelectorPolicy` blocks which are documented below.
+        /// A `TrafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         [Input("trafficSelectorPolicy")]
@@ -871,7 +871,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
+        /// If `True`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `IpsecPolicy` block. Defaults to `False`.
         /// </summary>
         [Input("usePolicyBasedTrafficSelectors")]
         public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }

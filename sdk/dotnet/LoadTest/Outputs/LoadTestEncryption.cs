@@ -14,7 +14,7 @@ namespace Pulumi.Azure.LoadTest.Outputs
     public sealed class LoadTestEncryption
     {
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Load Test to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Load Test to be created.
         /// </summary>
         public readonly Outputs.LoadTestEncryptionIdentity Identity;
         /// <summary>

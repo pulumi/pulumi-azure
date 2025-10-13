@@ -173,7 +173,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> AccessKeyMetadataWritesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `analytical_storage` block as defined below.
+        /// An `AnalyticalStorage` block as defined below.
         /// </summary>
         [Output("analyticalStorage")]
         public Output<Outputs.AccountAnalyticalStorage> AnalyticalStorage { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<Outputs.AccountCapability>> Capabilities { get; private set; } = null!;
 
         /// <summary>
-        /// A `capacity` block as defined below.
+        /// A `Capacity` block as defined below.
         /// </summary>
         [Output("capacity")]
         public Output<Outputs.AccountCapacity> Capacity { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
+        /// &gt; **Note:** `CreateMode` can only be defined when the `backup.type` is set to `Continuous`.
         /// </summary>
         [Output("createMode")]
         public Output<string> CreateMode { get; private set; } = null!;
@@ -463,7 +463,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? AccessKeyMetadataWritesEnabled { get; set; }
 
         /// <summary>
-        /// An `analytical_storage` block as defined below.
+        /// An `AnalyticalStorage` block as defined below.
         /// </summary>
         [Input("analyticalStorage")]
         public Input<Inputs.AccountAnalyticalStorageArgs>? AnalyticalStorage { get; set; }
@@ -489,7 +489,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// A `capacity` block as defined below.
+        /// A `Capacity` block as defined below.
         /// </summary>
         [Input("capacity")]
         public Input<Inputs.AccountCapacityArgs>? Capacity { get; set; }
@@ -503,7 +503,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
+        /// &gt; **Note:** `CreateMode` can only be defined when the `backup.type` is set to `Continuous`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -641,7 +641,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? AccessKeyMetadataWritesEnabled { get; set; }
 
         /// <summary>
-        /// An `analytical_storage` block as defined below.
+        /// An `AnalyticalStorage` block as defined below.
         /// </summary>
         [Input("analyticalStorage")]
         public Input<Inputs.AccountAnalyticalStorageGetArgs>? AnalyticalStorage { get; set; }
@@ -667,7 +667,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// A `capacity` block as defined below.
+        /// A `Capacity` block as defined below.
         /// </summary>
         [Input("capacity")]
         public Input<Inputs.AccountCapacityGetArgs>? Capacity { get; set; }
@@ -681,7 +681,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
+        /// &gt; **Note:** `CreateMode` can only be defined when the `backup.type` is set to `Continuous`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }

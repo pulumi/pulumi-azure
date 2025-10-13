@@ -14,11 +14,11 @@ namespace Pulumi.Azure.DataProtection.Outputs
     public sealed class BackupPolicyBlobStorageRetentionRule
     {
         /// <summary>
-        /// A `criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        /// A `Criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
         /// </summary>
         public readonly Outputs.BackupPolicyBlobStorageRetentionRuleCriteria Criteria;
         /// <summary>
-        /// A `life_cycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        /// A `LifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
         /// </summary>
         public readonly Outputs.BackupPolicyBlobStorageRetentionRuleLifeCycle LifeCycle;
         /// <summary>

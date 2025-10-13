@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+        /// Specifies a passthrough value for more generic context. This field can be any valid `String` value. Changing this forces a new resource to be created.
         /// </summary>
         [Input("tag")]
         public Input<string>? Tag { get; set; }

@@ -219,7 +219,7 @@ public class Socketio extends com.pulumi.resources.CustomResource {
     /**
      * Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+     * &gt; **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
      * 
      */
     @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
@@ -228,7 +228,7 @@ public class Socketio extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+     * &gt; **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
      * 
      */
     public Output<Optional<String>> publicNetworkAccess() {
@@ -349,7 +349,7 @@ public class Socketio extends com.pulumi.resources.CustomResource {
     /**
      * Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
      * 
      */
     @Export(name="tlsClientCertEnabled", refs={Boolean.class}, tree="[0]")
@@ -358,7 +358,7 @@ public class Socketio extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
      * 
      */
     public Output<Optional<Boolean>> tlsClientCertEnabled() {

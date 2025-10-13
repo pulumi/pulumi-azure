@@ -97,7 +97,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+        /// The key of the App Configuration Feature. The value for `Name` will be used if this is unspecified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -133,13 +133,13 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `targeting_filter` block as defined below.
+        /// A `TargetingFilter` block as defined below.
         /// </summary>
         [Output("targetingFilters")]
         public Output<ImmutableArray<Outputs.ConfigurationFeatureTargetingFilter>> TargetingFilters { get; private set; } = null!;
 
         /// <summary>
-        /// A `timewindow_filter` block as defined below.
+        /// A `TimewindowFilter` block as defined below.
         /// </summary>
         [Output("timewindowFilters")]
         public Output<ImmutableArray<Outputs.ConfigurationFeatureTimewindowFilter>> TimewindowFilters { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+        /// The key of the App Configuration Feature. The value for `Name` will be used if this is unspecified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationFeatureTargetingFilterArgs>? _targetingFilters;
 
         /// <summary>
-        /// A `targeting_filter` block as defined below.
+        /// A `TargetingFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationFeatureTargetingFilterArgs> TargetingFilters
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationFeatureTimewindowFilterArgs>? _timewindowFilters;
 
         /// <summary>
-        /// A `timewindow_filter` block as defined below.
+        /// A `TimewindowFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationFeatureTimewindowFilterArgs> TimewindowFilters
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+        /// The key of the App Configuration Feature. The value for `Name` will be used if this is unspecified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationFeatureTargetingFilterGetArgs>? _targetingFilters;
 
         /// <summary>
-        /// A `targeting_filter` block as defined below.
+        /// A `TargetingFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationFeatureTargetingFilterGetArgs> TargetingFilters
         {
@@ -364,7 +364,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationFeatureTimewindowFilterGetArgs>? _timewindowFilters;
 
         /// <summary>
-        /// A `timewindow_filter` block as defined below.
+        /// A `TimewindowFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationFeatureTimewindowFilterGetArgs> TimewindowFilters
         {

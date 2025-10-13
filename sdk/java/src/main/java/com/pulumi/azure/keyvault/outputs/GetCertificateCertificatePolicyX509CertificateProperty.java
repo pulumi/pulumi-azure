@@ -29,7 +29,7 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
      */
     private String subject;
     /**
-     * @return A `subject_alternative_names` block as defined below.
+     * @return A `subjectAlternativeNames` block as defined below.
      * 
      */
     private List<GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName> subjectAlternativeNames;
@@ -62,7 +62,7 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
         return this.subject;
     }
     /**
-     * @return A `subject_alternative_names` block as defined below.
+     * @return A `subjectAlternativeNames` block as defined below.
      * 
      */
     public List<GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName> subjectAlternativeNames() {

@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpnServerConfigurationRadius {
     /**
-     * @return One or more `client_root_certificate` blocks as defined below.
+     * @return One or more `clientRootCertificate` blocks as defined below.
      * 
      */
     private @Nullable List<VpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates;
     /**
-     * @return One or more `server_root_certificate` blocks as defined below.
+     * @return One or more `serverRootCertificate` blocks as defined below.
      * 
      */
     private @Nullable List<VpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates;
@@ -31,14 +31,14 @@ public final class VpnServerConfigurationRadius {
 
     private VpnServerConfigurationRadius() {}
     /**
-     * @return One or more `client_root_certificate` blocks as defined below.
+     * @return One or more `clientRootCertificate` blocks as defined below.
      * 
      */
     public List<VpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates() {
         return this.clientRootCertificates == null ? List.of() : this.clientRootCertificates;
     }
     /**
-     * @return One or more `server_root_certificate` blocks as defined below.
+     * @return One or more `serverRootCertificate` blocks as defined below.
      * 
      */
     public List<VpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates() {

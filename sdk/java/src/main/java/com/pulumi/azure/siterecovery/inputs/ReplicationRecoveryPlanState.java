@@ -21,14 +21,14 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
     public static final ReplicationRecoveryPlanState Empty = new ReplicationRecoveryPlanState();
 
     /**
-     * An `azure_to_azure_settings` block as defined below.
+     * An `azureToAzureSettings` block as defined below.
      * 
      */
     @Import(name="azureToAzureSettings")
     private @Nullable Output<ReplicationRecoveryPlanAzureToAzureSettingsArgs> azureToAzureSettings;
 
     /**
-     * @return An `azure_to_azure_settings` block as defined below.
+     * @return An `azureToAzureSettings` block as defined below.
      * 
      */
     public Optional<Output<ReplicationRecoveryPlanAzureToAzureSettingsArgs>> azureToAzureSettings() {
@@ -36,14 +36,14 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `boot_recovery_group` blocks as defined below.
+     * One or more `bootRecoveryGroup` blocks as defined below.
      * 
      */
     @Import(name="bootRecoveryGroups")
     private @Nullable Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups;
 
     /**
-     * @return One or more `boot_recovery_group` blocks as defined below.
+     * @return One or more `bootRecoveryGroup` blocks as defined below.
      * 
      */
     public Optional<Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>>> bootRecoveryGroups() {
@@ -51,14 +51,14 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
     }
 
     /**
-     * One `failover_recovery_group` block as defined below.
+     * One `failoverRecoveryGroup` block as defined below.
      * 
      */
     @Import(name="failoverRecoveryGroup")
     private @Nullable Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup;
 
     /**
-     * @return One `failover_recovery_group` block as defined below.
+     * @return One `failoverRecoveryGroup` block as defined below.
      * 
      */
     public Optional<Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs>> failoverRecoveryGroup() {
@@ -96,14 +96,14 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
     }
 
     /**
-     * One `shutdown_recovery_group` block as defined below.
+     * One `shutdownRecoveryGroup` block as defined below.
      * 
      */
     @Import(name="shutdownRecoveryGroup")
     private @Nullable Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup;
 
     /**
-     * @return One `shutdown_recovery_group` block as defined below.
+     * @return One `shutdownRecoveryGroup` block as defined below.
      * 
      */
     public Optional<Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs>> shutdownRecoveryGroup() {
@@ -172,7 +172,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param azureToAzureSettings An `azure_to_azure_settings` block as defined below.
+         * @param azureToAzureSettings An `azureToAzureSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param azureToAzureSettings An `azure_to_azure_settings` block as defined below.
+         * @param azureToAzureSettings An `azureToAzureSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bootRecoveryGroups One or more `boot_recovery_group` blocks as defined below.
+         * @param bootRecoveryGroups One or more `bootRecoveryGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bootRecoveryGroups One or more `boot_recovery_group` blocks as defined below.
+         * @param bootRecoveryGroups One or more `bootRecoveryGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bootRecoveryGroups One or more `boot_recovery_group` blocks as defined below.
+         * @param bootRecoveryGroups One or more `bootRecoveryGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param failoverRecoveryGroup One `failover_recovery_group` block as defined below.
+         * @param failoverRecoveryGroup One `failoverRecoveryGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param failoverRecoveryGroup One `failover_recovery_group` block as defined below.
+         * @param failoverRecoveryGroup One `failoverRecoveryGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param shutdownRecoveryGroup One `shutdown_recovery_group` block as defined below.
+         * @param shutdownRecoveryGroup One `shutdownRecoveryGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param shutdownRecoveryGroup One `shutdown_recovery_group` block as defined below.
+         * @param shutdownRecoveryGroup One `shutdownRecoveryGroup` block as defined below.
          * 
          * @return builder
          * 

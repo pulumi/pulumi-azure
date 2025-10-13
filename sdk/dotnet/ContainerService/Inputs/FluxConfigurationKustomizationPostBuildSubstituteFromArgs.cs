@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+        /// Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `False`.
         /// </summary>
         [Input("optional")]
         public Input<bool>? Optional { get; set; }

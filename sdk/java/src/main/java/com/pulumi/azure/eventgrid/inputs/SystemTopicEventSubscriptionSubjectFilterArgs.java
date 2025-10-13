@@ -17,14 +17,14 @@ public final class SystemTopicEventSubscriptionSubjectFilterArgs extends com.pul
     public static final SystemTopicEventSubscriptionSubjectFilterArgs Empty = new SystemTopicEventSubscriptionSubjectFilterArgs();
 
     /**
-     * Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
+     * Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
      * 
      */
     @Import(name="caseSensitive")
     private @Nullable Output<Boolean> caseSensitive;
 
     /**
-     * @return Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
+     * @return Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
      * 
      */
     public Optional<Output<Boolean>> caseSensitive() {
@@ -88,7 +88,7 @@ public final class SystemTopicEventSubscriptionSubjectFilterArgs extends com.pul
         }
 
         /**
-         * @param caseSensitive Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
+         * @param caseSensitive Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class SystemTopicEventSubscriptionSubjectFilterArgs extends com.pul
         }
 
         /**
-         * @param caseSensitive Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
+         * @param caseSensitive Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
          * 
          * @return builder
          * 

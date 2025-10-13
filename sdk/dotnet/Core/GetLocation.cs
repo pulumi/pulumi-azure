@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Core
         public readonly string Id;
         public readonly string Location;
         /// <summary>
-        /// A `zone_mappings` block as defined below.
+        /// A `ZoneMappings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLocationZoneMappingResult> ZoneMappings;
 

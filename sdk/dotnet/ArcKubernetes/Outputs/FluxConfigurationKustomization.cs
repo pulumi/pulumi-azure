@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ArcKubernetes.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DependsOns;
         /// <summary>
-        /// Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+        /// Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? GarbageCollectionEnabled;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ArcKubernetes.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+        /// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `False`.
         /// </summary>
         public readonly bool? RecreatingEnabled;
         /// <summary>

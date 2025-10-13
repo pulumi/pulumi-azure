@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// The password associated with the certificate provided above.
         /// 
-        /// &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
+        /// &gt; **Note:** Either `KeyVaultCertificateId` or `Certificate` and `CertificatePassword` must be specified.
         /// </summary>
         public Input<string>? CertificatePassword
         {
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? CertificateStatus { get; set; }
 
         /// <summary>
-        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
+        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `False`.
         /// </summary>
         [Input("defaultSslBinding")]
         public Input<bool>? DefaultSslBinding { get; set; }
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
         /// 
-        /// &gt; **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+        /// &gt; **Note:** Setting this field requires the `Identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         /// </summary>
         [Input("keyVaultCertificateId")]
         public Input<string>? KeyVaultCertificateId { get; set; }
@@ -88,13 +88,13 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `False`.
         /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
 
         /// <summary>
-        /// The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
+        /// The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `Identity` block to be used.
         /// </summary>
         [Input("sslKeyvaultIdentityClientId")]
         public Input<string>? SslKeyvaultIdentityClientId { get; set; }

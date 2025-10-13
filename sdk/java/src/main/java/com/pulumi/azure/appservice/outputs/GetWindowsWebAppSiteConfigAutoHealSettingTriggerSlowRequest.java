@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
     /**
-     * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+     * @return The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
      * 
      */
     private Integer count;
@@ -29,7 +29,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
 
     private GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest() {}
     /**
-     * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+     * @return The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
      * 
      */
     public Integer count() {

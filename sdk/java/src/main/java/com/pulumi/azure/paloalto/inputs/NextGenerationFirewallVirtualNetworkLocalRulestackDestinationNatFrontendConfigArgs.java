@@ -33,7 +33,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
     /**
      * The ID of the Public IP Address on which to receive traffic.
      * 
-     * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+     * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
      * 
      */
     @Import(name="publicIpAddressId", required=true)
@@ -42,7 +42,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
     /**
      * @return The ID of the Public IP Address on which to receive traffic.
      * 
-     * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+     * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
      * 
      */
     public Output<String> publicIpAddressId() {
@@ -98,7 +98,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
         /**
          * @param publicIpAddressId The ID of the Public IP Address on which to receive traffic.
          * 
-         * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+         * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
         /**
          * @param publicIpAddressId The ID of the Public IP Address on which to receive traffic.
          * 
-         * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+         * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
          * 
          * @return builder
          * 

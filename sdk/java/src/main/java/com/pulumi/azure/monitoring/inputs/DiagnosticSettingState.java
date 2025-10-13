@@ -20,18 +20,18 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     public static final DiagnosticSettingState Empty = new DiagnosticSettingState();
 
     /**
-     * One or more `enabled_log` blocks as defined below.
+     * One or more `enabledLog` blocks as defined below.
      * 
-     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
     @Import(name="enabledLogs")
     private @Nullable Output<List<DiagnosticSettingEnabledLogArgs>> enabledLogs;
 
     /**
-     * @return One or more `enabled_log` blocks as defined below.
+     * @return One or more `enabledLog` blocks as defined below.
      * 
-     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
     public Optional<Output<List<DiagnosticSettingEnabledLogArgs>>> enabledLogs() {
@@ -39,18 +39,18 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more `enabled_metric` blocks as defined below.
+     * One or more `enabledMetric` blocks as defined below.
      * 
-     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+     * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
      * 
      */
     @Import(name="enabledMetrics")
     private @Nullable Output<List<DiagnosticSettingEnabledMetricArgs>> enabledMetrics;
 
     /**
-     * @return One or more `enabled_metric` blocks as defined below.
+     * @return One or more `enabledMetric` blocks as defined below.
      * 
-     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+     * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
      * 
      */
     public Optional<Output<List<DiagnosticSettingEnabledMetricArgs>>> enabledMetrics() {
@@ -62,7 +62,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
      * 
      * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      * 
      */
     @Import(name="eventhubAuthorizationRuleId")
@@ -73,7 +73,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
      * 
      * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      * 
      */
     public Optional<Output<String>> eventhubAuthorizationRuleId() {
@@ -102,7 +102,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      * 
-     * &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+     * &gt; **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      * 
      */
     @Import(name="logAnalyticsDestinationType")
@@ -111,7 +111,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * @return Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      * 
-     * &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+     * &gt; **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      * 
      */
     public Optional<Output<String>> logAnalyticsDestinationType() {
@@ -121,7 +121,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      * 
      */
     @Import(name="logAnalyticsWorkspaceId")
@@ -130,7 +130,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * @return Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      * 
      */
     public Optional<Output<String>> logAnalyticsWorkspaceId() {
@@ -139,19 +139,19 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
 
     /**
      * @deprecated
-     * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
+     * `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated /* `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
     @Import(name="metrics")
     private @Nullable Output<List<DiagnosticSettingMetricArgs>> metrics;
 
     /**
      * @deprecated
-     * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
+     * `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated /* `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<List<DiagnosticSettingMetricArgs>>> metrics() {
         return Optional.ofNullable(this.metrics);
     }
@@ -178,7 +178,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      * 
      */
     @Import(name="partnerSolutionId")
@@ -187,7 +187,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * @return The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      * 
      */
     public Optional<Output<String>> partnerSolutionId() {
@@ -197,7 +197,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * The ID of the Storage Account where logs should be sent.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      * 
      */
     @Import(name="storageAccountId")
@@ -206,7 +206,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * @return The ID of the Storage Account where logs should be sent.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -263,9 +263,9 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabledLogs One or more `enabled_log` blocks as defined below.
+         * @param enabledLogs One or more `enabledLog` blocks as defined below.
          * 
-         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+         * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
          * 
          * @return builder
          * 
@@ -276,9 +276,9 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabledLogs One or more `enabled_log` blocks as defined below.
+         * @param enabledLogs One or more `enabledLog` blocks as defined below.
          * 
-         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+         * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
          * 
          * @return builder
          * 
@@ -288,9 +288,9 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabledLogs One or more `enabled_log` blocks as defined below.
+         * @param enabledLogs One or more `enabledLog` blocks as defined below.
          * 
-         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+         * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
          * 
          * @return builder
          * 
@@ -300,9 +300,9 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabledMetrics One or more `enabled_metric` blocks as defined below.
+         * @param enabledMetrics One or more `enabledMetric` blocks as defined below.
          * 
-         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+         * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
          * 
          * @return builder
          * 
@@ -313,9 +313,9 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabledMetrics One or more `enabled_metric` blocks as defined below.
+         * @param enabledMetrics One or more `enabledMetric` blocks as defined below.
          * 
-         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+         * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
          * 
          * @return builder
          * 
@@ -325,9 +325,9 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabledMetrics One or more `enabled_metric` blocks as defined below.
+         * @param enabledMetrics One or more `enabledMetric` blocks as defined below.
          * 
-         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+         * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
          * 
          * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
          * 
-         * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+         * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
          * 
          * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
          * 
-         * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+         * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param logAnalyticsDestinationType Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
          * 
-         * &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+         * &gt; **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param logAnalyticsDestinationType Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
          * 
-         * &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+         * &gt; **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param logAnalyticsWorkspaceId Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
          * 
-         * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+         * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param logAnalyticsWorkspaceId Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
          * 
-         * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+         * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -444,10 +444,10 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          * @deprecated
-         * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
+         * `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated /* `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
         public Builder metrics(@Nullable Output<List<DiagnosticSettingMetricArgs>> metrics) {
             $.metrics = metrics;
             return this;
@@ -457,10 +457,10 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          * @deprecated
-         * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
+         * `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated /* `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
         public Builder metrics(List<DiagnosticSettingMetricArgs> metrics) {
             return metrics(Output.of(metrics));
         }
@@ -469,10 +469,10 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          * @deprecated
-         * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
+         * `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated /* `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
         public Builder metrics(DiagnosticSettingMetricArgs... metrics) {
             return metrics(List.of(metrics));
         }
@@ -505,7 +505,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param partnerSolutionId The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
          * 
-         * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+         * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param partnerSolutionId The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
          * 
-         * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+         * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param storageAccountId The ID of the Storage Account where logs should be sent.
          * 
-         * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+         * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param storageAccountId The ID of the Storage Account where logs should be sent.
          * 
-         * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+         * &gt; **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 

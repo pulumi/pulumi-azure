@@ -61,14 +61,14 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `container_delete_retention_policy` block as defined below.
+     * A `containerDeleteRetentionPolicy` block as defined below.
      * 
      */
     @Import(name="containerDeleteRetentionPolicy")
     private @Nullable Output<AccountBlobPropertiesContainerDeleteRetentionPolicyArgs> containerDeleteRetentionPolicy;
 
     /**
-     * @return A `container_delete_retention_policy` block as defined below.
+     * @return A `containerDeleteRetentionPolicy` block as defined below.
      * 
      */
     public Optional<Output<AccountBlobPropertiesContainerDeleteRetentionPolicyArgs>> containerDeleteRetentionPolicy() {
@@ -76,14 +76,14 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `cors_rule` block as defined below.
+     * A `corsRule` block as defined below.
      * 
      */
     @Import(name="corsRules")
     private @Nullable Output<List<AccountBlobPropertiesCorsRuleArgs>> corsRules;
 
     /**
-     * @return A `cors_rule` block as defined below.
+     * @return A `corsRule` block as defined below.
      * 
      */
     public Optional<Output<List<AccountBlobPropertiesCorsRuleArgs>>> corsRules() {
@@ -106,14 +106,14 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `delete_retention_policy` block as defined below.
+     * A `deleteRetentionPolicy` block as defined below.
      * 
      */
     @Import(name="deleteRetentionPolicy")
     private @Nullable Output<AccountBlobPropertiesDeleteRetentionPolicyArgs> deleteRetentionPolicy;
 
     /**
-     * @return A `delete_retention_policy` block as defined below.
+     * @return A `deleteRetentionPolicy` block as defined below.
      * 
      */
     public Optional<Output<AccountBlobPropertiesDeleteRetentionPolicyArgs>> deleteRetentionPolicy() {
@@ -140,22 +140,22 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+     * A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
      * 
      * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
-     * &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+     * &gt; **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
      * 
      */
     @Import(name="restorePolicy")
     private @Nullable Output<AccountBlobPropertiesRestorePolicyArgs> restorePolicy;
 
     /**
-     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+     * @return A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
      * 
      * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
-     * &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+     * &gt; **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
      * 
      */
     public Optional<Output<AccountBlobPropertiesRestorePolicyArgs>> restorePolicy() {
@@ -264,7 +264,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param containerDeleteRetentionPolicy A `container_delete_retention_policy` block as defined below.
+         * @param containerDeleteRetentionPolicy A `containerDeleteRetentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param containerDeleteRetentionPolicy A `container_delete_retention_policy` block as defined below.
+         * @param containerDeleteRetentionPolicy A `containerDeleteRetentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param corsRules A `cors_rule` block as defined below.
+         * @param corsRules A `corsRule` block as defined below.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param corsRules A `cors_rule` block as defined below.
+         * @param corsRules A `corsRule` block as defined below.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param corsRules A `cors_rule` block as defined below.
+         * @param corsRules A `corsRule` block as defined below.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param deleteRetentionPolicy A `delete_retention_policy` block as defined below.
+         * @param deleteRetentionPolicy A `deleteRetentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param deleteRetentionPolicy A `delete_retention_policy` block as defined below.
+         * @param deleteRetentionPolicy A `deleteRetentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -383,11 +383,11 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+         * @param restorePolicy A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
          * 
          * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
          * 
-         * &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+         * &gt; **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
          * 
          * @return builder
          * 
@@ -398,11 +398,11 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+         * @param restorePolicy A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
          * 
          * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
          * 
-         * &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+         * &gt; **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
          * 
          * @return builder
          * 

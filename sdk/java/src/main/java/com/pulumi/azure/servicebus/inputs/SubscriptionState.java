@@ -49,14 +49,14 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `client_scoped_subscription` block as defined below.
+     * A `clientScopedSubscription` block as defined below.
      * 
      */
     @Import(name="clientScopedSubscription")
     private @Nullable Output<SubscriptionClientScopedSubscriptionArgs> clientScopedSubscription;
 
     /**
-     * @return A `client_scoped_subscription` block as defined below.
+     * @return A `clientScopedSubscription` block as defined below.
      * 
      */
     public Optional<Output<SubscriptionClientScopedSubscriptionArgs>> clientScopedSubscription() {
@@ -328,7 +328,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientScopedSubscription A `client_scoped_subscription` block as defined below.
+         * @param clientScopedSubscription A `clientScopedSubscription` block as defined below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientScopedSubscription A `client_scoped_subscription` block as defined below.
+         * @param clientScopedSubscription A `clientScopedSubscription` block as defined below.
          * 
          * @return builder
          * 

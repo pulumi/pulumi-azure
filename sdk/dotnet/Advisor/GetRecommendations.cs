@@ -217,7 +217,7 @@ namespace Pulumi.Azure.Advisor
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or more `recommendations` blocks as defined below.
+        /// One or more `Recommendations` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRecommendationsRecommendationResult> Recommendations;
 

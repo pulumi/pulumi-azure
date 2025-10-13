@@ -117,42 +117,42 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.assessment);
     }
     /**
-     * An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+     * An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
      * 
      */
     @Export(name="autoBackup", refs={VirtualMachineAutoBackup.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineAutoBackup> autoBackup;
 
     /**
-     * @return An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+     * @return An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
      * 
      */
     public Output<Optional<VirtualMachineAutoBackup>> autoBackup() {
         return Codegen.optional(this.autoBackup);
     }
     /**
-     * An `auto_patching` block as defined below.
+     * An `autoPatching` block as defined below.
      * 
      */
     @Export(name="autoPatching", refs={VirtualMachineAutoPatching.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineAutoPatching> autoPatching;
 
     /**
-     * @return An `auto_patching` block as defined below.
+     * @return An `autoPatching` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineAutoPatching>> autoPatching() {
         return Codegen.optional(this.autoPatching);
     }
     /**
-     * An `key_vault_credential` block as defined below.
+     * An `keyVaultCredential` block as defined below.
      * 
      */
     @Export(name="keyVaultCredential", refs={VirtualMachineKeyVaultCredential.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineKeyVaultCredential> keyVaultCredential;
 
     /**
-     * @return An `key_vault_credential` block as defined below.
+     * @return An `keyVaultCredential` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineKeyVaultCredential>> keyVaultCredential() {
@@ -229,14 +229,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sqlConnectivityUpdateUsername);
     }
     /**
-     * A `sql_instance` block as defined below.
+     * A `sqlInstance` block as defined below.
      * 
      */
     @Export(name="sqlInstance", refs={VirtualMachineSqlInstance.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineSqlInstance> sqlInstance;
 
     /**
-     * @return A `sql_instance` block as defined below.
+     * @return A `sqlInstance` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineSqlInstance>> sqlInstance() {
@@ -271,14 +271,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sqlVirtualMachineGroupId);
     }
     /**
-     * An `storage_configuration` block as defined below.
+     * An `storageConfiguration` block as defined below.
      * 
      */
     @Export(name="storageConfiguration", refs={VirtualMachineStorageConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineStorageConfiguration> storageConfiguration;
 
     /**
-     * @return An `storage_configuration` block as defined below.
+     * @return An `storageConfiguration` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineStorageConfiguration>> storageConfiguration() {
@@ -313,14 +313,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return this.virtualMachineId;
     }
     /**
-     * A `wsfc_domain_credential` block as defined below
+     * A `wsfcDomainCredential` block as defined below
      * 
      */
     @Export(name="wsfcDomainCredential", refs={VirtualMachineWsfcDomainCredential.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineWsfcDomainCredential> wsfcDomainCredential;
 
     /**
-     * @return A `wsfc_domain_credential` block as defined below
+     * @return A `wsfcDomainCredential` block as defined below
      * 
      */
     public Output<Optional<VirtualMachineWsfcDomainCredential>> wsfcDomainCredential() {

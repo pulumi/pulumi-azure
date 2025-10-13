@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Compute
     public partial class RunCommand : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+        /// An `ErrorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         /// </summary>
         [Output("errorBlobManagedIdentity")]
         public Output<Outputs.RunCommandErrorBlobManagedIdentity?> ErrorBlobManagedIdentity { get; private set; } = null!;
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+        /// An `OutputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
         /// </summary>
         [Output("outputBlobManagedIdentity")]
         public Output<Outputs.RunCommandOutputBlobManagedIdentity?> OutputBlobManagedIdentity { get; private set; } = null!;
@@ -363,13 +363,13 @@ namespace Pulumi.Azure.Compute
         public Output<string?> OutputBlobUri { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `parameter` blocks as defined below. The parameters used by the script.
+        /// A list of `Parameter` blocks as defined below. The parameters used by the script.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.RunCommandParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+        /// A list of `ProtectedParameter` blocks as defined below. The protected parameters used by the script.
         /// </summary>
         [Output("protectedParameters")]
         public Output<ImmutableArray<Outputs.RunCommandProtectedParameter>> ProtectedParameters { get; private set; } = null!;
@@ -387,7 +387,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> RunAsUser { get; private set; } = null!;
 
         /// <summary>
-        /// A `source` block as defined below. The source of the run command script.
+        /// A `Source` block as defined below. The source of the run command script.
         /// </summary>
         [Output("source")]
         public Output<Outputs.RunCommandSource> Source { get; private set; } = null!;
@@ -461,7 +461,7 @@ namespace Pulumi.Azure.Compute
         private Input<Inputs.RunCommandErrorBlobManagedIdentityArgs>? _errorBlobManagedIdentity;
 
         /// <summary>
-        /// An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+        /// An `ErrorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         /// </summary>
         public Input<Inputs.RunCommandErrorBlobManagedIdentityArgs>? ErrorBlobManagedIdentity
         {
@@ -495,7 +495,7 @@ namespace Pulumi.Azure.Compute
         private Input<Inputs.RunCommandOutputBlobManagedIdentityArgs>? _outputBlobManagedIdentity;
 
         /// <summary>
-        /// An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+        /// An `OutputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
         /// </summary>
         public Input<Inputs.RunCommandOutputBlobManagedIdentityArgs>? OutputBlobManagedIdentity
         {
@@ -517,7 +517,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.RunCommandParameterArgs>? _parameters;
 
         /// <summary>
-        /// A list of `parameter` blocks as defined below. The parameters used by the script.
+        /// A list of `Parameter` blocks as defined below. The parameters used by the script.
         /// </summary>
         public InputList<Inputs.RunCommandParameterArgs> Parameters
         {
@@ -529,7 +529,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.RunCommandProtectedParameterArgs>? _protectedParameters;
 
         /// <summary>
-        /// A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+        /// A list of `ProtectedParameter` blocks as defined below. The protected parameters used by the script.
         /// </summary>
         public InputList<Inputs.RunCommandProtectedParameterArgs> ProtectedParameters
         {
@@ -564,7 +564,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? RunAsUser { get; set; }
 
         /// <summary>
-        /// A `source` block as defined below. The source of the run command script.
+        /// A `Source` block as defined below. The source of the run command script.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.RunCommandSourceArgs> Source { get; set; } = null!;
@@ -599,7 +599,7 @@ namespace Pulumi.Azure.Compute
         private Input<Inputs.RunCommandErrorBlobManagedIdentityGetArgs>? _errorBlobManagedIdentity;
 
         /// <summary>
-        /// An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+        /// An `ErrorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         /// </summary>
         public Input<Inputs.RunCommandErrorBlobManagedIdentityGetArgs>? ErrorBlobManagedIdentity
         {
@@ -641,7 +641,7 @@ namespace Pulumi.Azure.Compute
         private Input<Inputs.RunCommandOutputBlobManagedIdentityGetArgs>? _outputBlobManagedIdentity;
 
         /// <summary>
-        /// An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+        /// An `OutputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
         /// </summary>
         public Input<Inputs.RunCommandOutputBlobManagedIdentityGetArgs>? OutputBlobManagedIdentity
         {
@@ -663,7 +663,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.RunCommandParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// A list of `parameter` blocks as defined below. The parameters used by the script.
+        /// A list of `Parameter` blocks as defined below. The parameters used by the script.
         /// </summary>
         public InputList<Inputs.RunCommandParameterGetArgs> Parameters
         {
@@ -675,7 +675,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.RunCommandProtectedParameterGetArgs>? _protectedParameters;
 
         /// <summary>
-        /// A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+        /// A list of `ProtectedParameter` blocks as defined below. The protected parameters used by the script.
         /// </summary>
         public InputList<Inputs.RunCommandProtectedParameterGetArgs> ProtectedParameters
         {
@@ -710,7 +710,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? RunAsUser { get; set; }
 
         /// <summary>
-        /// A `source` block as defined below. The source of the run command script.
+        /// A `Source` block as defined below. The source of the run command script.
         /// </summary>
         [Input("source")]
         public Input<Inputs.RunCommandSourceGetArgs>? Source { get; set; }

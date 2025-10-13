@@ -28,7 +28,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         private InputList<Inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs>? _openAuthenticationPolicies;
 
         /// <summary>
-        /// A `open_authentication_policy` block as defined below.
+        /// A `OpenAuthenticationPolicy` block as defined below.
         /// </summary>
         public InputList<Inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs> OpenAuthenticationPolicies
         {

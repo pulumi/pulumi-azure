@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Dns
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+        /// A list of values that make up the SRV record. Each `Record` block supports fields documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSrvRecordRecordResult> Records;
         public readonly string ResourceGroupName;

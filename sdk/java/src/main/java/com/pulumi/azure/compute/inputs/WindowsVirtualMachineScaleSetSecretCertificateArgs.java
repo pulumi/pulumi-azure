@@ -32,7 +32,7 @@ public final class WindowsVirtualMachineScaleSetSecretCertificateArgs extends co
     /**
      * The Secret URL of a Key Vault Certificate.
      * 
-     * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     @Import(name="url", required=true)
@@ -41,7 +41,7 @@ public final class WindowsVirtualMachineScaleSetSecretCertificateArgs extends co
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
-     * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     public Output<String> url() {
@@ -97,7 +97,7 @@ public final class WindowsVirtualMachineScaleSetSecretCertificateArgs extends co
         /**
          * @param url The Secret URL of a Key Vault Certificate.
          * 
-         * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+         * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class WindowsVirtualMachineScaleSetSecretCertificateArgs extends co
         /**
          * @param url The Secret URL of a Key Vault Certificate.
          * 
-         * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+         * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          * 
          * @return builder
          * 

@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
-        /// A `linux` block as defined below.
+        /// A `Linux` block as defined below.
         /// </summary>
         [Output("linux")]
         public Output<Outputs.SoftwareUpdateConfigurationLinux?> Linux { get; private set; } = null!;
@@ -147,25 +147,25 @@ namespace Pulumi.Azure.Automation
         public Output<ImmutableArray<string>> NonAzureComputerNames { get; private set; } = null!;
 
         /// <summary>
-        /// A `post_task` blocks as defined below.
+        /// A `PostTask` blocks as defined below.
         /// </summary>
         [Output("postTask")]
         public Output<Outputs.SoftwareUpdateConfigurationPostTask?> PostTask { get; private set; } = null!;
 
         /// <summary>
-        /// A `pre_task` blocks as defined below.
+        /// A `PreTask` blocks as defined below.
         /// </summary>
         [Output("preTask")]
         public Output<Outputs.SoftwareUpdateConfigurationPreTask?> PreTask { get; private set; } = null!;
 
         /// <summary>
-        /// A `schedule` blocks as defined below.
+        /// A `Schedule` blocks as defined below.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.SoftwareUpdateConfigurationSchedule> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// A `target` blocks as defined below.
+        /// A `Target` blocks as defined below.
         /// </summary>
         [Output("target")]
         public Output<Outputs.SoftwareUpdateConfigurationTarget?> Target { get; private set; } = null!;
@@ -177,9 +177,9 @@ namespace Pulumi.Azure.Automation
         public Output<ImmutableArray<string>> VirtualMachineIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `windows` block as defined below.
+        /// A `Windows` block as defined below.
         /// 
-        /// &gt; **Note:** One of `linux` or `windows` must be specified.
+        /// &gt; **Note:** One of `Linux` or `Windows` must be specified.
         /// </summary>
         [Output("windows")]
         public Output<Outputs.SoftwareUpdateConfigurationWindows?> Windows { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Duration { get; set; }
 
         /// <summary>
-        /// A `linux` block as defined below.
+        /// A `Linux` block as defined below.
         /// </summary>
         [Input("linux")]
         public Input<Inputs.SoftwareUpdateConfigurationLinuxArgs>? Linux { get; set; }
@@ -267,25 +267,25 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// A `post_task` blocks as defined below.
+        /// A `PostTask` blocks as defined below.
         /// </summary>
         [Input("postTask")]
         public Input<Inputs.SoftwareUpdateConfigurationPostTaskArgs>? PostTask { get; set; }
 
         /// <summary>
-        /// A `pre_task` blocks as defined below.
+        /// A `PreTask` blocks as defined below.
         /// </summary>
         [Input("preTask")]
         public Input<Inputs.SoftwareUpdateConfigurationPreTaskArgs>? PreTask { get; set; }
 
         /// <summary>
-        /// A `schedule` blocks as defined below.
+        /// A `Schedule` blocks as defined below.
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.SoftwareUpdateConfigurationScheduleArgs> Schedule { get; set; } = null!;
 
         /// <summary>
-        /// A `target` blocks as defined below.
+        /// A `Target` blocks as defined below.
         /// </summary>
         [Input("target")]
         public Input<Inputs.SoftwareUpdateConfigurationTargetArgs>? Target { get; set; }
@@ -303,9 +303,9 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// A `windows` block as defined below.
+        /// A `Windows` block as defined below.
         /// 
-        /// &gt; **Note:** One of `linux` or `windows` must be specified.
+        /// &gt; **Note:** One of `Linux` or `Windows` must be specified.
         /// </summary>
         [Input("windows")]
         public Input<Inputs.SoftwareUpdateConfigurationWindowsArgs>? Windows { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? ErrorMessage { get; set; }
 
         /// <summary>
-        /// A `linux` block as defined below.
+        /// A `Linux` block as defined below.
         /// </summary>
         [Input("linux")]
         public Input<Inputs.SoftwareUpdateConfigurationLinuxGetArgs>? Linux { get; set; }
@@ -367,25 +367,25 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// A `post_task` blocks as defined below.
+        /// A `PostTask` blocks as defined below.
         /// </summary>
         [Input("postTask")]
         public Input<Inputs.SoftwareUpdateConfigurationPostTaskGetArgs>? PostTask { get; set; }
 
         /// <summary>
-        /// A `pre_task` blocks as defined below.
+        /// A `PreTask` blocks as defined below.
         /// </summary>
         [Input("preTask")]
         public Input<Inputs.SoftwareUpdateConfigurationPreTaskGetArgs>? PreTask { get; set; }
 
         /// <summary>
-        /// A `schedule` blocks as defined below.
+        /// A `Schedule` blocks as defined below.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.SoftwareUpdateConfigurationScheduleGetArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// A `target` blocks as defined below.
+        /// A `Target` blocks as defined below.
         /// </summary>
         [Input("target")]
         public Input<Inputs.SoftwareUpdateConfigurationTargetGetArgs>? Target { get; set; }
@@ -403,9 +403,9 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// A `windows` block as defined below.
+        /// A `Windows` block as defined below.
         /// 
-        /// &gt; **Note:** One of `linux` or `windows` must be specified.
+        /// &gt; **Note:** One of `Linux` or `Windows` must be specified.
         /// </summary>
         [Input("windows")]
         public Input<Inputs.SoftwareUpdateConfigurationWindowsGetArgs>? Windows { get; set; }

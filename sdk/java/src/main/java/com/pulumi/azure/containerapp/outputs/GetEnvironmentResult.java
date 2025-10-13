@@ -59,7 +59,7 @@ public final class GetEnvironmentResult {
      */
     private String platformReservedCidr;
     /**
-     * @return The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+     * @return The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
      * 
      */
     private String platformReservedDnsIpAddress;
@@ -143,7 +143,7 @@ public final class GetEnvironmentResult {
         return this.platformReservedCidr;
     }
     /**
-     * @return The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+     * @return The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
      * 
      */
     public String platformReservedDnsIpAddress() {

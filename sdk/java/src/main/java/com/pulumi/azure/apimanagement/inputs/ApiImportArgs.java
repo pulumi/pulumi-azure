@@ -33,14 +33,14 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
+     * The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
      * 
      */
     @Import(name="contentValue", required=true)
     private Output<String> contentValue;
 
     /**
-     * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
+     * @return The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
      * 
      */
     public Output<String> contentValue() {
@@ -48,14 +48,14 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+     * A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
      * 
      */
     @Import(name="wsdlSelector")
     private @Nullable Output<ApiImportWsdlSelectorArgs> wsdlSelector;
 
     /**
-     * @return A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+     * @return A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
      * 
      */
     public Optional<Output<ApiImportWsdlSelectorArgs>> wsdlSelector() {
@@ -110,7 +110,7 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentValue The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
+         * @param contentValue The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentValue The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
+         * @param contentValue The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wsdlSelector A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+         * @param wsdlSelector A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wsdlSelector A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+         * @param wsdlSelector A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
          * 
          * @return builder
          * 

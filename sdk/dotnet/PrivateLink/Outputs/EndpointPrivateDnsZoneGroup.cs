@@ -22,7 +22,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+        /// Specifies the list of Private DNS Zones to include within the `PrivateDnsZoneGroup`.
         /// </summary>
         public readonly ImmutableArray<string> PrivateDnsZoneIds;
 

@@ -13,69 +13,69 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class AlertProcessingRuleActionGroupConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `alert_context` block as defined above.
+        /// A `AlertContext` block as defined above.
         /// </summary>
         [Input("alertContext")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionAlertContextArgs>? AlertContext { get; set; }
 
         /// <summary>
-        /// A `alert_rule_id` block as defined above.
+        /// A `AlertRuleId` block as defined above.
         /// </summary>
         [Input("alertRuleId")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionAlertRuleIdArgs>? AlertRuleId { get; set; }
 
         /// <summary>
-        /// A `alert_rule_name` block as defined above.
+        /// A `AlertRuleName` block as defined above.
         /// </summary>
         [Input("alertRuleName")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionAlertRuleNameArgs>? AlertRuleName { get; set; }
 
         /// <summary>
-        /// A `description` block as defined below.
+        /// A `Description` block as defined below.
         /// </summary>
         [Input("description")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionDescriptionArgs>? Description { get; set; }
 
         /// <summary>
-        /// A `monitor_condition` block as defined below.
+        /// A `MonitorCondition` block as defined below.
         /// </summary>
         [Input("monitorCondition")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionMonitorConditionArgs>? MonitorCondition { get; set; }
 
         /// <summary>
-        /// A `monitor_service` block as defined below.
+        /// A `MonitorService` block as defined below.
         /// </summary>
         [Input("monitorService")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionMonitorServiceArgs>? MonitorService { get; set; }
 
         /// <summary>
-        /// A `severity` block as defined below.
+        /// A `Severity` block as defined below.
         /// </summary>
         [Input("severity")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionSeverityArgs>? Severity { get; set; }
 
         /// <summary>
-        /// A `signal_type` block as defined below.
+        /// A `SignalType` block as defined below.
         /// </summary>
         [Input("signalType")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionSignalTypeArgs>? SignalType { get; set; }
 
         /// <summary>
-        /// A `target_resource` block as defined below.
+        /// A `TargetResource` block as defined below.
         /// </summary>
         [Input("targetResource")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionTargetResourceArgs>? TargetResource { get; set; }
 
         /// <summary>
-        /// A `target_resource_group` block as defined below.
+        /// A `TargetResourceGroup` block as defined below.
         /// </summary>
         [Input("targetResourceGroup")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs>? TargetResourceGroup { get; set; }
 
         /// <summary>
-        /// A `target_resource_type` block as defined below.
+        /// A `TargetResourceType` block as defined below.
         /// 
-        /// &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+        /// &gt; **Note:** At least one of the `AlertContext`, `AlertRuleId`, `AlertRuleName`, `Description`, `MonitorCondition`, `MonitorService`, `Severity`, `SignalType`, `TargetResource`, `TargetResourceGroup`, `TargetResourceType` must be specified.
         /// </summary>
         [Input("targetResourceType")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs>? TargetResourceType { get; set; }

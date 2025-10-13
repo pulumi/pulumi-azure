@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ServiceBus.Outputs
     public sealed class NamespaceNetworkRuleSetNetworkRule
     {
         /// <summary>
-        /// Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+        /// Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `False`.
         /// </summary>
         public readonly bool? IgnoreMissingVnetServiceEndpoint;
         /// <summary>

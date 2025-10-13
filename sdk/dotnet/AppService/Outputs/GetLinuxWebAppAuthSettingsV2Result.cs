@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetLinuxWebAppAuthSettingsV2Result
     {
         /// <summary>
-        /// An `active_directory_v2` block as defined below.
+        /// An `ActiveDirectoryV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result> ActiveDirectoryV2s;
         /// <summary>
-        /// An `apple_v2` block as defined below.
+        /// An `AppleV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2AppleV2Result> AppleV2s;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool AuthEnabled;
         /// <summary>
-        /// An `azure_static_web_app_v2` block as defined below.
+        /// An `AzureStaticWebAppV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Result> AzureStaticWebAppV2s;
         /// <summary>
@@ -34,19 +34,19 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ConfigFilePath;
         /// <summary>
-        /// Zero or more `custom_oidc_v2` blocks as defined below.
+        /// Zero or more `CustomOidcV2` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2CustomOidcV2Result> CustomOidcV2s;
         /// <summary>
-        /// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        /// The Default Authentication Provider used when more than one Authentication Provider is configured and the `UnauthenticatedAction` is set to `RedirectToLoginPage`.
         /// </summary>
         public readonly string DefaultProvider;
         /// <summary>
-        /// The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        /// The paths which should be excluded from the `UnauthenticatedAction` when it is set to `RedirectToLoginPage`.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPaths;
         /// <summary>
-        /// A `facebook_v2` block as defined below.
+        /// A `FacebookV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2FacebookV2Result> FacebookV2s;
         /// <summary>
@@ -62,11 +62,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ForwardProxyCustomSchemeHeaderName;
         /// <summary>
-        /// A `github_v2` block as defined below.
+        /// A `GithubV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2GithubV2Result> GithubV2s;
         /// <summary>
-        /// A `google_v2` block as defined below.
+        /// A `GoogleV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2GoogleV2Result> GoogleV2s;
         /// <summary>
@@ -74,11 +74,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string HttpRouteApiPrefix;
         /// <summary>
-        /// A `login` block as defined below.
+        /// A `Login` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2LoginResult> Logins;
         /// <summary>
-        /// A `microsoft_v2` block as defined below.
+        /// A `MicrosoftV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2MicrosoftV2Result> MicrosoftV2s;
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string RuntimeVersion;
         /// <summary>
-        /// A `twitter_v2` block as defined below.
+        /// A `TwitterV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2TwitterV2Result> TwitterV2s;
         /// <summary>

@@ -174,7 +174,7 @@ namespace Pulumi.Azure.ArcMachine
         /// </summary>
         public readonly string AgentVersion;
         /// <summary>
-        /// A `agent` block as defined below.
+        /// A `Agent` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAgentResult> Agents;
         /// <summary>
@@ -182,11 +182,11 @@ namespace Pulumi.Azure.ArcMachine
         /// </summary>
         public readonly string ClientPublicKey;
         /// <summary>
-        /// A `cloud_metadata` block as defined below.
+        /// A `CloudMetadata` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudMetadataResult> CloudMetadatas;
         /// <summary>
-        /// A `detected_properties` block as defined below.
+        /// A `DetectedProperties` block as defined below.
         /// </summary>
         public readonly ImmutableDictionary<string, string> DetectedProperties;
         /// <summary>
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.ArcMachine
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIdentityResult> Identities;
         /// <summary>
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.ArcMachine
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `location_data` block as defined below.
+        /// A `LocationData` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLocationDataResult> LocationDatas;
         /// <summary>
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.ArcMachine
         /// </summary>
         public readonly string OsName;
         /// <summary>
-        /// A `os_profile` block as defined below.
+        /// A `OsProfile` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOsProfileResult> OsProfiles;
         /// <summary>
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.ArcMachine
         /// </summary>
         public readonly string OsSku;
         /// <summary>
-        /// The type of Operating System. Possible values are `windows` and `linux`.
+        /// The type of Operating System. Possible values are `Windows` and `Linux`.
         /// </summary>
         public readonly string OsType;
         /// <summary>
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.ArcMachine
         public readonly string PrivateLinkScopeResourceId;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `service_status` block as defined below.
+        /// A `ServiceStatus` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceStatusResult> ServiceStatuses;
         /// <summary>

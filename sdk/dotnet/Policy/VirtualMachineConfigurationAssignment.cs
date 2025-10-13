@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Policy
     public partial class VirtualMachineConfigurationAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `configuration` block as defined below.
+        /// A `Configuration` block as defined below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.VirtualMachineConfigurationAssignmentConfiguration> Configuration { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Policy
     public sealed class VirtualMachineConfigurationAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `configuration` block as defined below.
+        /// A `Configuration` block as defined below.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.VirtualMachineConfigurationAssignmentConfigurationArgs> Configuration { get; set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Policy
     public sealed class VirtualMachineConfigurationAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `configuration` block as defined below.
+        /// A `Configuration` block as defined below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.VirtualMachineConfigurationAssignmentConfigurationGetArgs>? Configuration { get; set; }

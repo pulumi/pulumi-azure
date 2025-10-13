@@ -137,7 +137,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Output("serialization")]
         public Output<Outputs.StreamInputEventHubSerialization> Serialization { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization", required: true)]
         public Input<Inputs.StreamInputEventHubSerializationArgs> Serialization { get; set; } = null!;
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization")]
         public Input<Inputs.StreamInputEventHubSerializationGetArgs>? Serialization { get; set; }

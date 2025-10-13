@@ -203,6 +203,8 @@ class SqlTrigger(pulumi.CustomResource):
         """
         Manages an SQL Trigger.
 
+        ## Example Usage
+
         ## Import
 
         SQL Triggers can be imported using the `resource id`, e.g.
@@ -227,6 +229,8 @@ class SqlTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an SQL Trigger.
+
+        ## Example Usage
 
         ## Import
 

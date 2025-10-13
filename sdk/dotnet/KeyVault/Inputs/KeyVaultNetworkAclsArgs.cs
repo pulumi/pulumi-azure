@@ -19,7 +19,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public Input<string> Bypass { get; set; } = null!;
 
         /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+        /// The Default Action to use when no rules match from `IpRules` / `VirtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;

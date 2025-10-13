@@ -24,13 +24,13 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// <summary>
         /// The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
         /// 
-        /// &gt; **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+        /// &gt; **Note:** `PrimaryEdgeZone` and `RecoveryEdgeZone` must be specified together.
         /// </summary>
         public readonly string? RecoveryEdgeZone;
         /// <summary>
         /// The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
         /// 
-        /// &gt; **Note:** `primary_zone` and `recovery_zone` must be specified together.
+        /// &gt; **Note:** `PrimaryZone` and `RecoveryZone` must be specified together.
         /// </summary>
         public readonly string? RecoveryZone;
 

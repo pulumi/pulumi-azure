@@ -25,7 +25,7 @@ public final class ScaleSetExtension {
      */
     private String name;
     /**
-     * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * @return The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
     private @Nullable String protectedSettings;
@@ -71,7 +71,7 @@ public final class ScaleSetExtension {
         return this.name;
     }
     /**
-     * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * @return The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
     public Optional<String> protectedSettings() {

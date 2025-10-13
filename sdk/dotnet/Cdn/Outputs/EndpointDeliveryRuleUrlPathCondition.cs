@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointDeliveryRuleUrlPathCondition
     {
         /// <summary>
-        /// List of string values. This is required if `operator` is not `Any`.
+        /// List of string values. This is required if `Operator` is not `Any`.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>
-        /// Defaults to `false`.
+        /// Defaults to `False`.
         /// </summary>
         public readonly bool? NegateCondition;
         /// <summary>

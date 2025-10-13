@@ -107,7 +107,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
+        /// Sets a daily snapshot schedule. A `DailySchedule` block as defined below.
         /// </summary>
         [Output("dailySchedule")]
         public Output<Outputs.SnapshotPolicyDailySchedule?> DailySchedule { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.NetApp
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
+        /// Sets an hourly snapshot schedule. A `HourlySchedule` block as defined below.
         /// </summary>
         [Output("hourlySchedule")]
         public Output<Outputs.SnapshotPolicyHourlySchedule?> HourlySchedule { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
+        /// Sets a monthly snapshot schedule. A `MonthlySchedule` block as defined below.
         /// </summary>
         [Output("monthlySchedule")]
         public Output<Outputs.SnapshotPolicyMonthlySchedule?> MonthlySchedule { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.NetApp
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
+        /// Sets a weekly snapshot schedule. A `WeeklySchedule` block as defined below.
         /// </summary>
         [Output("weeklySchedule")]
         public Output<Outputs.SnapshotPolicyWeeklySchedule?> WeeklySchedule { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
+        /// Sets a daily snapshot schedule. A `DailySchedule` block as defined below.
         /// </summary>
         [Input("dailySchedule")]
         public Input<Inputs.SnapshotPolicyDailyScheduleArgs>? DailySchedule { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
+        /// Sets an hourly snapshot schedule. A `HourlySchedule` block as defined below.
         /// </summary>
         [Input("hourlySchedule")]
         public Input<Inputs.SnapshotPolicyHourlyScheduleArgs>? HourlySchedule { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
+        /// Sets a monthly snapshot schedule. A `MonthlySchedule` block as defined below.
         /// </summary>
         [Input("monthlySchedule")]
         public Input<Inputs.SnapshotPolicyMonthlyScheduleArgs>? MonthlySchedule { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
+        /// Sets a weekly snapshot schedule. A `WeeklySchedule` block as defined below.
         /// </summary>
         [Input("weeklySchedule")]
         public Input<Inputs.SnapshotPolicyWeeklyScheduleArgs>? WeeklySchedule { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
+        /// Sets a daily snapshot schedule. A `DailySchedule` block as defined below.
         /// </summary>
         [Input("dailySchedule")]
         public Input<Inputs.SnapshotPolicyDailyScheduleGetArgs>? DailySchedule { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
+        /// Sets an hourly snapshot schedule. A `HourlySchedule` block as defined below.
         /// </summary>
         [Input("hourlySchedule")]
         public Input<Inputs.SnapshotPolicyHourlyScheduleGetArgs>? HourlySchedule { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
+        /// Sets a monthly snapshot schedule. A `MonthlySchedule` block as defined below.
         /// </summary>
         [Input("monthlySchedule")]
         public Input<Inputs.SnapshotPolicyMonthlyScheduleGetArgs>? MonthlySchedule { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
+        /// Sets a weekly snapshot schedule. A `WeeklySchedule` block as defined below.
         /// </summary>
         [Input("weeklySchedule")]
         public Input<Inputs.SnapshotPolicyWeeklyScheduleGetArgs>? WeeklySchedule { get; set; }

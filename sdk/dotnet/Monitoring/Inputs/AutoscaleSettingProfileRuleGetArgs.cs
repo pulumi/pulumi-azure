@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class AutoscaleSettingProfileRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `metric_trigger` block as defined below.
+        /// A `MetricTrigger` block as defined below.
         /// </summary>
         [Input("metricTrigger", required: true)]
         public Input<Inputs.AutoscaleSettingProfileRuleMetricTriggerGetArgs> MetricTrigger { get; set; } = null!;
 
         /// <summary>
-        /// A `scale_action` block as defined below.
+        /// A `ScaleAction` block as defined below.
         /// </summary>
         [Input("scaleAction", required: true)]
         public Input<Inputs.AutoscaleSettingProfileRuleScaleActionGetArgs> ScaleAction { get; set; } = null!;

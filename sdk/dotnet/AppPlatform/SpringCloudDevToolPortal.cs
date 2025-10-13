@@ -90,7 +90,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<bool> ApplicationLiveViewEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `Default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> SpringCloudServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `sso` block as defined below.
+        /// A `Sso` block as defined below.
         /// </summary>
         [Output("sso")]
         public Output<Outputs.SpringCloudDevToolPortalSso?> Sso { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? ApplicationLiveViewEnabled { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `Default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> SpringCloudServiceId { get; set; } = null!;
 
         /// <summary>
-        /// A `sso` block as defined below.
+        /// A `Sso` block as defined below.
         /// </summary>
         [Input("sso")]
         public Input<Inputs.SpringCloudDevToolPortalSsoArgs>? Sso { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? ApplicationLiveViewEnabled { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `Default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? SpringCloudServiceId { get; set; }
 
         /// <summary>
-        /// A `sso` block as defined below.
+        /// A `Sso` block as defined below.
         /// </summary>
         [Input("sso")]
         public Input<Inputs.SpringCloudDevToolPortalSsoGetArgs>? Sso { get; set; }

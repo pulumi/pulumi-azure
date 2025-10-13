@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Storage.Inputs
         }
 
         /// <summary>
-        /// Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+        /// Indicates whether multichannel is enabled. Defaults to `False`. This is only supported on Premium storage accounts.
         /// </summary>
         [Input("multichannelEnabled")]
         public Input<bool>? MultichannelEnabled { get; set; }

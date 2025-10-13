@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ElasticCloud.Outputs
     public sealed class GetElasticsearchLogFilteringTagResult
     {
         /// <summary>
-        /// The type of action which is taken when the Tag matches the `name` and `value`.
+        /// The type of action which is taken when the Tag matches the `Name` and `Value`.
         /// </summary>
         public readonly string Action;
         /// <summary>

@@ -212,14 +212,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerservice/registryCredentialSet:RegistryCredentialSet")
 public class RegistryCredentialSet extends com.pulumi.resources.CustomResource {
     /**
-     * A `authentication_credentials` block as defined below.
+     * A `authenticationCredentials` block as defined below.
      * 
      */
     @Export(name="authenticationCredentials", refs={RegistryCredentialSetAuthenticationCredentials.class}, tree="[0]")
     private Output<RegistryCredentialSetAuthenticationCredentials> authenticationCredentials;
 
     /**
-     * @return A `authentication_credentials` block as defined below.
+     * @return A `authenticationCredentials` block as defined below.
      * 
      */
     public Output<RegistryCredentialSetAuthenticationCredentials> authenticationCredentials() {

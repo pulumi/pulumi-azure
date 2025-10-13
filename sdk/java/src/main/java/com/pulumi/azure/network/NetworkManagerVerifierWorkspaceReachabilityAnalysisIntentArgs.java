@@ -48,14 +48,14 @@ public final class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs
     }
 
     /**
-     * An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+     * An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      * 
      */
     @Import(name="ipTraffic", required=true)
     private Output<NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs> ipTraffic;
 
     /**
-     * @return An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+     * @return An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      * 
      */
     public Output<NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs> ipTraffic() {
@@ -179,7 +179,7 @@ public final class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs
         }
 
         /**
-         * @param ipTraffic An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+         * @param ipTraffic An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs
         }
 
         /**
-         * @param ipTraffic An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+         * @param ipTraffic An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
          * 
          * @return builder
          * 

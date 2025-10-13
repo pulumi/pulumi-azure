@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Stack.Inputs
     public sealed class HciDeploymentSettingScaleUnitHostNetworkIntentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// A `AdapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         [Input("adapterPropertyOverride")]
         public Input<Inputs.HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs>? AdapterPropertyOverride { get; set; }
 
         /// <summary>
-        /// Whether to override adapter properties. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to override adapter properties. Possible values are `True` and `False`. defaults to `False`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         [Input("adapterPropertyOverrideEnabled")]
         public Input<bool>? AdapterPropertyOverrideEnabled { get; set; }
@@ -43,13 +43,13 @@ namespace Pulumi.Azure.Stack.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// A `QosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         [Input("qosPolicyOverride")]
         public Input<Inputs.HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs>? QosPolicyOverride { get; set; }
 
         /// <summary>
-        /// Whether to override QoS policy. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to override QoS policy. Possible values are `True` and `False`. defaults to `False`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         [Input("qosPolicyOverrideEnabled")]
         public Input<bool>? QosPolicyOverrideEnabled { get; set; }
@@ -67,13 +67,13 @@ namespace Pulumi.Azure.Stack.Inputs
         }
 
         /// <summary>
-        /// A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// A `VirtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         [Input("virtualSwitchConfigurationOverride")]
         public Input<Inputs.HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs>? VirtualSwitchConfigurationOverride { get; set; }
 
         /// <summary>
-        /// Whether to override virtual switch configuration. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to override virtual switch configuration. Possible values are `True` and `False`. defaults to `False`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         [Input("virtualSwitchConfigurationOverrideEnabled")]
         public Input<bool>? VirtualSwitchConfigurationOverrideEnabled { get; set; }

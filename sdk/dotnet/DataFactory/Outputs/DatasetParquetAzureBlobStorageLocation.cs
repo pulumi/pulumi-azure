@@ -18,15 +18,15 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string Container;
         /// <summary>
-        /// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Container` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         public readonly bool? DynamicContainerEnabled;
         /// <summary>
-        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Filename` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         public readonly bool? DynamicFilenameEnabled;
         /// <summary>
-        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Path` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         public readonly bool? DynamicPathEnabled;
         /// <summary>

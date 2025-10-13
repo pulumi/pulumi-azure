@@ -67,7 +67,7 @@ namespace Pulumi.Azure
         public Output<string?> ClientSecretFilePath { get; private set; } = null!;
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `MetadataHost` is specified.
         /// </summary>
         [Output("environment")]
         public Output<string?> Environment { get; private set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Azure
         public Input<bool>? DisableTerraformPartnerId { get; set; }
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `MetadataHost` is specified.
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Azure
         private InputList<string>? _resourceProvidersToRegisters;
 
         /// <summary>
-        /// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
+        /// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `ResourceProviderRegistrations` property.
         /// </summary>
         public InputList<string> ResourceProvidersToRegisters
         {

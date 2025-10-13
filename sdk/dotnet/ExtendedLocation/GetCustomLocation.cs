@@ -166,7 +166,7 @@ namespace Pulumi.Azure.ExtendedLocation
     public sealed class GetCustomLocationResult
     {
         /// <summary>
-        /// An `authentication` block as defined below.
+        /// An `Authentication` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomLocationAuthenticationResult> Authentications;
         /// <summary>

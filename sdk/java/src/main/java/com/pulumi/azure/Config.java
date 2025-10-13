@@ -84,7 +84,7 @@ public final class Config {
         return Codegen.booleanProp("disableTerraformPartnerId").config(config).get();
     }
 /**
- * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
+ * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
  * 
  */
     public Optional<String> environment() {
@@ -160,7 +160,7 @@ public final class Config {
         return Codegen.stringProp("resourceProviderRegistrations").config(config).get();
     }
 /**
- * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
+ * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
  * 
  */
     public Optional<List<String>> resourceProvidersToRegisters() {

@@ -54,7 +54,7 @@ public final class ServiceAdditionalLocation {
      */
     private @Nullable List<String> publicIpAddresses;
     /**
-     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      * 
      */
     private @Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration;
@@ -117,7 +117,7 @@ public final class ServiceAdditionalLocation {
         return this.publicIpAddresses == null ? List.of() : this.publicIpAddresses;
     }
     /**
-     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      * 
      */
     public Optional<ServiceAdditionalLocationVirtualNetworkConfiguration> virtualNetworkConfiguration() {

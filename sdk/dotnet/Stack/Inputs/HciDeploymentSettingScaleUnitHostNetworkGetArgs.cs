@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Stack.Inputs
         private InputList<Inputs.HciDeploymentSettingScaleUnitHostNetworkIntentGetArgs>? _intents;
 
         /// <summary>
-        /// One or more `intent` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// One or more `Intent` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public InputList<Inputs.HciDeploymentSettingScaleUnitHostNetworkIntentGetArgs> Intents
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Stack.Inputs
         }
 
         /// <summary>
-        /// Whether allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically. Optional parameter required only for [3 nodes switchless deployments](https://learn.microsoft.com/azure-stack/hci/concepts/physical-network-requirements?tabs=overview%2C23H2reqs#using-switchless). Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically. Optional parameter required only for [3 nodes switchless deployments](https://learn.microsoft.com/azure-stack/hci/concepts/physical-network-requirements?tabs=overview%2C23H2reqs#using-switchless). Possible values are `True` and `False`. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         [Input("storageAutoIpEnabled")]
         public Input<bool>? StorageAutoIpEnabled { get; set; }
 
         /// <summary>
-        /// Defines how the storage adapters between nodes are connected either switch or switch less. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Defines how the storage adapters between nodes are connected either switch or switch less. Possible values are `True` and `False`. Defaults to `False`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         [Input("storageConnectivitySwitchlessEnabled")]
         public Input<bool>? StorageConnectivitySwitchlessEnabled { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Stack.Inputs
         private InputList<Inputs.HciDeploymentSettingScaleUnitHostNetworkStorageNetworkGetArgs>? _storageNetworks;
 
         /// <summary>
-        /// One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// One or more `StorageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public InputList<Inputs.HciDeploymentSettingScaleUnitHostNetworkStorageNetworkGetArgs> StorageNetworks
         {

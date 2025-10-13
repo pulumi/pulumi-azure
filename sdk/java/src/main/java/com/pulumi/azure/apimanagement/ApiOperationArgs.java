@@ -156,14 +156,14 @@ public final class ApiOperationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+     * One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      * 
      */
     @Import(name="templateParameters")
     private @Nullable Output<List<ApiOperationTemplateParameterArgs>> templateParameters;
 
     /**
-     * @return One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+     * @return One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      * 
      */
     public Optional<Output<List<ApiOperationTemplateParameterArgs>>> templateParameters() {
@@ -419,7 +419,7 @@ public final class ApiOperationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateParameters One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+         * @param templateParameters One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ApiOperationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateParameters One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+         * @param templateParameters One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class ApiOperationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateParameters One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+         * @param templateParameters One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
          * 
          * @return builder
          * 

@@ -47,7 +47,7 @@ public final class GetBudgetResourceGroupResult {
      */
     private String timeGrain;
     /**
-     * @return A `time_period` block as defined below.
+     * @return A `timePeriod` block as defined below.
      * 
      */
     private List<GetBudgetResourceGroupTimePeriod> timePeriods;
@@ -99,7 +99,7 @@ public final class GetBudgetResourceGroupResult {
         return this.timeGrain;
     }
     /**
-     * @return A `time_period` block as defined below.
+     * @return A `timePeriod` block as defined below.
      * 
      */
     public List<GetBudgetResourceGroupTimePeriod> timePeriods() {

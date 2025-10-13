@@ -103,9 +103,9 @@ namespace Pulumi.Azure.Mobile
         public Output<string?> EncryptionKeyUrl { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// 
-        /// &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+        /// &gt; **Note:** A `UserAssigned` identity must be specified when `EncryptionKeyUrl` is specified.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.NetworkSimGroupIdentity?> Identity { get; private set; } = null!;
@@ -187,9 +187,9 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? EncryptionKeyUrl { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// 
-        /// &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+        /// &gt; **Note:** A `UserAssigned` identity must be specified when `EncryptionKeyUrl` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NetworkSimGroupIdentityArgs>? Identity { get; set; }
@@ -239,9 +239,9 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? EncryptionKeyUrl { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// 
-        /// &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+        /// &gt; **Note:** A `UserAssigned` identity must be specified when `EncryptionKeyUrl` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NetworkSimGroupIdentityGetArgs>? Identity { get; set; }

@@ -37,14 +37,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
     }
 
     /**
-     * A `linux_configuration` block as documented below.
+     * A `linuxConfiguration` block as documented below.
      * 
      */
     @Import(name="linuxConfiguration")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs> linuxConfiguration;
 
     /**
-     * @return A `linux_configuration` block as documented below.
+     * @return A `linuxConfiguration` block as documented below.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs>> linuxConfiguration() {
@@ -52,14 +52,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
     }
 
     /**
-     * A `windows_configuration` block as documented below.
+     * A `windowsConfiguration` block as documented below.
      * 
      */
     @Import(name="windowsConfiguration")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs> windowsConfiguration;
 
     /**
-     * @return A `windows_configuration` block as documented below.
+     * @return A `windowsConfiguration` block as documented below.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs>> windowsConfiguration() {
@@ -118,7 +118,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
         }
 
         /**
-         * @param linuxConfiguration A `linux_configuration` block as documented below.
+         * @param linuxConfiguration A `linuxConfiguration` block as documented below.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
         }
 
         /**
-         * @param linuxConfiguration A `linux_configuration` block as documented below.
+         * @param linuxConfiguration A `linuxConfiguration` block as documented below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
         }
 
         /**
-         * @param windowsConfiguration A `windows_configuration` block as documented below.
+         * @param windowsConfiguration A `windowsConfiguration` block as documented below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
         }
 
         /**
-         * @param windowsConfiguration A `windows_configuration` block as documented below.
+         * @param windowsConfiguration A `windowsConfiguration` block as documented below.
          * 
          * @return builder
          * 

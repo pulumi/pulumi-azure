@@ -35,7 +35,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
     /**
      * The content hash for the Guest Configuration package.
      * 
-     * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
+     * &gt; **Note:** The value for `contentHash` should be the SH256SUM for the zip file in the `contentUri` and must be in upper case.
      * 
      */
     @Import(name="contentHash")
@@ -44,7 +44,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
     /**
      * @return The content hash for the Guest Configuration package.
      * 
-     * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
+     * &gt; **Note:** The value for `contentHash` should be the SH256SUM for the zip file in the `contentUri` and must be in upper case.
      * 
      */
     public Optional<Output<String>> contentHash() {
@@ -54,7 +54,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
     /**
      * The content URI where the Guest Configuration package is stored.
      * 
-     * &gt; **Note:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+     * &gt; **Note:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
      * 
      */
     @Import(name="contentUri")
@@ -63,7 +63,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
     /**
      * @return The content URI where the Guest Configuration package is stored.
      * 
-     * &gt; **Note:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+     * &gt; **Note:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
      * 
      */
     public Optional<Output<String>> contentUri() {
@@ -152,7 +152,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
         /**
          * @param contentHash The content hash for the Guest Configuration package.
          * 
-         * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
+         * &gt; **Note:** The value for `contentHash` should be the SH256SUM for the zip file in the `contentUri` and must be in upper case.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
         /**
          * @param contentHash The content hash for the Guest Configuration package.
          * 
-         * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
+         * &gt; **Note:** The value for `contentHash` should be the SH256SUM for the zip file in the `contentUri` and must be in upper case.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
         /**
          * @param contentUri The content URI where the Guest Configuration package is stored.
          * 
-         * &gt; **Note:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+         * &gt; **Note:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
         /**
          * @param contentUri The content URI where the Guest Configuration package is stored.
          * 
-         * &gt; **Note:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+         * &gt; **Note:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
          * 
          * @return builder
          * 

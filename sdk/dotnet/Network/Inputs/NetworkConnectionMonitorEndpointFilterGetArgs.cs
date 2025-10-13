@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.NetworkConnectionMonitorEndpointFilterItemGetArgs>? _items;
 
         /// <summary>
-        /// A `item` block as defined below.
+        /// A `Item` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkConnectionMonitorEndpointFilterItemGetArgs> Items
         {

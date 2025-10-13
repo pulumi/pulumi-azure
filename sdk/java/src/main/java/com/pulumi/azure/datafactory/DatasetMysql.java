@@ -206,14 +206,14 @@ public class DatasetMysql extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Export(name="schemaColumns", refs={List.class,DatasetMysqlSchemaColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DatasetMysqlSchemaColumn>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Output<Optional<List<DatasetMysqlSchemaColumn>>> schemaColumns() {

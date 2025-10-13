@@ -114,13 +114,13 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
+        /// The value of the password, which is only available when `SshPasswordEnabled` is set to `True`.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `permission_scope` blocks as defined below.
+        /// One or more `PermissionScope` blocks as defined below.
         /// </summary>
         [Output("permissionScopes")]
         public Output<ImmutableArray<Outputs.LocalUserPermissionScope>> PermissionScopes { get; private set; } = null!;
@@ -132,19 +132,19 @@ namespace Pulumi.Azure.Storage
         public Output<string> Sid { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ssh_authorized_key` blocks as defined below.
+        /// One or more `SshAuthorizedKey` blocks as defined below.
         /// </summary>
         [Output("sshAuthorizedKeys")]
         public Output<ImmutableArray<Outputs.LocalUserSshAuthorizedKey>> SshAuthorizedKeys { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
+        /// Specifies whether SSH Key Authentication is enabled. Defaults to `False`.
         /// </summary>
         [Output("sshKeyEnabled")]
         public Output<bool?> SshKeyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
+        /// Specifies whether SSH Password Authentication is enabled. Defaults to `False`.
         /// </summary>
         [Output("sshPasswordEnabled")]
         public Output<bool?> SshPasswordEnabled { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.LocalUserPermissionScopeArgs>? _permissionScopes;
 
         /// <summary>
-        /// One or more `permission_scope` blocks as defined below.
+        /// One or more `PermissionScope` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LocalUserPermissionScopeArgs> PermissionScopes
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.LocalUserSshAuthorizedKeyArgs>? _sshAuthorizedKeys;
 
         /// <summary>
-        /// One or more `ssh_authorized_key` blocks as defined below.
+        /// One or more `SshAuthorizedKey` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LocalUserSshAuthorizedKeyArgs> SshAuthorizedKeys
         {
@@ -243,13 +243,13 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
+        /// Specifies whether SSH Key Authentication is enabled. Defaults to `False`.
         /// </summary>
         [Input("sshKeyEnabled")]
         public Input<bool>? SshKeyEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
+        /// Specifies whether SSH Password Authentication is enabled. Defaults to `False`.
         /// </summary>
         [Input("sshPasswordEnabled")]
         public Input<bool>? SshPasswordEnabled { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Storage
         private Input<string>? _password;
 
         /// <summary>
-        /// The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
+        /// The value of the password, which is only available when `SshPasswordEnabled` is set to `True`.
         /// </summary>
         public Input<string>? Password
         {
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.LocalUserPermissionScopeGetArgs>? _permissionScopes;
 
         /// <summary>
-        /// One or more `permission_scope` blocks as defined below.
+        /// One or more `PermissionScope` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LocalUserPermissionScopeGetArgs> PermissionScopes
         {
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.LocalUserSshAuthorizedKeyGetArgs>? _sshAuthorizedKeys;
 
         /// <summary>
-        /// One or more `ssh_authorized_key` blocks as defined below.
+        /// One or more `SshAuthorizedKey` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LocalUserSshAuthorizedKeyGetArgs> SshAuthorizedKeys
         {
@@ -337,13 +337,13 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
+        /// Specifies whether SSH Key Authentication is enabled. Defaults to `False`.
         /// </summary>
         [Input("sshKeyEnabled")]
         public Input<bool>? SshKeyEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
+        /// Specifies whether SSH Password Authentication is enabled. Defaults to `False`.
         /// </summary>
         [Input("sshPasswordEnabled")]
         public Input<bool>? SshPasswordEnabled { get; set; }

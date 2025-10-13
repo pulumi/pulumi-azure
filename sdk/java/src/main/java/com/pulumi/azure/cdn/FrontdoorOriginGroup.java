@@ -111,28 +111,28 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
         return this.cdnFrontdoorProfileId;
     }
     /**
-     * A `health_probe` block as defined below.
+     * A `healthProbe` block as defined below.
      * 
      */
     @Export(name="healthProbe", refs={FrontdoorOriginGroupHealthProbe.class}, tree="[0]")
     private Output</* @Nullable */ FrontdoorOriginGroupHealthProbe> healthProbe;
 
     /**
-     * @return A `health_probe` block as defined below.
+     * @return A `healthProbe` block as defined below.
      * 
      */
     public Output<Optional<FrontdoorOriginGroupHealthProbe>> healthProbe() {
         return Codegen.optional(this.healthProbe);
     }
     /**
-     * A `load_balancing` block as defined below.
+     * A `loadBalancing` block as defined below.
      * 
      */
     @Export(name="loadBalancing", refs={FrontdoorOriginGroupLoadBalancing.class}, tree="[0]")
     private Output<FrontdoorOriginGroupLoadBalancing> loadBalancing;
 
     /**
-     * @return A `load_balancing` block as defined below.
+     * @return A `loadBalancing` block as defined below.
      * 
      */
     public Output<FrontdoorOriginGroupLoadBalancing> loadBalancing() {

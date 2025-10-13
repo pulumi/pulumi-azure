@@ -191,7 +191,7 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      * 
-     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+     * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
      * 
      * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      * 
@@ -202,7 +202,7 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The service principal tenant id or name in which to authenticate against the Kusto Database.
      * 
-     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+     * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
      * 
      * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      * 
@@ -510,7 +510,7 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
         /**
          * @param tenant The service principal tenant id or name in which to authenticate against the Kusto Database.
          * 
-         * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+         * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
          * 
          * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
          * 
@@ -525,7 +525,7 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
         /**
          * @param tenant The service principal tenant id or name in which to authenticate against the Kusto Database.
          * 
-         * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+         * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
          * 
          * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
          * 
