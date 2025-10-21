@@ -26,7 +26,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
      */
     @Import(name="addressSpaces")
@@ -35,7 +35,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The address space that is used the virtual network. You can supply more than one address space.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
      */
     public Optional<Output<List<String>>> addressSpaces() {
@@ -62,14 +62,14 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `ddos_protection_plan` block as documented below.
+     * A `ddosProtectionPlan` block as documented below.
      * 
      */
     @Import(name="ddosProtectionPlan")
     private @Nullable Output<VirtualNetworkDdosProtectionPlanArgs> ddosProtectionPlan;
 
     /**
-     * @return A `ddos_protection_plan` block as documented below.
+     * @return A `ddosProtectionPlan` block as documented below.
      * 
      */
     public Optional<Output<VirtualNetworkDdosProtectionPlanArgs>> ddosProtectionPlan() {
@@ -79,7 +79,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * List of IP addresses of DNS servers
      * 
-     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="dnsServers")
@@ -88,7 +88,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return List of IP addresses of DNS servers
      * 
-     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<String>>> dnsServers() {
@@ -141,18 +141,18 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
      */
     @Import(name="ipAddressPools")
     private @Nullable Output<List<VirtualNetworkIpAddressPoolArgs>> ipAddressPools;
 
     /**
-     * @return One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * @return One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
      */
     public Optional<Output<List<VirtualNetworkIpAddressPoolArgs>>> ipAddressPools() {
@@ -293,7 +293,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param addressSpaces The address space that is used the virtual network. You can supply more than one address space.
          * 
-         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param addressSpaces The address space that is used the virtual network. You can supply more than one address space.
          * 
-         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param addressSpaces The address space that is used the virtual network. You can supply more than one address space.
          * 
-         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ddosProtectionPlan A `ddos_protection_plan` block as documented below.
+         * @param ddosProtectionPlan A `ddosProtectionPlan` block as documented below.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ddosProtectionPlan A `ddos_protection_plan` block as documented below.
+         * @param ddosProtectionPlan A `ddosProtectionPlan` block as documented below.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param dnsServers List of IP addresses of DNS servers
          * 
-         * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param dnsServers List of IP addresses of DNS servers
          * 
-         * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param dnsServers List of IP addresses of DNS servers
          * 
-         * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -474,9 +474,9 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ipAddressPools One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+         * @param ipAddressPools One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
          * 
-         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -487,9 +487,9 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ipAddressPools One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+         * @param ipAddressPools One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
          * 
-         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -499,9 +499,9 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ipAddressPools One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+         * @param ipAddressPools One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
          * 
-         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 

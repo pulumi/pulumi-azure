@@ -14,6 +14,15 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// !&gt; **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudConnection` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ServiceLinker` - 2024-04-01, 2022-05-01
+    /// 
     /// ## Import
     /// 
     /// Service Connector for spring cloud can be imported using the `resource id`, e.g.
@@ -26,7 +35,7 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// </summary>
         [Output("authentication")]
         public Output<Outputs.SpringCloudConnectionAuthentication> Authentication { get; private set; } = null!;
@@ -105,7 +114,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// </summary>
         [Input("authentication", required: true)]
         public Input<Inputs.SpringCloudConnectionAuthenticationArgs> Authentication { get; set; } = null!;
@@ -146,7 +155,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.SpringCloudConnectionAuthenticationGetArgs>? Authentication { get; set; }

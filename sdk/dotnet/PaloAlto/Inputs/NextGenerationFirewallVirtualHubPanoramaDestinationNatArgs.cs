@@ -13,13 +13,13 @@ namespace Pulumi.Azure.PaloAlto.Inputs
     public sealed class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `backend_config` block as defined above.
+        /// A `BackendConfig` block as defined above.
         /// </summary>
         [Input("backendConfig")]
         public Input<Inputs.NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs>? BackendConfig { get; set; }
 
         /// <summary>
-        /// A `frontend_config` block as defined below.
+        /// A `FrontendConfig` block as defined below.
         /// </summary>
         [Input("frontendConfig")]
         public Input<Inputs.NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs>? FrontendConfig { get; set; }

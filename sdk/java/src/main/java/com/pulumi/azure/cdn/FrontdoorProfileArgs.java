@@ -37,18 +37,18 @@ public final class FrontdoorProfileArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One or more `log_scrubbing_rule` blocks as defined below.
+     * One or more `logScrubbingRule` blocks as defined below.
      * 
-     * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+     * &gt; **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
      * 
      */
     @Import(name="logScrubbingRules")
     private @Nullable Output<List<FrontdoorProfileLogScrubbingRuleArgs>> logScrubbingRules;
 
     /**
-     * @return One or more `log_scrubbing_rule` blocks as defined below.
+     * @return One or more `logScrubbingRule` blocks as defined below.
      * 
-     * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+     * &gt; **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
      * 
      */
     public Optional<Output<List<FrontdoorProfileLogScrubbingRuleArgs>>> logScrubbingRules() {
@@ -182,9 +182,9 @@ public final class FrontdoorProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logScrubbingRules One or more `log_scrubbing_rule` blocks as defined below.
+         * @param logScrubbingRules One or more `logScrubbingRule` blocks as defined below.
          * 
-         * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+         * &gt; **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
          * 
          * @return builder
          * 
@@ -195,9 +195,9 @@ public final class FrontdoorProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logScrubbingRules One or more `log_scrubbing_rule` blocks as defined below.
+         * @param logScrubbingRules One or more `logScrubbingRule` blocks as defined below.
          * 
-         * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+         * &gt; **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
          * 
          * @return builder
          * 
@@ -207,9 +207,9 @@ public final class FrontdoorProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logScrubbingRules One or more `log_scrubbing_rule` blocks as defined below.
+         * @param logScrubbingRules One or more `logScrubbingRule` blocks as defined below.
          * 
-         * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+         * &gt; **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
          * 
          * @return builder
          * 

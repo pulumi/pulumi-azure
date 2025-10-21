@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs>? _dailies;
 
         /// <summary>
-        /// One or more `daily` blocks as defined above.
+        /// One or more `Daily` blocks as defined above.
         /// </summary>
         public InputList<Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs> Dailies
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs>? _monthlies;
 
         /// <summary>
-        /// One or more `monthly` blocks as defined above.
+        /// One or more `Monthly` blocks as defined above.
         /// </summary>
         public InputList<Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs> Monthlies
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs>? _weeklies;
 
         /// <summary>
-        /// One or more `weekly` blocks as defined below.
+        /// One or more `Weekly` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs> Weeklies
         {

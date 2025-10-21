@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolStartTaskContainerResult> Containers;
         /// <summary>
-        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        /// One or more `ResourceFile` blocks that describe the files to be downloaded to a compute node.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolStartTaskResourceFileResult> ResourceFiles;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly int TaskRetryMaximum;
         /// <summary>
-        /// A `user_identity` block that describes the user identity under which the start task runs.
+        /// A `UserIdentity` block that describes the user identity under which the start task runs.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolStartTaskUserIdentityResult> UserIdentities;
         /// <summary>

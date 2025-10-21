@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetIdentityResult> Identities;
         /// <summary>
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A list of `network_interface` blocks as defined below.
+        /// A list of `NetworkInterface` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult> NetworkInterfaces;
         public readonly string ResourceGroupName;

@@ -167,14 +167,14 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * An `integration_runtime` block as defined below.
+     * An `integrationRuntime` block as defined below.
      * 
      */
     @Export(name="integrationRuntime", refs={LinkedCustomServiceIntegrationRuntime.class}, tree="[0]")
     private Output</* @Nullable */ LinkedCustomServiceIntegrationRuntime> integrationRuntime;
 
     /**
-     * @return An `integration_runtime` block as defined below.
+     * @return An `integrationRuntime` block as defined below.
      * 
      */
     public Output<Optional<LinkedCustomServiceIntegrationRuntime>> integrationRuntime() {

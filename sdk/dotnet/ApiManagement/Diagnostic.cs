@@ -150,25 +150,25 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
-        /// A `backend_request` block as defined below.
+        /// A `BackendRequest` block as defined below.
         /// </summary>
         [Output("backendRequest")]
         public Output<Outputs.DiagnosticBackendRequest> BackendRequest { get; private set; } = null!;
 
         /// <summary>
-        /// A `backend_response` block as defined below.
+        /// A `BackendResponse` block as defined below.
         /// </summary>
         [Output("backendResponse")]
         public Output<Outputs.DiagnosticBackendResponse> BackendResponse { get; private set; } = null!;
 
         /// <summary>
-        /// A `frontend_request` block as defined below.
+        /// A `FrontendRequest` block as defined below.
         /// </summary>
         [Output("frontendRequest")]
         public Output<Outputs.DiagnosticFrontendRequest> FrontendRequest { get; private set; } = null!;
 
         /// <summary>
-        /// A `frontend_response` block as defined below.
+        /// A `FrontendResponse` block as defined below.
         /// </summary>
         [Output("frontendResponse")]
         public Output<Outputs.DiagnosticFrontendResponse> FrontendResponse { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> HttpCorrelationProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
+        /// The diagnostic identifier for the API Management Service. At this time the supported values are `Applicationinsights` and `Azuremonitor`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<double> SamplingPercentage { get; private set; } = null!;
 
         /// <summary>
-        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// Logging verbosity. Possible values are `Verbose`, `Information` or `Error`.
         /// </summary>
         [Output("verbosity")]
         public Output<string> Verbosity { get; private set; } = null!;
@@ -280,25 +280,25 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
-        /// A `backend_request` block as defined below.
+        /// A `BackendRequest` block as defined below.
         /// </summary>
         [Input("backendRequest")]
         public Input<Inputs.DiagnosticBackendRequestArgs>? BackendRequest { get; set; }
 
         /// <summary>
-        /// A `backend_response` block as defined below.
+        /// A `BackendResponse` block as defined below.
         /// </summary>
         [Input("backendResponse")]
         public Input<Inputs.DiagnosticBackendResponseArgs>? BackendResponse { get; set; }
 
         /// <summary>
-        /// A `frontend_request` block as defined below.
+        /// A `FrontendRequest` block as defined below.
         /// </summary>
         [Input("frontendRequest")]
         public Input<Inputs.DiagnosticFrontendRequestArgs>? FrontendRequest { get; set; }
 
         /// <summary>
-        /// A `frontend_response` block as defined below.
+        /// A `FrontendResponse` block as defined below.
         /// </summary>
         [Input("frontendResponse")]
         public Input<Inputs.DiagnosticFrontendResponseArgs>? FrontendResponse { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
-        /// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
+        /// The diagnostic identifier for the API Management Service. At this time the supported values are `Applicationinsights` and `Azuremonitor`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<double>? SamplingPercentage { get; set; }
 
         /// <summary>
-        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// Logging verbosity. Possible values are `Verbose`, `Information` or `Error`.
         /// </summary>
         [Input("verbosity")]
         public Input<string>? Verbosity { get; set; }
@@ -372,25 +372,25 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementName { get; set; }
 
         /// <summary>
-        /// A `backend_request` block as defined below.
+        /// A `BackendRequest` block as defined below.
         /// </summary>
         [Input("backendRequest")]
         public Input<Inputs.DiagnosticBackendRequestGetArgs>? BackendRequest { get; set; }
 
         /// <summary>
-        /// A `backend_response` block as defined below.
+        /// A `BackendResponse` block as defined below.
         /// </summary>
         [Input("backendResponse")]
         public Input<Inputs.DiagnosticBackendResponseGetArgs>? BackendResponse { get; set; }
 
         /// <summary>
-        /// A `frontend_request` block as defined below.
+        /// A `FrontendRequest` block as defined below.
         /// </summary>
         [Input("frontendRequest")]
         public Input<Inputs.DiagnosticFrontendRequestGetArgs>? FrontendRequest { get; set; }
 
         /// <summary>
-        /// A `frontend_response` block as defined below.
+        /// A `FrontendResponse` block as defined below.
         /// </summary>
         [Input("frontendResponse")]
         public Input<Inputs.DiagnosticFrontendResponseGetArgs>? FrontendResponse { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
-        /// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
+        /// The diagnostic identifier for the API Management Service. At this time the supported values are `Applicationinsights` and `Azuremonitor`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<double>? SamplingPercentage { get; set; }
 
         /// <summary>
-        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// Logging verbosity. Possible values are `Verbose`, `Information` or `Error`.
         /// </summary>
         [Input("verbosity")]
         public Input<string>? Verbosity { get; set; }

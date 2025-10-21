@@ -75,7 +75,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
-        /// A `credentials` block as documented below.
+        /// A `Credentials` block as documented below.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.BackendCredentials?> Credentials { get; private set; } = null!;
@@ -93,13 +93,13 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol used by the backend host. Possible values are `http` or `soap`.
+        /// The protocol used by the backend host. Possible values are `Http` or `Soap`.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// A `proxy` block as documented below.
+        /// A `Proxy` block as documented below.
         /// </summary>
         [Output("proxy")]
         public Output<Outputs.BackendProxy?> Proxy { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `service_fabric_cluster` block as documented below.
+        /// A `ServiceFabricCluster` block as documented below.
         /// </summary>
         [Output("serviceFabricCluster")]
         public Output<Outputs.BackendServiceFabricCluster?> ServiceFabricCluster { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Title { get; private set; } = null!;
 
         /// <summary>
-        /// A `tls` block as documented below.
+        /// A `Tls` block as documented below.
         /// </summary>
         [Output("tls")]
         public Output<Outputs.BackendTls?> Tls { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
-        /// A `credentials` block as documented below.
+        /// A `Credentials` block as documented below.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.BackendCredentialsArgs>? Credentials { get; set; }
@@ -211,13 +211,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The protocol used by the backend host. Possible values are `http` or `soap`.
+        /// The protocol used by the backend host. Possible values are `Http` or `Soap`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// A `proxy` block as documented below.
+        /// A `Proxy` block as documented below.
         /// </summary>
         [Input("proxy")]
         public Input<Inputs.BackendProxyArgs>? Proxy { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// A `service_fabric_cluster` block as documented below.
+        /// A `ServiceFabricCluster` block as documented below.
         /// </summary>
         [Input("serviceFabricCluster")]
         public Input<Inputs.BackendServiceFabricClusterArgs>? ServiceFabricCluster { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// A `tls` block as documented below.
+        /// A `Tls` block as documented below.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.BackendTlsArgs>? Tls { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementName { get; set; }
 
         /// <summary>
-        /// A `credentials` block as documented below.
+        /// A `Credentials` block as documented below.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.BackendCredentialsGetArgs>? Credentials { get; set; }
@@ -291,13 +291,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The protocol used by the backend host. Possible values are `http` or `soap`.
+        /// The protocol used by the backend host. Possible values are `Http` or `Soap`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// A `proxy` block as documented below.
+        /// A `Proxy` block as documented below.
         /// </summary>
         [Input("proxy")]
         public Input<Inputs.BackendProxyGetArgs>? Proxy { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// A `service_fabric_cluster` block as documented below.
+        /// A `ServiceFabricCluster` block as documented below.
         /// </summary>
         [Input("serviceFabricCluster")]
         public Input<Inputs.BackendServiceFabricClusterGetArgs>? ServiceFabricCluster { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// A `tls` block as documented below.
+        /// A `Tls` block as documented below.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.BackendTlsGetArgs>? Tls { get; set; }

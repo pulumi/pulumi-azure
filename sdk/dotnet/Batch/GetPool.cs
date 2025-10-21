@@ -167,11 +167,11 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly string AccountName;
         /// <summary>
-        /// A `auto_scale` block that describes the scale settings when using auto scale.
+        /// A `AutoScale` block that describes the scale settings when using auto scale.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolAutoScaleResult> AutoScales;
         /// <summary>
-        /// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+        /// One or more `Certificate` blocks that describe the certificates installed on each compute node in the pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolCertificateResult> Certificates;
         /// <summary>
@@ -179,20 +179,20 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolContainerConfigurationResult> ContainerConfigurations;
         /// <summary>
-        /// A `data_disks` block describes the data disk settings.
+        /// A `DataDisks` block describes the data disk settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolDataDiskResult> DataDisks;
         /// <summary>
-        /// A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool.
+        /// A `DiskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolDiskEncryptionResult> DiskEncryptions;
         public readonly string DisplayName;
         /// <summary>
-        /// An `extensions` block describes the extension settings
+        /// An `Extensions` block describes the extension settings
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolExtensionResult> Extensions;
         /// <summary>
-        /// A `fixed_scale` block that describes the scale settings when using fixed scale.
+        /// A `FixedScale` block that describes the scale settings when using fixed scale.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolFixedScaleResult> FixedScales;
         /// <summary>
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Batch
         public readonly int MaxTasksPerNode;
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
-        /// A `mount` block that describes mount configuration.
+        /// A `Mount` block that describes mount configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolMountResult> Mounts;
         /// <summary>
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly string NodeAgentSkuId;
         /// <summary>
-        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        /// A `NodePlacement` block that describes the placement policy for allocating nodes in the pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolNodePlacementResult> NodePlacements;
         /// <summary>
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Batch
         public readonly string OsDiskPlacement;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `start_task` block that describes the start task settings for the Batch pool.
+        /// A `StartTask` block that describes the start task settings for the Batch pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolStartTaskResult> StartTasks;
         /// <summary>
@@ -243,11 +243,11 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolStorageImageReferenceResult> StorageImageReferences;
         /// <summary>
-        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool.
+        /// A `TaskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolTaskSchedulingPolicyResult> TaskSchedulingPolicies;
         /// <summary>
-        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        /// A `UserAccounts` block that describes the list of user accounts to be created on each node in the pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolUserAccountResult> UserAccounts;
         /// <summary>
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly string VmSize;
         /// <summary>
-        /// A `windows` block that describes the Windows configuration in the pool.
+        /// A `Windows` block that describes the Windows configuration in the pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolWindowResult> Windows;
 

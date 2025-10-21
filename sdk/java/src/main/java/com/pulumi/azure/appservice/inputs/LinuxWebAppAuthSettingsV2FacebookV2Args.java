@@ -33,18 +33,18 @@ public final class LinuxWebAppAuthSettingsV2FacebookV2Args extends com.pulumi.re
     }
 
     /**
-     * The app setting name that contains the `app_secret` value used for Facebook Login.
+     * The app setting name that contains the `appSecret` value used for Facebook Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     @Import(name="appSecretSettingName", required=true)
     private Output<String> appSecretSettingName;
 
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook Login.
+     * @return The app setting name that contains the `appSecret` value used for Facebook Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Output<String> appSecretSettingName() {
@@ -130,9 +130,9 @@ public final class LinuxWebAppAuthSettingsV2FacebookV2Args extends com.pulumi.re
         }
 
         /**
-         * @param appSecretSettingName The app setting name that contains the `app_secret` value used for Facebook Login.
+         * @param appSecretSettingName The app setting name that contains the `appSecret` value used for Facebook Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
@@ -143,9 +143,9 @@ public final class LinuxWebAppAuthSettingsV2FacebookV2Args extends com.pulumi.re
         }
 
         /**
-         * @param appSecretSettingName The app setting name that contains the `app_secret` value used for Facebook Login.
+         * @param appSecretSettingName The app setting name that contains the `appSecret` value used for Facebook Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 

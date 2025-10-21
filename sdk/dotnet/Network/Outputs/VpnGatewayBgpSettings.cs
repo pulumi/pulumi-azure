@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? BgpPeeringAddress;
         /// <summary>
-        /// An `instance_bgp_peering_address` block as defined below.
+        /// An `InstanceBgpPeeringAddress` block as defined below.
         /// </summary>
         public readonly Outputs.VpnGatewayBgpSettingsInstance0BgpPeeringAddress? Instance0BgpPeeringAddress;
         /// <summary>
-        /// An `instance_bgp_peering_address` block as defined below.
+        /// An `InstanceBgpPeeringAddress` block as defined below.
         /// </summary>
         public readonly Outputs.VpnGatewayBgpSettingsInstance1BgpPeeringAddress? Instance1BgpPeeringAddress;
         /// <summary>

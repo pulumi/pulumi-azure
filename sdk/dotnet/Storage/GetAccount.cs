@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly bool AllowNestedItemsToBePublic;
         /// <summary>
-        /// A `azure_files_authentication` block as documented below.
+        /// A `AzureFilesAuthentication` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountAzureFilesAuthenticationResult> AzureFilesAuthentications;
         /// <summary>
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as documented below.
+        /// An `Identity` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountIdentityResult> Identities;
         /// <summary>

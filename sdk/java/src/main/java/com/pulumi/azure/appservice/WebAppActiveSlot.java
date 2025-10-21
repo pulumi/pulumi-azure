@@ -92,6 +92,15 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Linux Web App
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Web` - 2023-12-01
+ * 
  * ## Import
  * 
  * a Web App Active Slot can be imported using the `resource id`, e.g.

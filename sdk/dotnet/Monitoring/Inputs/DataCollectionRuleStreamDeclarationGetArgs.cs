@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleStreamDeclarationColumnGetArgs>? _columns;
 
         /// <summary>
-        /// One or more `column` blocks as defined above.
+        /// One or more `Column` blocks as defined above.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleStreamDeclarationColumnGetArgs> Columns
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
+        /// The name of the custom stream. This name should be unique across all `StreamDeclaration` blocks and must begin with a prefix of `Custom-`.
         /// </summary>
         [Input("streamName", required: true)]
         public Input<string> StreamName { get; set; } = null!;

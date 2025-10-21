@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Behavior;
         /// <summary>
-        /// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+        /// Duration of the cache. Only allowed when `Behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
         /// </summary>
         public readonly string? Duration;
 

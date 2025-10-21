@@ -43,7 +43,7 @@ public final class GetStandardResult {
      */
     private String clientCertificateMode;
     /**
-     * @return A `connection_string` block as defined below.
+     * @return A `connectionString` block as defined below.
      * 
      */
     private List<GetStandardConnectionString> connectionStrings;
@@ -119,12 +119,12 @@ public final class GetStandardResult {
      */
     private Boolean scmPublishBasicAuthenticationEnabled;
     /**
-     * @return A `site_config` object as defined below.
+     * @return A `siteConfig` object as defined below.
      * 
      */
     private GetStandardSiteConfig siteConfig;
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
      * 
      */
     private List<GetStandardSiteCredential> siteCredentials;
@@ -201,7 +201,7 @@ public final class GetStandardResult {
         return this.clientCertificateMode;
     }
     /**
-     * @return A `connection_string` block as defined below.
+     * @return A `connectionString` block as defined below.
      * 
      */
     public List<GetStandardConnectionString> connectionStrings() {
@@ -309,14 +309,14 @@ public final class GetStandardResult {
         return this.scmPublishBasicAuthenticationEnabled;
     }
     /**
-     * @return A `site_config` object as defined below.
+     * @return A `siteConfig` object as defined below.
      * 
      */
     public GetStandardSiteConfig siteConfig() {
         return this.siteConfig;
     }
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
      * 
      */
     public List<GetStandardSiteCredential> siteCredentials() {

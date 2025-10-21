@@ -19,7 +19,7 @@ public final class ApplicationGatewayRequestRoutingRule {
      */
     private @Nullable String backendAddressPoolId;
     /**
-     * @return The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     private @Nullable String backendAddressPoolName;
@@ -29,7 +29,7 @@ public final class ApplicationGatewayRequestRoutingRule {
      */
     private @Nullable String backendHttpSettingsId;
     /**
-     * @return The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     private @Nullable String backendHttpSettingsName;
@@ -66,7 +66,7 @@ public final class ApplicationGatewayRequestRoutingRule {
      */
     private @Nullable String redirectConfigurationId;
     /**
-     * @return The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+     * @return The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
      * 
      */
     private @Nullable String redirectConfigurationName;
@@ -78,7 +78,7 @@ public final class ApplicationGatewayRequestRoutingRule {
     /**
      * @return The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
      * 
-     * &gt; **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+     * &gt; **Note:** `backendAddressPoolName`, `backendHttpSettingsName`, `redirectConfigurationName`, and `rewriteRuleSetName` are applicable only when `ruleType` is `Basic`.
      * 
      */
     private @Nullable String rewriteRuleSetName;
@@ -107,7 +107,7 @@ public final class ApplicationGatewayRequestRoutingRule {
         return Optional.ofNullable(this.backendAddressPoolId);
     }
     /**
-     * @return The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     public Optional<String> backendAddressPoolName() {
@@ -121,7 +121,7 @@ public final class ApplicationGatewayRequestRoutingRule {
         return Optional.ofNullable(this.backendHttpSettingsId);
     }
     /**
-     * @return The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     public Optional<String> backendHttpSettingsName() {
@@ -172,7 +172,7 @@ public final class ApplicationGatewayRequestRoutingRule {
         return Optional.ofNullable(this.redirectConfigurationId);
     }
     /**
-     * @return The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+     * @return The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
      * 
      */
     public Optional<String> redirectConfigurationName() {
@@ -188,7 +188,7 @@ public final class ApplicationGatewayRequestRoutingRule {
     /**
      * @return The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
      * 
-     * &gt; **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+     * &gt; **Note:** `backendAddressPoolName`, `backendHttpSettingsName`, `redirectConfigurationName`, and `rewriteRuleSetName` are applicable only when `ruleType` is `Basic`.
      * 
      */
     public Optional<String> rewriteRuleSetName() {

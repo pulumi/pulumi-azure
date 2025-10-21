@@ -13,9 +13,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolStartTaskUserIdentity {
     /**
-     * @return A `auto_user` block that describes the user identity under which the start task runs as defined below.
+     * @return A `autoUser` block that describes the user identity under which the start task runs as defined below.
      * 
-     * &gt; **Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
+     * &gt; **Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
      * 
      */
     private @Nullable PoolStartTaskUserIdentityAutoUser autoUser;
@@ -27,9 +27,9 @@ public final class PoolStartTaskUserIdentity {
 
     private PoolStartTaskUserIdentity() {}
     /**
-     * @return A `auto_user` block that describes the user identity under which the start task runs as defined below.
+     * @return A `autoUser` block that describes the user identity under which the start task runs as defined below.
      * 
-     * &gt; **Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
+     * &gt; **Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
      * 
      */
     public Optional<PoolStartTaskUserIdentityAutoUser> autoUser() {

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs>? _labelIncludeFilters;
 
         /// <summary>
-        /// One or more `label_include_filter` blocks as defined above.
+        /// One or more `LabelIncludeFilter` blocks as defined above.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs> LabelIncludeFilters
         {

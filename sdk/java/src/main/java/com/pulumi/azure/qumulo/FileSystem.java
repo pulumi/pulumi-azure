@@ -19,6 +19,15 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Native Qumulo Scalable File System.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Qumulo.Storage` - 2024-06-19
+ * 
  * ## Import
  * 
  * An existing File System can be imported into Pulumi using the `resource id`, e.g.

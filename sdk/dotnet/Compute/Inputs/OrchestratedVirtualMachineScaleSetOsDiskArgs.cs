@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> Caching { get; set; } = null!;
 
         /// <summary>
-        /// A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        /// A `DiffDiskSettings` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diffDiskSettings")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs>? DiffDiskSettings { get; set; }
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> StorageAccountType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+        /// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `False`.
         /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }

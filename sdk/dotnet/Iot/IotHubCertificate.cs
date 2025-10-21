@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> IotDpsName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the certificate is created in verified state. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("isVerified")]
         public Output<bool?> IsVerified { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> IotDpsName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the certificate is created in verified state. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("isVerified")]
         public Input<bool>? IsVerified { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? IotDpsName { get; set; }
 
         /// <summary>
-        /// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the certificate is created in verified state. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("isVerified")]
         public Input<bool>? IsVerified { get; set; }

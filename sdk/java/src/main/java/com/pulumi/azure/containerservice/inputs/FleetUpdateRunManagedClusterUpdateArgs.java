@@ -18,14 +18,14 @@ public final class FleetUpdateRunManagedClusterUpdateArgs extends com.pulumi.res
     public static final FleetUpdateRunManagedClusterUpdateArgs Empty = new FleetUpdateRunManagedClusterUpdateArgs();
 
     /**
-     * A `node_image_selection` block as defined below.
+     * A `nodeImageSelection` block as defined below.
      * 
      */
     @Import(name="nodeImageSelection")
     private @Nullable Output<FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs> nodeImageSelection;
 
     /**
-     * @return A `node_image_selection` block as defined below.
+     * @return A `nodeImageSelection` block as defined below.
      * 
      */
     public Optional<Output<FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs>> nodeImageSelection() {
@@ -73,7 +73,7 @@ public final class FleetUpdateRunManagedClusterUpdateArgs extends com.pulumi.res
         }
 
         /**
-         * @param nodeImageSelection A `node_image_selection` block as defined below.
+         * @param nodeImageSelection A `nodeImageSelection` block as defined below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class FleetUpdateRunManagedClusterUpdateArgs extends com.pulumi.res
         }
 
         /**
-         * @param nodeImageSelection A `node_image_selection` block as defined below.
+         * @param nodeImageSelection A `nodeImageSelection` block as defined below.
          * 
          * @return builder
          * 

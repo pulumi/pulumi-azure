@@ -13,25 +13,25 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
     public sealed class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `application_server` block as defined below. Changing this forces a new resource to be created.
+        /// An `ApplicationServer` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationServer")]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs>? ApplicationServer { get; set; }
 
         /// <summary>
-        /// A `central_server` block as defined below. Changing this forces a new resource to be created.
+        /// A `CentralServer` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("centralServer")]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs>? CentralServer { get; set; }
 
         /// <summary>
-        /// A `database_server` block as defined below. Changing this forces a new resource to be created.
+        /// A `DatabaseServer` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseServer")]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs>? DatabaseServer { get; set; }
 
         /// <summary>
-        /// A `shared_storage` block as defined below. Changing this forces a new resource to be created.
+        /// A `SharedStorage` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sharedStorage")]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs>? SharedStorage { get; set; }

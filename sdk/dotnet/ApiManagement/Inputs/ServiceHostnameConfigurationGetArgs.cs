@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ServiceHostnameConfigurationDeveloperPortalGetArgs>? _developerPortals;
 
         /// <summary>
-        /// One or more `developer_portal` blocks as documented below.
+        /// One or more `DeveloperPortal` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ServiceHostnameConfigurationDeveloperPortalGetArgs> DeveloperPortals
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ServiceHostnameConfigurationManagementGetArgs>? _managements;
 
         /// <summary>
-        /// One or more `management` blocks as documented below.
+        /// One or more `Management` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ServiceHostnameConfigurationManagementGetArgs> Managements
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ServiceHostnameConfigurationPortalGetArgs>? _portals;
 
         /// <summary>
-        /// One or more `portal` blocks as documented below.
+        /// One or more `Portal` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ServiceHostnameConfigurationPortalGetArgs> Portals
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ServiceHostnameConfigurationProxyGetArgs>? _proxies;
 
         /// <summary>
-        /// One or more `proxy` blocks as documented below.
+        /// One or more `Proxy` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ServiceHostnameConfigurationProxyGetArgs> Proxies
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ServiceHostnameConfigurationScmGetArgs>? _scms;
 
         /// <summary>
-        /// One or more `scm` blocks as documented below.
+        /// One or more `Scm` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ServiceHostnameConfigurationScmGetArgs> Scms
         {

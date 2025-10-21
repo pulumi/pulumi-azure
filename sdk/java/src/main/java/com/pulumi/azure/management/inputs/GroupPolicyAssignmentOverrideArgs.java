@@ -19,14 +19,14 @@ public final class GroupPolicyAssignmentOverrideArgs extends com.pulumi.resource
     public static final GroupPolicyAssignmentOverrideArgs Empty = new GroupPolicyAssignmentOverrideArgs();
 
     /**
-     * One or more `override_selector` block as defined below.
+     * One or more `overrideSelector` block as defined below.
      * 
      */
     @Import(name="selectors")
     private @Nullable Output<List<GroupPolicyAssignmentOverrideSelectorArgs>> selectors;
 
     /**
-     * @return One or more `override_selector` block as defined below.
+     * @return One or more `overrideSelector` block as defined below.
      * 
      */
     public Optional<Output<List<GroupPolicyAssignmentOverrideSelectorArgs>>> selectors() {
@@ -74,7 +74,7 @@ public final class GroupPolicyAssignmentOverrideArgs extends com.pulumi.resource
         }
 
         /**
-         * @param selectors One or more `override_selector` block as defined below.
+         * @param selectors One or more `overrideSelector` block as defined below.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class GroupPolicyAssignmentOverrideArgs extends com.pulumi.resource
         }
 
         /**
-         * @param selectors One or more `override_selector` block as defined below.
+         * @param selectors One or more `overrideSelector` block as defined below.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class GroupPolicyAssignmentOverrideArgs extends com.pulumi.resource
         }
 
         /**
-         * @param selectors One or more `override_selector` block as defined below.
+         * @param selectors One or more `overrideSelector` block as defined below.
          * 
          * @return builder
          * 

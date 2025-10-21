@@ -52,7 +52,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
@@ -61,7 +61,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<SqlContainerAutoscaleSettingsArgs> autoscaleSettings;
 
     /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     * @return An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
@@ -71,14 +71,14 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="conflictResolutionPolicy")
     private @Nullable Output<SqlContainerConflictResolutionPolicyArgs> conflictResolutionPolicy;
 
     /**
-     * @return A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+     * @return A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SqlContainerConflictResolutionPolicyArgs>> conflictResolutionPolicy() {
@@ -116,14 +116,14 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `indexing_policy` block as defined below.
+     * An `indexingPolicy` block as defined below.
      * 
      */
     @Import(name="indexingPolicy")
     private @Nullable Output<SqlContainerIndexingPolicyArgs> indexingPolicy;
 
     /**
-     * @return An `indexing_policy` block as defined below.
+     * @return An `indexingPolicy` block as defined below.
      * 
      */
     public Optional<Output<SqlContainerIndexingPolicyArgs>> indexingPolicy() {
@@ -178,7 +178,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
     /**
      * Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      * 
-     * &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
+     * &gt; **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      * 
      */
     @Import(name="partitionKeyVersion")
@@ -187,7 +187,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      * 
-     * &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
+     * &gt; **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> partitionKeyVersion() {
@@ -225,14 +225,14 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="uniqueKeys")
     private @Nullable Output<List<SqlContainerUniqueKeyArgs>> uniqueKeys;
 
     /**
-     * @return One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<SqlContainerUniqueKeyArgs>>> uniqueKeys() {
@@ -319,7 +319,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+         * @param autoscaleSettings An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
          * 
          * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
          * 
@@ -332,7 +332,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+         * @param autoscaleSettings An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
          * 
          * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
          * 
@@ -344,7 +344,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+         * @param conflictResolutionPolicy A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+         * @param conflictResolutionPolicy A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexingPolicy An `indexing_policy` block as defined below.
+         * @param indexingPolicy An `indexingPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexingPolicy An `indexing_policy` block as defined below.
+         * @param indexingPolicy An `indexingPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param partitionKeyVersion Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
          * 
-         * &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
+         * &gt; **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param partitionKeyVersion Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
          * 
-         * &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
+         * &gt; **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uniqueKeys One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+         * @param uniqueKeys One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uniqueKeys One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+         * @param uniqueKeys One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uniqueKeys One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+         * @param uniqueKeys One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

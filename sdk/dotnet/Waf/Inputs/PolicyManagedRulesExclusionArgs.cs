@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Waf.Inputs
     public sealed class PolicyManagedRulesExclusionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One or more `excluded_rule_set` block defined below.
+        /// One or more `ExcludedRuleSet` block defined below.
         /// </summary>
         [Input("excludedRuleSet")]
         public Input<Inputs.PolicyManagedRulesExclusionExcludedRuleSetArgs>? ExcludedRuleSet { get; set; }

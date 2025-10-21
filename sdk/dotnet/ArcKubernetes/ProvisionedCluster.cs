@@ -89,7 +89,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Output<string> AgentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
+        /// Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `True`.
         /// </summary>
         [Output("arcAgentAutoUpgradeEnabled")]
         public Output<bool?> ArcAgentAutoUpgradeEnabled { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Output<string?> ArcAgentDesiredVersion { get; private set; } = null!;
 
         /// <summary>
-        /// An `azure_active_directory` block as defined below.
+        /// An `AzureActiveDirectory` block as defined below.
         /// </summary>
         [Output("azureActiveDirectory")]
         public Output<Outputs.ProvisionedClusterAzureActiveDirectory?> AzureActiveDirectory { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Output<string> Distribution { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ProvisionedClusterIdentity> Identity { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.ArcKubernetes
     public sealed class ProvisionedClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
+        /// Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `True`.
         /// </summary>
         [Input("arcAgentAutoUpgradeEnabled")]
         public Input<bool>? ArcAgentAutoUpgradeEnabled { get; set; }
@@ -231,13 +231,13 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string>? ArcAgentDesiredVersion { get; set; }
 
         /// <summary>
-        /// An `azure_active_directory` block as defined below.
+        /// An `AzureActiveDirectory` block as defined below.
         /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.ProvisionedClusterAzureActiveDirectoryArgs>? AzureActiveDirectory { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.ProvisionedClusterIdentityArgs> Identity { get; set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string>? AgentVersion { get; set; }
 
         /// <summary>
-        /// Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
+        /// Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `True`.
         /// </summary>
         [Input("arcAgentAutoUpgradeEnabled")]
         public Input<bool>? ArcAgentAutoUpgradeEnabled { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string>? ArcAgentDesiredVersion { get; set; }
 
         /// <summary>
-        /// An `azure_active_directory` block as defined below.
+        /// An `AzureActiveDirectory` block as defined below.
         /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.ProvisionedClusterAzureActiveDirectoryGetArgs>? AzureActiveDirectory { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string>? Distribution { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ProvisionedClusterIdentityGetArgs>? Identity { get; set; }

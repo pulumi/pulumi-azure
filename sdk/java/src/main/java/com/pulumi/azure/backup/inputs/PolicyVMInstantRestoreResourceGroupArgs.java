@@ -17,14 +17,14 @@ public final class PolicyVMInstantRestoreResourceGroupArgs extends com.pulumi.re
     public static final PolicyVMInstantRestoreResourceGroupArgs Empty = new PolicyVMInstantRestoreResourceGroupArgs();
 
     /**
-     * The prefix for the `instant_restore_resource_group` name.
+     * The prefix for the `instantRestoreResourceGroup` name.
      * 
      */
     @Import(name="prefix", required=true)
     private Output<String> prefix;
 
     /**
-     * @return The prefix for the `instant_restore_resource_group` name.
+     * @return The prefix for the `instantRestoreResourceGroup` name.
      * 
      */
     public Output<String> prefix() {
@@ -32,14 +32,14 @@ public final class PolicyVMInstantRestoreResourceGroupArgs extends com.pulumi.re
     }
 
     /**
-     * The suffix for the `instant_restore_resource_group` name.
+     * The suffix for the `instantRestoreResourceGroup` name.
      * 
      */
     @Import(name="suffix")
     private @Nullable Output<String> suffix;
 
     /**
-     * @return The suffix for the `instant_restore_resource_group` name.
+     * @return The suffix for the `instantRestoreResourceGroup` name.
      * 
      */
     public Optional<Output<String>> suffix() {
@@ -72,7 +72,7 @@ public final class PolicyVMInstantRestoreResourceGroupArgs extends com.pulumi.re
         }
 
         /**
-         * @param prefix The prefix for the `instant_restore_resource_group` name.
+         * @param prefix The prefix for the `instantRestoreResourceGroup` name.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class PolicyVMInstantRestoreResourceGroupArgs extends com.pulumi.re
         }
 
         /**
-         * @param prefix The prefix for the `instant_restore_resource_group` name.
+         * @param prefix The prefix for the `instantRestoreResourceGroup` name.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class PolicyVMInstantRestoreResourceGroupArgs extends com.pulumi.re
         }
 
         /**
-         * @param suffix The suffix for the `instant_restore_resource_group` name.
+         * @param suffix The suffix for the `instantRestoreResourceGroup` name.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class PolicyVMInstantRestoreResourceGroupArgs extends com.pulumi.re
         }
 
         /**
-         * @param suffix The suffix for the `instant_restore_resource_group` name.
+         * @param suffix The suffix for the `instantRestoreResourceGroup` name.
          * 
          * @return builder
          * 

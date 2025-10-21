@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? BuiltInTransform;
         /// <summary>
-        /// Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+        /// Specifies a list of destination names. A `AzureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
         /// </summary>
         public readonly ImmutableArray<string> Destinations;
         /// <summary>

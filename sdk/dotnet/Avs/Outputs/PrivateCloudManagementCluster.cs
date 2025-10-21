@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Avs.Outputs
         /// </summary>
         public readonly int? Id;
         /// <summary>
-        /// The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+        /// The size of the management cluster. This field can not updated with `InternetConnectionEnabled` together.
         /// </summary>
         public readonly int Size;
 

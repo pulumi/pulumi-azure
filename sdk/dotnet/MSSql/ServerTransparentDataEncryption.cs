@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// !&gt; **Note:** This resource can be used to configure Transparent Data Encryption for MS SQL instances with Customer Managed Keys. For MS SQL instances that are System Managed, it should only be used with pre-existing MS SQL Instances that are over 3 years old. For new System Managed MS SQL Instances that will be created through the use of the `azure.mssql.Server` resource, please enable Transparent Data Encryption through `azure.mssql.Server` resource itself by configuring an identity block. By default, all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
     /// 
-    /// &gt; **Note:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+    /// &gt; **Note:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `KeyVaultUri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
     /// 
     /// &gt; **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
     /// 
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
-        /// &gt; **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+        /// &gt; **Note:** If `ServerId` denotes a secondary server deployed for disaster recovery purposes, then the `KeyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         /// </summary>
         [Output("managedHsmKeyId")]
         public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
-        /// &gt; **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+        /// &gt; **Note:** If `ServerId` denotes a secondary server deployed for disaster recovery purposes, then the `KeyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
-        /// &gt; **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+        /// &gt; **Note:** If `ServerId` denotes a secondary server deployed for disaster recovery purposes, then the `KeyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }

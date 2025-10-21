@@ -12,6 +12,15 @@ namespace Pulumi.Azure.Dynatrace
     /// <summary>
     /// Manages a Dynatrace monitor.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Dynatrace.Observability` - 2023-04-27
+    /// 
     /// ## Import
     /// 
     /// Dynatrace monitor can be imported using the `resource id`, e.g.
@@ -24,13 +33,13 @@ namespace Pulumi.Azure.Dynatrace
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+        /// Properties of the Dynatrace environment. An `EnvironmentProperties` block as defined below.
         /// </summary>
         [Output("environmentProperties")]
         public Output<ImmutableArray<Outputs.MonitorEnvironmentProperty>> EnvironmentProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        /// The kind of managed identity assigned to this resource.  A `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.MonitorIdentity> Identity { get; private set; } = null!;
@@ -48,7 +57,7 @@ namespace Pulumi.Azure.Dynatrace
         public Output<string> MarketplaceSubscription { get; private set; } = null!;
 
         /// <summary>
-        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `True`.
         /// </summary>
         [Output("monitoringEnabled")]
         public Output<bool?> MonitoringEnabled { get; private set; } = null!;
@@ -60,7 +69,7 @@ namespace Pulumi.Azure.Dynatrace
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// Billing plan information. A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.MonitorPlan> Plan { get; private set; } = null!;
@@ -78,7 +87,7 @@ namespace Pulumi.Azure.Dynatrace
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        /// User's information. A `User` block as defined below. Chainging this forces a new resource to be created.
         /// </summary>
         [Output("user")]
         public Output<Outputs.MonitorUser> User { get; private set; } = null!;
@@ -133,7 +142,7 @@ namespace Pulumi.Azure.Dynatrace
         private InputList<Inputs.MonitorEnvironmentPropertyArgs>? _environmentProperties;
 
         /// <summary>
-        /// Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+        /// Properties of the Dynatrace environment. An `EnvironmentProperties` block as defined below.
         /// </summary>
         public InputList<Inputs.MonitorEnvironmentPropertyArgs> EnvironmentProperties
         {
@@ -142,7 +151,7 @@ namespace Pulumi.Azure.Dynatrace
         }
 
         /// <summary>
-        /// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        /// The kind of managed identity assigned to this resource.  A `Identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.MonitorIdentityArgs> Identity { get; set; } = null!;
@@ -160,7 +169,7 @@ namespace Pulumi.Azure.Dynatrace
         public Input<string> MarketplaceSubscription { get; set; } = null!;
 
         /// <summary>
-        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `True`.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }
@@ -172,7 +181,7 @@ namespace Pulumi.Azure.Dynatrace
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// Billing plan information. A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan", required: true)]
         public Input<Inputs.MonitorPlanArgs> Plan { get; set; } = null!;
@@ -196,7 +205,7 @@ namespace Pulumi.Azure.Dynatrace
         }
 
         /// <summary>
-        /// User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        /// User's information. A `User` block as defined below. Chainging this forces a new resource to be created.
         /// </summary>
         [Input("user", required: true)]
         public Input<Inputs.MonitorUserArgs> User { get; set; } = null!;
@@ -213,7 +222,7 @@ namespace Pulumi.Azure.Dynatrace
         private InputList<Inputs.MonitorEnvironmentPropertyGetArgs>? _environmentProperties;
 
         /// <summary>
-        /// Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+        /// Properties of the Dynatrace environment. An `EnvironmentProperties` block as defined below.
         /// </summary>
         public InputList<Inputs.MonitorEnvironmentPropertyGetArgs> EnvironmentProperties
         {
@@ -222,7 +231,7 @@ namespace Pulumi.Azure.Dynatrace
         }
 
         /// <summary>
-        /// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        /// The kind of managed identity assigned to this resource.  A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.MonitorIdentityGetArgs>? Identity { get; set; }
@@ -240,7 +249,7 @@ namespace Pulumi.Azure.Dynatrace
         public Input<string>? MarketplaceSubscription { get; set; }
 
         /// <summary>
-        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `True`.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }
@@ -252,7 +261,7 @@ namespace Pulumi.Azure.Dynatrace
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// Billing plan information. A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.MonitorPlanGetArgs>? Plan { get; set; }
@@ -276,7 +285,7 @@ namespace Pulumi.Azure.Dynatrace
         }
 
         /// <summary>
-        /// User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        /// User's information. A `User` block as defined below. Chainging this forces a new resource to be created.
         /// </summary>
         [Input("user")]
         public Input<Inputs.MonitorUserGetArgs>? User { get; set; }

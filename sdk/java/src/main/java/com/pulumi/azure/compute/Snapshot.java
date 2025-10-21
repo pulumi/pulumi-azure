@@ -97,7 +97,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
      * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
-     * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+     * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      * 
      */
     @Export(name="createOption", refs={String.class}, tree="[0]")
@@ -106,21 +106,21 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
      * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
-     * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+     * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      * 
      */
     public Output<String> createOption() {
         return this.createOption;
     }
     /**
-     * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+     * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
      * 
      */
     @Export(name="diskAccessId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> diskAccessId;
 
     /**
-     * @return Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+     * @return Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
      * 
      */
     public Output<Optional<String>> diskAccessId() {
@@ -141,18 +141,18 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return this.diskSizeGb;
     }
     /**
-     * A `encryption_settings` block as defined below.
+     * A `encryptionSettings` block as defined below.
      * 
-     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryptionSettings` forces a new resource to be created.
      * 
      */
     @Export(name="encryptionSettings", refs={SnapshotEncryptionSettings.class}, tree="[0]")
     private Output</* @Nullable */ SnapshotEncryptionSettings> encryptionSettings;
 
     /**
-     * @return A `encryption_settings` block as defined below.
+     * @return A `encryptionSettings` block as defined below.
      * 
-     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryptionSettings` forces a new resource to be created.
      * 
      */
     public Output<Optional<SnapshotEncryptionSettings>> encryptionSettings() {
@@ -243,14 +243,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceResourceId;
 
     /**
-     * @return Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+     * @return Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sourceResourceId() {
@@ -271,14 +271,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceUri);
     }
     /**
-     * Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+     * Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
-     * @return Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+     * @return Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> storageAccountId() {

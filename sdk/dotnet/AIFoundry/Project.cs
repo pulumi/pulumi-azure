@@ -132,13 +132,13 @@ namespace Pulumi.Azure.AIFoundry
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
+        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `False`.
         /// </summary>
         [Output("highBusinessImpactEnabled")]
         public Output<bool> HighBusinessImpactEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ProjectIdentity?> Identity { get; private set; } = null!;
@@ -238,13 +238,13 @@ namespace Pulumi.Azure.AIFoundry
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
+        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `False`.
         /// </summary>
         [Input("highBusinessImpactEnabled")]
         public Input<bool>? HighBusinessImpactEnabled { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ProjectIdentityArgs>? Identity { get; set; }
@@ -306,13 +306,13 @@ namespace Pulumi.Azure.AIFoundry
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
+        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `False`.
         /// </summary>
         [Input("highBusinessImpactEnabled")]
         public Input<bool>? HighBusinessImpactEnabled { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ProjectIdentityGetArgs>? Identity { get; set; }

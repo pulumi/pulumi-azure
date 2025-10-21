@@ -32,14 +32,14 @@ public final class AlertRuleNrtEntityMappingArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A list of `field_mapping` blocks as defined below.
+     * A list of `fieldMapping` blocks as defined below.
      * 
      */
     @Import(name="fieldMappings", required=true)
     private Output<List<AlertRuleNrtEntityMappingFieldMappingArgs>> fieldMappings;
 
     /**
-     * @return A list of `field_mapping` blocks as defined below.
+     * @return A list of `fieldMapping` blocks as defined below.
      * 
      */
     public Output<List<AlertRuleNrtEntityMappingFieldMappingArgs>> fieldMappings() {
@@ -93,7 +93,7 @@ public final class AlertRuleNrtEntityMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fieldMappings A list of `field_mapping` blocks as defined below.
+         * @param fieldMappings A list of `fieldMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AlertRuleNrtEntityMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fieldMappings A list of `field_mapping` blocks as defined below.
+         * @param fieldMappings A list of `fieldMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AlertRuleNrtEntityMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fieldMappings A list of `field_mapping` blocks as defined below.
+         * @param fieldMappings A list of `fieldMapping` blocks as defined below.
          * 
          * @return builder
          * 

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.KeyVault
         private string? _encryptedData;
 
         /// <summary>
-        /// The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
+        /// The Base64 URL Encoded Encrypted Data which should be decrypted into `PlainTextValue`.
         /// </summary>
         public string? EncryptedData
         {
@@ -61,9 +61,9 @@ namespace Pulumi.Azure.KeyVault
         private string? _plainTextValue;
 
         /// <summary>
-        /// The plain-text value which should be Encrypted into `encrypted_data`.
+        /// The plain-text value which should be Encrypted into `EncryptedData`.
         /// 
-        /// &gt; **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
+        /// &gt; **Note:** One of either `EncryptedData` or `PlainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
         /// </summary>
         public string? PlainTextValue
         {
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.KeyVault
         private Input<string>? _encryptedData;
 
         /// <summary>
-        /// The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
+        /// The Base64 URL Encoded Encrypted Data which should be decrypted into `PlainTextValue`.
         /// </summary>
         public Input<string>? EncryptedData
         {
@@ -111,9 +111,9 @@ namespace Pulumi.Azure.KeyVault
         private Input<string>? _plainTextValue;
 
         /// <summary>
-        /// The plain-text value which should be Encrypted into `encrypted_data`.
+        /// The plain-text value which should be Encrypted into `EncryptedData`.
         /// 
-        /// &gt; **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
+        /// &gt; **Note:** One of either `EncryptedData` or `PlainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
         /// </summary>
         public Input<string>? PlainTextValue
         {
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.KeyVault
     {
         public readonly string Algorithm;
         /// <summary>
-        /// The Base64URL decoded string of `plain_text_value`. Because the API would remove padding characters of `plain_text_value` when encrypting, this attribute is useful to get the original value.
+        /// The Base64URL decoded string of `PlainTextValue`. Because the API would remove padding characters of `PlainTextValue` when encrypting, this attribute is useful to get the original value.
         /// </summary>
         public readonly string DecodedPlainTextValue;
         public readonly string? EncryptedData;

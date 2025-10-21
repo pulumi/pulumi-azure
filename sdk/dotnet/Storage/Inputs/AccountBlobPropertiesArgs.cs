@@ -13,9 +13,9 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountBlobPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the blob service properties for change feed events enabled? Default to `false`.
+        /// Is the blob service properties for change feed events enabled? Default to `False`.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// </summary>
         [Input("changeFeedEnabled")]
         public Input<bool>? ChangeFeedEnabled { get; set; }
@@ -23,13 +23,13 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// </summary>
         [Input("changeFeedRetentionInDays")]
         public Input<int>? ChangeFeedRetentionInDays { get; set; }
 
         /// <summary>
-        /// A `container_delete_retention_policy` block as defined below.
+        /// A `ContainerDeleteRetentionPolicy` block as defined below.
         /// </summary>
         [Input("containerDeleteRetentionPolicy")]
         public Input<Inputs.AccountBlobPropertiesContainerDeleteRetentionPolicyArgs>? ContainerDeleteRetentionPolicy { get; set; }
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<Inputs.AccountBlobPropertiesCorsRuleArgs>? _corsRules;
 
         /// <summary>
-        /// A `cors_rule` block as defined below.
+        /// A `CorsRule` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountBlobPropertiesCorsRuleArgs> CorsRules
         {
@@ -53,33 +53,33 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<string>? DefaultServiceVersion { get; set; }
 
         /// <summary>
-        /// A `delete_retention_policy` block as defined below.
+        /// A `DeleteRetentionPolicy` block as defined below.
         /// </summary>
         [Input("deleteRetentionPolicy")]
         public Input<Inputs.AccountBlobPropertiesDeleteRetentionPolicyArgs>? DeleteRetentionPolicy { get; set; }
 
         /// <summary>
-        /// Is the last access time based tracking enabled? Default to `false`.
+        /// Is the last access time based tracking enabled? Default to `False`.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// </summary>
         [Input("lastAccessTimeEnabled")]
         public Input<bool>? LastAccessTimeEnabled { get; set; }
 
         /// <summary>
-        /// A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+        /// A `RestorePolicy` block as defined below. This must be used together with `DeleteRetentionPolicy` set, `VersioningEnabled` and `ChangeFeedEnabled` set to `True`.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// 
-        /// &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+        /// &gt; **Note:** `RestorePolicy` can not be configured when `DnsEndpointType` is `AzureDnsZone`.
         /// </summary>
         [Input("restorePolicy")]
         public Input<Inputs.AccountBlobPropertiesRestorePolicyArgs>? RestorePolicy { get; set; }
 
         /// <summary>
-        /// Is versioning enabled? Default to `false`.
+        /// Is versioning enabled? Default to `False`.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// </summary>
         [Input("versioningEnabled")]
         public Input<bool>? VersioningEnabled { get; set; }

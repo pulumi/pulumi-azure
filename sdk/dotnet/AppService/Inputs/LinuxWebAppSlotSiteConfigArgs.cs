@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class LinuxWebAppSlotSiteConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If this Linux Web App is Always On enabled. Defaults to `true`.
+        /// If this Linux Web App is Always On enabled. Defaults to `True`.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? AppCommandLine { get; set; }
 
         /// <summary>
-        /// A `application_stack` block as defined above.
+        /// A `ApplicationStack` block as defined above.
         /// </summary>
         [Input("applicationStack")]
         public Input<Inputs.LinuxWebAppSlotSiteConfigApplicationStackArgs>? ApplicationStack { get; set; }
 
         /// <summary>
-        /// A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        /// A `AutoHealSetting` block as defined above. Required with `AutoHeal`.
         /// </summary>
         [Input("autoHealSetting")]
         public Input<Inputs.LinuxWebAppSlotSiteConfigAutoHealSettingArgs>? AutoHealSetting { get; set; }
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? ContainerRegistryUseManagedIdentity { get; set; }
 
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.LinuxWebAppSlotSiteConfigCorsArgs>? Cors { get; set; }
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? FtpsState { get; set; }
 
         /// <summary>
-        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `HealthCheckPath`.
         /// </summary>
         [Input("healthCheckEvictionTimeInMin")]
         public Input<int>? HealthCheckEvictionTimeInMin { get; set; }
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? Http2Enabled { get; set; }
 
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `IpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("ipRestrictionDefaultAction")]
         public Input<string>? IpRestrictionDefaultAction { get; set; }
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.LinuxWebAppSlotSiteConfigIpRestrictionArgs>? _ipRestrictions;
 
         /// <summary>
-        /// One or more `ip_restriction` blocks as defined above.
+        /// One or more `IpRestriction` blocks as defined above.
         /// </summary>
         public InputList<Inputs.LinuxWebAppSlotSiteConfigIpRestrictionArgs> IpRestrictions
         {
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
-        /// Use Local MySQL. Defaults to `false`.
+        /// Use Local MySQL. Defaults to `False`.
         /// </summary>
         [Input("localMysqlEnabled")]
         public Input<bool>? LocalMysqlEnabled { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// Should Remote Debugging be enabled? Defaults to `false`.
+        /// Should Remote Debugging be enabled? Defaults to `False`.
         /// </summary>
         [Input("remoteDebuggingEnabled")]
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? RemoteDebuggingVersion { get; set; }
 
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("scmIpRestrictionDefaultAction")]
         public Input<string>? ScmIpRestrictionDefaultAction { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.LinuxWebAppSlotSiteConfigScmIpRestrictionArgs>? _scmIpRestrictions;
 
         /// <summary>
-        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
         public InputList<Inputs.LinuxWebAppSlotSiteConfigScmIpRestrictionArgs> ScmIpRestrictions
         {
@@ -195,25 +195,25 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? ScmType { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+        /// Should the Linux Web App `IpRestriction` configuration be used for the SCM also.
         /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App use a 32-bit worker? Defaults to `true`.
+        /// Should the Linux Web App use a 32-bit worker? Defaults to `True`.
         /// </summary>
         [Input("use32BitWorker")]
         public Input<bool>? Use32BitWorker { get; set; }
 
         /// <summary>
-        /// Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `False`.
         /// </summary>
         [Input("vnetRouteAllEnabled")]
         public Input<bool>? VnetRouteAllEnabled { get; set; }
 
         /// <summary>
-        /// Should Web Sockets be enabled? Defaults to `false`.
+        /// Should Web Sockets be enabled? Defaults to `False`.
         /// </summary>
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }

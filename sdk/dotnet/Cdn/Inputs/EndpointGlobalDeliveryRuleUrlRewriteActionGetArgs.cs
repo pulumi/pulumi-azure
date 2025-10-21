@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string> Destination { get; set; } = null!;
 
         /// <summary>
-        /// Whether preserve an unmatched path. Defaults to `true`.
+        /// Whether preserve an unmatched path. Defaults to `True`.
         /// </summary>
         [Input("preserveUnmatchedPath")]
         public Input<bool>? PreserveUnmatchedPath { get; set; }

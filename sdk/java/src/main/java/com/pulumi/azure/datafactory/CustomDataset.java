@@ -239,14 +239,14 @@ public class CustomDataset extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.folder);
     }
     /**
-     * A `linked_service` block as defined below.
+     * A `linkedService` block as defined below.
      * 
      */
     @Export(name="linkedService", refs={CustomDatasetLinkedService.class}, tree="[0]")
     private Output<CustomDatasetLinkedService> linkedService;
 
     /**
-     * @return A `linked_service` block as defined below.
+     * @return A `linkedService` block as defined below.
      * 
      */
     public Output<CustomDatasetLinkedService> linkedService() {

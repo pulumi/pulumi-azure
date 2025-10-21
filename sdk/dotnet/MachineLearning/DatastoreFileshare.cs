@@ -109,7 +109,7 @@ namespace Pulumi.Azure.MachineLearning
     public partial class DatastoreFileshare : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        /// The access key of the Storage Account. Conflicts with `SharedAccessSignature`.
         /// </summary>
         [Output("accountKey")]
         public Output<string?> AccountKey { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> ServiceDataIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// The Shared Access Signature of the Storage Account. Conflicts with `AccountKey`.
         /// </summary>
         [Output("sharedAccessSignature")]
         public Output<string?> SharedAccessSignature { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.MachineLearning
         private Input<string>? _accountKey;
 
         /// <summary>
-        /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        /// The access key of the Storage Account. Conflicts with `SharedAccessSignature`.
         /// </summary>
         public Input<string>? AccountKey
         {
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.MachineLearning
         private Input<string>? _sharedAccessSignature;
 
         /// <summary>
-        /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// The Shared Access Signature of the Storage Account. Conflicts with `AccountKey`.
         /// </summary>
         public Input<string>? SharedAccessSignature
         {
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.MachineLearning
         private Input<string>? _accountKey;
 
         /// <summary>
-        /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        /// The access key of the Storage Account. Conflicts with `SharedAccessSignature`.
         /// </summary>
         public Input<string>? AccountKey
         {
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.MachineLearning
         private Input<string>? _sharedAccessSignature;
 
         /// <summary>
-        /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// The Shared Access Signature of the Storage Account. Conflicts with `AccountKey`.
         /// </summary>
         public Input<string>? SharedAccessSignature
         {

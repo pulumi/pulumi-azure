@@ -22,7 +22,7 @@ public final class MongoClusterConnectionString {
      */
     private @Nullable String name;
     /**
-     * @return The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+     * @return The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
      * 
      */
     private @Nullable String value;
@@ -43,7 +43,7 @@ public final class MongoClusterConnectionString {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+     * @return The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
      * 
      */
     public Optional<String> value() {

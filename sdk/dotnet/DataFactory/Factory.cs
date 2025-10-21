@@ -63,25 +63,25 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> CustomerManagedKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `CustomerManagedKeyId` is set.
         /// </summary>
         [Output("customerManagedKeyIdentityId")]
         public Output<string> CustomerManagedKeyIdentityId { get; private set; } = null!;
 
         /// <summary>
-        /// A `github_configuration` block as defined below.
+        /// A `GithubConfiguration` block as defined below.
         /// </summary>
         [Output("githubConfiguration")]
         public Output<Outputs.FactoryGithubConfiguration?> GithubConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `global_parameter` blocks as defined above.
+        /// A list of `GlobalParameter` blocks as defined above.
         /// </summary>
         [Output("globalParameters")]
         public Output<ImmutableArray<Outputs.FactoryGlobalParameter>> GlobalParameters { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.FactoryIdentity?> Identity { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Data Factory visible to the public network? Defaults to `true`.
+        /// Is the Data Factory visible to the public network? Defaults to `True`.
         /// </summary>
         [Output("publicNetworkEnabled")]
         public Output<bool?> PublicNetworkEnabled { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `vsts_configuration` block as defined below.
+        /// A `VstsConfiguration` block as defined below.
         /// </summary>
         [Output("vstsConfiguration")]
         public Output<Outputs.FactoryVstsConfiguration?> VstsConfiguration { get; private set; } = null!;
@@ -187,13 +187,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? CustomerManagedKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `CustomerManagedKeyId` is set.
         /// </summary>
         [Input("customerManagedKeyIdentityId")]
         public Input<string>? CustomerManagedKeyIdentityId { get; set; }
 
         /// <summary>
-        /// A `github_configuration` block as defined below.
+        /// A `GithubConfiguration` block as defined below.
         /// </summary>
         [Input("githubConfiguration")]
         public Input<Inputs.FactoryGithubConfigurationArgs>? GithubConfiguration { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.FactoryGlobalParameterArgs>? _globalParameters;
 
         /// <summary>
-        /// A list of `global_parameter` blocks as defined above.
+        /// A list of `GlobalParameter` blocks as defined above.
         /// </summary>
         public InputList<Inputs.FactoryGlobalParameterArgs> GlobalParameters
         {
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FactoryIdentityArgs>? Identity { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Is the Data Factory visible to the public network? Defaults to `true`.
+        /// Is the Data Factory visible to the public network? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkEnabled")]
         public Input<bool>? PublicNetworkEnabled { get; set; }
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `vsts_configuration` block as defined below.
+        /// A `VstsConfiguration` block as defined below.
         /// </summary>
         [Input("vstsConfiguration")]
         public Input<Inputs.FactoryVstsConfigurationArgs>? VstsConfiguration { get; set; }
@@ -285,13 +285,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? CustomerManagedKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `CustomerManagedKeyId` is set.
         /// </summary>
         [Input("customerManagedKeyIdentityId")]
         public Input<string>? CustomerManagedKeyIdentityId { get; set; }
 
         /// <summary>
-        /// A `github_configuration` block as defined below.
+        /// A `GithubConfiguration` block as defined below.
         /// </summary>
         [Input("githubConfiguration")]
         public Input<Inputs.FactoryGithubConfigurationGetArgs>? GithubConfiguration { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.FactoryGlobalParameterGetArgs>? _globalParameters;
 
         /// <summary>
-        /// A list of `global_parameter` blocks as defined above.
+        /// A list of `GlobalParameter` blocks as defined above.
         /// </summary>
         public InputList<Inputs.FactoryGlobalParameterGetArgs> GlobalParameters
         {
@@ -309,7 +309,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FactoryIdentityGetArgs>? Identity { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Is the Data Factory visible to the public network? Defaults to `true`.
+        /// Is the Data Factory visible to the public network? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkEnabled")]
         public Input<bool>? PublicNetworkEnabled { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `vsts_configuration` block as defined below.
+        /// A `VstsConfiguration` block as defined below.
         /// </summary>
         [Input("vstsConfiguration")]
         public Input<Inputs.FactoryVstsConfigurationGetArgs>? VstsConfiguration { get; set; }

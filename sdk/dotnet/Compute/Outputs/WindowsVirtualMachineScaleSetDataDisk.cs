@@ -44,21 +44,21 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         /// 
-        /// &gt; **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+        /// &gt; **Note:** `UltraSSD_LRS` is only supported when `UltraSsdEnabled` within the `AdditionalCapabilities` block is enabled.
         /// </summary>
         public readonly string StorageAccountType;
         /// <summary>
-        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         /// </summary>
         public readonly int? UltraSsdDiskIopsReadWrite;
         /// <summary>
-        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         /// </summary>
         public readonly int? UltraSsdDiskMbpsReadWrite;
         /// <summary>
-        /// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+        /// Should Write Accelerator be enabled for this Data Disk? Defaults to `False`.
         /// 
-        /// &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+        /// &gt; **Note:** This requires that the `StorageAccountType` is set to `Premium_LRS` and that `Caching` is set to `None`.
         /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 

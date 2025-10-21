@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
     public sealed class AccountNetworkInjection
     {
         /// <summary>
-        /// Specifies what features network injection applies to. The only possible value is `agent`.
+        /// Specifies what features network injection applies to. The only possible value is `Agent`.
         /// </summary>
         public readonly string Scenario;
         /// <summary>

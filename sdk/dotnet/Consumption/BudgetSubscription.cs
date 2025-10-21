@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Consumption
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Output("filter")]
         public Output<Outputs.BudgetSubscriptionFilter?> Filter { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Consumption
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `notification` blocks as defined below.
+        /// One or more `Notification` blocks as defined below.
         /// </summary>
         [Output("notifications")]
         public Output<ImmutableArray<Outputs.BudgetSubscriptionNotification>> Notifications { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Consumption
         /// <summary>
         /// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+        /// &gt; **Note:** The `SubscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Consumption
         public Output<string?> TimeGrain { get; private set; } = null!;
 
         /// <summary>
-        /// A `time_period` block as defined below.
+        /// A `TimePeriod` block as defined below.
         /// </summary>
         [Output("timePeriod")]
         public Output<Outputs.BudgetSubscriptionTimePeriod> TimePeriod { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BudgetSubscriptionFilterArgs>? Filter { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.Consumption
         private InputList<Inputs.BudgetSubscriptionNotificationArgs>? _notifications;
 
         /// <summary>
-        /// One or more `notification` blocks as defined below.
+        /// One or more `Notification` blocks as defined below.
         /// </summary>
         public InputList<Inputs.BudgetSubscriptionNotificationArgs> Notifications
         {
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.Consumption
         /// <summary>
         /// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+        /// &gt; **Note:** The `SubscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
         /// </summary>
         [Input("subscriptionId", required: true)]
         public Input<string> SubscriptionId { get; set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string>? TimeGrain { get; set; }
 
         /// <summary>
-        /// A `time_period` block as defined below.
+        /// A `TimePeriod` block as defined below.
         /// </summary>
         [Input("timePeriod", required: true)]
         public Input<Inputs.BudgetSubscriptionTimePeriodArgs> TimePeriod { get; set; } = null!;
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BudgetSubscriptionFilterGetArgs>? Filter { get; set; }
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.Consumption
         private InputList<Inputs.BudgetSubscriptionNotificationGetArgs>? _notifications;
 
         /// <summary>
-        /// One or more `notification` blocks as defined below.
+        /// One or more `Notification` blocks as defined below.
         /// </summary>
         public InputList<Inputs.BudgetSubscriptionNotificationGetArgs> Notifications
         {
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.Consumption
         /// <summary>
         /// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+        /// &gt; **Note:** The `SubscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string>? TimeGrain { get; set; }
 
         /// <summary>
-        /// A `time_period` block as defined below.
+        /// A `TimePeriod` block as defined below.
         /// </summary>
         [Input("timePeriod")]
         public Input<Inputs.BudgetSubscriptionTimePeriodGetArgs>? TimePeriod { get; set; }

@@ -225,6 +225,15 @@ def get_lb_rule(loadbalancer_id: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing Load Balancer Rule.
 
+    ## Example Usage
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network` - 2023-09-01
+
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer Rule.
     :param _builtins.str name: The name of this Load Balancer Rule.
@@ -257,6 +266,15 @@ def get_lb_rule_output(loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = 
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLBRuleResult]:
     """
     Use this data source to access information about an existing Load Balancer Rule.
+
+    ## Example Usage
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network` - 2023-09-01
 
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer Rule.

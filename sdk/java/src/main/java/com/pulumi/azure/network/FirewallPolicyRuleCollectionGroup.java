@@ -149,14 +149,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup")
 public class FirewallPolicyRuleCollectionGroup extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `application_rule_collection` blocks as defined below.
+     * One or more `applicationRuleCollection` blocks as defined below.
      * 
      */
     @Export(name="applicationRuleCollections", refs={List.class,FirewallPolicyRuleCollectionGroupApplicationRuleCollection.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FirewallPolicyRuleCollectionGroupApplicationRuleCollection>> applicationRuleCollections;
 
     /**
-     * @return One or more `application_rule_collection` blocks as defined below.
+     * @return One or more `applicationRuleCollection` blocks as defined below.
      * 
      */
     public Output<Optional<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollection>>> applicationRuleCollections() {
@@ -191,28 +191,28 @@ public class FirewallPolicyRuleCollectionGroup extends com.pulumi.resources.Cust
         return this.name;
     }
     /**
-     * One or more `nat_rule_collection` blocks as defined below.
+     * One or more `natRuleCollection` blocks as defined below.
      * 
      */
     @Export(name="natRuleCollections", refs={List.class,FirewallPolicyRuleCollectionGroupNatRuleCollection.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FirewallPolicyRuleCollectionGroupNatRuleCollection>> natRuleCollections;
 
     /**
-     * @return One or more `nat_rule_collection` blocks as defined below.
+     * @return One or more `natRuleCollection` blocks as defined below.
      * 
      */
     public Output<Optional<List<FirewallPolicyRuleCollectionGroupNatRuleCollection>>> natRuleCollections() {
         return Codegen.optional(this.natRuleCollections);
     }
     /**
-     * One or more `network_rule_collection` blocks as defined below.
+     * One or more `networkRuleCollection` blocks as defined below.
      * 
      */
     @Export(name="networkRuleCollections", refs={List.class,FirewallPolicyRuleCollectionGroupNetworkRuleCollection.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FirewallPolicyRuleCollectionGroupNetworkRuleCollection>> networkRuleCollections;
 
     /**
-     * @return One or more `network_rule_collection` blocks as defined below.
+     * @return One or more `networkRuleCollection` blocks as defined below.
      * 
      */
     public Output<Optional<List<FirewallPolicyRuleCollectionGroupNetworkRuleCollection>>> networkRuleCollections() {

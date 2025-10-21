@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> BackendAddressPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `inbound_nat_rule_port_mapping` block as defined below.
+        /// A list of `InboundNatRulePortMapping` block as defined below.
         /// </summary>
         [Output("inboundNatRulePortMappings")]
         public Output<ImmutableArray<Outputs.BackendAddressPoolAddressInboundNatRulePortMapping>> InboundNatRulePortMappings { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.BackendAddressPoolAddressInboundNatRulePortMappingGetArgs>? _inboundNatRulePortMappings;
 
         /// <summary>
-        /// A list of `inbound_nat_rule_port_mapping` block as defined below.
+        /// A list of `InboundNatRulePortMapping` block as defined below.
         /// </summary>
         public InputList<Inputs.BackendAddressPoolAddressInboundNatRulePortMappingGetArgs> InboundNatRulePortMappings
         {

@@ -70,7 +70,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `admin` blocks as defined below.
+        /// One or more `Admin` blocks as defined below.
         /// </summary>
         [Output("admins")]
         public Output<ImmutableArray<Outputs.CertificateIssuerAdmin>> Admins { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.CertificateIssuerAdminArgs>? _admins;
 
         /// <summary>
-        /// One or more `admin` blocks as defined below.
+        /// One or more `Admin` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CertificateIssuerAdminArgs> Admins
         {
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.CertificateIssuerAdminGetArgs>? _admins;
 
         /// <summary>
-        /// One or more `admin` blocks as defined below.
+        /// One or more `Admin` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CertificateIssuerAdminGetArgs> Admins
         {

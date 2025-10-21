@@ -54,7 +54,7 @@ public final class GetGatewayConnectionResult {
     private String id;
     private Integer ingressBytesTransferred;
     /**
-     * @return (Optional) A `ipsec_policy` block which is documented below.
+     * @return (Optional) A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      * 
@@ -109,8 +109,8 @@ public final class GetGatewayConnectionResult {
      */
     private Map<String,String> tags;
     /**
-     * @return One or more `traffic_selector_policy` blocks which are documented below.
-     * A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
+     * @return One or more `trafficSelectorPolicy` blocks which are documented below.
+     * A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
      * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
      * 
      */
@@ -124,7 +124,7 @@ public final class GetGatewayConnectionResult {
     /**
      * @return If `true`, policy-based traffic
      * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block.
+     * selectors requires an `ipsecPolicy` block.
      * 
      */
     private Boolean usePolicyBasedTrafficSelectors;
@@ -192,7 +192,7 @@ public final class GetGatewayConnectionResult {
         return this.ingressBytesTransferred;
     }
     /**
-     * @return (Optional) A `ipsec_policy` block which is documented below.
+     * @return (Optional) A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      * 
@@ -271,8 +271,8 @@ public final class GetGatewayConnectionResult {
         return this.tags;
     }
     /**
-     * @return One or more `traffic_selector_policy` blocks which are documented below.
-     * A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
+     * @return One or more `trafficSelectorPolicy` blocks which are documented below.
+     * A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
      * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
      * 
      */
@@ -290,7 +290,7 @@ public final class GetGatewayConnectionResult {
     /**
      * @return If `true`, policy-based traffic
      * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block.
+     * selectors requires an `ipsecPolicy` block.
      * 
      */
     public Boolean usePolicyBasedTrafficSelectors() {

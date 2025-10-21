@@ -22,14 +22,14 @@ public final class ScheduledQueryRulesAlertV2Criteria {
      */
     private @Nullable List<ScheduledQueryRulesAlertV2CriteriaDimension> dimensions;
     /**
-     * @return A `failing_periods` block as defined below.
+     * @return A `failingPeriods` block as defined below.
      * 
      */
     private @Nullable ScheduledQueryRulesAlertV2CriteriaFailingPeriods failingPeriods;
     /**
      * @return Specifies the column containing the metric measure number.
      * 
-     * &gt; **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+     * &gt; **Note:** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
      * 
      */
     private @Nullable String metricMeasureColumn;
@@ -68,7 +68,7 @@ public final class ScheduledQueryRulesAlertV2Criteria {
         return this.dimensions == null ? List.of() : this.dimensions;
     }
     /**
-     * @return A `failing_periods` block as defined below.
+     * @return A `failingPeriods` block as defined below.
      * 
      */
     public Optional<ScheduledQueryRulesAlertV2CriteriaFailingPeriods> failingPeriods() {
@@ -77,7 +77,7 @@ public final class ScheduledQueryRulesAlertV2Criteria {
     /**
      * @return Specifies the column containing the metric measure number.
      * 
-     * &gt; **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+     * &gt; **Note:** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
      * 
      */
     public Optional<String> metricMeasureColumn() {

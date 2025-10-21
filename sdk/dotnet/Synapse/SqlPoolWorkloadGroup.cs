@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Synapse
     public partial class SqlPoolWorkloadGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The workload group importance level. Defaults to `normal`.
+        /// The workload group importance level. Defaults to `Normal`.
         /// </summary>
         [Output("importance")]
         public Output<string?> Importance { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class SqlPoolWorkloadGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The workload group importance level. Defaults to `normal`.
+        /// The workload group importance level. Defaults to `Normal`.
         /// </summary>
         [Input("importance")]
         public Input<string>? Importance { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class SqlPoolWorkloadGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The workload group importance level. Defaults to `normal`.
+        /// The workload group importance level. Defaults to `Normal`.
         /// </summary>
         [Input("importance")]
         public Input<string>? Importance { get; set; }

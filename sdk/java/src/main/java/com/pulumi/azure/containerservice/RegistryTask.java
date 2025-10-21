@@ -125,32 +125,32 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.agentPoolName);
     }
     /**
-     * A `agent_setting` block as defined below.
+     * A `agentSetting` block as defined below.
      * 
-     * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * &gt; **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      * 
      */
     @Export(name="agentSetting", refs={RegistryTaskAgentSetting.class}, tree="[0]")
     private Output</* @Nullable */ RegistryTaskAgentSetting> agentSetting;
 
     /**
-     * @return A `agent_setting` block as defined below.
+     * @return A `agentSetting` block as defined below.
      * 
-     * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * &gt; **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      * 
      */
     public Output<Optional<RegistryTaskAgentSetting>> agentSetting() {
         return Codegen.optional(this.agentSetting);
     }
     /**
-     * A `base_image_trigger` block as defined below.
+     * A `baseImageTrigger` block as defined below.
      * 
      */
     @Export(name="baseImageTrigger", refs={RegistryTaskBaseImageTrigger.class}, tree="[0]")
     private Output</* @Nullable */ RegistryTaskBaseImageTrigger> baseImageTrigger;
 
     /**
-     * @return A `base_image_trigger` block as defined below.
+     * @return A `baseImageTrigger` block as defined below.
      * 
      */
     public Output<Optional<RegistryTaskBaseImageTrigger>> baseImageTrigger() {
@@ -171,14 +171,14 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
         return this.containerRegistryId;
     }
     /**
-     * A `docker_step` block as defined below.
+     * A `dockerStep` block as defined below.
      * 
      */
     @Export(name="dockerStep", refs={RegistryTaskDockerStep.class}, tree="[0]")
     private Output</* @Nullable */ RegistryTaskDockerStep> dockerStep;
 
     /**
-     * @return A `docker_step` block as defined below.
+     * @return A `dockerStep` block as defined below.
      * 
      */
     public Output<Optional<RegistryTaskDockerStep>> dockerStep() {
@@ -199,32 +199,32 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * A `encoded_step` block as defined below.
+     * A `encodedStep` block as defined below.
      * 
      */
     @Export(name="encodedStep", refs={RegistryTaskEncodedStep.class}, tree="[0]")
     private Output</* @Nullable */ RegistryTaskEncodedStep> encodedStep;
 
     /**
-     * @return A `encoded_step` block as defined below.
+     * @return A `encodedStep` block as defined below.
      * 
      */
     public Output<Optional<RegistryTaskEncodedStep>> encodedStep() {
         return Codegen.optional(this.encodedStep);
     }
     /**
-     * A `file_step` block as defined below.
+     * A `fileStep` block as defined below.
      * 
-     * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * &gt; **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      * 
      */
     @Export(name="fileStep", refs={RegistryTaskFileStep.class}, tree="[0]")
     private Output</* @Nullable */ RegistryTaskFileStep> fileStep;
 
     /**
-     * @return A `file_step` block as defined below.
+     * @return A `fileStep` block as defined below.
      * 
-     * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * &gt; **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      * 
      */
     public Output<Optional<RegistryTaskFileStep>> fileStep() {
@@ -281,7 +281,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * A `platform` block as defined below.
      * 
-     * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * &gt; **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      * 
      */
     @Export(name="platform", refs={RegistryTaskPlatform.class}, tree="[0]")
@@ -290,7 +290,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * @return A `platform` block as defined below.
      * 
-     * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * &gt; **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      * 
      */
     public Output<Optional<RegistryTaskPlatform>> platform() {
@@ -303,14 +303,14 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.registryCredential);
     }
     /**
-     * One or more `source_trigger` blocks as defined below.
+     * One or more `sourceTrigger` blocks as defined below.
      * 
      */
     @Export(name="sourceTriggers", refs={List.class,RegistryTaskSourceTrigger.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegistryTaskSourceTrigger>> sourceTriggers;
 
     /**
-     * @return One or more `source_trigger` blocks as defined below.
+     * @return One or more `sourceTrigger` blocks as defined below.
      * 
      */
     public Output<Optional<List<RegistryTaskSourceTrigger>>> sourceTriggers() {
@@ -329,14 +329,14 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeoutInSeconds);
     }
     /**
-     * One or more `timer_trigger` blocks as defined below.
+     * One or more `timerTrigger` blocks as defined below.
      * 
      */
     @Export(name="timerTriggers", refs={List.class,RegistryTaskTimerTrigger.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegistryTaskTimerTrigger>> timerTriggers;
 
     /**
-     * @return One or more `timer_trigger` blocks as defined below.
+     * @return One or more `timerTrigger` blocks as defined below.
      * 
      */
     public Output<Optional<List<RegistryTaskTimerTrigger>>> timerTriggers() {

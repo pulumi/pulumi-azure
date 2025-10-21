@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Sentinel.Outputs
     public sealed class AlertRuleScheduledIncidentGrouping
     {
         /// <summary>
-        /// A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+        /// A list of alert details to group by, only when the `EntityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
         /// </summary>
         public readonly ImmutableArray<string> ByAlertDetails;
         /// <summary>
-        /// A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+        /// A list of custom details keys to group by, only when the `EntityMatchingMethod` is `Selected`. Only keys defined in the `CustomDetails` may be used.
         /// </summary>
         public readonly ImmutableArray<string> ByCustomDetails;
         /// <summary>
-        /// A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        /// A list of entity types to group by, only when the `EntityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         /// </summary>
         public readonly ImmutableArray<string> ByEntities;
         /// <summary>
-        /// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+        /// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string? LookbackDuration;
         /// <summary>
-        /// Whether to re-open closed matching incidents? Defaults to `false`.
+        /// Whether to re-open closed matching incidents? Defaults to `False`.
         /// </summary>
         public readonly bool? ReopenClosedIncidents;
 

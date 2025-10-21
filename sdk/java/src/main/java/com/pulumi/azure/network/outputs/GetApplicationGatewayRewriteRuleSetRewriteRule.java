@@ -27,12 +27,12 @@ public final class GetApplicationGatewayRewriteRuleSetRewriteRule {
      */
     private String name;
     /**
-     * @return One or more `request_header_configuration` blocks as defined above.
+     * @return One or more `requestHeaderConfiguration` blocks as defined above.
      * 
      */
     private List<GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration> requestHeaderConfigurations;
     /**
-     * @return One or more `response_header_configuration` blocks as defined above.
+     * @return One or more `responseHeaderConfiguration` blocks as defined above.
      * 
      */
     private List<GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations;
@@ -63,14 +63,14 @@ public final class GetApplicationGatewayRewriteRuleSetRewriteRule {
         return this.name;
     }
     /**
-     * @return One or more `request_header_configuration` blocks as defined above.
+     * @return One or more `requestHeaderConfiguration` blocks as defined above.
      * 
      */
     public List<GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration> requestHeaderConfigurations() {
         return this.requestHeaderConfigurations;
     }
     /**
-     * @return One or more `response_header_configuration` blocks as defined above.
+     * @return One or more `responseHeaderConfiguration` blocks as defined above.
      * 
      */
     public List<GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations() {

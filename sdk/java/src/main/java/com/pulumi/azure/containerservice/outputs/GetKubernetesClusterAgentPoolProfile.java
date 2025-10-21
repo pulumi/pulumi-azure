@@ -83,7 +83,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
      */
     private String type;
     /**
-     * @return A `upgrade_settings` block as documented below.
+     * @return A `upgradeSettings` block as documented below.
      * 
      */
     private List<GetKubernetesClusterAgentPoolProfileUpgradeSetting> upgradeSettings;
@@ -202,7 +202,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
         return this.type;
     }
     /**
-     * @return A `upgrade_settings` block as documented below.
+     * @return A `upgradeSettings` block as documented below.
      * 
      */
     public List<GetKubernetesClusterAgentPoolProfileUpgradeSetting> upgradeSettings() {

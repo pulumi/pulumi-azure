@@ -51,14 +51,14 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
     }
 
     /**
-     * A `slow_request` block as defined above.
+     * A `slowRequest` block as defined above.
      * 
      */
     @Import(name="slowRequest")
     private @Nullable Output<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs> slowRequest;
 
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     public Optional<Output<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs>> slowRequest() {
@@ -66,14 +66,14 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
     }
 
     /**
-     * One or more `slow_request_with_path` blocks as defined above.
+     * One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     @Import(name="slowRequestWithPaths")
     private @Nullable Output<List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>> slowRequestWithPaths;
 
     /**
-     * @return One or more `slow_request_with_path` blocks as defined above.
+     * @return One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     public Optional<Output<List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>>> slowRequestWithPaths() {
@@ -81,14 +81,14 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
     }
 
     /**
-     * One or more `status_code` blocks as defined above.
+     * One or more `statusCode` blocks as defined above.
      * 
      */
     @Import(name="statusCodes")
     private @Nullable Output<List<WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs>> statusCodes;
 
     /**
-     * @return One or more `status_code` blocks as defined above.
+     * @return One or more `statusCode` blocks as defined above.
      * 
      */
     public Optional<Output<List<WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs>>> statusCodes() {
@@ -166,7 +166,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param slowRequest A `slow_request` block as defined above.
+         * @param slowRequest A `slowRequest` block as defined above.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param slowRequest A `slow_request` block as defined above.
+         * @param slowRequest A `slowRequest` block as defined above.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * @param slowRequestWithPaths One or more `slowRequestWithPath` blocks as defined above.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * @param slowRequestWithPaths One or more `slowRequestWithPath` blocks as defined above.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * @param slowRequestWithPaths One or more `slowRequestWithPath` blocks as defined above.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param statusCodes One or more `status_code` blocks as defined above.
+         * @param statusCodes One or more `statusCode` blocks as defined above.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param statusCodes One or more `status_code` blocks as defined above.
+         * @param statusCodes One or more `statusCode` blocks as defined above.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs extends com
         }
 
         /**
-         * @param statusCodes One or more `status_code` blocks as defined above.
+         * @param statusCodes One or more `statusCode` blocks as defined above.
          * 
          * @return builder
          * 

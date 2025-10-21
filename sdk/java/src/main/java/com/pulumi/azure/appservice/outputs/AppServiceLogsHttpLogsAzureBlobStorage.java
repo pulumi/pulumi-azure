@@ -19,7 +19,7 @@ public final class AppServiceLogsHttpLogsAzureBlobStorage {
     /**
      * @return The URL to the storage container with a shared access signature token appended.
      * 
-     * &gt; **Note:** There isn&#39;t enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&amp;sr=b`).
+     * &gt; **Note:** There isn&#39;t enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&amp;sr=b`).
      * 
      */
     private String sasUrl;
@@ -35,7 +35,7 @@ public final class AppServiceLogsHttpLogsAzureBlobStorage {
     /**
      * @return The URL to the storage container with a shared access signature token appended.
      * 
-     * &gt; **Note:** There isn&#39;t enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&amp;sr=b`).
+     * &gt; **Note:** There isn&#39;t enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&amp;sr=b`).
      * 
      */
     public String sasUrl() {

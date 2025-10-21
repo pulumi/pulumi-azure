@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class AutoscaleSettingProfileRule
     {
         /// <summary>
-        /// A `metric_trigger` block as defined below.
+        /// A `MetricTrigger` block as defined below.
         /// </summary>
         public readonly Outputs.AutoscaleSettingProfileRuleMetricTrigger MetricTrigger;
         /// <summary>
-        /// A `scale_action` block as defined below.
+        /// A `ScaleAction` block as defined below.
         /// </summary>
         public readonly Outputs.AutoscaleSettingProfileRuleScaleAction ScaleAction;
 

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkConnectionMonitorTestConfiguration
     {
         /// <summary>
-        /// A `http_configuration` block as defined below.
+        /// A `HttpConfiguration` block as defined below.
         /// </summary>
         public readonly Outputs.NetworkConnectionMonitorTestConfigurationHttpConfiguration? HttpConfiguration;
         /// <summary>
-        /// A `icmp_configuration` block as defined below.
+        /// A `IcmpConfiguration` block as defined below.
         /// </summary>
         public readonly Outputs.NetworkConnectionMonitorTestConfigurationIcmpConfiguration? IcmpConfiguration;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// A `success_threshold` block as defined below.
+        /// A `SuccessThreshold` block as defined below.
         /// </summary>
         public readonly Outputs.NetworkConnectionMonitorTestConfigurationSuccessThreshold? SuccessThreshold;
         /// <summary>
-        /// A `tcp_configuration` block as defined below.
+        /// A `TcpConfiguration` block as defined below.
         /// </summary>
         public readonly Outputs.NetworkConnectionMonitorTestConfigurationTcpConfiguration? TcpConfiguration;
         /// <summary>

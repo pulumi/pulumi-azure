@@ -98,14 +98,14 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `external_reference` blocks as defined below.
+     * One or more `externalReference` blocks as defined below.
      * 
      */
     @Import(name="externalReferences")
     private @Nullable Output<List<ThreatIntelligenceIndicatorExternalReferenceArgs>> externalReferences;
 
     /**
-     * @return One or more `external_reference` blocks as defined below.
+     * @return One or more `externalReference` blocks as defined below.
      * 
      */
     public Optional<Output<List<ThreatIntelligenceIndicatorExternalReferenceArgs>>> externalReferences() {
@@ -113,14 +113,14 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `granular_marking` blocks as defined below.
+     * One or more `granularMarking` blocks as defined below.
      * 
      */
     @Import(name="granularMarkings")
     private @Nullable Output<List<ThreatIntelligenceIndicatorGranularMarkingArgs>> granularMarkings;
 
     /**
-     * @return One or more `granular_marking` blocks as defined below.
+     * @return One or more `granularMarking` blocks as defined below.
      * 
      */
     public Optional<Output<List<ThreatIntelligenceIndicatorGranularMarkingArgs>>> granularMarkings() {
@@ -128,14 +128,14 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `kill_chain_phase` blocks as defined below.
+     * One or more `killChainPhase` blocks as defined below.
      * 
      */
     @Import(name="killChainPhases")
     private @Nullable Output<List<ThreatIntelligenceIndicatorKillChainPhaseArgs>> killChainPhases;
 
     /**
-     * @return One or more `kill_chain_phase` blocks as defined below.
+     * @return One or more `killChainPhase` blocks as defined below.
      * 
      */
     public Optional<Output<List<ThreatIntelligenceIndicatorKillChainPhaseArgs>>> killChainPhases() {
@@ -173,14 +173,14 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
     }
 
     /**
-     * The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
+     * The pattern used by the Threat Intelligence Indicator. When `patternType` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
      * 
      */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
     /**
-     * @return The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
+     * @return The pattern used by the Threat Intelligence Indicator. When `patternType` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
      * 
      */
     public Output<String> pattern() {
@@ -471,7 +471,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param externalReferences One or more `external_reference` blocks as defined below.
+         * @param externalReferences One or more `externalReference` blocks as defined below.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param externalReferences One or more `external_reference` blocks as defined below.
+         * @param externalReferences One or more `externalReference` blocks as defined below.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param externalReferences One or more `external_reference` blocks as defined below.
+         * @param externalReferences One or more `externalReference` blocks as defined below.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param granularMarkings One or more `granular_marking` blocks as defined below.
+         * @param granularMarkings One or more `granularMarking` blocks as defined below.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param granularMarkings One or more `granular_marking` blocks as defined below.
+         * @param granularMarkings One or more `granularMarking` blocks as defined below.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param granularMarkings One or more `granular_marking` blocks as defined below.
+         * @param granularMarkings One or more `granularMarking` blocks as defined below.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param killChainPhases One or more `kill_chain_phase` blocks as defined below.
+         * @param killChainPhases One or more `killChainPhase` blocks as defined below.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param killChainPhases One or more `kill_chain_phase` blocks as defined below.
+         * @param killChainPhases One or more `killChainPhase` blocks as defined below.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param killChainPhases One or more `kill_chain_phase` blocks as defined below.
+         * @param killChainPhases One or more `killChainPhase` blocks as defined below.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param pattern The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
+         * @param pattern The pattern used by the Threat Intelligence Indicator. When `patternType` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
          * 
          * @return builder
          * 
@@ -627,7 +627,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param pattern The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
+         * @param pattern The pattern used by the Threat Intelligence Indicator. When `patternType` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
          * 
          * @return builder
          * 

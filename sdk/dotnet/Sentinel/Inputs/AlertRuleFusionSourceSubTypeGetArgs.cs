@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
     public sealed class AlertRuleFusionSourceSubTypeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+        /// Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

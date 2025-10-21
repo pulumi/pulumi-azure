@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Communication.Outputs
     public sealed class EmailServiceDomainVerificationRecordSpf
     {
         /// <summary>
-        /// The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        /// The name of the Email Communication Service resource. If `DomainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         /// </summary>
         public readonly string? Name;
         /// <summary>

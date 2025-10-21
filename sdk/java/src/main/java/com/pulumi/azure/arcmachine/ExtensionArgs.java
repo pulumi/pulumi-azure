@@ -36,9 +36,9 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+     * &gt; **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
      * 
-     * &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+     * &gt; **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
      * 
      */
     @Import(name="automaticUpgradeEnabled")
@@ -47,9 +47,9 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+     * &gt; **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
      * 
-     * &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+     * &gt; **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
      * 
      */
     public Optional<Output<Boolean>> automaticUpgradeEnabled() {
@@ -179,7 +179,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the version of the script handler.
      * 
-     * &gt; **Note:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
+     * &gt; **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
      * 
      */
     @Import(name="typeHandlerVersion")
@@ -188,7 +188,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the version of the script handler.
      * 
-     * &gt; **Note:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
+     * &gt; **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
      * 
      */
     public Optional<Output<String>> typeHandlerVersion() {
@@ -253,9 +253,9 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param automaticUpgradeEnabled Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+         * &gt; **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
          * 
-         * &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+         * &gt; **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
          * 
          * @return builder
          * 
@@ -268,9 +268,9 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param automaticUpgradeEnabled Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+         * &gt; **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
          * 
-         * &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+         * &gt; **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param typeHandlerVersion Specifies the version of the script handler.
          * 
-         * &gt; **Note:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
+         * &gt; **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param typeHandlerVersion Specifies the version of the script handler.
          * 
-         * &gt; **Note:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
+         * &gt; **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
     /**
      * A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
-     * &gt; **Note:** `connection_string` is required when `type` is `EventHub`.
+     * &gt; **Note:** `connectionString` is required when `type` is `EventHub`.
      * 
      */
     @Import(name="connectionString")
@@ -28,7 +28,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
-     * &gt; **Note:** `connection_string` is required when `type` is `EventHub`.
+     * &gt; **Note:** `connectionString` is required when `type` is `EventHub`.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -53,7 +53,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
     /**
      * The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
      * 
-     * &gt; **Note:** `trigger_url` is required when `type` is `LogicApp`.
+     * &gt; **Note:** `triggerUrl` is required when `type` is `LogicApp`.
      * 
      */
     @Import(name="triggerUrl")
@@ -62,7 +62,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
      * 
-     * &gt; **Note:** `trigger_url` is required when `type` is `LogicApp`.
+     * &gt; **Note:** `triggerUrl` is required when `type` is `LogicApp`.
      * 
      */
     public Optional<Output<String>> triggerUrl() {
@@ -114,7 +114,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param connectionString A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
          * 
-         * &gt; **Note:** `connection_string` is required when `type` is `EventHub`.
+         * &gt; **Note:** `connectionString` is required when `type` is `EventHub`.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param connectionString A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
          * 
-         * &gt; **Note:** `connection_string` is required when `type` is `EventHub`.
+         * &gt; **Note:** `connectionString` is required when `type` is `EventHub`.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param triggerUrl The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
          * 
-         * &gt; **Note:** `trigger_url` is required when `type` is `LogicApp`.
+         * &gt; **Note:** `triggerUrl` is required when `type` is `LogicApp`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param triggerUrl The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
          * 
-         * &gt; **Note:** `trigger_url` is required when `type` is `LogicApp`.
+         * &gt; **Note:** `triggerUrl` is required when `type` is `LogicApp`.
          * 
          * @return builder
          * 

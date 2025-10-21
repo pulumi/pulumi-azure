@@ -158,14 +158,14 @@ public final class FhirServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      * 
      */
     @Import(name="ociArtifacts")
     private @Nullable Output<List<FhirServiceOciArtifactArgs>> ociArtifacts;
 
     /**
-     * @return [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+     * @return [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      * 
      */
     public Optional<Output<List<FhirServiceOciArtifactArgs>>> ociArtifacts() {
@@ -479,7 +479,7 @@ public final class FhirServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ociArtifacts [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+         * @param ociArtifacts [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class FhirServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ociArtifacts [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+         * @param ociArtifacts [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class FhirServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ociArtifacts [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+         * @param ociArtifacts [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
          * 
          * @return builder
          * 

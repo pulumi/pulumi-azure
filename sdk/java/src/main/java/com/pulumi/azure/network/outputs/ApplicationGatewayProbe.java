@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewayProbe {
     /**
-     * @return The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+     * @return The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
      * 
      */
     private @Nullable String host;
@@ -78,7 +78,7 @@ public final class ApplicationGatewayProbe {
 
     private ApplicationGatewayProbe() {}
     /**
-     * @return The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+     * @return The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
      * 
      */
     public Optional<String> host() {

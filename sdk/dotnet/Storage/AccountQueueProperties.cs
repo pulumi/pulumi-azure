@@ -103,27 +103,27 @@ namespace Pulumi.Azure.Storage
     public partial class AccountQueueProperties : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `cors_rule` block as defined above.
+        /// A `CorsRule` block as defined above.
         /// </summary>
         [Output("corsRules")]
         public Output<ImmutableArray<Outputs.AccountQueuePropertiesCorsRule>> CorsRules { get; private set; } = null!;
 
         /// <summary>
-        /// A `hour_metrics` block as defined below.
+        /// A `HourMetrics` block as defined below.
         /// 
-        /// &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+        /// &gt; **Note:** At least one of `CorsRule`, `Logging`, `MinuteMetrics`, or `HourMetrics` must be specified.
         /// </summary>
         [Output("hourMetrics")]
         public Output<Outputs.AccountQueuePropertiesHourMetrics> HourMetrics { get; private set; } = null!;
 
         /// <summary>
-        /// A `logging` block as defined below.
+        /// A `Logging` block as defined below.
         /// </summary>
         [Output("logging")]
         public Output<Outputs.AccountQueuePropertiesLogging> Logging { get; private set; } = null!;
 
         /// <summary>
-        /// A `minute_metrics` block as defined below.
+        /// A `MinuteMetrics` block as defined below.
         /// </summary>
         [Output("minuteMetrics")]
         public Output<Outputs.AccountQueuePropertiesMinuteMetrics> MinuteMetrics { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.AccountQueuePropertiesCorsRuleArgs>? _corsRules;
 
         /// <summary>
-        /// A `cors_rule` block as defined above.
+        /// A `CorsRule` block as defined above.
         /// </summary>
         public InputList<Inputs.AccountQueuePropertiesCorsRuleArgs> CorsRules
         {
@@ -193,21 +193,21 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// A `hour_metrics` block as defined below.
+        /// A `HourMetrics` block as defined below.
         /// 
-        /// &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+        /// &gt; **Note:** At least one of `CorsRule`, `Logging`, `MinuteMetrics`, or `HourMetrics` must be specified.
         /// </summary>
         [Input("hourMetrics")]
         public Input<Inputs.AccountQueuePropertiesHourMetricsArgs>? HourMetrics { get; set; }
 
         /// <summary>
-        /// A `logging` block as defined below.
+        /// A `Logging` block as defined below.
         /// </summary>
         [Input("logging")]
         public Input<Inputs.AccountQueuePropertiesLoggingArgs>? Logging { get; set; }
 
         /// <summary>
-        /// A `minute_metrics` block as defined below.
+        /// A `MinuteMetrics` block as defined below.
         /// </summary>
         [Input("minuteMetrics")]
         public Input<Inputs.AccountQueuePropertiesMinuteMetricsArgs>? MinuteMetrics { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.AccountQueuePropertiesCorsRuleGetArgs>? _corsRules;
 
         /// <summary>
-        /// A `cors_rule` block as defined above.
+        /// A `CorsRule` block as defined above.
         /// </summary>
         public InputList<Inputs.AccountQueuePropertiesCorsRuleGetArgs> CorsRules
         {
@@ -239,21 +239,21 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// A `hour_metrics` block as defined below.
+        /// A `HourMetrics` block as defined below.
         /// 
-        /// &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+        /// &gt; **Note:** At least one of `CorsRule`, `Logging`, `MinuteMetrics`, or `HourMetrics` must be specified.
         /// </summary>
         [Input("hourMetrics")]
         public Input<Inputs.AccountQueuePropertiesHourMetricsGetArgs>? HourMetrics { get; set; }
 
         /// <summary>
-        /// A `logging` block as defined below.
+        /// A `Logging` block as defined below.
         /// </summary>
         [Input("logging")]
         public Input<Inputs.AccountQueuePropertiesLoggingGetArgs>? Logging { get; set; }
 
         /// <summary>
-        /// A `minute_metrics` block as defined below.
+        /// A `MinuteMetrics` block as defined below.
         /// </summary>
         [Input("minuteMetrics")]
         public Input<Inputs.AccountQueuePropertiesMinuteMetricsGetArgs>? MinuteMetrics { get; set; }

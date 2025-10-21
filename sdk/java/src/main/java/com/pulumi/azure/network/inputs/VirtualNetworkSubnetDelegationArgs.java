@@ -31,14 +31,14 @@ public final class VirtualNetworkSubnetDelegationArgs extends com.pulumi.resourc
     }
 
     /**
-     * A `service_delegation` block as defined below.
+     * A `serviceDelegation` block as defined below.
      * 
      */
     @Import(name="serviceDelegation", required=true)
     private Output<VirtualNetworkSubnetDelegationServiceDelegationArgs> serviceDelegation;
 
     /**
-     * @return A `service_delegation` block as defined below.
+     * @return A `serviceDelegation` block as defined below.
      * 
      */
     public Output<VirtualNetworkSubnetDelegationServiceDelegationArgs> serviceDelegation() {
@@ -92,7 +92,7 @@ public final class VirtualNetworkSubnetDelegationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param serviceDelegation A `service_delegation` block as defined below.
+         * @param serviceDelegation A `serviceDelegation` block as defined below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class VirtualNetworkSubnetDelegationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param serviceDelegation A `service_delegation` block as defined below.
+         * @param serviceDelegation A `serviceDelegation` block as defined below.
          * 
          * @return builder
          * 

@@ -14,23 +14,23 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class SqlContainerIndexingPolicy
     {
         /// <summary>
-        /// One or more `composite_index` blocks as defined below.
+        /// One or more `CompositeIndex` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SqlContainerIndexingPolicyCompositeIndex> CompositeIndices;
         /// <summary>
-        /// One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        /// One or more `ExcludedPath` blocks as defined below. Either `IncludedPath` or `ExcludedPath` must contain the `Path` `/*`
         /// </summary>
         public readonly ImmutableArray<Outputs.SqlContainerIndexingPolicyExcludedPath> ExcludedPaths;
         /// <summary>
-        /// One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        /// One or more `IncludedPath` blocks as defined below. Either `IncludedPath` or `ExcludedPath` must contain the `Path` `/*`
         /// </summary>
         public readonly ImmutableArray<Outputs.SqlContainerIndexingPolicyIncludedPath> IncludedPaths;
         /// <summary>
-        /// Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
+        /// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
         /// </summary>
         public readonly string? IndexingMode;
         /// <summary>
-        /// One or more `spatial_index` blocks as defined below.
+        /// One or more `SpatialIndex` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SqlContainerIndexingPolicySpatialIndex> SpatialIndices;
 

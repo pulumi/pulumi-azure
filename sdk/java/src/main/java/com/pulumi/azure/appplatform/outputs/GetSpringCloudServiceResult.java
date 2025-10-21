@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSpringCloudServiceResult {
     /**
-     * @return A `config_server_git_setting` block as defined below.
+     * @return A `configServerGitSetting` block as defined below.
      * 
      */
     private List<GetSpringCloudServiceConfigServerGitSetting> configServerGitSettings;
@@ -40,7 +40,7 @@ public final class GetSpringCloudServiceResult {
      */
     private List<String> outboundPublicIpAddresses;
     /**
-     * @return A list of `required_network_traffic_rules` blocks as defined below.
+     * @return A list of `requiredNetworkTrafficRules` blocks as defined below.
      * 
      */
     private List<GetSpringCloudServiceRequiredNetworkTrafficRule> requiredNetworkTrafficRules;
@@ -53,7 +53,7 @@ public final class GetSpringCloudServiceResult {
 
     private GetSpringCloudServiceResult() {}
     /**
-     * @return A `config_server_git_setting` block as defined below.
+     * @return A `configServerGitSetting` block as defined below.
      * 
      */
     public List<GetSpringCloudServiceConfigServerGitSetting> configServerGitSettings() {
@@ -88,7 +88,7 @@ public final class GetSpringCloudServiceResult {
         return this.outboundPublicIpAddresses;
     }
     /**
-     * @return A list of `required_network_traffic_rules` blocks as defined below.
+     * @return A list of `requiredNetworkTrafficRules` blocks as defined below.
      * 
      */
     public List<GetSpringCloudServiceRequiredNetworkTrafficRule> requiredNetworkTrafficRules() {

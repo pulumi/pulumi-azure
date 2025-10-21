@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class EventHubCaptureDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `destination` block as defined below.
+        /// A `Destination` block as defined below.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.EventHubCaptureDescriptionDestinationArgs> Destination { get; set; } = null!;
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         public Input<int>? SizeLimitInBytes { get; set; }
 
         /// <summary>
-        /// Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
+        /// Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `False`.
         /// </summary>
         [Input("skipEmptyArchives")]
         public Input<bool>? SkipEmptyArchives { get; set; }

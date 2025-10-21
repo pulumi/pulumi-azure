@@ -90,19 +90,19 @@ namespace Pulumi.Azure.Network
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ExpressRoutePortIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `link` blocks as defined below.
+        /// A list of `Link` blocks as defined below.
         /// </summary>
         [Output("link1")]
         public Output<Outputs.ExpressRoutePortLink1> Link1 { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `link` blocks as defined below.
+        /// A list of `Link` blocks as defined below.
         /// </summary>
         [Output("link2")]
         public Output<Outputs.ExpressRoutePortLink2> Link2 { get; private set; } = null!;
@@ -208,19 +208,19 @@ namespace Pulumi.Azure.Network
         public Input<string> Encapsulation { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ExpressRoutePortIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A list of `link` blocks as defined below.
+        /// A list of `Link` blocks as defined below.
         /// </summary>
         [Input("link1")]
         public Input<Inputs.ExpressRoutePortLink1Args>? Link1 { get; set; }
 
         /// <summary>
-        /// A list of `link` blocks as defined below.
+        /// A list of `Link` blocks as defined below.
         /// </summary>
         [Input("link2")]
         public Input<Inputs.ExpressRoutePortLink2Args>? Link2 { get; set; }
@@ -300,19 +300,19 @@ namespace Pulumi.Azure.Network
         public Input<string>? Guid { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ExpressRoutePortIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A list of `link` blocks as defined below.
+        /// A list of `Link` blocks as defined below.
         /// </summary>
         [Input("link1")]
         public Input<Inputs.ExpressRoutePortLink1GetArgs>? Link1 { get; set; }
 
         /// <summary>
-        /// A list of `link` blocks as defined below.
+        /// A list of `Link` blocks as defined below.
         /// </summary>
         [Input("link2")]
         public Input<Inputs.ExpressRoutePortLink2GetArgs>? Link2 { get; set; }

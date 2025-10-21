@@ -150,14 +150,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:datadog/monitor:Monitor")
 public class Monitor extends com.pulumi.resources.CustomResource {
     /**
-     * A `datadog_organization` block as defined below.
+     * A `datadogOrganization` block as defined below.
      * 
      */
     @Export(name="datadogOrganization", refs={MonitorDatadogOrganization.class}, tree="[0]")
     private Output<MonitorDatadogOrganization> datadogOrganization;
 
     /**
-     * @return A `datadog_organization` block as defined below.
+     * @return A `datadogOrganization` block as defined below.
      * 
      */
     public Output<MonitorDatadogOrganization> datadogOrganization() {

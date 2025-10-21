@@ -18,11 +18,11 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Is the managed rule override enabled or disabled. Defaults to `false`
+        /// Is the managed rule override enabled or disabled. Defaults to `False`
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyManagedRuleOverrideRuleExclusion> Exclusions;
         /// <summary>

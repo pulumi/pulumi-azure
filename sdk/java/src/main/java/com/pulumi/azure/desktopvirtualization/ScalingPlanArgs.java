@@ -66,14 +66,14 @@ public final class ScalingPlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `host_pool` blocks as defined below.
+     * One or more `hostPool` blocks as defined below.
      * 
      */
     @Import(name="hostPools")
     private @Nullable Output<List<ScalingPlanHostPoolArgs>> hostPools;
 
     /**
-     * @return One or more `host_pool` blocks as defined below.
+     * @return One or more `hostPool` blocks as defined below.
      * 
      */
     public Optional<Output<List<ScalingPlanHostPoolArgs>>> hostPools() {
@@ -267,7 +267,7 @@ public final class ScalingPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostPools One or more `host_pool` blocks as defined below.
+         * @param hostPools One or more `hostPool` blocks as defined below.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ScalingPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostPools One or more `host_pool` blocks as defined below.
+         * @param hostPools One or more `hostPool` blocks as defined below.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class ScalingPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostPools One or more `host_pool` blocks as defined below.
+         * @param hostPools One or more `hostPool` blocks as defined below.
          * 
          * @return builder
          * 

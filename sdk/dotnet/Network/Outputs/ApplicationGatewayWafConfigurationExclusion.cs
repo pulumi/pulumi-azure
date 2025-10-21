@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string MatchVariable;
         /// <summary>
-        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `MatchVariable`
         /// </summary>
         public readonly string? Selector;
         /// <summary>
-        /// Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
+        /// Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `MatchVariable`
         /// </summary>
         public readonly string? SelectorMatchOperator;
 

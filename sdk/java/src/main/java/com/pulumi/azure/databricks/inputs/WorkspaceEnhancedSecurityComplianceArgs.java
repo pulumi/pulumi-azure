@@ -35,9 +35,9 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
     /**
      * Enables compliance security profile for this workspace. Defaults to `false`.
      * 
-     * &gt; **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+     * &gt; **Note:** Changing the value of `complianceSecurityProfileEnabled` from `true` to `false` forces a replacement of the Databricks workspace.
      * 
-     * &gt; **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+     * &gt; **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
      * 
      */
     @Import(name="complianceSecurityProfileEnabled")
@@ -46,9 +46,9 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
     /**
      * @return Enables compliance security profile for this workspace. Defaults to `false`.
      * 
-     * &gt; **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+     * &gt; **Note:** Changing the value of `complianceSecurityProfileEnabled` from `true` to `false` forces a replacement of the Databricks workspace.
      * 
-     * &gt; **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+     * &gt; **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
      * 
      */
     public Optional<Output<Boolean>> complianceSecurityProfileEnabled() {
@@ -58,9 +58,9 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
     /**
      * A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
      * 
-     * &gt; **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+     * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
      * 
-     * &gt; **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+     * &gt; **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
      * 
      */
     @Import(name="complianceSecurityProfileStandards")
@@ -69,9 +69,9 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
     /**
      * @return A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
      * 
-     * &gt; **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+     * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
      * 
-     * &gt; **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+     * &gt; **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
      * 
      */
     public Optional<Output<List<String>>> complianceSecurityProfileStandards() {
@@ -144,9 +144,9 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
         /**
          * @param complianceSecurityProfileEnabled Enables compliance security profile for this workspace. Defaults to `false`.
          * 
-         * &gt; **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+         * &gt; **Note:** Changing the value of `complianceSecurityProfileEnabled` from `true` to `false` forces a replacement of the Databricks workspace.
          * 
-         * &gt; **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+         * &gt; **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
          * 
          * @return builder
          * 
@@ -159,9 +159,9 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
         /**
          * @param complianceSecurityProfileEnabled Enables compliance security profile for this workspace. Defaults to `false`.
          * 
-         * &gt; **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+         * &gt; **Note:** Changing the value of `complianceSecurityProfileEnabled` from `true` to `false` forces a replacement of the Databricks workspace.
          * 
-         * &gt; **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+         * &gt; **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
          * 
          * @return builder
          * 
@@ -173,9 +173,9 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
         /**
          * @param complianceSecurityProfileStandards A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
          * 
-         * &gt; **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+         * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
          * 
-         * &gt; **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+         * &gt; **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
          * 
          * @return builder
          * 
@@ -188,9 +188,9 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
         /**
          * @param complianceSecurityProfileStandards A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
          * 
-         * &gt; **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+         * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
          * 
-         * &gt; **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+         * &gt; **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
          * 
          * @return builder
          * 
@@ -202,9 +202,9 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
         /**
          * @param complianceSecurityProfileStandards A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
          * 
-         * &gt; **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+         * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
          * 
-         * &gt; **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+         * &gt; **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
          * 
          * @return builder
          * 

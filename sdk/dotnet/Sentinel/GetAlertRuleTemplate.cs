@@ -103,9 +103,9 @@ namespace Pulumi.Azure.Sentinel
     public sealed class GetAlertRuleTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        /// The display name of this Sentinel Alert Rule Template. Either `DisplayName` or `Name` have to be specified.
         /// 
-        /// &gt; **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+        /// &gt; **Note:** As `DisplayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `DisplayName`.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Sentinel
         public string LogAnalyticsWorkspaceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        /// The name of this Sentinel Alert Rule Template. Either `DisplayName` or `Name` have to be specified.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -131,9 +131,9 @@ namespace Pulumi.Azure.Sentinel
     public sealed class GetAlertRuleTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        /// The display name of this Sentinel Alert Rule Template. Either `DisplayName` or `Name` have to be specified.
         /// 
-        /// &gt; **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+        /// &gt; **Note:** As `DisplayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `DisplayName`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> LogAnalyticsWorkspaceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        /// The name of this Sentinel Alert Rule Template. Either `DisplayName` or `Name` have to be specified.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -168,15 +168,15 @@ namespace Pulumi.Azure.Sentinel
         public readonly string LogAnalyticsWorkspaceId;
         public readonly string Name;
         /// <summary>
-        /// A `nrt_template` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+        /// A `NrtTemplate` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertRuleTemplateNrtTemplateResult> NrtTemplates;
         /// <summary>
-        /// A `scheduled_template` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
+        /// A `ScheduledTemplate` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertRuleTemplateScheduledTemplateResult> ScheduledTemplates;
         /// <summary>
-        /// A `security_incident_template` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
+        /// A `SecurityIncidentTemplate` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertRuleTemplateSecurityIncidentTemplateResult> SecurityIncidentTemplates;
 

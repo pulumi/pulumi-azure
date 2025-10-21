@@ -161,7 +161,7 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSqlRoleDefinitionPermissionResult> Permissions;
         public readonly string ResourceGroupName;

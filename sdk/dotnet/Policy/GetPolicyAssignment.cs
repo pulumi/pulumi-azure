@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Policy
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
+        /// The ID of the scope this Policy Assignment is assigned to. The `ScopeId` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
         /// </summary>
         [Input("scopeId", required: true)]
         public string ScopeId { get; set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Policy
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
+        /// The ID of the scope this Policy Assignment is assigned to. The `ScopeId` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
         /// </summary>
         [Input("scopeId", required: true)]
         public Input<string> ScopeId { get; set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyAssignmentIdentityResult> Identities;
         /// <summary>
@@ -195,11 +195,11 @@ namespace Pulumi.Azure.Policy
         public readonly string Metadata;
         public readonly string Name;
         /// <summary>
-        /// A `non_compliance_message` block as defined below.
+        /// A `NonComplianceMessage` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyAssignmentNonComplianceMessageResult> NonComplianceMessages;
         /// <summary>
-        /// A `not_scopes` block as defined below.
+        /// A `NotScopes` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> NotScopes;
         /// <summary>

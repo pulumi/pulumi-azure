@@ -28,7 +28,7 @@ public final class GetAppIngressTrafficWeight {
      */
     private Integer percentage;
     /**
-     * @return The suffix string to which this `traffic_weight` applies.
+     * @return The suffix string to which this `trafficWeight` applies.
      * 
      */
     private String revisionSuffix;
@@ -56,7 +56,7 @@ public final class GetAppIngressTrafficWeight {
         return this.percentage;
     }
     /**
-     * @return The suffix string to which this `traffic_weight` applies.
+     * @return The suffix string to which this `trafficWeight` applies.
      * 
      */
     public String revisionSuffix() {

@@ -56,38 +56,38 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
     @Import(name="enableFloatingIp")
     private @Nullable Output<Boolean> enableFloatingIp;
 
     /**
      * @deprecated
-     * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
     public Optional<Output<Boolean>> enableFloatingIp() {
         return Optional.ofNullable(this.enableFloatingIp);
     }
 
     /**
      * @deprecated
-     * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
     @Import(name="enableTcpReset")
     private @Nullable Output<Boolean> enableTcpReset;
 
     /**
      * @deprecated
-     * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
     public Optional<Output<Boolean>> enableTcpReset() {
         return Optional.ofNullable(this.enableTcpReset);
     }
@@ -359,10 +359,10 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+         * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableFloatingIp(@Nullable Output<Boolean> enableFloatingIp) {
             $.enableFloatingIp = enableFloatingIp;
             return this;
@@ -372,10 +372,10 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+         * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableFloatingIp(Boolean enableFloatingIp) {
             return enableFloatingIp(Output.of(enableFloatingIp));
         }
@@ -384,10 +384,10 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableTcpReset(@Nullable Output<Boolean> enableTcpReset) {
             $.enableTcpReset = enableTcpReset;
             return this;
@@ -397,10 +397,10 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableTcpReset(Boolean enableTcpReset) {
             return enableTcpReset(Output.of(enableTcpReset));
         }

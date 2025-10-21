@@ -58,7 +58,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         private Input<string>? _storageAccountAccessKey;
 
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+        /// Specifies the identifier key of the Threat Detection audit storage account. Required if `State` is `Enabled`.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         }
 
         /// <summary>
-        /// Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        /// Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `State` is `Enabled`.
         /// </summary>
         [Input("storageEndpoint")]
         public Input<string>? StorageEndpoint { get; set; }

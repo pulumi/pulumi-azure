@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or two `ip_configuration` blocks documented below.
+        /// One or two `IpConfiguration` blocks documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNetworkGatewayIpConfigurationResult> IpConfigurations;
         /// <summary>
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// A `vpn_client_configuration` block which is documented below.
+        /// A `VpnClientConfiguration` block which is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNetworkGatewayVpnClientConfigurationResult> VpnClientConfigurations;
         /// <summary>

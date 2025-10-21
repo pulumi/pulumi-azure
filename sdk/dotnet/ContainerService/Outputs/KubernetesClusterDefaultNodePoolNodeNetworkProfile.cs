@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterDefaultNodePoolNodeNetworkProfile
     {
         /// <summary>
-        /// One or more `allowed_host_ports` blocks as defined below.
+        /// One or more `AllowedHostPorts` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort> AllowedHostPorts;
         /// <summary>

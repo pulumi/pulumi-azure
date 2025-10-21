@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationBackupRetentionPolicyDailySchedule {
     /**
-     * @return A `retention_duration` block as defined below.
+     * @return A `retentionDuration` block as defined below.
      * 
      */
     private @Nullable ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration retentionDuration;
@@ -26,7 +26,7 @@ public final class ConfigurationBackupRetentionPolicyDailySchedule {
 
     private ConfigurationBackupRetentionPolicyDailySchedule() {}
     /**
-     * @return A `retention_duration` block as defined below.
+     * @return A `retentionDuration` block as defined below.
      * 
      */
     public Optional<ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration> retentionDuration() {

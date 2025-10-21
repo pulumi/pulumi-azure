@@ -25,7 +25,7 @@ public final class HubEncryption {
     /**
      * @return The user assigned identity ID that has access to the encryption key.
      * 
-     * &gt; **Note:** `user_assigned_identity_id` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
+     * &gt; **Note:** `userAssignedIdentityId` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
      * 
      */
     private @Nullable String userAssignedIdentityId;
@@ -48,7 +48,7 @@ public final class HubEncryption {
     /**
      * @return The user assigned identity ID that has access to the encryption key.
      * 
-     * &gt; **Note:** `user_assigned_identity_id` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
+     * &gt; **Note:** `userAssignedIdentityId` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
      * 
      */
     public Optional<String> userAssignedIdentityId() {

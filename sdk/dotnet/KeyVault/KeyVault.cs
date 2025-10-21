@@ -14,9 +14,9 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// ## Disclaimers
     /// 
-    /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+    /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `AccessPolicy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
     /// 
-    /// &gt; **Note:** It's possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
+    /// &gt; **Note:** It's possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `Contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
     /// 
     /// ## Example Usage
     /// 
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// A list of up to 1024 objects describing access policies, as described below.
         /// 
-        /// &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `AccessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("accessPolicies")]
         public Output<ImmutableArray<Outputs.KeyVaultAccessPolicy>> AccessPolicies { get; private set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_acls` block as defined below.
+        /// A `NetworkAcls` block as defined below.
         /// </summary>
         [Output("networkAcls")]
         public Output<Outputs.KeyVaultNetworkAcls> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+        /// Whether public network access is allowed for this Key Vault. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+        /// The Name of the SKU used for this Key Vault. Possible values are `Standard` and `Premium`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// A list of up to 1024 objects describing access policies, as described below.
         /// 
-        /// &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `AccessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPolicyArgs> AccessPolicies
         {
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.KeyVault
 
         [Input("contacts")]
         private InputList<Inputs.KeyVaultContactArgs>? _contacts;
-        [Obsolete(@"As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.")]
+        [Obsolete(@"As the `Contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `Contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `Contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.")]
         public InputList<Inputs.KeyVaultContactArgs> Contacts
         {
             get => _contacts ?? (_contacts = new InputList<Inputs.KeyVaultContactArgs>());
@@ -295,13 +295,13 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below.
+        /// A `NetworkAcls` block as defined below.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.KeyVaultNetworkAclsArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+        /// Whether public network access is allowed for this Key Vault. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+        /// The Name of the SKU used for this Key Vault. Possible values are `Standard` and `Premium`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// A list of up to 1024 objects describing access policies, as described below.
         /// 
-        /// &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `AccessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPolicyGetArgs> AccessPolicies
         {
@@ -384,7 +384,7 @@ namespace Pulumi.Azure.KeyVault
 
         [Input("contacts")]
         private InputList<Inputs.KeyVaultContactGetArgs>? _contacts;
-        [Obsolete(@"As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.")]
+        [Obsolete(@"As the `Contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `Contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `Contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.")]
         public InputList<Inputs.KeyVaultContactGetArgs> Contacts
         {
             get => _contacts ?? (_contacts = new InputList<Inputs.KeyVaultContactGetArgs>());
@@ -425,13 +425,13 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below.
+        /// A `NetworkAcls` block as defined below.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.KeyVaultNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+        /// Whether public network access is allowed for this Key Vault. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -459,7 +459,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+        /// The Name of the SKU used for this Key Vault. Possible values are `Standard` and `Premium`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

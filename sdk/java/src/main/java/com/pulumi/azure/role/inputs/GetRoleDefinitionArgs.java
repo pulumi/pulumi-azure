@@ -52,7 +52,7 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
     /**
      * Specifies the Scope at which the Custom Role Definition exists.
      * 
-     * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+     * &gt; **Note:** One of `name` or `roleDefinitionId` must be specified.
      * 
      */
     @Import(name="scope")
@@ -61,7 +61,7 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
     /**
      * @return Specifies the Scope at which the Custom Role Definition exists.
      * 
-     * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+     * &gt; **Note:** One of `name` or `roleDefinitionId` must be specified.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -143,7 +143,7 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param scope Specifies the Scope at which the Custom Role Definition exists.
          * 
-         * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+         * &gt; **Note:** One of `name` or `roleDefinitionId` must be specified.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param scope Specifies the Scope at which the Custom Role Definition exists.
          * 
-         * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+         * &gt; **Note:** One of `name` or `roleDefinitionId` must be specified.
          * 
          * @return builder
          * 

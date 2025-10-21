@@ -13,13 +13,13 @@ namespace Pulumi.Azure.RecoveryServices.Inputs
     public sealed class VaultMonitoringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+        /// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `True`.
         /// </summary>
         [Input("alertsForAllJobFailuresEnabled")]
         public Input<bool>? AlertsForAllJobFailuresEnabled { get; set; }
 
         /// <summary>
-        /// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        /// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `True`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
         /// </summary>
         [Input("alertsForCriticalOperationFailuresEnabled")]
         public Input<bool>? AlertsForCriticalOperationFailuresEnabled { get; set; }

@@ -103,13 +103,13 @@ namespace Pulumi.Azure.Monitoring
     public partial class ActivityLogAlert : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `action` blocks as defined below.
+        /// One or more `Action` blocks as defined below.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.ActivityLogAlertAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         [Output("criteria")]
         public Output<Outputs.ActivityLogAlertCriteria> Criteria { get; private set; } = null!;
@@ -121,13 +121,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Activity Log Alert be enabled? Defaults to `true`.
+        /// Should this Activity Log Alert be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
+        /// The Azure Region where the activity log alert rule should exist. Possible values are `Global`, `Westeurope`, `Northeurope`, and `Eastus2euap`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActivityLogAlertActionArgs>? _actions;
 
         /// <summary>
-        /// One or more `action` blocks as defined below.
+        /// One or more `Action` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActivityLogAlertActionArgs> Actions
         {
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         [Input("criteria", required: true)]
         public Input<Inputs.ActivityLogAlertCriteriaArgs> Criteria { get; set; } = null!;
@@ -227,13 +227,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Should this Activity Log Alert be enabled? Defaults to `true`.
+        /// Should this Activity Log Alert be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
+        /// The Azure Region where the activity log alert rule should exist. Possible values are `Global`, `Westeurope`, `Northeurope`, and `Eastus2euap`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActivityLogAlertActionGetArgs>? _actions;
 
         /// <summary>
-        /// One or more `action` blocks as defined below.
+        /// One or more `Action` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActivityLogAlertActionGetArgs> Actions
         {
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         [Input("criteria")]
         public Input<Inputs.ActivityLogAlertCriteriaGetArgs>? Criteria { get; set; }
@@ -307,13 +307,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Should this Activity Log Alert be enabled? Defaults to `true`.
+        /// Should this Activity Log Alert be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
+        /// The Azure Region where the activity log alert rule should exist. Possible values are `Global`, `Westeurope`, `Northeurope`, and `Eastus2euap`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

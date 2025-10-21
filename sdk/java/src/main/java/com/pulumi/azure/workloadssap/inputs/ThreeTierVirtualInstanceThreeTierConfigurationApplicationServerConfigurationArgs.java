@@ -47,14 +47,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServ
     }
 
     /**
-     * A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualMachineConfiguration", required=true)
     private Output<ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs> virtualMachineConfiguration;
 
     /**
-     * @return A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs> virtualMachineConfiguration() {
@@ -130,7 +130,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServ
         }
 
         /**
-         * @param virtualMachineConfiguration A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachineConfiguration A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServ
         }
 
         /**
-         * @param virtualMachineConfiguration A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachineConfiguration A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

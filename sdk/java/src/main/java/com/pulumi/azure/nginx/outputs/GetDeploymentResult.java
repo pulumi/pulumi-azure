@@ -22,7 +22,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDeploymentResult {
     /**
-     * @return An `auto_scale_profile` block as defined below.
+     * @return An `autoScaleProfile` block as defined below.
      * 
      */
     private List<GetDeploymentAutoScaleProfile> autoScaleProfiles;
@@ -52,12 +52,12 @@ public final class GetDeploymentResult {
      */
     private String email;
     /**
-     * @return A `frontend_private` block as defined below.
+     * @return A `frontendPrivate` block as defined below.
      * 
      */
     private List<GetDeploymentFrontendPrivate> frontendPrivates;
     /**
-     * @return A `frontend_public` block as defined below.
+     * @return A `frontendPublic` block as defined below.
      * 
      */
     private List<GetDeploymentFrontendPublic> frontendPublics;
@@ -83,17 +83,17 @@ public final class GetDeploymentResult {
     private String location;
     /**
      * @deprecated
-     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     private List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts;
     /**
      * @deprecated
-     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     private String managedResourceGroup;
     /**
      * @return Name of the autoscaling profile.
@@ -101,7 +101,7 @@ public final class GetDeploymentResult {
      */
     private String name;
     /**
-     * @return A `network_interface` block as defined below.
+     * @return A `networkInterface` block as defined below.
      * 
      */
     private List<GetDeploymentNetworkInterface> networkInterfaces;
@@ -122,14 +122,14 @@ public final class GetDeploymentResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A `web_application_firewall` block as defined below.
+     * @return A `webApplicationFirewall` block as defined below.
      * 
      */
     private List<GetDeploymentWebApplicationFirewall> webApplicationFirewalls;
 
     private GetDeploymentResult() {}
     /**
-     * @return An `auto_scale_profile` block as defined below.
+     * @return An `autoScaleProfile` block as defined below.
      * 
      */
     public List<GetDeploymentAutoScaleProfile> autoScaleProfiles() {
@@ -171,14 +171,14 @@ public final class GetDeploymentResult {
         return this.email;
     }
     /**
-     * @return A `frontend_private` block as defined below.
+     * @return A `frontendPrivate` block as defined below.
      * 
      */
     public List<GetDeploymentFrontendPrivate> frontendPrivates() {
         return this.frontendPrivates;
     }
     /**
-     * @return A `frontend_public` block as defined below.
+     * @return A `frontendPublic` block as defined below.
      * 
      */
     public List<GetDeploymentFrontendPublic> frontendPublics() {
@@ -214,19 +214,19 @@ public final class GetDeploymentResult {
     }
     /**
      * @deprecated
-     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     public List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts() {
         return this.loggingStorageAccounts;
     }
     /**
      * @deprecated
-     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     public String managedResourceGroup() {
         return this.managedResourceGroup;
     }
@@ -238,7 +238,7 @@ public final class GetDeploymentResult {
         return this.name;
     }
     /**
-     * @return A `network_interface` block as defined below.
+     * @return A `networkInterface` block as defined below.
      * 
      */
     public List<GetDeploymentNetworkInterface> networkInterfaces() {
@@ -269,7 +269,7 @@ public final class GetDeploymentResult {
         return this.tags;
     }
     /**
-     * @return A `web_application_firewall` block as defined below.
+     * @return A `webApplicationFirewall` block as defined below.
      * 
      */
     public List<GetDeploymentWebApplicationFirewall> webApplicationFirewalls() {

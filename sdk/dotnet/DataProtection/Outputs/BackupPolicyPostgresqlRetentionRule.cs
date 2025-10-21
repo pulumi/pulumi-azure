@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
     public sealed class BackupPolicyPostgresqlRetentionRule
     {
         /// <summary>
-        /// A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        /// A `Criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         public readonly Outputs.BackupPolicyPostgresqlRetentionRuleCriteria Criteria;
         /// <summary>

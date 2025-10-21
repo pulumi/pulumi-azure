@@ -224,7 +224,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
      * 
-     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      * 
      */
     @Export(name="storageContainerId", refs={String.class}, tree="[0]")
@@ -233,7 +233,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
      * 
-     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      * 
      */
     public Output<Optional<String>> storageContainerId() {

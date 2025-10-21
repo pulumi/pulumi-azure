@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class FunctionAppSlotIdentity
     {
         /// <summary>
-        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// Specifies a list of user managed identity ids to be assigned. Required if `Type` is `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -26,9 +26,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        /// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `IdentityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
         /// 
-        /// &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Function App has been created. More details are available below.
+        /// &gt; **NOTE:** When `Type` is set to `SystemAssigned`, The assigned `PrincipalId` and `TenantId` can be retrieved after the Function App has been created. More details are available below.
         /// </summary>
         public readonly string Type;
 

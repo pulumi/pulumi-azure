@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewaySslCertificate {
     /**
-     * @return The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
+     * @return The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
      * 
      * &gt; **Note:** When specifying a file, use `data = filebase64(&#34;path/to/file&#34;)` to encode the contents of that file.
      * 
@@ -27,7 +27,7 @@ public final class ApplicationGatewaySslCertificate {
     /**
      * @return The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
      * 
-     * &gt; **Note:** To implement certificate rotation, the `azure.keyvault.Secret` attribute `versionless_id` should be used, although `id` is also supported.
+     * &gt; **Note:** To implement certificate rotation, the `azure.keyvault.Secret` attribute `versionlessId` should be used, although `id` is also supported.
      * 
      * &gt; **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
      * 
@@ -53,7 +53,7 @@ public final class ApplicationGatewaySslCertificate {
 
     private ApplicationGatewaySslCertificate() {}
     /**
-     * @return The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
+     * @return The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
      * 
      * &gt; **Note:** When specifying a file, use `data = filebase64(&#34;path/to/file&#34;)` to encode the contents of that file.
      * 
@@ -71,7 +71,7 @@ public final class ApplicationGatewaySslCertificate {
     /**
      * @return The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
      * 
-     * &gt; **Note:** To implement certificate rotation, the `azure.keyvault.Secret` attribute `versionless_id` should be used, although `id` is also supported.
+     * &gt; **Note:** To implement certificate rotation, the `azure.keyvault.Secret` attribute `versionlessId` should be used, although `id` is also supported.
      * 
      * &gt; **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
      * 

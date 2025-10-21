@@ -116,14 +116,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:eventhub/eventSubscription:EventSubscription")
 public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
-     * A `advanced_filter` block as defined below.
+     * A `advancedFilter` block as defined below.
      * 
      */
     @Export(name="advancedFilter", refs={EventSubscriptionAdvancedFilter.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionAdvancedFilter> advancedFilter;
 
     /**
-     * @return A `advanced_filter` block as defined below.
+     * @return A `advancedFilter` block as defined below.
      * 
      */
     public Output<Optional<EventSubscriptionAdvancedFilter>> advancedFilter() {
@@ -144,60 +144,60 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.advancedFilteringOnArraysEnabled);
     }
     /**
-     * An `azure_function_endpoint` block as defined below.
+     * An `azureFunctionEndpoint` block as defined below.
      * 
      */
     @Export(name="azureFunctionEndpoint", refs={EventSubscriptionAzureFunctionEndpoint.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionAzureFunctionEndpoint> azureFunctionEndpoint;
 
     /**
-     * @return An `azure_function_endpoint` block as defined below.
+     * @return An `azureFunctionEndpoint` block as defined below.
      * 
      */
     public Output<Optional<EventSubscriptionAzureFunctionEndpoint>> azureFunctionEndpoint() {
         return Codegen.optional(this.azureFunctionEndpoint);
     }
     /**
-     * A `dead_letter_identity` block as defined below.
+     * A `deadLetterIdentity` block as defined below.
      * 
-     * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+     * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
      * 
      */
     @Export(name="deadLetterIdentity", refs={EventSubscriptionDeadLetterIdentity.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionDeadLetterIdentity> deadLetterIdentity;
 
     /**
-     * @return A `dead_letter_identity` block as defined below.
+     * @return A `deadLetterIdentity` block as defined below.
      * 
-     * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+     * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
      * 
      */
     public Output<Optional<EventSubscriptionDeadLetterIdentity>> deadLetterIdentity() {
         return Codegen.optional(this.deadLetterIdentity);
     }
     /**
-     * A `delivery_identity` block as defined below.
+     * A `deliveryIdentity` block as defined below.
      * 
      */
     @Export(name="deliveryIdentity", refs={EventSubscriptionDeliveryIdentity.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionDeliveryIdentity> deliveryIdentity;
 
     /**
-     * @return A `delivery_identity` block as defined below.
+     * @return A `deliveryIdentity` block as defined below.
      * 
      */
     public Output<Optional<EventSubscriptionDeliveryIdentity>> deliveryIdentity() {
         return Codegen.optional(this.deliveryIdentity);
     }
     /**
-     * One or more `delivery_property` blocks as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      * 
      */
     @Export(name="deliveryProperties", refs={List.class,EventSubscriptionDeliveryProperty.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventSubscriptionDeliveryProperty>> deliveryProperties;
 
     /**
-     * @return One or more `delivery_property` blocks as defined below.
+     * @return One or more `deliveryProperty` blocks as defined below.
      * 
      */
     public Output<Optional<List<EventSubscriptionDeliveryProperty>>> deliveryProperties() {
@@ -302,14 +302,14 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `retry_policy` block as defined below.
+     * A `retryPolicy` block as defined below.
      * 
      */
     @Export(name="retryPolicy", refs={EventSubscriptionRetryPolicy.class}, tree="[0]")
     private Output<EventSubscriptionRetryPolicy> retryPolicy;
 
     /**
-     * @return A `retry_policy` block as defined below.
+     * @return A `retryPolicy` block as defined below.
      * 
      */
     public Output<EventSubscriptionRetryPolicy> retryPolicy() {
@@ -358,60 +358,60 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceBusTopicEndpointId);
     }
     /**
-     * A `storage_blob_dead_letter_destination` block as defined below.
+     * A `storageBlobDeadLetterDestination` block as defined below.
      * 
      */
     @Export(name="storageBlobDeadLetterDestination", refs={EventSubscriptionStorageBlobDeadLetterDestination.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionStorageBlobDeadLetterDestination> storageBlobDeadLetterDestination;
 
     /**
-     * @return A `storage_blob_dead_letter_destination` block as defined below.
+     * @return A `storageBlobDeadLetterDestination` block as defined below.
      * 
      */
     public Output<Optional<EventSubscriptionStorageBlobDeadLetterDestination>> storageBlobDeadLetterDestination() {
         return Codegen.optional(this.storageBlobDeadLetterDestination);
     }
     /**
-     * A `storage_queue_endpoint` block as defined below.
+     * A `storageQueueEndpoint` block as defined below.
      * 
      */
     @Export(name="storageQueueEndpoint", refs={EventSubscriptionStorageQueueEndpoint.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionStorageQueueEndpoint> storageQueueEndpoint;
 
     /**
-     * @return A `storage_queue_endpoint` block as defined below.
+     * @return A `storageQueueEndpoint` block as defined below.
      * 
      */
     public Output<Optional<EventSubscriptionStorageQueueEndpoint>> storageQueueEndpoint() {
         return Codegen.optional(this.storageQueueEndpoint);
     }
     /**
-     * A `subject_filter` block as defined below.
+     * A `subjectFilter` block as defined below.
      * 
      */
     @Export(name="subjectFilter", refs={EventSubscriptionSubjectFilter.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionSubjectFilter> subjectFilter;
 
     /**
-     * @return A `subject_filter` block as defined below.
+     * @return A `subjectFilter` block as defined below.
      * 
      */
     public Output<Optional<EventSubscriptionSubjectFilter>> subjectFilter() {
         return Codegen.optional(this.subjectFilter);
     }
     /**
-     * A `webhook_endpoint` block as defined below.
+     * A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+     * &gt; **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
      * 
      */
     @Export(name="webhookEndpoint", refs={EventSubscriptionWebhookEndpoint.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionWebhookEndpoint> webhookEndpoint;
 
     /**
-     * @return A `webhook_endpoint` block as defined below.
+     * @return A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+     * &gt; **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
      * 
      */
     public Output<Optional<EventSubscriptionWebhookEndpoint>> webhookEndpoint() {

@@ -69,25 +69,25 @@ namespace Pulumi.Azure.EventGrid
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.TopicIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         [Output("inboundIpRules")]
         public Output<ImmutableArray<Outputs.TopicInboundIpRule>> InboundIpRules { get; private set; } = null!;
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inputMappingDefaultValues")]
         public Output<Outputs.TopicInputMappingDefaultValues?> InputMappingDefaultValues { get; private set; } = null!;
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingFields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inputMappingFields")]
         public Output<Outputs.TopicInputMappingFields?> InputMappingFields { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<string?> InputSchema { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+        /// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `True`.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// Whether or not public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.EventGrid
     public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.TopicIdentityArgs>? Identity { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.TopicInboundIpRuleArgs>? _inboundIpRules;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TopicInboundIpRuleArgs> InboundIpRules
         {
@@ -220,13 +220,13 @@ namespace Pulumi.Azure.EventGrid
         }
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingDefaultValues")]
         public Input<Inputs.TopicInputMappingDefaultValuesArgs>? InputMappingDefaultValues { get; set; }
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingFields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingFields")]
         public Input<Inputs.TopicInputMappingFieldsArgs>? InputMappingFields { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? InputSchema { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+        /// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// Whether or not public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.TopicIdentityGetArgs>? Identity { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.TopicInboundIpRuleGetArgs>? _inboundIpRules;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TopicInboundIpRuleGetArgs> InboundIpRules
         {
@@ -312,13 +312,13 @@ namespace Pulumi.Azure.EventGrid
         }
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingDefaultValues")]
         public Input<Inputs.TopicInputMappingDefaultValuesGetArgs>? InputMappingDefaultValues { get; set; }
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingFields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingFields")]
         public Input<Inputs.TopicInputMappingFieldsGetArgs>? InputMappingFields { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? InputSchema { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+        /// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Azure.EventGrid
         }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// Whether or not public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

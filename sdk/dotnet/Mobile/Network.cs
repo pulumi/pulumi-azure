@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Mobile
     public partial class Network : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
+        /// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `Eastus` and `Northeurope`.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Mobile
     public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
+        /// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `Eastus` and `Northeurope`.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Mobile
     public sealed class NetworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
+        /// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `Eastus` and `Northeurope`.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

@@ -28,12 +28,12 @@ public final class GetLinuxFunctionAppResult {
      */
     private Map<String,String> appSettings;
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     private List<GetLinuxFunctionAppAuthSetting> authSettings;
     /**
-     * @return A `auth_settings_v2` block as defined below.
+     * @return A `authSettingsV2` block as defined below.
      * 
      */
     private List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s;
@@ -68,7 +68,7 @@ public final class GetLinuxFunctionAppResult {
      */
     private String clientCertificateMode;
     /**
-     * @return A `connection_string` blocks as defined below.
+     * @return A `connectionString` blocks as defined below.
      * 
      */
     private List<GetLinuxFunctionAppConnectionString> connectionStrings;
@@ -153,12 +153,12 @@ public final class GetLinuxFunctionAppResult {
      */
     private String outboundIpAddresses;
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     private List<String> possibleOutboundIpAddressLists;
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     private String possibleOutboundIpAddresses;
@@ -174,17 +174,17 @@ public final class GetLinuxFunctionAppResult {
      */
     private String servicePlanId;
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     private List<GetLinuxFunctionAppSiteConfig> siteConfigs;
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     private List<GetLinuxFunctionAppSiteCredential> siteCredentials;
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     private List<GetLinuxFunctionAppStickySetting> stickySettings;
@@ -243,14 +243,14 @@ public final class GetLinuxFunctionAppResult {
         return this.appSettings;
     }
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public List<GetLinuxFunctionAppAuthSetting> authSettings() {
         return this.authSettings;
     }
     /**
-     * @return A `auth_settings_v2` block as defined below.
+     * @return A `authSettingsV2` block as defined below.
      * 
      */
     public List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s() {
@@ -299,7 +299,7 @@ public final class GetLinuxFunctionAppResult {
         return this.clientCertificateMode;
     }
     /**
-     * @return A `connection_string` blocks as defined below.
+     * @return A `connectionString` blocks as defined below.
      * 
      */
     public List<GetLinuxFunctionAppConnectionString> connectionStrings() {
@@ -418,14 +418,14 @@ public final class GetLinuxFunctionAppResult {
         return this.outboundIpAddresses;
     }
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     public List<String> possibleOutboundIpAddressLists() {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     public String possibleOutboundIpAddresses() {
@@ -449,21 +449,21 @@ public final class GetLinuxFunctionAppResult {
         return this.servicePlanId;
     }
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public List<GetLinuxFunctionAppSiteConfig> siteConfigs() {
         return this.siteConfigs;
     }
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public List<GetLinuxFunctionAppSiteCredential> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public List<GetLinuxFunctionAppStickySetting> stickySettings() {

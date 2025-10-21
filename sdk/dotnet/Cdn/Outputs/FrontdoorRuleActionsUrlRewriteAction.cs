@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Destination;
         /// <summary>
-        /// Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+        /// Append the remaining path after the source pattern to the new destination path? Possible values `True` or `False`. Defaults to `False`.
         /// </summary>
         public readonly bool? PreserveUnmatchedPath;
         /// <summary>

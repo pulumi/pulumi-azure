@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Bot.Inputs
     public sealed class ChannelDirectLineSiteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables/Disables this site. Defaults to `true`.
+        /// Enables/Disables this site. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Bot.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Is the storage site enabled for detailed logging? Defaults to `true`.
+        /// Is the storage site enabled for detailed logging? Defaults to `True`.
         /// </summary>
         [Input("storageEnabled")]
         public Input<bool>? StorageEnabled { get; set; }
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Bot.Inputs
         private InputList<string>? _trustedOrigins;
 
         /// <summary>
-        /// This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+        /// This field is required when `IsSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
         /// </summary>
         public InputList<string> TrustedOrigins
         {
@@ -93,19 +93,19 @@ namespace Pulumi.Azure.Bot.Inputs
         }
 
         /// <summary>
-        /// Is the user upload enabled for this site? Defaults to `true`.
+        /// Is the user upload enabled for this site? Defaults to `True`.
         /// </summary>
         [Input("userUploadEnabled")]
         public Input<bool>? UserUploadEnabled { get; set; }
 
         /// <summary>
-        /// Enables v1 of the Directline protocol for this site. Defaults to `true`.
+        /// Enables v1 of the Directline protocol for this site. Defaults to `True`.
         /// </summary>
         [Input("v1Allowed")]
         public Input<bool>? V1Allowed { get; set; }
 
         /// <summary>
-        /// Enables v3 of the Directline protocol for this site. Defaults to `true`.
+        /// Enables v3 of the Directline protocol for this site. Defaults to `True`.
         /// </summary>
         [Input("v3Allowed")]
         public Input<bool>? V3Allowed { get; set; }

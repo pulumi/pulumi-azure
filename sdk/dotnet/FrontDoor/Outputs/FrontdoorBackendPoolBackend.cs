@@ -18,7 +18,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string Address;
         /// <summary>
-        /// Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+        /// Specifies if the backend is enabled or not. Valid options are `True` or `False`. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

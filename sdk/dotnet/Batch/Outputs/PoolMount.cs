@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolMount
     {
         /// <summary>
-        /// A `azure_blob_file_system` block defined as below.
+        /// A `AzureBlobFileSystem` block defined as below.
         /// </summary>
         public readonly Outputs.PoolMountAzureBlobFileSystem? AzureBlobFileSystem;
         /// <summary>
-        /// A `azure_file_share` block defined as below.
+        /// A `AzureFileShare` block defined as below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolMountAzureFileShare> AzureFileShares;
         /// <summary>
-        /// A `cifs_mount` block defined as below.
+        /// A `CifsMount` block defined as below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolMountCifsMount> CifsMounts;
         /// <summary>
-        /// A `nfs_mount` block defined as below.
+        /// A `NfsMount` block defined as below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolMountNfsMount> NfsMounts;
 

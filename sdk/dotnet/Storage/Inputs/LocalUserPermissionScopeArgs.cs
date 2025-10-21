@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class LocalUserPermissionScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         [Input("permissions", required: true)]
         public Input<Inputs.LocalUserPermissionScopePermissionsArgs> Permissions { get; set; } = null!;
 
         /// <summary>
-        /// The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
+        /// The container name (when `Service` is set to `Blob`) or the file share name (when `Service` is set to `File`), used by the Storage Account Local User.
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
+        /// The storage service used by this Storage Account Local User. Possible values are `Blob` and `File`.
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;

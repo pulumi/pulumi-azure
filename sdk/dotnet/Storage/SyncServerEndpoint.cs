@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Storage
     public partial class SyncServerEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is Cloud Tiering Enabled? Defaults to `false`.
+        /// Is Cloud Tiering Enabled? Defaults to `False`.
         /// </summary>
         [Output("cloudTieringEnabled")]
         public Output<bool?> CloudTieringEnabled { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Storage
     public sealed class SyncServerEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is Cloud Tiering Enabled? Defaults to `false`.
+        /// Is Cloud Tiering Enabled? Defaults to `False`.
         /// </summary>
         [Input("cloudTieringEnabled")]
         public Input<bool>? CloudTieringEnabled { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Storage
     public sealed class SyncServerEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is Cloud Tiering Enabled? Defaults to `false`.
+        /// Is Cloud Tiering Enabled? Defaults to `False`.
         /// </summary>
         [Input("cloudTieringEnabled")]
         public Input<bool>? CloudTieringEnabled { get; set; }

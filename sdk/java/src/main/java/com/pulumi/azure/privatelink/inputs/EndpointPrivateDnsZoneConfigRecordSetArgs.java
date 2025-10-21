@@ -18,14 +18,14 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
     public static final EndpointPrivateDnsZoneConfigRecordSetArgs Empty = new EndpointPrivateDnsZoneConfigRecordSetArgs();
 
     /**
-     * The fully qualified domain name to the `private_dns_zone`.
+     * The fully qualified domain name to the `privateDnsZone`.
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return The fully qualified domain name to the `private_dns_zone`.
+     * @return The fully qualified domain name to the `privateDnsZone`.
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -33,14 +33,14 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
     }
 
     /**
-     * A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+     * A list of all IP Addresses that map to the `privateDnsZone` fqdn.
      * 
      */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
     /**
-     * @return A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+     * @return A list of all IP Addresses that map to the `privateDnsZone` fqdn.
      * 
      */
     public Optional<Output<List<String>>> ipAddresses() {
@@ -63,14 +63,14 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
     }
 
     /**
-     * The time to live for each connection to the `private_dns_zone`.
+     * The time to live for each connection to the `privateDnsZone`.
      * 
      */
     @Import(name="ttl")
     private @Nullable Output<Integer> ttl;
 
     /**
-     * @return The time to live for each connection to the `private_dns_zone`.
+     * @return The time to live for each connection to the `privateDnsZone`.
      * 
      */
     public Optional<Output<Integer>> ttl() {
@@ -121,7 +121,7 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
         }
 
         /**
-         * @param fqdn The fully qualified domain name to the `private_dns_zone`.
+         * @param fqdn The fully qualified domain name to the `privateDnsZone`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
         }
 
         /**
-         * @param fqdn The fully qualified domain name to the `private_dns_zone`.
+         * @param fqdn The fully qualified domain name to the `privateDnsZone`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
         }
 
         /**
-         * @param ipAddresses A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+         * @param ipAddresses A list of all IP Addresses that map to the `privateDnsZone` fqdn.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
         }
 
         /**
-         * @param ipAddresses A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+         * @param ipAddresses A list of all IP Addresses that map to the `privateDnsZone` fqdn.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
         }
 
         /**
-         * @param ipAddresses A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+         * @param ipAddresses A list of all IP Addresses that map to the `privateDnsZone` fqdn.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
         }
 
         /**
-         * @param ttl The time to live for each connection to the `private_dns_zone`.
+         * @param ttl The time to live for each connection to the `privateDnsZone`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class EndpointPrivateDnsZoneConfigRecordSetArgs extends com.pulumi.
         }
 
         /**
-         * @param ttl The time to live for each connection to the `private_dns_zone`.
+         * @param ttl The time to live for each connection to the `privateDnsZone`.
          * 
          * @return builder
          * 

@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * 
  * !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` resources instead.
  * 
- * &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
+ * &gt; **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
  * 
  * ## Example Usage
  * 
@@ -143,14 +143,14 @@ public class AppService extends com.pulumi.resources.CustomResource {
         return this.appSettings;
     }
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Export(name="authSettings", refs={AppServiceAuthSettings.class}, tree="[0]")
     private Output<AppServiceAuthSettings> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Output<AppServiceAuthSettings> authSettings() {
@@ -199,28 +199,28 @@ public class AppService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertEnabled);
     }
     /**
-     * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+     * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
      * 
      */
     @Export(name="clientCertMode", refs={String.class}, tree="[0]")
     private Output<String> clientCertMode;
 
     /**
-     * @return Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+     * @return Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
      * 
      */
     public Output<String> clientCertMode() {
         return this.clientCertMode;
     }
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,AppServiceConnectionString.class}, tree="[0,1]")
     private Output<List<AppServiceConnectionString>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Output<List<AppServiceConnectionString>> connectionStrings() {
@@ -381,28 +381,28 @@ public class AppService extends com.pulumi.resources.CustomResource {
         return this.outboundIpAddresses;
     }
     /**
-     * A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+     * A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
      * 
      */
     @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+     * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
      * 
      */
     public Output<List<String>> possibleOutboundIpAddressLists() {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Output<String> possibleOutboundIpAddresses() {
@@ -423,56 +423,56 @@ public class AppService extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Export(name="siteConfig", refs={AppServiceSiteConfig.class}, tree="[0]")
     private Output<AppServiceSiteConfig> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Output<AppServiceSiteConfig> siteConfig() {
         return this.siteConfig;
     }
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     @Export(name="siteCredentials", refs={List.class,AppServiceSiteCredential.class}, tree="[0,1]")
     private Output<List<AppServiceSiteCredential>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     public Output<List<AppServiceSiteCredential>> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * A `source_control` block as defined below.
+     * A `sourceControl` block as defined below.
      * 
      */
     @Export(name="sourceControl", refs={AppServiceSourceControl.class}, tree="[0]")
     private Output<AppServiceSourceControl> sourceControl;
 
     /**
-     * @return A `source_control` block as defined below.
+     * @return A `sourceControl` block as defined below.
      * 
      */
     public Output<AppServiceSourceControl> sourceControl() {
         return this.sourceControl;
     }
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Export(name="storageAccounts", refs={List.class,AppServiceStorageAccount.class}, tree="[0,1]")
     private Output<List<AppServiceStorageAccount>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Output<List<AppServiceStorageAccount>> storageAccounts() {

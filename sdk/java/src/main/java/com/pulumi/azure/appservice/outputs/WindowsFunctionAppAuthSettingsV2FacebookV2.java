@@ -19,9 +19,9 @@ public final class WindowsFunctionAppAuthSettingsV2FacebookV2 {
      */
     private String appId;
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook Login.
+     * @return The app setting name that contains the `appSecret` value used for Facebook Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     private String appSecretSettingName;
@@ -45,9 +45,9 @@ public final class WindowsFunctionAppAuthSettingsV2FacebookV2 {
         return this.appId;
     }
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook Login.
+     * @return The app setting name that contains the `appSecret` value used for Facebook Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public String appSecretSettingName() {

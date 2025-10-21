@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CertificateCertificatePolicyKeyProperties {
     /**
-     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
      * 
      */
     private @Nullable String curve;
@@ -42,7 +42,7 @@ public final class CertificateCertificatePolicyKeyProperties {
 
     private CertificateCertificatePolicyKeyProperties() {}
     /**
-     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
      * 
      */
     public Optional<String> curve() {

@@ -26,7 +26,7 @@ public final class ApplicationGatewaySslProfile {
      */
     private String name;
     /**
-     * @return a `ssl_policy` block as defined below.
+     * @return a `sslPolicy` block as defined below.
      * 
      */
     private @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy;
@@ -62,7 +62,7 @@ public final class ApplicationGatewaySslProfile {
         return this.name;
     }
     /**
-     * @return a `ssl_policy` block as defined below.
+     * @return a `sslPolicy` block as defined below.
      * 
      */
     public Optional<ApplicationGatewaySslProfileSslPolicy> sslPolicy() {

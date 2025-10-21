@@ -20,14 +20,14 @@ public final class KubernetesClusterExtensionState extends com.pulumi.resources.
     public static final KubernetesClusterExtensionState Empty = new KubernetesClusterExtensionState();
 
     /**
-     * An `aks_assigned_identity` block as defined below.
+     * An `aksAssignedIdentity` block as defined below.
      * 
      */
     @Import(name="aksAssignedIdentities")
     private @Nullable Output<List<KubernetesClusterExtensionAksAssignedIdentityArgs>> aksAssignedIdentities;
 
     /**
-     * @return An `aks_assigned_identity` block as defined below.
+     * @return An `aksAssignedIdentity` block as defined below.
      * 
      */
     public Optional<Output<List<KubernetesClusterExtensionAksAssignedIdentityArgs>>> aksAssignedIdentities() {
@@ -235,7 +235,7 @@ public final class KubernetesClusterExtensionState extends com.pulumi.resources.
         }
 
         /**
-         * @param aksAssignedIdentities An `aks_assigned_identity` block as defined below.
+         * @param aksAssignedIdentities An `aksAssignedIdentity` block as defined below.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class KubernetesClusterExtensionState extends com.pulumi.resources.
         }
 
         /**
-         * @param aksAssignedIdentities An `aks_assigned_identity` block as defined below.
+         * @param aksAssignedIdentities An `aksAssignedIdentity` block as defined below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class KubernetesClusterExtensionState extends com.pulumi.resources.
         }
 
         /**
-         * @param aksAssignedIdentities An `aks_assigned_identity` block as defined below.
+         * @param aksAssignedIdentities An `aksAssignedIdentity` block as defined below.
          * 
          * @return builder
          * 

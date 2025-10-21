@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetBootDiagnostics {
     /**
-     * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `boot_diagnostics` block without passing the `storage_account_uri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+     * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `bootDiagnostics` block without passing the `storageAccountUri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
      * 
      */
     private @Nullable String storageAccountUri;
 
     private OrchestratedVirtualMachineScaleSetBootDiagnostics() {}
     /**
-     * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `boot_diagnostics` block without passing the `storage_account_uri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+     * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `bootDiagnostics` block without passing the `storageAccountUri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
      * 
      */
     public Optional<String> storageAccountUri() {

@@ -16,7 +16,7 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspace {
      */
     private String firewallLocation;
     /**
-     * @return The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+     * @return The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
      * 
      */
     private String id;
@@ -30,7 +30,7 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspace {
         return this.firewallLocation;
     }
     /**
-     * @return The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+     * @return The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
      * 
      */
     public String id() {

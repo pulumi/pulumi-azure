@@ -23,6 +23,15 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network` - 2024-05-01
+ * 
  * ## Import
  * 
  * Private Link Services can be imported using the `resource id`, e.g.
@@ -147,14 +156,14 @@ public class LinkService extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more (up to 8) `nat_ip_configuration` block as defined below.
+     * One or more (up to 8) `natIpConfiguration` block as defined below.
      * 
      */
     @Export(name="natIpConfigurations", refs={List.class,LinkServiceNatIpConfiguration.class}, tree="[0,1]")
     private Output<List<LinkServiceNatIpConfiguration>> natIpConfigurations;
 
     /**
-     * @return One or more (up to 8) `nat_ip_configuration` block as defined below.
+     * @return One or more (up to 8) `natIpConfiguration` block as defined below.
      * 
      */
     public Output<List<LinkServiceNatIpConfiguration>> natIpConfigurations() {

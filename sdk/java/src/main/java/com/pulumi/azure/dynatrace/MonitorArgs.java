@@ -24,14 +24,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     public static final MonitorArgs Empty = new MonitorArgs();
 
     /**
-     * Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+     * Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
      * 
      */
     @Import(name="environmentProperties")
     private @Nullable Output<List<MonitorEnvironmentPropertyArgs>> environmentProperties;
 
     /**
-     * @return Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+     * @return Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
      * 
      */
     public Optional<Output<List<MonitorEnvironmentPropertyArgs>>> environmentProperties() {
@@ -207,7 +207,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentProperties Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+         * @param environmentProperties Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentProperties Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+         * @param environmentProperties Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentProperties Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+         * @param environmentProperties Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
          * 
          * @return builder
          * 

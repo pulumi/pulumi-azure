@@ -97,18 +97,18 @@ public class Configuration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.inGuestUserPatchMode);
     }
     /**
-     * An `install_patches` block as defined below.
+     * An `installPatches` block as defined below.
      * 
-     * &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+     * &gt; **Note:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      * 
      */
     @Export(name="installPatches", refs={ConfigurationInstallPatches.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationInstallPatches> installPatches;
 
     /**
-     * @return An `install_patches` block as defined below.
+     * @return An `installPatches` block as defined below.
      * 
-     * &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+     * &gt; **Note:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      * 
      */
     public Output<Optional<ConfigurationInstallPatches>> installPatches() {

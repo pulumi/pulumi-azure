@@ -124,21 +124,21 @@ namespace Pulumi.Azure.MySql
     public partial class FlexibleServer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The Administrator login for the MySQL Flexible Server. Required when `CreateMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the MySQL Flexible Server.
+        /// The Password associated with the `AdministratorLogin` for the MySQL Flexible Server.
         /// </summary>
         [Output("administratorPassword")]
         public Output<string?> AdministratorPassword { get; private set; } = null!;
 
         /// <summary>
-        /// An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        /// An integer value used to trigger an update for `AdministratorPasswordWo`. This property should be incremented when updating `AdministratorPasswordWo`.
         /// 
-        /// &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+        /// &gt; **Note:** Either `AdministratorPassword` or `AdministratorPasswordWo` is required when `CreateMode` is `Default`.
         /// </summary>
         [Output("administratorPasswordWoVersion")]
         public Output<int?> AdministratorPasswordWoVersion { get; private set; } = null!;
@@ -152,19 +152,19 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+        /// &gt; **Note:** Creating a `GeoRestore` server requires the source server with `GeoRedundantBackupEnabled` enabled.
         /// 
-        /// &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+        /// &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `Replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         /// 
-        /// &gt; **Note:** When importing a MySQL Flexible Server, `create_mode` is not returned by the api so you will see a diff if `create_mode` is specified in your config. To prevent recreation, use the `ignore_changes` lifecycle meta-argument.
+        /// &gt; **Note:** When importing a MySQL Flexible Server, `CreateMode` is not returned by the api so you will see a diff if `CreateMode` is specified in your config. To prevent recreation, use the `IgnoreChanges` lifecycle meta-argument.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below.
+        /// A `CustomerManagedKey` block as defined below.
         /// 
-        /// &gt; **Note:** `identity` is required when `customer_managed_key` is specified.
+        /// &gt; **Note:** `Identity` is required when `CustomerManagedKey` is specified.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.FlexibleServerCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
@@ -182,19 +182,19 @@ namespace Pulumi.Azure.MySql
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
+        /// Should geo redundant backup enabled? Defaults to `False`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Output("geoRedundantBackupEnabled")]
         public Output<bool?> GeoRedundantBackupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `high_availability` block as defined below.
+        /// A `HighAvailability` block as defined below.
         /// </summary>
         [Output("highAvailability")]
         public Output<Outputs.FlexibleServerHighAvailability?> HighAvailability { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.FlexibleServerIdentity?> Identity { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.MySql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<Outputs.FlexibleServerMaintenanceWindow?> MaintenanceWindow { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.MySql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The point in time to restore from `CreationSourceServerId` when `CreateMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Output("pointInTimeRestoreTimeInUtc")]
         public Output<string?> PointInTimeRestoreTimeInUtc { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        /// &gt; **Note:** The `PrivateDnsZoneId` is required when setting a `DelegatedSubnetId`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         /// </summary>
         [Output("privateDnsZoneId")]
         public Output<string?> PrivateDnsZoneId { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
+        /// &gt; **Note:** `PublicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `DelegatedSubnetId` and `PrivateDnsZoneId`").
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string> PublicNetworkAccess { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The replication role. Possible value is `None`.
         /// 
-        /// &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+        /// &gt; **Note:** The `ReplicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
         /// </summary>
         [Output("replicationRole")]
         public Output<string> ReplicationRole { get; private set; } = null!;
@@ -265,13 +265,13 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The SKU Name for the MySQL Flexible Server.
         /// 
-        /// &gt; **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
+        /// &gt; **Note:** `SkuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The resource ID of the source MySQL Flexible Server to be restored. Required when `CreateMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         /// 
         /// &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
         /// </summary>
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.MySql
         public Output<string?> SourceServerId { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Output("storage")]
         public Output<Outputs.FlexibleServerStorage> Storage { get; private set; } = null!;
@@ -350,7 +350,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The Administrator login for the MySQL Flexible Server. Required when `CreateMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.MySql
         private Input<string>? _administratorPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the MySQL Flexible Server.
+        /// The Password associated with the `AdministratorLogin` for the MySQL Flexible Server.
         /// </summary>
         public Input<string>? AdministratorPassword
         {
@@ -372,9 +372,9 @@ namespace Pulumi.Azure.MySql
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        /// An integer value used to trigger an update for `AdministratorPasswordWo`. This property should be incremented when updating `AdministratorPasswordWo`.
         /// 
-        /// &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+        /// &gt; **Note:** Either `AdministratorPassword` or `AdministratorPasswordWo` is required when `CreateMode` is `Default`.
         /// </summary>
         [Input("administratorPasswordWoVersion")]
         public Input<int>? AdministratorPasswordWoVersion { get; set; }
@@ -388,19 +388,19 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+        /// &gt; **Note:** Creating a `GeoRestore` server requires the source server with `GeoRedundantBackupEnabled` enabled.
         /// 
-        /// &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+        /// &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `Replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         /// 
-        /// &gt; **Note:** When importing a MySQL Flexible Server, `create_mode` is not returned by the api so you will see a diff if `create_mode` is specified in your config. To prevent recreation, use the `ignore_changes` lifecycle meta-argument.
+        /// &gt; **Note:** When importing a MySQL Flexible Server, `CreateMode` is not returned by the api so you will see a diff if `CreateMode` is specified in your config. To prevent recreation, use the `IgnoreChanges` lifecycle meta-argument.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below.
+        /// A `CustomerManagedKey` block as defined below.
         /// 
-        /// &gt; **Note:** `identity` is required when `customer_managed_key` is specified.
+        /// &gt; **Note:** `Identity` is required when `CustomerManagedKey` is specified.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.FlexibleServerCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
@@ -412,19 +412,19 @@ namespace Pulumi.Azure.MySql
         public Input<string>? DelegatedSubnetId { get; set; }
 
         /// <summary>
-        /// Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
+        /// Should geo redundant backup enabled? Defaults to `False`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("geoRedundantBackupEnabled")]
         public Input<bool>? GeoRedundantBackupEnabled { get; set; }
 
         /// <summary>
-        /// A `high_availability` block as defined below.
+        /// A `HighAvailability` block as defined below.
         /// </summary>
         [Input("highAvailability")]
         public Input<Inputs.FlexibleServerHighAvailabilityArgs>? HighAvailability { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FlexibleServerIdentityArgs>? Identity { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.FlexibleServerMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The point in time to restore from `CreationSourceServerId` when `CreateMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("pointInTimeRestoreTimeInUtc")]
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
@@ -456,7 +456,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        /// &gt; **Note:** The `PrivateDnsZoneId` is required when setting a `DelegatedSubnetId`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
@@ -464,7 +464,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
+        /// &gt; **Note:** `PublicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `DelegatedSubnetId` and `PrivateDnsZoneId`").
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
@@ -472,7 +472,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The replication role. Possible value is `None`.
         /// 
-        /// &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+        /// &gt; **Note:** The `ReplicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
         /// </summary>
         [Input("replicationRole")]
         public Input<string>? ReplicationRole { get; set; }
@@ -486,13 +486,13 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The SKU Name for the MySQL Flexible Server.
         /// 
-        /// &gt; **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
+        /// &gt; **Note:** `SkuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The resource ID of the source MySQL Flexible Server to be restored. Required when `CreateMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         /// 
         /// &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
         /// </summary>
@@ -500,7 +500,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? SourceServerId { get; set; }
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.FlexibleServerStorageArgs>? Storage { get; set; }
@@ -535,7 +535,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The Administrator login for the MySQL Flexible Server. Required when `CreateMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -544,7 +544,7 @@ namespace Pulumi.Azure.MySql
         private Input<string>? _administratorPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the MySQL Flexible Server.
+        /// The Password associated with the `AdministratorLogin` for the MySQL Flexible Server.
         /// </summary>
         public Input<string>? AdministratorPassword
         {
@@ -557,9 +557,9 @@ namespace Pulumi.Azure.MySql
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        /// An integer value used to trigger an update for `AdministratorPasswordWo`. This property should be incremented when updating `AdministratorPasswordWo`.
         /// 
-        /// &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+        /// &gt; **Note:** Either `AdministratorPassword` or `AdministratorPasswordWo` is required when `CreateMode` is `Default`.
         /// </summary>
         [Input("administratorPasswordWoVersion")]
         public Input<int>? AdministratorPasswordWoVersion { get; set; }
@@ -573,19 +573,19 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+        /// &gt; **Note:** Creating a `GeoRestore` server requires the source server with `GeoRedundantBackupEnabled` enabled.
         /// 
-        /// &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+        /// &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `Replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         /// 
-        /// &gt; **Note:** When importing a MySQL Flexible Server, `create_mode` is not returned by the api so you will see a diff if `create_mode` is specified in your config. To prevent recreation, use the `ignore_changes` lifecycle meta-argument.
+        /// &gt; **Note:** When importing a MySQL Flexible Server, `CreateMode` is not returned by the api so you will see a diff if `CreateMode` is specified in your config. To prevent recreation, use the `IgnoreChanges` lifecycle meta-argument.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below.
+        /// A `CustomerManagedKey` block as defined below.
         /// 
-        /// &gt; **Note:** `identity` is required when `customer_managed_key` is specified.
+        /// &gt; **Note:** `Identity` is required when `CustomerManagedKey` is specified.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.FlexibleServerCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
@@ -603,19 +603,19 @@ namespace Pulumi.Azure.MySql
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
+        /// Should geo redundant backup enabled? Defaults to `False`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("geoRedundantBackupEnabled")]
         public Input<bool>? GeoRedundantBackupEnabled { get; set; }
 
         /// <summary>
-        /// A `high_availability` block as defined below.
+        /// A `HighAvailability` block as defined below.
         /// </summary>
         [Input("highAvailability")]
         public Input<Inputs.FlexibleServerHighAvailabilityGetArgs>? HighAvailability { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FlexibleServerIdentityGetArgs>? Identity { get; set; }
@@ -627,7 +627,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.FlexibleServerMaintenanceWindowGetArgs>? MaintenanceWindow { get; set; }
@@ -639,7 +639,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The point in time to restore from `CreationSourceServerId` when `CreateMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("pointInTimeRestoreTimeInUtc")]
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
@@ -647,7 +647,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        /// &gt; **Note:** The `PrivateDnsZoneId` is required when setting a `DelegatedSubnetId`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
@@ -655,7 +655,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
+        /// &gt; **Note:** `PublicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `DelegatedSubnetId` and `PrivateDnsZoneId`").
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
@@ -672,7 +672,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The replication role. Possible value is `None`.
         /// 
-        /// &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+        /// &gt; **Note:** The `ReplicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
         /// </summary>
         [Input("replicationRole")]
         public Input<string>? ReplicationRole { get; set; }
@@ -686,13 +686,13 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The SKU Name for the MySQL Flexible Server.
         /// 
-        /// &gt; **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
+        /// &gt; **Note:** `SkuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The resource ID of the source MySQL Flexible Server to be restored. Required when `CreateMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         /// 
         /// &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
         /// </summary>
@@ -700,7 +700,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? SourceServerId { get; set; }
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.FlexibleServerStorageGetArgs>? Storage { get; set; }

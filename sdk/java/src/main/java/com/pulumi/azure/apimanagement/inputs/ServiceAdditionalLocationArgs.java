@@ -130,14 +130,14 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      * 
      */
     @Import(name="virtualNetworkConfiguration")
     private @Nullable Output<ServiceAdditionalLocationVirtualNetworkConfigurationArgs> virtualNetworkConfiguration;
 
     /**
-     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      * 
      */
     public Optional<Output<ServiceAdditionalLocationVirtualNetworkConfigurationArgs>> virtualNetworkConfiguration() {
@@ -363,7 +363,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+         * @param virtualNetworkConfiguration A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+         * @param virtualNetworkConfiguration A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
          * 
          * @return builder
          * 

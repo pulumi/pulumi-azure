@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxFunctionAppAuthSettingsV2CustomOidcV2
     {
         /// <summary>
-        /// The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        /// The endpoint to make the Authorisation Request as supplied by `OpenidConfigurationEndpoint` response.
         /// </summary>
         public readonly string? AuthorisationEndpoint;
         /// <summary>
-        /// The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        /// The endpoint that provides the keys necessary to validate the token as supplied by `OpenidConfigurationEndpoint` response.
         /// </summary>
         public readonly string? CertificationUri;
         /// <summary>
@@ -30,17 +30,17 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        /// The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `Name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
-        /// The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        /// The endpoint that issued the Token as supplied by `OpenidConfigurationEndpoint` response.
         /// </summary>
         public readonly string? IssuerEndpoint;
         /// <summary>
         /// The name of the Custom OIDC Authentication Provider.
         /// 
-        /// &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        /// &gt; **Note:** An `AppSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `Myoidc`.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? NameClaimType;
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        /// The app setting name that contains the `ClientSecret` value used for the Custom OIDC Login.
         /// </summary>
         public readonly string OpenidConfigurationEndpoint;
         /// <summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
         /// <summary>
-        /// The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        /// The endpoint used to request a Token as supplied by `OpenidConfigurationEndpoint` response.
         /// </summary>
         public readonly string? TokenEndpoint;
 

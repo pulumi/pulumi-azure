@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         /// 
-        /// &gt; **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+        /// &gt; **Note:** `DisabledProtocols` cannot be set when `PolicyName` or `PolicyType` are set.
         /// </summary>
         public InputList<string> DisabledProtocols
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
         /// 
-        /// &gt; **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+        /// &gt; **Note:** `PolicyType` is Required when `PolicyName` is set - cannot be set if `DisabledProtocols` is set.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }

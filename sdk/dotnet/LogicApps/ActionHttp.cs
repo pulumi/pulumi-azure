@@ -58,13 +58,13 @@ namespace Pulumi.Azure.LogicApps
     public partial class ActionHttp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
+        /// Specifies the HTTP Body that should be sent to the `Uri` when this HTTP Action is triggered.
         /// </summary>
         [Output("body")]
         public Output<string?> Body { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        /// Specifies a Map of Key-Value Pairs that should be sent to the `Uri` when this HTTP Action is triggered.
         /// </summary>
         [Output("headers")]
         public Output<ImmutableDictionary<string, string>?> Headers { get; private set; } = null!;
@@ -90,13 +90,13 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        /// Specifies a Map of Key-Value Pairs that should be sent to the `Uri` when this HTTP Action is triggered.
         /// </summary>
         [Output("queries")]
         public Output<ImmutableDictionary<string, string>?> Queries { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `RunAfter` block is as defined below.
         /// </summary>
         [Output("runAfters")]
         public Output<ImmutableArray<Outputs.ActionHttpRunAfter>> RunAfters { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.LogicApps
     public sealed class ActionHttpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
+        /// Specifies the HTTP Body that should be sent to the `Uri` when this HTTP Action is triggered.
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _headers;
 
         /// <summary>
-        /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        /// Specifies a Map of Key-Value Pairs that should be sent to the `Uri` when this HTTP Action is triggered.
         /// </summary>
         public InputMap<string> Headers
         {
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _queries;
 
         /// <summary>
-        /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        /// Specifies a Map of Key-Value Pairs that should be sent to the `Uri` when this HTTP Action is triggered.
         /// </summary>
         public InputMap<string> Queries
         {
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<Inputs.ActionHttpRunAfterArgs>? _runAfters;
 
         /// <summary>
-        /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `RunAfter` block is as defined below.
         /// </summary>
         public InputList<Inputs.ActionHttpRunAfterArgs> RunAfters
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.LogicApps
     public sealed class ActionHttpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
+        /// Specifies the HTTP Body that should be sent to the `Uri` when this HTTP Action is triggered.
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _headers;
 
         /// <summary>
-        /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        /// Specifies a Map of Key-Value Pairs that should be sent to the `Uri` when this HTTP Action is triggered.
         /// </summary>
         public InputMap<string> Headers
         {
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _queries;
 
         /// <summary>
-        /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        /// Specifies a Map of Key-Value Pairs that should be sent to the `Uri` when this HTTP Action is triggered.
         /// </summary>
         public InputMap<string> Queries
         {
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<Inputs.ActionHttpRunAfterGetArgs>? _runAfters;
 
         /// <summary>
-        /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `RunAfter` block is as defined below.
         /// </summary>
         public InputList<Inputs.ActionHttpRunAfterGetArgs> RunAfters
         {

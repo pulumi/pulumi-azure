@@ -24,14 +24,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     public static final WorkspaceArgs Empty = new WorkspaceArgs();
 
     /**
-     * An `azure_devops_repo` block as defined below.
+     * An `azureDevopsRepo` block as defined below.
      * 
      */
     @Import(name="azureDevopsRepo")
     private @Nullable Output<WorkspaceAzureDevopsRepoArgs> azureDevopsRepo;
 
     /**
-     * @return An `azure_devops_repo` block as defined below.
+     * @return An `azureDevopsRepo` block as defined below.
      * 
      */
     public Optional<Output<WorkspaceAzureDevopsRepoArgs>> azureDevopsRepo() {
@@ -69,14 +69,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `customer_managed_key` block as defined below.
+     * A `customerManagedKey` block as defined below.
      * 
      */
     @Import(name="customerManagedKey")
     private @Nullable Output<WorkspaceCustomerManagedKeyArgs> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as defined below.
+     * @return A `customerManagedKey` block as defined below.
      * 
      */
     public Optional<Output<WorkspaceCustomerManagedKeyArgs>> customerManagedKey() {
@@ -84,14 +84,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+     * Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dataExfiltrationProtectionEnabled")
     private @Nullable Output<Boolean> dataExfiltrationProtectionEnabled;
 
     /**
-     * @return Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+     * @return Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> dataExfiltrationProtectionEnabled() {
@@ -99,14 +99,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `github_repo` block as defined below.
+     * A `githubRepo` block as defined below.
      * 
      */
     @Import(name="githubRepo")
     private @Nullable Output<WorkspaceGithubRepoArgs> githubRepo;
 
     /**
-     * @return A `github_repo` block as defined below.
+     * @return A `githubRepo` block as defined below.
      * 
      */
     public Optional<Output<WorkspaceGithubRepoArgs>> githubRepo() {
@@ -249,14 +249,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      * 
      */
     @Import(name="sqlAdministratorLogin")
     private @Nullable Output<String> sqlAdministratorLogin;
 
     /**
-     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      * 
      */
     public Optional<Output<String>> sqlAdministratorLogin() {
@@ -264,14 +264,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
+     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      * 
      */
     @Import(name="sqlAdministratorLoginPassword")
     private @Nullable Output<String> sqlAdministratorLoginPassword;
 
     /**
-     * @return The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
+     * @return The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      * 
      */
     public Optional<Output<String>> sqlAdministratorLoginPassword() {
@@ -367,7 +367,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureDevopsRepo An `azure_devops_repo` block as defined below.
+         * @param azureDevopsRepo An `azureDevopsRepo` block as defined below.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureDevopsRepo An `azure_devops_repo` block as defined below.
+         * @param azureDevopsRepo An `azureDevopsRepo` block as defined below.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as defined below.
+         * @param customerManagedKey A `customerManagedKey` block as defined below.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as defined below.
+         * @param customerManagedKey A `customerManagedKey` block as defined below.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataExfiltrationProtectionEnabled Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+         * @param dataExfiltrationProtectionEnabled Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataExfiltrationProtectionEnabled Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+         * @param dataExfiltrationProtectionEnabled Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param githubRepo A `github_repo` block as defined below.
+         * @param githubRepo A `githubRepo` block as defined below.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param githubRepo A `github_repo` block as defined below.
+         * @param githubRepo A `githubRepo` block as defined below.
          * 
          * @return builder
          * 
@@ -692,7 +692,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
          * 
          * @return builder
          * 
@@ -703,7 +703,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
          * 
          * @return builder
          * 
@@ -713,7 +713,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
+         * @param sqlAdministratorLoginPassword The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
          * 
          * @return builder
          * 
@@ -724,7 +724,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
+         * @param sqlAdministratorLoginPassword The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
          * 
          * @return builder
          * 

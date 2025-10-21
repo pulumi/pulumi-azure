@@ -156,7 +156,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
      * 
-     * &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
      * 
      */
     @Export(name="ipRules", refs={List.class,String.class}, tree="[0,1]")
@@ -169,21 +169,21 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
      * 
-     * &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
      * 
      */
     public Output<Optional<List<String>>> ipRules() {
         return Codegen.optional(this.ipRules);
     }
     /**
-     * One or more `private_link_access` block as defined below.
+     * One or more `privateLinkAccess` block as defined below.
      * 
      */
     @Export(name="privateLinkAccessRules", refs={List.class,AccountNetworkRulesPrivateLinkAccessRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountNetworkRulesPrivateLinkAccessRule>> privateLinkAccessRules;
 
     /**
-     * @return One or more `private_link_access` block as defined below.
+     * @return One or more `privateLinkAccess` block as defined below.
      * 
      */
     public Output<Optional<List<AccountNetworkRulesPrivateLinkAccessRule>>> privateLinkAccessRules() {
@@ -206,7 +206,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
     /**
      * A list of virtual network subnet ids to secure the storage account.
      * 
-     * &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
      * 
      */
     @Export(name="virtualNetworkSubnetIds", refs={List.class,String.class}, tree="[0,1]")
@@ -215,7 +215,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of virtual network subnet ids to secure the storage account.
      * 
-     * &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
      * 
      */
     public Output<Optional<List<String>>> virtualNetworkSubnetIds() {

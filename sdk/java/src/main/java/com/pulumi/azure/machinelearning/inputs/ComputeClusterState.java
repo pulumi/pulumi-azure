@@ -126,14 +126,14 @@ public final class ComputeClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `scale_settings` block as defined below.
+     * A `scaleSettings` block as defined below.
      * 
      */
     @Import(name="scaleSettings")
     private @Nullable Output<ComputeClusterScaleSettingsArgs> scaleSettings;
 
     /**
-     * @return A `scale_settings` block as defined below.
+     * @return A `scaleSettings` block as defined below.
      * 
      */
     public Optional<Output<ComputeClusterScaleSettingsArgs>> scaleSettings() {
@@ -415,7 +415,7 @@ public final class ComputeClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scaleSettings A `scale_settings` block as defined below.
+         * @param scaleSettings A `scaleSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class ComputeClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scaleSettings A `scale_settings` block as defined below.
+         * @param scaleSettings A `scaleSettings` block as defined below.
          * 
          * @return builder
          * 

@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
+        /// Specifies if the Automation Variable is encrypted. Defaults to `False`.
         /// </summary>
         public readonly bool Encrypted;
         /// <summary>
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Automation
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The value of the Automation Variable as a json encoded `string`.
+        /// The value of the Automation Variable as a json encoded `String`.
         /// </summary>
         public readonly string Value;
 

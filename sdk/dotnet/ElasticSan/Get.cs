@@ -187,7 +187,7 @@ namespace Pulumi.Azure.ElasticSan
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSkusResult> Skus;
         /// <summary>

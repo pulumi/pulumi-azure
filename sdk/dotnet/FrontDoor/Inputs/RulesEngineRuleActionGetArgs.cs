@@ -16,7 +16,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<Inputs.RulesEngineRuleActionRequestHeaderGetArgs>? _requestHeaders;
 
         /// <summary>
-        /// A `request_header` block as defined below.
+        /// A `RequestHeader` block as defined below.
         /// </summary>
         public InputList<Inputs.RulesEngineRuleActionRequestHeaderGetArgs> RequestHeaders
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<Inputs.RulesEngineRuleActionResponseHeaderGetArgs>? _responseHeaders;
 
         /// <summary>
-        /// A `response_header` block as defined below.
+        /// A `ResponseHeader` block as defined below.
         /// </summary>
         public InputList<Inputs.RulesEngineRuleActionResponseHeaderGetArgs> ResponseHeaders
         {

@@ -20,7 +20,7 @@ public final class DiagnosticBackendResponse {
      */
     private @Nullable Integer bodyBytes;
     /**
-     * @return A `data_masking` block as defined below.
+     * @return A `dataMasking` block as defined below.
      * 
      */
     private @Nullable DiagnosticBackendResponseDataMasking dataMasking;
@@ -39,7 +39,7 @@ public final class DiagnosticBackendResponse {
         return Optional.ofNullable(this.bodyBytes);
     }
     /**
-     * @return A `data_masking` block as defined below.
+     * @return A `dataMasking` block as defined below.
      * 
      */
     public Optional<DiagnosticBackendResponseDataMasking> dataMasking() {

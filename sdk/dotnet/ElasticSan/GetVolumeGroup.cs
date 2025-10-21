@@ -189,7 +189,7 @@ namespace Pulumi.Azure.ElasticSan
         /// </summary>
         public readonly string EncryptionType;
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupEncryptionResult> Encryptions;
         /// <summary>
@@ -197,12 +197,12 @@ namespace Pulumi.Azure.ElasticSan
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupIdentityResult> Identities;
         public readonly string Name;
         /// <summary>
-        /// One or more `network_rule` blocks as defined below.
+        /// One or more `NetworkRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupNetworkRuleResult> NetworkRules;
         /// <summary>

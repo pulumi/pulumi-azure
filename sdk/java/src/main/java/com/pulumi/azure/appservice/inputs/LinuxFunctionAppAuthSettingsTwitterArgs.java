@@ -32,14 +32,14 @@ public final class LinuxFunctionAppAuthSettingsTwitterArgs extends com.pulumi.re
     }
 
     /**
-     * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+     * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
      * 
      */
     @Import(name="consumerSecret")
     private @Nullable Output<String> consumerSecret;
 
     /**
-     * @return The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+     * @return The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
      * 
      */
     public Optional<Output<String>> consumerSecret() {
@@ -47,14 +47,14 @@ public final class LinuxFunctionAppAuthSettingsTwitterArgs extends com.pulumi.re
     }
 
     /**
-     * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+     * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
      * 
      */
     @Import(name="consumerSecretSettingName")
     private @Nullable Output<String> consumerSecretSettingName;
 
     /**
-     * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+     * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
      * 
      */
     public Optional<Output<String>> consumerSecretSettingName() {
@@ -109,7 +109,7 @@ public final class LinuxFunctionAppAuthSettingsTwitterArgs extends com.pulumi.re
         }
 
         /**
-         * @param consumerSecret The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+         * @param consumerSecret The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class LinuxFunctionAppAuthSettingsTwitterArgs extends com.pulumi.re
         }
 
         /**
-         * @param consumerSecret The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+         * @param consumerSecret The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class LinuxFunctionAppAuthSettingsTwitterArgs extends com.pulumi.re
         }
 
         /**
-         * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+         * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class LinuxFunctionAppAuthSettingsTwitterArgs extends com.pulumi.re
         }
 
         /**
-         * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+         * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          * 
          * @return builder
          * 

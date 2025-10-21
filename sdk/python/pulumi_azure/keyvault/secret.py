@@ -26,6 +26,7 @@ class SecretArgs:
                  not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Secret resource.
@@ -36,6 +37,10 @@ class SecretArgs:
         :param pulumi.Input[_builtins.str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+               
+               * > **Note:** One of `value` or `value_wo` must be specified.
         :param pulumi.Input[_builtins.int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
@@ -53,6 +58,8 @@ class SecretArgs:
             pulumi.set(__self__, "tags", tags)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_wo is not None:
+            pulumi.set(__self__, "value_wo", value_wo)
         if value_wo_version is not None:
             pulumi.set(__self__, "value_wo_version", value_wo_version)
 
@@ -141,6 +148,21 @@ class SecretArgs:
         pulumi.set(self, "value", value)
 
     @_builtins.property
+    @pulumi.getter(name="valueWo")
+    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+
+        * > **Note:** One of `value` or `value_wo` must be specified.
+        """
+        return pulumi.get(self, "value_wo")
+
+    @value_wo.setter
+    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_wo", value)
+
+    @_builtins.property
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -167,6 +189,7 @@ class _SecretState:
                  resource_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  versionless_id: Optional[pulumi.Input[_builtins.str]] = None):
@@ -181,6 +204,10 @@ class _SecretState:
         :param pulumi.Input[_builtins.str] resource_versionless_id: The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+               
+               * > **Note:** One of `value` or `value_wo` must be specified.
         :param pulumi.Input[_builtins.int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
@@ -205,6 +232,8 @@ class _SecretState:
             pulumi.set(__self__, "tags", tags)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_wo is not None:
+            pulumi.set(__self__, "value_wo", value_wo)
         if value_wo_version is not None:
             pulumi.set(__self__, "value_wo_version", value_wo_version)
         if version is not None:
@@ -321,6 +350,21 @@ class _SecretState:
         pulumi.set(self, "value", value)
 
     @_builtins.property
+    @pulumi.getter(name="valueWo")
+    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+
+        * > **Note:** One of `value` or `value_wo` must be specified.
+        """
+        return pulumi.get(self, "value_wo")
+
+    @value_wo.setter
+    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_wo", value)
+
+    @_builtins.property
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -372,6 +416,7 @@ class Secret(pulumi.CustomResource):
                  not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
@@ -432,6 +477,10 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+               
+               * > **Note:** One of `value` or `value_wo` must be specified.
         :param pulumi.Input[_builtins.int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
@@ -513,6 +562,7 @@ class Secret(pulumi.CustomResource):
                  not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -532,12 +582,13 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["not_before_date"] = not_before_date
             __props__.__dict__["tags"] = tags
             __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
+            __props__.__dict__["value_wo"] = None if value_wo is None else pulumi.Output.secret(value_wo)
             __props__.__dict__["value_wo_version"] = value_wo_version
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["resource_versionless_id"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["versionless_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value", "valueWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Secret, __self__).__init__(
             'azure:keyvault/secret:Secret',
@@ -558,6 +609,7 @@ class Secret(pulumi.CustomResource):
             resource_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             value: Optional[pulumi.Input[_builtins.str]] = None,
+            value_wo: Optional[pulumi.Input[_builtins.str]] = None,
             value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             version: Optional[pulumi.Input[_builtins.str]] = None,
             versionless_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Secret':
@@ -577,6 +629,10 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_versionless_id: The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+               
+               * > **Note:** One of `value` or `value_wo` must be specified.
         :param pulumi.Input[_builtins.int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
@@ -596,6 +652,7 @@ class Secret(pulumi.CustomResource):
         __props__.__dict__["resource_versionless_id"] = resource_versionless_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["value"] = value
+        __props__.__dict__["value_wo"] = value_wo
         __props__.__dict__["value_wo_version"] = value_wo_version
         __props__.__dict__["version"] = version
         __props__.__dict__["versionless_id"] = versionless_id
@@ -672,6 +729,17 @@ class Secret(pulumi.CustomResource):
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         """
         return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueWo")
+    def value_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+
+        * > **Note:** One of `value` or `value_wo` must be specified.
+        """
+        return pulumi.get(self, "value_wo")
 
     @_builtins.property
     @pulumi.getter(name="valueWoVersion")

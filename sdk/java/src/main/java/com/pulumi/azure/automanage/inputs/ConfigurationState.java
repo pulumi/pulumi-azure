@@ -51,14 +51,14 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `azure_security_baseline` block as defined below.
+     * A `azureSecurityBaseline` block as defined below.
      * 
      */
     @Import(name="azureSecurityBaseline")
     private @Nullable Output<ConfigurationAzureSecurityBaselineArgs> azureSecurityBaseline;
 
     /**
-     * @return A `azure_security_baseline` block as defined below.
+     * @return A `azureSecurityBaseline` block as defined below.
      * 
      */
     public Optional<Output<ConfigurationAzureSecurityBaselineArgs>> azureSecurityBaseline() {
@@ -286,7 +286,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param azureSecurityBaseline A `azure_security_baseline` block as defined below.
+         * @param azureSecurityBaseline A `azureSecurityBaseline` block as defined below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param azureSecurityBaseline A `azure_security_baseline` block as defined below.
+         * @param azureSecurityBaseline A `azureSecurityBaseline` block as defined below.
          * 
          * @return builder
          * 

@@ -32,7 +32,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return Should the app be loaded at all times? Defaults to `false`.
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `alwaysOn` must be set to `false`.
      * 
      */
     private @Nullable Boolean alwaysOn;
@@ -79,22 +79,22 @@ public final class AppServiceSiteConfig {
     /**
      * @return A list of objects representing ip restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     private @Nullable List<AppServiceSiteConfigIpRestriction> ipRestrictions;
     /**
-     * @return The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+     * @return The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
      * 
      */
     private @Nullable String javaContainer;
     /**
-     * @return The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+     * @return The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
      * 
      */
     private @Nullable String javaContainerVersion;
     /**
-     * @return The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+     * @return The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
      * 
      */
     private @Nullable String javaVersion;
@@ -123,7 +123,7 @@ public final class AppServiceSiteConfig {
      */
     private @Nullable String minTlsVersion;
     /**
-     * @return The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+     * @return The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
      * 
      */
     private @Nullable Integer numberOfWorkers;
@@ -148,9 +148,9 @@ public final class AppServiceSiteConfig {
      */
     private @Nullable String remoteDebuggingVersion;
     /**
-     * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `scmIpRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     private @Nullable List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -162,14 +162,14 @@ public final class AppServiceSiteConfig {
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     private @Nullable Boolean use32BitWorkerProcess;
@@ -205,7 +205,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return Should the app be loaded at all times? Defaults to `false`.
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `alwaysOn` must be set to `false`.
      * 
      */
     public Optional<Boolean> alwaysOn() {
@@ -270,28 +270,28 @@ public final class AppServiceSiteConfig {
     /**
      * @return A list of objects representing ip restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public List<AppServiceSiteConfigIpRestriction> ipRestrictions() {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
     }
     /**
-     * @return The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+     * @return The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
      * 
      */
     public Optional<String> javaContainer() {
         return Optional.ofNullable(this.javaContainer);
     }
     /**
-     * @return The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+     * @return The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
      * 
      */
     public Optional<String> javaContainerVersion() {
         return Optional.ofNullable(this.javaContainerVersion);
     }
     /**
-     * @return The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+     * @return The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
      * 
      */
     public Optional<String> javaVersion() {
@@ -330,7 +330,7 @@ public final class AppServiceSiteConfig {
         return Optional.ofNullable(this.minTlsVersion);
     }
     /**
-     * @return The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+     * @return The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
      * 
      */
     public Optional<Integer> numberOfWorkers() {
@@ -365,9 +365,9 @@ public final class AppServiceSiteConfig {
         return Optional.ofNullable(this.remoteDebuggingVersion);
     }
     /**
-     * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `scmIpRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -383,7 +383,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {
@@ -392,7 +392,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     public Optional<Boolean> use32BitWorkerProcess() {

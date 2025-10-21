@@ -36,7 +36,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? NonceExpirationTime;
         /// <summary>
-        /// Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        /// Should the fragments from the request be preserved after the login request is made. Defaults to `False`.
         /// </summary>
         public readonly bool? PreserveUrlFragmentsForLogins;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly double? TokenRefreshExtensionTime;
         /// <summary>
-        /// Should the Token Store configuration Enabled. Defaults to `false`
+        /// Should the Token Store configuration Enabled. Defaults to `False`
         /// </summary>
         public readonly bool? TokenStoreEnabled;
         /// <summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? TokenStoreSasSettingName;
         /// <summary>
-        /// Should the nonce be validated while completing the login flow. Defaults to `true`.
+        /// Should the nonce be validated while completing the login flow. Defaults to `True`.
         /// </summary>
         public readonly bool? ValidateNonce;
 

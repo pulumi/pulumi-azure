@@ -12,6 +12,15 @@ import (
 )
 
 // Use this data source to access information about an existing Container Registry Cache Rule.
+//
+// ## Example Usage
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerRegistry` - 2023-07-01
 func LookupRegistryCacheRule(ctx *pulumi.Context, args *LookupRegistryCacheRuleArgs, opts ...pulumi.InvokeOption) (*LookupRegistryCacheRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegistryCacheRuleResult

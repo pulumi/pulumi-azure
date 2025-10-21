@@ -36,14 +36,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
     }
 
     /**
-     * One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diskVolumeConfigurations")
     private @Nullable Output<List<ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs>> diskVolumeConfigurations;
 
     /**
-     * @return One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs>>> diskVolumeConfigurations() {
@@ -81,14 +81,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
     }
 
     /**
-     * A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualMachineConfiguration", required=true)
     private Output<ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs> virtualMachineConfiguration;
 
     /**
-     * @return A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs> virtualMachineConfiguration() {
@@ -145,7 +145,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
         }
 
         /**
-         * @param diskVolumeConfigurations One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+         * @param diskVolumeConfigurations One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
         }
 
         /**
-         * @param diskVolumeConfigurations One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+         * @param diskVolumeConfigurations One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
         }
 
         /**
-         * @param diskVolumeConfigurations One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+         * @param diskVolumeConfigurations One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
         }
 
         /**
-         * @param virtualMachineConfiguration A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachineConfiguration A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
         }
 
         /**
-         * @param virtualMachineConfiguration A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachineConfiguration A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

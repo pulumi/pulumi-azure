@@ -106,14 +106,14 @@ public class Powershell72Module extends com.pulumi.resources.CustomResource {
         return this.automationAccountId;
     }
     /**
-     * A `module_link` block as defined below.
+     * A `moduleLink` block as defined below.
      * 
      */
     @Export(name="moduleLink", refs={Powershell72ModuleModuleLink.class}, tree="[0]")
     private Output<Powershell72ModuleModuleLink> moduleLink;
 
     /**
-     * @return A `module_link` block as defined below.
+     * @return A `moduleLink` block as defined below.
      * 
      */
     public Output<Powershell72ModuleModuleLink> moduleLink() {

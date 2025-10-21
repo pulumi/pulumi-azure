@@ -34,14 +34,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
     }
 
     /**
-     * A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+     * A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="loadBalancer")
     private @Nullable Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs> loadBalancer;
 
     /**
-     * @return A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+     * @return A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs>> loadBalancer() {
@@ -49,14 +49,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
     }
 
     /**
-     * One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualMachines")
     private @Nullable Output<List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs>> virtualMachines;
 
     /**
-     * @return One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs>>> virtualMachines() {
@@ -111,7 +111,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
         }
 
         /**
-         * @param loadBalancer A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+         * @param loadBalancer A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
         }
 
         /**
-         * @param loadBalancer A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+         * @param loadBalancer A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
         }
 
         /**
-         * @param virtualMachines One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachines One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
         }
 
         /**
-         * @param virtualMachines One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachines One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
         }
 
         /**
-         * @param virtualMachines One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachines One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

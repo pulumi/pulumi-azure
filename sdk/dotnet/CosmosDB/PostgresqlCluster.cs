@@ -61,7 +61,7 @@ namespace Pulumi.Azure.CosmosDB
     public partial class PostgresqlCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The password of the administrator login. This is required when `source_resource_id` is not set.
+        /// The password of the administrator login. This is required when `SourceResourceId` is not set.
         /// </summary>
         [Output("administratorLoginPassword")]
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> CitusVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Is public access enabled on coordinator? Defaults to `true`.
+        /// Is public access enabled on coordinator? Defaults to `True`.
         /// </summary>
         [Output("coordinatorPublicIpAccessEnabled")]
         public Output<bool?> CoordinatorPublicIpAccessEnabled { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> EarliestRestoreTime { get; private set; } = null!;
 
         /// <summary>
-        /// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
+        /// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `False`.
         /// </summary>
         [Output("haEnabled")]
         public Output<bool?> HaEnabled { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<Outputs.PostgresqlClusterMaintenanceWindow?> MaintenanceWindow { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int> NodeCount { get; private set; } = null!;
 
         /// <summary>
-        /// Is public access enabled on worker nodes. Defaults to `false`.
+        /// Is public access enabled on worker nodes. Defaults to `False`.
         /// </summary>
         [Output("nodePublicIpAccessEnabled")]
         public Output<bool?> NodePublicIpAccessEnabled { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `servers` block as defined below.
+        /// A `Servers` block as defined below.
         /// </summary>
         [Output("servers")]
         public Output<ImmutableArray<Outputs.PostgresqlClusterServer>> Servers { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.CosmosDB
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The password of the administrator login. This is required when `source_resource_id` is not set.
+        /// The password of the administrator login. This is required when `SourceResourceId` is not set.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? CitusVersion { get; set; }
 
         /// <summary>
-        /// Is public access enabled on coordinator? Defaults to `true`.
+        /// Is public access enabled on coordinator? Defaults to `True`.
         /// </summary>
         [Input("coordinatorPublicIpAccessEnabled")]
         public Input<bool>? CoordinatorPublicIpAccessEnabled { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? CoordinatorVcoreCount { get; set; }
 
         /// <summary>
-        /// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
+        /// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `False`.
         /// </summary>
         [Input("haEnabled")]
         public Input<bool>? HaEnabled { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.PostgresqlClusterMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int> NodeCount { get; set; } = null!;
 
         /// <summary>
-        /// Is public access enabled on worker nodes. Defaults to `false`.
+        /// Is public access enabled on worker nodes. Defaults to `False`.
         /// </summary>
         [Input("nodePublicIpAccessEnabled")]
         public Input<bool>? NodePublicIpAccessEnabled { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.CosmosDB
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The password of the administrator login. This is required when `source_resource_id` is not set.
+        /// The password of the administrator login. This is required when `SourceResourceId` is not set.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -449,7 +449,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? CitusVersion { get; set; }
 
         /// <summary>
-        /// Is public access enabled on coordinator? Defaults to `true`.
+        /// Is public access enabled on coordinator? Defaults to `True`.
         /// </summary>
         [Input("coordinatorPublicIpAccessEnabled")]
         public Input<bool>? CoordinatorPublicIpAccessEnabled { get; set; }
@@ -481,7 +481,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? EarliestRestoreTime { get; set; }
 
         /// <summary>
-        /// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
+        /// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `False`.
         /// </summary>
         [Input("haEnabled")]
         public Input<bool>? HaEnabled { get; set; }
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.PostgresqlClusterMaintenanceWindowGetArgs>? MaintenanceWindow { get; set; }
@@ -511,7 +511,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? NodeCount { get; set; }
 
         /// <summary>
-        /// Is public access enabled on worker nodes. Defaults to `false`.
+        /// Is public access enabled on worker nodes. Defaults to `False`.
         /// </summary>
         [Input("nodePublicIpAccessEnabled")]
         public Input<bool>? NodePublicIpAccessEnabled { get; set; }
@@ -556,7 +556,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.PostgresqlClusterServerGetArgs>? _servers;
 
         /// <summary>
-        /// A `servers` block as defined below.
+        /// A `Servers` block as defined below.
         /// </summary>
         public InputList<Inputs.PostgresqlClusterServerGetArgs> Servers
         {

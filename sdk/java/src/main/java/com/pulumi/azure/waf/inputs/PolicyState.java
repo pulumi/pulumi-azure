@@ -21,14 +21,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     public static final PolicyState Empty = new PolicyState();
 
     /**
-     * One or more `custom_rules` blocks as defined below.
+     * One or more `customRules` blocks as defined below.
      * 
      */
     @Import(name="customRules")
     private @Nullable Output<List<PolicyCustomRuleArgs>> customRules;
 
     /**
-     * @return One or more `custom_rules` blocks as defined below.
+     * @return One or more `customRules` blocks as defined below.
      * 
      */
     public Optional<Output<List<PolicyCustomRuleArgs>>> customRules() {
@@ -66,14 +66,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `managed_rules` blocks as defined below.
+     * A `managedRules` blocks as defined below.
      * 
      */
     @Import(name="managedRules")
     private @Nullable Output<PolicyManagedRulesArgs> managedRules;
 
     /**
-     * @return A `managed_rules` blocks as defined below.
+     * @return A `managedRules` blocks as defined below.
      * 
      */
     public Optional<Output<PolicyManagedRulesArgs>> managedRules() {
@@ -111,14 +111,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `policy_settings` block as defined below.
+     * A `policySettings` block as defined below.
      * 
      */
     @Import(name="policySettings")
     private @Nullable Output<PolicyPolicySettingsArgs> policySettings;
 
     /**
-     * @return A `policy_settings` block as defined below.
+     * @return A `policySettings` block as defined below.
      * 
      */
     public Optional<Output<PolicyPolicySettingsArgs>> policySettings() {
@@ -188,7 +188,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customRules One or more `custom_rules` blocks as defined below.
+         * @param customRules One or more `customRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customRules One or more `custom_rules` blocks as defined below.
+         * @param customRules One or more `customRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customRules One or more `custom_rules` blocks as defined below.
+         * @param customRules One or more `customRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedRules A `managed_rules` blocks as defined below.
+         * @param managedRules A `managedRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedRules A `managed_rules` blocks as defined below.
+         * @param managedRules A `managedRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policySettings A `policy_settings` block as defined below.
+         * @param policySettings A `policySettings` block as defined below.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policySettings A `policy_settings` block as defined below.
+         * @param policySettings A `policySettings` block as defined below.
          * 
          * @return builder
          * 

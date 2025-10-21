@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+        /// Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `False`.
         /// </summary>
         public readonly bool? Optional;
 

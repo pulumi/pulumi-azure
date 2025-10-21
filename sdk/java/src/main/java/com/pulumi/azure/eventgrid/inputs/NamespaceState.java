@@ -52,14 +52,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `inbound_ip_rule` blocks as defined below.
+     * One or more `inboundIpRule` blocks as defined below.
      * 
      */
     @Import(name="inboundIpRules")
     private @Nullable Output<List<NamespaceInboundIpRuleArgs>> inboundIpRules;
 
     /**
-     * @return One or more `inbound_ip_rule` blocks as defined below.
+     * @return One or more `inboundIpRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<NamespaceInboundIpRuleArgs>>> inboundIpRules() {
@@ -157,14 +157,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `topic_spaces_configuration` block as defined below.
+     * A `topicSpacesConfiguration` block as defined below.
      * 
      */
     @Import(name="topicSpacesConfigurations")
     private @Nullable Output<List<NamespaceTopicSpacesConfigurationArgs>> topicSpacesConfigurations;
 
     /**
-     * @return A `topic_spaces_configuration` block as defined below.
+     * @return A `topicSpacesConfiguration` block as defined below.
      * 
      */
     public Optional<Output<List<NamespaceTopicSpacesConfigurationArgs>>> topicSpacesConfigurations() {
@@ -247,7 +247,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inboundIpRules One or more `inbound_ip_rule` blocks as defined below.
+         * @param inboundIpRules One or more `inboundIpRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inboundIpRules One or more `inbound_ip_rule` blocks as defined below.
+         * @param inboundIpRules One or more `inboundIpRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inboundIpRules One or more `inbound_ip_rule` blocks as defined below.
+         * @param inboundIpRules One or more `inboundIpRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicSpacesConfigurations A `topic_spaces_configuration` block as defined below.
+         * @param topicSpacesConfigurations A `topicSpacesConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicSpacesConfigurations A `topic_spaces_configuration` block as defined below.
+         * @param topicSpacesConfigurations A `topicSpacesConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicSpacesConfigurations A `topic_spaces_configuration` block as defined below.
+         * @param topicSpacesConfigurations A `topicSpacesConfiguration` block as defined below.
          * 
          * @return builder
          * 

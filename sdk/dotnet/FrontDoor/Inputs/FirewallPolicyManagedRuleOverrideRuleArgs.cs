@@ -19,7 +19,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Is the managed rule override enabled or disabled. Defaults to `false`
+        /// Is the managed rule override enabled or disabled. Defaults to `False`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<Inputs.FirewallPolicyManagedRuleOverrideRuleExclusionArgs>? _exclusions;
 
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyManagedRuleOverrideRuleExclusionArgs> Exclusions
         {

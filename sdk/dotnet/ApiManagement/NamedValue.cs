@@ -93,9 +93,9 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+        /// Specifies whether the API Management Named Value is secret. Valid values are `True` or `False`. The default value is `False`.
         /// 
-        /// &gt; **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
+        /// &gt; **NOTE:** setting the field `Secret` to `True` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         /// </summary>
         [Output("secret")]
         public Output<bool?> Secret { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Value { get; private set; } = null!;
 
         /// <summary>
-        /// A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
+        /// A `ValueFromKeyVault` block as defined below. If specified, `Secret` must also be set to `True`.
         /// </summary>
         [Output("valueFromKeyVault")]
         public Output<Outputs.NamedValueValueFromKeyVault?> ValueFromKeyVault { get; private set; } = null!;
@@ -193,9 +193,9 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+        /// Specifies whether the API Management Named Value is secret. Valid values are `True` or `False`. The default value is `False`.
         /// 
-        /// &gt; **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
+        /// &gt; **NOTE:** setting the field `Secret` to `True` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         /// </summary>
         [Input("secret")]
         public Input<bool>? Secret { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
+        /// A `ValueFromKeyVault` block as defined below. If specified, `Secret` must also be set to `True`.
         /// </summary>
         [Input("valueFromKeyVault")]
         public Input<Inputs.NamedValueValueFromKeyVaultArgs>? ValueFromKeyVault { get; set; }
@@ -267,9 +267,9 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+        /// Specifies whether the API Management Named Value is secret. Valid values are `True` or `False`. The default value is `False`.
         /// 
-        /// &gt; **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
+        /// &gt; **NOTE:** setting the field `Secret` to `True` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         /// </summary>
         [Input("secret")]
         public Input<bool>? Secret { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
+        /// A `ValueFromKeyVault` block as defined below. If specified, `Secret` must also be set to `True`.
         /// </summary>
         [Input("valueFromKeyVault")]
         public Input<Inputs.NamedValueValueFromKeyVaultGetArgs>? ValueFromKeyVault { get; set; }

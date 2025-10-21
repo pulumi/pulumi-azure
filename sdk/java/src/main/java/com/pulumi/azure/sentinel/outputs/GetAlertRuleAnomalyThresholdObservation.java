@@ -26,7 +26,7 @@ public final class GetAlertRuleAnomalyThresholdObservation {
      */
     private String min;
     /**
-     * @return The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * @return The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
      */
     private String name;
@@ -59,7 +59,7 @@ public final class GetAlertRuleAnomalyThresholdObservation {
         return this.min;
     }
     /**
-     * @return The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * @return The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
      */
     public String name() {

@@ -173,14 +173,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.eventStreamEndpoint;
     }
     /**
-     * A `event_trigger_config` block as defined below.
+     * A `eventTriggerConfig` block as defined below.
      * 
      */
     @Export(name="eventTriggerConfig", refs={JobEventTriggerConfig.class}, tree="[0]")
     private Output</* @Nullable */ JobEventTriggerConfig> eventTriggerConfig;
 
     /**
-     * @return A `event_trigger_config` block as defined below.
+     * @return A `eventTriggerConfig` block as defined below.
      * 
      */
     public Output<Optional<JobEventTriggerConfig>> eventTriggerConfig() {
@@ -215,14 +215,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `manual_trigger_config` block as defined below.
+     * A `manualTriggerConfig` block as defined below.
      * 
      */
     @Export(name="manualTriggerConfig", refs={JobManualTriggerConfig.class}, tree="[0]")
     private Output</* @Nullable */ JobManualTriggerConfig> manualTriggerConfig;
 
     /**
-     * @return A `manual_trigger_config` block as defined below.
+     * @return A `manualTriggerConfig` block as defined below.
      * 
      */
     public Output<Optional<JobManualTriggerConfig>> manualTriggerConfig() {
@@ -313,18 +313,18 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `schedule_trigger_config` block as defined below.
+     * A `scheduleTriggerConfig` block as defined below.
      * 
-     * &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+     * &gt; **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      * 
      */
     @Export(name="scheduleTriggerConfig", refs={JobScheduleTriggerConfig.class}, tree="[0]")
     private Output</* @Nullable */ JobScheduleTriggerConfig> scheduleTriggerConfig;
 
     /**
-     * @return A `schedule_trigger_config` block as defined below.
+     * @return A `scheduleTriggerConfig` block as defined below.
      * 
-     * &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+     * &gt; **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      * 
      */
     public Output<Optional<JobScheduleTriggerConfig>> scheduleTriggerConfig() {

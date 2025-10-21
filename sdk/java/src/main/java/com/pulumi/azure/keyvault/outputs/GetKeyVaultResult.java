@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetKeyVaultResult {
     /**
-     * @return One or more `access_policy` blocks as defined below.
+     * @return One or more `accessPolicy` blocks as defined below.
      * 
      */
     private List<GetKeyVaultAccessPolicy> accessPolicies;
@@ -24,10 +24,10 @@ public final class GetKeyVaultResult {
      * @return Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
      * 
      * @deprecated
-     * the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider.
+     * the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider. */
     private Boolean enableRbacAuthorization;
     /**
      * @return Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
@@ -91,7 +91,7 @@ public final class GetKeyVaultResult {
 
     private GetKeyVaultResult() {}
     /**
-     * @return One or more `access_policy` blocks as defined below.
+     * @return One or more `accessPolicy` blocks as defined below.
      * 
      */
     public List<GetKeyVaultAccessPolicy> accessPolicies() {
@@ -101,10 +101,10 @@ public final class GetKeyVaultResult {
      * @return Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
      * 
      * @deprecated
-     * the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider.
+     * the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider. */
     public Boolean enableRbacAuthorization() {
         return this.enableRbacAuthorization;
     }

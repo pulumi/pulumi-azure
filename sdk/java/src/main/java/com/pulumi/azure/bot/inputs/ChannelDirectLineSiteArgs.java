@@ -139,14 +139,14 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+     * This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
      * 
      */
     @Import(name="trustedOrigins")
     private @Nullable Output<List<String>> trustedOrigins;
 
     /**
-     * @return This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+     * @return This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
      * 
      */
     public Optional<Output<List<String>>> trustedOrigins() {
@@ -402,7 +402,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trustedOrigins This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+         * @param trustedOrigins This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trustedOrigins This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+         * @param trustedOrigins This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trustedOrigins This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+         * @param trustedOrigins This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
          * 
          * @return builder
          * 

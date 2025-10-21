@@ -20,7 +20,16 @@ import javax.annotation.Nullable;
 /**
  * Manages a Key Vault Managed Hardware Security Module Key.
  * 
- * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
+ * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
+ * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.KeyVault` - 2023-07-01
  * 
  * ## Import
  * 
@@ -34,14 +43,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey")
 public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
+     * Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `keyType` is `EC-HSM`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="curve", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> curve;
 
     /**
-     * @return Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `keyType` is `EC-HSM`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> curve() {
@@ -76,14 +85,14 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
         return this.keyOpts;
     }
     /**
-     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="keySize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> keySize;
 
     /**
-     * @return Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Integer>> keySize() {
@@ -134,7 +143,7 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
     /**
      * Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
-     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+     * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
      * 
      */
     @Export(name="notBeforeDate", refs={String.class}, tree="[0]")
@@ -143,7 +152,7 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
     /**
      * @return Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
-     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+     * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
      * 
      */
     public Output<Optional<String>> notBeforeDate() {

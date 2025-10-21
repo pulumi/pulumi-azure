@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        /// A list of values that make up the CAA record. Each `Record` block supports fields documented below.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<Outputs.CaaRecordRecord>> Records { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Dns
         private InputList<Inputs.CaaRecordRecordArgs>? _records;
 
         /// <summary>
-        /// A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        /// A list of values that make up the CAA record. Each `Record` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.CaaRecordRecordArgs> Records
         {
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Dns
         private InputList<Inputs.CaaRecordRecordGetArgs>? _records;
 
         /// <summary>
-        /// A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        /// A list of values that make up the CAA record. Each `Record` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.CaaRecordRecordGetArgs> Records
         {

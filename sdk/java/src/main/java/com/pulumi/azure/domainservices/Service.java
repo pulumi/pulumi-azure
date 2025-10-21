@@ -278,14 +278,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.filteredSyncEnabled);
     }
     /**
-     * An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+     * An `initialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
      * 
      */
     @Export(name="initialReplicaSet", refs={ServiceInitialReplicaSet.class}, tree="[0]")
     private Output<ServiceInitialReplicaSet> initialReplicaSet;
 
     /**
-     * @return An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+     * @return An `initialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
      * 
      */
     public Output<ServiceInitialReplicaSet> initialReplicaSet() {
@@ -362,14 +362,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.resourceId;
     }
     /**
-     * A `secure_ldap` block as defined below.
+     * A `secureLdap` block as defined below.
      * 
      */
     @Export(name="secureLdap", refs={ServiceSecureLdap.class}, tree="[0]")
     private Output<ServiceSecureLdap> secureLdap;
 
     /**
-     * @return A `secure_ldap` block as defined below.
+     * @return A `secureLdap` block as defined below.
      * 
      */
     public Output<ServiceSecureLdap> secureLdap() {

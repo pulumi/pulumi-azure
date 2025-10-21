@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Automation.Outputs
         /// <summary>
         /// The ID of the User Assigned Identity which should be assigned to this Automation Account.
         /// 
-        /// &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **Note:** `IdentityIds` is required when `Type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

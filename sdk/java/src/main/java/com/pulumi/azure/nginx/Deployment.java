@@ -140,14 +140,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:nginx/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
     /**
-     * An `auto_scale_profile` block as defined below.
+     * An `autoScaleProfile` block as defined below.
      * 
      */
     @Export(name="autoScaleProfiles", refs={List.class,DeploymentAutoScaleProfile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentAutoScaleProfile>> autoScaleProfiles;
 
     /**
-     * @return An `auto_scale_profile` block as defined below.
+     * @return An `autoScaleProfile` block as defined below.
      * 
      */
     public Output<Optional<List<DeploymentAutoScaleProfile>>> autoScaleProfiles() {
@@ -228,28 +228,28 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.email);
     }
     /**
-     * One or more `frontend_private` blocks as defined below.
+     * One or more `frontendPrivate` blocks as defined below.
      * 
      */
     @Export(name="frontendPrivates", refs={List.class,DeploymentFrontendPrivate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentFrontendPrivate>> frontendPrivates;
 
     /**
-     * @return One or more `frontend_private` blocks as defined below.
+     * @return One or more `frontendPrivate` blocks as defined below.
      * 
      */
     public Output<Optional<List<DeploymentFrontendPrivate>>> frontendPrivates() {
         return Codegen.optional(this.frontendPrivates);
     }
     /**
-     * A `frontend_public` block as defined below.
+     * A `frontendPublic` block as defined below.
      * 
      */
     @Export(name="frontendPublic", refs={DeploymentFrontendPublic.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentFrontendPublic> frontendPublic;
 
     /**
-     * @return A `frontend_public` block as defined below.
+     * @return A `frontendPublic` block as defined below.
      * 
      */
     public Output<Optional<DeploymentFrontendPublic>> frontendPublic() {
@@ -299,10 +299,10 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
-    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
     @Export(name="loggingStorageAccounts", refs={List.class,DeploymentLoggingStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentLoggingStorageAccount>> loggingStorageAccounts;
 
@@ -311,10 +311,10 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     @Export(name="managedResourceGroup", refs={String.class}, tree="[0]")
     private Output<String> managedResourceGroup;
 
@@ -336,14 +336,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `network_interface` blocks as defined below.
+     * One or more `networkInterface` blocks as defined below.
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,DeploymentNetworkInterface.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentNetworkInterface>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` blocks as defined below.
+     * @return One or more `networkInterface` blocks as defined below.
      * 
      */
     public Output<Optional<List<DeploymentNetworkInterface>>> networkInterfaces() {
@@ -398,14 +398,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `web_application_firewall` blocks as defined below.
+     * A `webApplicationFirewall` blocks as defined below.
      * 
      */
     @Export(name="webApplicationFirewall", refs={DeploymentWebApplicationFirewall.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentWebApplicationFirewall> webApplicationFirewall;
 
     /**
-     * @return A `web_application_firewall` blocks as defined below.
+     * @return A `webApplicationFirewall` blocks as defined below.
      * 
      */
     public Output<Optional<DeploymentWebApplicationFirewall>> webApplicationFirewall() {

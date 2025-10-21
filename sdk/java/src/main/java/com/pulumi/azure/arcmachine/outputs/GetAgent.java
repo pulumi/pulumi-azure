@@ -15,12 +15,12 @@ import java.util.Objects;
 @CustomType
 public final class GetAgent {
     /**
-     * @return A `extensions_allow_list` block as defined below.
+     * @return A `extensionsAllowList` block as defined below.
      * 
      */
     private List<GetAgentExtensionsAllowList> extensionsAllowLists;
     /**
-     * @return A `extensions_block_list` block as defined below.
+     * @return A `extensionsBlockList` block as defined below.
      * 
      */
     private List<GetAgentExtensionsBlockList> extensionsBlockLists;
@@ -52,14 +52,14 @@ public final class GetAgent {
 
     private GetAgent() {}
     /**
-     * @return A `extensions_allow_list` block as defined below.
+     * @return A `extensionsAllowList` block as defined below.
      * 
      */
     public List<GetAgentExtensionsAllowList> extensionsAllowLists() {
         return this.extensionsAllowLists;
     }
     /**
-     * @return A `extensions_block_list` block as defined below.
+     * @return A `extensionsBlockList` block as defined below.
      * 
      */
     public List<GetAgentExtensionsBlockList> extensionsBlockLists() {

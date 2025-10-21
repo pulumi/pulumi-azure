@@ -49,7 +49,7 @@ public final class WorkspacePolicyArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies a publicly accessible URL to a policy XML document.
      * 
-     * &gt; **Note:** Exactly one of `xml_content` or `xml_link` must be specified.
+     * &gt; **Note:** Exactly one of `xmlContent` or `xmlLink` must be specified.
      * 
      */
     @Import(name="xmlLink")
@@ -58,7 +58,7 @@ public final class WorkspacePolicyArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return Specifies a publicly accessible URL to a policy XML document.
      * 
-     * &gt; **Note:** Exactly one of `xml_content` or `xml_link` must be specified.
+     * &gt; **Note:** Exactly one of `xmlContent` or `xmlLink` must be specified.
      * 
      */
     public Optional<Output<String>> xmlLink() {
@@ -136,7 +136,7 @@ public final class WorkspacePolicyArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param xmlLink Specifies a publicly accessible URL to a policy XML document.
          * 
-         * &gt; **Note:** Exactly one of `xml_content` or `xml_link` must be specified.
+         * &gt; **Note:** Exactly one of `xmlContent` or `xmlLink` must be specified.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class WorkspacePolicyArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param xmlLink Specifies a publicly accessible URL to a policy XML document.
          * 
-         * &gt; **Note:** Exactly one of `xml_content` or `xml_link` must be specified.
+         * &gt; **Note:** Exactly one of `xmlContent` or `xmlLink` must be specified.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<bool>? AcceleratedNetworking { get; set; }
 
         /// <summary>
-        /// A `dns_settings` block as documented below.
+        /// A `DnsSettings` block as documented below.
         /// </summary>
         [Input("dnsSettings")]
         public Input<Inputs.ScaleSetNetworkProfileDnsSettingsArgs>? DnsSettings { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.ScaleSetNetworkProfileIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// An `ip_configuration` block as documented below.
+        /// An `IpConfiguration` block as documented below.
         /// </summary>
         public InputList<Inputs.ScaleSetNetworkProfileIpConfigurationArgs> IpConfigurations
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
+        /// Whether IP forwarding is enabled on this NIC. Defaults to `False`.
         /// </summary>
         [Input("ipForwarding")]
         public Input<bool>? IpForwarding { get; set; }

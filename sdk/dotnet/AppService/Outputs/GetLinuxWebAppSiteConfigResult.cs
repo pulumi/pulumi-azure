@@ -30,11 +30,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string AppCommandLine;
         /// <summary>
-        /// A `application_stack` block as defined above.
+        /// A `ApplicationStack` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppSiteConfigApplicationStackResult> ApplicationStacks;
         /// <summary>
-        /// A `auto_heal_setting` block as defined above.
+        /// A `AutoHealSetting` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppSiteConfigAutoHealSettingResult> AutoHealSettings;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool ContainerRegistryUseManagedIdentity;
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppSiteConfigCorResult> Cors;
         /// <summary>
@@ -74,11 +74,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule.
+        /// The Default action for traffic that does not match any `IpRestriction` rule.
         /// </summary>
         public readonly string IpRestrictionDefaultAction;
         /// <summary>
-        /// A `ip_restriction` block as defined above.
+        /// A `IpRestriction` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppSiteConfigIpRestrictionResult> IpRestrictions;
         /// <summary>
@@ -110,11 +110,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string RemoteDebuggingVersion;
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule.
         /// </summary>
         public readonly string ScmIpRestrictionDefaultAction;
         /// <summary>
-        /// A `scm_ip_restriction` block as defined above.
+        /// A `ScmIpRestriction` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
         /// <summary>
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ScmType;
         /// <summary>
-        /// Is the Linux Web App `ip_restriction` configuration used for the SCM also.
+        /// Is the Linux Web App `IpRestriction` configuration used for the SCM also.
         /// </summary>
         public readonly bool ScmUseMainIpRestriction;
         /// <summary>

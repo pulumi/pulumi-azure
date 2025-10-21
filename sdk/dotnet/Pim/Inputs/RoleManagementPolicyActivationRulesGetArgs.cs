@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Pim.Inputs
     public sealed class RoleManagementPolicyActivationRulesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `approval_stage` block as defined below.
+        /// An `ApprovalStage` block as defined below.
         /// </summary>
         [Input("approvalStage")]
         public Input<Inputs.RoleManagementPolicyActivationRulesApprovalStageGetArgs>? ApprovalStage { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Pim.Inputs
         public Input<string>? MaximumDuration { get; set; }
 
         /// <summary>
-        /// Is approval required for activation. If `true` an `approval_stage` block must be provided.
+        /// Is approval required for activation. If `True` an `ApprovalStage` block must be provided.
         /// </summary>
         [Input("requireApproval")]
         public Input<bool>? RequireApproval { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Pim.Inputs
         public Input<bool>? RequireJustification { get; set; }
 
         /// <summary>
-        /// Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
+        /// Is multi-factor authentication required to activate the role. Conflicts with `RequiredConditionalAccessAuthenticationContext`.
         /// </summary>
         [Input("requireMultifactorAuthentication")]
         public Input<bool>? RequireMultifactorAuthentication { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Pim.Inputs
         public Input<bool>? RequireTicketInfo { get; set; }
 
         /// <summary>
-        /// The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
+        /// The Entra ID Conditional Access context that must be present for activation. Conflicts with `RequireMultifactorAuthentication`.
         /// </summary>
         [Input("requiredConditionalAccessAuthenticationContext")]
         public Input<string>? RequiredConditionalAccessAuthenticationContext { get; set; }

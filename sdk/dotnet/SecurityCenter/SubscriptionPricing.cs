@@ -96,7 +96,7 @@ namespace Pulumi.Azure.SecurityCenter
     public partial class SubscriptionPricing : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `extension` blocks as defined below.
+        /// One or more `Extension` blocks as defined below.
         /// </summary>
         [Output("extensions")]
         public Output<ImmutableArray<Outputs.SubscriptionPricingExtension>> Extensions { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.SecurityCenter
         private InputList<Inputs.SubscriptionPricingExtensionArgs>? _extensions;
 
         /// <summary>
-        /// One or more `extension` blocks as defined below.
+        /// One or more `Extension` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SubscriptionPricingExtensionArgs> Extensions
         {
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.SecurityCenter
         private InputList<Inputs.SubscriptionPricingExtensionGetArgs>? _extensions;
 
         /// <summary>
-        /// One or more `extension` blocks as defined below.
+        /// One or more `Extension` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SubscriptionPricingExtensionGetArgs> Extensions
         {

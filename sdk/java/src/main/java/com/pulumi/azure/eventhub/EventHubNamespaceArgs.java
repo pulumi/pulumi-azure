@@ -161,14 +161,14 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `network_rulesets` block as defined below.
+     * A `networkRulesets` block as defined below.
      * 
      */
     @Import(name="networkRulesets")
     private @Nullable Output<EventHubNamespaceNetworkRulesetsArgs> networkRulesets;
 
     /**
-     * @return A `network_rulesets` block as defined below.
+     * @return A `networkRulesets` block as defined below.
      * 
      */
     public Optional<Output<EventHubNamespaceNetworkRulesetsArgs>> networkRulesets() {
@@ -466,7 +466,7 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkRulesets A `network_rulesets` block as defined below.
+         * @param networkRulesets A `networkRulesets` block as defined below.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkRulesets A `network_rulesets` block as defined below.
+         * @param networkRulesets A `networkRulesets` block as defined below.
          * 
          * @return builder
          * 

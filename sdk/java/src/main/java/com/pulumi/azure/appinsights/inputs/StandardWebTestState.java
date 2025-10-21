@@ -221,14 +221,14 @@ public final class StandardWebTestState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `validation_rules` block as defined below.
+     * A `validationRules` block as defined below.
      * 
      */
     @Import(name="validationRules")
     private @Nullable Output<StandardWebTestValidationRulesArgs> validationRules;
 
     /**
-     * @return A `validation_rules` block as defined below.
+     * @return A `validationRules` block as defined below.
      * 
      */
     public Optional<Output<StandardWebTestValidationRulesArgs>> validationRules() {
@@ -562,7 +562,7 @@ public final class StandardWebTestState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param validationRules A `validation_rules` block as defined below.
+         * @param validationRules A `validationRules` block as defined below.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class StandardWebTestState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param validationRules A `validation_rules` block as defined below.
+         * @param validationRules A `validationRules` block as defined below.
          * 
          * @return builder
          * 

@@ -31,7 +31,7 @@ public final class GetNetworkSliceResult {
     private String mobileNetworkId;
     private String name;
     /**
-     * @return A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI).
+     * @return A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI).
      * 
      */
     private List<GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation> singleNetworkSliceSelectionAssistanceInformations;
@@ -70,7 +70,7 @@ public final class GetNetworkSliceResult {
         return this.name;
     }
     /**
-     * @return A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI).
+     * @return A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI).
      * 
      */
     public List<GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation> singleNetworkSliceSelectionAssistanceInformations() {

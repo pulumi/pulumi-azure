@@ -18,7 +18,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// The `headers` block for this specific `ip_restriction` as defined below.
+        /// The `Headers` block for this specific `IpRestriction` as defined below.
         /// </summary>
         public readonly Outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult Headers;
         /// <summary>

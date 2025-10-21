@@ -22,14 +22,14 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
     public static final FirewallPolicyRuleCollectionGroupArgs Empty = new FirewallPolicyRuleCollectionGroupArgs();
 
     /**
-     * One or more `application_rule_collection` blocks as defined below.
+     * One or more `applicationRuleCollection` blocks as defined below.
      * 
      */
     @Import(name="applicationRuleCollections")
     private @Nullable Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs>> applicationRuleCollections;
 
     /**
-     * @return One or more `application_rule_collection` blocks as defined below.
+     * @return One or more `applicationRuleCollection` blocks as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs>>> applicationRuleCollections() {
@@ -67,14 +67,14 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
     }
 
     /**
-     * One or more `nat_rule_collection` blocks as defined below.
+     * One or more `natRuleCollection` blocks as defined below.
      * 
      */
     @Import(name="natRuleCollections")
     private @Nullable Output<List<FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs>> natRuleCollections;
 
     /**
-     * @return One or more `nat_rule_collection` blocks as defined below.
+     * @return One or more `natRuleCollection` blocks as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs>>> natRuleCollections() {
@@ -82,14 +82,14 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
     }
 
     /**
-     * One or more `network_rule_collection` blocks as defined below.
+     * One or more `networkRuleCollection` blocks as defined below.
      * 
      */
     @Import(name="networkRuleCollections")
     private @Nullable Output<List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs>> networkRuleCollections;
 
     /**
-     * @return One or more `network_rule_collection` blocks as defined below.
+     * @return One or more `networkRuleCollection` blocks as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs>>> networkRuleCollections() {
@@ -141,7 +141,7 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param applicationRuleCollections One or more `application_rule_collection` blocks as defined below.
+         * @param applicationRuleCollections One or more `applicationRuleCollection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param applicationRuleCollections One or more `application_rule_collection` blocks as defined below.
+         * @param applicationRuleCollections One or more `applicationRuleCollection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param applicationRuleCollections One or more `application_rule_collection` blocks as defined below.
+         * @param applicationRuleCollections One or more `applicationRuleCollection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param natRuleCollections One or more `nat_rule_collection` blocks as defined below.
+         * @param natRuleCollections One or more `natRuleCollection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param natRuleCollections One or more `nat_rule_collection` blocks as defined below.
+         * @param natRuleCollections One or more `natRuleCollection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param natRuleCollections One or more `nat_rule_collection` blocks as defined below.
+         * @param natRuleCollections One or more `natRuleCollection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param networkRuleCollections One or more `network_rule_collection` blocks as defined below.
+         * @param networkRuleCollections One or more `networkRuleCollection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param networkRuleCollections One or more `network_rule_collection` blocks as defined below.
+         * @param networkRuleCollections One or more `networkRuleCollection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param networkRuleCollections One or more `network_rule_collection` blocks as defined below.
+         * @param networkRuleCollections One or more `networkRuleCollection` blocks as defined below.
          * 
          * @return builder
          * 

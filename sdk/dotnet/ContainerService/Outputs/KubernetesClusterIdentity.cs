@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
+        /// &gt; **Note:** This is required when `Type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

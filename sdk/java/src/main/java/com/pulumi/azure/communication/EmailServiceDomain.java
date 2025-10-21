@@ -146,14 +146,14 @@ public class EmailServiceDomain extends com.pulumi.resources.CustomResource {
         return this.mailFromSenderDomain;
     }
     /**
-     * The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+     * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+     * @return The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      * 
      */
     public Output<String> name() {
@@ -188,14 +188,14 @@ public class EmailServiceDomain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userEngagementTrackingEnabled);
     }
     /**
-     * (Optional) An `verification_records` block as defined below.
+     * (Optional) An `verificationRecords` block as defined below.
      * 
      */
     @Export(name="verificationRecords", refs={List.class,EmailServiceDomainVerificationRecord.class}, tree="[0,1]")
     private Output<List<EmailServiceDomainVerificationRecord>> verificationRecords;
 
     /**
-     * @return (Optional) An `verification_records` block as defined below.
+     * @return (Optional) An `verificationRecords` block as defined below.
      * 
      */
     public Output<List<EmailServiceDomainVerificationRecord>> verificationRecords() {

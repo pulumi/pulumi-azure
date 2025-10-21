@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Mobile.Inputs
         private InputList<Inputs.NetworkSimPolicySliceDataNetworkArgs>? _dataNetworks;
 
         /// <summary>
-        /// An array of `data_network` block as defined below.
+        /// An array of `DataNetwork` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkSimPolicySliceDataNetworkArgs> DataNetworks
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Mobile.Inputs
         }
 
         /// <summary>
-        /// The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+        /// The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `DataNetwork` block.
         /// </summary>
         [Input("defaultDataNetworkId", required: true)]
         public Input<string> DefaultDataNetworkId { get; set; } = null!;

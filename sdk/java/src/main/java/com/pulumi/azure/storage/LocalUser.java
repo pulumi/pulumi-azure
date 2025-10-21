@@ -151,28 +151,28 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
+     * The value of the password, which is only available when `sshPasswordEnabled` is set to `true`.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
-     * @return The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
+     * @return The value of the password, which is only available when `sshPasswordEnabled` is set to `true`.
      * 
      */
     public Output<String> password() {
         return this.password;
     }
     /**
-     * One or more `permission_scope` blocks as defined below.
+     * One or more `permissionScope` blocks as defined below.
      * 
      */
     @Export(name="permissionScopes", refs={List.class,LocalUserPermissionScope.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LocalUserPermissionScope>> permissionScopes;
 
     /**
-     * @return One or more `permission_scope` blocks as defined below.
+     * @return One or more `permissionScope` blocks as defined below.
      * 
      */
     public Output<Optional<List<LocalUserPermissionScope>>> permissionScopes() {
@@ -193,14 +193,14 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
         return this.sid;
     }
     /**
-     * One or more `ssh_authorized_key` blocks as defined below.
+     * One or more `sshAuthorizedKey` blocks as defined below.
      * 
      */
     @Export(name="sshAuthorizedKeys", refs={List.class,LocalUserSshAuthorizedKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LocalUserSshAuthorizedKey>> sshAuthorizedKeys;
 
     /**
-     * @return One or more `ssh_authorized_key` blocks as defined below.
+     * @return One or more `sshAuthorizedKey` blocks as defined below.
      * 
      */
     public Output<Optional<List<LocalUserSshAuthorizedKey>>> sshAuthorizedKeys() {

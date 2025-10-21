@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
+        /// Specifies the tier of virtual machines in a scale set. Possible values, `Standard` or `Basic`.
         /// </summary>
         public readonly string? Tier;
 

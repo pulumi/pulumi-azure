@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cognitive
     /// 
     /// &gt; **Note:** The Cognitive Services Account manages the resource type for various Azure AI resource implementations, including Azure AI Foundry, Azure OpenAI, Azure Speech, Azure Vision and others. Each service shares the same control plane but exposes a different subset of developer APIs. Azure AI Foundry (kind = `AIServices`) provides the superset of capabilities. For more information, please see [Azure AI Foundry architecture](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/architecture).
     /// 
-    /// &gt; **Note:** The Azure Provider will attempt to Purge the Cognitive Services Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see the provider documentation on the features block for more information.
+    /// &gt; **Note:** The Azure Provider will attempt to Purge the Cognitive Services Account during deletion. This feature can be disabled using the `Features` block within the `Provider` block, see the provider documentation on the features block for more information.
     /// 
     /// ## Example Usage
     /// 
@@ -69,35 +69,35 @@ namespace Pulumi.Azure.Cognitive
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        /// If `Kind` is `TextAnalytics` this specifies the ID of the Search service.
         /// </summary>
         [Output("customQuestionAnsweringSearchServiceId")]
         public Output<string?> CustomQuestionAnsweringSearchServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+        /// If `Kind` is `TextAnalytics` this specifies the key of the Search service.
         /// 
-        /// &gt; **Note:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+        /// &gt; **Note:** `CustomQuestionAnsweringSearchServiceId` and `CustomQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `QnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
         /// </summary>
         [Output("customQuestionAnsweringSearchServiceKey")]
         public Output<string?> CustomQuestionAnsweringSearchServiceKey { get; private set; } = null!;
 
         /// <summary>
-        /// The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+        /// The subdomain name used for Entra ID token-based authentication. This attribute is required when `NetworkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
+        /// &gt; **Note:** If you do not specify a `CustomSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
         /// </summary>
         [Output("customSubdomainName")]
         public Output<string?> CustomSubdomainName { get; private set; } = null!;
 
         /// <summary>
-        /// A `customer_managed_key` block as documented below.
+        /// A `CustomerManagedKey` block as documented below.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.AccountCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
+        /// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `Kind` is `OpenAI` or `AIServices`.
         /// </summary>
         [Output("dynamicThrottlingEnabled")]
         public Output<bool?> DynamicThrottlingEnabled { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<ImmutableArray<string>> Fqdns { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+        /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `True`.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Cognitive
         /// <summary>
         /// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
+        /// &gt; **Note:** This URL is mandatory if the `Kind` is set to `QnAMaker`.
         /// </summary>
         [Output("metricsAdvisorWebsiteName")]
         public Output<string?> MetricsAdvisorWebsiteName { get; private set; } = null!;
@@ -175,19 +175,19 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        /// A `NetworkAcls` block as defined below. When this property is specified, `CustomSubdomainName` is also required to be set.
         /// </summary>
         [Output("networkAcls")]
         public Output<Outputs.AccountNetworkAcls?> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+        /// A `NetworkInjection` block as defined below. Only applicable if the `Kind` is set to `AIServices`.
         /// </summary>
         [Output("networkInjection")]
         public Output<Outputs.AccountNetworkInjection?> NetworkInjection { get; private set; } = null!;
 
         /// <summary>
-        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `False`.
         /// </summary>
         [Output("outboundNetworkAccessRestricted")]
         public Output<bool?> OutboundNetworkAccessRestricted { get; private set; } = null!;
@@ -199,13 +199,13 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `project_management_enabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Whether project management is enabled when the `Kind` is set to `AIServices`. Once enabled, `ProjectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Output("projectManagementEnabled")]
         public Output<bool?> ProjectManagementEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Output("storages")]
         public Output<ImmutableArray<Outputs.AccountStorage>> Storages { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Cognitive
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        /// If `Kind` is `TextAnalytics` this specifies the ID of the Search service.
         /// </summary>
         [Input("customQuestionAnsweringSearchServiceId")]
         public Input<string>? CustomQuestionAnsweringSearchServiceId { get; set; }
@@ -310,9 +310,9 @@ namespace Pulumi.Azure.Cognitive
         private Input<string>? _customQuestionAnsweringSearchServiceKey;
 
         /// <summary>
-        /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+        /// If `Kind` is `TextAnalytics` this specifies the key of the Search service.
         /// 
-        /// &gt; **Note:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+        /// &gt; **Note:** `CustomQuestionAnsweringSearchServiceId` and `CustomQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `QnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
         /// </summary>
         public Input<string>? CustomQuestionAnsweringSearchServiceKey
         {
@@ -325,21 +325,21 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+        /// The subdomain name used for Entra ID token-based authentication. This attribute is required when `NetworkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
+        /// &gt; **Note:** If you do not specify a `CustomSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as documented below.
+        /// A `CustomerManagedKey` block as documented below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AccountCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
+        /// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `Kind` is `OpenAI` or `AIServices`.
         /// </summary>
         [Input("dynamicThrottlingEnabled")]
         public Input<bool>? DynamicThrottlingEnabled { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+        /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.Cognitive
         /// <summary>
         /// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
+        /// &gt; **Note:** This URL is mandatory if the `Kind` is set to `QnAMaker`.
         /// </summary>
         [Input("metricsAdvisorWebsiteName")]
         public Input<string>? MetricsAdvisorWebsiteName { get; set; }
@@ -417,31 +417,31 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        /// A `NetworkAcls` block as defined below. When this property is specified, `CustomSubdomainName` is also required to be set.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.AccountNetworkAclsArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+        /// A `NetworkInjection` block as defined below. Only applicable if the `Kind` is set to `AIServices`.
         /// </summary>
         [Input("networkInjection")]
         public Input<Inputs.AccountNetworkInjectionArgs>? NetworkInjection { get; set; }
 
         /// <summary>
-        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `False`.
         /// </summary>
         [Input("outboundNetworkAccessRestricted")]
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
 
         /// <summary>
-        /// Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `project_management_enabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Whether project management is enabled when the `Kind` is set to `AIServices`. Once enabled, `ProjectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("projectManagementEnabled")]
         public Input<bool>? ProjectManagementEnabled { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -470,7 +470,7 @@ namespace Pulumi.Azure.Cognitive
         private InputList<Inputs.AccountStorageArgs>? _storages;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountStorageArgs> Storages
         {
@@ -499,7 +499,7 @@ namespace Pulumi.Azure.Cognitive
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        /// If `Kind` is `TextAnalytics` this specifies the ID of the Search service.
         /// </summary>
         [Input("customQuestionAnsweringSearchServiceId")]
         public Input<string>? CustomQuestionAnsweringSearchServiceId { get; set; }
@@ -508,9 +508,9 @@ namespace Pulumi.Azure.Cognitive
         private Input<string>? _customQuestionAnsweringSearchServiceKey;
 
         /// <summary>
-        /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+        /// If `Kind` is `TextAnalytics` this specifies the key of the Search service.
         /// 
-        /// &gt; **Note:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+        /// &gt; **Note:** `CustomQuestionAnsweringSearchServiceId` and `CustomQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `QnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
         /// </summary>
         public Input<string>? CustomQuestionAnsweringSearchServiceKey
         {
@@ -523,21 +523,21 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+        /// The subdomain name used for Entra ID token-based authentication. This attribute is required when `NetworkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
+        /// &gt; **Note:** If you do not specify a `CustomSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as documented below.
+        /// A `CustomerManagedKey` block as documented below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AccountCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
+        /// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `Kind` is `OpenAI` or `AIServices`.
         /// </summary>
         [Input("dynamicThrottlingEnabled")]
         public Input<bool>? DynamicThrottlingEnabled { get; set; }
@@ -561,7 +561,7 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
@@ -577,7 +577,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+        /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -609,7 +609,7 @@ namespace Pulumi.Azure.Cognitive
         /// <summary>
         /// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
+        /// &gt; **Note:** This URL is mandatory if the `Kind` is set to `QnAMaker`.
         /// </summary>
         [Input("metricsAdvisorWebsiteName")]
         public Input<string>? MetricsAdvisorWebsiteName { get; set; }
@@ -621,19 +621,19 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        /// A `NetworkAcls` block as defined below. When this property is specified, `CustomSubdomainName` is also required to be set.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.AccountNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+        /// A `NetworkInjection` block as defined below. Only applicable if the `Kind` is set to `AIServices`.
         /// </summary>
         [Input("networkInjection")]
         public Input<Inputs.AccountNetworkInjectionGetArgs>? NetworkInjection { get; set; }
 
         /// <summary>
-        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `False`.
         /// </summary>
         [Input("outboundNetworkAccessRestricted")]
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
@@ -655,13 +655,13 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `project_management_enabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Whether project management is enabled when the `Kind` is set to `AIServices`. Once enabled, `ProjectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("projectManagementEnabled")]
         public Input<bool>? ProjectManagementEnabled { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -706,7 +706,7 @@ namespace Pulumi.Azure.Cognitive
         private InputList<Inputs.AccountStorageGetArgs>? _storages;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountStorageGetArgs> Storages
         {

@@ -26,7 +26,7 @@ public final class ApiOperationRequest {
      */
     private @Nullable List<ApiOperationRequestHeader> headers;
     /**
-     * @return One or more `query_parameter` blocks as defined above.
+     * @return One or more `queryParameter` blocks as defined above.
      * 
      */
     private @Nullable List<ApiOperationRequestQueryParameter> queryParameters;
@@ -52,7 +52,7 @@ public final class ApiOperationRequest {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return One or more `query_parameter` blocks as defined above.
+     * @return One or more `queryParameter` blocks as defined above.
      * 
      */
     public List<ApiOperationRequestQueryParameter> queryParameters() {

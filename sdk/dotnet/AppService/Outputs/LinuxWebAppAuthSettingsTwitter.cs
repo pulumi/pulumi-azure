@@ -18,11 +18,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ConsumerKey;
         /// <summary>
-        /// The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        /// The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `ConsumerSecretSettingName`.
         /// </summary>
         public readonly string? ConsumerSecret;
         /// <summary>
-        /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `ConsumerSecret`.
         /// </summary>
         public readonly string? ConsumerSecretSettingName;
 

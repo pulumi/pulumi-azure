@@ -17,14 +17,14 @@ public final class ResourcePolicyAssignmentNonComplianceMessageArgs extends com.
     public static final ResourcePolicyAssignmentNonComplianceMessageArgs Empty = new ResourcePolicyAssignmentNonComplianceMessageArgs();
 
     /**
-     * The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+     * The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
      * 
      */
     @Import(name="content", required=true)
     private Output<String> content;
 
     /**
-     * @return The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+     * @return The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
      * 
      */
     public Output<String> content() {
@@ -72,7 +72,7 @@ public final class ResourcePolicyAssignmentNonComplianceMessageArgs extends com.
         }
 
         /**
-         * @param content The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+         * @param content The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ResourcePolicyAssignmentNonComplianceMessageArgs extends com.
         }
 
         /**
-         * @param content The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+         * @param content The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
          * 
          * @return builder
          * 

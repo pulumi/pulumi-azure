@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAdbsCharacterSetsResult {
     /**
-     * @return A `character_sets` block as defined below.
+     * @return A `characterSets` block as defined below.
      * 
      */
     private List<GetAdbsCharacterSetsCharacterSet> characterSets;
@@ -26,7 +26,7 @@ public final class GetAdbsCharacterSetsResult {
 
     private GetAdbsCharacterSetsResult() {}
     /**
-     * @return A `character_sets` block as defined below.
+     * @return A `characterSets` block as defined below.
      * 
      */
     public List<GetAdbsCharacterSetsCharacterSet> characterSets() {

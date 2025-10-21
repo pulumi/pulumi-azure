@@ -19,14 +19,14 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
     public static final TagRulesLogRuleArgs Empty = new TagRulesLogRuleArgs();
 
     /**
-     * Filtering tag for the log rule. A `filtering_tag` block as defined below.
+     * Filtering tag for the log rule. A `filteringTag` block as defined below.
      * 
      */
     @Import(name="filteringTags", required=true)
     private Output<List<TagRulesLogRuleFilteringTagArgs>> filteringTags;
 
     /**
-     * @return Filtering tag for the log rule. A `filtering_tag` block as defined below.
+     * @return Filtering tag for the log rule. A `filteringTag` block as defined below.
      * 
      */
     public Output<List<TagRulesLogRuleFilteringTagArgs>> filteringTags() {
@@ -106,7 +106,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param filteringTags Filtering tag for the log rule. A `filtering_tag` block as defined below.
+         * @param filteringTags Filtering tag for the log rule. A `filteringTag` block as defined below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param filteringTags Filtering tag for the log rule. A `filtering_tag` block as defined below.
+         * @param filteringTags Filtering tag for the log rule. A `filteringTag` block as defined below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param filteringTags Filtering tag for the log rule. A `filtering_tag` block as defined below.
+         * @param filteringTags Filtering tag for the log rule. A `filteringTag` block as defined below.
          * 
          * @return builder
          * 

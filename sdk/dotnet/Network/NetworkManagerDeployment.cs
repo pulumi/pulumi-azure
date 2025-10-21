@@ -259,7 +259,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkManagerDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+        /// A list of Network Manager Configuration IDs which should be aligned with `ScopeAccess`.
         /// </summary>
         [Output("configurationIds")]
         public Output<ImmutableArray<string>> ConfigurationIds { get; private set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _configurationIds;
 
         /// <summary>
-        /// A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+        /// A list of Network Manager Configuration IDs which should be aligned with `ScopeAccess`.
         /// </summary>
         public InputList<string> ConfigurationIds
         {
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _configurationIds;
 
         /// <summary>
-        /// A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+        /// A list of Network Manager Configuration IDs which should be aligned with `ScopeAccess`.
         /// </summary>
         public InputList<string> ConfigurationIds
         {

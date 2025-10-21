@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Policy.Inputs
         /// <summary>
         /// The content hash for the Guest Configuration package.
         /// 
-        /// &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
+        /// &gt; **Note:** The value for `ContentHash` should be the SH256SUM for the zip file in the `ContentUri` and must be in upper case.
         /// </summary>
         [Input("contentHash")]
         public Input<string>? ContentHash { get; set; }
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Policy.Inputs
         /// <summary>
         /// The content URI where the Guest Configuration package is stored.
         /// 
-        /// &gt; **Note:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+        /// &gt; **Note:** When deploying a Custom Guest Configuration package the `ContentHash` and `ContentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `ContentHash` and `ContentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
         /// </summary>
         [Input("contentUri")]
         public Input<string>? ContentUri { get; set; }
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Policy.Inputs
         private InputList<Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// One or more `parameter` blocks as defined below which define what configuration parameters and values against.
+        /// One or more `Parameter` blocks as defined below which define what configuration parameters and values against.
         /// </summary>
         public InputList<Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterGetArgs> Parameters
         {

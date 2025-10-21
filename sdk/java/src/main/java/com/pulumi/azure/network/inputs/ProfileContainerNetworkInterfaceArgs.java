@@ -17,14 +17,14 @@ public final class ProfileContainerNetworkInterfaceArgs extends com.pulumi.resou
     public static final ProfileContainerNetworkInterfaceArgs Empty = new ProfileContainerNetworkInterfaceArgs();
 
     /**
-     * One or more `ip_configuration` blocks as documented below.
+     * One or more `ipConfiguration` blocks as documented below.
      * 
      */
     @Import(name="ipConfigurations", required=true)
     private Output<List<ProfileContainerNetworkInterfaceIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return One or more `ip_configuration` blocks as documented below.
+     * @return One or more `ipConfiguration` blocks as documented below.
      * 
      */
     public Output<List<ProfileContainerNetworkInterfaceIpConfigurationArgs>> ipConfigurations() {
@@ -72,7 +72,7 @@ public final class ProfileContainerNetworkInterfaceArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipConfigurations One or more `ip_configuration` blocks as documented below.
+         * @param ipConfigurations One or more `ipConfiguration` blocks as documented below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ProfileContainerNetworkInterfaceArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipConfigurations One or more `ip_configuration` blocks as documented below.
+         * @param ipConfigurations One or more `ipConfiguration` blocks as documented below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ProfileContainerNetworkInterfaceArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipConfigurations One or more `ip_configuration` blocks as documented below.
+         * @param ipConfigurations One or more `ipConfiguration` blocks as documented below.
          * 
          * @return builder
          * 

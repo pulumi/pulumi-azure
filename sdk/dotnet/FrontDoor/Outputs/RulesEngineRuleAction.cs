@@ -14,11 +14,11 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class RulesEngineRuleAction
     {
         /// <summary>
-        /// A `request_header` block as defined below.
+        /// A `RequestHeader` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesEngineRuleActionRequestHeader> RequestHeaders;
         /// <summary>
-        /// A `response_header` block as defined below.
+        /// A `ResponseHeader` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesEngineRuleActionResponseHeader> ResponseHeaders;
 

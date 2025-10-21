@@ -168,7 +168,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
     /**
      * The list of the container names of the source Storage Account.
      * 
-     * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+     * &gt; **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can&#39;t be removed once specified.
      * 
      */
     @Export(name="storageAccountContainerNames", refs={List.class,String.class}, tree="[0,1]")
@@ -177,7 +177,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
     /**
      * @return The list of the container names of the source Storage Account.
      * 
-     * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+     * &gt; **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can&#39;t be removed once specified.
      * 
      */
     public Output<Optional<List<String>>> storageAccountContainerNames() {

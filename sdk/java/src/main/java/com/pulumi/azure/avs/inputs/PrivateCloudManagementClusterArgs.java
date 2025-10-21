@@ -49,14 +49,14 @@ public final class PrivateCloudManagementClusterArgs extends com.pulumi.resource
     }
 
     /**
-     * The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+     * The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
      * 
      */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
     /**
-     * @return The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+     * @return The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
      * 
      */
     public Output<Integer> size() {
@@ -142,7 +142,7 @@ public final class PrivateCloudManagementClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param size The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+         * @param size The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class PrivateCloudManagementClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param size The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+         * @param size The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
          * 
          * @return builder
          * 

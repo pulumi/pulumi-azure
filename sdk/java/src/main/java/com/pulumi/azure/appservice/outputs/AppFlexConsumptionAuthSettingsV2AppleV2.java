@@ -18,9 +18,9 @@ public final class AppFlexConsumptionAuthSettingsV2AppleV2 {
      */
     private String clientId;
     /**
-     * @return The app setting name that contains the `client_secret` value used for Apple Login.
+     * @return The app setting name that contains the `clientSecret` value used for Apple Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     private String clientSecretSettingName;
@@ -41,9 +41,9 @@ public final class AppFlexConsumptionAuthSettingsV2AppleV2 {
         return this.clientId;
     }
     /**
-     * @return The app setting name that contains the `client_secret` value used for Apple Login.
+     * @return The app setting name that contains the `clientSecret` value used for Apple Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public String clientSecretSettingName() {

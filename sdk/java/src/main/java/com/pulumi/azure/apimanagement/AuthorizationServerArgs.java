@@ -236,7 +236,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * The password associated with the Resource Owner.
      * 
-     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      * 
      */
     @Import(name="resourceOwnerPassword")
@@ -245,7 +245,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * @return The password associated with the Resource Owner.
      * 
-     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      * 
      */
     public Optional<Output<String>> resourceOwnerPassword() {
@@ -255,7 +255,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * The username associated with the Resource Owner.
      * 
-     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      * 
      */
     @Import(name="resourceOwnerUsername")
@@ -264,7 +264,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * @return The username associated with the Resource Owner.
      * 
-     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      * 
      */
     public Optional<Output<String>> resourceOwnerUsername() {
@@ -287,14 +287,14 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `token_body_parameter` block as defined below.
+     * A `tokenBodyParameter` block as defined below.
      * 
      */
     @Import(name="tokenBodyParameters")
     private @Nullable Output<List<AuthorizationServerTokenBodyParameterArgs>> tokenBodyParameters;
 
     /**
-     * @return A `token_body_parameter` block as defined below.
+     * @return A `tokenBodyParameter` block as defined below.
      * 
      */
     public Optional<Output<List<AuthorizationServerTokenBodyParameterArgs>>> tokenBodyParameters() {
@@ -701,7 +701,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param resourceOwnerPassword The password associated with the Resource Owner.
          * 
-         * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+         * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
          * 
          * @return builder
          * 
@@ -714,7 +714,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param resourceOwnerPassword The password associated with the Resource Owner.
          * 
-         * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+         * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
          * 
          * @return builder
          * 
@@ -726,7 +726,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param resourceOwnerUsername The username associated with the Resource Owner.
          * 
-         * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+         * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param resourceOwnerUsername The username associated with the Resource Owner.
          * 
-         * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+         * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
          * 
          * @return builder
          * 
@@ -770,7 +770,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tokenBodyParameters A `token_body_parameter` block as defined below.
+         * @param tokenBodyParameters A `tokenBodyParameter` block as defined below.
          * 
          * @return builder
          * 
@@ -781,7 +781,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tokenBodyParameters A `token_body_parameter` block as defined below.
+         * @param tokenBodyParameters A `tokenBodyParameter` block as defined below.
          * 
          * @return builder
          * 
@@ -791,7 +791,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tokenBodyParameters A `token_body_parameter` block as defined below.
+         * @param tokenBodyParameters A `tokenBodyParameter` block as defined below.
          * 
          * @return builder
          * 

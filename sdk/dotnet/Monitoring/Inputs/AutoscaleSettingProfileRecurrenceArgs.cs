@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<int> Minutes { get; set; } = null!;
 
         /// <summary>
-        /// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+        /// The Time Zone used for the `Hours` field. A list of possible values can be found here). Defaults to `UTC`.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

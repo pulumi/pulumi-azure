@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterNodePoolNodeNetworkProfile {
     /**
-     * @return One or more `allowed_host_ports` blocks as defined below.
+     * @return One or more `allowedHostPorts` blocks as defined below.
      * 
      */
     private @Nullable List<KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort> allowedHostPorts;
@@ -33,7 +33,7 @@ public final class KubernetesClusterNodePoolNodeNetworkProfile {
 
     private KubernetesClusterNodePoolNodeNetworkProfile() {}
     /**
-     * @return One or more `allowed_host_ports` blocks as defined below.
+     * @return One or more `allowedHostPorts` blocks as defined below.
      * 
      */
     public List<KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort> allowedHostPorts() {

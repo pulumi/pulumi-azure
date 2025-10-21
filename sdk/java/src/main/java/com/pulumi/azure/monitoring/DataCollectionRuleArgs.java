@@ -39,14 +39,14 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more `data_flow` blocks as defined below.
+     * One or more `dataFlow` blocks as defined below.
      * 
      */
     @Import(name="dataFlows", required=true)
     private Output<List<DataCollectionRuleDataFlowArgs>> dataFlows;
 
     /**
-     * @return One or more `data_flow` blocks as defined below.
+     * @return One or more `dataFlow` blocks as defined below.
      * 
      */
     public Output<List<DataCollectionRuleDataFlowArgs>> dataFlows() {
@@ -54,14 +54,14 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+     * A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      * 
      */
     @Import(name="dataSources")
     private @Nullable Output<DataCollectionRuleDataSourcesArgs> dataSources;
 
     /**
-     * @return A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+     * @return A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      * 
      */
     public Optional<Output<DataCollectionRuleDataSourcesArgs>> dataSources() {
@@ -114,7 +114,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
@@ -123,7 +123,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> kind;
 
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
@@ -178,14 +178,14 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `stream_declaration` block as defined below.
+     * A `streamDeclaration` block as defined below.
      * 
      */
     @Import(name="streamDeclarations")
     private @Nullable Output<List<DataCollectionRuleStreamDeclarationArgs>> streamDeclarations;
 
     /**
-     * @return A `stream_declaration` block as defined below.
+     * @return A `streamDeclaration` block as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleStreamDeclarationArgs>>> streamDeclarations() {
@@ -264,7 +264,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dataFlows One or more `data_flow` blocks as defined below.
+         * @param dataFlows One or more `dataFlow` blocks as defined below.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dataFlows One or more `data_flow` blocks as defined below.
+         * @param dataFlows One or more `dataFlow` blocks as defined below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dataFlows One or more `data_flow` blocks as defined below.
+         * @param dataFlows One or more `dataFlow` blocks as defined below.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dataSources A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+         * @param dataSources A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dataSources A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+         * @param dataSources A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
          * 
          * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
          * 
@@ -392,7 +392,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
          * 
          * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
          * 
@@ -467,7 +467,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param streamDeclarations A `stream_declaration` block as defined below.
+         * @param streamDeclarations A `streamDeclaration` block as defined below.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param streamDeclarations A `stream_declaration` block as defined below.
+         * @param streamDeclarations A `streamDeclaration` block as defined below.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param streamDeclarations A `stream_declaration` block as defined below.
+         * @param streamDeclarations A `streamDeclaration` block as defined below.
          * 
          * @return builder
          * 

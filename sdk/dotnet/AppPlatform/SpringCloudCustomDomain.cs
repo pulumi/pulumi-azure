@@ -89,7 +89,7 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
+        /// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `Thumbprint` is specified
         /// </summary>
         [Output("certificateName")]
         public Output<string?> CertificateName { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> SpringCloudAppId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
+        /// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `CertificateName` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("thumbprint")]
         public Output<string?> Thumbprint { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
+        /// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `Thumbprint` is specified
         /// </summary>
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> SpringCloudAppId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
+        /// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `CertificateName` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("thumbprint")]
         public Input<string>? Thumbprint { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudCustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
+        /// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `Thumbprint` is specified
         /// </summary>
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? SpringCloudAppId { get; set; }
 
         /// <summary>
-        /// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
+        /// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `CertificateName` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("thumbprint")]
         public Input<string>? Thumbprint { get; set; }

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class ManagedDatabasePointInTimeRestore {
     /**
-     * @return The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+     * @return The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
      * 
      */
     private String restorePointInTime;
@@ -23,7 +23,7 @@ public final class ManagedDatabasePointInTimeRestore {
 
     private ManagedDatabasePointInTimeRestore() {}
     /**
-     * @return The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+     * @return The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
      * 
      */
     public String restorePointInTime() {

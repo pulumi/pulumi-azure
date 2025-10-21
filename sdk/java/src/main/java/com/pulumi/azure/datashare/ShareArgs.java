@@ -78,14 +78,14 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `snapshot_schedule` block as defined below.
+     * A `snapshotSchedule` block as defined below.
      * 
      */
     @Import(name="snapshotSchedule")
     private @Nullable Output<ShareSnapshotScheduleArgs> snapshotSchedule;
 
     /**
-     * @return A `snapshot_schedule` block as defined below.
+     * @return A `snapshotSchedule` block as defined below.
      * 
      */
     public Optional<Output<ShareSnapshotScheduleArgs>> snapshotSchedule() {
@@ -221,7 +221,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotSchedule A `snapshot_schedule` block as defined below.
+         * @param snapshotSchedule A `snapshotSchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotSchedule A `snapshot_schedule` block as defined below.
+         * @param snapshotSchedule A `snapshotSchedule` block as defined below.
          * 
          * @return builder
          * 

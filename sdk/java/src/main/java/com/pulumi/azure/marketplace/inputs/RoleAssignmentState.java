@@ -115,14 +115,14 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+     * The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
      * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
     /**
-     * @return The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+     * @return The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -130,14 +130,14 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      * 
      */
     @Import(name="roleDefinitionId")
     private @Nullable Output<String> roleDefinitionId;
 
     /**
-     * @return The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * @return The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      * 
      */
     public Optional<Output<String>> roleDefinitionId() {
@@ -145,7 +145,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      * 
      * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
      * 
@@ -154,7 +154,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<String> roleDefinitionName;
 
     /**
-     * @return The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * @return The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      * 
      * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
      * 
@@ -164,18 +164,18 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+     * &gt; **Note:** This field takes effect only when `principalId` is a `Service Principal` identity.
      * 
      */
     @Import(name="skipServicePrincipalAadCheck")
     private @Nullable Output<Boolean> skipServicePrincipalAadCheck;
 
     /**
-     * @return If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+     * &gt; **Note:** This field takes effect only when `principalId` is a `Service Principal` identity.
      * 
      */
     public Optional<Output<Boolean>> skipServicePrincipalAadCheck() {
@@ -350,7 +350,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principalType The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+         * @param principalType The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principalType The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+         * @param principalType The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleDefinitionId The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+         * @param roleDefinitionId The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleDefinitionId The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+         * @param roleDefinitionId The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+         * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
          * 
          * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
          * 
@@ -405,7 +405,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+         * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
          * 
          * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
          * 
@@ -417,9 +417,9 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skipServicePrincipalAadCheck If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param skipServicePrincipalAadCheck If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+         * &gt; **Note:** This field takes effect only when `principalId` is a `Service Principal` identity.
          * 
          * @return builder
          * 
@@ -430,9 +430,9 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skipServicePrincipalAadCheck If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param skipServicePrincipalAadCheck If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+         * &gt; **Note:** This field takes effect only when `principalId` is a `Service Principal` identity.
          * 
          * @return builder
          * 

@@ -17,19 +17,19 @@ public final class NetworkSliceSingleNetworkSliceSelectionAssistanceInformation 
      * @return Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
      * 
      * @deprecated
-     * `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider.
+     * `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider. */
     private @Nullable String sliceDifferentiator;
     /**
      * @return Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
      * 
      * @deprecated
-     * `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider.
+     * `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider. */
     private Integer sliceServiceType;
 
     private NetworkSliceSingleNetworkSliceSelectionAssistanceInformation() {}
@@ -37,10 +37,10 @@ public final class NetworkSliceSingleNetworkSliceSelectionAssistanceInformation 
      * @return Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
      * 
      * @deprecated
-     * `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider.
+     * `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider. */
     public Optional<String> sliceDifferentiator() {
         return Optional.ofNullable(this.sliceDifferentiator);
     }
@@ -48,10 +48,10 @@ public final class NetworkSliceSingleNetworkSliceSelectionAssistanceInformation 
      * @return Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
      * 
      * @deprecated
-     * `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider.
+     * `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider. */
     public Integer sliceServiceType() {
         return this.sliceServiceType;
     }

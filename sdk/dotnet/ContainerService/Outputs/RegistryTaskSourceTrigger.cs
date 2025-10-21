@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class RegistryTaskSourceTrigger
     {
         /// <summary>
-        /// A `authentication` block as defined above.
+        /// A `Authentication` block as defined above.
         /// </summary>
         public readonly Outputs.RegistryTaskSourceTriggerAuthentication? Authentication;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? Branch;
         /// <summary>
-        /// Should the trigger be enabled? Defaults to `true`.
+        /// Should the trigger be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Specifies a list of source events corresponding to the trigger. Possible values are `commit` and `pullrequest`.
+        /// Specifies a list of source events corresponding to the trigger. Possible values are `Commit` and `Pullrequest`.
         /// </summary>
         public readonly ImmutableArray<string> Events;
         /// <summary>

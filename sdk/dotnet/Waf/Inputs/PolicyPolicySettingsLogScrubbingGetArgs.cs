@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Waf.Inputs
     public sealed class PolicyPolicySettingsLogScrubbingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+        /// Whether the log scrubbing is enabled or disabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyPolicySettingsLogScrubbingRuleGetArgs>? _rules;
 
         /// <summary>
-        /// One or more `scrubbing_rule` blocks as define below.
+        /// One or more `ScrubbingRule` blocks as define below.
         /// </summary>
         public InputList<Inputs.PolicyPolicySettingsLogScrubbingRuleGetArgs> Rules
         {

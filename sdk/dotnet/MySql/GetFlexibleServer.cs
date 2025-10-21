@@ -186,7 +186,7 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         public readonly bool GeoRedundantBackupEnabled;
         /// <summary>
-        /// A `high_availability` block for this MySQL Flexible Server as defined below.
+        /// A `HighAvailability` block for this MySQL Flexible Server as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFlexibleServerHighAvailabilityResult> HighAvailabilities;
         /// <summary>
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `maintenance_window` block for this MySQL Flexible Server as defined below.
+        /// A `MaintenanceWindow` block for this MySQL Flexible Server as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFlexibleServerMaintenanceWindowResult> MaintenanceWindows;
         public readonly string Name;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         public readonly string SkuName;
         /// <summary>
-        /// A `storage` block for this MySQL Flexible Server as defined below.
+        /// A `Storage` block for this MySQL Flexible Server as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFlexibleServerStorageResult> Storages;
         /// <summary>

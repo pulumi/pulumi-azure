@@ -12,7 +12,7 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Managed Hardware Security Module.
     /// 
-    /// &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
+    /// &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `PurgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
     /// 
     /// ## Example Usage
     /// 
@@ -97,13 +97,13 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_acls` block as defined below.
+        /// A `NetworkAcls` block as defined below.
         /// </summary>
         [Output("networkAcls")]
         public Output<Outputs.ManagedHardwareSecurityModuleNetworkAcls> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
-        /// Whether traffic from public networks is permitted. Defaults to `true`.
+        /// Whether traffic from public networks is permitted. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<ImmutableArray<string>> SecurityDomainKeyVaultCertificateIds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+        /// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `SecurityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
         /// </summary>
         [Output("securityDomainQuorum")]
         public Output<int?> SecurityDomainQuorum { get; private set; } = null!;
@@ -237,13 +237,13 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below.
+        /// A `NetworkAcls` block as defined below.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.ManagedHardwareSecurityModuleNetworkAclsArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether traffic from public networks is permitted. Defaults to `true`.
+        /// Whether traffic from public networks is permitted. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+        /// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `SecurityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
         /// </summary>
         [Input("securityDomainQuorum")]
         public Input<int>? SecurityDomainQuorum { get; set; }
@@ -347,13 +347,13 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below.
+        /// A `NetworkAcls` block as defined below.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.ManagedHardwareSecurityModuleNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether traffic from public networks is permitted. Defaults to `true`.
+        /// Whether traffic from public networks is permitted. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+        /// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `SecurityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
         /// </summary>
         [Input("securityDomainQuorum")]
         public Input<int>? SecurityDomainQuorum { get; set; }

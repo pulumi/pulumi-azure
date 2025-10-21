@@ -76,13 +76,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+        /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `True`.
         /// </summary>
         [Output("batchedOperationsEnabled")]
         public Output<bool?> BatchedOperationsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `False`.
         /// </summary>
         [Output("deadLetteringOnMessageExpiration")]
         public Output<bool?> DeadLetteringOnMessageExpiration { get; private set; } = null!;
@@ -100,9 +100,9 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> DuplicateDetectionHistoryTimeWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+        /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `False` for Basic and Standard. For Premium, it MUST be set to `False`.
         /// 
-        /// &gt; **Note:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
+        /// &gt; **Note:** Service Bus Premium namespaces do not support Express Entities, so `ExpressEnabled` MUST be set to `False`.
         /// </summary>
         [Output("expressEnabled")]
         public Output<bool?> ExpressEnabled { get; private set; } = null!;
@@ -159,21 +159,21 @@ namespace Pulumi.Azure.EventHub
         public Output<string> NamespaceName { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `False` for Basic and Standard.
         /// 
-        /// &gt; **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+        /// &gt; **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `PremiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
         /// </summary>
         [Output("partitioningEnabled")]
         public Output<bool?> PartitioningEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Output("requiresDuplicateDetection")]
         public Output<bool?> RequiresDuplicateDetection { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Output("requiresSession")]
         public Output<bool?> RequiresSession { get; private set; } = null!;
@@ -240,13 +240,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+        /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `True`.
         /// </summary>
         [Input("batchedOperationsEnabled")]
         public Input<bool>? BatchedOperationsEnabled { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `False`.
         /// </summary>
         [Input("deadLetteringOnMessageExpiration")]
         public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
@@ -264,9 +264,9 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+        /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `False` for Basic and Standard. For Premium, it MUST be set to `False`.
         /// 
-        /// &gt; **Note:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
+        /// &gt; **Note:** Service Bus Premium namespaces do not support Express Entities, so `ExpressEnabled` MUST be set to `False`.
         /// </summary>
         [Input("expressEnabled")]
         public Input<bool>? ExpressEnabled { get; set; }
@@ -320,21 +320,21 @@ namespace Pulumi.Azure.EventHub
         public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `False` for Basic and Standard.
         /// 
-        /// &gt; **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+        /// &gt; **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `PremiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
         /// </summary>
         [Input("partitioningEnabled")]
         public Input<bool>? PartitioningEnabled { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("requiresDuplicateDetection")]
         public Input<bool>? RequiresDuplicateDetection { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
@@ -360,13 +360,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+        /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `True`.
         /// </summary>
         [Input("batchedOperationsEnabled")]
         public Input<bool>? BatchedOperationsEnabled { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `False`.
         /// </summary>
         [Input("deadLetteringOnMessageExpiration")]
         public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
@@ -384,9 +384,9 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+        /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `False` for Basic and Standard. For Premium, it MUST be set to `False`.
         /// 
-        /// &gt; **Note:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
+        /// &gt; **Note:** Service Bus Premium namespaces do not support Express Entities, so `ExpressEnabled` MUST be set to `False`.
         /// </summary>
         [Input("expressEnabled")]
         public Input<bool>? ExpressEnabled { get; set; }
@@ -443,21 +443,21 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `False` for Basic and Standard.
         /// 
-        /// &gt; **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+        /// &gt; **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `PremiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
         /// </summary>
         [Input("partitioningEnabled")]
         public Input<bool>? PartitioningEnabled { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("requiresDuplicateDetection")]
         public Input<bool>? RequiresDuplicateDetection { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }

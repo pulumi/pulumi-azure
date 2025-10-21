@@ -52,7 +52,7 @@ public final class GetServiceResult {
      */
     private Boolean publicNetworkAccessEnabled;
     /**
-     * @return A `query_keys` block as defined below.
+     * @return A `queryKeys` block as defined below.
      * 
      */
     private List<GetServiceQueryKey> queryKeys;
@@ -124,7 +124,7 @@ public final class GetServiceResult {
         return this.publicNetworkAccessEnabled;
     }
     /**
-     * @return A `query_keys` block as defined below.
+     * @return A `queryKeys` block as defined below.
      * 
      */
     public List<GetServiceQueryKey> queryKeys() {

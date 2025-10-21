@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Avs
         /// 
         /// ## Example Usage
         /// 
-        /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+        /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `Update` or `Delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Avs
         /// 
         /// ## Example Usage
         /// 
-        /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+        /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `Update` or `Delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Avs
         /// 
         /// ## Example Usage
         /// 
-        /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+        /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `Update` or `Delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Avs
     public sealed class GetPrivateCloudResult
     {
         /// <summary>
-        /// A `circuit` block as defined below.
+        /// A `Circuit` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateCloudCircuitResult> Circuits;
         /// <summary>
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Avs
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `management_cluster` block as defined below.
+        /// A `ManagementCluster` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateCloudManagementClusterResult> ManagementClusters;
         /// <summary>

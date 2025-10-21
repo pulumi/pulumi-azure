@@ -38,7 +38,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Output<string> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SingleNodeVirtualInstanceIdentity?> Identity { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Output<string> SapProduct { get; private set; } = null!;
 
         /// <summary>
-        /// A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `SingleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("singleServerConfiguration")]
         public Output<Outputs.SingleNodeVirtualInstanceSingleServerConfiguration> SingleServerConfiguration { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string> Environment { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SingleNodeVirtualInstanceIdentityArgs>? Identity { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string> SapProduct { get; set; } = null!;
 
         /// <summary>
-        /// A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `SingleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("singleServerConfiguration", required: true)]
         public Input<Inputs.SingleNodeVirtualInstanceSingleServerConfigurationArgs> SingleServerConfiguration { get; set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string>? Environment { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SingleNodeVirtualInstanceIdentityGetArgs>? Identity { get; set; }
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string>? SapProduct { get; set; }
 
         /// <summary>
-        /// A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `SingleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("singleServerConfiguration")]
         public Input<Inputs.SingleNodeVirtualInstanceSingleServerConfigurationGetArgs>? SingleServerConfiguration { get; set; }

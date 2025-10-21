@@ -142,14 +142,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration")
 public class NetworkManagerConnectivityConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `applies_to_group` blocks as defined below.
+     * One or more `appliesToGroup` blocks as defined below.
      * 
      */
     @Export(name="appliesToGroups", refs={List.class,NetworkManagerConnectivityConfigurationAppliesToGroup.class}, tree="[0,1]")
     private Output<List<NetworkManagerConnectivityConfigurationAppliesToGroup>> appliesToGroups;
 
     /**
-     * @return One or more `applies_to_group` blocks as defined below.
+     * @return One or more `appliesToGroup` blocks as defined below.
      * 
      */
     public Output<List<NetworkManagerConnectivityConfigurationAppliesToGroup>> appliesToGroups() {

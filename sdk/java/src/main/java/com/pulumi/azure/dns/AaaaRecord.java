@@ -177,14 +177,14 @@ public class AaaaRecord extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * List of IPv6 Addresses. Conflicts with `target_resource_id`.
+     * List of IPv6 Addresses. Conflicts with `targetResourceId`.
      * 
      */
     @Export(name="records", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> records;
 
     /**
-     * @return List of IPv6 Addresses. Conflicts with `target_resource_id`.
+     * @return List of IPv6 Addresses. Conflicts with `targetResourceId`.
      * 
      */
     public Output<Optional<List<String>>> records() {
@@ -207,7 +207,7 @@ public class AaaaRecord extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -216,7 +216,7 @@ public class AaaaRecord extends com.pulumi.resources.CustomResource {
     /**
      * @return A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

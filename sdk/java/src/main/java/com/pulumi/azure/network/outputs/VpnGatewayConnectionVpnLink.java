@@ -33,7 +33,7 @@ public final class VpnGatewayConnectionVpnLink {
      */
     private @Nullable String connectionMode;
     /**
-     * @return One or more `custom_bgp_address` blocks as defined below.
+     * @return One or more `customBgpAddress` blocks as defined below.
      * 
      */
     private @Nullable List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses;
@@ -53,7 +53,7 @@ public final class VpnGatewayConnectionVpnLink {
      */
     private @Nullable List<String> ingressNatRuleIds;
     /**
-     * @return One or more `ipsec_policy` blocks as defined above.
+     * @return One or more `ipsecPolicy` blocks as defined above.
      * 
      */
     private @Nullable List<VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies;
@@ -121,7 +121,7 @@ public final class VpnGatewayConnectionVpnLink {
         return Optional.ofNullable(this.connectionMode);
     }
     /**
-     * @return One or more `custom_bgp_address` blocks as defined below.
+     * @return One or more `customBgpAddress` blocks as defined below.
      * 
      */
     public List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses() {
@@ -149,7 +149,7 @@ public final class VpnGatewayConnectionVpnLink {
         return this.ingressNatRuleIds == null ? List.of() : this.ingressNatRuleIds;
     }
     /**
-     * @return One or more `ipsec_policy` blocks as defined above.
+     * @return One or more `ipsecPolicy` blocks as defined above.
      * 
      */
     public List<VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies() {

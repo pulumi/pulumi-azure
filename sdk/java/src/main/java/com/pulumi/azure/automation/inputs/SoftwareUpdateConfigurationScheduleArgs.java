@@ -148,14 +148,14 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
     }
 
     /**
-     * List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+     * List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
      * 
      */
     @Import(name="monthlyOccurrence")
     private @Nullable Output<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs> monthlyOccurrence;
 
     /**
-     * @return List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+     * @return List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
      * 
      */
     public Optional<Output<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs>> monthlyOccurrence() {
@@ -447,7 +447,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param monthlyOccurrence List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+         * @param monthlyOccurrence List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param monthlyOccurrence List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+         * @param monthlyOccurrence List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
          * 
          * @return builder
          * 

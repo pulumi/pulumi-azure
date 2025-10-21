@@ -112,7 +112,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         /// </summary>
         [Output("retentionRules")]
         public Output<ImmutableArray<Outputs.BackupPolicyDiskRetentionRule>> RetentionRules { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyDiskRetentionRuleArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyDiskRetentionRuleArgs> RetentionRules
         {
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyDiskRetentionRuleGetArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyDiskRetentionRuleGetArgs> RetentionRules
         {

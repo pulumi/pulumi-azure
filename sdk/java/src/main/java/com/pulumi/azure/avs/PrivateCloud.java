@@ -123,7 +123,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
     }
     /**
      * Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-     * &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * &gt; **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     @Export(name="internetConnectionEnabled", refs={Boolean.class}, tree="[0]")
@@ -131,7 +131,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-     * &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * &gt; **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     public Output<Optional<Boolean>> internetConnectionEnabled() {
@@ -152,16 +152,16 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `management_cluster` block as defined below.
-     * &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * A `managementCluster` block as defined below.
+     * &gt; **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     @Export(name="managementCluster", refs={PrivateCloudManagementCluster.class}, tree="[0]")
     private Output<PrivateCloudManagementCluster> managementCluster;
 
     /**
-     * @return A `management_cluster` block as defined below.
-     * &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * @return A `managementCluster` block as defined below.
+     * &gt; **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     public Output<PrivateCloudManagementCluster> managementCluster() {

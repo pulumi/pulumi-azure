@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// 
         /// &gt; **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
         /// 
-        /// &gt; **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
+        /// &gt; **Note:** At least one of `DestinationAddresses`, `DestinationIpGroups` and `DestinationFqdns` must be specified for a rule.
         /// </summary>
         public readonly ImmutableArray<string> DestinationFqdns;
         /// <summary>
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// A list of IP Group IDs for the rule.
         /// 
-        /// &gt; **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        /// &gt; **Note:** At least one of `SourceAddresses` and `SourceIpGroups` must be specified for a rule.
         /// </summary>
         public readonly ImmutableArray<string> SourceIpGroups;
 

@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkInterface : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Should Accelerated Networking be enabled? Defaults to `false`.
+        /// Should Accelerated Networking be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
         /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
         /// 
-        /// &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// &gt; **Note:** `AuxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         /// </summary>
         [Output("auxiliaryMode")]
         public Output<string?> AuxiliaryMode { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
         /// 
-        /// &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// &gt; **Note:** `AuxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         /// </summary>
         [Output("auxiliarySku")]
         public Output<string?> AuxiliarySku { get; private set; } = null!;
@@ -140,19 +140,19 @@ namespace Pulumi.Azure.Network
         public Output<string?> InternalDnsNameLabel { get; private set; } = null!;
 
         /// <summary>
-        /// Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
+        /// Even if `InternalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `InternalDomainNameSuffix`.
         /// </summary>
         [Output("internalDomainNameSuffix")]
         public Output<string> InternalDomainNameSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below.
+        /// One or more `IpConfiguration` blocks as defined below.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.NetworkInterfaceIpConfiguration>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Should IP Forwarding be enabled? Defaults to `false`.
+        /// Should IP Forwarding be enabled? Defaults to `False`.
         /// </summary>
         [Output("ipForwardingEnabled")]
         public Output<bool?> IpForwardingEnabled { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Accelerated Networking be enabled? Defaults to `false`.
+        /// Should Accelerated Networking be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
         /// 
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
         /// 
-        /// &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// &gt; **Note:** `AuxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         /// </summary>
         [Input("auxiliaryMode")]
         public Input<string>? AuxiliaryMode { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
         /// 
-        /// &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// &gt; **Note:** `AuxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         /// </summary>
         [Input("auxiliarySku")]
         public Input<string>? AuxiliarySku { get; set; }
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkInterfaceIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below.
+        /// One or more `IpConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkInterfaceIpConfigurationArgs> IpConfigurations
         {
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Should IP Forwarding be enabled? Defaults to `false`.
+        /// Should IP Forwarding be enabled? Defaults to `False`.
         /// </summary>
         [Input("ipForwardingEnabled")]
         public Input<bool>? IpForwardingEnabled { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkInterfaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Accelerated Networking be enabled? Defaults to `false`.
+        /// Should Accelerated Networking be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
         /// 
@@ -384,7 +384,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
         /// 
-        /// &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// &gt; **Note:** `AuxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         /// </summary>
         [Input("auxiliaryMode")]
         public Input<string>? AuxiliaryMode { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
         /// 
-        /// &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// &gt; **Note:** `AuxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         /// </summary>
         [Input("auxiliarySku")]
         public Input<string>? AuxiliarySku { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? InternalDnsNameLabel { get; set; }
 
         /// <summary>
-        /// Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
+        /// Even if `InternalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `InternalDomainNameSuffix`.
         /// </summary>
         [Input("internalDomainNameSuffix")]
         public Input<string>? InternalDomainNameSuffix { get; set; }
@@ -433,7 +433,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkInterfaceIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below.
+        /// One or more `IpConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkInterfaceIpConfigurationGetArgs> IpConfigurations
         {
@@ -442,7 +442,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Should IP Forwarding be enabled? Defaults to `false`.
+        /// Should IP Forwarding be enabled? Defaults to `False`.
         /// </summary>
         [Input("ipForwardingEnabled")]
         public Input<bool>? IpForwardingEnabled { get; set; }

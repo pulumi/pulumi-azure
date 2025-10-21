@@ -19,7 +19,7 @@ public final class PolicyManagedRules {
      */
     private @Nullable List<PolicyManagedRulesExclusion> exclusions;
     /**
-     * @return One or more `managed_rule_set` block defined below.
+     * @return One or more `managedRuleSet` block defined below.
      * 
      */
     private List<PolicyManagedRulesManagedRuleSet> managedRuleSets;
@@ -33,7 +33,7 @@ public final class PolicyManagedRules {
         return this.exclusions == null ? List.of() : this.exclusions;
     }
     /**
-     * @return One or more `managed_rule_set` block defined below.
+     * @return One or more `managedRuleSet` block defined below.
      * 
      */
     public List<PolicyManagedRulesManagedRuleSet> managedRuleSets() {

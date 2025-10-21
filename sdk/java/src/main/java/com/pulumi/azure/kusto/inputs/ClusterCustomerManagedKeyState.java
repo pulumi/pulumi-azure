@@ -78,7 +78,7 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
     /**
      * The Managed HSM Key ID for CMK encryption.
      * 
-     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * &gt; **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
      * 
      */
     @Import(name="managedHsmKeyId")
@@ -87,7 +87,7 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
     /**
      * @return The Managed HSM Key ID for CMK encryption.
      * 
-     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * &gt; **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
      * 
      */
     public Optional<Output<String>> managedHsmKeyId() {
@@ -225,7 +225,7 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
         /**
          * @param managedHsmKeyId The Managed HSM Key ID for CMK encryption.
          * 
-         * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+         * &gt; **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
         /**
          * @param managedHsmKeyId The Managed HSM Key ID for CMK encryption.
          * 
-         * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+         * &gt; **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
          * 
          * @return builder
          * 

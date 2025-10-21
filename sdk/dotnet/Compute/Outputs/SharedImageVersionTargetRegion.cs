@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
-        /// Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+        /// Specifies whether this Shared Image Version should be excluded when querying for the `Latest` version. Defaults to `False`.
         /// </summary>
         public readonly bool? ExcludeFromLatestEnabled;
         /// <summary>

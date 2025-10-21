@@ -77,7 +77,7 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class FunctionJavaScriptUDF : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `input` blocks as defined below.
+        /// One or more `Input` blocks as defined below.
         /// </summary>
         [Output("inputs")]
         public Output<ImmutableArray<Outputs.FunctionJavaScriptUDFInput>> Inputs { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `output` blocks as defined below.
+        /// An `Output` blocks as defined below.
         /// </summary>
         [Output("output")]
         public Output<Outputs.FunctionJavaScriptUDFOutput> Output { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private InputList<Inputs.FunctionJavaScriptUDFInputArgs>? _inputs;
 
         /// <summary>
-        /// One or more `input` blocks as defined below.
+        /// One or more `Input` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FunctionJavaScriptUDFInputArgs> Inputs
         {
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `output` blocks as defined below.
+        /// An `Output` blocks as defined below.
         /// </summary>
         [Input("output", required: true)]
         public Input<Inputs.FunctionJavaScriptUDFOutputArgs> Output { get; set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private InputList<Inputs.FunctionJavaScriptUDFInputGetArgs>? _inputs;
 
         /// <summary>
-        /// One or more `input` blocks as defined below.
+        /// One or more `Input` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FunctionJavaScriptUDFInputGetArgs> Inputs
         {
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `output` blocks as defined below.
+        /// An `Output` blocks as defined below.
         /// </summary>
         [Input("output")]
         public Input<Inputs.FunctionJavaScriptUDFOutputGetArgs>? Output { get; set; }

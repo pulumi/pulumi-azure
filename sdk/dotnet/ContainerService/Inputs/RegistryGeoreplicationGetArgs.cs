@@ -37,9 +37,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+        /// Whether zone redundancy is enabled for this replication location? Defaults to `False`.
         /// 
-        /// &gt; **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
+        /// &gt; **Note:** Changing the `ZoneRedundancyEnabled` forces an underlying replication to be created.
         /// </summary>
         [Input("zoneRedundancyEnabled")]
         public Input<bool>? ZoneRedundancyEnabled { get; set; }

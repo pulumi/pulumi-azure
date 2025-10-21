@@ -13,7 +13,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
     public sealed class RulesEngineRuleMatchConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// can be set to `true` or `false` to negate the given condition. Defaults to `false`.
+        /// can be set to `True` or `False` to negate the given condition. Defaults to `False`.
         /// </summary>
         [Input("negateCondition")]
         public Input<bool>? NegateCondition { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
+        /// match against a specific key when `Variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
         /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }

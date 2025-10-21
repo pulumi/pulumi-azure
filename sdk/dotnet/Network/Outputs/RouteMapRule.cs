@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class RouteMapRule
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RouteMapRuleAction> Actions;
         /// <summary>
-        /// A `match_criterion` block as defined below.
+        /// A `MatchCriterion` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RouteMapRuleMatchCriterion> MatchCriterions;
         /// <summary>

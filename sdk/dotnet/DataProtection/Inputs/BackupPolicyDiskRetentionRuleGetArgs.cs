@@ -13,7 +13,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
     public sealed class BackupPolicyDiskRetentionRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+        /// A `Criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
         /// </summary>
         [Input("criteria", required: true)]
         public Input<Inputs.BackupPolicyDiskRetentionRuleCriteriaGetArgs> Criteria { get; set; } = null!;

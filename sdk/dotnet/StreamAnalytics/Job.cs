@@ -111,7 +111,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string?> EventsOutOfOrderPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.JobIdentity?> Identity { get; private set; } = null!;
@@ -123,9 +123,9 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> JobId { get; private set; } = null!;
 
         /// <summary>
-        /// The details of the job storage account. A `job_storage_account` block as defined below.
+        /// The details of the job storage account. A `JobStorageAccount` block as defined below.
         /// 
-        /// &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+        /// &gt; **Note:** `ContentStoragePolicy` must be set to `JobStorageAccount` when specifying `JobStorageAccount`.
         /// </summary>
         [Output("jobStorageAccounts")]
         public Output<ImmutableArray<Outputs.JobJobStorageAccount>> JobStorageAccounts { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
         /// 
-        /// &gt; **Note:** `streaming_units` must be set when `type` is `Cloud`.
+        /// &gt; **Note:** `StreamingUnits` must be set when `Type` is `Cloud`.
         /// </summary>
         [Output("streamingUnits")]
         public Output<int?> StreamingUnits { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
+        /// &gt; **Note:** `Edge` doesn't support `StreamAnalyticsClusterId` and `StreamingUnits`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? EventsOutOfOrderPolicy { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.JobIdentityArgs>? Identity { get; set; }
@@ -282,9 +282,9 @@ namespace Pulumi.Azure.StreamAnalytics
         private InputList<Inputs.JobJobStorageAccountArgs>? _jobStorageAccounts;
 
         /// <summary>
-        /// The details of the job storage account. A `job_storage_account` block as defined below.
+        /// The details of the job storage account. A `JobStorageAccount` block as defined below.
         /// 
-        /// &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+        /// &gt; **Note:** `ContentStoragePolicy` must be set to `JobStorageAccount` when specifying `JobStorageAccount`.
         /// </summary>
         public InputList<Inputs.JobJobStorageAccountArgs> JobStorageAccounts
         {
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
         /// 
-        /// &gt; **Note:** `streaming_units` must be set when `type` is `Cloud`.
+        /// &gt; **Note:** `StreamingUnits` must be set when `Type` is `Cloud`.
         /// </summary>
         [Input("streamingUnits")]
         public Input<int>? StreamingUnits { get; set; }
@@ -350,7 +350,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
+        /// &gt; **Note:** `Edge` doesn't support `StreamAnalyticsClusterId` and `StreamingUnits`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? EventsOutOfOrderPolicy { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.JobIdentityGetArgs>? Identity { get; set; }
@@ -417,9 +417,9 @@ namespace Pulumi.Azure.StreamAnalytics
         private InputList<Inputs.JobJobStorageAccountGetArgs>? _jobStorageAccounts;
 
         /// <summary>
-        /// The details of the job storage account. A `job_storage_account` block as defined below.
+        /// The details of the job storage account. A `JobStorageAccount` block as defined below.
         /// 
-        /// &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+        /// &gt; **Note:** `ContentStoragePolicy` must be set to `JobStorageAccount` when specifying `JobStorageAccount`.
         /// </summary>
         public InputList<Inputs.JobJobStorageAccountGetArgs> JobStorageAccounts
         {
@@ -466,7 +466,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
         /// 
-        /// &gt; **Note:** `streaming_units` must be set when `type` is `Cloud`.
+        /// &gt; **Note:** `StreamingUnits` must be set when `Type` is `Cloud`.
         /// </summary>
         [Input("streamingUnits")]
         public Input<int>? StreamingUnits { get; set; }
@@ -485,7 +485,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
+        /// &gt; **Note:** `Edge` doesn't support `StreamAnalyticsClusterId` and `StreamingUnits`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

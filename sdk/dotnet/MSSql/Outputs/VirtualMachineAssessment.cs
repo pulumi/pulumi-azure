@@ -14,15 +14,15 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class VirtualMachineAssessment
     {
         /// <summary>
-        /// Should Assessment be enabled? Defaults to `true`.
+        /// Should Assessment be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Should Assessment be run immediately? Defaults to `false`.
+        /// Should Assessment be run immediately? Defaults to `False`.
         /// </summary>
         public readonly bool? RunImmediately;
         /// <summary>
-        /// An `schedule` block as defined below.
+        /// An `Schedule` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualMachineAssessmentSchedule? Schedule;
 

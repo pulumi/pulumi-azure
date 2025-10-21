@@ -20,14 +20,14 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
     public static final AccountQueuePropertiesArgs Empty = new AccountQueuePropertiesArgs();
 
     /**
-     * A `cors_rule` block as defined above.
+     * A `corsRule` block as defined above.
      * 
      */
     @Import(name="corsRules")
     private @Nullable Output<List<AccountQueuePropertiesCorsRuleArgs>> corsRules;
 
     /**
-     * @return A `cors_rule` block as defined above.
+     * @return A `corsRule` block as defined above.
      * 
      */
     public Optional<Output<List<AccountQueuePropertiesCorsRuleArgs>>> corsRules() {
@@ -35,14 +35,14 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `hour_metrics` block as defined below.
+     * A `hourMetrics` block as defined below.
      * 
      */
     @Import(name="hourMetrics")
     private @Nullable Output<AccountQueuePropertiesHourMetricsArgs> hourMetrics;
 
     /**
-     * @return A `hour_metrics` block as defined below.
+     * @return A `hourMetrics` block as defined below.
      * 
      */
     public Optional<Output<AccountQueuePropertiesHourMetricsArgs>> hourMetrics() {
@@ -65,14 +65,14 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `minute_metrics` block as defined below.
+     * A `minuteMetrics` block as defined below.
      * 
      */
     @Import(name="minuteMetrics")
     private @Nullable Output<AccountQueuePropertiesMinuteMetricsArgs> minuteMetrics;
 
     /**
-     * @return A `minute_metrics` block as defined below.
+     * @return A `minuteMetrics` block as defined below.
      * 
      */
     public Optional<Output<AccountQueuePropertiesMinuteMetricsArgs>> minuteMetrics() {
@@ -107,7 +107,7 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param corsRules A `cors_rule` block as defined above.
+         * @param corsRules A `corsRule` block as defined above.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param corsRules A `cors_rule` block as defined above.
+         * @param corsRules A `corsRule` block as defined above.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param corsRules A `cors_rule` block as defined above.
+         * @param corsRules A `corsRule` block as defined above.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param hourMetrics A `hour_metrics` block as defined below.
+         * @param hourMetrics A `hourMetrics` block as defined below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param hourMetrics A `hour_metrics` block as defined below.
+         * @param hourMetrics A `hourMetrics` block as defined below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param minuteMetrics A `minute_metrics` block as defined below.
+         * @param minuteMetrics A `minuteMetrics` block as defined below.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class AccountQueuePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param minuteMetrics A `minute_metrics` block as defined below.
+         * @param minuteMetrics A `minuteMetrics` block as defined below.
          * 
          * @return builder
          * 

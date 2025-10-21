@@ -70,9 +70,9 @@ namespace Pulumi.Azure.Storage
     public partial class Container : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+        /// The Access Level configured for this Container. Possible values are `Blob`, `Container` or `Private`. Defaults to `Private`.
         /// 
-        /// &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        /// &gt; **Note:** When updating `ContainerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         /// </summary>
         [Output("containerAccessType")]
         public Output<string?> ContainerAccessType { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> DefaultEncryptionScope { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `DefaultEncryptionScope`. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("encryptionScopeOverrideEnabled")]
         public Output<bool?> EncryptionScopeOverrideEnabled { get; private set; } = null!;
@@ -122,15 +122,15 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `StorageAccountId`.
         /// 
-        /// &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string?> StorageAccountName { get; private set; } = null!;
@@ -182,9 +182,9 @@ namespace Pulumi.Azure.Storage
     public sealed class ContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+        /// The Access Level configured for this Container. Possible values are `Blob`, `Container` or `Private`. Defaults to `Private`.
         /// 
-        /// &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        /// &gt; **Note:** When updating `ContainerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         /// </summary>
         [Input("containerAccessType")]
         public Input<string>? ContainerAccessType { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? DefaultEncryptionScope { get; set; }
 
         /// <summary>
-        /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `DefaultEncryptionScope`. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionScopeOverrideEnabled")]
         public Input<bool>? EncryptionScopeOverrideEnabled { get; set; }
@@ -222,15 +222,15 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `StorageAccountId`.
         /// 
-        /// &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
@@ -244,9 +244,9 @@ namespace Pulumi.Azure.Storage
     public sealed class ContainerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+        /// The Access Level configured for this Container. Possible values are `Blob`, `Container` or `Private`. Defaults to `Private`.
         /// 
-        /// &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        /// &gt; **Note:** When updating `ContainerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         /// </summary>
         [Input("containerAccessType")]
         public Input<string>? ContainerAccessType { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? DefaultEncryptionScope { get; set; }
 
         /// <summary>
-        /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `DefaultEncryptionScope`. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionScopeOverrideEnabled")]
         public Input<bool>? EncryptionScopeOverrideEnabled { get; set; }
@@ -302,15 +302,15 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `StorageAccountId`.
         /// 
-        /// &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

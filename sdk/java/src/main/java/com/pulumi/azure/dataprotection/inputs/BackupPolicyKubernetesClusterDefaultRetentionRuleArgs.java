@@ -16,14 +16,14 @@ public final class BackupPolicyKubernetesClusterDefaultRetentionRuleArgs extends
     public static final BackupPolicyKubernetesClusterDefaultRetentionRuleArgs Empty = new BackupPolicyKubernetesClusterDefaultRetentionRuleArgs();
 
     /**
-     * A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="lifeCycles", required=true)
     private Output<List<BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs>> lifeCycles;
 
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs>> lifeCycles() {
@@ -55,7 +55,7 @@ public final class BackupPolicyKubernetesClusterDefaultRetentionRuleArgs extends
         }
 
         /**
-         * @param lifeCycles A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+         * @param lifeCycles A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class BackupPolicyKubernetesClusterDefaultRetentionRuleArgs extends
         }
 
         /**
-         * @param lifeCycles A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+         * @param lifeCycles A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class BackupPolicyKubernetesClusterDefaultRetentionRuleArgs extends
         }
 
         /**
-         * @param lifeCycles A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+         * @param lifeCycles A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

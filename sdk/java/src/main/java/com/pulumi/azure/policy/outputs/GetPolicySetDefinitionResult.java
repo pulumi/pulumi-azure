@@ -47,12 +47,12 @@ public final class GetPolicySetDefinitionResult {
      */
     private String parameters;
     /**
-     * @return One or more `policy_definition_group` blocks as defined below.
+     * @return One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     private List<GetPolicySetDefinitionPolicyDefinitionGroup> policyDefinitionGroups;
     /**
-     * @return One or more `policy_definition_reference` blocks as defined below.
+     * @return One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     private List<GetPolicySetDefinitionPolicyDefinitionReference> policyDefinitionReferences;
@@ -114,14 +114,14 @@ public final class GetPolicySetDefinitionResult {
         return this.parameters;
     }
     /**
-     * @return One or more `policy_definition_group` blocks as defined below.
+     * @return One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     public List<GetPolicySetDefinitionPolicyDefinitionGroup> policyDefinitionGroups() {
         return this.policyDefinitionGroups;
     }
     /**
-     * @return One or more `policy_definition_reference` blocks as defined below.
+     * @return One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     public List<GetPolicySetDefinitionPolicyDefinitionReference> policyDefinitionReferences() {

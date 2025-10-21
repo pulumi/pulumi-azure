@@ -6,6 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Redis Enterprise Database
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cache` - 2024-10-01
  */
 export function getEnterpriseDatabase(args: GetEnterpriseDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,6 +73,15 @@ export interface GetEnterpriseDatabaseResult {
 }
 /**
  * Use this data source to access information about an existing Redis Enterprise Database
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cache` - 2024-10-01
  */
 export function getEnterpriseDatabaseOutput(args: GetEnterpriseDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterpriseDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

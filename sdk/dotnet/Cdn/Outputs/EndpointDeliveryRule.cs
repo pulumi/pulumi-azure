@@ -14,31 +14,31 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointDeliveryRule
     {
         /// <summary>
-        /// A `cache_expiration_action` block as defined above.
+        /// A `CacheExpirationAction` block as defined above.
         /// </summary>
         public readonly Outputs.EndpointDeliveryRuleCacheExpirationAction? CacheExpirationAction;
         /// <summary>
-        /// A `cache_key_query_string_action` block as defined above.
+        /// A `CacheKeyQueryStringAction` block as defined above.
         /// </summary>
         public readonly Outputs.EndpointDeliveryRuleCacheKeyQueryStringAction? CacheKeyQueryStringAction;
         /// <summary>
-        /// A `cookies_condition` block as defined above.
+        /// A `CookiesCondition` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleCookiesCondition> CookiesConditions;
         /// <summary>
-        /// A `device_condition` block as defined below.
+        /// A `DeviceCondition` block as defined below.
         /// </summary>
         public readonly Outputs.EndpointDeliveryRuleDeviceCondition? DeviceCondition;
         /// <summary>
-        /// A `http_version_condition` block as defined below.
+        /// A `HttpVersionCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleHttpVersionCondition> HttpVersionConditions;
         /// <summary>
-        /// A `modify_request_header_action` block as defined below.
+        /// A `ModifyRequestHeaderAction` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleModifyRequestHeaderAction> ModifyRequestHeaderActions;
         /// <summary>
-        /// A `modify_response_header_action` block as defined below.
+        /// A `ModifyResponseHeaderAction` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleModifyResponseHeaderAction> ModifyResponseHeaderActions;
         /// <summary>
@@ -50,55 +50,55 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly int Order;
         /// <summary>
-        /// A `post_arg_condition` block as defined below.
+        /// A `PostArgCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRulePostArgCondition> PostArgConditions;
         /// <summary>
-        /// A `query_string_condition` block as defined below.
+        /// A `QueryStringCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleQueryStringCondition> QueryStringConditions;
         /// <summary>
-        /// A `remote_address_condition` block as defined below.
+        /// A `RemoteAddressCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleRemoteAddressCondition> RemoteAddressConditions;
         /// <summary>
-        /// A `request_body_condition` block as defined below.
+        /// A `RequestBodyCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleRequestBodyCondition> RequestBodyConditions;
         /// <summary>
-        /// A `request_header_condition` block as defined below.
+        /// A `RequestHeaderCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleRequestHeaderCondition> RequestHeaderConditions;
         /// <summary>
-        /// A `request_method_condition` block as defined below.
+        /// A `RequestMethodCondition` block as defined below.
         /// </summary>
         public readonly Outputs.EndpointDeliveryRuleRequestMethodCondition? RequestMethodCondition;
         /// <summary>
-        /// A `request_scheme_condition` block as defined below.
+        /// A `RequestSchemeCondition` block as defined below.
         /// </summary>
         public readonly Outputs.EndpointDeliveryRuleRequestSchemeCondition? RequestSchemeCondition;
         /// <summary>
-        /// A `request_uri_condition` block as defined below.
+        /// A `RequestUriCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleRequestUriCondition> RequestUriConditions;
         /// <summary>
-        /// A `url_file_extension_condition` block as defined below.
+        /// A `UrlFileExtensionCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleUrlFileExtensionCondition> UrlFileExtensionConditions;
         /// <summary>
-        /// A `url_file_name_condition` block as defined below.
+        /// A `UrlFileNameCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleUrlFileNameCondition> UrlFileNameConditions;
         /// <summary>
-        /// A `url_path_condition` block as defined below.
+        /// A `UrlPathCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointDeliveryRuleUrlPathCondition> UrlPathConditions;
         /// <summary>
-        /// A `url_redirect_action` block as defined below.
+        /// A `UrlRedirectAction` block as defined below.
         /// </summary>
         public readonly Outputs.EndpointDeliveryRuleUrlRedirectAction? UrlRedirectAction;
         /// <summary>
-        /// A `url_rewrite_action` block as defined below.
+        /// A `UrlRewriteAction` block as defined below.
         /// </summary>
         public readonly Outputs.EndpointDeliveryRuleUrlRewriteAction? UrlRewriteAction;
 

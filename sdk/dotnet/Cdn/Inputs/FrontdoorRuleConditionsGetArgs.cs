@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsClientPortConditionGetArgs>? _clientPortConditions;
 
         /// <summary>
-        /// A `client_port_condition` block as defined below.
+        /// A `ClientPortCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsClientPortConditionGetArgs> ClientPortConditions
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsCookiesConditionGetArgs>? _cookiesConditions;
 
         /// <summary>
-        /// A `cookies_condition` block as defined below.
+        /// A `CookiesCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsCookiesConditionGetArgs> CookiesConditions
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsHostNameConditionGetArgs>? _hostNameConditions;
 
         /// <summary>
-        /// A `host_name_condition` block as defined below.
+        /// A `HostNameCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsHostNameConditionGetArgs> HostNameConditions
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsHttpVersionConditionGetArgs>? _httpVersionConditions;
 
         /// <summary>
-        /// A `http_version_condition` block as defined below.
+        /// A `HttpVersionCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsHttpVersionConditionGetArgs> HttpVersionConditions
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsIsDeviceConditionGetArgs>? _isDeviceConditions;
 
         /// <summary>
-        /// A `is_device_condition` block as defined below.
+        /// A `IsDeviceCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsIsDeviceConditionGetArgs> IsDeviceConditions
         {
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsPostArgsConditionGetArgs>? _postArgsConditions;
 
         /// <summary>
-        /// A `post_args_condition` block as defined below.
+        /// A `PostArgsCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsPostArgsConditionGetArgs> PostArgsConditions
         {
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsQueryStringConditionGetArgs>? _queryStringConditions;
 
         /// <summary>
-        /// A `query_string_condition` block as defined below.
+        /// A `QueryStringCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsQueryStringConditionGetArgs> QueryStringConditions
         {
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsRemoteAddressConditionGetArgs>? _remoteAddressConditions;
 
         /// <summary>
-        /// A `remote_address_condition` block as defined below.
+        /// A `RemoteAddressCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsRemoteAddressConditionGetArgs> RemoteAddressConditions
         {
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsRequestBodyConditionGetArgs>? _requestBodyConditions;
 
         /// <summary>
-        /// A `request_body_condition` block as defined below.
+        /// A `RequestBodyCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsRequestBodyConditionGetArgs> RequestBodyConditions
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsRequestHeaderConditionGetArgs>? _requestHeaderConditions;
 
         /// <summary>
-        /// A `request_header_condition` block as defined below.
+        /// A `RequestHeaderCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsRequestHeaderConditionGetArgs> RequestHeaderConditions
         {
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsRequestMethodConditionGetArgs>? _requestMethodConditions;
 
         /// <summary>
-        /// A `request_method_condition` block as defined below.
+        /// A `RequestMethodCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsRequestMethodConditionGetArgs> RequestMethodConditions
         {
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsRequestSchemeConditionGetArgs>? _requestSchemeConditions;
 
         /// <summary>
-        /// A `request_scheme_condition` block as defined below.
+        /// A `RequestSchemeCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsRequestSchemeConditionGetArgs> RequestSchemeConditions
         {
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsRequestUriConditionGetArgs>? _requestUriConditions;
 
         /// <summary>
-        /// A `request_uri_condition` block as defined below.
+        /// A `RequestUriCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsRequestUriConditionGetArgs> RequestUriConditions
         {
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsServerPortConditionGetArgs>? _serverPortConditions;
 
         /// <summary>
-        /// A `server_port_condition` block as defined below.
+        /// A `ServerPortCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsServerPortConditionGetArgs> ServerPortConditions
         {
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsSocketAddressConditionGetArgs>? _socketAddressConditions;
 
         /// <summary>
-        /// A `socket_address_condition` block as defined below.
+        /// A `SocketAddressCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsSocketAddressConditionGetArgs> SocketAddressConditions
         {
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsSslProtocolConditionGetArgs>? _sslProtocolConditions;
 
         /// <summary>
-        /// A `ssl_protocol_condition` block as defined below.
+        /// A `SslProtocolCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsSslProtocolConditionGetArgs> SslProtocolConditions
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsUrlFileExtensionConditionGetArgs>? _urlFileExtensionConditions;
 
         /// <summary>
-        /// A `url_file_extension_condition` block as defined below.
+        /// A `UrlFileExtensionCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsUrlFileExtensionConditionGetArgs> UrlFileExtensionConditions
         {
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsUrlFilenameConditionGetArgs>? _urlFilenameConditions;
 
         /// <summary>
-        /// A `url_filename_condition` block as defined below.
+        /// A `UrlFilenameCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsUrlFilenameConditionGetArgs> UrlFilenameConditions
         {
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleConditionsUrlPathConditionGetArgs>? _urlPathConditions;
 
         /// <summary>
-        /// A `url_path_condition` block as defined below.
+        /// A `UrlPathCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleConditionsUrlPathConditionGetArgs> UrlPathConditions
         {

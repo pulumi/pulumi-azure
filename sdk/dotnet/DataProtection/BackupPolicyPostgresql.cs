@@ -148,7 +148,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         [Output("retentionRules")]
         public Output<ImmutableArray<Outputs.BackupPolicyPostgresqlRetentionRule>> RetentionRules { get; private set; } = null!;
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyPostgresqlRetentionRuleArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyPostgresqlRetentionRuleArgs> RetentionRules
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyPostgresqlRetentionRuleGetArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyPostgresqlRetentionRuleGetArgs> RetentionRules
         {

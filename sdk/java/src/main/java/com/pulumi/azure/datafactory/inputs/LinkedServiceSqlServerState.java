@@ -50,14 +50,14 @@ public final class LinkedServiceSqlServerState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The connection string in which to authenticate with the SQL Server. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The connection string in which to authenticate with the SQL Server. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * @return The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -110,14 +110,14 @@ public final class LinkedServiceSqlServerState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     @Import(name="keyVaultConnectionString")
     private @Nullable Output<LinkedServiceSqlServerKeyVaultConnectionStringArgs> keyVaultConnectionString;
 
     /**
-     * @return A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * @return A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     public Optional<Output<LinkedServiceSqlServerKeyVaultConnectionStringArgs>> keyVaultConnectionString() {
@@ -125,14 +125,14 @@ public final class LinkedServiceSqlServerState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     @Import(name="keyVaultPassword")
     private @Nullable Output<LinkedServiceSqlServerKeyVaultPasswordArgs> keyVaultPassword;
 
     /**
-     * @return A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * @return A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     public Optional<Output<LinkedServiceSqlServerKeyVaultPasswordArgs>> keyVaultPassword() {
@@ -271,7 +271,7 @@ public final class LinkedServiceSqlServerState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionString The connection string in which to authenticate with the SQL Server. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+         * @param connectionString The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class LinkedServiceSqlServerState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionString The connection string in which to authenticate with the SQL Server. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+         * @param connectionString The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class LinkedServiceSqlServerState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param keyVaultConnectionString A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+         * @param keyVaultConnectionString A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class LinkedServiceSqlServerState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param keyVaultConnectionString A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+         * @param keyVaultConnectionString A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class LinkedServiceSqlServerState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class LinkedServiceSqlServerState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 

@@ -34,18 +34,18 @@ public final class ManagementPolicyRuleFiltersArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+     * A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
      * 
-     * &gt; **Note:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
+     * &gt; **Note:** The `matchBlobIndexTag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
      * 
      */
     @Import(name="matchBlobIndexTags")
     private @Nullable Output<List<ManagementPolicyRuleFiltersMatchBlobIndexTagArgs>> matchBlobIndexTags;
 
     /**
-     * @return A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+     * @return A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
      * 
-     * &gt; **Note:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
+     * &gt; **Note:** The `matchBlobIndexTag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
      * 
      */
     public Optional<Output<List<ManagementPolicyRuleFiltersMatchBlobIndexTagArgs>>> matchBlobIndexTags() {
@@ -125,9 +125,9 @@ public final class ManagementPolicyRuleFiltersArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param matchBlobIndexTags A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+         * @param matchBlobIndexTags A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
          * 
-         * &gt; **Note:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
+         * &gt; **Note:** The `matchBlobIndexTag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
          * 
          * @return builder
          * 
@@ -138,9 +138,9 @@ public final class ManagementPolicyRuleFiltersArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param matchBlobIndexTags A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+         * @param matchBlobIndexTags A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
          * 
-         * &gt; **Note:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
+         * &gt; **Note:** The `matchBlobIndexTag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
          * 
          * @return builder
          * 
@@ -150,9 +150,9 @@ public final class ManagementPolicyRuleFiltersArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param matchBlobIndexTags A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+         * @param matchBlobIndexTags A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
          * 
-         * &gt; **Note:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
+         * &gt; **Note:** The `matchBlobIndexTag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
          * 
          * @return builder
          * 

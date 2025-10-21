@@ -90,39 +90,39 @@ namespace Pulumi.Azure.EventGrid
     public partial class SystemTopicEventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `advanced_filter` block as defined below.
+        /// A `AdvancedFilter` block as defined below.
         /// </summary>
         [Output("advancedFilter")]
         public Output<Outputs.SystemTopicEventSubscriptionAdvancedFilter?> AdvancedFilter { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `False`.
         /// </summary>
         [Output("advancedFilteringOnArraysEnabled")]
         public Output<bool?> AdvancedFilteringOnArraysEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `azure_function_endpoint` block as defined below.
+        /// An `AzureFunctionEndpoint` block as defined below.
         /// </summary>
         [Output("azureFunctionEndpoint")]
         public Output<Outputs.SystemTopicEventSubscriptionAzureFunctionEndpoint?> AzureFunctionEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A `dead_letter_identity` block as defined below.
+        /// A `DeadLetterIdentity` block as defined below.
         /// 
-        /// &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+        /// &gt; **Note:** `StorageBlobDeadLetterDestination` must be specified when a `DeadLetterIdentity` is specified
         /// </summary>
         [Output("deadLetterIdentity")]
         public Output<Outputs.SystemTopicEventSubscriptionDeadLetterIdentity?> DeadLetterIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// A `delivery_identity` block as defined below.
+        /// A `DeliveryIdentity` block as defined below.
         /// </summary>
         [Output("deliveryIdentity")]
         public Output<Outputs.SystemTopicEventSubscriptionDeliveryIdentity?> DeliveryIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `delivery_property` blocks as defined below.
+        /// One or more `DeliveryProperty` blocks as defined below.
         /// </summary>
         [Output("deliveryProperties")]
         public Output<ImmutableArray<Outputs.SystemTopicEventSubscriptionDeliveryProperty>> DeliveryProperties { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `retry_policy` block as defined below.
+        /// A `RetryPolicy` block as defined below.
         /// </summary>
         [Output("retryPolicy")]
         public Output<Outputs.SystemTopicEventSubscriptionRetryPolicy> RetryPolicy { get; private set; } = null!;
@@ -194,19 +194,19 @@ namespace Pulumi.Azure.EventGrid
         public Output<string?> ServiceBusTopicEndpointId { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_blob_dead_letter_destination` block as defined below.
+        /// A `StorageBlobDeadLetterDestination` block as defined below.
         /// </summary>
         [Output("storageBlobDeadLetterDestination")]
         public Output<Outputs.SystemTopicEventSubscriptionStorageBlobDeadLetterDestination?> StorageBlobDeadLetterDestination { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_queue_endpoint` block as defined below.
+        /// A `StorageQueueEndpoint` block as defined below.
         /// </summary>
         [Output("storageQueueEndpoint")]
         public Output<Outputs.SystemTopicEventSubscriptionStorageQueueEndpoint?> StorageQueueEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A `subject_filter` block as defined below.
+        /// A `SubjectFilter` block as defined below.
         /// </summary>
         [Output("subjectFilter")]
         public Output<Outputs.SystemTopicEventSubscriptionSubjectFilter?> SubjectFilter { get; private set; } = null!;
@@ -218,9 +218,9 @@ namespace Pulumi.Azure.EventGrid
         public Output<string> SystemTopic { get; private set; } = null!;
 
         /// <summary>
-        /// A `webhook_endpoint` block as defined below.
+        /// A `WebhookEndpoint` block as defined below.
         /// 
-        /// &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+        /// &gt; **Note:** One of `AzureFunctionEndpoint`, `EventhubEndpointId`, `HybridConnectionEndpoint`, `HybridConnectionEndpointId`, `ServiceBusQueueEndpointId`, `ServiceBusTopicEndpointId`, `StorageQueueEndpoint` or `WebhookEndpoint` must be specified.
         /// </summary>
         [Output("webhookEndpoint")]
         public Output<Outputs.SystemTopicEventSubscriptionWebhookEndpoint?> WebhookEndpoint { get; private set; } = null!;
@@ -272,33 +272,33 @@ namespace Pulumi.Azure.EventGrid
     public sealed class SystemTopicEventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `advanced_filter` block as defined below.
+        /// A `AdvancedFilter` block as defined below.
         /// </summary>
         [Input("advancedFilter")]
         public Input<Inputs.SystemTopicEventSubscriptionAdvancedFilterArgs>? AdvancedFilter { get; set; }
 
         /// <summary>
-        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `False`.
         /// </summary>
         [Input("advancedFilteringOnArraysEnabled")]
         public Input<bool>? AdvancedFilteringOnArraysEnabled { get; set; }
 
         /// <summary>
-        /// An `azure_function_endpoint` block as defined below.
+        /// An `AzureFunctionEndpoint` block as defined below.
         /// </summary>
         [Input("azureFunctionEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionAzureFunctionEndpointArgs>? AzureFunctionEndpoint { get; set; }
 
         /// <summary>
-        /// A `dead_letter_identity` block as defined below.
+        /// A `DeadLetterIdentity` block as defined below.
         /// 
-        /// &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+        /// &gt; **Note:** `StorageBlobDeadLetterDestination` must be specified when a `DeadLetterIdentity` is specified
         /// </summary>
         [Input("deadLetterIdentity")]
         public Input<Inputs.SystemTopicEventSubscriptionDeadLetterIdentityArgs>? DeadLetterIdentity { get; set; }
 
         /// <summary>
-        /// A `delivery_identity` block as defined below.
+        /// A `DeliveryIdentity` block as defined below.
         /// </summary>
         [Input("deliveryIdentity")]
         public Input<Inputs.SystemTopicEventSubscriptionDeliveryIdentityArgs>? DeliveryIdentity { get; set; }
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyArgs>? _deliveryProperties;
 
         /// <summary>
-        /// One or more `delivery_property` blocks as defined below.
+        /// One or more `DeliveryProperty` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyArgs> DeliveryProperties
         {
@@ -376,7 +376,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `retry_policy` block as defined below.
+        /// A `RetryPolicy` block as defined below.
         /// </summary>
         [Input("retryPolicy")]
         public Input<Inputs.SystemTopicEventSubscriptionRetryPolicyArgs>? RetryPolicy { get; set; }
@@ -394,19 +394,19 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? ServiceBusTopicEndpointId { get; set; }
 
         /// <summary>
-        /// A `storage_blob_dead_letter_destination` block as defined below.
+        /// A `StorageBlobDeadLetterDestination` block as defined below.
         /// </summary>
         [Input("storageBlobDeadLetterDestination")]
         public Input<Inputs.SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs>? StorageBlobDeadLetterDestination { get; set; }
 
         /// <summary>
-        /// A `storage_queue_endpoint` block as defined below.
+        /// A `StorageQueueEndpoint` block as defined below.
         /// </summary>
         [Input("storageQueueEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionStorageQueueEndpointArgs>? StorageQueueEndpoint { get; set; }
 
         /// <summary>
-        /// A `subject_filter` block as defined below.
+        /// A `SubjectFilter` block as defined below.
         /// </summary>
         [Input("subjectFilter")]
         public Input<Inputs.SystemTopicEventSubscriptionSubjectFilterArgs>? SubjectFilter { get; set; }
@@ -418,9 +418,9 @@ namespace Pulumi.Azure.EventGrid
         public Input<string> SystemTopic { get; set; } = null!;
 
         /// <summary>
-        /// A `webhook_endpoint` block as defined below.
+        /// A `WebhookEndpoint` block as defined below.
         /// 
-        /// &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+        /// &gt; **Note:** One of `AzureFunctionEndpoint`, `EventhubEndpointId`, `HybridConnectionEndpoint`, `HybridConnectionEndpointId`, `ServiceBusQueueEndpointId`, `ServiceBusTopicEndpointId`, `StorageQueueEndpoint` or `WebhookEndpoint` must be specified.
         /// </summary>
         [Input("webhookEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionWebhookEndpointArgs>? WebhookEndpoint { get; set; }
@@ -434,33 +434,33 @@ namespace Pulumi.Azure.EventGrid
     public sealed class SystemTopicEventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `advanced_filter` block as defined below.
+        /// A `AdvancedFilter` block as defined below.
         /// </summary>
         [Input("advancedFilter")]
         public Input<Inputs.SystemTopicEventSubscriptionAdvancedFilterGetArgs>? AdvancedFilter { get; set; }
 
         /// <summary>
-        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `False`.
         /// </summary>
         [Input("advancedFilteringOnArraysEnabled")]
         public Input<bool>? AdvancedFilteringOnArraysEnabled { get; set; }
 
         /// <summary>
-        /// An `azure_function_endpoint` block as defined below.
+        /// An `AzureFunctionEndpoint` block as defined below.
         /// </summary>
         [Input("azureFunctionEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionAzureFunctionEndpointGetArgs>? AzureFunctionEndpoint { get; set; }
 
         /// <summary>
-        /// A `dead_letter_identity` block as defined below.
+        /// A `DeadLetterIdentity` block as defined below.
         /// 
-        /// &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+        /// &gt; **Note:** `StorageBlobDeadLetterDestination` must be specified when a `DeadLetterIdentity` is specified
         /// </summary>
         [Input("deadLetterIdentity")]
         public Input<Inputs.SystemTopicEventSubscriptionDeadLetterIdentityGetArgs>? DeadLetterIdentity { get; set; }
 
         /// <summary>
-        /// A `delivery_identity` block as defined below.
+        /// A `DeliveryIdentity` block as defined below.
         /// </summary>
         [Input("deliveryIdentity")]
         public Input<Inputs.SystemTopicEventSubscriptionDeliveryIdentityGetArgs>? DeliveryIdentity { get; set; }
@@ -469,7 +469,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyGetArgs>? _deliveryProperties;
 
         /// <summary>
-        /// One or more `delivery_property` blocks as defined below.
+        /// One or more `DeliveryProperty` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyGetArgs> DeliveryProperties
         {
@@ -538,7 +538,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `retry_policy` block as defined below.
+        /// A `RetryPolicy` block as defined below.
         /// </summary>
         [Input("retryPolicy")]
         public Input<Inputs.SystemTopicEventSubscriptionRetryPolicyGetArgs>? RetryPolicy { get; set; }
@@ -556,19 +556,19 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? ServiceBusTopicEndpointId { get; set; }
 
         /// <summary>
-        /// A `storage_blob_dead_letter_destination` block as defined below.
+        /// A `StorageBlobDeadLetterDestination` block as defined below.
         /// </summary>
         [Input("storageBlobDeadLetterDestination")]
         public Input<Inputs.SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationGetArgs>? StorageBlobDeadLetterDestination { get; set; }
 
         /// <summary>
-        /// A `storage_queue_endpoint` block as defined below.
+        /// A `StorageQueueEndpoint` block as defined below.
         /// </summary>
         [Input("storageQueueEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionStorageQueueEndpointGetArgs>? StorageQueueEndpoint { get; set; }
 
         /// <summary>
-        /// A `subject_filter` block as defined below.
+        /// A `SubjectFilter` block as defined below.
         /// </summary>
         [Input("subjectFilter")]
         public Input<Inputs.SystemTopicEventSubscriptionSubjectFilterGetArgs>? SubjectFilter { get; set; }
@@ -580,9 +580,9 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? SystemTopic { get; set; }
 
         /// <summary>
-        /// A `webhook_endpoint` block as defined below.
+        /// A `WebhookEndpoint` block as defined below.
         /// 
-        /// &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+        /// &gt; **Note:** One of `AzureFunctionEndpoint`, `EventhubEndpointId`, `HybridConnectionEndpoint`, `HybridConnectionEndpointId`, `ServiceBusQueueEndpointId`, `ServiceBusTopicEndpointId`, `StorageQueueEndpoint` or `WebhookEndpoint` must be specified.
         /// </summary>
         [Input("webhookEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionWebhookEndpointGetArgs>? WebhookEndpoint { get; set; }

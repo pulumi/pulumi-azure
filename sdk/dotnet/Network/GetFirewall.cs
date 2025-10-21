@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Network
     public sealed class GetFirewallArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `True`.
         /// </summary>
         [Input("dnsProxyEnabled")]
         public bool? DnsProxyEnabled { get; set; }
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Network
     public sealed class GetFirewallInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `True`.
         /// </summary>
         [Input("dnsProxyEnabled")]
         public Input<bool>? DnsProxyEnabled { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Network
     public sealed class GetFirewallResult
     {
         /// <summary>
-        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `True`.
         /// </summary>
         public readonly bool DnsProxyEnabled;
         /// <summary>
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `ip_configuration` block as defined below.
+        /// A `IpConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallIpConfigurationResult> IpConfigurations;
         /// <summary>
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `management_ip_configuration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
+        /// A `ManagementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallManagementIpConfigurationResult> ManagementIpConfigurations;
         public readonly string Name;
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string ThreatIntelMode;
         /// <summary>
-        /// A `virtual_hub` block as defined below.
+        /// A `VirtualHub` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallVirtualHubResult> VirtualHubs;
         /// <summary>

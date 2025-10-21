@@ -125,7 +125,7 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public readonly string ResourceGroupName;
         /// <summary>
-        /// One or more `resource` blocks as defined below.
+        /// One or more `Resource` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResourcesResourceResult> Resources;
         /// <summary>

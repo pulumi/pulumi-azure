@@ -24,7 +24,7 @@ public final class IoTHubEndpoint {
      */
     private @Nullable Integer batchFrequencyInSeconds;
     /**
-     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
      * 
      */
     private @Nullable String connectionString;
@@ -39,12 +39,12 @@ public final class IoTHubEndpoint {
      */
     private @Nullable String encoding;
     /**
-     * @return URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+     * @return URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
     private @Nullable String endpointUri;
     /**
-     * @return Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+     * @return Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
     private @Nullable String entityPath;
@@ -56,7 +56,7 @@ public final class IoTHubEndpoint {
     /**
      * @return The ID of the User Managed Identity used to authenticate against the endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
      * 
      * &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
      * 
@@ -80,7 +80,7 @@ public final class IoTHubEndpoint {
     /**
      * @return The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     private @Nullable String subscriptionId;
@@ -106,7 +106,7 @@ public final class IoTHubEndpoint {
         return Optional.ofNullable(this.batchFrequencyInSeconds);
     }
     /**
-     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
      * 
      */
     public Optional<String> connectionString() {
@@ -127,14 +127,14 @@ public final class IoTHubEndpoint {
         return Optional.ofNullable(this.encoding);
     }
     /**
-     * @return URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+     * @return URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
     public Optional<String> endpointUri() {
         return Optional.ofNullable(this.endpointUri);
     }
     /**
-     * @return Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+     * @return Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
     public Optional<String> entityPath() {
@@ -150,7 +150,7 @@ public final class IoTHubEndpoint {
     /**
      * @return The ID of the User Managed Identity used to authenticate against the endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
      * 
      * &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
      * 
@@ -182,7 +182,7 @@ public final class IoTHubEndpoint {
     /**
      * @return The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     public Optional<String> subscriptionId() {

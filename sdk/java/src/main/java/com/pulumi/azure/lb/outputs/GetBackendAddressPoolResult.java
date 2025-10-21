@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetBackendAddressPoolResult {
     /**
-     * @return A list of `backend_address` block as defined below.
+     * @return A list of `backendAddress` block as defined below.
      * 
      */
     private List<GetBackendAddressPoolBackendAddress> backendAddresses;
@@ -52,7 +52,7 @@ public final class GetBackendAddressPoolResult {
 
     private GetBackendAddressPoolResult() {}
     /**
-     * @return A list of `backend_address` block as defined below.
+     * @return A list of `backendAddress` block as defined below.
      * 
      */
     public List<GetBackendAddressPoolBackendAddress> backendAddresses() {

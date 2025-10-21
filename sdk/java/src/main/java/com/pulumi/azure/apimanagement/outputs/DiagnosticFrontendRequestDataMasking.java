@@ -18,7 +18,7 @@ public final class DiagnosticFrontendRequestDataMasking {
      */
     private @Nullable List<DiagnosticFrontendRequestDataMaskingHeader> headers;
     /**
-     * @return A `query_params` block as defined below.
+     * @return A `queryParams` block as defined below.
      * 
      */
     private @Nullable List<DiagnosticFrontendRequestDataMaskingQueryParam> queryParams;
@@ -32,7 +32,7 @@ public final class DiagnosticFrontendRequestDataMasking {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return A `query_params` block as defined below.
+     * @return A `queryParams` block as defined below.
      * 
      */
     public List<DiagnosticFrontendRequestDataMaskingQueryParam> queryParams() {

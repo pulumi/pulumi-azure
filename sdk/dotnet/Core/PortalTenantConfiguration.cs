@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
         /// 
-        /// &gt; **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
+        /// &gt; **Note:** When `PrivateMarkdownStorageEnforced` is set to `True`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         /// </summary>
         [Output("privateMarkdownStorageEnforced")]
         public Output<bool> PrivateMarkdownStorageEnforced { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
         /// 
-        /// &gt; **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
+        /// &gt; **Note:** When `PrivateMarkdownStorageEnforced` is set to `True`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         /// </summary>
         [Input("privateMarkdownStorageEnforced", required: true)]
         public Input<bool> PrivateMarkdownStorageEnforced { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
         /// 
-        /// &gt; **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
+        /// &gt; **Note:** When `PrivateMarkdownStorageEnforced` is set to `True`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         /// </summary>
         [Input("privateMarkdownStorageEnforced")]
         public Input<bool>? PrivateMarkdownStorageEnforced { get; set; }

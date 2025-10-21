@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private Input<Inputs.RunCommandSourceScriptUriManagedIdentityGetArgs>? _scriptUriManagedIdentity;
 
         /// <summary>
-        /// A `script_uri_managed_identity` block as defined above.
+        /// A `ScriptUriManagedIdentity` block as defined above.
         /// </summary>
         public Input<Inputs.RunCommandSourceScriptUriManagedIdentityGetArgs>? ScriptUriManagedIdentity
         {

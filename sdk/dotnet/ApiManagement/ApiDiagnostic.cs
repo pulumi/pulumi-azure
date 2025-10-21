@@ -176,25 +176,25 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiName { get; private set; } = null!;
 
         /// <summary>
-        /// A `backend_request` block as defined below.
+        /// A `BackendRequest` block as defined below.
         /// </summary>
         [Output("backendRequest")]
         public Output<Outputs.ApiDiagnosticBackendRequest> BackendRequest { get; private set; } = null!;
 
         /// <summary>
-        /// A `backend_response` block as defined below.
+        /// A `BackendResponse` block as defined below.
         /// </summary>
         [Output("backendResponse")]
         public Output<Outputs.ApiDiagnosticBackendResponse> BackendResponse { get; private set; } = null!;
 
         /// <summary>
-        /// A `frontend_request` block as defined below.
+        /// A `FrontendRequest` block as defined below.
         /// </summary>
         [Output("frontendRequest")]
         public Output<Outputs.ApiDiagnosticFrontendRequest> FrontendRequest { get; private set; } = null!;
 
         /// <summary>
-        /// A `frontend_response` block as defined below.
+        /// A `FrontendResponse` block as defined below.
         /// </summary>
         [Output("frontendResponse")]
         public Output<Outputs.ApiDiagnosticFrontendResponse> FrontendResponse { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> HttpCorrelationProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        /// Identifier of the Diagnostics Logs. Possible values are `Applicationinsights` and `Azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<double> SamplingPercentage { get; private set; } = null!;
 
         /// <summary>
-        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// Logging verbosity. Possible values are `Verbose`, `Information` or `Error`.
         /// </summary>
         [Output("verbosity")]
         public Output<string> Verbosity { get; private set; } = null!;
@@ -312,25 +312,25 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiName { get; set; } = null!;
 
         /// <summary>
-        /// A `backend_request` block as defined below.
+        /// A `BackendRequest` block as defined below.
         /// </summary>
         [Input("backendRequest")]
         public Input<Inputs.ApiDiagnosticBackendRequestArgs>? BackendRequest { get; set; }
 
         /// <summary>
-        /// A `backend_response` block as defined below.
+        /// A `BackendResponse` block as defined below.
         /// </summary>
         [Input("backendResponse")]
         public Input<Inputs.ApiDiagnosticBackendResponseArgs>? BackendResponse { get; set; }
 
         /// <summary>
-        /// A `frontend_request` block as defined below.
+        /// A `FrontendRequest` block as defined below.
         /// </summary>
         [Input("frontendRequest")]
         public Input<Inputs.ApiDiagnosticFrontendRequestArgs>? FrontendRequest { get; set; }
 
         /// <summary>
-        /// A `frontend_response` block as defined below.
+        /// A `FrontendResponse` block as defined below.
         /// </summary>
         [Input("frontendResponse")]
         public Input<Inputs.ApiDiagnosticFrontendResponseArgs>? FrontendResponse { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
-        /// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        /// Identifier of the Diagnostics Logs. Possible values are `Applicationinsights` and `Azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<double>? SamplingPercentage { get; set; }
 
         /// <summary>
-        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// Logging verbosity. Possible values are `Verbose`, `Information` or `Error`.
         /// </summary>
         [Input("verbosity")]
         public Input<string>? Verbosity { get; set; }
@@ -410,25 +410,25 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiName { get; set; }
 
         /// <summary>
-        /// A `backend_request` block as defined below.
+        /// A `BackendRequest` block as defined below.
         /// </summary>
         [Input("backendRequest")]
         public Input<Inputs.ApiDiagnosticBackendRequestGetArgs>? BackendRequest { get; set; }
 
         /// <summary>
-        /// A `backend_response` block as defined below.
+        /// A `BackendResponse` block as defined below.
         /// </summary>
         [Input("backendResponse")]
         public Input<Inputs.ApiDiagnosticBackendResponseGetArgs>? BackendResponse { get; set; }
 
         /// <summary>
-        /// A `frontend_request` block as defined below.
+        /// A `FrontendRequest` block as defined below.
         /// </summary>
         [Input("frontendRequest")]
         public Input<Inputs.ApiDiagnosticFrontendRequestGetArgs>? FrontendRequest { get; set; }
 
         /// <summary>
-        /// A `frontend_response` block as defined below.
+        /// A `FrontendResponse` block as defined below.
         /// </summary>
         [Input("frontendResponse")]
         public Input<Inputs.ApiDiagnosticFrontendResponseGetArgs>? FrontendResponse { get; set; }
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
-        /// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        /// Identifier of the Diagnostics Logs. Possible values are `Applicationinsights` and `Azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -470,7 +470,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<double>? SamplingPercentage { get; set; }
 
         /// <summary>
-        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// Logging verbosity. Possible values are `Verbose`, `Information` or `Error`.
         /// </summary>
         [Input("verbosity")]
         public Input<string>? Verbosity { get; set; }

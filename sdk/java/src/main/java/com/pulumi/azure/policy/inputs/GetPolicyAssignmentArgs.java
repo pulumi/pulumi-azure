@@ -30,14 +30,14 @@ public final class GetPolicyAssignmentArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
+     * The ID of the scope this Policy Assignment is assigned to. The `scopeId` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
      * 
      */
     @Import(name="scopeId", required=true)
     private Output<String> scopeId;
 
     /**
-     * @return The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
+     * @return The ID of the scope this Policy Assignment is assigned to. The `scopeId` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
      * 
      */
     public Output<String> scopeId() {
@@ -91,7 +91,7 @@ public final class GetPolicyAssignmentArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param scopeId The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
+         * @param scopeId The ID of the scope this Policy Assignment is assigned to. The `scopeId` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetPolicyAssignmentArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param scopeId The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
+         * @param scopeId The ID of the scope this Policy Assignment is assigned to. The `scopeId` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
          * 
          * @return builder
          * 

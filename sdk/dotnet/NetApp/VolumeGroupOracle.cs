@@ -465,7 +465,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `volume` blocks as defined below.
+        /// One or more `Volume` blocks as defined below.
         /// </summary>
         [Output("volumes")]
         public Output<ImmutableArray<Outputs.VolumeGroupOracleVolume>> Volumes { get; private set; } = null!;
@@ -556,7 +556,7 @@ namespace Pulumi.Azure.NetApp
         private InputList<Inputs.VolumeGroupOracleVolumeArgs>? _volumes;
 
         /// <summary>
-        /// One or more `volume` blocks as defined below.
+        /// One or more `Volume` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VolumeGroupOracleVolumeArgs> Volumes
         {
@@ -612,7 +612,7 @@ namespace Pulumi.Azure.NetApp
         private InputList<Inputs.VolumeGroupOracleVolumeGetArgs>? _volumes;
 
         /// <summary>
-        /// One or more `volume` blocks as defined below.
+        /// One or more `Volume` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VolumeGroupOracleVolumeGetArgs> Volumes
         {

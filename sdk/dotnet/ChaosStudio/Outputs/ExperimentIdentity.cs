@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ChaosStudio.Outputs
         /// <summary>
         /// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+        /// &gt; **Note:** This is required when `Type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

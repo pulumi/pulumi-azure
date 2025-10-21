@@ -19,7 +19,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         public Input<string>? AvailabilitySetName { get; set; }
 
         /// <summary>
-        /// A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+        /// A `LoadBalancer` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadBalancer")]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs>? LoadBalancer { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         private InputList<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs>? _virtualMachines;
 
         /// <summary>
-        /// One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `VirtualMachine` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs> VirtualMachines
         {

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class SlotLogsHttpLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `azure_blob_storage` block as defined below.
+        /// An `AzureBlobStorage` block as defined below.
         /// </summary>
         [Input("azureBlobStorage")]
         public Input<Inputs.SlotLogsHttpLogsAzureBlobStorageGetArgs>? AzureBlobStorage { get; set; }
 
         /// <summary>
-        /// A `file_system` block as defined below.
+        /// A `FileSystem` block as defined below.
         /// </summary>
         [Input("fileSystem")]
         public Input<Inputs.SlotLogsHttpLogsFileSystemGetArgs>? FileSystem { get; set; }

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ArcKubernetes.Inputs
         }
 
         /// <summary>
-        /// Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+        /// Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `False`.
         /// </summary>
         [Input("azureRbacEnabled")]
         public Input<bool>? AzureRbacEnabled { get; set; }

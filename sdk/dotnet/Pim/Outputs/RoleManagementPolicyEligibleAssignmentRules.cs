@@ -14,13 +14,13 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class RoleManagementPolicyEligibleAssignmentRules
     {
         /// <summary>
-        /// Must an assignment have an expiry date. `false` allows permanent assignment.
+        /// Must an assignment have an expiry date. `False` allows permanent assignment.
         /// </summary>
         public readonly bool? ExpirationRequired;
         /// <summary>
         /// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
         /// 
-        /// One of `expiration_required` or `expire_after` must be provided.
+        /// One of `ExpirationRequired` or `ExpireAfter` must be provided.
         /// </summary>
         public readonly string? ExpireAfter;
 

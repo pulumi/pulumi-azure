@@ -131,7 +131,7 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
     /**
      * The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
      * 
-     * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+     * &gt; **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
      * 
      */
     @Export(name="analyticalStorageTtl", refs={Integer.class}, tree="[0]")
@@ -140,7 +140,7 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
     /**
      * @return The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
      * 
-     * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+     * &gt; **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
      * 
      */
     public Output<Optional<Integer>> analyticalStorageTtl() {
@@ -153,14 +153,14 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoscaleSettings);
     }
     /**
-     * A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="conflictResolutionPolicy", refs={GremlinGraphConflictResolutionPolicy.class}, tree="[0]")
     private Output<GremlinGraphConflictResolutionPolicy> conflictResolutionPolicy;
 
     /**
-     * @return A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+     * @return A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<GremlinGraphConflictResolutionPolicy> conflictResolutionPolicy() {
@@ -195,14 +195,14 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultTtl);
     }
     /**
-     * The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
+     * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      * 
      */
     @Export(name="indexPolicy", refs={GremlinGraphIndexPolicy.class}, tree="[0]")
     private Output<GremlinGraphIndexPolicy> indexPolicy;
 
     /**
-     * @return The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
+     * @return The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      * 
      */
     public Output<GremlinGraphIndexPolicy> indexPolicy() {
@@ -279,14 +279,14 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
         return this.throughput;
     }
     /**
-     * One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="uniqueKeys", refs={List.class,GremlinGraphUniqueKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GremlinGraphUniqueKey>> uniqueKeys;
 
     /**
-     * @return One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<GremlinGraphUniqueKey>>> uniqueKeys() {
