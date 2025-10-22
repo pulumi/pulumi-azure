@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string>? EffectiveUntil { get; set; }
 
         /// <summary>
-        /// A `recurrence` block as defined above.
+        /// A `Recurrence` block as defined above.
         /// </summary>
         [Input("recurrence")]
         public Input<Inputs.AlertProcessingRuleSuppressionScheduleRecurrenceGetArgs>? Recurrence { get; set; }

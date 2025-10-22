@@ -301,14 +301,14 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_rulesets` block as defined below.
+     * A `networkRulesets` block as defined below.
      * 
      */
     @Export(name="networkRulesets", refs={EventHubNamespaceNetworkRulesets.class}, tree="[0]")
     private Output<EventHubNamespaceNetworkRulesets> networkRulesets;
 
     /**
-     * @return A `network_rulesets` block as defined below.
+     * @return A `networkRulesets` block as defined below.
      * 
      */
     public Output<EventHubNamespaceNetworkRulesets> networkRulesets() {

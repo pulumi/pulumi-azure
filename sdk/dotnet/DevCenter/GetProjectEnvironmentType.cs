@@ -179,7 +179,7 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetProjectEnvironmentTypeIdentityResult> Identities;
         /// <summary>
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A `user_role_assignment` block as defined below.
+        /// A `UserRoleAssignment` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetProjectEnvironmentTypeUserRoleAssignmentResult> UserRoleAssignments;
 

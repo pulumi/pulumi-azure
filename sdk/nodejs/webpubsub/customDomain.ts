@@ -7,6 +7,15 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Web PubSub Custom Domain.
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.SignalRService` - 2024-03-01
+ *
  * ## Import
  *
  * Custom Domain for a Web PubSub service can be imported using the `resource id`, e.g.

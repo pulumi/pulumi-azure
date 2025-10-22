@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Iot
     public partial class SecuritySolution : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `additional_workspace` block as defined below.
+        /// A `AdditionalWorkspace` block as defined below.
         /// </summary>
         [Output("additionalWorkspaces")]
         public Output<ImmutableArray<Outputs.SecuritySolutionAdditionalWorkspace>> AdditionalWorkspaces { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Iot Security Solution enabled? Defaults to `true`.
+        /// Is the Iot Security Solution enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Iot
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
 
         /// <summary>
-        /// Should IP addressed be unmasked in the log? Defaults to `false`.
+        /// Should IP addressed be unmasked in the log? Defaults to `False`.
         /// </summary>
         [Output("logUnmaskedIpsEnabled")]
         public Output<bool?> LogUnmaskedIpsEnabled { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Iot
         public Output<ImmutableArray<string>> QuerySubscriptionIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `recommendations_enabled` block of options to enable or disable as defined below.
+        /// A `RecommendationsEnabled` block of options to enable or disable as defined below.
         /// </summary>
         [Output("recommendationsEnabled")]
         public Output<Outputs.SecuritySolutionRecommendationsEnabled> RecommendationsEnabled { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.SecuritySolutionAdditionalWorkspaceArgs>? _additionalWorkspaces;
 
         /// <summary>
-        /// A `additional_workspace` block as defined below.
+        /// A `AdditionalWorkspace` block as defined below.
         /// </summary>
         public InputList<Inputs.SecuritySolutionAdditionalWorkspaceArgs> AdditionalWorkspaces
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Is the Iot Security Solution enabled? Defaults to `true`.
+        /// Is the Iot Security Solution enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
         /// <summary>
-        /// Should IP addressed be unmasked in the log? Defaults to `false`.
+        /// Should IP addressed be unmasked in the log? Defaults to `False`.
         /// </summary>
         [Input("logUnmaskedIpsEnabled")]
         public Input<bool>? LogUnmaskedIpsEnabled { get; set; }
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// A `recommendations_enabled` block of options to enable or disable as defined below.
+        /// A `RecommendationsEnabled` block of options to enable or disable as defined below.
         /// </summary>
         [Input("recommendationsEnabled")]
         public Input<Inputs.SecuritySolutionRecommendationsEnabledArgs>? RecommendationsEnabled { get; set; }
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.SecuritySolutionAdditionalWorkspaceGetArgs>? _additionalWorkspaces;
 
         /// <summary>
-        /// A `additional_workspace` block as defined below.
+        /// A `AdditionalWorkspace` block as defined below.
         /// </summary>
         public InputList<Inputs.SecuritySolutionAdditionalWorkspaceGetArgs> AdditionalWorkspaces
         {
@@ -367,7 +367,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Is the Iot Security Solution enabled? Defaults to `true`.
+        /// Is the Iot Security Solution enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -409,7 +409,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
         /// <summary>
-        /// Should IP addressed be unmasked in the log? Defaults to `false`.
+        /// Should IP addressed be unmasked in the log? Defaults to `False`.
         /// </summary>
         [Input("logUnmaskedIpsEnabled")]
         public Input<bool>? LogUnmaskedIpsEnabled { get; set; }
@@ -439,7 +439,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// A `recommendations_enabled` block of options to enable or disable as defined below.
+        /// A `RecommendationsEnabled` block of options to enable or disable as defined below.
         /// </summary>
         [Input("recommendationsEnabled")]
         public Input<Inputs.SecuritySolutionRecommendationsEnabledGetArgs>? RecommendationsEnabled { get; set; }

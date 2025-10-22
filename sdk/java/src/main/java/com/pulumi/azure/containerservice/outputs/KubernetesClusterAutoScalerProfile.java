@@ -75,7 +75,7 @@ public final class KubernetesClusterAutoScalerProfile {
      */
     private @Nullable String scaleDownDelayAfterAdd;
     /**
-     * @return How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+     * @return How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
      * 
      */
     private @Nullable String scaleDownDelayAfterDelete;
@@ -197,7 +197,7 @@ public final class KubernetesClusterAutoScalerProfile {
         return Optional.ofNullable(this.scaleDownDelayAfterAdd);
     }
     /**
-     * @return How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+     * @return How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
      * 
      */
     public Optional<String> scaleDownDelayAfterDelete() {

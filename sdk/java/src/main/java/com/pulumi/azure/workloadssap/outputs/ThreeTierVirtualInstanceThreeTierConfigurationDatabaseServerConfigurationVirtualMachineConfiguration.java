@@ -18,7 +18,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
      */
     private ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImage image;
     /**
-     * @return An `os_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return An `osProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfile osProfile;
@@ -37,7 +37,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
         return this.image;
     }
     /**
-     * @return An `os_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return An `osProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfile osProfile() {

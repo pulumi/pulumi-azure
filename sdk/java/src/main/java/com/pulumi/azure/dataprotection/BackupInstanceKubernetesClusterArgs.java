@@ -18,14 +18,14 @@ public final class BackupInstanceKubernetesClusterArgs extends com.pulumi.resour
     public static final BackupInstanceKubernetesClusterArgs Empty = new BackupInstanceKubernetesClusterArgs();
 
     /**
-     * A `backup_datasource_parameters` block as defined below.
+     * A `backupDatasourceParameters` block as defined below.
      * 
      */
     @Import(name="backupDatasourceParameters")
     private @Nullable Output<BackupInstanceKubernetesClusterBackupDatasourceParametersArgs> backupDatasourceParameters;
 
     /**
-     * @return A `backup_datasource_parameters` block as defined below.
+     * @return A `backupDatasourceParameters` block as defined below.
      * 
      */
     public Optional<Output<BackupInstanceKubernetesClusterBackupDatasourceParametersArgs>> backupDatasourceParameters() {
@@ -153,7 +153,7 @@ public final class BackupInstanceKubernetesClusterArgs extends com.pulumi.resour
         }
 
         /**
-         * @param backupDatasourceParameters A `backup_datasource_parameters` block as defined below.
+         * @param backupDatasourceParameters A `backupDatasourceParameters` block as defined below.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class BackupInstanceKubernetesClusterArgs extends com.pulumi.resour
         }
 
         /**
-         * @param backupDatasourceParameters A `backup_datasource_parameters` block as defined below.
+         * @param backupDatasourceParameters A `backupDatasourceParameters` block as defined below.
          * 
          * @return builder
          * 

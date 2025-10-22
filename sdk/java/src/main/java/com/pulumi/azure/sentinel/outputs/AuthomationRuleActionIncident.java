@@ -24,7 +24,7 @@ public final class AuthomationRuleActionIncident {
     /**
      * @return The comment why the incident is to be closed.
      * 
-     * &gt; **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
+     * &gt; **Note:** The `classificationComment` is allowed to set only when `status` is `Closed`.
      * 
      */
     private @Nullable String classificationComment;
@@ -46,7 +46,7 @@ public final class AuthomationRuleActionIncident {
     /**
      * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
-     * &gt; **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+     * &gt; **Note:** At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
      * 
      */
     private @Nullable String severity;
@@ -69,7 +69,7 @@ public final class AuthomationRuleActionIncident {
     /**
      * @return The comment why the incident is to be closed.
      * 
-     * &gt; **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
+     * &gt; **Note:** The `classificationComment` is allowed to set only when `status` is `Closed`.
      * 
      */
     public Optional<String> classificationComment() {
@@ -99,7 +99,7 @@ public final class AuthomationRuleActionIncident {
     /**
      * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
-     * &gt; **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+     * &gt; **Note:** At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
      * 
      */
     public Optional<String> severity() {

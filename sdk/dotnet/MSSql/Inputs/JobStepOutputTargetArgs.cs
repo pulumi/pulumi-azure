@@ -25,7 +25,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string> MssqlDatabaseId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the output schema. Defaults to `dbo`.
+        /// The name of the output schema. Defaults to `Dbo`.
         /// </summary>
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }

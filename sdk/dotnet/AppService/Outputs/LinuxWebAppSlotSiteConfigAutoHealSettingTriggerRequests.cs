@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests
     {
         /// <summary>
-        /// The number of requests in the specified `interval` to trigger this rule.
+        /// The number of requests in the specified `Interval` to trigger this rule.
         /// </summary>
         public readonly int Count;
         /// <summary>

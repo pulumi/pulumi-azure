@@ -34,12 +34,12 @@ public final class WindowsWebAppSlotSiteConfigScmIpRestriction {
      */
     private @Nullable String ipAddress;
     /**
-     * @return The name which should be used for this `ip_restriction`.
+     * @return The name which should be used for this `ipRestriction`.
      * 
      */
     private @Nullable String name;
     /**
-     * @return The priority value of this `ip_restriction`. Defaults to `65000`.
+     * @return The priority value of this `ipRestriction`. Defaults to `65000`.
      * 
      */
     private @Nullable Integer priority;
@@ -51,7 +51,7 @@ public final class WindowsWebAppSlotSiteConfigScmIpRestriction {
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One and only one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
      * 
      */
     private @Nullable String virtualNetworkSubnetId;
@@ -86,14 +86,14 @@ public final class WindowsWebAppSlotSiteConfigScmIpRestriction {
         return Optional.ofNullable(this.ipAddress);
     }
     /**
-     * @return The name which should be used for this `ip_restriction`.
+     * @return The name which should be used for this `ipRestriction`.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The priority value of this `ip_restriction`. Defaults to `65000`.
+     * @return The priority value of this `ipRestriction`. Defaults to `65000`.
      * 
      */
     public Optional<Integer> priority() {
@@ -109,7 +109,7 @@ public final class WindowsWebAppSlotSiteConfigScmIpRestriction {
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One and only one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
      * 
      */
     public Optional<String> virtualNetworkSubnetId() {

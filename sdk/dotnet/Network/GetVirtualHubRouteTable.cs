@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Network
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `route` block as defined below.
+        /// A `Route` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualHubRouteTableRouteResult> Routes;
         /// <summary>

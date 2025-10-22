@@ -105,7 +105,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        /// &gt; **NOTE:** Exactly one of `KeyVaultSecretId` or `PfxBlob` must be specified.
         /// </summary>
         [Output("keyVaultSecretId")]
         public Output<string?> KeyVaultSecretId { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        /// &gt; **NOTE:** Exactly one of `KeyVaultSecretId` or `PfxBlob` must be specified.
         /// </summary>
         [Output("pfxBlob")]
         public Output<string?> PfxBlob { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        /// &gt; **NOTE:** Exactly one of `KeyVaultSecretId` or `PfxBlob` must be specified.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        /// &gt; **NOTE:** Exactly one of `KeyVaultSecretId` or `PfxBlob` must be specified.
         /// </summary>
         public Input<string>? PfxBlob
         {
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        /// &gt; **NOTE:** Exactly one of `KeyVaultSecretId` or `PfxBlob` must be specified.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        /// &gt; **NOTE:** Exactly one of `KeyVaultSecretId` or `PfxBlob` must be specified.
         /// </summary>
         public Input<string>? PfxBlob
         {

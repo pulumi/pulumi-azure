@@ -121,6 +121,13 @@ export class Secret extends pulumi.CustomResource {
      */
     declare public readonly value: pulumi.Output<string | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+     *
+     * * > **Note:** One of `value` or `valueWo` must be specified.
+     */
+    declare public readonly valueWo: pulumi.Output<string | undefined>;
+    /**
      * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
@@ -157,6 +164,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["resourceVersionlessId"] = state?.resourceVersionlessId;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["value"] = state?.value;
+            resourceInputs["valueWo"] = state?.valueWo;
             resourceInputs["valueWoVersion"] = state?.valueWoVersion;
             resourceInputs["version"] = state?.version;
             resourceInputs["versionlessId"] = state?.versionlessId;
@@ -172,6 +180,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["notBeforeDate"] = args?.notBeforeDate;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
+            resourceInputs["valueWo"] = args?.valueWo ? pulumi.secret(args.valueWo) : undefined;
             resourceInputs["valueWoVersion"] = args?.valueWoVersion;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceVersionlessId"] = undefined /*out*/;
@@ -179,7 +188,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["versionlessId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["value"] };
+        const secretOpts = { additionalSecretOutputs: ["value", "valueWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);
     }
@@ -225,6 +234,13 @@ export interface SecretState {
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      */
     value?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+     *
+     * * > **Note:** One of `value` or `valueWo` must be specified.
+     */
+    valueWo?: pulumi.Input<string>;
     /**
      * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      *
@@ -273,6 +289,13 @@ export interface SecretArgs {
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      */
     value?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+     *
+     * * > **Note:** One of `value` or `valueWo` must be specified.
+     */
+    valueWo?: pulumi.Input<string>;
     /**
      * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      *

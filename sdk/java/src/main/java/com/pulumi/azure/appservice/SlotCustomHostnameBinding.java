@@ -149,7 +149,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
+     * &gt; **Note:** `thumbprint` must be specified when `sslState` is set.
      * 
      */
     @Export(name="thumbprint", refs={String.class}, tree="[0]")
@@ -158,7 +158,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
     /**
      * @return The SSL certificate thumbprint. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
+     * &gt; **Note:** `thumbprint` must be specified when `sslState` is set.
      * 
      */
     public Output<String> thumbprint() {

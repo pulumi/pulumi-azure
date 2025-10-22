@@ -33,7 +33,7 @@ namespace Pulumi.Azure.PaloAlto.Inputs
         }
 
         /// <summary>
-        /// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        /// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `False`.
         /// </summary>
         [Input("useAzureDns")]
         public Input<bool>? UseAzureDns { get; set; }

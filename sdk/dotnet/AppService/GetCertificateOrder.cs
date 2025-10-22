@@ -153,7 +153,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool AutoRenew;
         /// <summary>
-        /// State of the Key Vault secret. A `certificates` block as defined below.
+        /// State of the Key Vault secret. A `Certificates` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateOrderCertificateResult> Certificates;
         /// <summary>

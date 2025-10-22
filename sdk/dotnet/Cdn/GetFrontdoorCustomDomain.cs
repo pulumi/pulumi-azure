@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Cdn
         public readonly string ProfileName;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `tls` block as defined below.
+        /// A `Tls` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFrontdoorCustomDomainTlResult> Tls;
         /// <summary>

@@ -64,14 +64,14 @@ public final class ApplicationNetworkRuleSetState extends com.pulumi.resources.R
     }
 
     /**
-     * One or more `ip_rule` blocks as defined below.
+     * One or more `ipRule` blocks as defined below.
      * 
      */
     @Import(name="ipRules")
     private @Nullable Output<List<ApplicationNetworkRuleSetIpRuleArgs>> ipRules;
 
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationNetworkRuleSetIpRuleArgs>>> ipRules() {
@@ -169,7 +169,7 @@ public final class ApplicationNetworkRuleSetState extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ApplicationNetworkRuleSetState extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ApplicationNetworkRuleSetState extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 

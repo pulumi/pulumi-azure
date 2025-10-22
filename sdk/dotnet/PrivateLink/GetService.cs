@@ -194,7 +194,7 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The `nat_ip_configuration` block as defined below.
+        /// The `NatIpConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceNatIpConfigurationResult> NatIpConfigurations;
         public readonly string ResourceGroupName;

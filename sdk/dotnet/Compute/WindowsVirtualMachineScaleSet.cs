@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
-    /// &gt; **Note:** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
+    /// &gt; **Note:** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `Features` setting within the Provider block.
     /// 
     /// &gt; **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
     /// 
@@ -125,13 +125,13 @@ namespace Pulumi.Azure.Compute
     public partial class WindowsVirtualMachineScaleSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `additional_capabilities` block as defined below.
+        /// An `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<Outputs.WindowsVirtualMachineScaleSetAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `AdditionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("additionalUnattendContents")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetAdditionalUnattendContent>> AdditionalUnattendContents { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
-        /// An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        /// An `AutomaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `HealthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         /// 
         /// &gt; **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         /// </summary>
@@ -157,13 +157,13 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
 
         /// <summary>
-        /// An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
+        /// An `AutomaticOsUpgradePolicy` block as defined below. This can only be specified when `UpgradeMode` is set to either `Automatic` or `Rolling`.
         /// </summary>
         [Output("automaticOsUpgradePolicy")]
         public Output<Outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy?> AutomaticOsUpgradePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Output("bootDiagnostics")]
         public Output<Outputs.WindowsVirtualMachineScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
@@ -171,15 +171,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+        /// &gt; **Note:** `CapacityReservationGroupId` cannot be used with `ProximityPlacementGroupId`
         /// 
-        /// &gt; **Note:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+        /// &gt; **Note:** `SinglePlacementGroup` must be set to `False` when `CapacityReservationGroupId` is specified.
         /// </summary>
         [Output("capacityReservationGroupId")]
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `Name` field. If the value of the `Name` field is not a valid `ComputerNamePrefix`, then you must specify `ComputerNamePrefix`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("computerNamePrefix")]
         public Output<string> ComputerNamePrefix { get; private set; } = null!;
@@ -193,13 +193,13 @@ namespace Pulumi.Azure.Compute
         public Output<string?> CustomData { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `data_disk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// </summary>
         [Output("dataDisks")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetDataDisk>> DataDisks { get; private set; } = null!;
 
         /// <summary>
-        /// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
+        /// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `False`.
         /// </summary>
         [Output("doNotRunExtensionsOnOverprovisionedMachines")]
         public Output<bool?> DoNotRunExtensionsOnOverprovisionedMachines { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
         /// </summary>
         [Output("enableAutomaticUpdates")]
         public Output<bool?> EnableAutomaticUpdates { get; private set; } = null!;
@@ -225,21 +225,21 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `True` or `False`. Defaults to `True`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         /// 
-        /// &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+        /// &gt; **Note:** `ExtensionOperationsEnabled` may only be set to `False` if there are no extensions defined in the `Extension` field.
         /// </summary>
         [Output("extensionOperationsEnabled")]
         public Output<bool?> ExtensionOperationsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `extension` blocks as defined below
+        /// One or more `Extension` blocks as defined below
         /// </summary>
         [Output("extensions")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetExtension>> Extensions { get; private set; } = null!;
@@ -251,13 +251,13 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `gallery_application` blocks as defined below.
+        /// One or more `GalleryApplication` blocks as defined below.
         /// </summary>
         [Output("galleryApplications")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetGalleryApplication>> GalleryApplications { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`.
         /// </summary>
         [Output("healthProbeId")]
         public Output<string?> HealthProbeId { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> HostGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.WindowsVirtualMachineScaleSetIdentity?> Identity { get; private set; } = null!;
@@ -295,9 +295,9 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
+        /// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `EvictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         /// 
-        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Output("maxBidPrice")]
         public Output<double?> MaxBidPrice { get; private set; } = null!;
@@ -309,27 +309,27 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below.
+        /// One or more `NetworkInterface` blocks as defined below.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
-        /// An `os_disk` block as defined below.
+        /// An `OsDisk` block as defined below.
         /// </summary>
         [Output("osDisk")]
         public Output<Outputs.WindowsVirtualMachineScaleSetOsDisk> OsDisk { get; private set; } = null!;
 
         /// <summary>
-        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
+        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `True`.
         /// </summary>
         [Output("overprovision")]
         public Output<bool?> Overprovision { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When using an image from Azure Marketplace a `plan` must be specified.
+        /// &gt; **Note:** When using an image from Azure Marketplace a `Plan` must be specified.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.WindowsVirtualMachineScaleSetPlan?> Plan { get; private set; } = null!;
@@ -343,13 +343,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         /// 
-        /// &gt; **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+        /// &gt; **Note:** When `Priority` is set to `Spot` an `EvictionPolicy` must be specified.
         /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `True`. Changing this value forces a new resource to be created.
         /// </summary>
         [Output("provisionVmAgent")]
         public Output<bool?> ProvisionVmAgent { get; private set; } = null!;
@@ -367,19 +367,19 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("rollingUpgradePolicy")]
         public Output<Outputs.WindowsVirtualMachineScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A `scale_in` block as defined below.
+        /// A `ScaleIn` block as defined below.
         /// </summary>
         [Output("scaleIn")]
         public Output<Outputs.WindowsVirtualMachineScaleSetScaleIn?> ScaleIn { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         [Output("secrets")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetSecret>> Secrets { get; private set; } = null!;
@@ -391,7 +391,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> SecureBootEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
+        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `True`.
         /// </summary>
         [Output("singlePlacementGroup")]
         public Output<bool?> SinglePlacementGroup { get; private set; } = null!;
@@ -405,21 +405,21 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
         /// 
-        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Output("sourceImageId")]
         public Output<string?> SourceImageId { get; private set; } = null!;
 
         /// <summary>
-        /// A `source_image_reference` block as defined below.
+        /// A `SourceImageReference` block as defined below.
         /// 
-        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Output("sourceImageReference")]
         public Output<Outputs.WindowsVirtualMachineScaleSetSourceImageReference?> SourceImageReference { get; private set; } = null!;
 
         /// <summary>
-        /// A `spot_restore` block as defined below.
+        /// A `SpotRestore` block as defined below.
         /// </summary>
         [Output("spotRestore")]
         public Output<Outputs.WindowsVirtualMachineScaleSetSpotRestore> SpotRestore { get; private set; } = null!;
@@ -431,7 +431,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `termination_notification` block as defined below.
+        /// A `TerminationNotification` block as defined below.
         /// </summary>
         [Output("terminationNotification")]
         public Output<Outputs.WindowsVirtualMachineScaleSetTerminationNotification> TerminationNotification { get; private set; } = null!;
@@ -464,15 +464,15 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> VtpmEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `WinrmListener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("winrmListeners")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetWinrmListener>> WinrmListeners { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
+        /// &gt; **Note:** This can only be set to `True` when one or more `Zones` are configured.
         /// </summary>
         [Output("zoneBalance")]
         public Output<bool?> ZoneBalance { get; private set; } = null!;
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
         /// 
-        /// &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
+        /// &gt; **Note:** Updating `Zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -537,7 +537,7 @@ namespace Pulumi.Azure.Compute
     public sealed class WindowsVirtualMachineScaleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `additional_capabilities` block as defined below.
+        /// An `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
@@ -546,7 +546,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs>? _additionalUnattendContents;
 
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `AdditionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs> AdditionalUnattendContents
         {
@@ -577,7 +577,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
-        /// An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        /// An `AutomaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `HealthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         /// 
         /// &gt; **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         /// </summary>
@@ -585,13 +585,13 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
 
         /// <summary>
-        /// An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
+        /// An `AutomaticOsUpgradePolicy` block as defined below. This can only be specified when `UpgradeMode` is set to either `Automatic` or `Rolling`.
         /// </summary>
         [Input("automaticOsUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs>? AutomaticOsUpgradePolicy { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.WindowsVirtualMachineScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
@@ -599,15 +599,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+        /// &gt; **Note:** `CapacityReservationGroupId` cannot be used with `ProximityPlacementGroupId`
         /// 
-        /// &gt; **Note:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+        /// &gt; **Note:** `SinglePlacementGroup` must be set to `False` when `CapacityReservationGroupId` is specified.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `Name` field. If the value of the `Name` field is not a valid `ComputerNamePrefix`, then you must specify `ComputerNamePrefix`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
@@ -634,7 +634,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetDataDiskArgs>? _dataDisks;
 
         /// <summary>
-        /// One or more `data_disk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetDataDiskArgs> DataDisks
         {
@@ -643,7 +643,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
+        /// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `False`.
         /// </summary>
         [Input("doNotRunExtensionsOnOverprovisionedMachines")]
         public Input<bool>? DoNotRunExtensionsOnOverprovisionedMachines { get; set; }
@@ -655,7 +655,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
         /// </summary>
         [Input("enableAutomaticUpdates")]
         public Input<bool>? EnableAutomaticUpdates { get; set; }
@@ -669,15 +669,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
-        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `True` or `False`. Defaults to `True`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         /// 
-        /// &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+        /// &gt; **Note:** `ExtensionOperationsEnabled` may only be set to `False` if there are no extensions defined in the `Extension` field.
         /// </summary>
         [Input("extensionOperationsEnabled")]
         public Input<bool>? ExtensionOperationsEnabled { get; set; }
@@ -686,7 +686,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetExtensionArgs>? _extensions;
 
         /// <summary>
-        /// One or more `extension` blocks as defined below
+        /// One or more `Extension` blocks as defined below
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetExtensionArgs> Extensions
         {
@@ -704,7 +704,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs>? _galleryApplications;
 
         /// <summary>
-        /// One or more `gallery_application` blocks as defined below.
+        /// One or more `GalleryApplication` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs> GalleryApplications
         {
@@ -713,7 +713,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`.
         /// </summary>
         [Input("healthProbeId")]
         public Input<string>? HealthProbeId { get; set; }
@@ -725,7 +725,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HostGroupId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WindowsVirtualMachineScaleSetIdentityArgs>? Identity { get; set; }
@@ -751,9 +751,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
+        /// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `EvictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         /// 
-        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
@@ -768,7 +768,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below.
+        /// One or more `NetworkInterface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -777,21 +777,21 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_disk` block as defined below.
+        /// An `OsDisk` block as defined below.
         /// </summary>
         [Input("osDisk", required: true)]
         public Input<Inputs.WindowsVirtualMachineScaleSetOsDiskArgs> OsDisk { get; set; } = null!;
 
         /// <summary>
-        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
+        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `True`.
         /// </summary>
         [Input("overprovision")]
         public Input<bool>? Overprovision { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When using an image from Azure Marketplace a `plan` must be specified.
+        /// &gt; **Note:** When using an image from Azure Marketplace a `Plan` must be specified.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachineScaleSetPlanArgs>? Plan { get; set; }
@@ -805,13 +805,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         /// 
-        /// &gt; **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+        /// &gt; **Note:** When `Priority` is set to `Spot` an `EvictionPolicy` must be specified.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `True`. Changing this value forces a new resource to be created.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -829,13 +829,13 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
 
         /// <summary>
-        /// A `scale_in` block as defined below.
+        /// A `ScaleIn` block as defined below.
         /// </summary>
         [Input("scaleIn")]
         public Input<Inputs.WindowsVirtualMachineScaleSetScaleInArgs>? ScaleIn { get; set; }
@@ -844,7 +844,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetSecretArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetSecretArgs> Secrets
         {
@@ -859,7 +859,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SecureBootEnabled { get; set; }
 
         /// <summary>
-        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
+        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `True`.
         /// </summary>
         [Input("singlePlacementGroup")]
         public Input<bool>? SinglePlacementGroup { get; set; }
@@ -873,21 +873,21 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
         /// 
-        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// A `source_image_reference` block as defined below.
+        /// A `SourceImageReference` block as defined below.
         /// 
-        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs>? SourceImageReference { get; set; }
 
         /// <summary>
-        /// A `spot_restore` block as defined below.
+        /// A `SpotRestore` block as defined below.
         /// </summary>
         [Input("spotRestore")]
         public Input<Inputs.WindowsVirtualMachineScaleSetSpotRestoreArgs>? SpotRestore { get; set; }
@@ -905,7 +905,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `termination_notification` block as defined below.
+        /// A `TerminationNotification` block as defined below.
         /// </summary>
         [Input("terminationNotification")]
         public Input<Inputs.WindowsVirtualMachineScaleSetTerminationNotificationArgs>? TerminationNotification { get; set; }
@@ -935,7 +935,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerArgs>? _winrmListeners;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `WinrmListener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerArgs> WinrmListeners
         {
@@ -944,9 +944,9 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
+        /// &gt; **Note:** This can only be set to `True` when one or more `Zones` are configured.
         /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
@@ -957,7 +957,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
         /// 
-        /// &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
+        /// &gt; **Note:** Updating `Zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -974,7 +974,7 @@ namespace Pulumi.Azure.Compute
     public sealed class WindowsVirtualMachineScaleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `additional_capabilities` block as defined below.
+        /// An `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.WindowsVirtualMachineScaleSetAdditionalCapabilitiesGetArgs>? AdditionalCapabilities { get; set; }
@@ -983,7 +983,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetAdditionalUnattendContentGetArgs>? _additionalUnattendContents;
 
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `AdditionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetAdditionalUnattendContentGetArgs> AdditionalUnattendContents
         {
@@ -1014,7 +1014,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
-        /// An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        /// An `AutomaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `HealthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         /// 
         /// &gt; **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         /// </summary>
@@ -1022,13 +1022,13 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
 
         /// <summary>
-        /// An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
+        /// An `AutomaticOsUpgradePolicy` block as defined below. This can only be specified when `UpgradeMode` is set to either `Automatic` or `Rolling`.
         /// </summary>
         [Input("automaticOsUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyGetArgs>? AutomaticOsUpgradePolicy { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.WindowsVirtualMachineScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
@@ -1036,15 +1036,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+        /// &gt; **Note:** `CapacityReservationGroupId` cannot be used with `ProximityPlacementGroupId`
         /// 
-        /// &gt; **Note:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+        /// &gt; **Note:** `SinglePlacementGroup` must be set to `False` when `CapacityReservationGroupId` is specified.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `Name` field. If the value of the `Name` field is not a valid `ComputerNamePrefix`, then you must specify `ComputerNamePrefix`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
@@ -1071,7 +1071,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetDataDiskGetArgs>? _dataDisks;
 
         /// <summary>
-        /// One or more `data_disk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetDataDiskGetArgs> DataDisks
         {
@@ -1080,7 +1080,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
+        /// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `False`.
         /// </summary>
         [Input("doNotRunExtensionsOnOverprovisionedMachines")]
         public Input<bool>? DoNotRunExtensionsOnOverprovisionedMachines { get; set; }
@@ -1092,7 +1092,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
         /// </summary>
         [Input("enableAutomaticUpdates")]
         public Input<bool>? EnableAutomaticUpdates { get; set; }
@@ -1106,15 +1106,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
-        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `True` or `False`. Defaults to `True`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         /// 
-        /// &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+        /// &gt; **Note:** `ExtensionOperationsEnabled` may only be set to `False` if there are no extensions defined in the `Extension` field.
         /// </summary>
         [Input("extensionOperationsEnabled")]
         public Input<bool>? ExtensionOperationsEnabled { get; set; }
@@ -1123,7 +1123,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetExtensionGetArgs>? _extensions;
 
         /// <summary>
-        /// One or more `extension` blocks as defined below
+        /// One or more `Extension` blocks as defined below
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetExtensionGetArgs> Extensions
         {
@@ -1141,7 +1141,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationGetArgs>? _galleryApplications;
 
         /// <summary>
-        /// One or more `gallery_application` blocks as defined below.
+        /// One or more `GalleryApplication` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationGetArgs> GalleryApplications
         {
@@ -1150,7 +1150,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`.
         /// </summary>
         [Input("healthProbeId")]
         public Input<string>? HealthProbeId { get; set; }
@@ -1162,7 +1162,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HostGroupId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WindowsVirtualMachineScaleSetIdentityGetArgs>? Identity { get; set; }
@@ -1188,9 +1188,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
+        /// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `EvictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         /// 
-        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
@@ -1205,7 +1205,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below.
+        /// One or more `NetworkInterface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -1214,21 +1214,21 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_disk` block as defined below.
+        /// An `OsDisk` block as defined below.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.WindowsVirtualMachineScaleSetOsDiskGetArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
+        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `True`.
         /// </summary>
         [Input("overprovision")]
         public Input<bool>? Overprovision { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When using an image from Azure Marketplace a `plan` must be specified.
+        /// &gt; **Note:** When using an image from Azure Marketplace a `Plan` must be specified.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachineScaleSetPlanGetArgs>? Plan { get; set; }
@@ -1242,13 +1242,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         /// 
-        /// &gt; **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+        /// &gt; **Note:** When `Priority` is set to `Spot` an `EvictionPolicy` must be specified.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `True`. Changing this value forces a new resource to be created.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -1266,13 +1266,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }
 
         /// <summary>
-        /// A `scale_in` block as defined below.
+        /// A `ScaleIn` block as defined below.
         /// </summary>
         [Input("scaleIn")]
         public Input<Inputs.WindowsVirtualMachineScaleSetScaleInGetArgs>? ScaleIn { get; set; }
@@ -1281,7 +1281,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetSecretGetArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetSecretGetArgs> Secrets
         {
@@ -1296,7 +1296,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SecureBootEnabled { get; set; }
 
         /// <summary>
-        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
+        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `True`.
         /// </summary>
         [Input("singlePlacementGroup")]
         public Input<bool>? SinglePlacementGroup { get; set; }
@@ -1310,21 +1310,21 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
         /// 
-        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// A `source_image_reference` block as defined below.
+        /// A `SourceImageReference` block as defined below.
         /// 
-        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.WindowsVirtualMachineScaleSetSourceImageReferenceGetArgs>? SourceImageReference { get; set; }
 
         /// <summary>
-        /// A `spot_restore` block as defined below.
+        /// A `SpotRestore` block as defined below.
         /// </summary>
         [Input("spotRestore")]
         public Input<Inputs.WindowsVirtualMachineScaleSetSpotRestoreGetArgs>? SpotRestore { get; set; }
@@ -1342,7 +1342,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `termination_notification` block as defined below.
+        /// A `TerminationNotification` block as defined below.
         /// </summary>
         [Input("terminationNotification")]
         public Input<Inputs.WindowsVirtualMachineScaleSetTerminationNotificationGetArgs>? TerminationNotification { get; set; }
@@ -1378,7 +1378,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerGetArgs>? _winrmListeners;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `WinrmListener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerGetArgs> WinrmListeners
         {
@@ -1387,9 +1387,9 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
+        /// &gt; **Note:** This can only be set to `True` when one or more `Zones` are configured.
         /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
@@ -1400,7 +1400,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
         /// 
-        /// &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
+        /// &gt; **Note:** Updating `Zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         /// </summary>
         public InputList<string> Zones
         {

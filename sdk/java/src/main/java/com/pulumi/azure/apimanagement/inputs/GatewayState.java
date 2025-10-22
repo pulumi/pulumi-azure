@@ -47,14 +47,14 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `location_data` block as documented below.
+     * A `locationData` block as documented below.
      * 
      */
     @Import(name="locationData")
     private @Nullable Output<GatewayLocationDataArgs> locationData;
 
     /**
-     * @return A `location_data` block as documented below.
+     * @return A `locationData` block as documented below.
      * 
      */
     public Optional<Output<GatewayLocationDataArgs>> locationData() {
@@ -146,7 +146,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationData A `location_data` block as documented below.
+         * @param locationData A `locationData` block as documented below.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationData A `location_data` block as documented below.
+         * @param locationData A `locationData` block as documented below.
          * 
          * @return builder
          * 

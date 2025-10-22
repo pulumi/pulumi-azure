@@ -39,12 +39,12 @@ public final class GetLinuxWebAppSiteConfig {
      */
     private String appCommandLine;
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     private List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks;
     /**
-     * @return A `auto_heal_setting` block as defined above.
+     * @return A `autoHealSetting` block as defined above.
      * 
      */
     private List<GetLinuxWebAppSiteConfigAutoHealSetting> autoHealSettings;
@@ -94,12 +94,12 @@ public final class GetLinuxWebAppSiteConfig {
      */
     private Boolean http2Enabled;
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule.
      * 
      */
     private String ipRestrictionDefaultAction;
     /**
-     * @return A `ip_restriction` block as defined above.
+     * @return A `ipRestriction` block as defined above.
      * 
      */
     private List<GetLinuxWebAppSiteConfigIpRestriction> ipRestrictions;
@@ -139,12 +139,12 @@ public final class GetLinuxWebAppSiteConfig {
      */
     private String remoteDebuggingVersion;
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
     private String scmIpRestrictionDefaultAction;
     /**
-     * @return A `scm_ip_restriction` block as defined above.
+     * @return A `scmIpRestriction` block as defined above.
      * 
      */
     private List<GetLinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -159,7 +159,7 @@ public final class GetLinuxWebAppSiteConfig {
      */
     private String scmType;
     /**
-     * @return Is the Linux Web App `ip_restriction` configuration used for the SCM also.
+     * @return Is the Linux Web App `ipRestriction` configuration used for the SCM also.
      * 
      */
     private Boolean scmUseMainIpRestriction;
@@ -214,14 +214,14 @@ public final class GetLinuxWebAppSiteConfig {
         return this.appCommandLine;
     }
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     public List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks() {
         return this.applicationStacks;
     }
     /**
-     * @return A `auto_heal_setting` block as defined above.
+     * @return A `autoHealSetting` block as defined above.
      * 
      */
     public List<GetLinuxWebAppSiteConfigAutoHealSetting> autoHealSettings() {
@@ -291,14 +291,14 @@ public final class GetLinuxWebAppSiteConfig {
         return this.http2Enabled;
     }
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule.
      * 
      */
     public String ipRestrictionDefaultAction() {
         return this.ipRestrictionDefaultAction;
     }
     /**
-     * @return A `ip_restriction` block as defined above.
+     * @return A `ipRestriction` block as defined above.
      * 
      */
     public List<GetLinuxWebAppSiteConfigIpRestriction> ipRestrictions() {
@@ -354,14 +354,14 @@ public final class GetLinuxWebAppSiteConfig {
         return this.remoteDebuggingVersion;
     }
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
     public String scmIpRestrictionDefaultAction() {
         return this.scmIpRestrictionDefaultAction;
     }
     /**
-     * @return A `scm_ip_restriction` block as defined above.
+     * @return A `scmIpRestriction` block as defined above.
      * 
      */
     public List<GetLinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -382,7 +382,7 @@ public final class GetLinuxWebAppSiteConfig {
         return this.scmType;
     }
     /**
-     * @return Is the Linux Web App `ip_restriction` configuration used for the SCM also.
+     * @return Is the Linux Web App `ipRestriction` configuration used for the SCM also.
      * 
      */
     public Boolean scmUseMainIpRestriction() {

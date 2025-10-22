@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Stack.Outputs
         /// </summary>
         public readonly string IpAllocationMethod;
         /// <summary>
-        /// One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+        /// One or more `IpPool` block as defined above. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+        /// &gt; **Note:** If `IpPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `IgnoreChanges`.
         /// </summary>
         public readonly ImmutableArray<Outputs.HciLogicalNetworkSubnetIpPool> IpPools;
         /// <summary>
-        /// A `route` block as defined above. Changing this forces a new resource to be created.
+        /// A `Route` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.HciLogicalNetworkSubnetRoute> Routes;
         /// <summary>

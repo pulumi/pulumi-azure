@@ -112,7 +112,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         /// 
-        /// &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+        /// &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `ReadAccessId` or `WriteAccessId`).
         /// </summary>
         [Output("writeAccessId")]
         public Output<string?> WriteAccessId { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         /// 
-        /// &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+        /// &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `ReadAccessId` or `WriteAccessId`).
         /// </summary>
         [Input("writeAccessId")]
         public Input<string>? WriteAccessId { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         /// 
-        /// &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+        /// &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `ReadAccessId` or `WriteAccessId`).
         /// </summary>
         [Input("writeAccessId")]
         public Input<string>? WriteAccessId { get; set; }

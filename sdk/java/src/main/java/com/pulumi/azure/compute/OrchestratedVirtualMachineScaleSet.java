@@ -106,46 +106,46 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet")
 public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.CustomResource {
     /**
-     * An `additional_capabilities` block as defined below.
+     * An `additionalCapabilities` block as defined below.
      * 
      */
     @Export(name="additionalCapabilities", refs={OrchestratedVirtualMachineScaleSetAdditionalCapabilities.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetAdditionalCapabilities> additionalCapabilities;
 
     /**
-     * @return An `additional_capabilities` block as defined below.
+     * @return An `additionalCapabilities` block as defined below.
      * 
      */
     public Output<Optional<OrchestratedVirtualMachineScaleSetAdditionalCapabilities>> additionalCapabilities() {
         return Codegen.optional(this.additionalCapabilities);
     }
     /**
-     * An `automatic_instance_repair` block as defined below.
+     * An `automaticInstanceRepair` block as defined below.
      * 
-     * &gt; **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * &gt; **Note:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     @Export(name="automaticInstanceRepair", refs={OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair.class}, tree="[0]")
     private Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair;
 
     /**
-     * @return An `automatic_instance_repair` block as defined below.
+     * @return An `automaticInstanceRepair` block as defined below.
      * 
-     * &gt; **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * &gt; **Note:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     public Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair() {
         return this.automaticInstanceRepair;
     }
     /**
-     * A `boot_diagnostics` block as defined below.
+     * A `bootDiagnostics` block as defined below.
      * 
      */
     @Export(name="bootDiagnostics", refs={OrchestratedVirtualMachineScaleSetBootDiagnostics.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetBootDiagnostics> bootDiagnostics;
 
     /**
-     * @return A `boot_diagnostics` block as defined below.
+     * @return A `bootDiagnostics` block as defined below.
      * 
      */
     public Output<Optional<OrchestratedVirtualMachineScaleSetBootDiagnostics>> bootDiagnostics() {
@@ -154,9 +154,9 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+     * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
      * 
-     * &gt; **Note:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
+     * &gt; **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
      * 
      */
     @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
@@ -165,23 +165,23 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+     * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
      * 
-     * &gt; **Note:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
+     * &gt; **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
      * 
      */
     public Output<Optional<String>> capacityReservationGroupId() {
         return Codegen.optional(this.capacityReservationGroupId);
     }
     /**
-     * One or more `data_disk` blocks as defined below.
+     * One or more `dataDisk` blocks as defined below.
      * 
      */
     @Export(name="dataDisks", refs={List.class,OrchestratedVirtualMachineScaleSetDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OrchestratedVirtualMachineScaleSetDataDisk>> dataDisks;
 
     /**
-     * @return One or more `data_disk` blocks as defined below.
+     * @return One or more `dataDisk` blocks as defined below.
      * 
      */
     public Output<Optional<List<OrchestratedVirtualMachineScaleSetDataDisk>>> dataDisks() {
@@ -218,7 +218,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
-     * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * &gt; **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
     @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
@@ -227,7 +227,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
-     * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * &gt; **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
     public Output<Optional<Boolean>> extensionOperationsEnabled() {
@@ -360,42 +360,42 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.networkApiVersion);
     }
     /**
-     * One or more `network_interface` blocks as defined below.
+     * One or more `networkInterface` blocks as defined below.
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,OrchestratedVirtualMachineScaleSetNetworkInterface.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OrchestratedVirtualMachineScaleSetNetworkInterface>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` blocks as defined below.
+     * @return One or more `networkInterface` blocks as defined below.
      * 
      */
     public Output<Optional<List<OrchestratedVirtualMachineScaleSetNetworkInterface>>> networkInterfaces() {
         return Codegen.optional(this.networkInterfaces);
     }
     /**
-     * An `os_disk` block as defined below.
+     * An `osDisk` block as defined below.
      * 
      */
     @Export(name="osDisk", refs={OrchestratedVirtualMachineScaleSetOsDisk.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetOsDisk> osDisk;
 
     /**
-     * @return An `os_disk` block as defined below.
+     * @return An `osDisk` block as defined below.
      * 
      */
     public Output<Optional<OrchestratedVirtualMachineScaleSetOsDisk>> osDisk() {
         return Codegen.optional(this.osDisk);
     }
     /**
-     * An `os_profile` block as defined below.
+     * An `osProfile` block as defined below.
      * 
      */
     @Export(name="osProfile", refs={OrchestratedVirtualMachineScaleSetOsProfile.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetOsProfile> osProfile;
 
     /**
-     * @return An `os_profile` block as defined below.
+     * @return An `osProfile` block as defined below.
      * 
      */
     public Output<Optional<OrchestratedVirtualMachineScaleSetOsProfile>> osProfile() {
@@ -448,14 +448,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.priority);
     }
     /**
-     * a `priority_mix` block as defined below
+     * a `priorityMix` block as defined below
      * 
      */
     @Export(name="priorityMix", refs={OrchestratedVirtualMachineScaleSetPriorityMix.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetPriorityMix> priorityMix;
 
     /**
-     * @return a `priority_mix` block as defined below
+     * @return a `priorityMix` block as defined below
      * 
      */
     public Output<Optional<OrchestratedVirtualMachineScaleSetPriorityMix>> priorityMix() {
@@ -490,14 +490,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return this.resourceGroupName;
     }
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="rollingUpgradePolicy", refs={OrchestratedVirtualMachineScaleSetRollingUpgradePolicy.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
-     * @return A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+     * @return A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<OrchestratedVirtualMachineScaleSetRollingUpgradePolicy>> rollingUpgradePolicy() {
@@ -506,7 +506,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      * 
-     * &gt; **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+     * &gt; **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
      * 
      */
     @Export(name="singlePlacementGroup", refs={Boolean.class}, tree="[0]")
@@ -515,7 +515,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * @return Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      * 
-     * &gt; **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+     * &gt; **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
      * 
      */
     public Output<Boolean> singlePlacementGroup() {
@@ -536,18 +536,18 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.skuName);
     }
     /**
-     * An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+     * An `skuProfile` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+     * &gt; **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
      * 
      */
     @Export(name="skuProfile", refs={OrchestratedVirtualMachineScaleSetSkuProfile.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetSkuProfile> skuProfile;
 
     /**
-     * @return An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return An `skuProfile` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+     * &gt; **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
      * 
      */
     public Output<Optional<OrchestratedVirtualMachineScaleSetSkuProfile>> skuProfile() {
@@ -568,14 +568,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.sourceImageId);
     }
     /**
-     * A `source_image_reference` block as defined below.
+     * A `sourceImageReference` block as defined below.
      * 
      */
     @Export(name="sourceImageReference", refs={OrchestratedVirtualMachineScaleSetSourceImageReference.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetSourceImageReference> sourceImageReference;
 
     /**
-     * @return A `source_image_reference` block as defined below.
+     * @return A `sourceImageReference` block as defined below.
      * 
      */
     public Output<Optional<OrchestratedVirtualMachineScaleSetSourceImageReference>> sourceImageReference() {
@@ -596,14 +596,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.tags);
     }
     /**
-     * A `termination_notification` block as defined below.
+     * A `terminationNotification` block as defined below.
      * 
      */
     @Export(name="terminationNotification", refs={OrchestratedVirtualMachineScaleSetTerminationNotification.class}, tree="[0]")
     private Output<OrchestratedVirtualMachineScaleSetTerminationNotification> terminationNotification;
 
     /**
-     * @return A `termination_notification` block as defined below.
+     * @return A `terminationNotification` block as defined below.
      * 
      */
     public Output<OrchestratedVirtualMachineScaleSetTerminationNotification> terminationNotification() {

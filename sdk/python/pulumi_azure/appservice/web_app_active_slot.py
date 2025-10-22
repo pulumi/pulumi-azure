@@ -153,6 +153,15 @@ class WebAppActiveSlot(pulumi.CustomResource):
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
 
+        ### Linux Web App
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
+
         ## Import
 
         a Web App Active Slot can be imported using the `resource id`, e.g.
@@ -204,6 +213,15 @@ class WebAppActiveSlot(pulumi.CustomResource):
             site_config={})
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
+
+        ### Linux Web App
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
 
         ## Import
 

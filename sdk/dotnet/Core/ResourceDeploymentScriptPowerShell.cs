@@ -100,13 +100,13 @@ namespace Pulumi.Azure.Core
         public Output<string?> CommandLine { get; private set; } = null!;
 
         /// <summary>
-        /// A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// A `Container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Output("container")]
         public Output<Outputs.ResourceDeploymentScriptPowerShellContainer?> Container { get; private set; } = null!;
 
         /// <summary>
-        /// An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// An `EnvironmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Output("environmentVariables")]
         public Output<ImmutableArray<Outputs.ResourceDeploymentScriptPowerShellEnvironmentVariable>> EnvironmentVariables { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Core
         public Output<string?> ForceUpdateTag { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ResourceDeploymentScriptPowerShellIdentity?> Identity { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Core
         public Output<string?> ScriptContent { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// A `StorageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Output("storageAccount")]
         public Output<Outputs.ResourceDeploymentScriptPowerShellStorageAccount?> StorageAccount { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? CommandLine { get; set; }
 
         /// <summary>
-        /// A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// A `Container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Input("container")]
         public Input<Inputs.ResourceDeploymentScriptPowerShellContainerArgs>? Container { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceDeploymentScriptPowerShellEnvironmentVariableArgs>? _environmentVariables;
 
         /// <summary>
-        /// An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// An `EnvironmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         public InputList<Inputs.ResourceDeploymentScriptPowerShellEnvironmentVariableArgs> EnvironmentVariables
         {
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? ForceUpdateTag { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ResourceDeploymentScriptPowerShellIdentityArgs>? Identity { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? ScriptContent { get; set; }
 
         /// <summary>
-        /// A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// A `StorageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Input("storageAccount")]
         public Input<Inputs.ResourceDeploymentScriptPowerShellStorageAccountArgs>? StorageAccount { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? CommandLine { get; set; }
 
         /// <summary>
-        /// A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// A `Container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Input("container")]
         public Input<Inputs.ResourceDeploymentScriptPowerShellContainerGetArgs>? Container { get; set; }
@@ -391,7 +391,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceDeploymentScriptPowerShellEnvironmentVariableGetArgs>? _environmentVariables;
 
         /// <summary>
-        /// An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// An `EnvironmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         public InputList<Inputs.ResourceDeploymentScriptPowerShellEnvironmentVariableGetArgs> EnvironmentVariables
         {
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? ForceUpdateTag { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ResourceDeploymentScriptPowerShellIdentityGetArgs>? Identity { get; set; }
@@ -454,7 +454,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? ScriptContent { get; set; }
 
         /// <summary>
-        /// A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        /// A `StorageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Input("storageAccount")]
         public Input<Inputs.ResourceDeploymentScriptPowerShellStorageAccountGetArgs>? StorageAccount { get; set; }

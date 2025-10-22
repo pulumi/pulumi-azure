@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Avs
     /// 
     /// ## Example Usage
     /// 
-    /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+    /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `Update` or `Delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Avs
     public partial class PrivateCloud : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `circuit` block as defined below.
+        /// A `Circuit` block as defined below.
         /// </summary>
         [Output("circuits")]
         public Output<ImmutableArray<Outputs.PrivateCloudCircuit>> Circuits { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// &gt; **Note:** `InternetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Output("internetConnectionEnabled")]
         public Output<bool?> InternetConnectionEnabled { get; private set; } = null!;
@@ -93,8 +93,8 @@ namespace Pulumi.Azure.Avs
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `management_cluster` block as defined below.
-        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// A `ManagementCluster` block as defined below.
+        /// &gt; **Note:** `InternetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Output("managementCluster")]
         public Output<Outputs.PrivateCloudManagementCluster> ManagementCluster { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Avs
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
+        /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `Av20`, `Av36`, `Av36t`, `Av36p`, `Av36pt`, `Av48`, `Av48t`, `Av52`, `Av52t`, and `Av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.Avs
     {
         /// <summary>
         /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// &gt; **Note:** `InternetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("internetConnectionEnabled")]
         public Input<bool>? InternetConnectionEnabled { get; set; }
@@ -248,8 +248,8 @@ namespace Pulumi.Azure.Avs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `management_cluster` block as defined below.
-        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// A `ManagementCluster` block as defined below.
+        /// &gt; **Note:** `InternetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("managementCluster", required: true)]
         public Input<Inputs.PrivateCloudManagementClusterArgs> ManagementCluster { get; set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Avs
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
+        /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `Av20`, `Av36`, `Av36t`, `Av36p`, `Av36pt`, `Av48`, `Av48t`, `Av52`, `Av52t`, and `Av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.Avs
         private InputList<Inputs.PrivateCloudCircuitGetArgs>? _circuits;
 
         /// <summary>
-        /// A `circuit` block as defined below.
+        /// A `Circuit` block as defined below.
         /// </summary>
         public InputList<Inputs.PrivateCloudCircuitGetArgs> Circuits
         {
@@ -350,7 +350,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// &gt; **Note:** `InternetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("internetConnectionEnabled")]
         public Input<bool>? InternetConnectionEnabled { get; set; }
@@ -362,8 +362,8 @@ namespace Pulumi.Azure.Avs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `management_cluster` block as defined below.
-        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// A `ManagementCluster` block as defined below.
+        /// &gt; **Note:** `InternetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("managementCluster")]
         public Input<Inputs.PrivateCloudManagementClusterGetArgs>? ManagementCluster { get; set; }
@@ -427,7 +427,7 @@ namespace Pulumi.Azure.Avs
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
+        /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `Av20`, `Av36`, `Av36t`, `Av36p`, `Av36pt`, `Av48`, `Av48t`, `Av52`, `Av52t`, and `Av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

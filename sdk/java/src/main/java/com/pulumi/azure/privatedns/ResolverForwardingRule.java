@@ -214,14 +214,14 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+     * Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      * 
      */
     @Export(name="targetDnsServers", refs={List.class,ResolverForwardingRuleTargetDnsServer.class}, tree="[0,1]")
     private Output<List<ResolverForwardingRuleTargetDnsServer>> targetDnsServers;
 
     /**
-     * @return Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+     * @return Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      * 
      */
     public Output<List<ResolverForwardingRuleTargetDnsServer>> targetDnsServers() {

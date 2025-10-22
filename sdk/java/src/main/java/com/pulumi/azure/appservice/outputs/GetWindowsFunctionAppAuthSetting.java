@@ -21,7 +21,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsFunctionAppAuthSetting {
     /**
-     * @return A `active_directory` block as defined above.
+     * @return A `activeDirectory` block as defined above.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingActiveDirectory> activeDirectories;
@@ -36,7 +36,7 @@ public final class GetWindowsFunctionAppAuthSetting {
      */
     private List<String> allowedExternalRedirectUrls;
     /**
-     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
      * 
      */
     private String defaultProvider;
@@ -98,7 +98,7 @@ public final class GetWindowsFunctionAppAuthSetting {
 
     private GetWindowsFunctionAppAuthSetting() {}
     /**
-     * @return A `active_directory` block as defined above.
+     * @return A `activeDirectory` block as defined above.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingActiveDirectory> activeDirectories() {
@@ -119,7 +119,7 @@ public final class GetWindowsFunctionAppAuthSetting {
         return this.allowedExternalRedirectUrls;
     }
     /**
-     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
      * 
      */
     public String defaultProvider() {

@@ -18,14 +18,14 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponentArgs extends
     public static final IntegrationRuntimeSsisExpressCustomSetupComponentArgs Empty = new IntegrationRuntimeSsisExpressCustomSetupComponentArgs();
 
     /**
-     * A `key_vault_secret_reference` block as defined below.
+     * A `keyVaultSecretReference` block as defined below.
      * 
      */
     @Import(name="keyVaultLicense")
     private @Nullable Output<IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs> keyVaultLicense;
 
     /**
-     * @return A `key_vault_secret_reference` block as defined below.
+     * @return A `keyVaultSecretReference` block as defined below.
      * 
      */
     public Optional<Output<IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs>> keyVaultLicense() {
@@ -89,7 +89,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponentArgs extends
         }
 
         /**
-         * @param keyVaultLicense A `key_vault_secret_reference` block as defined below.
+         * @param keyVaultLicense A `keyVaultSecretReference` block as defined below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponentArgs extends
         }
 
         /**
-         * @param keyVaultLicense A `key_vault_secret_reference` block as defined below.
+         * @param keyVaultLicense A `keyVaultSecretReference` block as defined below.
          * 
          * @return builder
          * 

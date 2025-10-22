@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Cdn
         public readonly string ProfileName;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `secret` block as defined below.
+        /// A `Secret` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFrontdoorSecretSecretResult> Secrets;
 

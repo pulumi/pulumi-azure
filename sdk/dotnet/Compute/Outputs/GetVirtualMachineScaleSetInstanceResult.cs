@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PrivateIpAddresses;
         /// <summary>
-        /// A `public_ip_address` block as defined below.
+        /// A `PublicIpAddress` block as defined below.
         /// </summary>
         public readonly string PublicIpAddress;
         /// <summary>

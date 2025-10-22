@@ -318,42 +318,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan")
 public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource {
     /**
-     * An `azure_to_azure_settings` block as defined below.
+     * An `azureToAzureSettings` block as defined below.
      * 
      */
     @Export(name="azureToAzureSettings", refs={ReplicationRecoveryPlanAzureToAzureSettings.class}, tree="[0]")
     private Output</* @Nullable */ ReplicationRecoveryPlanAzureToAzureSettings> azureToAzureSettings;
 
     /**
-     * @return An `azure_to_azure_settings` block as defined below.
+     * @return An `azureToAzureSettings` block as defined below.
      * 
      */
     public Output<Optional<ReplicationRecoveryPlanAzureToAzureSettings>> azureToAzureSettings() {
         return Codegen.optional(this.azureToAzureSettings);
     }
     /**
-     * One or more `boot_recovery_group` blocks as defined below.
+     * One or more `bootRecoveryGroup` blocks as defined below.
      * 
      */
     @Export(name="bootRecoveryGroups", refs={List.class,ReplicationRecoveryPlanBootRecoveryGroup.class}, tree="[0,1]")
     private Output<List<ReplicationRecoveryPlanBootRecoveryGroup>> bootRecoveryGroups;
 
     /**
-     * @return One or more `boot_recovery_group` blocks as defined below.
+     * @return One or more `bootRecoveryGroup` blocks as defined below.
      * 
      */
     public Output<List<ReplicationRecoveryPlanBootRecoveryGroup>> bootRecoveryGroups() {
         return this.bootRecoveryGroups;
     }
     /**
-     * One `failover_recovery_group` block as defined below.
+     * One `failoverRecoveryGroup` block as defined below.
      * 
      */
     @Export(name="failoverRecoveryGroup", refs={ReplicationRecoveryPlanFailoverRecoveryGroup.class}, tree="[0]")
     private Output<ReplicationRecoveryPlanFailoverRecoveryGroup> failoverRecoveryGroup;
 
     /**
-     * @return One `failover_recovery_group` block as defined below.
+     * @return One `failoverRecoveryGroup` block as defined below.
      * 
      */
     public Output<ReplicationRecoveryPlanFailoverRecoveryGroup> failoverRecoveryGroup() {
@@ -388,14 +388,14 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
         return this.recoveryVaultId;
     }
     /**
-     * One `shutdown_recovery_group` block as defined below.
+     * One `shutdownRecoveryGroup` block as defined below.
      * 
      */
     @Export(name="shutdownRecoveryGroup", refs={ReplicationRecoveryPlanShutdownRecoveryGroup.class}, tree="[0]")
     private Output<ReplicationRecoveryPlanShutdownRecoveryGroup> shutdownRecoveryGroup;
 
     /**
-     * @return One `shutdown_recovery_group` block as defined below.
+     * @return One `shutdownRecoveryGroup` block as defined below.
      * 
      */
     public Output<ReplicationRecoveryPlanShutdownRecoveryGroup> shutdownRecoveryGroup() {

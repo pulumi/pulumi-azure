@@ -210,14 +210,14 @@ public class ResourcePolicyAssignment extends com.pulumi.resources.CustomResourc
         return this.name;
     }
     /**
-     * One or more `non_compliance_message` blocks as defined below.
+     * One or more `nonComplianceMessage` blocks as defined below.
      * 
      */
     @Export(name="nonComplianceMessages", refs={List.class,ResourcePolicyAssignmentNonComplianceMessage.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourcePolicyAssignmentNonComplianceMessage>> nonComplianceMessages;
 
     /**
-     * @return One or more `non_compliance_message` blocks as defined below.
+     * @return One or more `nonComplianceMessage` blocks as defined below.
      * 
      */
     public Output<Optional<List<ResourcePolicyAssignmentNonComplianceMessage>>> nonComplianceMessages() {
@@ -238,14 +238,14 @@ public class ResourcePolicyAssignment extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.notScopes);
     }
     /**
-     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     @Export(name="overrides", refs={List.class,ResourcePolicyAssignmentOverride.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourcePolicyAssignmentOverride>> overrides;
 
     /**
-     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     public Output<Optional<List<ResourcePolicyAssignmentOverride>>> overrides() {
@@ -298,14 +298,14 @@ public class ResourcePolicyAssignment extends com.pulumi.resources.CustomResourc
         return this.resourceId;
     }
     /**
-     * One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
      * 
      */
     @Export(name="resourceSelectors", refs={List.class,ResourcePolicyAssignmentResourceSelector.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourcePolicyAssignmentResourceSelector>> resourceSelectors;
 
     /**
-     * @return One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * @return One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
      * 
      */
     public Output<Optional<List<ResourcePolicyAssignmentResourceSelector>>> resourceSelectors() {

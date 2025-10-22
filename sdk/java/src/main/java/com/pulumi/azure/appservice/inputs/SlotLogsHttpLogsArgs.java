@@ -17,14 +17,14 @@ public final class SlotLogsHttpLogsArgs extends com.pulumi.resources.ResourceArg
     public static final SlotLogsHttpLogsArgs Empty = new SlotLogsHttpLogsArgs();
 
     /**
-     * An `azure_blob_storage` block as defined below.
+     * An `azureBlobStorage` block as defined below.
      * 
      */
     @Import(name="azureBlobStorage")
     private @Nullable Output<SlotLogsHttpLogsAzureBlobStorageArgs> azureBlobStorage;
 
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     public Optional<Output<SlotLogsHttpLogsAzureBlobStorageArgs>> azureBlobStorage() {
@@ -32,14 +32,14 @@ public final class SlotLogsHttpLogsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `file_system` block as defined below.
+     * A `fileSystem` block as defined below.
      * 
      */
     @Import(name="fileSystem")
     private @Nullable Output<SlotLogsHttpLogsFileSystemArgs> fileSystem;
 
     /**
-     * @return A `file_system` block as defined below.
+     * @return A `fileSystem` block as defined below.
      * 
      */
     public Optional<Output<SlotLogsHttpLogsFileSystemArgs>> fileSystem() {
@@ -72,7 +72,7 @@ public final class SlotLogsHttpLogsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param azureBlobStorage An `azure_blob_storage` block as defined below.
+         * @param azureBlobStorage An `azureBlobStorage` block as defined below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class SlotLogsHttpLogsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param azureBlobStorage An `azure_blob_storage` block as defined below.
+         * @param azureBlobStorage An `azureBlobStorage` block as defined below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class SlotLogsHttpLogsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fileSystem A `file_system` block as defined below.
+         * @param fileSystem A `fileSystem` block as defined below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class SlotLogsHttpLogsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fileSystem A `file_system` block as defined below.
+         * @param fileSystem A `fileSystem` block as defined below.
          * 
          * @return builder
          * 

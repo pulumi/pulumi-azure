@@ -85,13 +85,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// A `AzureBlobStorageLocation` block as defined below.
         /// </summary>
         [Output("azureBlobStorageLocation")]
         public Output<Outputs.DatasetBinaryAzureBlobStorageLocation?> AzureBlobStorageLocation { get; private set; } = null!;
 
         /// <summary>
-        /// A `compression` block as defined below.
+        /// A `Compression` block as defined below.
         /// </summary>
         [Output("compression")]
         public Output<Outputs.DatasetBinaryCompression?> Compression { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Folder { get; private set; } = null!;
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// </summary>
         [Output("httpServerLocation")]
         public Output<Outputs.DatasetBinaryHttpServerLocation?> HttpServerLocation { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A `sftp_server_location` block as defined below.
+        /// A `SftpServerLocation` block as defined below.
         /// </summary>
         [Output("sftpServerLocation")]
         public Output<Outputs.DatasetBinarySftpServerLocation?> SftpServerLocation { get; private set; } = null!;
@@ -217,13 +217,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// A `AzureBlobStorageLocation` block as defined below.
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetBinaryAzureBlobStorageLocationArgs>? AzureBlobStorageLocation { get; set; }
 
         /// <summary>
-        /// A `compression` block as defined below.
+        /// A `Compression` block as defined below.
         /// </summary>
         [Input("compression")]
         public Input<Inputs.DatasetBinaryCompressionArgs>? Compression { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// </summary>
         [Input("httpServerLocation")]
         public Input<Inputs.DatasetBinaryHttpServerLocationArgs>? HttpServerLocation { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `sftp_server_location` block as defined below.
+        /// A `SftpServerLocation` block as defined below.
         /// </summary>
         [Input("sftpServerLocation")]
         public Input<Inputs.DatasetBinarySftpServerLocationArgs>? SftpServerLocation { get; set; }
@@ -317,13 +317,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// A `AzureBlobStorageLocation` block as defined below.
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetBinaryAzureBlobStorageLocationGetArgs>? AzureBlobStorageLocation { get; set; }
 
         /// <summary>
-        /// A `compression` block as defined below.
+        /// A `Compression` block as defined below.
         /// </summary>
         [Input("compression")]
         public Input<Inputs.DatasetBinaryCompressionGetArgs>? Compression { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// </summary>
         [Input("httpServerLocation")]
         public Input<Inputs.DatasetBinaryHttpServerLocationGetArgs>? HttpServerLocation { get; set; }
@@ -379,7 +379,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `sftp_server_location` block as defined below.
+        /// A `SftpServerLocation` block as defined below.
         /// </summary>
         [Input("sftpServerLocation")]
         public Input<Inputs.DatasetBinarySftpServerLocationGetArgs>? SftpServerLocation { get; set; }

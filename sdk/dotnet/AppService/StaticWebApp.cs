@@ -69,13 +69,13 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `basic_auth` block as defined below.
+        /// A `BasicAuth` block as defined below.
         /// </summary>
         [Output("basicAuth")]
         public Output<Outputs.StaticWebAppBasicAuth?> BasicAuth { get; private set; } = null!;
 
         /// <summary>
-        /// Should changes to the configuration file be permitted. Defaults to `true`.
+        /// Should changes to the configuration file be permitted. Defaults to `True`.
         /// </summary>
         [Output("configurationFileChangesEnabled")]
         public Output<bool?> ConfigurationFileChangesEnabled { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultHostName { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.StaticWebAppIdentity?> Identity { get; private set; } = null!;
@@ -105,31 +105,31 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Are Preview (Staging) environments enabled. Defaults to `true`.
+        /// Are Preview (Staging) environments enabled. Defaults to `True`.
         /// </summary>
         [Output("previewEnvironmentsEnabled")]
         public Output<bool?> PreviewEnvironmentsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should public network access be enabled for the Static Web App. Defaults to `true`.
+        /// Should public network access be enabled for the Static Web App. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        /// Repository branch to use for the Static Web App. `RepositoryUrl` and `RepositoryToken` must also be set.
         /// </summary>
         [Output("repositoryBranch")]
         public Output<string?> RepositoryBranch { get; private set; } = null!;
 
         /// <summary>
-        /// Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        /// Repository Token with `Admin` privileges to use for the Static Web App. `RepositoryBranch` and `RepositoryUrl` must also be set.
         /// </summary>
         [Output("repositoryToken")]
         public Output<string?> RepositoryToken { get; private set; } = null!;
 
         /// <summary>
-        /// Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+        /// Repository URL to use for the Static Web App. `RepositoryBranch` and `RepositoryToken` must also be set.
         /// </summary>
         [Output("repositoryUrl")]
         public Output<string?> RepositoryUrl { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.AppService
         private Input<Inputs.StaticWebAppBasicAuthArgs>? _basicAuth;
 
         /// <summary>
-        /// A `basic_auth` block as defined below.
+        /// A `BasicAuth` block as defined below.
         /// </summary>
         public Input<Inputs.StaticWebAppBasicAuthArgs>? BasicAuth
         {
@@ -239,13 +239,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Should changes to the configuration file be permitted. Defaults to `true`.
+        /// Should changes to the configuration file be permitted. Defaults to `True`.
         /// </summary>
         [Input("configurationFileChangesEnabled")]
         public Input<bool>? ConfigurationFileChangesEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.StaticWebAppIdentityArgs>? Identity { get; set; }
@@ -263,19 +263,19 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Are Preview (Staging) environments enabled. Defaults to `true`.
+        /// Are Preview (Staging) environments enabled. Defaults to `True`.
         /// </summary>
         [Input("previewEnvironmentsEnabled")]
         public Input<bool>? PreviewEnvironmentsEnabled { get; set; }
 
         /// <summary>
-        /// Should public network access be enabled for the Static Web App. Defaults to `true`.
+        /// Should public network access be enabled for the Static Web App. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        /// Repository branch to use for the Static Web App. `RepositoryUrl` and `RepositoryToken` must also be set.
         /// </summary>
         [Input("repositoryBranch")]
         public Input<string>? RepositoryBranch { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.AppService
         private Input<string>? _repositoryToken;
 
         /// <summary>
-        /// Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        /// Repository Token with `Admin` privileges to use for the Static Web App. `RepositoryBranch` and `RepositoryUrl` must also be set.
         /// </summary>
         public Input<string>? RepositoryToken
         {
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+        /// Repository URL to use for the Static Web App. `RepositoryBranch` and `RepositoryToken` must also be set.
         /// </summary>
         [Input("repositoryUrl")]
         public Input<string>? RepositoryUrl { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.AppService
         private Input<Inputs.StaticWebAppBasicAuthGetArgs>? _basicAuth;
 
         /// <summary>
-        /// A `basic_auth` block as defined below.
+        /// A `BasicAuth` block as defined below.
         /// </summary>
         public Input<Inputs.StaticWebAppBasicAuthGetArgs>? BasicAuth
         {
@@ -385,7 +385,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Should changes to the configuration file be permitted. Defaults to `true`.
+        /// Should changes to the configuration file be permitted. Defaults to `True`.
         /// </summary>
         [Input("configurationFileChangesEnabled")]
         public Input<bool>? ConfigurationFileChangesEnabled { get; set; }
@@ -397,7 +397,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultHostName { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.StaticWebAppIdentityGetArgs>? Identity { get; set; }
@@ -415,19 +415,19 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Are Preview (Staging) environments enabled. Defaults to `true`.
+        /// Are Preview (Staging) environments enabled. Defaults to `True`.
         /// </summary>
         [Input("previewEnvironmentsEnabled")]
         public Input<bool>? PreviewEnvironmentsEnabled { get; set; }
 
         /// <summary>
-        /// Should public network access be enabled for the Static Web App. Defaults to `true`.
+        /// Should public network access be enabled for the Static Web App. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        /// Repository branch to use for the Static Web App. `RepositoryUrl` and `RepositoryToken` must also be set.
         /// </summary>
         [Input("repositoryBranch")]
         public Input<string>? RepositoryBranch { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.AppService
         private Input<string>? _repositoryToken;
 
         /// <summary>
-        /// Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        /// Repository Token with `Admin` privileges to use for the Static Web App. `RepositoryBranch` and `RepositoryUrl` must also be set.
         /// </summary>
         public Input<string>? RepositoryToken
         {
@@ -449,7 +449,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+        /// Repository URL to use for the Static Web App. `RepositoryBranch` and `RepositoryToken` must also be set.
         /// </summary>
         [Input("repositoryUrl")]
         public Input<string>? RepositoryUrl { get; set; }

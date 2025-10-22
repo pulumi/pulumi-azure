@@ -17,14 +17,14 @@ public final class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurat
     public static final ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs Empty = new ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs();
 
     /**
-     * The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
+     * The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
      * 
      */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
     /**
-     * @return The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
+     * @return The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
      * 
      */
     public Optional<Output<Integer>> count() {
@@ -32,14 +32,14 @@ public final class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurat
     }
 
     /**
-     * The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
+     * The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
      * 
      */
     @Import(name="durationType")
     private @Nullable Output<String> durationType;
 
     /**
-     * @return The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
+     * @return The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
      * 
      */
     public Optional<Output<String>> durationType() {
@@ -72,7 +72,7 @@ public final class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurat
         }
 
         /**
-         * @param count The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
+         * @param count The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurat
         }
 
         /**
-         * @param count The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
+         * @param count The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurat
         }
 
         /**
-         * @param durationType The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
+         * @param durationType The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurat
         }
 
         /**
-         * @param durationType The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
+         * @param durationType The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
          * 
          * @return builder
          * 

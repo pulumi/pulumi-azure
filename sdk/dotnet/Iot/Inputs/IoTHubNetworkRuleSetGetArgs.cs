@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Iot.Inputs
     public sealed class IoTHubNetworkRuleSetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+        /// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `False`.
         /// </summary>
         [Input("applyToBuiltinEventhubEndpoint")]
         public Input<bool>? ApplyToBuiltinEventhubEndpoint { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Iot.Inputs
         private InputList<Inputs.IoTHubNetworkRuleSetIpRuleGetArgs>? _ipRules;
 
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.IoTHubNetworkRuleSetIpRuleGetArgs> IpRules
         {

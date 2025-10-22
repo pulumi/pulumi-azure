@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? BackendAddressPoolId;
         /// <summary>
-        /// The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `RedirectConfigurationName` is set.
         /// </summary>
         public readonly string? BackendAddressPoolName;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? BackendHttpSettingsId;
         /// <summary>
-        /// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `RedirectConfigurationName` is set.
         /// </summary>
         public readonly string? BackendHttpSettingsName;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? RedirectConfigurationId;
         /// <summary>
-        /// The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
+        /// The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `BackendAddressPoolName` or `BackendHttpSettingsName` is set.
         /// </summary>
         public readonly string? RedirectConfigurationName;
         /// <summary>

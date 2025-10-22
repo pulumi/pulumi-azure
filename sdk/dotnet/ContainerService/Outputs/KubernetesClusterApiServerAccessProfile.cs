@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// Whether to enable virtual network integration for the API Server. Defaults to `false`.
+        /// Whether to enable virtual network integration for the API Server. Defaults to `False`.
         /// </summary>
         public readonly bool? VirtualNetworkIntegrationEnabled;
 

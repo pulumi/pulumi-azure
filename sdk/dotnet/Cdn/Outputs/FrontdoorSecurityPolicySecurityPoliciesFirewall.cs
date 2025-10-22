@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesFirewall
     {
         /// <summary>
-        /// An `association` block as defined below.
+        /// An `Association` block as defined below.
         /// </summary>
         public readonly Outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation Association;
         /// <summary>

@@ -195,7 +195,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool PerSiteScalingEnabled;
         /// <summary>
-        /// Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
+        /// Whether this is a reserved Service Plan Type. `True` if `OsType` is `Linux`, otherwise `False`.
         /// </summary>
         public readonly bool Reserved;
         public readonly string ResourceGroupName;

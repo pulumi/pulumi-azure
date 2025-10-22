@@ -21,14 +21,14 @@ public final class SecuritySolutionState extends com.pulumi.resources.ResourceAr
     public static final SecuritySolutionState Empty = new SecuritySolutionState();
 
     /**
-     * A `additional_workspace` block as defined below.
+     * A `additionalWorkspace` block as defined below.
      * 
      */
     @Import(name="additionalWorkspaces")
     private @Nullable Output<List<SecuritySolutionAdditionalWorkspaceArgs>> additionalWorkspaces;
 
     /**
-     * @return A `additional_workspace` block as defined below.
+     * @return A `additionalWorkspace` block as defined below.
      * 
      */
     public Optional<Output<List<SecuritySolutionAdditionalWorkspaceArgs>>> additionalWorkspaces() {
@@ -201,14 +201,14 @@ public final class SecuritySolutionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `recommendations_enabled` block of options to enable or disable as defined below.
+     * A `recommendationsEnabled` block of options to enable or disable as defined below.
      * 
      */
     @Import(name="recommendationsEnabled")
     private @Nullable Output<SecuritySolutionRecommendationsEnabledArgs> recommendationsEnabled;
 
     /**
-     * @return A `recommendations_enabled` block of options to enable or disable as defined below.
+     * @return A `recommendationsEnabled` block of options to enable or disable as defined below.
      * 
      */
     public Optional<Output<SecuritySolutionRecommendationsEnabledArgs>> recommendationsEnabled() {
@@ -284,7 +284,7 @@ public final class SecuritySolutionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param additionalWorkspaces A `additional_workspace` block as defined below.
+         * @param additionalWorkspaces A `additionalWorkspace` block as defined below.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class SecuritySolutionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param additionalWorkspaces A `additional_workspace` block as defined below.
+         * @param additionalWorkspaces A `additionalWorkspace` block as defined below.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class SecuritySolutionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param additionalWorkspaces A `additional_workspace` block as defined below.
+         * @param additionalWorkspaces A `additionalWorkspace` block as defined below.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class SecuritySolutionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param recommendationsEnabled A `recommendations_enabled` block of options to enable or disable as defined below.
+         * @param recommendationsEnabled A `recommendationsEnabled` block of options to enable or disable as defined below.
          * 
          * @return builder
          * 
@@ -597,7 +597,7 @@ public final class SecuritySolutionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param recommendationsEnabled A `recommendations_enabled` block of options to enable or disable as defined below.
+         * @param recommendationsEnabled A `recommendationsEnabled` block of options to enable or disable as defined below.
          * 
          * @return builder
          * 

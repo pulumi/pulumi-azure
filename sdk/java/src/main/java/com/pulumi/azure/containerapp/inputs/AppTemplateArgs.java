@@ -26,14 +26,14 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppTemplateArgs Empty = new AppTemplateArgs();
 
     /**
-     * One or more `azure_queue_scale_rule` blocks as defined below.
+     * One or more `azureQueueScaleRule` blocks as defined below.
      * 
      */
     @Import(name="azureQueueScaleRules")
     private @Nullable Output<List<AppTemplateAzureQueueScaleRuleArgs>> azureQueueScaleRules;
 
     /**
-     * @return One or more `azure_queue_scale_rule` blocks as defined below.
+     * @return One or more `azureQueueScaleRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppTemplateAzureQueueScaleRuleArgs>>> azureQueueScaleRules() {
@@ -56,14 +56,14 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `custom_scale_rule` blocks as defined below.
+     * One or more `customScaleRule` blocks as defined below.
      * 
      */
     @Import(name="customScaleRules")
     private @Nullable Output<List<AppTemplateCustomScaleRuleArgs>> customScaleRules;
 
     /**
-     * @return One or more `custom_scale_rule` blocks as defined below.
+     * @return One or more `customScaleRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppTemplateCustomScaleRuleArgs>>> customScaleRules() {
@@ -71,14 +71,14 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `http_scale_rule` blocks as defined below.
+     * One or more `httpScaleRule` blocks as defined below.
      * 
      */
     @Import(name="httpScaleRules")
     private @Nullable Output<List<AppTemplateHttpScaleRuleArgs>> httpScaleRules;
 
     /**
-     * @return One or more `http_scale_rule` blocks as defined below.
+     * @return One or more `httpScaleRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppTemplateHttpScaleRuleArgs>>> httpScaleRules() {
@@ -86,14 +86,14 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The definition of an init container that is part of the group as documented in the `init_container` block below.
+     * The definition of an init container that is part of the group as documented in the `initContainer` block below.
      * 
      */
     @Import(name="initContainers")
     private @Nullable Output<List<AppTemplateInitContainerArgs>> initContainers;
 
     /**
-     * @return The definition of an init container that is part of the group as documented in the `init_container` block below.
+     * @return The definition of an init container that is part of the group as documented in the `initContainer` block below.
      * 
      */
     public Optional<Output<List<AppTemplateInitContainerArgs>>> initContainers() {
@@ -146,14 +146,14 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `tcp_scale_rule` blocks as defined below.
+     * One or more `tcpScaleRule` blocks as defined below.
      * 
      */
     @Import(name="tcpScaleRules")
     private @Nullable Output<List<AppTemplateTcpScaleRuleArgs>> tcpScaleRules;
 
     /**
-     * @return One or more `tcp_scale_rule` blocks as defined below.
+     * @return One or more `tcpScaleRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppTemplateTcpScaleRuleArgs>>> tcpScaleRules() {
@@ -225,7 +225,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureQueueScaleRules One or more `azure_queue_scale_rule` blocks as defined below.
+         * @param azureQueueScaleRules One or more `azureQueueScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureQueueScaleRules One or more `azure_queue_scale_rule` blocks as defined below.
+         * @param azureQueueScaleRules One or more `azureQueueScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureQueueScaleRules One or more `azure_queue_scale_rule` blocks as defined below.
+         * @param azureQueueScaleRules One or more `azureQueueScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customScaleRules One or more `custom_scale_rule` blocks as defined below.
+         * @param customScaleRules One or more `customScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customScaleRules One or more `custom_scale_rule` blocks as defined below.
+         * @param customScaleRules One or more `customScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customScaleRules One or more `custom_scale_rule` blocks as defined below.
+         * @param customScaleRules One or more `customScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpScaleRules One or more `http_scale_rule` blocks as defined below.
+         * @param httpScaleRules One or more `httpScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpScaleRules One or more `http_scale_rule` blocks as defined below.
+         * @param httpScaleRules One or more `httpScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpScaleRules One or more `http_scale_rule` blocks as defined below.
+         * @param httpScaleRules One or more `httpScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initContainers The definition of an init container that is part of the group as documented in the `init_container` block below.
+         * @param initContainers The definition of an init container that is part of the group as documented in the `initContainer` block below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initContainers The definition of an init container that is part of the group as documented in the `init_container` block below.
+         * @param initContainers The definition of an init container that is part of the group as documented in the `initContainer` block below.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initContainers The definition of an init container that is part of the group as documented in the `init_container` block below.
+         * @param initContainers The definition of an init container that is part of the group as documented in the `initContainer` block below.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tcpScaleRules One or more `tcp_scale_rule` blocks as defined below.
+         * @param tcpScaleRules One or more `tcpScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tcpScaleRules One or more `tcp_scale_rule` blocks as defined below.
+         * @param tcpScaleRules One or more `tcpScaleRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tcpScaleRules One or more `tcp_scale_rule` blocks as defined below.
+         * @param tcpScaleRules One or more `tcpScaleRule` blocks as defined below.
          * 
          * @return builder
          * 

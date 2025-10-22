@@ -18,9 +18,9 @@ namespace Pulumi.Azure.SecurityCenter.Outputs
         /// </summary>
         public readonly string EventSource;
         /// <summary>
-        /// A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
+        /// A set of rules which evaluate upon event and data interception. This is defined in one or more `RuleSet` blocks as defined below.
         /// 
-        /// &gt; **Note:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
+        /// &gt; **Note:** When multiple `RuleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationSourceRuleSet> RuleSets;
 

@@ -15,12 +15,12 @@ public final class LoggerEventhub {
     /**
      * @return The connection string of an EventHub Namespace.
      * 
-     * &gt; **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
+     * &gt; **Note:** At least one of `connectionString` or `endpointUri` must be specified
      * 
      */
     private @Nullable String connectionString;
     /**
-     * @return The endpoint address of an EventHub Namespace. Required when `client_id` is set.
+     * @return The endpoint address of an EventHub Namespace. Required when `clientId` is set.
      * 
      */
     private @Nullable String endpointUri;
@@ -30,7 +30,7 @@ public final class LoggerEventhub {
      */
     private String name;
     /**
-     * @return The Client Id of the User Assigned Identity with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+     * @return The Client Id of the User Assigned Identity with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
      * 
      */
     private @Nullable String userAssignedIdentityClientId;
@@ -39,14 +39,14 @@ public final class LoggerEventhub {
     /**
      * @return The connection string of an EventHub Namespace.
      * 
-     * &gt; **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
+     * &gt; **Note:** At least one of `connectionString` or `endpointUri` must be specified
      * 
      */
     public Optional<String> connectionString() {
         return Optional.ofNullable(this.connectionString);
     }
     /**
-     * @return The endpoint address of an EventHub Namespace. Required when `client_id` is set.
+     * @return The endpoint address of an EventHub Namespace. Required when `clientId` is set.
      * 
      */
     public Optional<String> endpointUri() {
@@ -60,7 +60,7 @@ public final class LoggerEventhub {
         return this.name;
     }
     /**
-     * @return The Client Id of the User Assigned Identity with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+     * @return The Client Id of the User Assigned Identity with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
      * 
      */
     public Optional<String> userAssignedIdentityClientId() {

@@ -19,14 +19,14 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
     public static final CertifiateCertificatePolicyKeyPropertiesArgs Empty = new CertifiateCertificatePolicyKeyPropertiesArgs();
 
     /**
-     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
      * 
      */
     @Import(name="curve")
     private @Nullable Output<String> curve;
 
     /**
-     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
      * 
      */
     public Optional<Output<String>> curve() {
@@ -122,7 +122,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
          * 
          * @return builder
          * 

@@ -30,7 +30,7 @@ public final class WorkflowAccessControl {
      */
     private @Nullable WorkflowAccessControlTrigger trigger;
     /**
-     * @return A `workflow_management` block as defined below.
+     * @return A `workflowManagement` block as defined below.
      * 
      */
     private @Nullable WorkflowAccessControlWorkflowManagement workflowManagement;
@@ -58,7 +58,7 @@ public final class WorkflowAccessControl {
         return Optional.ofNullable(this.trigger);
     }
     /**
-     * @return A `workflow_management` block as defined below.
+     * @return A `workflowManagement` block as defined below.
      * 
      */
     public Optional<WorkflowAccessControlWorkflowManagement> workflowManagement() {

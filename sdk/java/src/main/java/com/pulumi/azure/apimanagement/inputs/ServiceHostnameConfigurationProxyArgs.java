@@ -35,7 +35,7 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
     /**
      * The password associated with the certificate provided above.
      * 
-     * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
+     * &gt; **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
      * 
      */
     @Import(name="certificatePassword")
@@ -44,7 +44,7 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
     /**
      * @return The password associated with the certificate provided above.
      * 
-     * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
+     * &gt; **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
      * 
      */
     public Optional<Output<String>> certificatePassword() {
@@ -147,19 +147,19 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
 
     /**
      * @deprecated
-     * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
      * @deprecated
-     * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<String>> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }
@@ -284,7 +284,7 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
         /**
          * @param certificatePassword The password associated with the certificate provided above.
          * 
-         * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
+         * &gt; **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
         /**
          * @param certificatePassword The password associated with the certificate provided above.
          * 
-         * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
+         * &gt; **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
          * 
          * @return builder
          * 
@@ -440,10 +440,10 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
          * @return builder
          * 
          * @deprecated
-         * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
         public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
@@ -453,10 +453,10 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
          * @return builder
          * 
          * @deprecated
-         * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
         }

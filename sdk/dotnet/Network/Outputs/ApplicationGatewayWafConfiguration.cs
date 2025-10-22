@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayWafConfiguration
     {
         /// <summary>
-        /// One or more `disabled_rule_group` blocks as defined below.
+        /// One or more `DisabledRuleGroup` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayWafConfigurationDisabledRuleGroup> DisabledRuleGroups;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayWafConfigurationExclusion> Exclusions;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? MaxRequestBodySizeKb;
         /// <summary>
-        /// Is Request Body Inspection enabled? Defaults to `true`.
+        /// Is Request Body Inspection enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? RequestBodyCheck;
         /// <summary>

@@ -22,7 +22,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
-     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      * 
      */
     @Import(name="backendAddressPoolIds")
@@ -31,7 +31,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
-     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      * 
      */
     public Optional<Output<List<String>>> backendAddressPoolIds() {
@@ -70,38 +70,38 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
     @Import(name="enableFloatingIp")
     private @Nullable Output<Boolean> enableFloatingIp;
 
     /**
      * @deprecated
-     * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
     public Optional<Output<Boolean>> enableFloatingIp() {
         return Optional.ofNullable(this.enableFloatingIp);
     }
 
     /**
      * @deprecated
-     * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
     @Import(name="enableTcpReset")
     private @Nullable Output<Boolean> enableTcpReset;
 
     /**
      * @deprecated
-     * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
     public Optional<Output<Boolean>> enableTcpReset() {
         return Optional.ofNullable(this.enableTcpReset);
     }
@@ -297,7 +297,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param backendAddressPoolIds A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
          * 
-         * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+         * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param backendAddressPoolIds A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
          * 
-         * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+         * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param backendAddressPoolIds A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
          * 
-         * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+         * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
          * 
          * @return builder
          * 
@@ -377,10 +377,10 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+         * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableFloatingIp(@Nullable Output<Boolean> enableFloatingIp) {
             $.enableFloatingIp = enableFloatingIp;
             return this;
@@ -390,10 +390,10 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+         * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableFloatingIp(Boolean enableFloatingIp) {
             return enableFloatingIp(Output.of(enableFloatingIp));
         }
@@ -402,10 +402,10 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableTcpReset(@Nullable Output<Boolean> enableTcpReset) {
             $.enableTcpReset = enableTcpReset;
             return this;
@@ -415,10 +415,10 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableTcpReset(Boolean enableTcpReset) {
             return enableTcpReset(Output.of(enableTcpReset));
         }

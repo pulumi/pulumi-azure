@@ -52,7 +52,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      * 
-     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+     * &gt; **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      * 
      */
     @Import(name="subscriptionId")
@@ -63,7 +63,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      * 
-     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+     * &gt; **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      * 
      */
     public Optional<Output<String>> subscriptionId() {
@@ -191,7 +191,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
          * 
-         * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+         * &gt; **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
          * 
-         * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+         * &gt; **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
          * 
          * @return builder
          * 

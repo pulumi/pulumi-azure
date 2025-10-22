@@ -15,14 +15,14 @@ public final class ApiDiagnosticFrontendRequestDataMaskingHeaderArgs extends com
     public static final ApiDiagnosticFrontendRequestDataMaskingHeaderArgs Empty = new ApiDiagnosticFrontendRequestDataMaskingHeaderArgs();
 
     /**
-     * The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+     * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
      * 
      */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
     /**
-     * @return The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+     * @return The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
      * 
      */
     public Output<String> mode() {
@@ -70,7 +70,7 @@ public final class ApiDiagnosticFrontendRequestDataMaskingHeaderArgs extends com
         }
 
         /**
-         * @param mode The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+         * @param mode The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ApiDiagnosticFrontendRequestDataMaskingHeaderArgs extends com
         }
 
         /**
-         * @param mode The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+         * @param mode The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
          * 
          * @return builder
          * 

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.DataProtection.Outputs
     public sealed class BackupPolicyKubernetesClusterRetentionRule
     {
         /// <summary>
-        /// A `criteria` block as defined below. Changing this forces a new resource to be created.
+        /// A `Criteria` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.BackupPolicyKubernetesClusterRetentionRuleCriteria Criteria;
         /// <summary>
-        /// A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        /// A `LifeCycle` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycle> LifeCycles;
         /// <summary>

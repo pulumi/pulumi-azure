@@ -22,14 +22,14 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
     public static final NextGenerationFirewallVirtualHubPanoramaState Empty = new NextGenerationFirewallVirtualHubPanoramaState();
 
     /**
-     * One or more `destination_nat` blocks as defined below.
+     * One or more `destinationNat` blocks as defined below.
      * 
      */
     @Import(name="destinationNats")
     private @Nullable Output<List<NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs>> destinationNats;
 
     /**
-     * @return One or more `destination_nat` blocks as defined below.
+     * @return One or more `destinationNat` blocks as defined below.
      * 
      */
     public Optional<Output<List<NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs>>> destinationNats() {
@@ -37,14 +37,14 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
     }
 
     /**
-     * A `dns_settings` block as defined below.
+     * A `dnsSettings` block as defined below.
      * 
      */
     @Import(name="dnsSettings")
     private @Nullable Output<NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs> dnsSettings;
 
     /**
-     * @return A `dns_settings` block as defined below.
+     * @return A `dnsSettings` block as defined below.
      * 
      */
     public Optional<Output<NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs>> dnsSettings() {
@@ -67,14 +67,14 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
     }
 
     /**
-     * The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="marketplaceOfferId")
     private @Nullable Output<String> marketplaceOfferId;
 
     /**
-     * @return The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * @return The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> marketplaceOfferId() {
@@ -97,14 +97,14 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
     }
 
     /**
-     * A `network_profile` block as defined below.
+     * A `networkProfile` block as defined below.
      * 
      */
     @Import(name="networkProfile")
     private @Nullable Output<NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `networkProfile` block as defined below.
      * 
      */
     public Optional<Output<NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs>> networkProfile() {
@@ -136,7 +136,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     @Import(name="planId")
@@ -145,7 +145,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
     /**
      * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     public Optional<Output<String>> planId() {
@@ -217,7 +217,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         }
 
         /**
-         * @param destinationNats One or more `destination_nat` blocks as defined below.
+         * @param destinationNats One or more `destinationNat` blocks as defined below.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         }
 
         /**
-         * @param destinationNats One or more `destination_nat` blocks as defined below.
+         * @param destinationNats One or more `destinationNat` blocks as defined below.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         }
 
         /**
-         * @param destinationNats One or more `destination_nat` blocks as defined below.
+         * @param destinationNats One or more `destinationNat` blocks as defined below.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         }
 
         /**
-         * @param dnsSettings A `dns_settings` block as defined below.
+         * @param dnsSettings A `dnsSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         }
 
         /**
-         * @param dnsSettings A `dns_settings` block as defined below.
+         * @param dnsSettings A `dnsSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         }
 
         /**
-         * @param marketplaceOfferId The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+         * @param marketplaceOfferId The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         }
 
         /**
-         * @param marketplaceOfferId The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+         * @param marketplaceOfferId The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         /**
          * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
          * 
-         * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+         * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         /**
          * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
          * 
-         * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+         * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
          * 
          * @return builder
          * 

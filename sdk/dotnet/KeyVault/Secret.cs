@@ -137,9 +137,18 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> Value { get; private set; } = null!;
 
         /// <summary>
-        /// An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         /// 
-        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        /// * &gt; **Note:** One of `Value` or `ValueWo` must be specified.
+        /// </summary>
+        [Output("valueWo")]
+        public Output<string?> ValueWo { get; private set; } = null!;
+
+        /// <summary>
+        /// An integer value used to trigger an update for `ValueWo`. This property should be incremented when updating `ValueWo`.
+        /// 
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("MySecretFile"), "/\n/", "\n")` or `base64encode(file("MySecretFile"))`, respectively.
         /// </summary>
         [Output("valueWoVersion")]
         public Output<int?> ValueWoVersion { get; private set; } = null!;
@@ -182,6 +191,7 @@ namespace Pulumi.Azure.KeyVault
                 AdditionalSecretOutputs =
                 {
                     "value",
+                    "valueWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -264,10 +274,29 @@ namespace Pulumi.Azure.KeyVault
             }
         }
 
+        [Input("valueWo")]
+        private Input<string>? _valueWo;
+
         /// <summary>
-        /// An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         /// 
-        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        /// * &gt; **Note:** One of `Value` or `ValueWo` must be specified.
+        /// </summary>
+        public Input<string>? ValueWo
+        {
+            get => _valueWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _valueWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `ValueWo`. This property should be incremented when updating `ValueWo`.
+        /// 
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("MySecretFile"), "/\n/", "\n")` or `base64encode(file("MySecretFile"))`, respectively.
         /// </summary>
         [Input("valueWoVersion")]
         public Input<int>? ValueWoVersion { get; set; }
@@ -350,10 +379,29 @@ namespace Pulumi.Azure.KeyVault
             }
         }
 
+        [Input("valueWo")]
+        private Input<string>? _valueWo;
+
         /// <summary>
-        /// An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         /// 
-        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        /// * &gt; **Note:** One of `Value` or `ValueWo` must be specified.
+        /// </summary>
+        public Input<string>? ValueWo
+        {
+            get => _valueWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _valueWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `ValueWo`. This property should be incremented when updating `ValueWo`.
+        /// 
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("MySecretFile"), "/\n/", "\n")` or `base64encode(file("MySecretFile"))`, respectively.
         /// </summary>
         [Input("valueWoVersion")]
         public Input<int>? ValueWoVersion { get; set; }

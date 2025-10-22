@@ -33,14 +33,14 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
     }
 
     /**
-     * The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+     * The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     @Import(name="backendAddressPoolName")
     private @Nullable Output<String> backendAddressPoolName;
 
     /**
-     * @return The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     public Optional<Output<String>> backendAddressPoolName() {
@@ -63,14 +63,14 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
     }
 
     /**
-     * The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+     * The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     @Import(name="backendHttpSettingsName")
     private @Nullable Output<String> backendHttpSettingsName;
 
     /**
-     * @return The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     public Optional<Output<String>> backendHttpSettingsName() {
@@ -172,14 +172,14 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
     }
 
     /**
-     * The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+     * The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
      * 
      */
     @Import(name="redirectConfigurationName")
     private @Nullable Output<String> redirectConfigurationName;
 
     /**
-     * @return The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+     * @return The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
      * 
      */
     public Optional<Output<String>> redirectConfigurationName() {
@@ -204,7 +204,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
     /**
      * The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
      * 
-     * &gt; **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+     * &gt; **Note:** `backendAddressPoolName`, `backendHttpSettingsName`, `redirectConfigurationName`, and `rewriteRuleSetName` are applicable only when `ruleType` is `Basic`.
      * 
      */
     @Import(name="rewriteRuleSetName")
@@ -213,7 +213,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
     /**
      * @return The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
      * 
-     * &gt; **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+     * &gt; **Note:** `backendAddressPoolName`, `backendHttpSettingsName`, `redirectConfigurationName`, and `rewriteRuleSetName` are applicable only when `ruleType` is `Basic`.
      * 
      */
     public Optional<Output<String>> rewriteRuleSetName() {
@@ -326,7 +326,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param backendAddressPoolName The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+         * @param backendAddressPoolName The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param backendAddressPoolName The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+         * @param backendAddressPoolName The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param backendHttpSettingsName The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+         * @param backendHttpSettingsName The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param backendHttpSettingsName The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+         * @param backendHttpSettingsName The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param redirectConfigurationName The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+         * @param redirectConfigurationName The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param redirectConfigurationName The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+         * @param redirectConfigurationName The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
          * 
          * @return builder
          * 
@@ -563,7 +563,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         /**
          * @param rewriteRuleSetName The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
          * 
-         * &gt; **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+         * &gt; **Note:** `backendAddressPoolName`, `backendHttpSettingsName`, `redirectConfigurationName`, and `rewriteRuleSetName` are applicable only when `ruleType` is `Basic`.
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         /**
          * @param rewriteRuleSetName The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
          * 
-         * &gt; **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+         * &gt; **Note:** `backendAddressPoolName`, `backendHttpSettingsName`, `redirectConfigurationName`, and `rewriteRuleSetName` are applicable only when `ruleType` is `Basic`.
          * 
          * @return builder
          * 

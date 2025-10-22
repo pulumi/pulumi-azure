@@ -36,14 +36,14 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
     }
 
     /**
-     * One or more `ip_rule` blocks as defined below.
+     * One or more `ipRule` blocks as defined below.
      * 
      */
     @Import(name="ipRules")
     private @Nullable Output<List<EventHubNamespaceNetworkRulesetsIpRuleArgs>> ipRules;
 
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<EventHubNamespaceNetworkRulesetsIpRuleArgs>>> ipRules() {
@@ -85,14 +85,14 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
     }
 
     /**
-     * One or more `virtual_network_rule` blocks as defined below.
+     * One or more `virtualNetworkRule` blocks as defined below.
      * 
      */
     @Import(name="virtualNetworkRules")
     private @Nullable Output<List<EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs>> virtualNetworkRules;
 
     /**
-     * @return One or more `virtual_network_rule` blocks as defined below.
+     * @return One or more `virtualNetworkRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs>>> virtualNetworkRules() {
@@ -149,7 +149,7 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param virtualNetworkRules One or more `virtual_network_rule` blocks as defined below.
+         * @param virtualNetworkRules One or more `virtualNetworkRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param virtualNetworkRules One or more `virtual_network_rule` blocks as defined below.
+         * @param virtualNetworkRules One or more `virtualNetworkRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param virtualNetworkRules One or more `virtual_network_rule` blocks as defined below.
+         * @param virtualNetworkRules One or more `virtualNetworkRule` blocks as defined below.
          * 
          * @return builder
          * 

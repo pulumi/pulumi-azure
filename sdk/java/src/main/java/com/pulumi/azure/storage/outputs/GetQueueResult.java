@@ -28,18 +28,18 @@ public final class GetQueueResult {
      * @return The Resource Manager ID of this Storage Queue.
      * 
      * @deprecated
-     * the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
+    @Deprecated /* the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     private String resourceManagerId;
     private @Nullable String storageAccountId;
     /**
      * @deprecated
-     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
     private @Nullable String storageAccountName;
     /**
      * @return The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.
@@ -69,10 +69,10 @@ public final class GetQueueResult {
      * @return The Resource Manager ID of this Storage Queue.
      * 
      * @deprecated
-     * the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
+    @Deprecated /* the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     public String resourceManagerId() {
         return this.resourceManagerId;
     }
@@ -81,10 +81,10 @@ public final class GetQueueResult {
     }
     /**
      * @deprecated
-     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
     public Optional<String> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
     }

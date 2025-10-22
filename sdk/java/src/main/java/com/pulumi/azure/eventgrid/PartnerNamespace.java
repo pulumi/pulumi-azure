@@ -104,14 +104,14 @@ public class PartnerNamespace extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * One or more `inbound_ip_rule` blocks as defined below.
+     * One or more `inboundIpRule` blocks as defined below.
      * 
      */
     @Export(name="inboundIpRules", refs={List.class,PartnerNamespaceInboundIpRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PartnerNamespaceInboundIpRule>> inboundIpRules;
 
     /**
-     * @return One or more `inbound_ip_rule` blocks as defined below.
+     * @return One or more `inboundIpRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<PartnerNamespaceInboundIpRule>>> inboundIpRules() {

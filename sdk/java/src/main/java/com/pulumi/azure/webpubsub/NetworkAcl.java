@@ -20,6 +20,15 @@ import javax.annotation.Nullable;
 /**
  * Manages the Network ACL for a Web Pubsub.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.SignalRService` - 2024-03-01
+ * 
  * ## Import
  * 
  * Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.
@@ -46,28 +55,28 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultAction);
     }
     /**
-     * A `private_endpoint` block as defined below.
+     * A `privateEndpoint` block as defined below.
      * 
      */
     @Export(name="privateEndpoints", refs={List.class,NetworkAclPrivateEndpoint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NetworkAclPrivateEndpoint>> privateEndpoints;
 
     /**
-     * @return A `private_endpoint` block as defined below.
+     * @return A `privateEndpoint` block as defined below.
      * 
      */
     public Output<Optional<List<NetworkAclPrivateEndpoint>>> privateEndpoints() {
         return Codegen.optional(this.privateEndpoints);
     }
     /**
-     * A `public_network` block as defined below.
+     * A `publicNetwork` block as defined below.
      * 
      */
     @Export(name="publicNetwork", refs={NetworkAclPublicNetwork.class}, tree="[0]")
     private Output<NetworkAclPublicNetwork> publicNetwork;
 
     /**
-     * @return A `public_network` block as defined below.
+     * @return A `publicNetwork` block as defined below.
      * 
      */
     public Output<NetworkAclPublicNetwork> publicNetwork() {

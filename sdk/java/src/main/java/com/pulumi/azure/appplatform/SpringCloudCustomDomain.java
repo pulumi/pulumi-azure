@@ -154,14 +154,14 @@ public class SpringCloudCustomDomain extends com.pulumi.resources.CustomResource
         return this.springCloudAppId;
     }
     /**
-     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
+     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="thumbprint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> thumbprint;
 
     /**
-     * @return Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
+     * @return Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> thumbprint() {

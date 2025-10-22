@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// The ID of the storage account to save the packet capture session
         /// 
-        /// &gt; **Note:** At least one of `file_path` or `storage_account_id` must be specified.
+        /// &gt; **Note:** At least one of `FilePath` or `StorageAccountId` must be specified.
         /// </summary>
         public readonly string? StorageAccountId;
         /// <summary>

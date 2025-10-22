@@ -153,18 +153,39 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      * 
-     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+     * * &gt; **Note:** One of `value` or `valueWo` must be specified.
+     * 
+     */
+    @Import(name="valueWo")
+    private @Nullable Output<String> valueWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+     * 
+     * * &gt; **Note:** One of `value` or `valueWo` must be specified.
+     * 
+     */
+    public Optional<Output<String>> valueWo() {
+        return Optional.ofNullable(this.valueWo);
+    }
+
+    /**
+     * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
+     * 
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
      * 
      */
     @Import(name="valueWoVersion")
     private @Nullable Output<Integer> valueWoVersion;
 
     /**
-     * @return An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+     * @return An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      * 
-     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
      * 
      */
     public Optional<Output<Integer>> valueWoVersion() {
@@ -213,6 +234,7 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
         this.resourceVersionlessId = $.resourceVersionlessId;
         this.tags = $.tags;
         this.value = $.value;
+        this.valueWo = $.valueWo;
         this.valueWoVersion = $.valueWoVersion;
         this.version = $.version;
         this.versionlessId = $.versionlessId;
@@ -426,9 +448,36 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueWoVersion An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+         * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
          * 
-         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+         * * &gt; **Note:** One of `value` or `valueWo` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWo(@Nullable Output<String> valueWo) {
+            $.valueWo = valueWo;
+            return this;
+        }
+
+        /**
+         * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+         * 
+         * * &gt; **Note:** One of `value` or `valueWo` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWo(String valueWo) {
+            return valueWo(Output.of(valueWo));
+        }
+
+        /**
+         * @param valueWoVersion An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
+         * 
+         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
          * 
          * @return builder
          * 
@@ -439,9 +488,9 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueWoVersion An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+         * @param valueWoVersion An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
          * 
-         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
          * 
          * @return builder
          * 

@@ -44,7 +44,7 @@ public final class AppTemplateContainer {
     /**
      * @return The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     private @Nullable String ephemeralStorage;
@@ -54,7 +54,7 @@ public final class AppTemplateContainer {
      */
     private String image;
     /**
-     * @return A `liveness_probe` block as detailed below.
+     * @return A `livenessProbe` block as detailed below.
      * 
      */
     private @Nullable List<AppTemplateContainerLivenessProbe> livenessProbes;
@@ -71,17 +71,17 @@ public final class AppTemplateContainer {
      */
     private String name;
     /**
-     * @return A `readiness_probe` block as detailed below.
+     * @return A `readinessProbe` block as detailed below.
      * 
      */
     private @Nullable List<AppTemplateContainerReadinessProbe> readinessProbes;
     /**
-     * @return A `startup_probe` block as detailed below.
+     * @return A `startupProbe` block as detailed below.
      * 
      */
     private @Nullable List<AppTemplateContainerStartupProbe> startupProbes;
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     private @Nullable List<AppTemplateContainerVolumeMount> volumeMounts;
@@ -120,7 +120,7 @@ public final class AppTemplateContainer {
     /**
      * @return The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     public Optional<String> ephemeralStorage() {
@@ -134,7 +134,7 @@ public final class AppTemplateContainer {
         return this.image;
     }
     /**
-     * @return A `liveness_probe` block as detailed below.
+     * @return A `livenessProbe` block as detailed below.
      * 
      */
     public List<AppTemplateContainerLivenessProbe> livenessProbes() {
@@ -157,21 +157,21 @@ public final class AppTemplateContainer {
         return this.name;
     }
     /**
-     * @return A `readiness_probe` block as detailed below.
+     * @return A `readinessProbe` block as detailed below.
      * 
      */
     public List<AppTemplateContainerReadinessProbe> readinessProbes() {
         return this.readinessProbes == null ? List.of() : this.readinessProbes;
     }
     /**
-     * @return A `startup_probe` block as detailed below.
+     * @return A `startupProbe` block as detailed below.
      * 
      */
     public List<AppTemplateContainerStartupProbe> startupProbes() {
         return this.startupProbes == null ? List.of() : this.startupProbes;
     }
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     public List<AppTemplateContainerVolumeMount> volumeMounts() {

@@ -170,7 +170,7 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessConnectorIdentityResult> Identities;
         /// <summary>

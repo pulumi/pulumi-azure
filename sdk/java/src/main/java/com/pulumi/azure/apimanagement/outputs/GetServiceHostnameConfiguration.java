@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceHostnameConfiguration {
     /**
-     * @return One or more `developer_portal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as documented below.
      * 
      */
     private List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals;
@@ -43,7 +43,7 @@ public final class GetServiceHostnameConfiguration {
 
     private GetServiceHostnameConfiguration() {}
     /**
-     * @return One or more `developer_portal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as documented below.
      * 
      */
     public List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals() {

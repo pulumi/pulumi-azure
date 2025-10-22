@@ -18,11 +18,11 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly string HeaderName;
         /// <summary>
-        /// Set to `true` if the `value` is a secret and should be protected, otherwise `false`. If `true` then this value won't be returned from Azure API calls.
+        /// Set to `True` if the `Value` is a secret and should be protected, otherwise `False`. If `True` then this value won't be returned from Azure API calls.
         /// </summary>
         public readonly bool? Secret;
         /// <summary>
-        /// If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+        /// If the `Type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
         /// </summary>
         public readonly string? SourceField;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// If the `type` is `Static`, then provide the value to use.
+        /// If the `Type` is `Static`, then provide the value to use.
         /// </summary>
         public readonly string? Value;
 

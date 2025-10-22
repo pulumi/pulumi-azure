@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class VirtualNetworkGatewayPolicyGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
+        /// Is this a Default Virtual Network Gateway Policy Group? Defaults to `False`.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.VirtualNetworkGatewayPolicyGroupPolicyMemberGetArgs>? _policyMembers;
 
         /// <summary>
-        /// One or more `policy_member` blocks as defined below.
+        /// One or more `PolicyMember` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualNetworkGatewayPolicyGroupPolicyMemberGetArgs> PolicyMembers
         {

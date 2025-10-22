@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
+        /// The kind of confirmation email which will be sent to this user. Possible values are `Invite` and `Signup`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("confirmation")]
         public Output<string?> Confirmation { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The state of this user. Possible values are `active`, `blocked` and `pending`.
+        /// The state of this user. Possible values are `Active`, `Blocked` and `Pending`.
         /// 
         /// &gt; **Note:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
         /// </summary>
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
-        /// The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
+        /// The kind of confirmation email which will be sent to this user. Possible values are `Invite` and `Signup`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("confirmation")]
         public Input<string>? Confirmation { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The state of this user. Possible values are `active`, `blocked` and `pending`.
+        /// The state of this user. Possible values are `Active`, `Blocked` and `Pending`.
         /// 
         /// &gt; **Note:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
         /// </summary>
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementName { get; set; }
 
         /// <summary>
-        /// The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
+        /// The kind of confirmation email which will be sent to this user. Possible values are `Invite` and `Signup`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("confirmation")]
         public Input<string>? Confirmation { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The state of this user. Possible values are `active`, `blocked` and `pending`.
+        /// The state of this user. Possible values are `Active`, `Blocked` and `Pending`.
         /// 
         /// &gt; **Note:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
         /// </summary>

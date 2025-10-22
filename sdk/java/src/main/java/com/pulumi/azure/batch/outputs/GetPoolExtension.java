@@ -23,7 +23,7 @@ public final class GetPoolExtension {
      */
     private String name;
     /**
-     * @return The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+     * @return The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
      * 
      */
     private String protectedSettings;
@@ -69,7 +69,7 @@ public final class GetPoolExtension {
         return this.name;
     }
     /**
-     * @return The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+     * @return The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
      * 
      */
     public String protectedSettings() {

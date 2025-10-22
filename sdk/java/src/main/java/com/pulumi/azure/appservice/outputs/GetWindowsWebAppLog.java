@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppLog {
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     private List<GetWindowsWebAppLogApplicationLog> applicationLogs;
@@ -29,14 +29,14 @@ public final class GetWindowsWebAppLog {
      */
     private Boolean failedRequestTracing;
     /**
-     * @return An `http_logs` block as defined above.
+     * @return An `httpLogs` block as defined above.
      * 
      */
     private List<GetWindowsWebAppLogHttpLog> httpLogs;
 
     private GetWindowsWebAppLog() {}
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     public List<GetWindowsWebAppLogApplicationLog> applicationLogs() {
@@ -57,7 +57,7 @@ public final class GetWindowsWebAppLog {
         return this.failedRequestTracing;
     }
     /**
-     * @return An `http_logs` block as defined above.
+     * @return An `httpLogs` block as defined above.
      * 
      */
     public List<GetWindowsWebAppLogHttpLog> httpLogs() {

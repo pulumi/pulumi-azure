@@ -228,56 +228,56 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
         return this.apiName;
     }
     /**
-     * A `backend_request` block as defined below.
+     * A `backendRequest` block as defined below.
      * 
      */
     @Export(name="backendRequest", refs={ApiDiagnosticBackendRequest.class}, tree="[0]")
     private Output<ApiDiagnosticBackendRequest> backendRequest;
 
     /**
-     * @return A `backend_request` block as defined below.
+     * @return A `backendRequest` block as defined below.
      * 
      */
     public Output<ApiDiagnosticBackendRequest> backendRequest() {
         return this.backendRequest;
     }
     /**
-     * A `backend_response` block as defined below.
+     * A `backendResponse` block as defined below.
      * 
      */
     @Export(name="backendResponse", refs={ApiDiagnosticBackendResponse.class}, tree="[0]")
     private Output<ApiDiagnosticBackendResponse> backendResponse;
 
     /**
-     * @return A `backend_response` block as defined below.
+     * @return A `backendResponse` block as defined below.
      * 
      */
     public Output<ApiDiagnosticBackendResponse> backendResponse() {
         return this.backendResponse;
     }
     /**
-     * A `frontend_request` block as defined below.
+     * A `frontendRequest` block as defined below.
      * 
      */
     @Export(name="frontendRequest", refs={ApiDiagnosticFrontendRequest.class}, tree="[0]")
     private Output<ApiDiagnosticFrontendRequest> frontendRequest;
 
     /**
-     * @return A `frontend_request` block as defined below.
+     * @return A `frontendRequest` block as defined below.
      * 
      */
     public Output<ApiDiagnosticFrontendRequest> frontendRequest() {
         return this.frontendRequest;
     }
     /**
-     * A `frontend_response` block as defined below.
+     * A `frontendResponse` block as defined below.
      * 
      */
     @Export(name="frontendResponse", refs={ApiDiagnosticFrontendResponse.class}, tree="[0]")
     private Output<ApiDiagnosticFrontendResponse> frontendResponse;
 
     /**
-     * @return A `frontend_response` block as defined below.
+     * @return A `frontendResponse` block as defined below.
      * 
      */
     public Output<ApiDiagnosticFrontendResponse> frontendResponse() {

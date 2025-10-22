@@ -21,7 +21,7 @@ public final class NamespaceTopicSpacesConfiguration {
      */
     private @Nullable List<String> alternativeAuthenticationNameSources;
     /**
-     * @return One or more `dynamic_routing_enrichment` blocks as defined below.
+     * @return One or more `dynamicRoutingEnrichment` blocks as defined below.
      * 
      */
     private @Nullable List<NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment> dynamicRoutingEnrichments;
@@ -41,7 +41,7 @@ public final class NamespaceTopicSpacesConfiguration {
      */
     private @Nullable String routeTopicId;
     /**
-     * @return One or more `static_routing_enrichment` blocks as defined below.
+     * @return One or more `staticRoutingEnrichment` blocks as defined below.
      * 
      */
     private @Nullable List<NamespaceTopicSpacesConfigurationStaticRoutingEnrichment> staticRoutingEnrichments;
@@ -55,7 +55,7 @@ public final class NamespaceTopicSpacesConfiguration {
         return this.alternativeAuthenticationNameSources == null ? List.of() : this.alternativeAuthenticationNameSources;
     }
     /**
-     * @return One or more `dynamic_routing_enrichment` blocks as defined below.
+     * @return One or more `dynamicRoutingEnrichment` blocks as defined below.
      * 
      */
     public List<NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment> dynamicRoutingEnrichments() {
@@ -83,7 +83,7 @@ public final class NamespaceTopicSpacesConfiguration {
         return Optional.ofNullable(this.routeTopicId);
     }
     /**
-     * @return One or more `static_routing_enrichment` blocks as defined below.
+     * @return One or more `staticRoutingEnrichment` blocks as defined below.
      * 
      */
     public List<NamespaceTopicSpacesConfigurationStaticRoutingEnrichment> staticRoutingEnrichments() {

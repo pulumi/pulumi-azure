@@ -13,9 +13,9 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsFunctionAppSiteConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If this Windows Function App is Always On enabled. Defaults to `false`.
+        /// If this Windows Function App is Always On enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+        /// &gt; **Note:** when running in a Consumption or Premium Plan, `AlwaysOn` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<int>? AppScaleLimit { get; set; }
 
         /// <summary>
-        /// An `app_service_logs` block as defined above.
+        /// An `AppServiceLogs` block as defined above.
         /// </summary>
         [Input("appServiceLogs")]
         public Input<Inputs.WindowsFunctionAppSiteConfigAppServiceLogsGetArgs>? AppServiceLogs { get; set; }
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// An `application_stack` block as defined above.
+        /// An `ApplicationStack` block as defined above.
         /// 
         /// &gt; **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
         /// </summary>
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.WindowsFunctionAppSiteConfigApplicationStackGetArgs>? ApplicationStack { get; set; }
 
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.WindowsFunctionAppSiteConfigCorsGetArgs>? Cors { get; set; }
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? FtpsState { get; set; }
 
         /// <summary>
-        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `HealthCheckPath`.
         /// </summary>
         [Input("healthCheckEvictionTimeInMin")]
         public Input<int>? HealthCheckEvictionTimeInMin { get; set; }
@@ -139,13 +139,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? HealthCheckPath { get; set; }
 
         /// <summary>
-        /// Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        /// Specifies if the HTTP2 protocol should be enabled. Defaults to `False`.
         /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
 
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `IpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("ipRestrictionDefaultAction")]
         public Input<string>? IpRestrictionDefaultAction { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.WindowsFunctionAppSiteConfigIpRestrictionGetArgs>? _ipRestrictions;
 
         /// <summary>
-        /// One or more `ip_restriction` blocks as defined above.
+        /// One or more `IpRestriction` blocks as defined above.
         /// </summary>
         public InputList<Inputs.WindowsFunctionAppSiteConfigIpRestrictionGetArgs> IpRestrictions
         {
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<int>? PreWarmedInstanceCount { get; set; }
 
         /// <summary>
-        /// Should Remote Debugging be enabled. Defaults to `false`.
+        /// Should Remote Debugging be enabled. Defaults to `False`.
         /// </summary>
         [Input("remoteDebuggingEnabled")]
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }
 
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("scmIpRestrictionDefaultAction")]
         public Input<string>? ScmIpRestrictionDefaultAction { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.WindowsFunctionAppSiteConfigScmIpRestrictionGetArgs>? _scmIpRestrictions;
 
         /// <summary>
-        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
         public InputList<Inputs.WindowsFunctionAppSiteConfigScmIpRestrictionGetArgs> ScmIpRestrictions
         {
@@ -237,25 +237,25 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? ScmType { get; set; }
 
         /// <summary>
-        /// Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+        /// Should the Windows Function App `IpRestriction` configuration be used for the SCM also.
         /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
-        /// Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
+        /// Should the Windows Function App use a 32-bit worker process. Defaults to `True`.
         /// </summary>
         [Input("use32BitWorker")]
         public Input<bool>? Use32BitWorker { get; set; }
 
         /// <summary>
-        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `False`.
         /// </summary>
         [Input("vnetRouteAllEnabled")]
         public Input<bool>? VnetRouteAllEnabled { get; set; }
 
         /// <summary>
-        /// Should Web Sockets be enabled. Defaults to `false`.
+        /// Should Web Sockets be enabled. Defaults to `False`.
         /// </summary>
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }

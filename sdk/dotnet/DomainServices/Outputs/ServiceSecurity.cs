@@ -14,31 +14,31 @@ namespace Pulumi.Azure.DomainServices.Outputs
     public sealed class ServiceSecurity
     {
         /// <summary>
-        /// Whether to enable Kerberos Armoring. Defaults to `false`.
+        /// Whether to enable Kerberos Armoring. Defaults to `False`.
         /// </summary>
         public readonly bool? KerberosArmoringEnabled;
         /// <summary>
-        /// Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+        /// Whether to enable Kerberos RC4 Encryption. Defaults to `False`.
         /// </summary>
         public readonly bool? KerberosRc4EncryptionEnabled;
         /// <summary>
-        /// Whether to enable legacy NTLM v1 support. Defaults to `false`.
+        /// Whether to enable legacy NTLM v1 support. Defaults to `False`.
         /// </summary>
         public readonly bool? NtlmV1Enabled;
         /// <summary>
-        /// Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
+        /// Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `False`.
         /// </summary>
         public readonly bool? SyncKerberosPasswords;
         /// <summary>
-        /// Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
+        /// Whether to synchronize NTLM password hashes to the managed domain. Defaults to `False`.
         /// </summary>
         public readonly bool? SyncNtlmPasswords;
         /// <summary>
-        /// Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
+        /// Whether to synchronize on-premises password hashes to the managed domain. Defaults to `False`.
         /// </summary>
         public readonly bool? SyncOnPremPasswords;
         /// <summary>
-        /// Whether to enable legacy TLS v1 support. Defaults to `false`.
+        /// Whether to enable legacy TLS v1 support. Defaults to `False`.
         /// </summary>
         public readonly bool? TlsV1Enabled;
 

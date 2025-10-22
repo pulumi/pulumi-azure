@@ -186,13 +186,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster_id of an existing cluster within the linked ADB instance.
+        /// The ClusterId of an existing cluster within the linked ADB instance.
         /// </summary>
         [Output("existingClusterId")]
         public Output<string?> ExistingClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
+        /// Leverages an instance pool within the linked ADB instance as one `InstancePool` block defined below.
         /// </summary>
         [Output("instancePool")]
         public Output<Outputs.LinkedServiceAzureDatabricksInstancePool?> InstancePool { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+        /// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `KeyVaultPassword` block below.
         /// </summary>
         [Output("keyVaultPassword")]
         public Output<Outputs.LinkedServiceAzureDatabricksKeyVaultPassword?> KeyVaultPassword { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+        /// Creates new clusters within the linked ADB instance as defined in the `NewClusterConfig` block below.
         /// </summary>
         [Output("newClusterConfig")]
         public Output<Outputs.LinkedServiceAzureDatabricksNewClusterConfig?> NewClusterConfig { get; private set; } = null!;
@@ -342,13 +342,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The cluster_id of an existing cluster within the linked ADB instance.
+        /// The ClusterId of an existing cluster within the linked ADB instance.
         /// </summary>
         [Input("existingClusterId")]
         public Input<string>? ExistingClusterId { get; set; }
 
         /// <summary>
-        /// Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
+        /// Leverages an instance pool within the linked ADB instance as one `InstancePool` block defined below.
         /// </summary>
         [Input("instancePool")]
         public Input<Inputs.LinkedServiceAzureDatabricksInstancePoolArgs>? InstancePool { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+        /// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `KeyVaultPassword` block below.
         /// </summary>
         [Input("keyVaultPassword")]
         public Input<Inputs.LinkedServiceAzureDatabricksKeyVaultPasswordArgs>? KeyVaultPassword { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+        /// Creates new clusters within the linked ADB instance as defined in the `NewClusterConfig` block below.
         /// </summary>
         [Input("newClusterConfig")]
         public Input<Inputs.LinkedServiceAzureDatabricksNewClusterConfigArgs>? NewClusterConfig { get; set; }
@@ -462,13 +462,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The cluster_id of an existing cluster within the linked ADB instance.
+        /// The ClusterId of an existing cluster within the linked ADB instance.
         /// </summary>
         [Input("existingClusterId")]
         public Input<string>? ExistingClusterId { get; set; }
 
         /// <summary>
-        /// Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
+        /// Leverages an instance pool within the linked ADB instance as one `InstancePool` block defined below.
         /// </summary>
         [Input("instancePool")]
         public Input<Inputs.LinkedServiceAzureDatabricksInstancePoolGetArgs>? InstancePool { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+        /// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `KeyVaultPassword` block below.
         /// </summary>
         [Input("keyVaultPassword")]
         public Input<Inputs.LinkedServiceAzureDatabricksKeyVaultPasswordGetArgs>? KeyVaultPassword { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+        /// Creates new clusters within the linked ADB instance as defined in the `NewClusterConfig` block below.
         /// </summary>
         [Input("newClusterConfig")]
         public Input<Inputs.LinkedServiceAzureDatabricksNewClusterConfigGetArgs>? NewClusterConfig { get; set; }

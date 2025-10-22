@@ -13,7 +13,7 @@ namespace Pulumi.Azure.NetApp.Inputs
     public sealed class AccountActiveDirectoryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+        /// If enabled, AES encryption will be enabled for SMB communication. Defaults to `False`.
         /// </summary>
         [Input("aesEncryptionEnabled")]
         public Input<bool>? AesEncryptionEnabled { get; set; }
@@ -45,25 +45,25 @@ namespace Pulumi.Azure.NetApp.Inputs
         /// <summary>
         /// kdc server IP addresses for the active directory machine.
         /// 
-        /// &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+        /// &gt; **Note:** If you plan on using **Kerberos** volumes, both `AdName` and `KdcIp` are required in order to create the volume.
         /// </summary>
         [Input("kerberosKdcIp")]
         public Input<string>? KerberosKdcIp { get; set; }
 
         /// <summary>
-        /// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+        /// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `False`.
         /// </summary>
         [Input("ldapOverTlsEnabled")]
         public Input<bool>? LdapOverTlsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+        /// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `False`.
         /// </summary>
         [Input("ldapSigningEnabled")]
         public Input<bool>? LdapSigningEnabled { get; set; }
 
         /// <summary>
-        /// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+        /// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `False`.
         /// </summary>
         [Input("localNfsUsersWithLdapAllowed")]
         public Input<bool>? LocalNfsUsersWithLdapAllowed { get; set; }
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// The password associated with the `username`.
+        /// The password associated with the `Username`.
         /// </summary>
         public Input<string>? Password
         {
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         private Input<string>? _serverRootCaCertificate;
 
         /// <summary>
-        /// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+        /// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `LdapOverTlsEnabled` is set to `True`.
         /// </summary>
         public Input<string>? ServerRootCaCertificate
         {

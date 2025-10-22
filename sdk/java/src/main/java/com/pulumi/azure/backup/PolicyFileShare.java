@@ -177,56 +177,56 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Configures the policy daily retention as documented in the `retention_daily` block below.
+     * Configures the policy daily retention as documented in the `retentionDaily` block below.
      * 
      */
     @Export(name="retentionDaily", refs={PolicyFileShareRetentionDaily.class}, tree="[0]")
     private Output<PolicyFileShareRetentionDaily> retentionDaily;
 
     /**
-     * @return Configures the policy daily retention as documented in the `retention_daily` block below.
+     * @return Configures the policy daily retention as documented in the `retentionDaily` block below.
      * 
      */
     public Output<PolicyFileShareRetentionDaily> retentionDaily() {
         return this.retentionDaily;
     }
     /**
-     * Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      * 
      */
     @Export(name="retentionMonthly", refs={PolicyFileShareRetentionMonthly.class}, tree="[0]")
     private Output</* @Nullable */ PolicyFileShareRetentionMonthly> retentionMonthly;
 
     /**
-     * @return Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * @return Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      * 
      */
     public Output<Optional<PolicyFileShareRetentionMonthly>> retentionMonthly() {
         return Codegen.optional(this.retentionMonthly);
     }
     /**
-     * Configures the policy weekly retention as documented in the `retention_weekly` block below.
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
      * 
      */
     @Export(name="retentionWeekly", refs={PolicyFileShareRetentionWeekly.class}, tree="[0]")
     private Output</* @Nullable */ PolicyFileShareRetentionWeekly> retentionWeekly;
 
     /**
-     * @return Configures the policy weekly retention as documented in the `retention_weekly` block below.
+     * @return Configures the policy weekly retention as documented in the `retentionWeekly` block below.
      * 
      */
     public Output<Optional<PolicyFileShareRetentionWeekly>> retentionWeekly() {
         return Codegen.optional(this.retentionWeekly);
     }
     /**
-     * Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      * 
      */
     @Export(name="retentionYearly", refs={PolicyFileShareRetentionYearly.class}, tree="[0]")
     private Output</* @Nullable */ PolicyFileShareRetentionYearly> retentionYearly;
 
     /**
-     * @return Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * @return Configures the policy yearly retention as documented in the `retentionYearly` block below.
      * 
      */
     public Output<Optional<PolicyFileShareRetentionYearly>> retentionYearly() {

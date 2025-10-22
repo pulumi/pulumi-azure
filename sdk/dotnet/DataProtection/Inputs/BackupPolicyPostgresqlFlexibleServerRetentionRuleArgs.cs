@@ -13,7 +13,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
     public sealed class BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `criteria` block as defined below. Changing this forces a new resource to be created.
+        /// A `Criteria` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("criteria", required: true)]
         public Input<Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs> Criteria { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
         private InputList<Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs>? _lifeCycles;
 
         /// <summary>
-        /// A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        /// A `LifeCycle` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs> LifeCycles
         {

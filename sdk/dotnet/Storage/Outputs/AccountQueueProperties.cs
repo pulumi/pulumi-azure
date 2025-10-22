@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountQueueProperties
     {
         /// <summary>
-        /// A `cors_rule` block as defined above.
+        /// A `CorsRule` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountQueuePropertiesCorsRule> CorsRules;
         /// <summary>
-        /// A `hour_metrics` block as defined below.
+        /// A `HourMetrics` block as defined below.
         /// </summary>
         public readonly Outputs.AccountQueuePropertiesHourMetrics? HourMetrics;
         /// <summary>
-        /// A `logging` block as defined below.
+        /// A `Logging` block as defined below.
         /// </summary>
         public readonly Outputs.AccountQueuePropertiesLogging? Logging;
         /// <summary>
-        /// A `minute_metrics` block as defined below.
+        /// A `MinuteMetrics` block as defined below.
         /// </summary>
         public readonly Outputs.AccountQueuePropertiesMinuteMetrics? MinuteMetrics;
 

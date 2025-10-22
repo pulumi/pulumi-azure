@@ -13,13 +13,13 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class KafkaClusterRolesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `head_node` block as defined above.
+        /// A `HeadNode` block as defined above.
         /// </summary>
         [Input("headNode", required: true)]
         public Input<Inputs.KafkaClusterRolesHeadNodeArgs> HeadNode { get; set; } = null!;
 
         /// <summary>
-        /// A `kafka_management_node` block as defined below.
+        /// A `KafkaManagementNode` block as defined below.
         /// 
         /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
         /// </summary>
@@ -27,13 +27,13 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public Input<Inputs.KafkaClusterRolesKafkaManagementNodeArgs>? KafkaManagementNode { get; set; }
 
         /// <summary>
-        /// A `worker_node` block as defined below.
+        /// A `WorkerNode` block as defined below.
         /// </summary>
         [Input("workerNode", required: true)]
         public Input<Inputs.KafkaClusterRolesWorkerNodeArgs> WorkerNode { get; set; } = null!;
 
         /// <summary>
-        /// A `zookeeper_node` block as defined below.
+        /// A `ZookeeperNode` block as defined below.
         /// </summary>
         [Input("zookeeperNode", required: true)]
         public Input<Inputs.KafkaClusterRolesZookeeperNodeArgs> ZookeeperNode { get; set; } = null!;

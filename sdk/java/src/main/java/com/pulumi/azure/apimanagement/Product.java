@@ -111,7 +111,7 @@ public class Product extends com.pulumi.resources.CustomResource {
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
      * 
-     * &gt; **Note:** `approval_required` can only be set when `subscription_required` is set to `true`.
+     * &gt; **Note:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
      * 
      */
     @Export(name="approvalRequired", refs={Boolean.class}, tree="[0]")
@@ -120,7 +120,7 @@ public class Product extends com.pulumi.resources.CustomResource {
     /**
      * @return Do subscribers need to be approved prior to being able to use the Product?
      * 
-     * &gt; **Note:** `approval_required` can only be set when `subscription_required` is set to `true`.
+     * &gt; **Note:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
      * 
      */
     public Output<Optional<Boolean>> approvalRequired() {
@@ -213,7 +213,7 @@ public class Product extends com.pulumi.resources.CustomResource {
     /**
      * The number of subscriptions a user can have to this Product at the same time.
      * 
-     * &gt; **Note:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
+     * &gt; **Note:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
      * 
      */
     @Export(name="subscriptionsLimit", refs={Integer.class}, tree="[0]")
@@ -222,7 +222,7 @@ public class Product extends com.pulumi.resources.CustomResource {
     /**
      * @return The number of subscriptions a user can have to this Product at the same time.
      * 
-     * &gt; **Note:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
+     * &gt; **Note:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
      * 
      */
     public Output<Optional<Integer>> subscriptionsLimit() {

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+        /// Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `False`.
         /// </summary>
         [Input("garbageCollectionEnabled")]
         public Input<bool>? GarbageCollectionEnabled { get; set; }
@@ -43,13 +43,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// A `post_build` block as defined below.
+        /// A `PostBuild` block as defined below.
         /// </summary>
         [Input("postBuild")]
         public Input<Inputs.FluxConfigurationKustomizationPostBuildGetArgs>? PostBuild { get; set; }
 
         /// <summary>
-        /// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+        /// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `False`.
         /// </summary>
         [Input("recreatingEnabled")]
         public Input<bool>? RecreatingEnabled { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? TimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+        /// Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `True`.
         /// </summary>
         [Input("wait")]
         public Input<bool>? Wait { get; set; }

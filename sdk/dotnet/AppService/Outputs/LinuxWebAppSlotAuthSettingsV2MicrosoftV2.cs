@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
         /// 
-        /// !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        /// !&gt; **Note:** A setting with this name must exist in `AppSettings` to function correctly.
         /// </summary>
         public readonly string ClientSecretSettingName;
         /// <summary>

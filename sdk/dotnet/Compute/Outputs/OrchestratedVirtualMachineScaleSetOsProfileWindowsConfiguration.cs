@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration
     {
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `AdditionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> AdditionalUnattendContents;
         /// <summary>
@@ -26,37 +26,37 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `Name` field. If the value of the `Name` field is not a valid `ComputerNamePrefix`, then you must specify `ComputerNamePrefix`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? ComputerNamePrefix;
         /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
         /// </summary>
         public readonly bool? EnableAutomaticUpdates;
         /// <summary>
-        /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        /// Should the VM be patched without requiring a reboot? Possible values are `True` or `False`. Defaults to `False`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// 
-        /// &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM's `sku_name` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+        /// &gt; **Note:** Hotpatching can only be enabled if the `PatchMode` is set to `AutomaticByPlatform`, the `ProvisionVmAgent` is set to `True`, your `SourceImageReference` references a hotpatching enabled image, the VM's `SkuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `Extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
         /// </summary>
         public readonly bool? HotpatchingEnabled;
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
-        /// &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        /// &gt; **Note:** If the `PatchAssessmentMode` is set to `AutomaticByPlatform` then the `ProvisionVmAgent` field must be set to `True`.
         /// </summary>
         public readonly string? PatchAssessmentMode;
         /// <summary>
         /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// 
-        /// &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
+        /// &gt; **Note:** If `PatchMode` is set to `AutomaticByPlatform` the `ProvisionVmAgent` must be set to `True` and the `Extension` must contain at least one application health extension.
         /// </summary>
         public readonly string? PatchMode;
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `True`. Changing this value forces a new resource to be created.
         /// </summary>
         public readonly bool? ProvisionVmAgent;
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> Secrets;
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? Timezone;
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `WinrmListener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> WinrmListeners;
 

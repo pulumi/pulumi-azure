@@ -65,14 +65,14 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `propagated_route_table` block as defined below.
+     * A `propagatedRouteTable` block as defined below.
      * 
      */
     @Import(name="propagatedRouteTable")
     private @Nullable Output<VirtualHubConnectionRoutingPropagatedRouteTableArgs> propagatedRouteTable;
 
     /**
-     * @return A `propagated_route_table` block as defined below.
+     * @return A `propagatedRouteTable` block as defined below.
      * 
      */
     public Optional<Output<VirtualHubConnectionRoutingPropagatedRouteTableArgs>> propagatedRouteTable() {
@@ -110,14 +110,14 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `static_vnet_route` block as defined below.
+     * A `staticVnetRoute` block as defined below.
      * 
      */
     @Import(name="staticVnetRoutes")
     private @Nullable Output<List<VirtualHubConnectionRoutingStaticVnetRouteArgs>> staticVnetRoutes;
 
     /**
-     * @return A `static_vnet_route` block as defined below.
+     * @return A `staticVnetRoute` block as defined below.
      * 
      */
     public Optional<Output<List<VirtualHubConnectionRoutingStaticVnetRouteArgs>>> staticVnetRoutes() {
@@ -218,7 +218,7 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param propagatedRouteTable A `propagated_route_table` block as defined below.
+         * @param propagatedRouteTable A `propagatedRouteTable` block as defined below.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param propagatedRouteTable A `propagated_route_table` block as defined below.
+         * @param propagatedRouteTable A `propagatedRouteTable` block as defined below.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param staticVnetRoutes A `static_vnet_route` block as defined below.
+         * @param staticVnetRoutes A `staticVnetRoute` block as defined below.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param staticVnetRoutes A `static_vnet_route` block as defined below.
+         * @param staticVnetRoutes A `staticVnetRoute` block as defined below.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param staticVnetRoutes A `static_vnet_route` block as defined below.
+         * @param staticVnetRoutes A `staticVnetRoute` block as defined below.
          * 
          * @return builder
          * 

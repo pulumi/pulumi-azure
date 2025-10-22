@@ -18,7 +18,7 @@ public final class GetApplicationGatewayPrivateLinkConfiguration {
      */
     private String id;
     /**
-     * @return One or more `ip_configuration` blocks as defined below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations;
@@ -37,7 +37,7 @@ public final class GetApplicationGatewayPrivateLinkConfiguration {
         return this.id;
     }
     /**
-     * @return One or more `ip_configuration` blocks as defined below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations() {

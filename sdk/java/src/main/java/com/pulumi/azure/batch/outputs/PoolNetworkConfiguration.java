@@ -25,7 +25,7 @@ public final class PoolNetworkConfiguration {
      */
     private @Nullable String dynamicVnetAssignmentScope;
     /**
-     * @return A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+     * @return A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
@@ -61,7 +61,7 @@ public final class PoolNetworkConfiguration {
         return Optional.ofNullable(this.dynamicVnetAssignmentScope);
     }
     /**
-     * @return A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+     * @return A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
      * 
      */
     public List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations() {

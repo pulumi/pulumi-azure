@@ -79,14 +79,14 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
     }
 
     /**
-     * A `read_write_endpoint_failover_policy` block as defined below.
+     * A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     @Import(name="readWriteEndpointFailoverPolicy", required=true)
     private Output<ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs> readWriteEndpointFailoverPolicy;
 
     /**
-     * @return A `read_write_endpoint_failover_policy` block as defined below.
+     * @return A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     public Output<ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs> readWriteEndpointFailoverPolicy() {
@@ -238,7 +238,7 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
         }
 
         /**
-         * @param readWriteEndpointFailoverPolicy A `read_write_endpoint_failover_policy` block as defined below.
+         * @param readWriteEndpointFailoverPolicy A `readWriteEndpointFailoverPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
         }
 
         /**
-         * @param readWriteEndpointFailoverPolicy A `read_write_endpoint_failover_policy` block as defined below.
+         * @param readWriteEndpointFailoverPolicy A `readWriteEndpointFailoverPolicy` block as defined below.
          * 
          * @return builder
          * 

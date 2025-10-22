@@ -13,9 +13,9 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class SharedImageGallerySharingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+        /// A `CommunityGallery` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `community_gallery` must be set when `permission` is set to `Community`.
+        /// &gt; **Note:** `CommunityGallery` must be set when `Permission` is set to `Community`.
         /// </summary>
         [Input("communityGallery")]
         public Input<Inputs.SharedImageGallerySharingCommunityGalleryGetArgs>? CommunityGallery { get; set; }

@@ -48,14 +48,14 @@ public class HciDeploymentSetting extends com.pulumi.resources.CustomResource {
         return this.arcResourceIds;
     }
     /**
-     * One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * One or more `scaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Export(name="scaleUnits", refs={List.class,HciDeploymentSettingScaleUnit.class}, tree="[0,1]")
     private Output<List<HciDeploymentSettingScaleUnit>> scaleUnits;
 
     /**
-     * @return One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `scaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Output<List<HciDeploymentSettingScaleUnit>> scaleUnits() {

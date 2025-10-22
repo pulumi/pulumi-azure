@@ -20,7 +20,7 @@ public final class ResourcePolicyAssignmentResourceSelector {
      */
     private @Nullable String name;
     /**
-     * @return One or more `resource_selector` block as defined below.
+     * @return One or more `resourceSelector` block as defined below.
      * 
      */
     private List<ResourcePolicyAssignmentResourceSelectorSelector> selectors;
@@ -34,7 +34,7 @@ public final class ResourcePolicyAssignmentResourceSelector {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return One or more `resource_selector` block as defined below.
+     * @return One or more `resourceSelector` block as defined below.
      * 
      */
     public List<ResourcePolicyAssignmentResourceSelectorSelector> selectors() {

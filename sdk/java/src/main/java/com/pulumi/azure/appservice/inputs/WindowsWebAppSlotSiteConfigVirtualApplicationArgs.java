@@ -50,14 +50,14 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationArgs extends com
     }
 
     /**
-     * One or more `virtual_directory` blocks as defined below.
+     * One or more `virtualDirectory` blocks as defined below.
      * 
      */
     @Import(name="virtualDirectories")
     private @Nullable Output<List<WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs>> virtualDirectories;
 
     /**
-     * @return One or more `virtual_directory` blocks as defined below.
+     * @return One or more `virtualDirectory` blocks as defined below.
      * 
      */
     public Optional<Output<List<WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs>>> virtualDirectories() {
@@ -149,7 +149,7 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationArgs extends com
         }
 
         /**
-         * @param virtualDirectories One or more `virtual_directory` blocks as defined below.
+         * @param virtualDirectories One or more `virtualDirectory` blocks as defined below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationArgs extends com
         }
 
         /**
-         * @param virtualDirectories One or more `virtual_directory` blocks as defined below.
+         * @param virtualDirectories One or more `virtualDirectory` blocks as defined below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationArgs extends com
         }
 
         /**
-         * @param virtualDirectories One or more `virtual_directory` blocks as defined below.
+         * @param virtualDirectories One or more `virtualDirectory` blocks as defined below.
          * 
          * @return builder
          * 

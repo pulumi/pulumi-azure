@@ -195,70 +195,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/applicationGateway:ApplicationGateway")
 public class ApplicationGateway extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `authentication_certificate` blocks as defined below.
+     * One or more `authenticationCertificate` blocks as defined below.
      * 
      */
     @Export(name="authenticationCertificates", refs={List.class,ApplicationGatewayAuthenticationCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayAuthenticationCertificate>> authenticationCertificates;
 
     /**
-     * @return One or more `authentication_certificate` blocks as defined below.
+     * @return One or more `authenticationCertificate` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewayAuthenticationCertificate>>> authenticationCertificates() {
         return Codegen.optional(this.authenticationCertificates);
     }
     /**
-     * An `autoscale_configuration` block as defined below.
+     * An `autoscaleConfiguration` block as defined below.
      * 
      */
     @Export(name="autoscaleConfiguration", refs={ApplicationGatewayAutoscaleConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationGatewayAutoscaleConfiguration> autoscaleConfiguration;
 
     /**
-     * @return An `autoscale_configuration` block as defined below.
+     * @return An `autoscaleConfiguration` block as defined below.
      * 
      */
     public Output<Optional<ApplicationGatewayAutoscaleConfiguration>> autoscaleConfiguration() {
         return Codegen.optional(this.autoscaleConfiguration);
     }
     /**
-     * One or more `backend_address_pool` blocks as defined below.
+     * One or more `backendAddressPool` blocks as defined below.
      * 
      */
     @Export(name="backendAddressPools", refs={List.class,ApplicationGatewayBackendAddressPool.class}, tree="[0,1]")
     private Output<List<ApplicationGatewayBackendAddressPool>> backendAddressPools;
 
     /**
-     * @return One or more `backend_address_pool` blocks as defined below.
+     * @return One or more `backendAddressPool` blocks as defined below.
      * 
      */
     public Output<List<ApplicationGatewayBackendAddressPool>> backendAddressPools() {
         return this.backendAddressPools;
     }
     /**
-     * One or more `backend_http_settings` blocks as defined below.
+     * One or more `backendHttpSettings` blocks as defined below.
      * 
      */
     @Export(name="backendHttpSettings", refs={List.class,ApplicationGatewayBackendHttpSetting.class}, tree="[0,1]")
     private Output<List<ApplicationGatewayBackendHttpSetting>> backendHttpSettings;
 
     /**
-     * @return One or more `backend_http_settings` blocks as defined below.
+     * @return One or more `backendHttpSettings` blocks as defined below.
      * 
      */
     public Output<List<ApplicationGatewayBackendHttpSetting>> backendHttpSettings() {
         return this.backendHttpSettings;
     }
     /**
-     * One or more `custom_error_configuration` blocks as defined below.
+     * One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     @Export(name="customErrorConfigurations", refs={List.class,ApplicationGatewayCustomErrorConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayCustomErrorConfiguration>> customErrorConfigurations;
 
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewayCustomErrorConfiguration>>> customErrorConfigurations() {
@@ -321,42 +321,42 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceFirewallPolicyAssociation);
     }
     /**
-     * One or more `frontend_ip_configuration` blocks as defined below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     @Export(name="frontendIpConfigurations", refs={List.class,ApplicationGatewayFrontendIpConfiguration.class}, tree="[0,1]")
     private Output<List<ApplicationGatewayFrontendIpConfiguration>> frontendIpConfigurations;
 
     /**
-     * @return One or more `frontend_ip_configuration` blocks as defined below.
+     * @return One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     public Output<List<ApplicationGatewayFrontendIpConfiguration>> frontendIpConfigurations() {
         return this.frontendIpConfigurations;
     }
     /**
-     * One or more `frontend_port` blocks as defined below.
+     * One or more `frontendPort` blocks as defined below.
      * 
      */
     @Export(name="frontendPorts", refs={List.class,ApplicationGatewayFrontendPort.class}, tree="[0,1]")
     private Output<List<ApplicationGatewayFrontendPort>> frontendPorts;
 
     /**
-     * @return One or more `frontend_port` blocks as defined below.
+     * @return One or more `frontendPort` blocks as defined below.
      * 
      */
     public Output<List<ApplicationGatewayFrontendPort>> frontendPorts() {
         return this.frontendPorts;
     }
     /**
-     * One or more `gateway_ip_configuration` blocks as defined below.
+     * One or more `gatewayIpConfiguration` blocks as defined below.
      * 
      */
     @Export(name="gatewayIpConfigurations", refs={List.class,ApplicationGatewayGatewayIpConfiguration.class}, tree="[0,1]")
     private Output<List<ApplicationGatewayGatewayIpConfiguration>> gatewayIpConfigurations;
 
     /**
-     * @return One or more `gateway_ip_configuration` blocks as defined below.
+     * @return One or more `gatewayIpConfiguration` blocks as defined below.
      * 
      */
     public Output<List<ApplicationGatewayGatewayIpConfiguration>> gatewayIpConfigurations() {
@@ -377,14 +377,14 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.global);
     }
     /**
-     * One or more `http_listener` blocks as defined below.
+     * One or more `httpListener` blocks as defined below.
      * 
      */
     @Export(name="httpListeners", refs={List.class,ApplicationGatewayHttpListener.class}, tree="[0,1]")
     private Output<List<ApplicationGatewayHttpListener>> httpListeners;
 
     /**
-     * @return One or more `http_listener` blocks as defined below.
+     * @return One or more `httpListener` blocks as defined below.
      * 
      */
     public Output<List<ApplicationGatewayHttpListener>> httpListeners() {
@@ -433,28 +433,28 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A list of `private_endpoint_connection` blocks as defined below.
+     * A list of `privateEndpointConnection` blocks as defined below.
      * 
      */
     @Export(name="privateEndpointConnections", refs={List.class,ApplicationGatewayPrivateEndpointConnection.class}, tree="[0,1]")
     private Output<List<ApplicationGatewayPrivateEndpointConnection>> privateEndpointConnections;
 
     /**
-     * @return A list of `private_endpoint_connection` blocks as defined below.
+     * @return A list of `privateEndpointConnection` blocks as defined below.
      * 
      */
     public Output<List<ApplicationGatewayPrivateEndpointConnection>> privateEndpointConnections() {
         return this.privateEndpointConnections;
     }
     /**
-     * One or more `private_link_configuration` blocks as defined below.
+     * One or more `privateLinkConfiguration` blocks as defined below.
      * 
      */
     @Export(name="privateLinkConfigurations", refs={List.class,ApplicationGatewayPrivateLinkConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayPrivateLinkConfiguration>> privateLinkConfigurations;
 
     /**
-     * @return One or more `private_link_configuration` blocks as defined below.
+     * @return One or more `privateLinkConfiguration` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewayPrivateLinkConfiguration>>> privateLinkConfigurations() {
@@ -475,28 +475,28 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.probes);
     }
     /**
-     * One or more `redirect_configuration` blocks as defined below.
+     * One or more `redirectConfiguration` blocks as defined below.
      * 
      */
     @Export(name="redirectConfigurations", refs={List.class,ApplicationGatewayRedirectConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayRedirectConfiguration>> redirectConfigurations;
 
     /**
-     * @return One or more `redirect_configuration` blocks as defined below.
+     * @return One or more `redirectConfiguration` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewayRedirectConfiguration>>> redirectConfigurations() {
         return Codegen.optional(this.redirectConfigurations);
     }
     /**
-     * One or more `request_routing_rule` blocks as defined below.
+     * One or more `requestRoutingRule` blocks as defined below.
      * 
      */
     @Export(name="requestRoutingRules", refs={List.class,ApplicationGatewayRequestRoutingRule.class}, tree="[0,1]")
     private Output<List<ApplicationGatewayRequestRoutingRule>> requestRoutingRules;
 
     /**
-     * @return One or more `request_routing_rule` blocks as defined below.
+     * @return One or more `requestRoutingRule` blocks as defined below.
      * 
      */
     public Output<List<ApplicationGatewayRequestRoutingRule>> requestRoutingRules() {
@@ -517,14 +517,14 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+     * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      * 
      */
     @Export(name="rewriteRuleSets", refs={List.class,ApplicationGatewayRewriteRuleSet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayRewriteRuleSet>> rewriteRuleSets;
 
     /**
-     * @return One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+     * @return One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      * 
      */
     public Output<Optional<List<ApplicationGatewayRewriteRuleSet>>> rewriteRuleSets() {
@@ -545,42 +545,42 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return this.sku;
     }
     /**
-     * One or more `ssl_certificate` blocks as defined below.
+     * One or more `sslCertificate` blocks as defined below.
      * 
      */
     @Export(name="sslCertificates", refs={List.class,ApplicationGatewaySslCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewaySslCertificate>> sslCertificates;
 
     /**
-     * @return One or more `ssl_certificate` blocks as defined below.
+     * @return One or more `sslCertificate` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewaySslCertificate>>> sslCertificates() {
         return Codegen.optional(this.sslCertificates);
     }
     /**
-     * a `ssl_policy` block as defined below.
+     * a `sslPolicy` block as defined below.
      * 
      */
     @Export(name="sslPolicy", refs={ApplicationGatewaySslPolicy.class}, tree="[0]")
     private Output<ApplicationGatewaySslPolicy> sslPolicy;
 
     /**
-     * @return a `ssl_policy` block as defined below.
+     * @return a `sslPolicy` block as defined below.
      * 
      */
     public Output<ApplicationGatewaySslPolicy> sslPolicy() {
         return this.sslPolicy;
     }
     /**
-     * One or more `ssl_profile` blocks as defined below.
+     * One or more `sslProfile` blocks as defined below.
      * 
      */
     @Export(name="sslProfiles", refs={List.class,ApplicationGatewaySslProfile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewaySslProfile>> sslProfiles;
 
     /**
-     * @return One or more `ssl_profile` blocks as defined below.
+     * @return One or more `sslProfile` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewaySslProfile>>> sslProfiles() {
@@ -601,56 +601,56 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * One or more `trusted_client_certificate` blocks as defined below.
+     * One or more `trustedClientCertificate` blocks as defined below.
      * 
      */
     @Export(name="trustedClientCertificates", refs={List.class,ApplicationGatewayTrustedClientCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayTrustedClientCertificate>> trustedClientCertificates;
 
     /**
-     * @return One or more `trusted_client_certificate` blocks as defined below.
+     * @return One or more `trustedClientCertificate` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewayTrustedClientCertificate>>> trustedClientCertificates() {
         return Codegen.optional(this.trustedClientCertificates);
     }
     /**
-     * One or more `trusted_root_certificate` blocks as defined below.
+     * One or more `trustedRootCertificate` blocks as defined below.
      * 
      */
     @Export(name="trustedRootCertificates", refs={List.class,ApplicationGatewayTrustedRootCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayTrustedRootCertificate>> trustedRootCertificates;
 
     /**
-     * @return One or more `trusted_root_certificate` blocks as defined below.
+     * @return One or more `trustedRootCertificate` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewayTrustedRootCertificate>>> trustedRootCertificates() {
         return Codegen.optional(this.trustedRootCertificates);
     }
     /**
-     * One or more `url_path_map` blocks as defined below.
+     * One or more `urlPathMap` blocks as defined below.
      * 
      */
     @Export(name="urlPathMaps", refs={List.class,ApplicationGatewayUrlPathMap.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayUrlPathMap>> urlPathMaps;
 
     /**
-     * @return One or more `url_path_map` blocks as defined below.
+     * @return One or more `urlPathMap` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewayUrlPathMap>>> urlPathMaps() {
         return Codegen.optional(this.urlPathMaps);
     }
     /**
-     * A `waf_configuration` block as defined below.
+     * A `wafConfiguration` block as defined below.
      * 
      */
     @Export(name="wafConfiguration", refs={ApplicationGatewayWafConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationGatewayWafConfiguration> wafConfiguration;
 
     /**
-     * @return A `waf_configuration` block as defined below.
+     * @return A `wafConfiguration` block as defined below.
      * 
      */
     public Output<Optional<ApplicationGatewayWafConfiguration>> wafConfiguration() {

@@ -21,7 +21,7 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
     /**
      * A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
      * 
-     * &gt; **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
+     * &gt; **Note:** The `matchValues` field is only optional if the `operator` is set to `Any`.
      * 
      */
     @Import(name="matchValues")
@@ -30,7 +30,7 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
     /**
      * @return A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
      * 
-     * &gt; **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
+     * &gt; **Note:** The `matchValues` field is only optional if the `operator` is set to `Any`.
      * 
      */
     public Optional<Output<List<String>>> matchValues() {
@@ -112,7 +112,7 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
         /**
          * @param matchValues A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
          * 
-         * &gt; **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
+         * &gt; **Note:** The `matchValues` field is only optional if the `operator` is set to `Any`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
         /**
          * @param matchValues A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
          * 
-         * &gt; **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
+         * &gt; **Note:** The `matchValues` field is only optional if the `operator` is set to `Any`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
         /**
          * @param matchValues A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
          * 
-         * &gt; **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
+         * &gt; **Note:** The `matchValues` field is only optional if the `operator` is set to `Any`.
          * 
          * @return builder
          * 

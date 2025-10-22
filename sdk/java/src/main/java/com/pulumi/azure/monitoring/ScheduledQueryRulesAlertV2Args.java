@@ -116,9 +116,9 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
     /**
      * How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
      * 
-     * &gt; **Note:** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+     * &gt; **Note:** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      * 
-     * &gt; **Note:** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+     * &gt; **Note:** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      * 
      */
     @Import(name="evaluationFrequency", required=true)
@@ -127,9 +127,9 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
     /**
      * @return How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
      * 
-     * &gt; **Note:** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+     * &gt; **Note:** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      * 
-     * &gt; **Note:** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+     * &gt; **Note:** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      * 
      */
     public Output<String> evaluationFrequency() {
@@ -169,7 +169,7 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
     /**
      * Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
-     * &gt; **Note:** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
      * 
      */
     @Import(name="muteActionsAfterAlertDuration")
@@ -178,7 +178,7 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
     /**
      * @return Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
-     * &gt; **Note:** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
      * 
      */
     public Optional<Output<String>> muteActionsAfterAlertDuration() {
@@ -201,18 +201,18 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
     }
 
     /**
-     * Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+     * Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
-     * &gt; **Note:** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+     * &gt; **Note:** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      * 
      */
     @Import(name="queryTimeRangeOverride")
     private @Nullable Output<String> queryTimeRangeOverride;
 
     /**
-     * @return Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+     * @return Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
-     * &gt; **Note:** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+     * &gt; **Note:** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      * 
      */
     public Optional<Output<String>> queryTimeRangeOverride() {
@@ -310,14 +310,14 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
+     * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
      * 
      */
     @Import(name="windowDuration", required=true)
     private Output<String> windowDuration;
 
     /**
-     * @return Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
+     * @return Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
      * 
      */
     public Output<String> windowDuration() {
@@ -521,9 +521,9 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         /**
          * @param evaluationFrequency How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
          * 
-         * &gt; **Note:** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+         * &gt; **Note:** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
          * 
-         * &gt; **Note:** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+         * &gt; **Note:** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
          * 
          * @return builder
          * 
@@ -536,9 +536,9 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         /**
          * @param evaluationFrequency How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
          * 
-         * &gt; **Note:** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+         * &gt; **Note:** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
          * 
-         * &gt; **Note:** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+         * &gt; **Note:** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         /**
          * @param muteActionsAfterAlertDuration Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
          * 
-         * &gt; **Note:** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+         * &gt; **Note:** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         /**
          * @param muteActionsAfterAlertDuration Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
          * 
-         * &gt; **Note:** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+         * &gt; **Note:** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
          * 
          * @return builder
          * 
@@ -636,9 +636,9 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param queryTimeRangeOverride Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+         * @param queryTimeRangeOverride Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
          * 
-         * &gt; **Note:** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+         * &gt; **Note:** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
          * 
          * @return builder
          * 
@@ -649,9 +649,9 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param queryTimeRangeOverride Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+         * @param queryTimeRangeOverride Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
          * 
-         * &gt; **Note:** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+         * &gt; **Note:** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
          * 
          * @return builder
          * 
@@ -797,7 +797,7 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param windowDuration Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
+         * @param windowDuration Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
          * 
          * @return builder
          * 
@@ -808,7 +808,7 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param windowDuration Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
+         * @param windowDuration Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
          * 
          * @return builder
          * 

@@ -35,7 +35,7 @@ public final class GetFunctionAppResult {
      */
     private String clientCertMode;
     /**
-     * @return An `connection_string` block as defined below.
+     * @return An `connectionString` block as defined below.
      * 
      */
     private List<GetFunctionAppConnectionString> connectionStrings;
@@ -81,19 +81,19 @@ public final class GetFunctionAppResult {
      */
     private String outboundIpAddresses;
     /**
-     * @return A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     private String possibleOutboundIpAddresses;
     private String resourceGroupName;
     private List<GetFunctionAppSiteConfig> siteConfigs;
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     private List<GetFunctionAppSiteCredential> siteCredentials;
     /**
-     * @return A `source_control` block as defined below.
+     * @return A `sourceControl` block as defined below.
      * 
      */
     private List<GetFunctionAppSourceControl> sourceControls;
@@ -122,7 +122,7 @@ public final class GetFunctionAppResult {
         return this.clientCertMode;
     }
     /**
-     * @return An `connection_string` block as defined below.
+     * @return An `connectionString` block as defined below.
      * 
      */
     public List<GetFunctionAppConnectionString> connectionStrings() {
@@ -188,7 +188,7 @@ public final class GetFunctionAppResult {
         return this.outboundIpAddresses;
     }
     /**
-     * @return A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public String possibleOutboundIpAddresses() {
@@ -201,14 +201,14 @@ public final class GetFunctionAppResult {
         return this.siteConfigs;
     }
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     public List<GetFunctionAppSiteCredential> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * @return A `source_control` block as defined below.
+     * @return A `sourceControl` block as defined below.
      * 
      */
     public List<GetFunctionAppSourceControl> sourceControls() {

@@ -25,14 +25,14 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
     public static final AlertRuleNrtArgs Empty = new AlertRuleNrtArgs();
 
     /**
-     * An `alert_details_override` block as defined below.
+     * An `alertDetailsOverride` block as defined below.
      * 
      */
     @Import(name="alertDetailsOverrides")
     private @Nullable Output<List<AlertRuleNrtAlertDetailsOverrideArgs>> alertDetailsOverrides;
 
     /**
-     * @return An `alert_details_override` block as defined below.
+     * @return An `alertDetailsOverride` block as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleNrtAlertDetailsOverrideArgs>>> alertDetailsOverrides() {
@@ -130,14 +130,14 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of `entity_mapping` blocks as defined below.
+     * A list of `entityMapping` blocks as defined below.
      * 
      */
     @Import(name="entityMappings")
     private @Nullable Output<List<AlertRuleNrtEntityMappingArgs>> entityMappings;
 
     /**
-     * @return A list of `entity_mapping` blocks as defined below.
+     * @return A list of `entityMapping` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleNrtEntityMappingArgs>>> entityMappings() {
@@ -145,14 +145,14 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `event_grouping` block as defined below.
+     * A `eventGrouping` block as defined below.
      * 
      */
     @Import(name="eventGrouping", required=true)
     private Output<AlertRuleNrtEventGroupingArgs> eventGrouping;
 
     /**
-     * @return A `event_grouping` block as defined below.
+     * @return A `eventGrouping` block as defined below.
      * 
      */
     public Output<AlertRuleNrtEventGroupingArgs> eventGrouping() {
@@ -220,18 +220,18 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of `sentinel_entity_mapping` blocks as defined below.
+     * A list of `sentinelEntityMapping` blocks as defined below.
      * 
-     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 5.
      * 
      */
     @Import(name="sentinelEntityMappings")
     private @Nullable Output<List<AlertRuleNrtSentinelEntityMappingArgs>> sentinelEntityMappings;
 
     /**
-     * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * @return A list of `sentinelEntityMapping` blocks as defined below.
      * 
-     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 5.
      * 
      */
     public Optional<Output<List<AlertRuleNrtSentinelEntityMappingArgs>>> sentinelEntityMappings() {
@@ -254,14 +254,14 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
      */
     @Import(name="suppressionDuration")
     private @Nullable Output<String> suppressionDuration;
 
     /**
-     * @return If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * @return If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
      */
     public Optional<Output<String>> suppressionDuration() {
@@ -356,7 +356,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertDetailsOverrides An `alert_details_override` block as defined below.
+         * @param alertDetailsOverrides An `alertDetailsOverride` block as defined below.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertDetailsOverrides An `alert_details_override` block as defined below.
+         * @param alertDetailsOverrides An `alertDetailsOverride` block as defined below.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertDetailsOverrides An `alert_details_override` block as defined below.
+         * @param alertDetailsOverrides An `alertDetailsOverride` block as defined below.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityMappings A list of `entity_mapping` blocks as defined below.
+         * @param entityMappings A list of `entityMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityMappings A list of `entity_mapping` blocks as defined below.
+         * @param entityMappings A list of `entityMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityMappings A list of `entity_mapping` blocks as defined below.
+         * @param entityMappings A list of `entityMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventGrouping A `event_grouping` block as defined below.
+         * @param eventGrouping A `eventGrouping` block as defined below.
          * 
          * @return builder
          * 
@@ -555,7 +555,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventGrouping A `event_grouping` block as defined below.
+         * @param eventGrouping A `eventGrouping` block as defined below.
          * 
          * @return builder
          * 
@@ -649,9 +649,9 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * @param sentinelEntityMappings A list of `sentinelEntityMapping` blocks as defined below.
          * 
-         * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+         * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 5.
          * 
          * @return builder
          * 
@@ -662,9 +662,9 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * @param sentinelEntityMappings A list of `sentinelEntityMapping` blocks as defined below.
          * 
-         * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+         * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 5.
          * 
          * @return builder
          * 
@@ -674,9 +674,9 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * @param sentinelEntityMappings A list of `sentinelEntityMapping` blocks as defined below.
          * 
-         * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+         * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 5.
          * 
          * @return builder
          * 
@@ -707,7 +707,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suppressionDuration If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+         * @param suppressionDuration If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
          * 
          * @return builder
          * 
@@ -718,7 +718,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suppressionDuration If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+         * @param suppressionDuration If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
          * 
          * @return builder
          * 

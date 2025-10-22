@@ -31,7 +31,7 @@ public final class GetPoolMountAzureBlobFileSystem {
      */
     private String containerName;
     /**
-     * @return The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+     * @return The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
      * 
      */
     private String identityId;
@@ -41,7 +41,7 @@ public final class GetPoolMountAzureBlobFileSystem {
      */
     private String relativeMountPath;
     /**
-     * @return The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+     * @return The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
      * 
      */
     private String sasKey;
@@ -76,7 +76,7 @@ public final class GetPoolMountAzureBlobFileSystem {
         return this.containerName;
     }
     /**
-     * @return The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+     * @return The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
      * 
      */
     public String identityId() {
@@ -90,7 +90,7 @@ public final class GetPoolMountAzureBlobFileSystem {
         return this.relativeMountPath;
     }
     /**
-     * @return The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+     * @return The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
      * 
      */
     public String sasKey() {

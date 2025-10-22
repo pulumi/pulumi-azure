@@ -30,11 +30,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string AppCommandLine;
         /// <summary>
-        /// A `application_stack` block as defined above.
+        /// A `ApplicationStack` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigApplicationStackResult> ApplicationStacks;
         /// <summary>
-        /// A `auto_heal_setting` block as defined above.
+        /// A `AutoHealSetting` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigAutoHealSettingResult> AutoHealSettings;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool ContainerRegistryUseManagedIdentity;
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigCorResult> Cors;
         /// <summary>
@@ -62,11 +62,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string FtpsState;
         /// <summary>
-        /// A `handler_mapping` block as defined below.
+        /// A `HandlerMapping` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigHandlerMappingResult> HandlerMappings;
         /// <summary>
-        /// (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        /// (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `HealthCheckPath`.
         /// </summary>
         public readonly int HealthCheckEvictionTimeInMin;
         /// <summary>
@@ -78,11 +78,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule.
+        /// The Default action for traffic that does not match any `IpRestriction` rule.
         /// </summary>
         public readonly string IpRestrictionDefaultAction;
         /// <summary>
-        /// A `ip_restriction` block as defined above.
+        /// A `IpRestriction` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigIpRestrictionResult> IpRestrictions;
         /// <summary>
@@ -107,11 +107,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string RemoteDebuggingVersion;
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule.
         /// </summary>
         public readonly string ScmIpRestrictionDefaultAction;
         /// <summary>
-        /// A `scm_ip_restriction` block as defined above.
+        /// A `ScmIpRestriction` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
         /// <summary>
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ScmType;
         /// <summary>
-        /// Is the Windows Web App `ip_restriction` configuration used for the SCM also.
+        /// Is the Windows Web App `IpRestriction` configuration used for the SCM also.
         /// </summary>
         public readonly bool ScmUseMainIpRestriction;
         /// <summary>
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Use32BitWorker;
         /// <summary>
-        /// A `virtual_application` block as defined below.
+        /// A `VirtualApplication` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigVirtualApplicationResult> VirtualApplications;
         /// <summary>

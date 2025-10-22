@@ -285,14 +285,14 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeout);
     }
     /**
-     * A `validation_rules` block as defined below.
+     * A `validationRules` block as defined below.
      * 
      */
     @Export(name="validationRules", refs={StandardWebTestValidationRules.class}, tree="[0]")
     private Output</* @Nullable */ StandardWebTestValidationRules> validationRules;
 
     /**
-     * @return A `validation_rules` block as defined below.
+     * @return A `validationRules` block as defined below.
      * 
      */
     public Output<Optional<StandardWebTestValidationRules>> validationRules() {

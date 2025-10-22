@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly int? BatchFrequencyInSeconds;
         /// <summary>
-        /// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+        /// The connection string for the endpoint. This attribute is mandatory and can only be specified when `AuthenticationType` is `keyBased`.
         /// </summary>
         public readonly string? ConnectionString;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string? Encoding;
         /// <summary>
-        /// URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        /// URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `AuthenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         /// </summary>
         public readonly string? EndpointUri;
         /// <summary>
-        /// Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        /// Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `AuthenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         /// </summary>
         public readonly string? EntityPath;
         /// <summary>
@@ -48,9 +48,9 @@ namespace Pulumi.Azure.Iot.Outputs
         /// <summary>
         /// The ID of the User Managed Identity used to authenticate against the endpoint.
         /// 
-        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+        /// &gt; **Note:** `IdentityId` can only be specified when `AuthenticationType` is `identityBased`. It must be one of the `IdentityIds` of the IoT Hub. If `IdentityId` is omitted when `AuthenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         /// 
-        /// &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
+        /// &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `Endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
         /// </summary>
         public readonly string? IdentityId;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly int? MaxChunkSizeInBytes;
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `Events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// <summary>
         /// The subscription ID for the endpoint.
         /// 
-        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// &gt; **Note:** When `SubscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         /// </summary>
         public readonly string? SubscriptionId;
         /// <summary>

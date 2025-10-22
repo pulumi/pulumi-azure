@@ -54,14 +54,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      * 
      */
     @Import(name="bgpSettings")
     private @Nullable Output<VirtualNetworkGatewayBgpSettingsArgs> bgpSettings;
 
     /**
-     * @return A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+     * @return A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      * 
      */
     public Optional<Output<VirtualNetworkGatewayBgpSettingsArgs>> bgpSettings() {
@@ -69,14 +69,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     * A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
      * 
      */
     @Import(name="customRoute")
     private @Nullable Output<VirtualNetworkGatewayCustomRouteArgs> customRoute;
 
     /**
-     * @return A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     * @return A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
      * 
      */
     public Optional<Output<VirtualNetworkGatewayCustomRouteArgs>> customRoute() {
@@ -163,20 +163,20 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created.
-     * An active-standby gateway requires exactly one `ip_configuration` block,
-     * an active-active gateway requires exactly two `ip_configuration` blocks whereas
-     * an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+     * One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
+     * An active-standby gateway requires exactly one `ipConfiguration` block,
+     * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+     * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      * 
      */
     @Import(name="ipConfigurations")
     private @Nullable Output<List<VirtualNetworkGatewayIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created.
-     * An active-standby gateway requires exactly one `ip_configuration` block,
-     * an active-active gateway requires exactly two `ip_configuration` blocks whereas
-     * an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+     * @return One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
+     * An active-standby gateway requires exactly one `ipConfiguration` block,
+     * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+     * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayIpConfigurationArgs>>> ipConfigurations() {
@@ -229,14 +229,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `policy_group` blocks as defined below.
+     * One or more `policyGroup` blocks as defined below.
      * 
      */
     @Import(name="policyGroups")
     private @Nullable Output<List<VirtualNetworkGatewayPolicyGroupArgs>> policyGroups;
 
     /**
-     * @return One or more `policy_group` blocks as defined below.
+     * @return One or more `policyGroup` blocks as defined below.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayPolicyGroupArgs>>> policyGroups() {
@@ -289,7 +289,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+     * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
      * 
      * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
      * 
@@ -300,7 +300,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     private @Nullable Output<String> sku;
 
     /**
-     * @return Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+     * @return Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
      * 
      * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
      * 
@@ -357,14 +357,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     @Import(name="vpnClientConfiguration")
     private @Nullable Output<VirtualNetworkGatewayVpnClientConfigurationArgs> vpnClientConfiguration;
 
     /**
-     * @return A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * @return A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     public Optional<Output<VirtualNetworkGatewayVpnClientConfigurationArgs>> vpnClientConfiguration() {
@@ -475,7 +475,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+         * @param bgpSettings A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+         * @param bgpSettings A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param customRoute A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+         * @param customRoute A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param customRoute A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+         * @param customRoute A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
          * 
          * @return builder
          * 
@@ -626,10 +626,10 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ipConfigurations One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created.
-         * An active-standby gateway requires exactly one `ip_configuration` block,
-         * an active-active gateway requires exactly two `ip_configuration` blocks whereas
-         * an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+         * @param ipConfigurations One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
+         * An active-standby gateway requires exactly one `ipConfiguration` block,
+         * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+         * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
          * 
          * @return builder
          * 
@@ -640,10 +640,10 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ipConfigurations One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created.
-         * An active-standby gateway requires exactly one `ip_configuration` block,
-         * an active-active gateway requires exactly two `ip_configuration` blocks whereas
-         * an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+         * @param ipConfigurations One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
+         * An active-standby gateway requires exactly one `ipConfiguration` block,
+         * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+         * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
          * 
          * @return builder
          * 
@@ -653,10 +653,10 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ipConfigurations One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created.
-         * An active-standby gateway requires exactly one `ip_configuration` block,
-         * an active-active gateway requires exactly two `ip_configuration` blocks whereas
-         * an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+         * @param ipConfigurations One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
+         * An active-standby gateway requires exactly one `ipConfiguration` block,
+         * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+         * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param policyGroups One or more `policy_group` blocks as defined below.
+         * @param policyGroups One or more `policyGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param policyGroups One or more `policy_group` blocks as defined below.
+         * @param policyGroups One or more `policyGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param policyGroups One or more `policy_group` blocks as defined below.
+         * @param policyGroups One or more `policyGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -823,7 +823,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+         * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
          * 
          * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
          * 
@@ -838,7 +838,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+         * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
          * 
          * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
          * 
@@ -915,7 +915,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpnClientConfiguration A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+         * @param vpnClientConfiguration A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
          * 
          * @return builder
          * 
@@ -926,7 +926,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpnClientConfiguration A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+         * @param vpnClientConfiguration A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
          * 
          * @return builder
          * 

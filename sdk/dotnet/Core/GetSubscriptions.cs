@@ -94,13 +94,13 @@ namespace Pulumi.Azure.Core
     public sealed class GetSubscriptionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+        /// A case-insensitive value which must be contained within the `DisplayName` field, used to filter the results
         /// </summary>
         [Input("displayNameContains")]
         public string? DisplayNameContains { get; set; }
 
         /// <summary>
-        /// A case-insensitive prefix which can be used to filter on the `display_name` field
+        /// A case-insensitive prefix which can be used to filter on the `DisplayName` field
         /// </summary>
         [Input("displayNamePrefix")]
         public string? DisplayNamePrefix { get; set; }
@@ -114,13 +114,13 @@ namespace Pulumi.Azure.Core
     public sealed class GetSubscriptionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+        /// A case-insensitive value which must be contained within the `DisplayName` field, used to filter the results
         /// </summary>
         [Input("displayNameContains")]
         public Input<string>? DisplayNameContains { get; set; }
 
         /// <summary>
-        /// A case-insensitive prefix which can be used to filter on the `display_name` field
+        /// A case-insensitive prefix which can be used to filter on the `DisplayName` field
         /// </summary>
         [Input("displayNamePrefix")]
         public Input<string>? DisplayNamePrefix { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or more `subscription` blocks as defined below.
+        /// One or more `Subscription` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSubscriptionsSubscriptionResult> Subscriptions;
 

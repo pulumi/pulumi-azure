@@ -72,18 +72,18 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
     }
 
     /**
-     * A `network_interface` block as defined below.
+     * A `networkInterface` block as defined below.
      * 
-     * &gt; **Note:** This resource will be restarted while updating `network_interface`.
+     * &gt; **Note:** This resource will be restarted while updating `networkInterface`.
      * 
      */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs>> networkInterfaces;
 
     /**
-     * @return A `network_interface` block as defined below.
+     * @return A `networkInterface` block as defined below.
      * 
-     * &gt; **Note:** This resource will be restarted while updating `network_interface`.
+     * &gt; **Note:** This resource will be restarted while updating `networkInterface`.
      * 
      */
     public Optional<Output<List<VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs>>> networkInterfaces() {
@@ -91,14 +91,14 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
     }
 
     /**
-     * An `operating_system` block as defined below. Changing this forces a new resource to be created.
+     * An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="operatingSystem")
     private @Nullable Output<VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs> operatingSystem;
 
     /**
-     * @return An `operating_system` block as defined below. Changing this forces a new resource to be created.
+     * @return An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs>> operatingSystem() {
@@ -121,18 +121,18 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
     }
 
     /**
-     * A `storage_disk` block as defined below.
+     * A `storageDisk` block as defined below.
      * 
-     * &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+     * &gt; **Note:** This resource will be restarted while updating `storageDisk`.
      * 
      */
     @Import(name="storageDisks")
     private @Nullable Output<List<VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs>> storageDisks;
 
     /**
-     * @return A `storage_disk` block as defined below.
+     * @return A `storageDisk` block as defined below.
      * 
-     * &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+     * &gt; **Note:** This resource will be restarted while updating `storageDisk`.
      * 
      */
     public Optional<Output<List<VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs>>> storageDisks() {
@@ -253,9 +253,9 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
         }
 
         /**
-         * @param networkInterfaces A `network_interface` block as defined below.
+         * @param networkInterfaces A `networkInterface` block as defined below.
          * 
-         * &gt; **Note:** This resource will be restarted while updating `network_interface`.
+         * &gt; **Note:** This resource will be restarted while updating `networkInterface`.
          * 
          * @return builder
          * 
@@ -266,9 +266,9 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
         }
 
         /**
-         * @param networkInterfaces A `network_interface` block as defined below.
+         * @param networkInterfaces A `networkInterface` block as defined below.
          * 
-         * &gt; **Note:** This resource will be restarted while updating `network_interface`.
+         * &gt; **Note:** This resource will be restarted while updating `networkInterface`.
          * 
          * @return builder
          * 
@@ -278,9 +278,9 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
         }
 
         /**
-         * @param networkInterfaces A `network_interface` block as defined below.
+         * @param networkInterfaces A `networkInterface` block as defined below.
          * 
-         * &gt; **Note:** This resource will be restarted while updating `network_interface`.
+         * &gt; **Note:** This resource will be restarted while updating `networkInterface`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
         }
 
         /**
-         * @param operatingSystem An `operating_system` block as defined below. Changing this forces a new resource to be created.
+         * @param operatingSystem An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
         }
 
         /**
-         * @param operatingSystem An `operating_system` block as defined below. Changing this forces a new resource to be created.
+         * @param operatingSystem An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -332,9 +332,9 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
         }
 
         /**
-         * @param storageDisks A `storage_disk` block as defined below.
+         * @param storageDisks A `storageDisk` block as defined below.
          * 
-         * &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+         * &gt; **Note:** This resource will be restarted while updating `storageDisk`.
          * 
          * @return builder
          * 
@@ -345,9 +345,9 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
         }
 
         /**
-         * @param storageDisks A `storage_disk` block as defined below.
+         * @param storageDisks A `storageDisk` block as defined below.
          * 
-         * &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+         * &gt; **Note:** This resource will be restarted while updating `storageDisk`.
          * 
          * @return builder
          * 
@@ -357,9 +357,9 @@ public final class VirtualMachineManagerVirtualMachineInstanceArgs extends com.p
         }
 
         /**
-         * @param storageDisks A `storage_disk` block as defined below.
+         * @param storageDisks A `storageDisk` block as defined below.
          * 
-         * &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+         * &gt; **Note:** This resource will be restarted while updating `storageDisk`.
          * 
          * @return builder
          * 

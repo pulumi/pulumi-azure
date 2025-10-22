@@ -17,7 +17,7 @@ public final class GetLinuxFunctionAppAuthSettingsV2FacebookV2 {
      */
     private String appId;
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook login.
+     * @return The app setting name that contains the `appSecret` value used for Facebook login.
      * 
      */
     private String appSecretSettingName;
@@ -41,7 +41,7 @@ public final class GetLinuxFunctionAppAuthSettingsV2FacebookV2 {
         return this.appId;
     }
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook login.
+     * @return The app setting name that contains the `appSecret` value used for Facebook login.
      * 
      */
     public String appSecretSettingName() {

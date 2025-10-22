@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Links an Automation Runbook and Schedule.
     /// 
-    /// &gt; **Note:** AzureRM provides this stand-alone azure.automation.JobSchedule and an inlined `job_schedule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+    /// &gt; **Note:** AzureRM provides this stand-alone azure.automation.JobSchedule and an inlined `JobSchedule` property in AzurermRunbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
     /// 
     /// ## Example Usage
     /// 

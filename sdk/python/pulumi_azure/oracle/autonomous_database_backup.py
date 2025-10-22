@@ -172,6 +172,15 @@ class AutonomousDatabaseBackup(pulumi.CustomResource):
         """
         Manages an Oracle Autonomous Database Backup in Azure.
 
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Oracle.Database` - 2025-03-01
+
         ## Import
 
         Autonomous Database Backups can be imported using the `id`, e.g.
@@ -195,6 +204,15 @@ class AutonomousDatabaseBackup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Oracle Autonomous Database Backup in Azure.
+
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Oracle.Database` - 2025-03-01
 
         ## Import
 

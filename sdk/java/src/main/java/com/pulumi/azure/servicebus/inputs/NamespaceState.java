@@ -37,14 +37,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `customer_managed_key` block as defined below.
+     * An `customerManagedKey` block as defined below.
      * 
      */
     @Import(name="customerManagedKey")
     private @Nullable Output<NamespaceCustomerManagedKeyArgs> customerManagedKey;
 
     /**
-     * @return An `customer_managed_key` block as defined below.
+     * @return An `customerManagedKey` block as defined below.
      * 
      */
     public Optional<Output<NamespaceCustomerManagedKeyArgs>> customerManagedKey() {
@@ -206,14 +206,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `network_rule_set` block as defined below.
+     * An `networkRuleSet` block as defined below.
      * 
      */
     @Import(name="networkRuleSet")
     private @Nullable Output<NamespaceNetworkRuleSetArgs> networkRuleSet;
 
     /**
-     * @return An `network_rule_set` block as defined below.
+     * @return An `networkRuleSet` block as defined below.
      * 
      */
     public Optional<Output<NamespaceNetworkRuleSetArgs>> networkRuleSet() {
@@ -364,7 +364,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey An `customer_managed_key` block as defined below.
+         * @param customerManagedKey An `customerManagedKey` block as defined below.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey An `customer_managed_key` block as defined below.
+         * @param customerManagedKey An `customerManagedKey` block as defined below.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRuleSet An `network_rule_set` block as defined below.
+         * @param networkRuleSet An `networkRuleSet` block as defined below.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRuleSet An `network_rule_set` block as defined below.
+         * @param networkRuleSet An `networkRuleSet` block as defined below.
          * 
          * @return builder
          * 

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Mobile.Inputs
         public Input<int>? PinholeMaximumNumber { get; set; }
 
         /// <summary>
-        /// A `port_range` block as defined below.
+        /// A `PortRange` block as defined below.
         /// </summary>
         [Input("portRange")]
         public Input<Inputs.NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs>? PortRange { get; set; }

@@ -21,7 +21,7 @@ public final class AIServicesNetworkAcls {
      */
     private @Nullable String bypass;
     /**
-     * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+     * @return The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
      * 
      */
     private String defaultAction;
@@ -31,7 +31,7 @@ public final class AIServicesNetworkAcls {
      */
     private @Nullable List<String> ipRules;
     /**
-     * @return A `virtual_network_rules` block as defined below.
+     * @return A `virtualNetworkRules` block as defined below.
      * 
      */
     private @Nullable List<AIServicesNetworkAclsVirtualNetworkRule> virtualNetworkRules;
@@ -46,7 +46,7 @@ public final class AIServicesNetworkAcls {
         return Optional.ofNullable(this.bypass);
     }
     /**
-     * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+     * @return The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
      * 
      */
     public String defaultAction() {
@@ -60,7 +60,7 @@ public final class AIServicesNetworkAcls {
         return this.ipRules == null ? List.of() : this.ipRules;
     }
     /**
-     * @return A `virtual_network_rules` block as defined below.
+     * @return A `virtualNetworkRules` block as defined below.
      * 
      */
     public List<AIServicesNetworkAclsVirtualNetworkRule> virtualNetworkRules() {

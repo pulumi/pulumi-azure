@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Dashboard.Inputs
     public sealed class GrafanaSmtpGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+        /// Whether to enable the smtp setting of the Grafana instance. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Dashboard.Inputs
         public Input<string> User { get; set; } = null!;
 
         /// <summary>
-        /// Whether verify SSL for SMTP server. Defaults to `false`.
+        /// Whether verify SSL for SMTP server. Defaults to `False`.
         /// </summary>
         [Input("verificationSkipEnabled")]
         public Input<bool>? VerificationSkipEnabled { get; set; }

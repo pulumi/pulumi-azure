@@ -35,7 +35,7 @@ public final class RoleManagementPolicyActiveAssignmentRules {
     /**
      * @return Is ticket information required to create new assignments.
      * 
-     * One of `expiration_required` or `expire_after` must be provided.
+     * One of `expirationRequired` or `expireAfter` must be provided.
      * 
      */
     private @Nullable Boolean requireTicketInfo;
@@ -72,7 +72,7 @@ public final class RoleManagementPolicyActiveAssignmentRules {
     /**
      * @return Is ticket information required to create new assignments.
      * 
-     * One of `expiration_required` or `expire_after` must be provided.
+     * One of `expirationRequired` or `expireAfter` must be provided.
      * 
      */
     public Optional<Boolean> requireTicketInfo() {

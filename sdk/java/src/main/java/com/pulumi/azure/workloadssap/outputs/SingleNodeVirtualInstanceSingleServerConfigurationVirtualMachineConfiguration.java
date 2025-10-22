@@ -18,7 +18,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMach
      */
     private SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImage image;
     /**
-     * @return An `os_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return An `osProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfile osProfile;
@@ -37,7 +37,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMach
         return this.image;
     }
     /**
-     * @return An `os_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return An `osProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfile osProfile() {

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `firewall` block as defined below.
+        /// An `Firewall` block as defined below.
         /// </summary>
         [Input("firewall", required: true)]
         public Input<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallGetArgs> Firewall { get; set; } = null!;

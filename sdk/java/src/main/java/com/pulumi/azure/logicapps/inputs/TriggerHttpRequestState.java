@@ -16,14 +16,14 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     public static final TriggerHttpRequestState Empty = new TriggerHttpRequestState();
 
     /**
-     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      * 
      */
     @Import(name="callbackUrl")
     private @Nullable Output<String> callbackUrl;
 
     /**
-     * @return The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+     * @return The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      * 
      */
     public Optional<Output<String>> callbackUrl() {
@@ -82,7 +82,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     /**
      * Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
      * 
      */
     @Import(name="relativePath")
@@ -91,7 +91,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     /**
      * @return Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
      * 
      */
     public Optional<Output<String>> relativePath() {
@@ -143,7 +143,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param callbackUrl The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+         * @param callbackUrl The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param callbackUrl The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+         * @param callbackUrl The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         /**
          * @param relativePath Specifies the Relative Path used for this Request.
          * 
-         * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+         * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         /**
          * @param relativePath Specifies the Relative Path used for this Request.
          * 
-         * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+         * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
          * 
          * @return builder
          * 

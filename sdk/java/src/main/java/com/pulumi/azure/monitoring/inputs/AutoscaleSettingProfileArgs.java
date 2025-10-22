@@ -37,14 +37,14 @@ public final class AutoscaleSettingProfileArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+     * A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
      * 
      */
     @Import(name="fixedDate")
     private @Nullable Output<AutoscaleSettingProfileFixedDateArgs> fixedDate;
 
     /**
-     * @return A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+     * @return A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
      * 
      */
     public Optional<Output<AutoscaleSettingProfileFixedDateArgs>> fixedDate() {
@@ -67,14 +67,14 @@ public final class AutoscaleSettingProfileArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+     * A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
      * 
      */
     @Import(name="recurrence")
     private @Nullable Output<AutoscaleSettingProfileRecurrenceArgs> recurrence;
 
     /**
-     * @return A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+     * @return A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
      * 
      */
     public Optional<Output<AutoscaleSettingProfileRecurrenceArgs>> recurrence() {
@@ -146,7 +146,7 @@ public final class AutoscaleSettingProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fixedDate A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+         * @param fixedDate A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class AutoscaleSettingProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fixedDate A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+         * @param fixedDate A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class AutoscaleSettingProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param recurrence A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+         * @param recurrence A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class AutoscaleSettingProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param recurrence A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+         * @param recurrence A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
          * 
          * @return builder
          * 

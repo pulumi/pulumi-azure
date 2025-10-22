@@ -93,7 +93,7 @@ namespace Pulumi.Azure.DevCenter
         public Output<string> DevCenterUri { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ProjectIdentity?> Identity { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string> DevCenterId { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ProjectIdentityArgs>? Identity { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? DevCenterUri { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ProjectIdentityGetArgs>? Identity { get; set; }

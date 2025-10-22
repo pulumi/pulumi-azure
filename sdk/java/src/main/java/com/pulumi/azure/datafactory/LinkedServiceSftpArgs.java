@@ -148,18 +148,18 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `key_vault_password` block as defined below.
+     * A `keyVaultPassword` block as defined below.
      * 
-     * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+     * &gt; **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
      * 
      */
     @Import(name="keyVaultPasswords")
     private @Nullable Output<List<LinkedServiceSftpKeyVaultPasswordArgs>> keyVaultPasswords;
 
     /**
-     * @return A `key_vault_password` block as defined below.
+     * @return A `keyVaultPassword` block as defined below.
      * 
-     * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+     * &gt; **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
      * 
      */
     public Optional<Output<List<LinkedServiceSftpKeyVaultPasswordArgs>>> keyVaultPasswords() {
@@ -167,14 +167,14 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `key_vault_private_key_content_base64` block as defined below.
+     * A `keyVaultPrivateKeyContentBase64` block as defined below.
      * 
      */
     @Import(name="keyVaultPrivateKeyContentBase64")
     private @Nullable Output<LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args> keyVaultPrivateKeyContentBase64;
 
     /**
-     * @return A `key_vault_private_key_content_base64` block as defined below.
+     * @return A `keyVaultPrivateKeyContentBase64` block as defined below.
      * 
      */
     public Optional<Output<LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args>> keyVaultPrivateKeyContentBase64() {
@@ -182,18 +182,18 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `key_vault_private_key_passphrase` block as defined below.
+     * A `keyVaultPrivateKeyPassphrase` block as defined below.
      * 
-     * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+     * &gt; **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
      * 
      */
     @Import(name="keyVaultPrivateKeyPassphrase")
     private @Nullable Output<LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs> keyVaultPrivateKeyPassphrase;
 
     /**
-     * @return A `key_vault_private_key_passphrase` block as defined below.
+     * @return A `keyVaultPrivateKeyPassphrase` block as defined below.
      * 
-     * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+     * &gt; **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
      * 
      */
     public Optional<Output<LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs>> keyVaultPrivateKeyPassphrase() {
@@ -293,7 +293,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     /**
      * The absolute path to the private key file that the self-hosted integration runtime can access.
      * 
-     * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+     * &gt; **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
      * 
      */
     @Import(name="privateKeyPath")
@@ -302,7 +302,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return The absolute path to the private key file that the self-hosted integration runtime can access.
      * 
-     * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+     * &gt; **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
      * 
      */
     public Optional<Output<String>> privateKeyPath() {
@@ -310,14 +310,14 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+     * Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
      * 
      */
     @Import(name="skipHostKeyValidation")
     private @Nullable Output<Boolean> skipHostKeyValidation;
 
     /**
-     * @return Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+     * @return Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
      * 
      */
     public Optional<Output<Boolean>> skipHostKeyValidation() {
@@ -565,9 +565,9 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultPasswords A `key_vault_password` block as defined below.
+         * @param keyVaultPasswords A `keyVaultPassword` block as defined below.
          * 
-         * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+         * &gt; **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
          * 
          * @return builder
          * 
@@ -578,9 +578,9 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultPasswords A `key_vault_password` block as defined below.
+         * @param keyVaultPasswords A `keyVaultPassword` block as defined below.
          * 
-         * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+         * &gt; **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
          * 
          * @return builder
          * 
@@ -590,9 +590,9 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultPasswords A `key_vault_password` block as defined below.
+         * @param keyVaultPasswords A `keyVaultPassword` block as defined below.
          * 
-         * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+         * &gt; **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
          * 
          * @return builder
          * 
@@ -602,7 +602,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultPrivateKeyContentBase64 A `key_vault_private_key_content_base64` block as defined below.
+         * @param keyVaultPrivateKeyContentBase64 A `keyVaultPrivateKeyContentBase64` block as defined below.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultPrivateKeyContentBase64 A `key_vault_private_key_content_base64` block as defined below.
+         * @param keyVaultPrivateKeyContentBase64 A `keyVaultPrivateKeyContentBase64` block as defined below.
          * 
          * @return builder
          * 
@@ -623,9 +623,9 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultPrivateKeyPassphrase A `key_vault_private_key_passphrase` block as defined below.
+         * @param keyVaultPrivateKeyPassphrase A `keyVaultPrivateKeyPassphrase` block as defined below.
          * 
-         * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+         * &gt; **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
          * 
          * @return builder
          * 
@@ -636,9 +636,9 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultPrivateKeyPassphrase A `key_vault_private_key_passphrase` block as defined below.
+         * @param keyVaultPrivateKeyPassphrase A `keyVaultPrivateKeyPassphrase` block as defined below.
          * 
-         * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+         * &gt; **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
          * 
          * @return builder
          * 
@@ -776,7 +776,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param privateKeyPath The absolute path to the private key file that the self-hosted integration runtime can access.
          * 
-         * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+         * &gt; **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
          * 
          * @return builder
          * 
@@ -789,7 +789,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param privateKeyPath The absolute path to the private key file that the self-hosted integration runtime can access.
          * 
-         * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+         * &gt; **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param skipHostKeyValidation Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+         * @param skipHostKeyValidation Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
          * 
          * @return builder
          * 
@@ -810,7 +810,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param skipHostKeyValidation Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+         * @param skipHostKeyValidation Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
          * 
          * @return builder
          * 

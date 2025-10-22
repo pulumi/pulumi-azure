@@ -26,7 +26,7 @@ public final class GetEndpointConnectionPrivateServiceConnection {
      * -- | --
      * `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.
      * `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
-     * `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `request_response` will display the same text from your `request_message` in the `private_service_connection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `request_response` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `request_response` text
+     * `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
      * 
      */
     private String requestResponse;
@@ -57,7 +57,7 @@ public final class GetEndpointConnectionPrivateServiceConnection {
      * -- | --
      * `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.
      * `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
-     * `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `request_response` will display the same text from your `request_message` in the `private_service_connection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `request_response` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `request_response` text
+     * `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
      * 
      */
     public String requestResponse() {

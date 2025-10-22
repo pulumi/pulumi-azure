@@ -18,14 +18,14 @@ public final class DefinitionEligibleAuthorizationArgs extends com.pulumi.resour
     public static final DefinitionEligibleAuthorizationArgs Empty = new DefinitionEligibleAuthorizationArgs();
 
     /**
-     * A `just_in_time_access_policy` block as defined below.
+     * A `justInTimeAccessPolicy` block as defined below.
      * 
      */
     @Import(name="justInTimeAccessPolicy")
     private @Nullable Output<DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs> justInTimeAccessPolicy;
 
     /**
-     * @return A `just_in_time_access_policy` block as defined below.
+     * @return A `justInTimeAccessPolicy` block as defined below.
      * 
      */
     public Optional<Output<DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs>> justInTimeAccessPolicy() {
@@ -105,7 +105,7 @@ public final class DefinitionEligibleAuthorizationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param justInTimeAccessPolicy A `just_in_time_access_policy` block as defined below.
+         * @param justInTimeAccessPolicy A `justInTimeAccessPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class DefinitionEligibleAuthorizationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param justInTimeAccessPolicy A `just_in_time_access_policy` block as defined below.
+         * @param justInTimeAccessPolicy A `justInTimeAccessPolicy` block as defined below.
          * 
          * @return builder
          * 

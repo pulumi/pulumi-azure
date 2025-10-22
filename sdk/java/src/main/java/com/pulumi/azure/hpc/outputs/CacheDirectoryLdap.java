@@ -30,7 +30,7 @@ public final class CacheDirectoryLdap {
      */
     private @Nullable String certificateValidationUri;
     /**
-     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
      * 
      */
     private @Nullable Boolean downloadCertificateAutomatically;
@@ -68,7 +68,7 @@ public final class CacheDirectoryLdap {
         return Optional.ofNullable(this.certificateValidationUri);
     }
     /**
-     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
      * 
      */
     public Optional<Boolean> downloadCertificateAutomatically() {

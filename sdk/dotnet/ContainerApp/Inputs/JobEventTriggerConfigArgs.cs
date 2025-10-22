@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.JobEventTriggerConfigScaleArgs>? _scales;
 
         /// <summary>
-        /// A `scale` block as defined below.
+        /// A `Scale` block as defined below.
         /// </summary>
         public InputList<Inputs.JobEventTriggerConfigScaleArgs> Scales
         {

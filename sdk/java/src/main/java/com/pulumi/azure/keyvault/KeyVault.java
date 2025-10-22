@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * 
  * ## Disclaimers
  * 
- * &gt; **Note:** It&#39;s possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it&#39;s not possible to use both methods to manage Access Policies within a KeyVault, since there&#39;ll be conflicts.
+ * &gt; **Note:** It&#39;s possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `accessPolicy` block and by using the `azure.keyvault.AccessPolicy` resource. However it&#39;s not possible to use both methods to manage Access Policies within a KeyVault, since there&#39;ll be conflicts.
  * 
  * &gt; **Note:** It&#39;s possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it&#39;s not possible to use both methods to manage Certificate Contacts within a KeyVault, since there&#39;ll be conflicts.
  * 
@@ -102,7 +102,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
     /**
      * A list of up to 1024 objects describing access policies, as described below.
      * 
-     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Export(name="accessPolicies", refs={List.class,KeyVaultAccessPolicy.class}, tree="[0,1]")
@@ -111,7 +111,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of up to 1024 objects describing access policies, as described below.
      * 
-     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<KeyVaultAccessPolicy>> accessPolicies() {
@@ -131,10 +131,10 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider
+     * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      * 
      */
-    @Deprecated /* This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider */
+    @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
     @Export(name="enableRbacAuthorization", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableRbacAuthorization;
 
@@ -212,14 +212,14 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_acls` block as defined below.
+     * A `networkAcls` block as defined below.
      * 
      */
     @Export(name="networkAcls", refs={KeyVaultNetworkAcls.class}, tree="[0]")
     private Output<KeyVaultNetworkAcls> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below.
+     * @return A `networkAcls` block as defined below.
      * 
      */
     public Output<KeyVaultNetworkAcls> networkAcls() {

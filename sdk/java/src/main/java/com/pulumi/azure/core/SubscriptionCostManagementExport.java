@@ -130,28 +130,28 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
         return Codegen.optional(this.active);
     }
     /**
-     * A `export_data_options` block as defined below.
+     * A `exportDataOptions` block as defined below.
      * 
      */
     @Export(name="exportDataOptions", refs={SubscriptionCostManagementExportExportDataOptions.class}, tree="[0]")
     private Output<SubscriptionCostManagementExportExportDataOptions> exportDataOptions;
 
     /**
-     * @return A `export_data_options` block as defined below.
+     * @return A `exportDataOptions` block as defined below.
      * 
      */
     public Output<SubscriptionCostManagementExportExportDataOptions> exportDataOptions() {
         return this.exportDataOptions;
     }
     /**
-     * A `export_data_storage_location` block as defined below.
+     * A `exportDataStorageLocation` block as defined below.
      * 
      */
     @Export(name="exportDataStorageLocation", refs={SubscriptionCostManagementExportExportDataStorageLocation.class}, tree="[0]")
     private Output<SubscriptionCostManagementExportExportDataStorageLocation> exportDataStorageLocation;
 
     /**
-     * @return A `export_data_storage_location` block as defined below.
+     * @return A `exportDataStorageLocation` block as defined below.
      * 
      */
     public Output<SubscriptionCostManagementExportExportDataStorageLocation> exportDataStorageLocation() {

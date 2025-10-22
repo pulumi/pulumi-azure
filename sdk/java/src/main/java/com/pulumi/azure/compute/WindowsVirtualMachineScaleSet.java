@@ -159,28 +159,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet")
 public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomResource {
     /**
-     * An `additional_capabilities` block as defined below.
+     * An `additionalCapabilities` block as defined below.
      * 
      */
     @Export(name="additionalCapabilities", refs={WindowsVirtualMachineScaleSetAdditionalCapabilities.class}, tree="[0]")
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetAdditionalCapabilities> additionalCapabilities;
 
     /**
-     * @return An `additional_capabilities` block as defined below.
+     * @return An `additionalCapabilities` block as defined below.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetAdditionalCapabilities>> additionalCapabilities() {
         return Codegen.optional(this.additionalCapabilities);
     }
     /**
-     * One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="additionalUnattendContents", refs={List.class,WindowsVirtualMachineScaleSetAdditionalUnattendContent.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetAdditionalUnattendContent>> additionalUnattendContents;
 
     /**
-     * @return One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineScaleSetAdditionalUnattendContent>>> additionalUnattendContents() {
@@ -215,7 +215,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.adminUsername;
     }
     /**
-     * An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      * &gt; **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      * 
@@ -224,7 +224,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     private Output<WindowsVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair;
 
     /**
-     * @return An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * @return An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      * &gt; **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      * 
@@ -233,28 +233,28 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.automaticInstanceRepair;
     }
     /**
-     * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
+     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
      * 
      */
     @Export(name="automaticOsUpgradePolicy", refs={WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy.class}, tree="[0]")
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy> automaticOsUpgradePolicy;
 
     /**
-     * @return An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
+     * @return An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy>> automaticOsUpgradePolicy() {
         return Codegen.optional(this.automaticOsUpgradePolicy);
     }
     /**
-     * A `boot_diagnostics` block as defined below.
+     * A `bootDiagnostics` block as defined below.
      * 
      */
     @Export(name="bootDiagnostics", refs={WindowsVirtualMachineScaleSetBootDiagnostics.class}, tree="[0]")
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetBootDiagnostics> bootDiagnostics;
 
     /**
-     * @return A `boot_diagnostics` block as defined below.
+     * @return A `bootDiagnostics` block as defined below.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetBootDiagnostics>> bootDiagnostics() {
@@ -263,9 +263,9 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+     * &gt; **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
      * 
-     * &gt; **Note:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+     * &gt; **Note:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
      * 
      */
     @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
@@ -274,23 +274,23 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+     * &gt; **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
      * 
-     * &gt; **Note:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+     * &gt; **Note:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
      * 
      */
     public Output<Optional<String>> capacityReservationGroupId() {
         return Codegen.optional(this.capacityReservationGroupId);
     }
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="computerNamePrefix", refs={String.class}, tree="[0]")
     private Output<String> computerNamePrefix;
 
     /**
-     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> computerNamePrefix() {
@@ -315,14 +315,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.customData);
     }
     /**
-     * One or more `data_disk` blocks as defined below.
+     * One or more `dataDisk` blocks as defined below.
      * 
      */
     @Export(name="dataDisks", refs={List.class,WindowsVirtualMachineScaleSetDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetDataDisk>> dataDisks;
 
     /**
-     * @return One or more `data_disk` blocks as defined below.
+     * @return One or more `dataDisk` blocks as defined below.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineScaleSetDataDisk>>> dataDisks() {
@@ -405,7 +405,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      * 
-     * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * &gt; **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
     @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
@@ -414,7 +414,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     /**
      * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      * 
-     * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * &gt; **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
     public Output<Optional<Boolean>> extensionOperationsEnabled() {
@@ -449,28 +449,28 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.extensionsTimeBudget);
     }
     /**
-     * One or more `gallery_application` blocks as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      * 
      */
     @Export(name="galleryApplications", refs={List.class,WindowsVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplications;
 
     /**
-     * @return One or more `gallery_application` blocks as defined below.
+     * @return One or more `galleryApplication` blocks as defined below.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineScaleSetGalleryApplication>>> galleryApplications() {
         return Codegen.optional(this.galleryApplications);
     }
     /**
-     * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+     * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      * 
      */
     @Export(name="healthProbeId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> healthProbeId;
 
     /**
-     * @return The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+     * @return The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      * 
      */
     public Output<Optional<String>> healthProbeId() {
@@ -551,7 +551,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.location;
     }
     /**
-     * The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
+     * The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      * 
      * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
@@ -560,7 +560,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     private Output</* @Nullable */ Double> maxBidPrice;
 
     /**
-     * @return The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
+     * @return The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      * 
      * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
@@ -583,28 +583,28 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.name;
     }
     /**
-     * One or more `network_interface` blocks as defined below.
+     * One or more `networkInterface` blocks as defined below.
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,WindowsVirtualMachineScaleSetNetworkInterface.class}, tree="[0,1]")
     private Output<List<WindowsVirtualMachineScaleSetNetworkInterface>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` blocks as defined below.
+     * @return One or more `networkInterface` blocks as defined below.
      * 
      */
     public Output<List<WindowsVirtualMachineScaleSetNetworkInterface>> networkInterfaces() {
         return this.networkInterfaces;
     }
     /**
-     * An `os_disk` block as defined below.
+     * An `osDisk` block as defined below.
      * 
      */
     @Export(name="osDisk", refs={WindowsVirtualMachineScaleSetOsDisk.class}, tree="[0]")
     private Output<WindowsVirtualMachineScaleSetOsDisk> osDisk;
 
     /**
-     * @return An `os_disk` block as defined below.
+     * @return An `osDisk` block as defined below.
      * 
      */
     public Output<WindowsVirtualMachineScaleSetOsDisk> osDisk() {
@@ -659,7 +659,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
-     * &gt; **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+     * &gt; **Note:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
      * 
      */
     @Export(name="priority", refs={String.class}, tree="[0]")
@@ -668,7 +668,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     /**
      * @return The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
-     * &gt; **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+     * &gt; **Note:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
      * 
      */
     public Output<Optional<String>> priority() {
@@ -717,28 +717,28 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.resourceGroupName;
     }
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="rollingUpgradePolicy", refs={WindowsVirtualMachineScaleSetRollingUpgradePolicy.class}, tree="[0]")
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
-     * @return A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * @return A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetRollingUpgradePolicy>> rollingUpgradePolicy() {
         return Codegen.optional(this.rollingUpgradePolicy);
     }
     /**
-     * A `scale_in` block as defined below.
+     * A `scaleIn` block as defined below.
      * 
      */
     @Export(name="scaleIn", refs={WindowsVirtualMachineScaleSetScaleIn.class}, tree="[0]")
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetScaleIn> scaleIn;
 
     /**
-     * @return A `scale_in` block as defined below.
+     * @return A `scaleIn` block as defined below.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetScaleIn>> scaleIn() {
@@ -803,7 +803,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      * 
-     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      * 
      */
     @Export(name="sourceImageId", refs={String.class}, tree="[0]")
@@ -812,39 +812,39 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
     /**
      * @return The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      * 
-     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      * 
      */
     public Output<Optional<String>> sourceImageId() {
         return Codegen.optional(this.sourceImageId);
     }
     /**
-     * A `source_image_reference` block as defined below.
+     * A `sourceImageReference` block as defined below.
      * 
-     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      * 
      */
     @Export(name="sourceImageReference", refs={WindowsVirtualMachineScaleSetSourceImageReference.class}, tree="[0]")
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetSourceImageReference> sourceImageReference;
 
     /**
-     * @return A `source_image_reference` block as defined below.
+     * @return A `sourceImageReference` block as defined below.
      * 
-     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetSourceImageReference>> sourceImageReference() {
         return Codegen.optional(this.sourceImageReference);
     }
     /**
-     * A `spot_restore` block as defined below.
+     * A `spotRestore` block as defined below.
      * 
      */
     @Export(name="spotRestore", refs={WindowsVirtualMachineScaleSetSpotRestore.class}, tree="[0]")
     private Output<WindowsVirtualMachineScaleSetSpotRestore> spotRestore;
 
     /**
-     * @return A `spot_restore` block as defined below.
+     * @return A `spotRestore` block as defined below.
      * 
      */
     public Output<WindowsVirtualMachineScaleSetSpotRestore> spotRestore() {
@@ -865,14 +865,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.tags);
     }
     /**
-     * A `termination_notification` block as defined below.
+     * A `terminationNotification` block as defined below.
      * 
      */
     @Export(name="terminationNotification", refs={WindowsVirtualMachineScaleSetTerminationNotification.class}, tree="[0]")
     private Output<WindowsVirtualMachineScaleSetTerminationNotification> terminationNotification;
 
     /**
-     * @return A `termination_notification` block as defined below.
+     * @return A `terminationNotification` block as defined below.
      * 
      */
     public Output<WindowsVirtualMachineScaleSetTerminationNotification> terminationNotification() {
@@ -941,14 +941,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.vtpmEnabled);
     }
     /**
-     * One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="winrmListeners", refs={List.class,WindowsVirtualMachineScaleSetWinrmListener.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetWinrmListener>> winrmListeners;
 
     /**
-     * @return One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineScaleSetWinrmListener>>> winrmListeners() {

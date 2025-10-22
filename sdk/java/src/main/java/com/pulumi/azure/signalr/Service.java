@@ -207,14 +207,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.ipAddress;
     }
     /**
-     * A `live_trace` block as defined below.
+     * A `liveTrace` block as defined below.
      * 
      */
     @Export(name="liveTrace", refs={ServiceLiveTrace.class}, tree="[0]")
     private Output</* @Nullable */ ServiceLiveTrace> liveTrace;
 
     /**
-     * @return A `live_trace` block as defined below.
+     * @return A `liveTrace` block as defined below.
      * 
      */
     public Output<Optional<ServiceLiveTrace>> liveTrace() {
@@ -222,10 +222,10 @@ public class Service extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+     * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      * 
      */
-    @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
+    @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
     @Export(name="liveTraceEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> liveTraceEnabled;
 
@@ -319,7 +319,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Whether to enable public network access? Defaults to `true`.
      * 
-     * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+     * &gt; **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
@@ -328,7 +328,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether to enable public network access? Defaults to `true`.
      * 
-     * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+     * &gt; **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
@@ -463,7 +463,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      * 
      */
     @Export(name="tlsClientCertEnabled", refs={Boolean.class}, tree="[0]")
@@ -472,21 +472,21 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      * 
      */
     public Output<Optional<Boolean>> tlsClientCertEnabled() {
         return Codegen.optional(this.tlsClientCertEnabled);
     }
     /**
-     * An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
     @Export(name="upstreamEndpoints", refs={List.class,ServiceUpstreamEndpoint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceUpstreamEndpoint>> upstreamEndpoints;
 
     /**
-     * @return An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * @return An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
     public Output<Optional<List<ServiceUpstreamEndpoint>>> upstreamEndpoints() {

@@ -20,14 +20,14 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
     public static final ConfigurationArgs Empty = new ConfigurationArgs();
 
     /**
-     * One or more `config_file` blocks as defined below.
+     * One or more `configFile` blocks as defined below.
      * 
      */
     @Import(name="configFiles")
     private @Nullable Output<List<ConfigurationConfigFileArgs>> configFiles;
 
     /**
-     * @return One or more `config_file` blocks as defined below.
+     * @return One or more `configFile` blocks as defined below.
      * 
      */
     public Optional<Output<List<ConfigurationConfigFileArgs>>> configFiles() {
@@ -65,14 +65,14 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+     * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      * 
      */
     @Import(name="protectedFiles")
     private @Nullable Output<List<ConfigurationProtectedFileArgs>> protectedFiles;
 
     /**
-     * @return One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+     * @return One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      * 
      */
     public Optional<Output<List<ConfigurationProtectedFileArgs>>> protectedFiles() {
@@ -123,7 +123,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configFiles One or more `config_file` blocks as defined below.
+         * @param configFiles One or more `configFile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configFiles One or more `config_file` blocks as defined below.
+         * @param configFiles One or more `configFile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configFiles One or more `config_file` blocks as defined below.
+         * @param configFiles One or more `configFile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+         * @param protectedFiles One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+         * @param protectedFiles One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+         * @param protectedFiles One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
          * 
          * @return builder
          * 

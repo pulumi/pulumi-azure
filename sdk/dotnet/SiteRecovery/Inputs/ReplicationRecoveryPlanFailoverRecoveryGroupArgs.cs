@@ -16,7 +16,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         private InputList<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs>? _postActions;
 
         /// <summary>
-        /// one or more `action` block as defined below. which will be executed after the group recovery.
+        /// one or more `Action` block as defined below. which will be executed after the group recovery.
         /// </summary>
         public InputList<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs> PostActions
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         private InputList<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs>? _preActions;
 
         /// <summary>
-        /// one or more `action` block as defined below. which will be executed before the group recovery.
+        /// one or more `Action` block as defined below. which will be executed before the group recovery.
         /// </summary>
         public InputList<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs> PreActions
         {

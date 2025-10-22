@@ -280,18 +280,18 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.createMode);
     }
     /**
-     * The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
+     * The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
+     * &gt; **Note:** When configuring a secondary database, please be aware of the constraints for the `skuName` property, as noted below, for both the primary and secondary databases. The `skuName` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
      * 
      */
     @Export(name="creationSourceDatabaseId", refs={String.class}, tree="[0]")
     private Output<String> creationSourceDatabaseId;
 
     /**
-     * @return The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
+     * @return The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
+     * &gt; **Note:** When configuring a secondary database, please be aware of the constraints for the `skuName` property, as noted below, for both the primary and secondary databases. The `skuName` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
      * 
      */
     public Output<String> creationSourceDatabaseId() {
@@ -312,26 +312,26 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.elasticPoolId);
     }
     /**
-     * Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
+     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
      * 
-     * &gt; **Note:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
+     * &gt; **Note:** `enclaveType` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      * 
-     * &gt; **Note:** Geo Replicated and Failover databases must have the same `enclave_type`.
+     * &gt; **Note:** Geo Replicated and Failover databases must have the same `enclaveType`.
      * 
-     * &gt; **Note:** The default value for the `enclave_type` field is unset not `Default`.
+     * &gt; **Note:** The default value for the `enclaveType` field is unset not `Default`.
      * 
      */
     @Export(name="enclaveType", refs={String.class}, tree="[0]")
     private Output<String> enclaveType;
 
     /**
-     * @return Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
+     * @return Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
      * 
-     * &gt; **Note:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
+     * &gt; **Note:** `enclaveType` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      * 
-     * &gt; **Note:** Geo Replicated and Failover databases must have the same `enclave_type`.
+     * &gt; **Note:** Geo Replicated and Failover databases must have the same `enclaveType`.
      * 
-     * &gt; **Note:** The default value for the `enclave_type` field is unset not `Default`.
+     * &gt; **Note:** The default value for the `enclaveType` field is unset not `Default`.
      * 
      */
     public Output<String> enclaveType() {
@@ -340,7 +340,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
+     * &gt; **Note:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
      * 
      */
     @Export(name="geoBackupEnabled", refs={Boolean.class}, tree="[0]")
@@ -349,7 +349,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
+     * &gt; **Note:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
      * 
      */
     public Output<Optional<Boolean>> geoBackupEnabled() {
@@ -370,14 +370,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * A `import` block as documented below. Mutually exclusive with `create_mode`.
+     * A `import` block as documented below. Mutually exclusive with `createMode`.
      * 
      */
     @Export(name="import", refs={DatabaseImport.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseImport> import_;
 
     /**
-     * @return A `import` block as documented below. Mutually exclusive with `create_mode`.
+     * @return A `import` block as documented below. Mutually exclusive with `createMode`.
      * 
      */
     public Output<Optional<DatabaseImport>> import_() {
@@ -412,14 +412,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.licenseType;
     }
     /**
-     * A `long_term_retention_policy` block as defined below.
+     * A `longTermRetentionPolicy` block as defined below.
      * 
      */
     @Export(name="longTermRetentionPolicy", refs={DatabaseLongTermRetentionPolicy.class}, tree="[0]")
     private Output<DatabaseLongTermRetentionPolicy> longTermRetentionPolicy;
 
     /**
-     * @return A `long_term_retention_policy` block as defined below.
+     * @return A `longTermRetentionPolicy` block as defined below.
      * 
      */
     public Output<DatabaseLongTermRetentionPolicy> longTermRetentionPolicy() {
@@ -428,7 +428,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
      * 
-     * &gt; **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
+     * &gt; **Note:** `maintenanceConfigurationName` is only applicable if `elasticPoolId` is not set.
      * 
      */
     @Export(name="maintenanceConfigurationName", refs={String.class}, tree="[0]")
@@ -437,7 +437,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
      * 
-     * &gt; **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
+     * &gt; **Note:** `maintenanceConfigurationName` is only applicable if `elasticPoolId` is not set.
      * 
      */
     public Output<String> maintenanceConfigurationName() {
@@ -446,7 +446,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * The max size of the database in gigabytes.
      * 
-     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
+     * &gt; **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
      * 
      */
     @Export(name="maxSizeGb", refs={Double.class}, tree="[0]")
@@ -455,7 +455,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return The max size of the database in gigabytes.
      * 
-     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
+     * &gt; **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
      * 
      */
     public Output<Double> maxSizeGb() {
@@ -518,70 +518,70 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.readScale;
     }
     /**
-     * The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+     * The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
      * 
      */
     @Export(name="recoverDatabaseId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recoverDatabaseId;
 
     /**
-     * @return The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+     * @return The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
      * 
      */
     public Output<Optional<String>> recoverDatabaseId() {
         return Codegen.optional(this.recoverDatabaseId);
     }
     /**
-     * The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+     * The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
      * 
      */
     @Export(name="recoveryPointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recoveryPointId;
 
     /**
-     * @return The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+     * @return The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
      * 
      */
     public Output<Optional<String>> recoveryPointId() {
         return Codegen.optional(this.recoveryPointId);
     }
     /**
-     * The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+     * The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
      * 
      */
     @Export(name="restoreDroppedDatabaseId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restoreDroppedDatabaseId;
 
     /**
-     * @return The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+     * @return The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
      * 
      */
     public Output<Optional<String>> restoreDroppedDatabaseId() {
         return Codegen.optional(this.restoreDroppedDatabaseId);
     }
     /**
-     * The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+     * The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
      * 
      */
     @Export(name="restoreLongTermRetentionBackupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restoreLongTermRetentionBackupId;
 
     /**
-     * @return The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+     * @return The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
      * 
      */
     public Output<Optional<String>> restoreLongTermRetentionBackupId() {
         return Codegen.optional(this.restoreLongTermRetentionBackupId);
     }
     /**
-     * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
+     * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
      * 
      */
     @Export(name="restorePointInTime", refs={String.class}, tree="[0]")
     private Output<String> restorePointInTime;
 
     /**
-     * @return Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
+     * @return Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
      * 
      */
     public Output<String> restorePointInTime() {
@@ -634,14 +634,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.serverId;
     }
     /**
-     * A `short_term_retention_policy` block as defined below.
+     * A `shortTermRetentionPolicy` block as defined below.
      * 
      */
     @Export(name="shortTermRetentionPolicy", refs={DatabaseShortTermRetentionPolicy.class}, tree="[0]")
     private Output<DatabaseShortTermRetentionPolicy> shortTermRetentionPolicy;
 
     /**
-     * @return A `short_term_retention_policy` block as defined below.
+     * @return A `shortTermRetentionPolicy` block as defined below.
      * 
      */
     public Output<DatabaseShortTermRetentionPolicy> shortTermRetentionPolicy() {
@@ -652,7 +652,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** A full list of supported SKU names by region can be retrieved using the Azure CLI: `az sql db list-editions -l &lt;region&gt; -o table`
      * 
-     * &gt; **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it&#39;s recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
+     * &gt; **Note:** The default `skuName` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creationSourceDatabaseId` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `skuName` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it&#39;s recommended to use the same `skuName` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
@@ -663,7 +663,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** A full list of supported SKU names by region can be retrieved using the Azure CLI: `az sql db list-editions -l &lt;region&gt; -o table`
      * 
-     * &gt; **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it&#39;s recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
+     * &gt; **Note:** The default `skuName` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creationSourceDatabaseId` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `skuName` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it&#39;s recommended to use the same `skuName` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
      * 
      */
     public Output<String> skuName() {
@@ -698,14 +698,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      * 
      */
     @Export(name="threatDetectionPolicy", refs={DatabaseThreatDetectionPolicy.class}, tree="[0]")
     private Output<DatabaseThreatDetectionPolicy> threatDetectionPolicy;
 
     /**
-     * @return Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+     * @return Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      * 
      */
     public Output<DatabaseThreatDetectionPolicy> threatDetectionPolicy() {
@@ -714,7 +714,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
      * 
-     * &gt; **Note:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
+     * &gt; **Note:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      * 
      */
     @Export(name="transparentDataEncryptionEnabled", refs={Boolean.class}, tree="[0]")
@@ -723,7 +723,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
      * 
-     * &gt; **Note:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
+     * &gt; **Note:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      * 
      */
     public Output<Optional<Boolean>> transparentDataEncryptionEnabled() {
@@ -732,7 +732,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** When the `sku_name` is `DW100c`, the `transparent_data_encryption_key_automatic_rotation_enabled` and the `transparent_data_encryption_key_vault_key_id` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
+     * &gt; **Note:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
      * 
      */
     @Export(name="transparentDataEncryptionKeyAutomaticRotationEnabled", refs={Boolean.class}, tree="[0]")
@@ -741,7 +741,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** When the `sku_name` is `DW100c`, the `transparent_data_encryption_key_automatic_rotation_enabled` and the `transparent_data_encryption_key_vault_key_id` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
+     * &gt; **Note:** When the `skuName` is `DW100c`, the `transparentDataEncryptionKeyAutomaticRotationEnabled` and the `transparentDataEncryptionKeyVaultKeyId` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
      * 
      */
     public Output<Optional<Boolean>> transparentDataEncryptionKeyAutomaticRotationEnabled() {

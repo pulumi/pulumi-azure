@@ -71,25 +71,25 @@ namespace Pulumi.Azure.MSSql
     public partial class VirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `assessment` block as defined below.
+        /// An `Assessment` block as defined below.
         /// </summary>
         [Output("assessment")]
         public Output<Outputs.VirtualMachineAssessment?> Assessment { get; private set; } = null!;
 
         /// <summary>
-        /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+        /// An `AutoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         /// </summary>
         [Output("autoBackup")]
         public Output<Outputs.VirtualMachineAutoBackup?> AutoBackup { get; private set; } = null!;
 
         /// <summary>
-        /// An `auto_patching` block as defined below.
+        /// An `AutoPatching` block as defined below.
         /// </summary>
         [Output("autoPatching")]
         public Output<Outputs.VirtualMachineAutoPatching?> AutoPatching { get; private set; } = null!;
 
         /// <summary>
-        /// An `key_vault_credential` block as defined below.
+        /// An `KeyVaultCredential` block as defined below.
         /// </summary>
         [Output("keyVaultCredential")]
         public Output<Outputs.VirtualMachineKeyVaultCredential?> KeyVaultCredential { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> SqlConnectivityUpdateUsername { get; private set; } = null!;
 
         /// <summary>
-        /// A `sql_instance` block as defined below.
+        /// A `SqlInstance` block as defined below.
         /// </summary>
         [Output("sqlInstance")]
         public Output<Outputs.VirtualMachineSqlInstance?> SqlInstance { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> SqlVirtualMachineGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// An `storage_configuration` block as defined below.
+        /// An `StorageConfiguration` block as defined below.
         /// </summary>
         [Output("storageConfiguration")]
         public Output<Outputs.VirtualMachineStorageConfiguration?> StorageConfiguration { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> VirtualMachineId { get; private set; } = null!;
 
         /// <summary>
-        /// A `wsfc_domain_credential` block as defined below
+        /// A `WsfcDomainCredential` block as defined below
         /// </summary>
         [Output("wsfcDomainCredential")]
         public Output<Outputs.VirtualMachineWsfcDomainCredential?> WsfcDomainCredential { get; private set; } = null!;
@@ -218,25 +218,25 @@ namespace Pulumi.Azure.MSSql
     public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `assessment` block as defined below.
+        /// An `Assessment` block as defined below.
         /// </summary>
         [Input("assessment")]
         public Input<Inputs.VirtualMachineAssessmentArgs>? Assessment { get; set; }
 
         /// <summary>
-        /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+        /// An `AutoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         /// </summary>
         [Input("autoBackup")]
         public Input<Inputs.VirtualMachineAutoBackupArgs>? AutoBackup { get; set; }
 
         /// <summary>
-        /// An `auto_patching` block as defined below.
+        /// An `AutoPatching` block as defined below.
         /// </summary>
         [Input("autoPatching")]
         public Input<Inputs.VirtualMachineAutoPatchingArgs>? AutoPatching { get; set; }
 
         /// <summary>
-        /// An `key_vault_credential` block as defined below.
+        /// An `KeyVaultCredential` block as defined below.
         /// </summary>
         [Input("keyVaultCredential")]
         public Input<Inputs.VirtualMachineKeyVaultCredentialArgs>? KeyVaultCredential { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// A `sql_instance` block as defined below.
+        /// A `SqlInstance` block as defined below.
         /// </summary>
         [Input("sqlInstance")]
         public Input<Inputs.VirtualMachineSqlInstanceArgs>? SqlInstance { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SqlVirtualMachineGroupId { get; set; }
 
         /// <summary>
-        /// An `storage_configuration` block as defined below.
+        /// An `StorageConfiguration` block as defined below.
         /// </summary>
         [Input("storageConfiguration")]
         public Input<Inputs.VirtualMachineStorageConfigurationArgs>? StorageConfiguration { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string> VirtualMachineId { get; set; } = null!;
 
         /// <summary>
-        /// A `wsfc_domain_credential` block as defined below
+        /// A `WsfcDomainCredential` block as defined below
         /// </summary>
         [Input("wsfcDomainCredential")]
         public Input<Inputs.VirtualMachineWsfcDomainCredentialArgs>? WsfcDomainCredential { get; set; }
@@ -348,25 +348,25 @@ namespace Pulumi.Azure.MSSql
     public sealed class VirtualMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `assessment` block as defined below.
+        /// An `Assessment` block as defined below.
         /// </summary>
         [Input("assessment")]
         public Input<Inputs.VirtualMachineAssessmentGetArgs>? Assessment { get; set; }
 
         /// <summary>
-        /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+        /// An `AutoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         /// </summary>
         [Input("autoBackup")]
         public Input<Inputs.VirtualMachineAutoBackupGetArgs>? AutoBackup { get; set; }
 
         /// <summary>
-        /// An `auto_patching` block as defined below.
+        /// An `AutoPatching` block as defined below.
         /// </summary>
         [Input("autoPatching")]
         public Input<Inputs.VirtualMachineAutoPatchingGetArgs>? AutoPatching { get; set; }
 
         /// <summary>
-        /// An `key_vault_credential` block as defined below.
+        /// An `KeyVaultCredential` block as defined below.
         /// </summary>
         [Input("keyVaultCredential")]
         public Input<Inputs.VirtualMachineKeyVaultCredentialGetArgs>? KeyVaultCredential { get; set; }
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// A `sql_instance` block as defined below.
+        /// A `SqlInstance` block as defined below.
         /// </summary>
         [Input("sqlInstance")]
         public Input<Inputs.VirtualMachineSqlInstanceGetArgs>? SqlInstance { get; set; }
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SqlVirtualMachineGroupId { get; set; }
 
         /// <summary>
-        /// An `storage_configuration` block as defined below.
+        /// An `StorageConfiguration` block as defined below.
         /// </summary>
         [Input("storageConfiguration")]
         public Input<Inputs.VirtualMachineStorageConfigurationGetArgs>? StorageConfiguration { get; set; }
@@ -464,7 +464,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? VirtualMachineId { get; set; }
 
         /// <summary>
-        /// A `wsfc_domain_credential` block as defined below
+        /// A `WsfcDomainCredential` block as defined below
         /// </summary>
         [Input("wsfcDomainCredential")]
         public Input<Inputs.VirtualMachineWsfcDomainCredentialGetArgs>? WsfcDomainCredential { get; set; }

@@ -215,35 +215,35 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
         return this.principalId;
     }
     /**
-     * The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+     * The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
      * 
      */
     @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     /**
-     * @return The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+     * @return The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
      * 
      */
     public Output<String> principalType() {
         return this.principalType;
     }
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      * 
      */
     @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleDefinitionId;
 
     /**
-     * @return The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * @return The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      * 
      */
     public Output<Optional<String>> roleDefinitionId() {
         return Codegen.optional(this.roleDefinitionId);
     }
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      * 
      * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
      * 
@@ -252,7 +252,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> roleDefinitionName;
 
     /**
-     * @return The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * @return The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      * 
      * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
      * 
@@ -261,18 +261,18 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.roleDefinitionName);
     }
     /**
-     * If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+     * &gt; **Note:** This field takes effect only when `principalId` is a `Service Principal` identity.
      * 
      */
     @Export(name="skipServicePrincipalAadCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipServicePrincipalAadCheck;
 
     /**
-     * @return If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+     * &gt; **Note:** This field takes effect only when `principalId` is a `Service Principal` identity.
      * 
      */
     public Output<Optional<Boolean>> skipServicePrincipalAadCheck() {

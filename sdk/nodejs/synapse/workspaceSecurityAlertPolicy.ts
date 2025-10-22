@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Security Alert Policy for a Synapse Workspace.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * Synapse Workspace Security Alert Policies can be imported using the `resource id`, e.g.

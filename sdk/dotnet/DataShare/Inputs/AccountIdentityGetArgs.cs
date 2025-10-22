@@ -27,7 +27,7 @@ namespace Pulumi.Azure.DataShare.Inputs
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Data Share Account has been created. More details are available below.
+        /// &gt; **Note:** The assigned `PrincipalId` and `TenantId` can be retrieved after the identity `Type` has been set to `SystemAssigned` and the Data Share Account has been created. More details are available below.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

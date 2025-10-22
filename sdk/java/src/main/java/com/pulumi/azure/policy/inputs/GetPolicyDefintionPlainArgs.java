@@ -17,7 +17,7 @@ public final class GetPolicyDefintionPlainArgs extends com.pulumi.resources.Invo
     /**
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
      * 
-     * &gt; **Note:** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
+     * &gt; **Note:** Looking up policies by `displayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
      * 
      */
     @Import(name="displayName")
@@ -26,7 +26,7 @@ public final class GetPolicyDefintionPlainArgs extends com.pulumi.resources.Invo
     /**
      * @return Specifies the display name of the Policy Definition. Conflicts with `name`.
      * 
-     * &gt; **Note:** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
+     * &gt; **Note:** Looking up policies by `displayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
      * 
      */
     public Optional<String> displayName() {
@@ -49,14 +49,14 @@ public final class GetPolicyDefintionPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * Specifies the name of the Policy Definition. Conflicts with `display_name`.
+     * Specifies the name of the Policy Definition. Conflicts with `displayName`.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Specifies the name of the Policy Definition. Conflicts with `display_name`.
+     * @return Specifies the name of the Policy Definition. Conflicts with `displayName`.
      * 
      */
     public Optional<String> name() {
@@ -92,7 +92,7 @@ public final class GetPolicyDefintionPlainArgs extends com.pulumi.resources.Invo
         /**
          * @param displayName Specifies the display name of the Policy Definition. Conflicts with `name`.
          * 
-         * &gt; **Note:** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
+         * &gt; **Note:** Looking up policies by `displayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GetPolicyDefintionPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param name Specifies the name of the Policy Definition. Conflicts with `display_name`.
+         * @param name Specifies the name of the Policy Definition. Conflicts with `displayName`.
          * 
          * @return builder
          * 

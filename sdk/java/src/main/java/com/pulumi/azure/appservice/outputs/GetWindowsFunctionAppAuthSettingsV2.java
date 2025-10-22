@@ -23,12 +23,12 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsFunctionAppAuthSettingsV2 {
     /**
-     * @return An `active_directory_v2` block as defined below.
+     * @return An `activeDirectoryV2` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2> activeDirectoryV2s;
     /**
-     * @return An `apple_v2` block as defined below.
+     * @return An `appleV2` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2AppleV2> appleV2s;
@@ -38,7 +38,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
      */
     private Boolean authEnabled;
     /**
-     * @return An `azure_static_web_app_v2` block as defined below.
+     * @return An `azureStaticWebAppV2` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2> azureStaticWebAppV2s;
@@ -48,22 +48,22 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
      */
     private String configFilePath;
     /**
-     * @return Zero or more `custom_oidc_v2` blocks as defined below.
+     * @return Zero or more `customOidcV2` blocks as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2CustomOidcV2> customOidcV2s;
     /**
-     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
      * 
      */
     private String defaultProvider;
     /**
-     * @return The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+     * @return The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
      * 
      */
     private List<String> excludedPaths;
     /**
-     * @return A `facebook_v2` block as defined below.
+     * @return A `facebookV2` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2FacebookV2> facebookV2s;
@@ -83,12 +83,12 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
      */
     private String forwardProxyCustomSchemeHeaderName;
     /**
-     * @return A `github_v2` block as defined below.
+     * @return A `githubV2` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2GithubV2> githubV2s;
     /**
-     * @return A `google_v2` block as defined below.
+     * @return A `googleV2` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2GoogleV2> googleV2s;
@@ -103,7 +103,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
      */
     private List<GetWindowsFunctionAppAuthSettingsV2Login> logins;
     /**
-     * @return A `microsoft_v2` block as defined below.
+     * @return A `microsoftV2` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2MicrosoftV2> microsoftV2s;
@@ -123,7 +123,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
      */
     private String runtimeVersion;
     /**
-     * @return A `twitter_v2` block as defined below.
+     * @return A `twitterV2` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2TwitterV2> twitterV2s;
@@ -135,14 +135,14 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
 
     private GetWindowsFunctionAppAuthSettingsV2() {}
     /**
-     * @return An `active_directory_v2` block as defined below.
+     * @return An `activeDirectoryV2` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2> activeDirectoryV2s() {
         return this.activeDirectoryV2s;
     }
     /**
-     * @return An `apple_v2` block as defined below.
+     * @return An `appleV2` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2AppleV2> appleV2s() {
@@ -156,7 +156,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
         return this.authEnabled;
     }
     /**
-     * @return An `azure_static_web_app_v2` block as defined below.
+     * @return An `azureStaticWebAppV2` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2> azureStaticWebAppV2s() {
@@ -170,28 +170,28 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
         return this.configFilePath;
     }
     /**
-     * @return Zero or more `custom_oidc_v2` blocks as defined below.
+     * @return Zero or more `customOidcV2` blocks as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2CustomOidcV2> customOidcV2s() {
         return this.customOidcV2s;
     }
     /**
-     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
      * 
      */
     public String defaultProvider() {
         return this.defaultProvider;
     }
     /**
-     * @return The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+     * @return The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
      * 
      */
     public List<String> excludedPaths() {
         return this.excludedPaths;
     }
     /**
-     * @return A `facebook_v2` block as defined below.
+     * @return A `facebookV2` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2FacebookV2> facebookV2s() {
@@ -219,14 +219,14 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
         return this.forwardProxyCustomSchemeHeaderName;
     }
     /**
-     * @return A `github_v2` block as defined below.
+     * @return A `githubV2` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2GithubV2> githubV2s() {
         return this.githubV2s;
     }
     /**
-     * @return A `google_v2` block as defined below.
+     * @return A `googleV2` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2GoogleV2> googleV2s() {
@@ -247,7 +247,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
         return this.logins;
     }
     /**
-     * @return A `microsoft_v2` block as defined below.
+     * @return A `microsoftV2` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2MicrosoftV2> microsoftV2s() {
@@ -275,7 +275,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2 {
         return this.runtimeVersion;
     }
     /**
-     * @return A `twitter_v2` block as defined below.
+     * @return A `twitterV2` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2TwitterV2> twitterV2s() {

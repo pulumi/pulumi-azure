@@ -63,14 +63,14 @@ public final class EndpointPrivateDnsZoneConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * A `record_sets` block as defined below.
+     * A `recordSets` block as defined below.
      * 
      */
     @Import(name="recordSets")
     private @Nullable Output<List<EndpointPrivateDnsZoneConfigRecordSetArgs>> recordSets;
 
     /**
-     * @return A `record_sets` block as defined below.
+     * @return A `recordSets` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointPrivateDnsZoneConfigRecordSetArgs>>> recordSets() {
@@ -168,7 +168,7 @@ public final class EndpointPrivateDnsZoneConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param recordSets A `record_sets` block as defined below.
+         * @param recordSets A `recordSets` block as defined below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class EndpointPrivateDnsZoneConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param recordSets A `record_sets` block as defined below.
+         * @param recordSets A `recordSets` block as defined below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class EndpointPrivateDnsZoneConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param recordSets A `record_sets` block as defined below.
+         * @param recordSets A `recordSets` block as defined below.
          * 
          * @return builder
          * 

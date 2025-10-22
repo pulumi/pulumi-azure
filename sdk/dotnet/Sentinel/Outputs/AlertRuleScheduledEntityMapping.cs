@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string EntityType;
         /// <summary>
-        /// A list of `field_mapping` blocks as defined below.
+        /// A list of `FieldMapping` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertRuleScheduledEntityMappingFieldMapping> FieldMappings;
 

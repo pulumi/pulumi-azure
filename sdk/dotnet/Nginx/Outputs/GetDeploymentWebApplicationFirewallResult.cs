@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Nginx.Outputs
         /// </summary>
         public readonly bool ActivationStateEnabled;
         /// <summary>
-        /// A `status` block as defined below.
+        /// A `Status` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentWebApplicationFirewallStatusResult> Statuses;
 

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? BandwidthMbps { get; set; }
 
         /// <summary>
-        /// Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+        /// Should the BGP be enabled? Defaults to `False`. Changing this forces a new VPN Gateway Connection to be created.
         /// </summary>
         [Input("bgpEnabled")]
         public Input<bool>? BgpEnabled { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.VpnGatewayConnectionVpnLinkCustomBgpAddressGetArgs>? _customBgpAddresses;
 
         /// <summary>
-        /// One or more `custom_bgp_address` blocks as defined below.
+        /// One or more `CustomBgpAddress` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnGatewayConnectionVpnLinkCustomBgpAddressGetArgs> CustomBgpAddresses
         {
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.VpnGatewayConnectionVpnLinkIpsecPolicyGetArgs>? _ipsecPolicies;
 
         /// <summary>
-        /// One or more `ipsec_policy` blocks as defined above.
+        /// One or more `IpsecPolicy` blocks as defined above.
         /// </summary>
         public InputList<Inputs.VpnGatewayConnectionVpnLinkIpsecPolicyGetArgs> IpsecPolicies
         {
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// Whether to use local Azure IP to initiate connection? Defaults to `false`.
+        /// Whether to use local Azure IP to initiate connection? Defaults to `False`.
         /// </summary>
         [Input("localAzureIpAddressEnabled")]
         public Input<bool>? LocalAzureIpAddressEnabled { get; set; }
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable policy-based traffic selectors? Defaults to `false`.
+        /// Whether to enable policy-based traffic selectors? Defaults to `False`.
         /// </summary>
         [Input("policyBasedTrafficSelectorEnabled")]
         public Input<bool>? PolicyBasedTrafficSelectorEnabled { get; set; }
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// Should the rate limit be enabled? Defaults to `false`.
+        /// Should the rate limit be enabled? Defaults to `False`.
         /// </summary>
         [Input("ratelimitEnabled")]
         public Input<bool>? RatelimitEnabled { get; set; }

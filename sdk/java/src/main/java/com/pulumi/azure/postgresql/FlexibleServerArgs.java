@@ -25,22 +25,22 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     public static final FlexibleServerArgs Empty = new FlexibleServerArgs();
 
     /**
-     * The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
-     * &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
      * 
-     * &gt; **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
+     * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      * 
      */
     @Import(name="administratorLogin")
     private @Nullable Output<String> administratorLogin;
 
     /**
-     * @return The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+     * @return The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
-     * &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
      * 
-     * &gt; **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
+     * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      * 
      */
     public Optional<Output<String>> administratorLogin() {
@@ -48,14 +48,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
      * 
      */
     @Import(name="administratorPassword")
     private @Nullable Output<String> administratorPassword;
 
     /**
-     * @return The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+     * @return The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
      * 
      */
     public Optional<Output<String>> administratorPassword() {
@@ -63,14 +63,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      * 
      */
     @Import(name="administratorPasswordWoVersion")
     private @Nullable Output<Integer> administratorPasswordWoVersion;
 
     /**
-     * @return An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * @return An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      * 
      */
     public Optional<Output<Integer>> administratorPasswordWoVersion() {
@@ -138,14 +138,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="customerManagedKey")
     private @Nullable Output<FlexibleServerCustomerManagedKeyArgs> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+     * @return A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<FlexibleServerCustomerManagedKeyArgs>> customerManagedKey() {
@@ -183,14 +183,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `high_availability` block as defined below.
+     * A `highAvailability` block as defined below.
      * 
      */
     @Import(name="highAvailability")
     private @Nullable Output<FlexibleServerHighAvailabilityArgs> highAvailability;
 
     /**
-     * @return A `high_availability` block as defined below.
+     * @return A `highAvailability` block as defined below.
      * 
      */
     public Optional<Output<FlexibleServerHighAvailabilityArgs>> highAvailability() {
@@ -228,14 +228,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `maintenance_window` block as defined below.
+     * A `maintenanceWindow` block as defined below.
      * 
      */
     @Import(name="maintenanceWindow")
     private @Nullable Output<FlexibleServerMaintenanceWindowArgs> maintenanceWindow;
 
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     public Optional<Output<FlexibleServerMaintenanceWindowArgs>> maintenanceWindow() {
@@ -262,14 +262,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Import(name="pointInTimeRestoreTimeInUtc")
     private @Nullable Output<String> pointInTimeRestoreTimeInUtc;
 
     /**
-     * @return The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * @return The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Optional<Output<String>> pointInTimeRestoreTimeInUtc() {
@@ -279,7 +279,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      * 
-     * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+     * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      * 
      */
     @Import(name="privateDnsZoneId")
@@ -288,7 +288,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      * 
-     * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+     * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      * 
      */
     public Optional<Output<String>> privateDnsZoneId() {
@@ -298,7 +298,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
      * 
-     * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+     * &gt; **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
@@ -307,7 +307,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
      * 
-     * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+     * &gt; **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -317,7 +317,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      * 
-     * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
+     * &gt; **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
      * 
      */
     @Import(name="replicationRole")
@@ -326,7 +326,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      * 
-     * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
+     * &gt; **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
      * 
      */
     public Optional<Output<String>> replicationRole() {
@@ -364,14 +364,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Import(name="sourceServerId")
     private @Nullable Output<String> sourceServerId;
 
     /**
-     * @return The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * @return The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Optional<Output<String>> sourceServerId() {
@@ -381,9 +381,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      * 
-     * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
+     * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
      * 
-     * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Import(name="storageMb")
@@ -392,9 +392,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      * 
-     * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
+     * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
      * 
-     * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Optional<Output<Integer>> storageMb() {
@@ -402,18 +402,18 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
+     * The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
      * 
-     * &gt; **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+     * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
      * 
      */
     @Import(name="storageTier")
     private @Nullable Output<String> storageTier;
 
     /**
-     * @return The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
+     * @return The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
      * 
-     * &gt; **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+     * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
      * 
      */
     public Optional<Output<String>> storageTier() {
@@ -436,7 +436,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
      * 
      * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
      * 
@@ -447,7 +447,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<String> version;
 
     /**
-     * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
+     * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
      * 
      * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
      * 
@@ -516,11 +516,11 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+         * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
          * 
-         * &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
          * 
-         * &gt; **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
+         * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
          * 
          * @return builder
          * 
@@ -531,11 +531,11 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+         * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
          * 
-         * &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
          * 
-         * &gt; **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
+         * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+         * @param administratorPassword The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+         * @param administratorPassword The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorPasswordWoVersion An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+         * @param administratorPasswordWoVersion An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorPasswordWoVersion An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+         * @param administratorPasswordWoVersion An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+         * @param customerManagedKey A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+         * @param customerManagedKey A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -734,7 +734,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param highAvailability A `high_availability` block as defined below.
+         * @param highAvailability A `highAvailability` block as defined below.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param highAvailability A `high_availability` block as defined below.
+         * @param highAvailability A `highAvailability` block as defined below.
          * 
          * @return builder
          * 
@@ -797,7 +797,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param maintenanceWindow A `maintenance_window` block as defined below.
+         * @param maintenanceWindow A `maintenanceWindow` block as defined below.
          * 
          * @return builder
          * 
@@ -808,7 +808,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param maintenanceWindow A `maintenance_window` block as defined below.
+         * @param maintenanceWindow A `maintenanceWindow` block as defined below.
          * 
          * @return builder
          * 
@@ -843,7 +843,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param pointInTimeRestoreTimeInUtc The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * @param pointInTimeRestoreTimeInUtc The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -854,7 +854,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param pointInTimeRestoreTimeInUtc The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * @param pointInTimeRestoreTimeInUtc The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -866,7 +866,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param privateDnsZoneId The ID of the private DNS zone to create the PostgreSQL Flexible Server.
          * 
-         * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+         * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
          * 
          * @return builder
          * 
@@ -879,7 +879,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param privateDnsZoneId The ID of the private DNS zone to create the PostgreSQL Flexible Server.
          * 
-         * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+         * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
          * 
          * @return builder
          * 
@@ -891,7 +891,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param publicNetworkAccessEnabled Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
          * 
-         * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+         * &gt; **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
          * 
          * @return builder
          * 
@@ -904,7 +904,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param publicNetworkAccessEnabled Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
          * 
-         * &gt; **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
+         * &gt; **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
          * 
          * @return builder
          * 
@@ -916,7 +916,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param replicationRole The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
          * 
-         * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
+         * &gt; **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
          * 
          * @return builder
          * 
@@ -929,7 +929,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param replicationRole The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
          * 
-         * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
+         * &gt; **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
          * 
          * @return builder
          * 
@@ -981,7 +981,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceServerId The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * @param sourceServerId The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -992,7 +992,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceServerId The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * @param sourceServerId The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -1004,9 +1004,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
          * 
-         * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
+         * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
          * 
-         * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
+         * &gt; **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -1019,9 +1019,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
          * 
-         * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
+         * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
          * 
-         * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
+         * &gt; **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -1031,9 +1031,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageTier The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
+         * @param storageTier The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
          * 
-         * &gt; **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+         * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
          * 
          * @return builder
          * 
@@ -1044,9 +1044,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageTier The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
+         * @param storageTier The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
          * 
-         * &gt; **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+         * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
          * 
          * @return builder
          * 
@@ -1077,7 +1077,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
+         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
          * 
          * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
          * 
@@ -1092,7 +1092,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
+         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
          * 
          * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
          * 

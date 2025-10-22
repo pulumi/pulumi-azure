@@ -36,14 +36,14 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
     }
 
     /**
-     * A `failing_periods` block as defined below.
+     * A `failingPeriods` block as defined below.
      * 
      */
     @Import(name="failingPeriods")
     private @Nullable Output<ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs> failingPeriods;
 
     /**
-     * @return A `failing_periods` block as defined below.
+     * @return A `failingPeriods` block as defined below.
      * 
      */
     public Optional<Output<ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs>> failingPeriods() {
@@ -53,7 +53,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
     /**
      * Specifies the column containing the metric measure number.
      * 
-     * &gt; **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+     * &gt; **Note:** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
      * 
      */
     @Import(name="metricMeasureColumn")
@@ -62,7 +62,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
     /**
      * @return Specifies the column containing the metric measure number.
      * 
-     * &gt; **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+     * &gt; **Note:** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
      * 
      */
     public Optional<Output<String>> metricMeasureColumn() {
@@ -207,7 +207,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param failingPeriods A `failing_periods` block as defined below.
+         * @param failingPeriods A `failingPeriods` block as defined below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param failingPeriods A `failing_periods` block as defined below.
+         * @param failingPeriods A `failingPeriods` block as defined below.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         /**
          * @param metricMeasureColumn Specifies the column containing the metric measure number.
          * 
-         * &gt; **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+         * &gt; **Note:** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         /**
          * @param metricMeasureColumn Specifies the column containing the metric measure number.
          * 
-         * &gt; **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+         * &gt; **Note:** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
          * 
          * @return builder
          * 

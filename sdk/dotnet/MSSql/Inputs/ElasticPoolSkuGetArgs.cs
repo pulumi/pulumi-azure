@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
+        /// The `Family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
         /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }

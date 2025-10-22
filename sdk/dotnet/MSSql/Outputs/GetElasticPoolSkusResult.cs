@@ -18,7 +18,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// The `family` of hardware.
+        /// The `Family` of hardware.
         /// </summary>
         public readonly string Family;
         /// <summary>

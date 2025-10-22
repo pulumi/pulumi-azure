@@ -16,7 +16,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// <summary>
         /// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+        /// &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `True`.
         /// </summary>
         public readonly bool IsManualConnection;
         /// <summary>
@@ -24,29 +24,29 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+        /// The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `PrivateConnectionResourceId` or `PrivateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PrivateConnectionResourceAlias;
         /// <summary>
-        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
+        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `PrivateConnectionResourceId` or `PrivateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
         /// </summary>
         public readonly string? PrivateConnectionResourceId;
         /// <summary>
-        /// (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
+        /// (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `PrivateServiceConnection` block to obtain the address associated with the private endpoint.
         /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>
-        /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+        /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `IsManualConnection` is set to `True`.
         /// 
-        /// &gt; **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
+        /// &gt; **Note:** When connected to an SQL resource the `RequestMessage` maximum length is `128`.
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>
-        /// A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
+        /// A list of subresource names which the Private Endpoint is able to connect to. `SubresourceNames` corresponds to `GroupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
         /// 
         /// &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
         /// 
-        /// &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+        /// &gt; **Note:** For most Private Links one or more `SubresourceNames` will need to be specified, please see the linked documentation for details.
         /// </summary>
         public readonly ImmutableArray<string> SubresourceNames;
 

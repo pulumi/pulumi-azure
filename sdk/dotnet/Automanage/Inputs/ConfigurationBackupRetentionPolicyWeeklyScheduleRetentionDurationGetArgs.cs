@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Automanage.Inputs
     public sealed class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
+        /// The count of the retention duration of the backup policy. Valid value inside `DailySchedule` is `7` to `9999` and inside `WeeklySchedule` is `1` to `5163`.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        /// The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
+        /// The duration type of the retention duration of the backup policy. Valid value inside `DailySchedule` is `Days` and inside `WeeklySchedule` is `Weeks`. Defaults to `Days`.
         /// </summary>
         [Input("durationType")]
         public Input<string>? DurationType { get; set; }

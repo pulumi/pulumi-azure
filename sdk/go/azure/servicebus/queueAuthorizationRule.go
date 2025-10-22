@@ -14,6 +14,15 @@ import (
 
 // Manages an Authorization Rule for a ServiceBus Queue.
 //
+// ## Example Usage
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ServiceBus` - 2024-01-01
+//
 // ## Import
 //
 // ServiceBus Queue Authorization Rules can be imported using the `resource id`, e.g.

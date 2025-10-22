@@ -184,7 +184,7 @@ namespace Pulumi.Azure.ContainerService
     public partial class Registry : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether the admin user is enabled. Defaults to `false`.
+        /// Specifies whether the admin user is enabled. Defaults to `False`.
         /// </summary>
         [Output("adminEnabled")]
         public Output<bool?> AdminEnabled { get; private set; } = null!;
@@ -220,33 +220,33 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<string>> DataEndpointHostNames { get; private set; } = null!;
 
         /// <summary>
-        /// An `encryption` block as documented below.
+        /// An `Encryption` block as documented below.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.RegistryEncryption> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+        /// Boolean value that indicates whether export policy is enabled. Defaults to `True`. In order to set it to `False`, make sure the `PublicNetworkAccessEnabled` is also set to `False`.
         /// 
-        /// &gt; **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Output("exportPolicyEnabled")]
         public Output<bool?> ExportPolicyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `georeplications` blocks as documented below.
+        /// One or more `Georeplications` blocks as documented below.
         /// 
-        /// &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+        /// &gt; **Note:** The `Georeplications` is only supported on new resources with the `Premium` SKU.
         /// 
-        /// &gt; **Note:** The `georeplications` list cannot contain the location where the Container Registry exists.
+        /// &gt; **Note:** The `Georeplications` list cannot contain the location where the Container Registry exists.
         /// 
-        /// &gt; **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+        /// &gt; **Note:** If more than one `Georeplications` block is specified, they are expected to follow the alphabetic order on the `Location` property.
         /// </summary>
         [Output("georeplications")]
         public Output<ImmutableArray<Outputs.RegistryGeoreplication>> Georeplications { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.RegistryIdentity?> Identity { get; private set; } = null!;
@@ -276,13 +276,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> NetworkRuleBypassOption { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_rule_set` block as documented below.
+        /// A `NetworkRuleSet` block as documented below.
         /// </summary>
         [Output("networkRuleSet")]
         public Output<Outputs.RegistryNetworkRuleSet> NetworkRuleSet { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for the container registry. Defaults to `true`.
+        /// Whether public network access is allowed for the container registry. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -318,13 +318,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
+        /// Boolean value that indicated whether trust policy is enabled. Defaults to `False`.
         /// </summary>
         [Output("trustPolicyEnabled")]
         public Output<bool?> TrustPolicyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Output("zoneRedundancyEnabled")]
         public Output<bool?> ZoneRedundancyEnabled { get; private set; } = null!;
@@ -380,7 +380,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class RegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the admin user is enabled. Defaults to `false`.
+        /// Specifies whether the admin user is enabled. Defaults to `False`.
         /// </summary>
         [Input("adminEnabled")]
         public Input<bool>? AdminEnabled { get; set; }
@@ -398,15 +398,15 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? DataEndpointEnabled { get; set; }
 
         /// <summary>
-        /// An `encryption` block as documented below.
+        /// An `Encryption` block as documented below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.RegistryEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+        /// Boolean value that indicates whether export policy is enabled. Defaults to `True`. In order to set it to `False`, make sure the `PublicNetworkAccessEnabled` is also set to `False`.
         /// 
-        /// &gt; **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("exportPolicyEnabled")]
         public Input<bool>? ExportPolicyEnabled { get; set; }
@@ -415,13 +415,13 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryGeoreplicationArgs>? _georeplications;
 
         /// <summary>
-        /// One or more `georeplications` blocks as documented below.
+        /// One or more `Georeplications` blocks as documented below.
         /// 
-        /// &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+        /// &gt; **Note:** The `Georeplications` is only supported on new resources with the `Premium` SKU.
         /// 
-        /// &gt; **Note:** The `georeplications` list cannot contain the location where the Container Registry exists.
+        /// &gt; **Note:** The `Georeplications` list cannot contain the location where the Container Registry exists.
         /// 
-        /// &gt; **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+        /// &gt; **Note:** If more than one `Georeplications` block is specified, they are expected to follow the alphabetic order on the `Location` property.
         /// </summary>
         public InputList<Inputs.RegistryGeoreplicationArgs> Georeplications
         {
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.RegistryIdentityArgs>? Identity { get; set; }
@@ -454,13 +454,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NetworkRuleBypassOption { get; set; }
 
         /// <summary>
-        /// A `network_rule_set` block as documented below.
+        /// A `NetworkRuleSet` block as documented below.
         /// </summary>
         [Input("networkRuleSet")]
         public Input<Inputs.RegistryNetworkRuleSetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for the container registry. Defaults to `true`.
+        /// Whether public network access is allowed for the container registry. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -502,13 +502,13 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
+        /// Boolean value that indicated whether trust policy is enabled. Defaults to `False`.
         /// </summary>
         [Input("trustPolicyEnabled")]
         public Input<bool>? TrustPolicyEnabled { get; set; }
 
         /// <summary>
-        /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("zoneRedundancyEnabled")]
         public Input<bool>? ZoneRedundancyEnabled { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class RegistryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the admin user is enabled. Defaults to `false`.
+        /// Specifies whether the admin user is enabled. Defaults to `False`.
         /// </summary>
         [Input("adminEnabled")]
         public Input<bool>? AdminEnabled { get; set; }
@@ -574,15 +574,15 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// An `encryption` block as documented below.
+        /// An `Encryption` block as documented below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.RegistryEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+        /// Boolean value that indicates whether export policy is enabled. Defaults to `True`. In order to set it to `False`, make sure the `PublicNetworkAccessEnabled` is also set to `False`.
         /// 
-        /// &gt; **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("exportPolicyEnabled")]
         public Input<bool>? ExportPolicyEnabled { get; set; }
@@ -591,13 +591,13 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryGeoreplicationGetArgs>? _georeplications;
 
         /// <summary>
-        /// One or more `georeplications` blocks as documented below.
+        /// One or more `Georeplications` blocks as documented below.
         /// 
-        /// &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+        /// &gt; **Note:** The `Georeplications` is only supported on new resources with the `Premium` SKU.
         /// 
-        /// &gt; **Note:** The `georeplications` list cannot contain the location where the Container Registry exists.
+        /// &gt; **Note:** The `Georeplications` list cannot contain the location where the Container Registry exists.
         /// 
-        /// &gt; **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+        /// &gt; **Note:** If more than one `Georeplications` block is specified, they are expected to follow the alphabetic order on the `Location` property.
         /// </summary>
         public InputList<Inputs.RegistryGeoreplicationGetArgs> Georeplications
         {
@@ -606,7 +606,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.RegistryIdentityGetArgs>? Identity { get; set; }
@@ -636,13 +636,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NetworkRuleBypassOption { get; set; }
 
         /// <summary>
-        /// A `network_rule_set` block as documented below.
+        /// A `NetworkRuleSet` block as documented below.
         /// </summary>
         [Input("networkRuleSet")]
         public Input<Inputs.RegistryNetworkRuleSetGetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for the container registry. Defaults to `true`.
+        /// Whether public network access is allowed for the container registry. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -684,13 +684,13 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
+        /// Boolean value that indicated whether trust policy is enabled. Defaults to `False`.
         /// </summary>
         [Input("trustPolicyEnabled")]
         public Input<bool>? TrustPolicyEnabled { get; set; }
 
         /// <summary>
-        /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("zoneRedundancyEnabled")]
         public Input<bool>? ZoneRedundancyEnabled { get; set; }

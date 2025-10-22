@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+        /// Is this the Primary IP Configuration? Must be `True` for the first `IpConfiguration` when multiple are specified. Defaults to `False`.
         /// </summary>
         public readonly bool? Primary;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// The ID of the Subnet where this Network Interface should be located in.
         /// 
-        /// &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+        /// &gt; **Note:** This is required when `PrivateIpAddressVersion` is set to `IPv4`.
         /// </summary>
         public readonly string? SubnetId;
 

@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Compute
         public readonly string Id;
         public readonly string ImageName;
         /// <summary>
-        /// An `images` block as defined below:
+        /// An `Images` block as defined below:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSharedImageVersionsImageResult> Images;
         public readonly string ResourceGroupName;

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class VirtualMachineOsProfileLinuxConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+        /// Specifies whether password authentication should be disabled. If set to `False`, an `AdminPassword` must be specified.
         /// </summary>
         [Input("disablePasswordAuthentication", required: true)]
         public Input<bool> DisablePasswordAuthentication { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.VirtualMachineOsProfileLinuxConfigSshKeyArgs>? _sshKeys;
 
         /// <summary>
-        /// One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+        /// One or more `SshKeys` blocks as defined below. This field is required if `DisablePasswordAuthentication` is set to `True`.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileLinuxConfigSshKeyArgs> SshKeys
         {

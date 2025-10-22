@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
     /**
-     * @return The executable to run for the `custom_action`.
+     * @return The executable to run for the `customAction`.
      * 
      */
     private String executable;
@@ -25,7 +25,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
 
     private WindowsWebAppSiteConfigAutoHealSettingActionCustomAction() {}
     /**
-     * @return The executable to run for the `custom_action`.
+     * @return The executable to run for the `customAction`.
      * 
      */
     public String executable() {

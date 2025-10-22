@@ -19,7 +19,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
+        /// If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `False`.
         /// </summary>
         [Input("ignoreMissingVnetServiceEndpoint")]
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }

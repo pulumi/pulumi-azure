@@ -227,14 +227,14 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
+     * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
      * 
      */
     @Export(name="namespaceJunctions", refs={List.class,CacheNfsTargetNamespaceJunction.class}, tree="[0,1]")
     private Output<List<CacheNfsTargetNamespaceJunction>> namespaceJunctions;
 
     /**
-     * @return Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
+     * @return Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
      * 
      */
     public Output<List<CacheNfsTargetNamespaceJunction>> namespaceJunctions() {

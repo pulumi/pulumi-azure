@@ -141,7 +141,7 @@ namespace Pulumi.Azure.Pim
         /// <summary>
         /// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
+        /// &gt; **Note:** `ConditionVersion` is required when specifying `Condition` and vice versa.
         /// </summary>
         [Output("conditionVersion")]
         public Output<string?> ConditionVersion { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Pim
         public Output<string> RoleDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below. Changing this forces a new resource to be created.
+        /// A `Schedule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.EligibleRoleAssignmentSchedule> Schedule { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.Pim
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// A `ticket` block as defined below. Changing this forces a new resource to be created.
+        /// A `Ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ticket")]
         public Output<Outputs.EligibleRoleAssignmentTicket> Ticket { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Pim
         /// <summary>
         /// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
+        /// &gt; **Note:** `ConditionVersion` is required when specifying `Condition` and vice versa.
         /// </summary>
         [Input("conditionVersion")]
         public Input<string>? ConditionVersion { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.Pim
         public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below. Changing this forces a new resource to be created.
+        /// A `Schedule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.EligibleRoleAssignmentScheduleArgs>? Schedule { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Pim
         public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
-        /// A `ticket` block as defined below. Changing this forces a new resource to be created.
+        /// A `Ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ticket")]
         public Input<Inputs.EligibleRoleAssignmentTicketArgs>? Ticket { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Pim
         /// <summary>
         /// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
+        /// &gt; **Note:** `ConditionVersion` is required when specifying `Condition` and vice versa.
         /// </summary>
         [Input("conditionVersion")]
         public Input<string>? ConditionVersion { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.Pim
         public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
-        /// A `schedule` block as defined below. Changing this forces a new resource to be created.
+        /// A `Schedule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.EligibleRoleAssignmentScheduleGetArgs>? Schedule { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.Pim
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// A `ticket` block as defined below. Changing this forces a new resource to be created.
+        /// A `Ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ticket")]
         public Input<Inputs.EligibleRoleAssignmentTicketGetArgs>? Ticket { get; set; }

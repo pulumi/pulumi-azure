@@ -97,7 +97,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `subnet` block as defined below.
+        /// A `Subnet` block as defined below.
         /// </summary>
         [Output("subnet")]
         public Output<Outputs.VirtualNetworkSubnet> Subnet { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `subnet` block as defined below.
+        /// A `Subnet` block as defined below.
         /// </summary>
         [Input("subnet")]
         public Input<Inputs.VirtualNetworkSubnetArgs>? Subnet { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `subnet` block as defined below.
+        /// A `Subnet` block as defined below.
         /// </summary>
         [Input("subnet")]
         public Input<Inputs.VirtualNetworkSubnetGetArgs>? Subnet { get; set; }

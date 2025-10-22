@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkConnectionMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `endpoint` block as defined below.
+        /// A `Endpoint` block as defined below.
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.NetworkConnectionMonitorEndpoint>> Endpoints { get; private set; } = null!;
@@ -268,13 +268,13 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `test_configuration` block as defined below.
+        /// A `TestConfiguration` block as defined below.
         /// </summary>
         [Output("testConfigurations")]
         public Output<ImmutableArray<Outputs.NetworkConnectionMonitorTestConfiguration>> TestConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// A `test_group` block as defined below.
+        /// A `TestGroup` block as defined below.
         /// </summary>
         [Output("testGroups")]
         public Output<ImmutableArray<Outputs.NetworkConnectionMonitorTestGroup>> TestGroups { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkConnectionMonitorEndpointArgs>? _endpoints;
 
         /// <summary>
-        /// A `endpoint` block as defined below.
+        /// A `Endpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkConnectionMonitorEndpointArgs> Endpoints
         {
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkConnectionMonitorTestConfigurationArgs>? _testConfigurations;
 
         /// <summary>
-        /// A `test_configuration` block as defined below.
+        /// A `TestConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkConnectionMonitorTestConfigurationArgs> TestConfigurations
         {
@@ -401,7 +401,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkConnectionMonitorTestGroupArgs>? _testGroups;
 
         /// <summary>
-        /// A `test_group` block as defined below.
+        /// A `TestGroup` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkConnectionMonitorTestGroupArgs> TestGroups
         {
@@ -421,7 +421,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkConnectionMonitorEndpointGetArgs>? _endpoints;
 
         /// <summary>
-        /// A `endpoint` block as defined below.
+        /// A `Endpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkConnectionMonitorEndpointGetArgs> Endpoints
         {
@@ -481,7 +481,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkConnectionMonitorTestConfigurationGetArgs>? _testConfigurations;
 
         /// <summary>
-        /// A `test_configuration` block as defined below.
+        /// A `TestConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkConnectionMonitorTestConfigurationGetArgs> TestConfigurations
         {
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkConnectionMonitorTestGroupGetArgs>? _testGroups;
 
         /// <summary>
-        /// A `test_group` block as defined below.
+        /// A `TestGroup` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkConnectionMonitorTestGroupGetArgs> TestGroups
         {

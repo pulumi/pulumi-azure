@@ -48,14 +48,14 @@ public final class AlertRuleScheduledAlertDetailsOverrideArgs extends com.pulumi
     }
 
     /**
-     * A list of `dynamic_property` blocks as defined below.
+     * A list of `dynamicProperty` blocks as defined below.
      * 
      */
     @Import(name="dynamicProperties")
     private @Nullable Output<List<AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs>> dynamicProperties;
 
     /**
-     * @return A list of `dynamic_property` blocks as defined below.
+     * @return A list of `dynamicProperty` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs>>> dynamicProperties() {
@@ -163,7 +163,7 @@ public final class AlertRuleScheduledAlertDetailsOverrideArgs extends com.pulumi
         }
 
         /**
-         * @param dynamicProperties A list of `dynamic_property` blocks as defined below.
+         * @param dynamicProperties A list of `dynamicProperty` blocks as defined below.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class AlertRuleScheduledAlertDetailsOverrideArgs extends com.pulumi
         }
 
         /**
-         * @param dynamicProperties A list of `dynamic_property` blocks as defined below.
+         * @param dynamicProperties A list of `dynamicProperty` blocks as defined below.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AlertRuleScheduledAlertDetailsOverrideArgs extends com.pulumi
         }
 
         /**
-         * @param dynamicProperties A list of `dynamic_property` blocks as defined below.
+         * @param dynamicProperties A list of `dynamicProperty` blocks as defined below.
          * 
          * @return builder
          * 

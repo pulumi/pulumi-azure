@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryGetArgs>? _virtualDirectories;
 
         /// <summary>
-        /// One or more `virtual_directory` blocks as defined below.
+        /// One or more `VirtualDirectory` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryGetArgs> VirtualDirectories
         {

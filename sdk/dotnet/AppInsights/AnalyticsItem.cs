@@ -77,13 +77,13 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> ApplicationInsightsId { get; private set; } = null!;
 
         /// <summary>
-        /// The content for the Analytics Item, for example the query text if `type` is `query`.
+        /// The content for the Analytics Item, for example the query text if `Type` is `Query`.
         /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
         /// <summary>
-        /// The alias to use for the function. Required when `type` is `function`.
+        /// The alias to use for the function. Required when `Type` is `Function`.
         /// </summary>
         [Output("functionAlias")]
         public Output<string?> FunctionAlias { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
+        /// The scope for the Analytics Item. Can be `Shared` or `User`. Changing this forces a new resource to be created. Must be `Shared` for functions.
         /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> TimeModified { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
+        /// The type of Analytics Item to create. Can be one of `Query`, `Function`, `Folder`, `Recent`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -177,13 +177,13 @@ namespace Pulumi.Azure.AppInsights
         public Input<string> ApplicationInsightsId { get; set; } = null!;
 
         /// <summary>
-        /// The content for the Analytics Item, for example the query text if `type` is `query`.
+        /// The content for the Analytics Item, for example the query text if `Type` is `Query`.
         /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// The alias to use for the function. Required when `type` is `function`.
+        /// The alias to use for the function. Required when `Type` is `Function`.
         /// </summary>
         [Input("functionAlias")]
         public Input<string>? FunctionAlias { get; set; }
@@ -195,13 +195,13 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
+        /// The scope for the Analytics Item. Can be `Shared` or `User`. Changing this forces a new resource to be created. Must be `Shared` for functions.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
-        /// The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
+        /// The type of Analytics Item to create. Can be one of `Query`, `Function`, `Folder`, `Recent`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -221,13 +221,13 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? ApplicationInsightsId { get; set; }
 
         /// <summary>
-        /// The content for the Analytics Item, for example the query text if `type` is `query`.
+        /// The content for the Analytics Item, for example the query text if `Type` is `Query`.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// The alias to use for the function. Required when `type` is `function`.
+        /// The alias to use for the function. Required when `Type` is `Function`.
         /// </summary>
         [Input("functionAlias")]
         public Input<string>? FunctionAlias { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
+        /// The scope for the Analytics Item. Can be `Shared` or `User`. Changing this forces a new resource to be created. Must be `Shared` for functions.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? TimeModified { get; set; }
 
         /// <summary>
-        /// The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
+        /// The type of Analytics Item to create. Can be one of `Query`, `Function`, `Folder`, `Recent`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

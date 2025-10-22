@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A `service_delegation` block as defined below.
+        /// A `ServiceDelegation` block as defined below.
         /// </summary>
         [Input("serviceDelegation", required: true)]
         public Input<Inputs.SubnetDelegationServiceDelegationArgs> ServiceDelegation { get; set; } = null!;

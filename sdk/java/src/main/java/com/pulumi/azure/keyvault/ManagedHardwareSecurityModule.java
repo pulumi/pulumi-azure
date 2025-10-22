@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Key Vault Managed Hardware Security Module.
  * 
- * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
+ * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
  * 
  * ## Example Usage
  * 
@@ -150,14 +150,14 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
         return this.name;
     }
     /**
-     * A `network_acls` block as defined below.
+     * A `networkAcls` block as defined below.
      * 
      */
     @Export(name="networkAcls", refs={ManagedHardwareSecurityModuleNetworkAcls.class}, tree="[0]")
     private Output<ManagedHardwareSecurityModuleNetworkAcls> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below.
+     * @return A `networkAcls` block as defined below.
      * 
      */
     public Output<ManagedHardwareSecurityModuleNetworkAcls> networkAcls() {
@@ -234,14 +234,14 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.securityDomainKeyVaultCertificateIds);
     }
     /**
-     * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+     * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
      * 
      */
     @Export(name="securityDomainQuorum", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> securityDomainQuorum;
 
     /**
-     * @return Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+     * @return Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
      * 
      */
     public Output<Optional<Integer>> securityDomainQuorum() {

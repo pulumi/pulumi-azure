@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
         /// 
-        /// &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
+        /// &gt; **Note:** `NumberOfIpAddresses` cannot be decreased.
         /// </summary>
         public readonly string NumberOfIpAddresses;
 

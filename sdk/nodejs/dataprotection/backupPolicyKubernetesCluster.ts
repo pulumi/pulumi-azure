@@ -9,6 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Manages a Backup Policy to back up Kubernetes Cluster.
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DataProtection` - 2024-04-01
+ *
  * ## Import
  *
  * Backup Policy Kubernetes Cluster's can be imported using the `resource id`, e.g.

@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppSiteConfigCor {
     /**
-     * @return A `allowed_origins` block as defined above.
+     * @return A `allowedOrigins` block as defined above.
      * 
      */
     private List<String> allowedOrigins;
@@ -25,7 +25,7 @@ public final class GetWindowsWebAppSiteConfigCor {
 
     private GetWindowsWebAppSiteConfigCor() {}
     /**
-     * @return A `allowed_origins` block as defined above.
+     * @return A `allowedOrigins` block as defined above.
      * 
      */
     public List<String> allowedOrigins() {

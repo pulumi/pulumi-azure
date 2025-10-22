@@ -30,14 +30,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
     }
 
     /**
-     * An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="applicationServerConfiguration", required=true)
     private Output<ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs> applicationServerConfiguration;
 
     /**
-     * @return An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs> applicationServerConfiguration() {
@@ -45,14 +45,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
     }
 
     /**
-     * A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `centralServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="centralServerConfiguration", required=true)
     private Output<ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs> centralServerConfiguration;
 
     /**
-     * @return A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `centralServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs> centralServerConfiguration() {
@@ -60,14 +60,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
     }
 
     /**
-     * A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `databaseServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="databaseServerConfiguration", required=true)
     private Output<ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs> databaseServerConfiguration;
 
     /**
-     * @return A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `databaseServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs> databaseServerConfiguration() {
@@ -90,14 +90,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
     }
 
     /**
-     * A `resource_names` block as defined below. Changing this forces a new resource to be created.
+     * A `resourceNames` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceNames")
     private @Nullable Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs> resourceNames;
 
     /**
-     * @return A `resource_names` block as defined below. Changing this forces a new resource to be created.
+     * @return A `resourceNames` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs>> resourceNames() {
@@ -120,9 +120,9 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
     }
 
     /**
-     * A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
+     * A `transportCreateAndMount` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The file share configuration uses `skip` by default when `transport_create_and_mount` isn&#39;t set.
+     * &gt; **Note:** The file share configuration uses `skip` by default when `transportCreateAndMount` isn&#39;t set.
      * 
      * &gt; **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
      * 
@@ -131,9 +131,9 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
     private @Nullable Output<ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs> transportCreateAndMount;
 
     /**
-     * @return A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
+     * @return A `transportCreateAndMount` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The file share configuration uses `skip` by default when `transport_create_and_mount` isn&#39;t set.
+     * &gt; **Note:** The file share configuration uses `skip` by default when `transportCreateAndMount` isn&#39;t set.
      * 
      * &gt; **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
      * 
@@ -183,7 +183,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param applicationServerConfiguration An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param applicationServerConfiguration An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param applicationServerConfiguration An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param applicationServerConfiguration An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param centralServerConfiguration A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param centralServerConfiguration A `centralServerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param centralServerConfiguration A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param centralServerConfiguration A `centralServerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param databaseServerConfiguration A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param databaseServerConfiguration A `databaseServerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param databaseServerConfiguration A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param databaseServerConfiguration A `databaseServerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param resourceNames A `resource_names` block as defined below. Changing this forces a new resource to be created.
+         * @param resourceNames A `resourceNames` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param resourceNames A `resource_names` block as defined below. Changing this forces a new resource to be created.
+         * @param resourceNames A `resourceNames` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -309,9 +309,9 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param transportCreateAndMount A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
+         * @param transportCreateAndMount A `transportCreateAndMount` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The file share configuration uses `skip` by default when `transport_create_and_mount` isn&#39;t set.
+         * &gt; **Note:** The file share configuration uses `skip` by default when `transportCreateAndMount` isn&#39;t set.
          * 
          * &gt; **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
          * 
@@ -324,9 +324,9 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationArgs extends co
         }
 
         /**
-         * @param transportCreateAndMount A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
+         * @param transportCreateAndMount A `transportCreateAndMount` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The file share configuration uses `skip` by default when `transport_create_and_mount` isn&#39;t set.
+         * &gt; **Note:** The file share configuration uses `skip` by default when `transportCreateAndMount` isn&#39;t set.
          * 
          * &gt; **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
          * 

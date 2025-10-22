@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsFunctionAppSlotSiteConfig
     {
         /// <summary>
-        /// If this Windows Web App is Always On enabled. Defaults to `false`.
+        /// If this Windows Web App is Always On enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly int? AppScaleLimit;
         /// <summary>
-        /// an `app_service_logs` block as detailed below.
+        /// an `AppServiceLogs` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotSiteConfigAppServiceLogs? AppServiceLogs;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ApplicationInsightsKey;
         /// <summary>
-        /// an `application_stack` block as detailed below.
+        /// an `ApplicationStack` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotSiteConfigApplicationStack? ApplicationStack;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? AutoSwapSlotName;
         /// <summary>
-        /// a `cors` block as detailed below.
+        /// a `Cors` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotSiteConfigCors? Cors;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? FtpsState;
         /// <summary>
-        /// The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
+        /// The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `HealthCheckPath`.
         /// </summary>
         public readonly int? HealthCheckEvictionTimeInMin;
         /// <summary>
@@ -82,15 +82,15 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
-        /// Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        /// Specifies if the HTTP2 protocol should be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `IpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? IpRestrictionDefaultAction;
         /// <summary>
-        /// an `ip_restriction` block as detailed below.
+        /// an `IpRestriction` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsFunctionAppSlotSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
@@ -110,7 +110,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly int? PreWarmedInstanceCount;
         /// <summary>
-        /// Should Remote Debugging be enabled. Defaults to `false`.
+        /// Should Remote Debugging be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? RemoteDebuggingEnabled;
         /// <summary>
@@ -124,11 +124,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? ScmIpRestrictionDefaultAction;
         /// <summary>
-        /// a `scm_ip_restriction` block as detailed below.
+        /// a `ScmIpRestriction` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsFunctionAppSlotSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
@@ -140,19 +140,19 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ScmType;
         /// <summary>
-        /// Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+        /// Should the Windows Function App `IpRestriction` configuration be used for the SCM also.
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
-        /// Should the Windows Web App use a 32-bit worker. Defaults to `true`.
+        /// Should the Windows Web App use a 32-bit worker. Defaults to `True`.
         /// </summary>
         public readonly bool? Use32BitWorker;
         /// <summary>
-        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `False`.
         /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         /// <summary>
-        /// Should Web Sockets be enabled. Defaults to `false`.
+        /// Should Web Sockets be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? WebsocketsEnabled;
         /// <summary>

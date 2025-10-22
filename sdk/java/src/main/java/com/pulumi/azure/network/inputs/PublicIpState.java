@@ -21,7 +21,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
-     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      * 
      */
     @Import(name="allocationMethod")
@@ -30,7 +30,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
-     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      * 
      */
     public Optional<Output<String>> allocationMethod() {
@@ -55,7 +55,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of DDoS protection plan associated with the public IP.
      * 
-     * &gt; **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
+     * &gt; **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      * 
      */
     @Import(name="ddosProtectionPlanId")
@@ -64,7 +64,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of DDoS protection plan associated with the public IP.
      * 
-     * &gt; **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
+     * &gt; **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      * 
      */
     public Optional<Output<String>> ddosProtectionPlanId() {
@@ -117,14 +117,14 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
+     * Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
+     * @return Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -277,7 +277,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+     * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      * 
      */
     @Import(name="sku")
@@ -286,7 +286,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+     * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -296,7 +296,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+     * &gt; **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     @Import(name="skuTier")
@@ -305,7 +305,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+     * &gt; **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -392,7 +392,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param allocationMethod Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
          * 
-         * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+         * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param allocationMethod Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
          * 
-         * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+         * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ddosProtectionPlanId The ID of DDoS protection plan associated with the public IP.
          * 
-         * &gt; **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
+         * &gt; **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ddosProtectionPlanId The ID of DDoS protection plan associated with the public IP.
          * 
-         * &gt; **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
+         * &gt; **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
+         * @param fqdn Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
+         * @param fqdn Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+         * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+         * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
          * 
          * @return builder
          * 
@@ -769,7 +769,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+         * &gt; **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
          * 
          * @return builder
          * 
@@ -782,7 +782,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+         * &gt; **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
          * 
          * @return builder
          * 

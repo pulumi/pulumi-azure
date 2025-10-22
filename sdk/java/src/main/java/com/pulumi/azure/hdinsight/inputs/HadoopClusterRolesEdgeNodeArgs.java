@@ -22,14 +22,14 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
     public static final HadoopClusterRolesEdgeNodeArgs Empty = new HadoopClusterRolesEdgeNodeArgs();
 
     /**
-     * The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
+     * The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
      * 
      */
     @Import(name="httpsEndpoints")
     private @Nullable Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>> httpsEndpoints;
 
     /**
-     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
+     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
      * 
      */
     public Optional<Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>>> httpsEndpoints() {
@@ -37,14 +37,14 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `install_script_action` block as defined below.
+     * A `installScriptAction` block as defined below.
      * 
      */
     @Import(name="installScriptActions", required=true)
     private Output<List<HadoopClusterRolesEdgeNodeInstallScriptActionArgs>> installScriptActions;
 
     /**
-     * @return A `install_script_action` block as defined below.
+     * @return A `installScriptAction` block as defined below.
      * 
      */
     public Output<List<HadoopClusterRolesEdgeNodeInstallScriptActionArgs>> installScriptActions() {
@@ -67,14 +67,14 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+     * A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="uninstallScriptActions")
     private @Nullable Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>> uninstallScriptActions;
 
     /**
-     * @return A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+     * @return A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>>> uninstallScriptActions() {
@@ -125,7 +125,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
+         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
+         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
+         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param installScriptActions A `install_script_action` block as defined below.
+         * @param installScriptActions A `installScriptAction` block as defined below.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param installScriptActions A `install_script_action` block as defined below.
+         * @param installScriptActions A `installScriptAction` block as defined below.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param installScriptActions A `install_script_action` block as defined below.
+         * @param installScriptActions A `installScriptAction` block as defined below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+         * @param uninstallScriptActions A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+         * @param uninstallScriptActions A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+         * @param uninstallScriptActions A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

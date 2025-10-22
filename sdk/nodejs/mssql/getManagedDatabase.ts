@@ -8,6 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure SQL Azure Managed Database.
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Sql` - 2023-08-01-preview
  */
 export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,6 +73,15 @@ export interface GetManagedDatabaseResult {
 }
 /**
  * Use this data source to access information about an existing Azure SQL Azure Managed Database.
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Sql` - 2023-08-01-preview
  */
 export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

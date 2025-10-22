@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Automanage.Outputs
     public sealed class ConfigurationBackupRetentionPolicyWeeklySchedule
     {
         /// <summary>
-        /// A `retention_duration` block as defined below.
+        /// A `RetentionDuration` block as defined below.
         /// </summary>
         public readonly Outputs.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration? RetentionDuration;
         /// <summary>

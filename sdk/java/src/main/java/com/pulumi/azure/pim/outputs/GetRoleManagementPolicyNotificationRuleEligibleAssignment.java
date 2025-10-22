@@ -14,38 +14,38 @@ import java.util.Objects;
 @CustomType
 public final class GetRoleManagementPolicyNotificationRuleEligibleAssignment {
     /**
-     * @return A `notification_settings` block as defined above.
+     * @return A `notificationSettings` block as defined above.
      * 
      */
     private List<GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification> adminNotifications;
     /**
-     * @return A `notification_settings` block as defined above.
+     * @return A `notificationSettings` block as defined above.
      * 
      */
     private List<GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification> approverNotifications;
     /**
-     * @return A `notification_settings` block as defined above.
+     * @return A `notificationSettings` block as defined above.
      * 
      */
     private List<GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification> assigneeNotifications;
 
     private GetRoleManagementPolicyNotificationRuleEligibleAssignment() {}
     /**
-     * @return A `notification_settings` block as defined above.
+     * @return A `notificationSettings` block as defined above.
      * 
      */
     public List<GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification> adminNotifications() {
         return this.adminNotifications;
     }
     /**
-     * @return A `notification_settings` block as defined above.
+     * @return A `notificationSettings` block as defined above.
      * 
      */
     public List<GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification> approverNotifications() {
         return this.approverNotifications;
     }
     /**
-     * @return A `notification_settings` block as defined above.
+     * @return A `notificationSettings` block as defined above.
      * 
      */
     public List<GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification> assigneeNotifications() {

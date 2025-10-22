@@ -25,7 +25,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         private InputList<Inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationGetArgs>? _diskVolumeConfigurations;
 
         /// <summary>
-        /// One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `DiskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationGetArgs> DiskVolumeConfigurations
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         }
 
         /// <summary>
-        /// Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("secondaryIpEnabled")]
         public Input<bool>? SecondaryIpEnabled { get; set; }
@@ -46,13 +46,13 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         public Input<string> SubnetId { get; set; } = null!;
 
         /// <summary>
-        /// A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `VirtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualMachineConfiguration", required: true)]
         public Input<Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationGetArgs> VirtualMachineConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
+        /// A `VirtualMachineResourceNames` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualMachineResourceNames")]
         public Input<Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesGetArgs>? VirtualMachineResourceNames { get; set; }

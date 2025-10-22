@@ -143,9 +143,9 @@ namespace Pulumi.Azure.DataProtection
         public Output<string?> OperationalDefaultRetentionDuration { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
         /// 
-        /// &gt; **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
+        /// &gt; **Note:** Setting `RetentionRule` also requires setting `VaultDefaultRetentionDuration`.
         /// </summary>
         [Output("retentionRules")]
         public Output<ImmutableArray<Outputs.BackupPolicyBlobStorageRetentionRule>> RetentionRules { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         /// 
-        /// &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
+        /// &gt; **Note:** Setting `VaultDefaultRetentionDuration` also requires setting `BackupRepeatingTimeIntervals`. At least one of `OperationalDefaultRetentionDuration` or `VaultDefaultRetentionDuration` must be specified.
         /// </summary>
         [Output("vaultDefaultRetentionDuration")]
         public Output<string?> VaultDefaultRetentionDuration { get; private set; } = null!;
@@ -244,9 +244,9 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyBlobStorageRetentionRuleArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
         /// 
-        /// &gt; **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
+        /// &gt; **Note:** Setting `RetentionRule` also requires setting `VaultDefaultRetentionDuration`.
         /// </summary>
         public InputList<Inputs.BackupPolicyBlobStorageRetentionRuleArgs> RetentionRules
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         /// 
-        /// &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
+        /// &gt; **Note:** Setting `VaultDefaultRetentionDuration` also requires setting `BackupRepeatingTimeIntervals`. At least one of `OperationalDefaultRetentionDuration` or `VaultDefaultRetentionDuration` must be specified.
         /// </summary>
         [Input("vaultDefaultRetentionDuration")]
         public Input<string>? VaultDefaultRetentionDuration { get; set; }
@@ -310,9 +310,9 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyBlobStorageRetentionRuleGetArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
         /// 
-        /// &gt; **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
+        /// &gt; **Note:** Setting `RetentionRule` also requires setting `VaultDefaultRetentionDuration`.
         /// </summary>
         public InputList<Inputs.BackupPolicyBlobStorageRetentionRuleGetArgs> RetentionRules
         {
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         /// 
-        /// &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
+        /// &gt; **Note:** Setting `VaultDefaultRetentionDuration` also requires setting `BackupRepeatingTimeIntervals`. At least one of `OperationalDefaultRetentionDuration` or `VaultDefaultRetentionDuration` must be specified.
         /// </summary>
         [Input("vaultDefaultRetentionDuration")]
         public Input<string>? VaultDefaultRetentionDuration { get; set; }

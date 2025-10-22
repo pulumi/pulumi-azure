@@ -13,18 +13,51 @@ namespace Pulumi.Azure.Lb
     {
         /// <summary>
         /// Use this data source to access information about an existing Load Balancer Rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// 
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network` - 2023-09-01
         /// </summary>
         public static Task<GetLBRuleResult> InvokeAsync(GetLBRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Load Balancer Rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// 
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network` - 2023-09-01
         /// </summary>
         public static Output<GetLBRuleResult> Invoke(GetLBRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Load Balancer Rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// 
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network` - 2023-09-01
         /// </summary>
         public static Output<GetLBRuleResult> Invoke(GetLBRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleInvokeArgs(), options.WithDefaults());

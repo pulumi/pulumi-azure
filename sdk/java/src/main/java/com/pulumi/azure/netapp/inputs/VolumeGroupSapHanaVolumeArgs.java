@@ -40,14 +40,14 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="dataProtectionReplication")
     private @Nullable Output<VolumeGroupSapHanaVolumeDataProtectionReplicationArgs> dataProtectionReplication;
 
     /**
-     * @return A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Optional<Output<VolumeGroupSapHanaVolumeDataProtectionReplicationArgs>> dataProtectionReplication() {
@@ -55,14 +55,14 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A `data_protection_snapshot_policy` block as defined below.
+     * A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     @Import(name="dataProtectionSnapshotPolicy")
     private @Nullable Output<VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs> dataProtectionSnapshotPolicy;
 
     /**
-     * @return A `data_protection_snapshot_policy` block as defined below.
+     * @return A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     public Optional<Output<VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs>> dataProtectionSnapshotPolicy() {
@@ -70,14 +70,14 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `export_policy_rule` blocks as defined below.
+     * One or more `exportPolicyRule` blocks as defined below.
      * 
      */
     @Import(name="exportPolicyRules", required=true)
     private Output<List<VolumeGroupSapHanaVolumeExportPolicyRuleArgs>> exportPolicyRules;
 
     /**
-     * @return One or more `export_policy_rule` blocks as defined below.
+     * @return One or more `exportPolicyRule` blocks as defined below.
      * 
      */
     public Output<List<VolumeGroupSapHanaVolumeExportPolicyRuleArgs>> exportPolicyRules() {
@@ -122,7 +122,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+     * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
      * 
      * &gt; **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
      * 
@@ -131,7 +131,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
     private Output<String> protocols;
 
     /**
-     * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+     * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
      * 
      * &gt; **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
      * 
@@ -353,7 +353,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataProtectionReplication A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param dataProtectionReplication A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataProtectionReplication A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param dataProtectionReplication A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataProtectionSnapshotPolicy A `data_protection_snapshot_policy` block as defined below.
+         * @param dataProtectionSnapshotPolicy A `dataProtectionSnapshotPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataProtectionSnapshotPolicy A `data_protection_snapshot_policy` block as defined below.
+         * @param dataProtectionSnapshotPolicy A `dataProtectionSnapshotPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param exportPolicyRules One or more `export_policy_rule` blocks as defined below.
+         * @param exportPolicyRules One or more `exportPolicyRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param exportPolicyRules One or more `export_policy_rule` blocks as defined below.
+         * @param exportPolicyRules One or more `exportPolicyRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param exportPolicyRules One or more `export_policy_rule` blocks as defined below.
+         * @param exportPolicyRules One or more `exportPolicyRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param protocols The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+         * @param protocols The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
          * 
          * &gt; **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
          * 
@@ -494,7 +494,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param protocols The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+         * @param protocols The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
          * 
          * &gt; **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
          * 

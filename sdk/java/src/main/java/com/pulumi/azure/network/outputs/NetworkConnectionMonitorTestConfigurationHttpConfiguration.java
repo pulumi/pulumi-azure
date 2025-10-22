@@ -36,7 +36,7 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
      */
     private @Nullable Boolean preferHttps;
     /**
-     * @return A `request_header` block as defined below.
+     * @return A `requestHeader` block as defined below.
      * 
      */
     private @Nullable List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader> requestHeaders;
@@ -76,7 +76,7 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
         return Optional.ofNullable(this.preferHttps);
     }
     /**
-     * @return A `request_header` block as defined below.
+     * @return A `requestHeader` block as defined below.
      * 
      */
     public List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader> requestHeaders() {

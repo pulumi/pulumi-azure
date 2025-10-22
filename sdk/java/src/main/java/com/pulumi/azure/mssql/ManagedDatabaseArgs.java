@@ -21,14 +21,14 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
     public static final ManagedDatabaseArgs Empty = new ManagedDatabaseArgs();
 
     /**
-     * A `long_term_retention_policy` block as defined below.
+     * A `longTermRetentionPolicy` block as defined below.
      * 
      */
     @Import(name="longTermRetentionPolicy")
     private @Nullable Output<ManagedDatabaseLongTermRetentionPolicyArgs> longTermRetentionPolicy;
 
     /**
-     * @return A `long_term_retention_policy` block as defined below.
+     * @return A `longTermRetentionPolicy` block as defined below.
      * 
      */
     public Optional<Output<ManagedDatabaseLongTermRetentionPolicyArgs>> longTermRetentionPolicy() {
@@ -66,14 +66,14 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="pointInTimeRestore")
     private @Nullable Output<ManagedDatabasePointInTimeRestoreArgs> pointInTimeRestore;
 
     /**
-     * @return A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+     * @return A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ManagedDatabasePointInTimeRestoreArgs>> pointInTimeRestore() {
@@ -140,7 +140,7 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param longTermRetentionPolicy A `long_term_retention_policy` block as defined below.
+         * @param longTermRetentionPolicy A `longTermRetentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param longTermRetentionPolicy A `long_term_retention_policy` block as defined below.
+         * @param longTermRetentionPolicy A `longTermRetentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pointInTimeRestore A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+         * @param pointInTimeRestore A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pointInTimeRestore A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
+         * @param pointInTimeRestore A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

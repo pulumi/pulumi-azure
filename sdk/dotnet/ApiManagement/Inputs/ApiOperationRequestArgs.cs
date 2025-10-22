@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationRequestHeaderArgs>? _headers;
 
         /// <summary>
-        /// One or more `header` blocks as defined above.
+        /// One or more `Header` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApiOperationRequestHeaderArgs> Headers
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationRequestQueryParameterArgs>? _queryParameters;
 
         /// <summary>
-        /// One or more `query_parameter` blocks as defined above.
+        /// One or more `QueryParameter` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApiOperationRequestQueryParameterArgs> QueryParameters
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationRequestRepresentationArgs>? _representations;
 
         /// <summary>
-        /// One or more `representation` blocks as defined below.
+        /// One or more `Representation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApiOperationRequestRepresentationArgs> Representations
         {

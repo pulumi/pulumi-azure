@@ -54,7 +54,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+     * &gt; **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      * 
      */
     @Import(name="confidentialVmEnabled")
@@ -63,7 +63,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+     * &gt; **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      * 
      */
     public Optional<Output<Boolean>> confidentialVmEnabled() {
@@ -341,14 +341,14 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `purchase_plan` block as defined below.
+     * A `purchasePlan` block as defined below.
      * 
      */
     @Import(name="purchasePlan")
     private @Nullable Output<SharedImagePurchasePlanArgs> purchasePlan;
 
     /**
-     * @return A `purchase_plan` block as defined below.
+     * @return A `purchasePlan` block as defined below.
      * 
      */
     public Optional<Output<SharedImagePurchasePlanArgs>> purchasePlan() {
@@ -545,7 +545,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+         * &gt; **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+         * &gt; **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
          * 
          * @return builder
          * 
@@ -956,7 +956,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param purchasePlan A `purchase_plan` block as defined below.
+         * @param purchasePlan A `purchasePlan` block as defined below.
          * 
          * @return builder
          * 
@@ -967,7 +967,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param purchasePlan A `purchase_plan` block as defined below.
+         * @param purchasePlan A `purchasePlan` block as defined below.
          * 
          * @return builder
          * 

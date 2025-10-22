@@ -94,13 +94,13 @@ namespace Pulumi.Azure.Network
     public partial class VnpGatewayNatRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One of more `external_mapping` blocks as defined below.
+        /// One of more `ExternalMapping` blocks as defined below.
         /// </summary>
         [Output("externalMappings")]
         public Output<ImmutableArray<Outputs.VnpGatewayNatRuleExternalMapping>> ExternalMappings { get; private set; } = null!;
 
         /// <summary>
-        /// One of more `internal_mapping` blocks as defined below.
+        /// One of more `InternalMapping` blocks as defined below.
         /// </summary>
         [Output("internalMappings")]
         public Output<ImmutableArray<Outputs.VnpGatewayNatRuleInternalMapping>> InternalMappings { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VnpGatewayNatRuleExternalMappingArgs>? _externalMappings;
 
         /// <summary>
-        /// One of more `external_mapping` blocks as defined below.
+        /// One of more `ExternalMapping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VnpGatewayNatRuleExternalMappingArgs> ExternalMappings
         {
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VnpGatewayNatRuleInternalMappingArgs>? _internalMappings;
 
         /// <summary>
-        /// One of more `internal_mapping` blocks as defined below.
+        /// One of more `InternalMapping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VnpGatewayNatRuleInternalMappingArgs> InternalMappings
         {
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VnpGatewayNatRuleExternalMappingGetArgs>? _externalMappings;
 
         /// <summary>
-        /// One of more `external_mapping` blocks as defined below.
+        /// One of more `ExternalMapping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VnpGatewayNatRuleExternalMappingGetArgs> ExternalMappings
         {
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VnpGatewayNatRuleInternalMappingGetArgs>? _internalMappings;
 
         /// <summary>
-        /// One of more `internal_mapping` blocks as defined below.
+        /// One of more `InternalMapping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VnpGatewayNatRuleInternalMappingGetArgs> InternalMappings
         {

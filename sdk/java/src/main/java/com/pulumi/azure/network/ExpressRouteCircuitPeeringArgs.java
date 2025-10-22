@@ -66,14 +66,14 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
      * 
      */
     @Import(name="microsoftPeeringConfig")
     private @Nullable Output<ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs> microsoftPeeringConfig;
 
     /**
-     * @return A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+     * @return A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
      * 
      */
     public Optional<Output<ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs>> microsoftPeeringConfig() {
@@ -145,18 +145,18 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
      * 
-     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     @Import(name="routeFilterId")
     private @Nullable Output<String> routeFilterId;
 
     /**
-     * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * @return The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
      * 
-     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     public Optional<Output<String>> routeFilterId() {
@@ -307,7 +307,7 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+         * @param microsoftPeeringConfig A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+         * @param microsoftPeeringConfig A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
          * 
          * @return builder
          * 
@@ -416,9 +416,9 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+         * @param routeFilterId The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
          * 
-         * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
          * 
          * @return builder
          * 
@@ -429,9 +429,9 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+         * @param routeFilterId The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
          * 
-         * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
          * 
          * @return builder
          * 

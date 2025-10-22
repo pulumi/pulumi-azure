@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolUserAccountLinuxUserConfiguration
     {
         /// <summary>
-        /// The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+        /// The user ID of the user account. The `Uid` and `Gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
         /// </summary>
         public readonly int? Gid;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string? SshPrivateKey;
         /// <summary>
-        /// The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+        /// The group ID for the user account. The `Uid` and `Gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
         /// </summary>
         public readonly int? Uid;
 

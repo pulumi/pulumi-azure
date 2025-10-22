@@ -12,6 +12,15 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages a service connector for function app.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ServiceLinker` - 2024-04-01, 2022-05-01
+    /// 
     /// ## Import
     /// 
     /// Service Connector for app service can be imported using the `resource id`, e.g.
@@ -24,7 +33,7 @@ namespace Pulumi.Azure.AppService
     public partial class AppConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// 
         /// &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         /// </summary>
@@ -105,7 +114,7 @@ namespace Pulumi.Azure.AppService
     public sealed class AppConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// 
         /// &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         /// </summary>
@@ -148,7 +157,7 @@ namespace Pulumi.Azure.AppService
     public sealed class AppConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// 
         /// &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         /// </summary>

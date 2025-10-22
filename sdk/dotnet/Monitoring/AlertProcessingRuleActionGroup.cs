@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<string>> AddActionGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `condition` block as defined below.
+        /// A `Condition` block as defined below.
         /// </summary>
         [Output("condition")]
         public Output<Outputs.AlertProcessingRuleActionGroupCondition?> Condition { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Alert Processing Rule be enabled? Defaults to `true`.
+        /// Should the Alert Processing Rule be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.AlertProcessingRuleActionGroupSchedule?> Schedule { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `condition` block as defined below.
+        /// A `Condition` block as defined below.
         /// </summary>
         [Input("condition")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionArgs>? Condition { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Should the Alert Processing Rule be enabled? Defaults to `true`.
+        /// Should the Alert Processing Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.AlertProcessingRuleActionGroupScheduleArgs>? Schedule { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `condition` block as defined below.
+        /// A `Condition` block as defined below.
         /// </summary>
         [Input("condition")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionGetArgs>? Condition { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Should the Alert Processing Rule be enabled? Defaults to `true`.
+        /// Should the Alert Processing Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -350,7 +350,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.AlertProcessingRuleActionGroupScheduleGetArgs>? Schedule { get; set; }

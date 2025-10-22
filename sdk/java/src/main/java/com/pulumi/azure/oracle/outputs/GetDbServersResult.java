@@ -14,7 +14,7 @@ import java.util.Objects;
 public final class GetDbServersResult {
     private String cloudExadataInfrastructureName;
     /**
-     * @return A `db_servers` block as defined below.
+     * @return A `dbServers` block as defined below.
      * 
      */
     private List<GetDbServersDbServer> dbServers;
@@ -30,7 +30,7 @@ public final class GetDbServersResult {
         return this.cloudExadataInfrastructureName;
     }
     /**
-     * @return A `db_servers` block as defined below.
+     * @return A `dbServers` block as defined below.
      * 
      */
     public List<GetDbServersDbServer> dbServers() {

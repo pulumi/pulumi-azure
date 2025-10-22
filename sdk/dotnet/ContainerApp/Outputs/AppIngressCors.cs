@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppIngressCors
     {
         /// <summary>
-        /// Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+        /// Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? AllowCredentialsEnabled;
         /// <summary>

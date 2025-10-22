@@ -305,14 +305,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.certificate);
     }
     /**
-     * A `certificate_attribute` block as defined below.
+     * A `certificateAttribute` block as defined below.
      * 
      */
     @Export(name="certificateAttributes", refs={List.class,CertificateCertificateAttribute.class}, tree="[0,1]")
     private Output<List<CertificateCertificateAttribute>> certificateAttributes;
 
     /**
-     * @return A `certificate_attribute` block as defined below.
+     * @return A `certificateAttribute` block as defined below.
      * 
      */
     public Output<List<CertificateCertificateAttribute>> certificateAttributes() {
@@ -347,18 +347,18 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.certificateDataBase64;
     }
     /**
-     * A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
+     * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      * 
-     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      * 
      */
     @Export(name="certificatePolicy", refs={CertificateCertificatePolicy.class}, tree="[0]")
     private Output<CertificateCertificatePolicy> certificatePolicy;
 
     /**
-     * @return A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
+     * @return A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      * 
-     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      * 
      */
     public Output<CertificateCertificatePolicy> certificatePolicy() {

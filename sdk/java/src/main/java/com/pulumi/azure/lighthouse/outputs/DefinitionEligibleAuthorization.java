@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DefinitionEligibleAuthorization {
     /**
-     * @return A `just_in_time_access_policy` block as defined below.
+     * @return A `justInTimeAccessPolicy` block as defined below.
      * 
      */
     private @Nullable DefinitionEligibleAuthorizationJustInTimeAccessPolicy justInTimeAccessPolicy;
@@ -36,7 +36,7 @@ public final class DefinitionEligibleAuthorization {
 
     private DefinitionEligibleAuthorization() {}
     /**
-     * @return A `just_in_time_access_policy` block as defined below.
+     * @return A `justInTimeAccessPolicy` block as defined below.
      * 
      */
     public Optional<DefinitionEligibleAuthorizationJustInTimeAccessPolicy> justInTimeAccessPolicy() {

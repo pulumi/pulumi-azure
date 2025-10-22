@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
+        /// The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `IdentityIds` must be set as well.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

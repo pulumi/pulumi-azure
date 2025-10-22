@@ -139,13 +139,13 @@ namespace Pulumi.Azure.MachineLearning
     public partial class ComputeInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// A `AssignToUser` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Output("assignToUser")]
         public Output<Outputs.ComputeInstanceAssignToUser?> AssignToUser { get; private set; } = null!;
 
         /// <summary>
-        /// The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// The Compute Instance Authorization type. Possible values include: `Personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Output("authorizationType")]
         public Output<string?> AuthorizationType { get; private set; } = null!;
@@ -157,13 +157,13 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ComputeInstanceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// Whether local authentication methods is enabled. Defaults to `True`. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -181,15 +181,15 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute instance will have a public ip. Defaults to `True`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// 
-        /// &gt; **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
+        /// &gt; **Note:** The property `SubnetResourceId` becomes required if `NodePublicIpEnabled` is set to `False`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
         /// </summary>
         [Output("nodePublicIpEnabled")]
         public Output<bool?> NodePublicIpEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// A `Ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Output("ssh")]
         public Output<Outputs.ComputeInstanceSsh?> Ssh { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         /// 
-        /// &gt; **Note:** The property `subnet_resource_id` can be set only if the instance's workspace is not using Azure-managed networking.
+        /// &gt; **Note:** The property `SubnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
         /// </summary>
         [Output("subnetResourceId")]
         public Output<string?> SubnetResourceId { get; private set; } = null!;
@@ -261,13 +261,13 @@ namespace Pulumi.Azure.MachineLearning
     public sealed class ComputeInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// A `AssignToUser` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("assignToUser")]
         public Input<Inputs.ComputeInstanceAssignToUserArgs>? AssignToUser { get; set; }
 
         /// <summary>
-        /// The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// The Compute Instance Authorization type. Possible values include: `Personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("authorizationType")]
         public Input<string>? AuthorizationType { get; set; }
@@ -279,13 +279,13 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ComputeInstanceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// Whether local authentication methods is enabled. Defaults to `True`. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -303,15 +303,15 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute instance will have a public ip. Defaults to `True`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// 
-        /// &gt; **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
+        /// &gt; **Note:** The property `SubnetResourceId` becomes required if `NodePublicIpEnabled` is set to `False`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
         /// </summary>
         [Input("nodePublicIpEnabled")]
         public Input<bool>? NodePublicIpEnabled { get; set; }
 
         /// <summary>
-        /// A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// A `Ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("ssh")]
         public Input<Inputs.ComputeInstanceSshArgs>? Ssh { get; set; }
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         /// 
-        /// &gt; **Note:** The property `subnet_resource_id` can be set only if the instance's workspace is not using Azure-managed networking.
+        /// &gt; **Note:** The property `SubnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
         /// </summary>
         [Input("subnetResourceId")]
         public Input<string>? SubnetResourceId { get; set; }
@@ -351,13 +351,13 @@ namespace Pulumi.Azure.MachineLearning
     public sealed class ComputeInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// A `AssignToUser` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("assignToUser")]
         public Input<Inputs.ComputeInstanceAssignToUserGetArgs>? AssignToUser { get; set; }
 
         /// <summary>
-        /// The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// The Compute Instance Authorization type. Possible values include: `Personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("authorizationType")]
         public Input<string>? AuthorizationType { get; set; }
@@ -369,13 +369,13 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ComputeInstanceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// Whether local authentication methods is enabled. Defaults to `True`. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -393,15 +393,15 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute instance will have a public ip. Defaults to `True`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// 
-        /// &gt; **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
+        /// &gt; **Note:** The property `SubnetResourceId` becomes required if `NodePublicIpEnabled` is set to `False`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
         /// </summary>
         [Input("nodePublicIpEnabled")]
         public Input<bool>? NodePublicIpEnabled { get; set; }
 
         /// <summary>
-        /// A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// A `Ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("ssh")]
         public Input<Inputs.ComputeInstanceSshGetArgs>? Ssh { get; set; }
@@ -409,7 +409,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         /// 
-        /// &gt; **Note:** The property `subnet_resource_id` can be set only if the instance's workspace is not using Azure-managed networking.
+        /// &gt; **Note:** The property `SubnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
         /// </summary>
         [Input("subnetResourceId")]
         public Input<string>? SubnetResourceId { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyVMTieringPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `archived_restore_point` block as defined below.
+        /// An `ArchivedRestorePoint` block as defined below.
         /// </summary>
         [Input("archivedRestorePoint", required: true)]
         public Input<Inputs.PolicyVMTieringPolicyArchivedRestorePointArgs> ArchivedRestorePoint { get; set; } = null!;

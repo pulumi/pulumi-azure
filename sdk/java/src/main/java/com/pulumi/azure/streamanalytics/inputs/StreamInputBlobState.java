@@ -32,14 +32,14 @@ public final class StreamInputBlobState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+     * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      * 
      */
     @Import(name="dateFormat")
     private @Nullable Output<String> dateFormat;
 
     /**
-     * @return The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+     * @return The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      * 
      */
     public Optional<Output<String>> dateFormat() {
@@ -167,14 +167,14 @@ public final class StreamInputBlobState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+     * The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      * 
      */
     @Import(name="timeFormat")
     private @Nullable Output<String> timeFormat;
 
     /**
-     * @return The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+     * @return The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      * 
      */
     public Optional<Output<String>> timeFormat() {
@@ -237,7 +237,7 @@ public final class StreamInputBlobState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dateFormat The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+         * @param dateFormat The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class StreamInputBlobState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dateFormat The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+         * @param dateFormat The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class StreamInputBlobState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param timeFormat The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+         * @param timeFormat The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class StreamInputBlobState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param timeFormat The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+         * @param timeFormat The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
          * 
          * @return builder
          * 

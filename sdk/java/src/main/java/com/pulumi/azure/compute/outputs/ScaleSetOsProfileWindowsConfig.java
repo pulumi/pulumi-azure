@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScaleSetOsProfileWindowsConfig {
     /**
-     * @return An `additional_unattend_config` block as documented below.
+     * @return An `additionalUnattendConfig` block as documented below.
      * 
      */
     private @Nullable List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
@@ -37,7 +37,7 @@ public final class ScaleSetOsProfileWindowsConfig {
 
     private ScaleSetOsProfileWindowsConfig() {}
     /**
-     * @return An `additional_unattend_config` block as documented below.
+     * @return An `additionalUnattendConfig` block as documented below.
      * 
      */
     public List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs() {

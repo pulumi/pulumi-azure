@@ -121,13 +121,13 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> ExternalLastUpdatedTimeUtc { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `external_reference` blocks as defined below.
+        /// One or more `ExternalReference` blocks as defined below.
         /// </summary>
         [Output("externalReferences")]
         public Output<ImmutableArray<Outputs.ThreatIntelligenceIndicatorExternalReference>> ExternalReferences { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `granular_marking` blocks as defined below.
+        /// One or more `GranularMarking` blocks as defined below.
         /// </summary>
         [Output("granularMarkings")]
         public Output<ImmutableArray<Outputs.ThreatIntelligenceIndicatorGranularMarking>> GranularMarkings { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<string>> IndicatorTypes { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `kill_chain_phase` blocks as defined below.
+        /// One or more `KillChainPhase` blocks as defined below.
         /// </summary>
         [Output("killChainPhases")]
         public Output<ImmutableArray<Outputs.ThreatIntelligenceIndicatorKillChainPhase>> KillChainPhases { get; private set; } = null!;
@@ -169,19 +169,19 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<string>> ObjectMarkingRefs { get; private set; } = null!;
 
         /// <summary>
-        /// A `parsed_pattern` block as defined below.
+        /// A `ParsedPattern` block as defined below.
         /// </summary>
         [Output("parsedPatterns")]
         public Output<ImmutableArray<Outputs.ThreatIntelligenceIndicatorParsedPattern>> ParsedPatterns { get; private set; } = null!;
 
         /// <summary>
-        /// The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
+        /// The pattern used by the Threat Intelligence Indicator. When `PatternType` set to `File`, `Pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
         /// </summary>
         [Output("pattern")]
         public Output<string> Pattern { get; private set; } = null!;
 
         /// <summary>
-        /// The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
+        /// The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `File`, `ipv4-addr`, `ipv6-addr` and `Url`.
         /// </summary>
         [Output("patternType")]
         public Output<string> PatternType { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.ThreatIntelligenceIndicatorExternalReferenceArgs>? _externalReferences;
 
         /// <summary>
-        /// One or more `external_reference` blocks as defined below.
+        /// One or more `ExternalReference` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ThreatIntelligenceIndicatorExternalReferenceArgs> ExternalReferences
         {
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.ThreatIntelligenceIndicatorGranularMarkingArgs>? _granularMarkings;
 
         /// <summary>
-        /// One or more `granular_marking` blocks as defined below.
+        /// One or more `GranularMarking` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ThreatIntelligenceIndicatorGranularMarkingArgs> GranularMarkings
         {
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.ThreatIntelligenceIndicatorKillChainPhaseArgs>? _killChainPhases;
 
         /// <summary>
-        /// One or more `kill_chain_phase` blocks as defined below.
+        /// One or more `KillChainPhase` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ThreatIntelligenceIndicatorKillChainPhaseArgs> KillChainPhases
         {
@@ -365,13 +365,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
+        /// The pattern used by the Threat Intelligence Indicator. When `PatternType` set to `File`, `Pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
         /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 
         /// <summary>
-        /// The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
+        /// The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `File`, `ipv4-addr`, `ipv6-addr` and `Url`.
         /// </summary>
         [Input("patternType", required: true)]
         public Input<string> PatternType { get; set; } = null!;
@@ -502,7 +502,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.ThreatIntelligenceIndicatorExternalReferenceGetArgs>? _externalReferences;
 
         /// <summary>
-        /// One or more `external_reference` blocks as defined below.
+        /// One or more `ExternalReference` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ThreatIntelligenceIndicatorExternalReferenceGetArgs> ExternalReferences
         {
@@ -514,7 +514,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.ThreatIntelligenceIndicatorGranularMarkingGetArgs>? _granularMarkings;
 
         /// <summary>
-        /// One or more `granular_marking` blocks as defined below.
+        /// One or more `GranularMarking` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ThreatIntelligenceIndicatorGranularMarkingGetArgs> GranularMarkings
         {
@@ -544,7 +544,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.ThreatIntelligenceIndicatorKillChainPhaseGetArgs>? _killChainPhases;
 
         /// <summary>
-        /// One or more `kill_chain_phase` blocks as defined below.
+        /// One or more `KillChainPhase` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ThreatIntelligenceIndicatorKillChainPhaseGetArgs> KillChainPhases
         {
@@ -580,7 +580,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.ThreatIntelligenceIndicatorParsedPatternGetArgs>? _parsedPatterns;
 
         /// <summary>
-        /// A `parsed_pattern` block as defined below.
+        /// A `ParsedPattern` block as defined below.
         /// </summary>
         public InputList<Inputs.ThreatIntelligenceIndicatorParsedPatternGetArgs> ParsedPatterns
         {
@@ -589,13 +589,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
+        /// The pattern used by the Threat Intelligence Indicator. When `PatternType` set to `File`, `Pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
+        /// The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `File`, `ipv4-addr`, `ipv6-addr` and `Url`.
         /// </summary>
         [Input("patternType")]
         public Input<string>? PatternType { get; set; }

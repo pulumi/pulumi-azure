@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? AppCommandLine;
         /// <summary>
-        /// An `app_service_logs` block as defined above.
+        /// An `AppServiceLogs` block as defined above.
         /// </summary>
         public readonly Outputs.AppFlexConsumptionSiteConfigAppServiceLogs? AppServiceLogs;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? ContainerRegistryUseManagedIdentity;
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         public readonly Outputs.AppFlexConsumptionSiteConfigCors? Cors;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly int? ElasticInstanceMinimum;
         /// <summary>
-        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `HealthCheckPath`.
         /// </summary>
         public readonly int? HealthCheckEvictionTimeInMin;
         /// <summary>
@@ -70,15 +70,15 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
-        /// Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        /// Specifies if the HTTP2 protocol should be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `IpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? IpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `ip_restriction` blocks as defined above.
+        /// One or more `IpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppFlexConsumptionSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? MinimumTlsVersion;
         /// <summary>
-        /// Should Remote Debugging be enabled. Defaults to `false`.
+        /// Should Remote Debugging be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? RemoteDebuggingEnabled;
         /// <summary>
@@ -108,11 +108,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? ScmIpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppFlexConsumptionSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
@@ -124,19 +124,19 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ScmType;
         /// <summary>
-        /// Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        /// Should the Linux Function App `IpRestriction` configuration be used for the SCM also.
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
-        /// Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
+        /// Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `False`.
         /// </summary>
         public readonly bool? Use32BitWorker;
         /// <summary>
-        /// Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+        /// Should the Linux Function App route all traffic through the virtual network. Defaults to `False`.
         /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         /// <summary>
-        /// Should Web Sockets be enabled. Defaults to `false`.
+        /// Should Web Sockets be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? WebsocketsEnabled;
         /// <summary>

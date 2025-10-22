@@ -28,12 +28,12 @@ public final class NetworkServicePccRule {
      */
     private Integer precedence;
     /**
-     * @return A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+     * @return A `qosPolicy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
      * 
      */
     private @Nullable NetworkServicePccRuleQosPolicy qosPolicy;
     /**
-     * @return A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+     * @return A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
      * 
      */
     private List<NetworkServicePccRuleServiceDataFlowTemplate> serviceDataFlowTemplates;
@@ -59,14 +59,14 @@ public final class NetworkServicePccRule {
         return this.precedence;
     }
     /**
-     * @return A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+     * @return A `qosPolicy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
      * 
      */
     public Optional<NetworkServicePccRuleQosPolicy> qosPolicy() {
         return Optional.ofNullable(this.qosPolicy);
     }
     /**
-     * @return A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+     * @return A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
      * 
      */
     public List<NetworkServicePccRuleServiceDataFlowTemplate> serviceDataFlowTemplates() {

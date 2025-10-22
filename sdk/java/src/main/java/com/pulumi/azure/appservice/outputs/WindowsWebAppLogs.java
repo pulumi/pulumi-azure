@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppLogs {
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     private @Nullable WindowsWebAppLogsApplicationLogs applicationLogs;
@@ -29,14 +29,14 @@ public final class WindowsWebAppLogs {
      */
     private @Nullable Boolean failedRequestTracing;
     /**
-     * @return A `http_logs` block as defined above.
+     * @return A `httpLogs` block as defined above.
      * 
      */
     private @Nullable WindowsWebAppLogsHttpLogs httpLogs;
 
     private WindowsWebAppLogs() {}
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     public Optional<WindowsWebAppLogsApplicationLogs> applicationLogs() {
@@ -57,7 +57,7 @@ public final class WindowsWebAppLogs {
         return Optional.ofNullable(this.failedRequestTracing);
     }
     /**
-     * @return A `http_logs` block as defined above.
+     * @return A `httpLogs` block as defined above.
      * 
      */
     public Optional<WindowsWebAppLogsHttpLogs> httpLogs() {

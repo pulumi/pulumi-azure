@@ -32,14 +32,14 @@ public final class AlertRuleScheduledEntityMappingArgs extends com.pulumi.resour
     }
 
     /**
-     * A list of `field_mapping` blocks as defined below.
+     * A list of `fieldMapping` blocks as defined below.
      * 
      */
     @Import(name="fieldMappings", required=true)
     private Output<List<AlertRuleScheduledEntityMappingFieldMappingArgs>> fieldMappings;
 
     /**
-     * @return A list of `field_mapping` blocks as defined below.
+     * @return A list of `fieldMapping` blocks as defined below.
      * 
      */
     public Output<List<AlertRuleScheduledEntityMappingFieldMappingArgs>> fieldMappings() {
@@ -93,7 +93,7 @@ public final class AlertRuleScheduledEntityMappingArgs extends com.pulumi.resour
         }
 
         /**
-         * @param fieldMappings A list of `field_mapping` blocks as defined below.
+         * @param fieldMappings A list of `fieldMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AlertRuleScheduledEntityMappingArgs extends com.pulumi.resour
         }
 
         /**
-         * @param fieldMappings A list of `field_mapping` blocks as defined below.
+         * @param fieldMappings A list of `fieldMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AlertRuleScheduledEntityMappingArgs extends com.pulumi.resour
         }
 
         /**
-         * @param fieldMappings A list of `field_mapping` blocks as defined below.
+         * @param fieldMappings A list of `fieldMapping` blocks as defined below.
          * 
          * @return builder
          * 

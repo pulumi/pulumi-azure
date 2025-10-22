@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountShareProperties {
     /**
-     * @return A `cors_rule` block as defined below.
+     * @return A `corsRule` block as defined below.
      * 
      */
     private @Nullable List<AccountSharePropertiesCorsRule> corsRules;
     /**
-     * @return A `retention_policy` block as defined below.
+     * @return A `retentionPolicy` block as defined below.
      * 
      */
     private @Nullable AccountSharePropertiesRetentionPolicy retentionPolicy;
@@ -32,14 +32,14 @@ public final class AccountShareProperties {
 
     private AccountShareProperties() {}
     /**
-     * @return A `cors_rule` block as defined below.
+     * @return A `corsRule` block as defined below.
      * 
      */
     public List<AccountSharePropertiesCorsRule> corsRules() {
         return this.corsRules == null ? List.of() : this.corsRules;
     }
     /**
-     * @return A `retention_policy` block as defined below.
+     * @return A `retentionPolicy` block as defined below.
      * 
      */
     public Optional<AccountSharePropertiesRetentionPolicy> retentionPolicy() {

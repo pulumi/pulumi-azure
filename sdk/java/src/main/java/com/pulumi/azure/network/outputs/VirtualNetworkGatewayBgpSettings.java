@@ -24,7 +24,7 @@ public final class VirtualNetworkGatewayBgpSettings {
      */
     private @Nullable Integer peerWeight;
     /**
-     * @return A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+     * @return A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
      * 
      */
     private @Nullable List<VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses;
@@ -45,7 +45,7 @@ public final class VirtualNetworkGatewayBgpSettings {
         return Optional.ofNullable(this.peerWeight);
     }
     /**
-     * @return A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+     * @return A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
      * 
      */
     public List<VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses() {

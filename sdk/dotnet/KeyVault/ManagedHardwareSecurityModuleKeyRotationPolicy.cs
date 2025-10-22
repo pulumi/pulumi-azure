@@ -68,13 +68,13 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> ManagedHsmKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+        /// Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `TimeAfterCreation` or `TimeBeforeExpiry` should be specified.
         /// </summary>
         [Output("timeAfterCreation")]
         public Output<string?> TimeAfterCreation { get; private set; } = null!;
 
         /// <summary>
-        /// Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+        /// Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `TimeAfterCreation` or `TimeBeforeExpiry` should be specified.
         /// </summary>
         [Output("timeBeforeExpiry")]
         public Output<string?> TimeBeforeExpiry { get; private set; } = null!;
@@ -138,13 +138,13 @@ namespace Pulumi.Azure.KeyVault
         public Input<string> ManagedHsmKeyId { get; set; } = null!;
 
         /// <summary>
-        /// Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+        /// Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `TimeAfterCreation` or `TimeBeforeExpiry` should be specified.
         /// </summary>
         [Input("timeAfterCreation")]
         public Input<string>? TimeAfterCreation { get; set; }
 
         /// <summary>
-        /// Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+        /// Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `TimeAfterCreation` or `TimeBeforeExpiry` should be specified.
         /// </summary>
         [Input("timeBeforeExpiry")]
         public Input<string>? TimeBeforeExpiry { get; set; }
@@ -170,13 +170,13 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
-        /// Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+        /// Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `TimeAfterCreation` or `TimeBeforeExpiry` should be specified.
         /// </summary>
         [Input("timeAfterCreation")]
         public Input<string>? TimeAfterCreation { get; set; }
 
         /// <summary>
-        /// Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+        /// Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `TimeAfterCreation` or `TimeBeforeExpiry` should be specified.
         /// </summary>
         [Input("timeBeforeExpiry")]
         public Input<string>? TimeBeforeExpiry { get; set; }

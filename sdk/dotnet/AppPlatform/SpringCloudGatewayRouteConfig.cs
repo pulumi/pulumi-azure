@@ -114,7 +114,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `open_api` blocks as defined below.
+        /// One or more `OpenApi` blocks as defined below.
         /// </summary>
         [Output("openApi")]
         public Output<Outputs.SpringCloudGatewayRouteConfigOpenApi?> OpenApi { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `route` blocks as defined below.
+        /// One or more `Route` blocks as defined below.
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.SpringCloudGatewayRouteConfigRoute>> Routes { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One or more `open_api` blocks as defined below.
+        /// One or more `OpenApi` blocks as defined below.
         /// </summary>
         [Input("openApi")]
         public Input<Inputs.SpringCloudGatewayRouteConfigOpenApiArgs>? OpenApi { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudGatewayRouteConfigRouteArgs>? _routes;
 
         /// <summary>
-        /// One or more `route` blocks as defined below.
+        /// One or more `Route` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SpringCloudGatewayRouteConfigRouteArgs> Routes
         {
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One or more `open_api` blocks as defined below.
+        /// One or more `OpenApi` blocks as defined below.
         /// </summary>
         [Input("openApi")]
         public Input<Inputs.SpringCloudGatewayRouteConfigOpenApiGetArgs>? OpenApi { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudGatewayRouteConfigRouteGetArgs>? _routes;
 
         /// <summary>
-        /// One or more `route` blocks as defined below.
+        /// One or more `Route` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SpringCloudGatewayRouteConfigRouteGetArgs> Routes
         {

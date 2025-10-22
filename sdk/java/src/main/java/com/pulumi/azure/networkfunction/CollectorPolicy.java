@@ -143,28 +143,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:networkfunction/collectorPolicy:CollectorPolicy")
 public class CollectorPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+     * An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      * 
      */
     @Export(name="ipfxEmission", refs={CollectorPolicyIpfxEmission.class}, tree="[0]")
     private Output<CollectorPolicyIpfxEmission> ipfxEmission;
 
     /**
-     * @return An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+     * @return An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      * 
      */
     public Output<CollectorPolicyIpfxEmission> ipfxEmission() {
         return this.ipfxEmission;
     }
     /**
-     * An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+     * An `ipfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      * 
      */
     @Export(name="ipfxIngestion", refs={CollectorPolicyIpfxIngestion.class}, tree="[0]")
     private Output<CollectorPolicyIpfxIngestion> ipfxIngestion;
 
     /**
-     * @return An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+     * @return An `ipfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      * 
      */
     public Output<CollectorPolicyIpfxIngestion> ipfxIngestion() {

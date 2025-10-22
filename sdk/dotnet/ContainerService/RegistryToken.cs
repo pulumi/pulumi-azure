@@ -96,7 +96,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ContainerRegistryName { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Container Registry token be enabled? Defaults to `true`.
+        /// Should the Container Registry token be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ContainerRegistryName { get; set; } = null!;
 
         /// <summary>
-        /// Should the Container Registry token be enabled? Defaults to `true`.
+        /// Should the Container Registry token be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ContainerRegistryName { get; set; }
 
         /// <summary>
-        /// Should the Container Registry token be enabled? Defaults to `true`.
+        /// Should the Container Registry token be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

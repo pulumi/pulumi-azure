@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetDbSystemShapesResult {
     /**
-     * @return A `db_system_shapes` block as defined below.
+     * @return A `dbSystemShapes` block as defined below.
      * 
      */
     private List<GetDbSystemShapesDbSystemShape> dbSystemShapes;
@@ -29,7 +29,7 @@ public final class GetDbSystemShapesResult {
 
     private GetDbSystemShapesResult() {}
     /**
-     * @return A `db_system_shapes` block as defined below.
+     * @return A `dbSystemShapes` block as defined below.
      * 
      */
     public List<GetDbSystemShapesDbSystemShape> dbSystemShapes() {

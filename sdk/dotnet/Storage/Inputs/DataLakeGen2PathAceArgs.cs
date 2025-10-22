@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class DataLakeGen2PathAceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+        /// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `User` or `Group` entries.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<string> Permissions { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+        /// Specifies whether the ACE represents an `Access` entry or a `Default` entry. Default value is `Access`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+        /// Specifies the type of entry. Can be `User`, `Group`, `Mask` or `Other`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

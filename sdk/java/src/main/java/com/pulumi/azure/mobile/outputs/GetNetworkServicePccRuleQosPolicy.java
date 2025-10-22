@@ -20,12 +20,12 @@ public final class GetNetworkServicePccRuleQosPolicy {
      */
     private Integer allocationAndRetentionPriorityLevel;
     /**
-     * @return A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule.
+     * @return A `guaranteedBitRate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule.
      * 
      */
     private List<GetNetworkServicePccRuleQosPolicyGuaranteedBitRate> guaranteedBitRates;
     /**
-     * @return A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+     * @return A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
      * 
      */
     private List<GetNetworkServicePccRuleQosPolicyMaximumBitRate> maximumBitRates;
@@ -54,14 +54,14 @@ public final class GetNetworkServicePccRuleQosPolicy {
         return this.allocationAndRetentionPriorityLevel;
     }
     /**
-     * @return A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule.
+     * @return A `guaranteedBitRate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule.
      * 
      */
     public List<GetNetworkServicePccRuleQosPolicyGuaranteedBitRate> guaranteedBitRates() {
         return this.guaranteedBitRates;
     }
     /**
-     * @return A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+     * @return A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
      * 
      */
     public List<GetNetworkServicePccRuleQosPolicyMaximumBitRate> maximumBitRates() {

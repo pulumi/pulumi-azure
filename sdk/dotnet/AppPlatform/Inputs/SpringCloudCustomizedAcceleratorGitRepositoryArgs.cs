@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
     public sealed class SpringCloudCustomizedAcceleratorGitRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        /// A `BasicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         /// </summary>
         [Input("basicAuth")]
         public Input<Inputs.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs>? BasicAuth { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+        /// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `AcceleratorType`).
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        /// A `SshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         /// </summary>
         [Input("sshAuth")]
         public Input<Inputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs>? SshAuth { get; set; }

@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationResponseRepresentationFormParameterExampleGetArgs>? _examples;
 
         /// <summary>
-        /// One or more `example` blocks as defined above.
+        /// One or more `Example` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseRepresentationFormParameterExampleGetArgs> Examples
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? SchemaId { get; set; }
 
         /// <summary>
-        /// The Type of this Form Parameter, such as a `string`.
+        /// The Type of this Form Parameter, such as a `String`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

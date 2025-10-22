@@ -158,7 +158,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// (Optional) An `identity` block as defined below.
+        /// (Optional) An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVaultIdentityResult> Identities;
         /// <summary>

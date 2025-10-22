@@ -51,14 +51,14 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `forwarding_configuration` block as defined below.
+     * A `forwardingConfiguration` block as defined below.
      * 
      */
     @Import(name="forwardingConfiguration")
     private @Nullable Output<FrontdoorRoutingRuleForwardingConfigurationArgs> forwardingConfiguration;
 
     /**
-     * @return A `forwarding_configuration` block as defined below.
+     * @return A `forwardingConfiguration` block as defined below.
      * 
      */
     public Optional<Output<FrontdoorRoutingRuleForwardingConfigurationArgs>> forwardingConfiguration() {
@@ -66,14 +66,14 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+     * The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
      * 
      */
     @Import(name="frontendEndpoints", required=true)
     private Output<List<String>> frontendEndpoints;
 
     /**
-     * @return The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+     * @return The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
      * 
      */
     public Output<List<String>> frontendEndpoints() {
@@ -126,14 +126,14 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `redirect_configuration` block as defined below.
+     * A `redirectConfiguration` block as defined below.
      * 
      */
     @Import(name="redirectConfiguration")
     private @Nullable Output<FrontdoorRoutingRuleRedirectConfigurationArgs> redirectConfiguration;
 
     /**
-     * @return A `redirect_configuration` block as defined below.
+     * @return A `redirectConfiguration` block as defined below.
      * 
      */
     public Optional<Output<FrontdoorRoutingRuleRedirectConfigurationArgs>> redirectConfiguration() {
@@ -224,7 +224,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param forwardingConfiguration A `forwarding_configuration` block as defined below.
+         * @param forwardingConfiguration A `forwardingConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param forwardingConfiguration A `forwarding_configuration` block as defined below.
+         * @param forwardingConfiguration A `forwardingConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param frontendEndpoints The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+         * @param frontendEndpoints The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param frontendEndpoints The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+         * @param frontendEndpoints The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param frontendEndpoints The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+         * @param frontendEndpoints The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param redirectConfiguration A `redirect_configuration` block as defined below.
+         * @param redirectConfiguration A `redirectConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param redirectConfiguration A `redirect_configuration` block as defined below.
+         * @param redirectConfiguration A `redirectConfiguration` block as defined below.
          * 
          * @return builder
          * 

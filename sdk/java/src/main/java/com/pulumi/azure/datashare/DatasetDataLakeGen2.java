@@ -145,14 +145,14 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+     * The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
     @Export(name="filePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filePath;
 
     /**
-     * @return The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+     * @return The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
     public Output<Optional<String>> filePath() {
@@ -173,14 +173,14 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
         return this.fileSystemName;
     }
     /**
-     * The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+     * The folder path in the data lake file system to be shared with the receiver. Conflicts with `filePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
     @Export(name="folderPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> folderPath;
 
     /**
-     * @return The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+     * @return The folder path in the data lake file system to be shared with the receiver. Conflicts with `filePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
     public Output<Optional<String>> folderPath() {

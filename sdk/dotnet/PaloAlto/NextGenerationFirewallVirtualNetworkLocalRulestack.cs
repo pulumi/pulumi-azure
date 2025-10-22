@@ -198,19 +198,19 @@ namespace Pulumi.Azure.PaloAlto
     public partial class NextGenerationFirewallVirtualNetworkLocalRulestack : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `destination_nat` blocks as defined below.
+        /// One or more `DestinationNat` blocks as defined below.
         /// </summary>
         [Output("destinationNats")]
         public Output<ImmutableArray<Outputs.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat>> DestinationNats { get; private set; } = null!;
 
         /// <summary>
-        /// A `dns_settings` block as defined below.
+        /// A `DnsSettings` block as defined below.
         /// </summary>
         [Output("dnsSettings")]
         public Output<Outputs.NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings?> DnsSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// The marketplace offer ID. Defaults to `PanSwfwCloudNgfw`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("marketplaceOfferId")]
         public Output<string?> MarketplaceOfferId { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile> NetworkProfile { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
         /// 
-        /// &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        /// &gt; **Note:** The former `PlanId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `PlanId` to `panw-cngfw-payg` when creating new resources.
         /// </summary>
         [Output("planId")]
         public Output<string?> PlanId { get; private set; } = null!;
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.PaloAlto
         private InputList<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs>? _destinationNats;
 
         /// <summary>
-        /// One or more `destination_nat` blocks as defined below.
+        /// One or more `DestinationNat` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs> DestinationNats
         {
@@ -312,13 +312,13 @@ namespace Pulumi.Azure.PaloAlto
         }
 
         /// <summary>
-        /// A `dns_settings` block as defined below.
+        /// A `DnsSettings` block as defined below.
         /// </summary>
         [Input("dnsSettings")]
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
-        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// The marketplace offer ID. Defaults to `PanSwfwCloudNgfw`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("marketplaceOfferId")]
         public Input<string>? MarketplaceOfferId { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile", required: true)]
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs> NetworkProfile { get; set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
         /// 
-        /// &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        /// &gt; **Note:** The former `PlanId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `PlanId` to `panw-cngfw-payg` when creating new resources.
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }
@@ -379,7 +379,7 @@ namespace Pulumi.Azure.PaloAlto
         private InputList<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatGetArgs>? _destinationNats;
 
         /// <summary>
-        /// One or more `destination_nat` blocks as defined below.
+        /// One or more `DestinationNat` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatGetArgs> DestinationNats
         {
@@ -388,13 +388,13 @@ namespace Pulumi.Azure.PaloAlto
         }
 
         /// <summary>
-        /// A `dns_settings` block as defined below.
+        /// A `DnsSettings` block as defined below.
         /// </summary>
         [Input("dnsSettings")]
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsGetArgs>? DnsSettings { get; set; }
 
         /// <summary>
-        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// The marketplace offer ID. Defaults to `PanSwfwCloudNgfw`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("marketplaceOfferId")]
         public Input<string>? MarketplaceOfferId { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileGetArgs>? NetworkProfile { get; set; }
@@ -414,7 +414,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
         /// 
-        /// &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        /// &gt; **Note:** The former `PlanId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `PlanId` to `panw-cngfw-payg` when creating new resources.
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }

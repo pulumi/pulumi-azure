@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or more `images` blocks as defined below:
+        /// One or more `Images` blocks as defined below:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImagesImageResult> Images;
         public readonly string ResourceGroupName;

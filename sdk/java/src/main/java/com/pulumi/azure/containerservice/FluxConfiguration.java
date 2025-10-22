@@ -132,14 +132,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerservice/fluxConfiguration:FluxConfiguration")
 public class FluxConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * An `blob_storage` block as defined below.
+     * An `blobStorage` block as defined below.
      * 
      */
     @Export(name="blobStorage", refs={FluxConfigurationBlobStorage.class}, tree="[0]")
     private Output</* @Nullable */ FluxConfigurationBlobStorage> blobStorage;
 
     /**
-     * @return An `blob_storage` block as defined below.
+     * @return An `blobStorage` block as defined below.
      * 
      */
     public Output<Optional<FluxConfigurationBlobStorage>> blobStorage() {
@@ -188,14 +188,14 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.continuousReconciliationEnabled);
     }
     /**
-     * A `git_repository` block as defined below.
+     * A `gitRepository` block as defined below.
      * 
      */
     @Export(name="gitRepository", refs={FluxConfigurationGitRepository.class}, tree="[0]")
     private Output</* @Nullable */ FluxConfigurationGitRepository> gitRepository;
 
     /**
-     * @return A `git_repository` block as defined below.
+     * @return A `gitRepository` block as defined below.
      * 
      */
     public Output<Optional<FluxConfigurationGitRepository>> gitRepository() {

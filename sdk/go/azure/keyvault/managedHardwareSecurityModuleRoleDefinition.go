@@ -14,6 +14,8 @@ import (
 
 // Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.

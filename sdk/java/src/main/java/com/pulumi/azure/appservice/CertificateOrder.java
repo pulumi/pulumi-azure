@@ -136,7 +136,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
     /**
      * The Distinguished Name for the App Service Certificate Order.
      * 
-     * &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
+     * &gt; **Note:** Either `csr` or `distinguishedName` must be set - but not both.
      * 
      */
     @Export(name="distinguishedName", refs={String.class}, tree="[0]")
@@ -145,7 +145,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
     /**
      * @return The Distinguished Name for the App Service Certificate Order.
      * 
-     * &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
+     * &gt; **Note:** Either `csr` or `distinguishedName` must be set - but not both.
      * 
      */
     public Output<String> distinguishedName() {

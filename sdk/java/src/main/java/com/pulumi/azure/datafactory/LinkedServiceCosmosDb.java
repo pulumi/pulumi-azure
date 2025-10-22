@@ -90,28 +90,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb")
 public class LinkedServiceCosmosDb extends com.pulumi.resources.CustomResource {
     /**
-     * The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
+     * The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
      * 
      */
     @Export(name="accountEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountEndpoint;
 
     /**
-     * @return The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
+     * @return The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
      * 
      */
     public Output<Optional<String>> accountEndpoint() {
         return Codegen.optional(this.accountEndpoint);
     }
     /**
-     * The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
+     * The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
      * 
      */
     @Export(name="accountKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountKey;
 
     /**
-     * @return The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
+     * @return The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
      * 
      */
     public Output<Optional<String>> accountKey() {
@@ -150,14 +150,14 @@ public class LinkedServiceCosmosDb extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.annotations);
     }
     /**
-     * The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+     * The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
      * 
      */
     @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
-     * @return The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+     * @return The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
      * 
      */
     public Output<Optional<String>> connectionString() {
@@ -178,14 +178,14 @@ public class LinkedServiceCosmosDb extends com.pulumi.resources.CustomResource {
         return this.dataFactoryId;
     }
     /**
-     * The name of the database. Required if `connection_string` is unspecified.
+     * The name of the database. Required if `connectionString` is unspecified.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> database;
 
     /**
-     * @return The name of the database. Required if `connection_string` is unspecified.
+     * @return The name of the database. Required if `connectionString` is unspecified.
      * 
      */
     public Output<Optional<String>> database() {

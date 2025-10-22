@@ -22,7 +22,7 @@ namespace Pulumi.Azure.WebPubSub.Outputs
         /// </summary>
         public readonly string EventhubNamespaceName;
         /// <summary>
-        /// Specifies the list of system events. Supported values are `connected` and `disconnected`.
+        /// Specifies the list of system events. Supported values are `Connected` and `Disconnected`.
         /// </summary>
         public readonly ImmutableArray<string> SystemEventNameFilters;
         /// <summary>

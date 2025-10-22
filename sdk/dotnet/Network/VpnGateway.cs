@@ -85,19 +85,19 @@ namespace Pulumi.Azure.Network
     public partial class VpnGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
+        /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `False`.
         /// </summary>
         [Output("bgpRouteTranslationForNatEnabled")]
         public Output<bool?> BgpRouteTranslationForNatEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `bgp_settings` block as defined below.
+        /// A `BgpSettings` block as defined below.
         /// </summary>
         [Output("bgpSettings")]
         public Output<Outputs.VpnGatewayBgpSettings> BgpSettings { get; private set; } = null!;
 
         /// <summary>
-        /// An `ip_configuration` block as defined below.
+        /// An `IpConfiguration` block as defined below.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.VpnGatewayIpConfiguration>> IpConfigurations { get; private set; } = null!;
@@ -191,13 +191,13 @@ namespace Pulumi.Azure.Network
     public sealed class VpnGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
+        /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `False`.
         /// </summary>
         [Input("bgpRouteTranslationForNatEnabled")]
         public Input<bool>? BgpRouteTranslationForNatEnabled { get; set; }
 
         /// <summary>
-        /// A `bgp_settings` block as defined below.
+        /// A `BgpSettings` block as defined below.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VpnGatewayBgpSettingsArgs>? BgpSettings { get; set; }
@@ -259,13 +259,13 @@ namespace Pulumi.Azure.Network
     public sealed class VpnGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
+        /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `False`.
         /// </summary>
         [Input("bgpRouteTranslationForNatEnabled")]
         public Input<bool>? BgpRouteTranslationForNatEnabled { get; set; }
 
         /// <summary>
-        /// A `bgp_settings` block as defined below.
+        /// A `BgpSettings` block as defined below.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VpnGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnGatewayIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// An `ip_configuration` block as defined below.
+        /// An `IpConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.VpnGatewayIpConfigurationGetArgs> IpConfigurations
         {

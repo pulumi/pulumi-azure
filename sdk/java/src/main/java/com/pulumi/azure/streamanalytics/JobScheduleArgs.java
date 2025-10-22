@@ -19,7 +19,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
      * 
-     * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+     * &gt; **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      * 
      */
     @Import(name="startMode", required=true)
@@ -28,7 +28,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
      * 
-     * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+     * &gt; **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      * 
      */
     public Output<String> startMode() {
@@ -36,14 +36,14 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
+     * The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
      * 
      */
     @Import(name="startTime")
     private @Nullable Output<String> startTime;
 
     /**
-     * @return The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
+     * @return The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
      * 
      */
     public Optional<Output<String>> startTime() {
@@ -94,7 +94,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param startMode The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
          * 
-         * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+         * &gt; **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param startMode The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
          * 
-         * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+         * &gt; **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startTime The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
+         * @param startTime The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startTime The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
+         * @param startTime The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
          * 
          * @return builder
          * 

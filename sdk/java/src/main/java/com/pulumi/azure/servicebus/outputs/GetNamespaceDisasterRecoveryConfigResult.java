@@ -32,10 +32,10 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     private String namespaceId;
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
+     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
     private String namespaceName;
     /**
      * @return The ID of the Service Bus Namespace to replicate to.
@@ -49,10 +49,10 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     private String primaryConnectionStringAlias;
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
+     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
     private String resourceGroupName;
     /**
      * @return The alias Secondary Connection String for the ServiceBus Namespace
@@ -93,10 +93,10 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     }
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
+     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
     public String namespaceName() {
         return this.namespaceName;
     }
@@ -116,10 +116,10 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     }
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
+     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
     public String resourceGroupName() {
         return this.resourceGroupName;
     }

@@ -95,14 +95,14 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
     }
 
     /**
-     * One or more `not_allowed` block as defined below.
+     * One or more `notAllowed` block as defined below.
      * 
      */
     @Import(name="notAlloweds")
     private @Nullable Output<List<KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs>> notAlloweds;
 
     /**
-     * @return One or more `not_allowed` block as defined below.
+     * @return One or more `notAllowed` block as defined below.
      * 
      */
     public Optional<Output<List<KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs>>> notAlloweds() {
@@ -125,14 +125,14 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
     }
 
     /**
-     * The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+     * The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
      * 
      */
     @Import(name="startTime")
     private @Nullable Output<String> startTime;
 
     /**
-     * @return The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+     * @return The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
      * 
      */
     public Optional<Output<String>> startTime() {
@@ -308,7 +308,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
         }
 
         /**
-         * @param notAlloweds One or more `not_allowed` block as defined below.
+         * @param notAlloweds One or more `notAllowed` block as defined below.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
         }
 
         /**
-         * @param notAlloweds One or more `not_allowed` block as defined below.
+         * @param notAlloweds One or more `notAllowed` block as defined below.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
         }
 
         /**
-         * @param notAlloweds One or more `not_allowed` block as defined below.
+         * @param notAlloweds One or more `notAllowed` block as defined below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
         }
 
         /**
-         * @param startTime The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+         * @param startTime The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
         }
 
         /**
-         * @param startTime The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+         * @param startTime The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
          * 
          * @return builder
          * 

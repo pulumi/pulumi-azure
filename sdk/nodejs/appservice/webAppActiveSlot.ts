@@ -41,6 +41,15 @@ import * as utilities from "../utilities";
  * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("example", {slotId: exampleWindowsWebAppSlot.id});
  * ```
  *
+ * ### Linux Web App
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web` - 2023-12-01
+ *
  * ## Import
  *
  * a Web App Active Slot can be imported using the `resource id`, e.g.

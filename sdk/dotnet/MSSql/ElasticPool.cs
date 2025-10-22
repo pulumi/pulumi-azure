@@ -82,13 +82,13 @@ namespace Pulumi.Azure.MSSql
     public partial class ElasticPool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
+        /// Specifies the type of enclave to be used by the elastic pool. When `EnclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `EnclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
         /// 
-        /// &gt; **Note:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+        /// &gt; **Note:** All databases that are added to the elastic pool must have the same `EnclaveType` as the elastic pool.
         /// 
-        /// &gt; **Note:** `enclave_type` is not supported for DC-series SKUs.
+        /// &gt; **Note:** `EnclaveType` is not supported for DC-series SKUs.
         /// 
-        /// &gt; **Note:** The default value for `enclave_type` field is unset not `Default`.
+        /// &gt; **Note:** The default value for `EnclaveType` field is unset not `Default`.
         /// </summary>
         [Output("enclaveType")]
         public Output<string> EnclaveType { get; private set; } = null!;
@@ -112,15 +112,15 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> MaintenanceConfigurationName { get; private set; } = null!;
 
         /// <summary>
-        /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+        /// The max data size of the elastic pool in bytes. Conflicts with `MaxSizeGb`.
         /// 
-        /// &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+        /// &gt; **Note:** One of either `MaxSizeGb` or `MaxSizeBytes` must be specified.
         /// </summary>
         [Output("maxSizeBytes")]
         public Output<int> MaxSizeBytes { get; private set; } = null!;
 
         /// <summary>
-        /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
+        /// The max data size of the elastic pool in gigabytes. Conflicts with `MaxSizeBytes`.
         /// </summary>
         [Output("maxSizeGb")]
         public Output<double> MaxSizeGb { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `per_database_settings` block as defined below.
+        /// A `PerDatabaseSettings` block as defined below.
         /// </summary>
         [Output("perDatabaseSettings")]
         public Output<Outputs.ElasticPoolPerDatabaseSettings> PerDatabaseSettings { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> ServerName { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ElasticPoolSku> Sku { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
+        /// Whether or not this elastic pool is zone redundant. `Tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `Sku`.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -214,13 +214,13 @@ namespace Pulumi.Azure.MSSql
     public sealed class ElasticPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
+        /// Specifies the type of enclave to be used by the elastic pool. When `EnclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `EnclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
         /// 
-        /// &gt; **Note:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+        /// &gt; **Note:** All databases that are added to the elastic pool must have the same `EnclaveType` as the elastic pool.
         /// 
-        /// &gt; **Note:** `enclave_type` is not supported for DC-series SKUs.
+        /// &gt; **Note:** `EnclaveType` is not supported for DC-series SKUs.
         /// 
-        /// &gt; **Note:** The default value for `enclave_type` field is unset not `Default`.
+        /// &gt; **Note:** The default value for `EnclaveType` field is unset not `Default`.
         /// </summary>
         [Input("enclaveType")]
         public Input<string>? EnclaveType { get; set; }
@@ -244,15 +244,15 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? MaintenanceConfigurationName { get; set; }
 
         /// <summary>
-        /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+        /// The max data size of the elastic pool in bytes. Conflicts with `MaxSizeGb`.
         /// 
-        /// &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+        /// &gt; **Note:** One of either `MaxSizeGb` or `MaxSizeBytes` must be specified.
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<int>? MaxSizeBytes { get; set; }
 
         /// <summary>
-        /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
+        /// The max data size of the elastic pool in gigabytes. Conflicts with `MaxSizeBytes`.
         /// </summary>
         [Input("maxSizeGb")]
         public Input<double>? MaxSizeGb { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `per_database_settings` block as defined below.
+        /// A `PerDatabaseSettings` block as defined below.
         /// </summary>
         [Input("perDatabaseSettings", required: true)]
         public Input<Inputs.ElasticPoolPerDatabaseSettingsArgs> PerDatabaseSettings { get; set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ElasticPoolSkuArgs> Sku { get; set; } = null!;
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
+        /// Whether or not this elastic pool is zone redundant. `Tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `Sku`.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }
@@ -314,13 +314,13 @@ namespace Pulumi.Azure.MSSql
     public sealed class ElasticPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
+        /// Specifies the type of enclave to be used by the elastic pool. When `EnclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `EnclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
         /// 
-        /// &gt; **Note:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+        /// &gt; **Note:** All databases that are added to the elastic pool must have the same `EnclaveType` as the elastic pool.
         /// 
-        /// &gt; **Note:** `enclave_type` is not supported for DC-series SKUs.
+        /// &gt; **Note:** `EnclaveType` is not supported for DC-series SKUs.
         /// 
-        /// &gt; **Note:** The default value for `enclave_type` field is unset not `Default`.
+        /// &gt; **Note:** The default value for `EnclaveType` field is unset not `Default`.
         /// </summary>
         [Input("enclaveType")]
         public Input<string>? EnclaveType { get; set; }
@@ -344,15 +344,15 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? MaintenanceConfigurationName { get; set; }
 
         /// <summary>
-        /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+        /// The max data size of the elastic pool in bytes. Conflicts with `MaxSizeGb`.
         /// 
-        /// &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+        /// &gt; **Note:** One of either `MaxSizeGb` or `MaxSizeBytes` must be specified.
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<int>? MaxSizeBytes { get; set; }
 
         /// <summary>
-        /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
+        /// The max data size of the elastic pool in gigabytes. Conflicts with `MaxSizeBytes`.
         /// </summary>
         [Input("maxSizeGb")]
         public Input<double>? MaxSizeGb { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `per_database_settings` block as defined below.
+        /// A `PerDatabaseSettings` block as defined below.
         /// </summary>
         [Input("perDatabaseSettings")]
         public Input<Inputs.ElasticPoolPerDatabaseSettingsGetArgs>? PerDatabaseSettings { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ServerName { get; set; }
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ElasticPoolSkuGetArgs>? Sku { get; set; }
@@ -400,7 +400,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
+        /// Whether or not this elastic pool is zone redundant. `Tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `Sku`.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

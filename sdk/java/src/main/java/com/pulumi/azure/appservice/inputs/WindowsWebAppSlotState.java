@@ -58,14 +58,14 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * An `auth_settings` block as defined below.
+     * An `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<WindowsWebAppSlotAuthSettingsArgs> authSettings;
 
     /**
-     * @return An `auth_settings` block as defined below.
+     * @return An `authSettings` block as defined below.
      * 
      */
     public Optional<Output<WindowsWebAppSlotAuthSettingsArgs>> authSettings() {
@@ -73,14 +73,14 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * An `auth_settings_v2` block as defined below.
+     * An `authSettingsV2` block as defined below.
      * 
      */
     @Import(name="authSettingsV2")
     private @Nullable Output<WindowsWebAppSlotAuthSettingsV2Args> authSettingsV2;
 
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public Optional<Output<WindowsWebAppSlotAuthSettingsV2Args>> authSettingsV2() {
@@ -148,14 +148,14 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      * 
      */
     @Import(name="clientCertificateMode")
     private @Nullable Output<String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      * 
      */
     public Optional<Output<String>> clientCertificateMode() {
@@ -163,14 +163,14 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<WindowsWebAppSlotConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Optional<Output<List<WindowsWebAppSlotConnectionStringArgs>>> connectionStrings() {
@@ -380,14 +380,14 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -412,7 +412,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
      * 
-     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
+     * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      * 
      */
     @Import(name="servicePlanId")
@@ -421,7 +421,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     /**
      * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
      * 
-     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
+     * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      * 
      */
     public Optional<Output<String>> servicePlanId() {
@@ -429,14 +429,14 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<WindowsWebAppSlotSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Optional<Output<WindowsWebAppSlotSiteConfigArgs>> siteConfig() {
@@ -444,14 +444,14 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Import(name="siteCredentials")
     private @Nullable Output<List<WindowsWebAppSlotSiteCredentialArgs>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Optional<Output<List<WindowsWebAppSlotSiteCredentialArgs>>> siteCredentials() {
@@ -459,18 +459,18 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<WindowsWebAppSlotStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     public Optional<Output<List<WindowsWebAppSlotStorageAccountArgs>>> storageAccounts() {
@@ -517,7 +517,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     @Import(name="webdeployPublishBasicAuthenticationEnabled")
@@ -526,7 +526,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -649,7 +649,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettings An `auth_settings` block as defined below.
+         * @param authSettings An `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettings An `auth_settings` block as defined below.
+         * @param authSettings An `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -775,7 +775,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -786,7 +786,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -796,7 +796,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -807,7 +807,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1129,7 +1129,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1140,7 +1140,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1173,7 +1173,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         /**
          * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
          * 
-         * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
+         * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
          * 
          * @return builder
          * 
@@ -1186,7 +1186,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         /**
          * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
          * 
-         * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
+         * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
          * 
          * @return builder
          * 
@@ -1196,7 +1196,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1207,7 +1207,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1217,7 +1217,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1228,7 +1228,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1238,7 +1238,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1248,9 +1248,9 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
          * 
          * @return builder
          * 
@@ -1261,9 +1261,9 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
          * 
          * @return builder
          * 
@@ -1273,9 +1273,9 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
          * 
          * @return builder
          * 
@@ -1338,7 +1338,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1351,7 +1351,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 

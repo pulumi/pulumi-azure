@@ -140,14 +140,14 @@ public final class BackendState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `service_fabric_cluster` block as documented below.
+     * A `serviceFabricCluster` block as documented below.
      * 
      */
     @Import(name="serviceFabricCluster")
     private @Nullable Output<BackendServiceFabricClusterArgs> serviceFabricCluster;
 
     /**
-     * @return A `service_fabric_cluster` block as documented below.
+     * @return A `serviceFabricCluster` block as documented below.
      * 
      */
     public Optional<Output<BackendServiceFabricClusterArgs>> serviceFabricCluster() {
@@ -403,7 +403,7 @@ public final class BackendState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceFabricCluster A `service_fabric_cluster` block as documented below.
+         * @param serviceFabricCluster A `serviceFabricCluster` block as documented below.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class BackendState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceFabricCluster A `service_fabric_cluster` block as documented below.
+         * @param serviceFabricCluster A `serviceFabricCluster` block as documented below.
          * 
          * @return builder
          * 

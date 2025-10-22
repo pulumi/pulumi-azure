@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `integration_runtime` block as defined below.
+        /// A `IntegrationRuntime` block as defined below.
         /// </summary>
         [Output("integrationRuntime")]
         public Output<Outputs.LinkedServiceIntegrationRuntime?> IntegrationRuntime { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `integration_runtime` block as defined below.
+        /// A `IntegrationRuntime` block as defined below.
         /// </summary>
         [Input("integrationRuntime")]
         public Input<Inputs.LinkedServiceIntegrationRuntimeArgs>? IntegrationRuntime { get; set; }
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `integration_runtime` block as defined below.
+        /// A `IntegrationRuntime` block as defined below.
         /// </summary>
         [Input("integrationRuntime")]
         public Input<Inputs.LinkedServiceIntegrationRuntimeGetArgs>? IntegrationRuntime { get; set; }

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Mobile.Inputs
     public sealed class NetworkServiceServiceQosPolicyMaximumBitRateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        /// Downlink bit rate. Must be a number followed by `Bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         /// </summary>
         [Input("downlink", required: true)]
         public Input<string> Downlink { get; set; } = null!;
 
         /// <summary>
-        /// Uplink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        /// Uplink bit rate. Must be a number followed by `Bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         /// </summary>
         [Input("uplink", required: true)]
         public Input<string> Uplink { get; set; } = null!;

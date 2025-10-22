@@ -85,13 +85,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// A `azure_blob_fs_location` block as defined below.
+        /// A `AzureBlobFsLocation` block as defined below.
         /// </summary>
         [Output("azureBlobFsLocation")]
         public Output<Outputs.DatasetParquetAzureBlobFsLocation?> AzureBlobFsLocation { get; private set; } = null!;
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// A `AzureBlobStorageLocation` block as defined below.
         /// 
         /// The following supported arguments are specific to Parquet Dataset:
         /// </summary>
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.DatasetParquetAzureBlobStorageLocation?> AzureBlobStorageLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
+        /// The compression codec used to read/write text files. Valid values are `Bzip2`, `Gzip`, `Deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `Snappy`, or `Lz4`. Please note these values are case-sensitive.
         /// </summary>
         [Output("compressionCodec")]
         public Output<string?> CompressionCodec { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Folder { get; private set; } = null!;
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// </summary>
         [Output("httpServerLocation")]
         public Output<Outputs.DatasetParquetHttpServerLocation?> HttpServerLocation { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
         public Output<ImmutableArray<Outputs.DatasetParquetSchemaColumn>> SchemaColumns { get; private set; } = null!;
@@ -231,13 +231,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `azure_blob_fs_location` block as defined below.
+        /// A `AzureBlobFsLocation` block as defined below.
         /// </summary>
         [Input("azureBlobFsLocation")]
         public Input<Inputs.DatasetParquetAzureBlobFsLocationArgs>? AzureBlobFsLocation { get; set; }
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// A `AzureBlobStorageLocation` block as defined below.
         /// 
         /// The following supported arguments are specific to Parquet Dataset:
         /// </summary>
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.DatasetParquetAzureBlobStorageLocationArgs>? AzureBlobStorageLocation { get; set; }
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
+        /// The compression codec used to read/write text files. Valid values are `Bzip2`, `Gzip`, `Deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `Snappy`, or `Lz4`. Please note these values are case-sensitive.
         /// </summary>
         [Input("compressionCodec")]
         public Input<string>? CompressionCodec { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// </summary>
         [Input("httpServerLocation")]
         public Input<Inputs.DatasetParquetHttpServerLocationArgs>? HttpServerLocation { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetParquetSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetParquetSchemaColumnArgs> SchemaColumns
         {
@@ -351,13 +351,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `azure_blob_fs_location` block as defined below.
+        /// A `AzureBlobFsLocation` block as defined below.
         /// </summary>
         [Input("azureBlobFsLocation")]
         public Input<Inputs.DatasetParquetAzureBlobFsLocationGetArgs>? AzureBlobFsLocation { get; set; }
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// A `AzureBlobStorageLocation` block as defined below.
         /// 
         /// The following supported arguments are specific to Parquet Dataset:
         /// </summary>
@@ -365,7 +365,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.DatasetParquetAzureBlobStorageLocationGetArgs>? AzureBlobStorageLocation { get; set; }
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
+        /// The compression codec used to read/write text files. Valid values are `Bzip2`, `Gzip`, `Deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `Snappy`, or `Lz4`. Please note these values are case-sensitive.
         /// </summary>
         [Input("compressionCodec")]
         public Input<string>? CompressionCodec { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// </summary>
         [Input("httpServerLocation")]
         public Input<Inputs.DatasetParquetHttpServerLocationGetArgs>? HttpServerLocation { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetParquetSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetParquetSchemaColumnGetArgs> SchemaColumns
         {

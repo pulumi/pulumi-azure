@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class PointToPointVpnGatewayConnectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A `route` block as defined below.
+        /// A `Route` block as defined below.
         /// </summary>
         [Input("route")]
         public Input<Inputs.PointToPointVpnGatewayConnectionConfigurationRouteArgs>? Route { get; set; }
 
         /// <summary>
-        /// A `vpn_client_address_pool` block as defined below.
+        /// A `VpnClientAddressPool` block as defined below.
         /// </summary>
         [Input("vpnClientAddressPool", required: true)]
         public Input<Inputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs> VpnClientAddressPool { get; set; } = null!;

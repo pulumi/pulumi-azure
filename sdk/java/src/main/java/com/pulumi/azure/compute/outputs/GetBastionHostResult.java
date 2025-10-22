@@ -36,7 +36,7 @@ public final class GetBastionHostResult {
      */
     private String id;
     /**
-     * @return A `ip_configuration` block as defined below.
+     * @return A `ipConfiguration` block as defined below.
      * 
      */
     private List<GetBastionHostIpConfiguration> ipConfigurations;
@@ -122,7 +122,7 @@ public final class GetBastionHostResult {
         return this.id;
     }
     /**
-     * @return A `ip_configuration` block as defined below.
+     * @return A `ipConfiguration` block as defined below.
      * 
      */
     public List<GetBastionHostIpConfiguration> ipConfigurations() {

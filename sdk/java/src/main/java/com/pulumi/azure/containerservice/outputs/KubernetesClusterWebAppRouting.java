@@ -25,7 +25,7 @@ public final class KubernetesClusterWebAppRouting {
      */
     private List<String> dnsZoneIds;
     /**
-     * @return A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+     * @return A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     private @Nullable List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities;
@@ -46,7 +46,7 @@ public final class KubernetesClusterWebAppRouting {
         return this.dnsZoneIds;
     }
     /**
-     * @return A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+     * @return A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     public List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities() {

@@ -15,14 +15,14 @@ public final class AccountBlobPropertiesRestorePolicyArgs extends com.pulumi.res
     public static final AccountBlobPropertiesRestorePolicyArgs Empty = new AccountBlobPropertiesRestorePolicyArgs();
 
     /**
-     * Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+     * Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
      * 
      */
     @Import(name="days", required=true)
     private Output<Integer> days;
 
     /**
-     * @return Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+     * @return Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
      * 
      */
     public Output<Integer> days() {
@@ -54,7 +54,7 @@ public final class AccountBlobPropertiesRestorePolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param days Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+         * @param days Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AccountBlobPropertiesRestorePolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param days Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+         * @param days Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
          * 
          * @return builder
          * 

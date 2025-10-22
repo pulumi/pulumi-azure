@@ -26,7 +26,7 @@ public final class KubernetesClusterOmsAgent {
      */
     private @Nullable Boolean msiAuthForMonitoringEnabled;
     /**
-     * @return An `oms_agent_identity` block is exported. The exported attributes are defined below.
+     * @return An `omsAgentIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     private @Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities;
@@ -47,7 +47,7 @@ public final class KubernetesClusterOmsAgent {
         return Optional.ofNullable(this.msiAuthForMonitoringEnabled);
     }
     /**
-     * @return An `oms_agent_identity` block is exported. The exported attributes are defined below.
+     * @return An `omsAgentIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     public List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities() {

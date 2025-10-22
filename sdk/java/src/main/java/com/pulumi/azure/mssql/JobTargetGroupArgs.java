@@ -34,14 +34,14 @@ public final class JobTargetGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `job_target` blocks as defined below.
+     * One or more `jobTarget` blocks as defined below.
      * 
      */
     @Import(name="jobTargets")
     private @Nullable Output<List<JobTargetGroupJobTargetArgs>> jobTargets;
 
     /**
-     * @return One or more `job_target` blocks as defined below.
+     * @return One or more `jobTarget` blocks as defined below.
      * 
      */
     public Optional<Output<List<JobTargetGroupJobTargetArgs>>> jobTargets() {
@@ -111,7 +111,7 @@ public final class JobTargetGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param jobTargets One or more `job_target` blocks as defined below.
+         * @param jobTargets One or more `jobTarget` blocks as defined below.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class JobTargetGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param jobTargets One or more `job_target` blocks as defined below.
+         * @param jobTargets One or more `jobTarget` blocks as defined below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class JobTargetGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param jobTargets One or more `job_target` blocks as defined below.
+         * @param jobTargets One or more `jobTarget` blocks as defined below.
          * 
          * @return builder
          * 

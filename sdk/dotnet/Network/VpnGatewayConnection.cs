@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Network
     public partial class VpnGatewayConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
+        /// Whether Internet Security is enabled for this VPN Connection. Defaults to `False`.
         /// </summary>
         [Output("internetSecurityEnabled")]
         public Output<bool?> InternetSecurityEnabled { get; private set; } = null!;
@@ -133,13 +133,13 @@ namespace Pulumi.Azure.Network
         public Output<string> RemoteVpnSiteId { get; private set; } = null!;
 
         /// <summary>
-        /// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        /// A `Routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         /// </summary>
         [Output("routing")]
         public Output<Outputs.VpnGatewayConnectionRouting> Routing { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `traffic_selector_policy` blocks as defined below.
+        /// One or more `TrafficSelectorPolicy` blocks as defined below.
         /// </summary>
         [Output("trafficSelectorPolicies")]
         public Output<ImmutableArray<Outputs.VpnGatewayConnectionTrafficSelectorPolicy>> TrafficSelectorPolicies { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Network
         public Output<string> VpnGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `vpn_link` blocks as defined below.
+        /// One or more `VpnLink` blocks as defined below.
         /// </summary>
         [Output("vpnLinks")]
         public Output<ImmutableArray<Outputs.VpnGatewayConnectionVpnLink>> VpnLinks { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Network
     public sealed class VpnGatewayConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
+        /// Whether Internet Security is enabled for this VPN Connection. Defaults to `False`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Network
         public Input<string> RemoteVpnSiteId { get; set; } = null!;
 
         /// <summary>
-        /// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        /// A `Routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         /// </summary>
         [Input("routing")]
         public Input<Inputs.VpnGatewayConnectionRoutingArgs>? Routing { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyArgs>? _trafficSelectorPolicies;
 
         /// <summary>
-        /// One or more `traffic_selector_policy` blocks as defined below.
+        /// One or more `TrafficSelectorPolicy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyArgs> TrafficSelectorPolicies
         {
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnGatewayConnectionVpnLinkArgs>? _vpnLinks;
 
         /// <summary>
-        /// One or more `vpn_link` blocks as defined below.
+        /// One or more `VpnLink` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnGatewayConnectionVpnLinkArgs> VpnLinks
         {
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.Network
     public sealed class VpnGatewayConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
+        /// Whether Internet Security is enabled for this VPN Connection. Defaults to `False`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? RemoteVpnSiteId { get; set; }
 
         /// <summary>
-        /// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        /// A `Routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         /// </summary>
         [Input("routing")]
         public Input<Inputs.VpnGatewayConnectionRoutingGetArgs>? Routing { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyGetArgs>? _trafficSelectorPolicies;
 
         /// <summary>
-        /// One or more `traffic_selector_policy` blocks as defined below.
+        /// One or more `TrafficSelectorPolicy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyGetArgs> TrafficSelectorPolicies
         {
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnGatewayConnectionVpnLinkGetArgs>? _vpnLinks;
 
         /// <summary>
-        /// One or more `vpn_link` blocks as defined below.
+        /// One or more `VpnLink` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnGatewayConnectionVpnLinkGetArgs> VpnLinks
         {

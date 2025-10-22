@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
         /// 
-        /// &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressPrefixes` or `NumberOfIpAddressesToAllocate` must be specified.
         /// </summary>
         [Output("addressPrefixes")]
         public Output<ImmutableArray<string>> AddressPrefixes { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `"16"`.
         /// 
-        /// &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressPrefixes` or `NumberOfIpAddressesToAllocate` must be specified.
         /// </summary>
         [Output("numberOfIpAddressesToAllocate")]
         public Output<string?> NumberOfIpAddressesToAllocate { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
         /// 
-        /// &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressPrefixes` or `NumberOfIpAddressesToAllocate` must be specified.
         /// </summary>
         public InputList<string> AddressPrefixes
         {
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `"16"`.
         /// 
-        /// &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressPrefixes` or `NumberOfIpAddressesToAllocate` must be specified.
         /// </summary>
         [Input("numberOfIpAddressesToAllocate")]
         public Input<string>? NumberOfIpAddressesToAllocate { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
         /// 
-        /// &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressPrefixes` or `NumberOfIpAddressesToAllocate` must be specified.
         /// </summary>
         public InputList<string> AddressPrefixes
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `"16"`.
         /// 
-        /// &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+        /// &gt; **Note:** Exactly one of `AddressPrefixes` or `NumberOfIpAddressesToAllocate` must be specified.
         /// </summary>
         [Input("numberOfIpAddressesToAllocate")]
         public Input<string>? NumberOfIpAddressesToAllocate { get; set; }
