@@ -245,6 +245,10 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Version `~3` or `~4` is required for Linux Function Apps.
  * 
+ * ### Python In A Consumption Plan)
+ * 
+ * &gt; **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
+ * 
  * ## Import
  * 
  * Function Apps can be imported using the `resource id`, e.g.
@@ -273,7 +277,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
      */
     @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -282,21 +286,21 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
     /**
      * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
      */
     public Output<Map<String,String>> appSettings() {
         return this.appSettings;
     }
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Export(name="authSettings", refs={FunctionAppAuthSettings.class}, tree="[0]")
     private Output<FunctionAppAuthSettings> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Output<FunctionAppAuthSettings> authSettings() {
@@ -317,14 +321,14 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertMode);
     }
     /**
-     * An `connection_string` block as defined below.
+     * An `connectionString` block as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,FunctionAppConnectionString.class}, tree="[0,1]")
     private Output<List<FunctionAppConnectionString>> connectionStrings;
 
     /**
-     * @return An `connection_string` block as defined below.
+     * @return An `connectionString` block as defined below.
      * 
      */
     public Output<List<FunctionAppConnectionString>> connectionStrings() {
@@ -517,14 +521,14 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
         return this.outboundIpAddresses;
     }
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Output<String> possibleOutboundIpAddresses() {
@@ -545,42 +549,42 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      * 
      */
     @Export(name="siteConfig", refs={FunctionAppSiteConfig.class}, tree="[0]")
     private Output<FunctionAppSiteConfig> siteConfig;
 
     /**
-     * @return A `site_config` object as defined below.
+     * @return A `siteConfig` object as defined below.
      * 
      */
     public Output<FunctionAppSiteConfig> siteConfig() {
         return this.siteConfig;
     }
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     @Export(name="siteCredentials", refs={List.class,FunctionAppSiteCredential.class}, tree="[0,1]")
     private Output<List<FunctionAppSiteCredential>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     public Output<List<FunctionAppSiteCredential>> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * A `source_control` block, as defined below.
+     * A `sourceControl` block, as defined below.
      * 
      */
     @Export(name="sourceControl", refs={FunctionAppSourceControl.class}, tree="[0]")
     private Output<FunctionAppSourceControl> sourceControl;
 
     /**
-     * @return A `source_control` block, as defined below.
+     * @return A `sourceControl` block, as defined below.
      * 
      */
     public Output<FunctionAppSourceControl> sourceControl() {
@@ -591,7 +595,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
      * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
@@ -602,7 +606,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
      * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     public Output<String> storageAccountAccessKey() {

@@ -100,39 +100,39 @@ namespace Pulumi.Azure.Hpc
         public Output<int> CacheSizeInGb { get; private set; } = null!;
 
         /// <summary>
-        /// A `default_access_policy` block as defined below.
+        /// A `DefaultAccessPolicy` block as defined below.
         /// </summary>
         [Output("defaultAccessPolicy")]
         public Output<Outputs.CacheDefaultAccessPolicy> DefaultAccessPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A `directory_active_directory` block as defined below.
+        /// A `DirectoryActiveDirectory` block as defined below.
         /// </summary>
         [Output("directoryActiveDirectory")]
         public Output<Outputs.CacheDirectoryActiveDirectory?> DirectoryActiveDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// A `directory_flat_file` block as defined below.
+        /// A `DirectoryFlatFile` block as defined below.
         /// </summary>
         [Output("directoryFlatFile")]
         public Output<Outputs.CacheDirectoryFlatFile?> DirectoryFlatFile { get; private set; } = null!;
 
         /// <summary>
-        /// A `directory_ldap` block as defined below.
+        /// A `DirectoryLdap` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+        /// &gt; **Note:** Only one of `DirectoryActiveDirectory`, `DirectoryFlatFile` and `DirectoryLdap` can be set.
         /// </summary>
         [Output("directoryLdap")]
         public Output<Outputs.CacheDirectoryLdap?> DirectoryLdap { get; private set; } = null!;
 
         /// <summary>
-        /// A `dns` block as defined below.
+        /// A `Dns` block as defined below.
         /// </summary>
         [Output("dns")]
         public Output<Outputs.CacheDns?> Dns { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `Identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.CacheIdentity?> Identity { get; private set; } = null!;
@@ -260,39 +260,39 @@ namespace Pulumi.Azure.Hpc
         public Input<int> CacheSizeInGb { get; set; } = null!;
 
         /// <summary>
-        /// A `default_access_policy` block as defined below.
+        /// A `DefaultAccessPolicy` block as defined below.
         /// </summary>
         [Input("defaultAccessPolicy")]
         public Input<Inputs.CacheDefaultAccessPolicyArgs>? DefaultAccessPolicy { get; set; }
 
         /// <summary>
-        /// A `directory_active_directory` block as defined below.
+        /// A `DirectoryActiveDirectory` block as defined below.
         /// </summary>
         [Input("directoryActiveDirectory")]
         public Input<Inputs.CacheDirectoryActiveDirectoryArgs>? DirectoryActiveDirectory { get; set; }
 
         /// <summary>
-        /// A `directory_flat_file` block as defined below.
+        /// A `DirectoryFlatFile` block as defined below.
         /// </summary>
         [Input("directoryFlatFile")]
         public Input<Inputs.CacheDirectoryFlatFileArgs>? DirectoryFlatFile { get; set; }
 
         /// <summary>
-        /// A `directory_ldap` block as defined below.
+        /// A `DirectoryLdap` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+        /// &gt; **Note:** Only one of `DirectoryActiveDirectory`, `DirectoryFlatFile` and `DirectoryLdap` can be set.
         /// </summary>
         [Input("directoryLdap")]
         public Input<Inputs.CacheDirectoryLdapArgs>? DirectoryLdap { get; set; }
 
         /// <summary>
-        /// A `dns` block as defined below.
+        /// A `Dns` block as defined below.
         /// </summary>
         [Input("dns")]
         public Input<Inputs.CacheDnsArgs>? Dns { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `Identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.CacheIdentityArgs>? Identity { get; set; }
@@ -382,39 +382,39 @@ namespace Pulumi.Azure.Hpc
         public Input<int>? CacheSizeInGb { get; set; }
 
         /// <summary>
-        /// A `default_access_policy` block as defined below.
+        /// A `DefaultAccessPolicy` block as defined below.
         /// </summary>
         [Input("defaultAccessPolicy")]
         public Input<Inputs.CacheDefaultAccessPolicyGetArgs>? DefaultAccessPolicy { get; set; }
 
         /// <summary>
-        /// A `directory_active_directory` block as defined below.
+        /// A `DirectoryActiveDirectory` block as defined below.
         /// </summary>
         [Input("directoryActiveDirectory")]
         public Input<Inputs.CacheDirectoryActiveDirectoryGetArgs>? DirectoryActiveDirectory { get; set; }
 
         /// <summary>
-        /// A `directory_flat_file` block as defined below.
+        /// A `DirectoryFlatFile` block as defined below.
         /// </summary>
         [Input("directoryFlatFile")]
         public Input<Inputs.CacheDirectoryFlatFileGetArgs>? DirectoryFlatFile { get; set; }
 
         /// <summary>
-        /// A `directory_ldap` block as defined below.
+        /// A `DirectoryLdap` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+        /// &gt; **Note:** Only one of `DirectoryActiveDirectory`, `DirectoryFlatFile` and `DirectoryLdap` can be set.
         /// </summary>
         [Input("directoryLdap")]
         public Input<Inputs.CacheDirectoryLdapGetArgs>? DirectoryLdap { get; set; }
 
         /// <summary>
-        /// A `dns` block as defined below.
+        /// A `Dns` block as defined below.
         /// </summary>
         [Input("dns")]
         public Input<Inputs.CacheDnsGetArgs>? Dns { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `Identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.CacheIdentityGetArgs>? Identity { get; set; }

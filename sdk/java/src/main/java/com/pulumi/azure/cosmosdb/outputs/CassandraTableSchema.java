@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CassandraTableSchema {
     /**
-     * @return One or more `cluster_key` blocks as defined below.
+     * @return One or more `clusterKey` blocks as defined below.
      * 
      */
     private @Nullable List<CassandraTableSchemaClusterKey> clusterKeys;
@@ -25,14 +25,14 @@ public final class CassandraTableSchema {
      */
     private List<CassandraTableSchemaColumn> columns;
     /**
-     * @return One or more `partition_key` blocks as defined below.
+     * @return One or more `partitionKey` blocks as defined below.
      * 
      */
     private List<CassandraTableSchemaPartitionKey> partitionKeys;
 
     private CassandraTableSchema() {}
     /**
-     * @return One or more `cluster_key` blocks as defined below.
+     * @return One or more `clusterKey` blocks as defined below.
      * 
      */
     public List<CassandraTableSchemaClusterKey> clusterKeys() {
@@ -46,7 +46,7 @@ public final class CassandraTableSchema {
         return this.columns;
     }
     /**
-     * @return One or more `partition_key` blocks as defined below.
+     * @return One or more `partitionKey` blocks as defined below.
      * 
      */
     public List<CassandraTableSchemaPartitionKey> partitionKeys() {

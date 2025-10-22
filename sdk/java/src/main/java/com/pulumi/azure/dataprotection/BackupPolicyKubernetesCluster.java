@@ -20,6 +20,15 @@ import javax.annotation.Nullable;
 /**
  * Manages a Backup Policy to back up Kubernetes Cluster.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DataProtection` - 2024-04-01
+ * 
  * ## Import
  * 
  * Backup Policy Kubernetes Cluster&#39;s can be imported using the `resource id`, e.g.
@@ -46,14 +55,14 @@ public class BackupPolicyKubernetesCluster extends com.pulumi.resources.CustomRe
         return this.backupRepeatingTimeIntervals;
     }
     /**
-     * A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="defaultRetentionRule", refs={BackupPolicyKubernetesClusterDefaultRetentionRule.class}, tree="[0]")
     private Output<BackupPolicyKubernetesClusterDefaultRetentionRule> defaultRetentionRule;
 
     /**
-     * @return A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * @return A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<BackupPolicyKubernetesClusterDefaultRetentionRule> defaultRetentionRule() {
@@ -88,14 +97,14 @@ public class BackupPolicyKubernetesCluster extends com.pulumi.resources.CustomRe
         return this.resourceGroupName;
     }
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="retentionRules", refs={List.class,BackupPolicyKubernetesClusterRetentionRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BackupPolicyKubernetesClusterRetentionRule>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<BackupPolicyKubernetesClusterRetentionRule>>> retentionRules() {

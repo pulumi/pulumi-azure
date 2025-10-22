@@ -18,11 +18,11 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// One or more `header` blocks as defined above.
+        /// One or more `Header` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiOperationResponseHeader> Headers;
         /// <summary>
-        /// One or more `representation` blocks as defined above.
+        /// One or more `Representation` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiOperationResponseRepresentation> Representations;
         /// <summary>

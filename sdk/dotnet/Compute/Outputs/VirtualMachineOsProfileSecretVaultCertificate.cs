@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// }
         /// ```
         /// 
-        /// &gt; **NOTE:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
+        /// &gt; **NOTE:** If your certificate is stored in Azure Key Vault - this can be sourced from the `SecretId` property on the `azure.keyvault.Certificate` resource.
         /// </summary>
         public readonly string CertificateUrl;
 

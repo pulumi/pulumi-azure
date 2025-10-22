@@ -45,14 +45,14 @@ public final class FirewallPolicyManagedRuleOverrideExclusionArgs extends com.pu
     }
 
     /**
-     * Selector for the value in the `match_variable` attribute this exclusion applies to.
+     * Selector for the value in the `matchVariable` attribute this exclusion applies to.
      * 
      */
     @Import(name="selector", required=true)
     private Output<String> selector;
 
     /**
-     * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
+     * @return Selector for the value in the `matchVariable` attribute this exclusion applies to.
      * 
      */
     public Output<String> selector() {
@@ -128,7 +128,7 @@ public final class FirewallPolicyManagedRuleOverrideExclusionArgs extends com.pu
         }
 
         /**
-         * @param selector Selector for the value in the `match_variable` attribute this exclusion applies to.
+         * @param selector Selector for the value in the `matchVariable` attribute this exclusion applies to.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class FirewallPolicyManagedRuleOverrideExclusionArgs extends com.pu
         }
 
         /**
-         * @param selector Selector for the value in the `match_variable` attribute this exclusion applies to.
+         * @param selector Selector for the value in the `matchVariable` attribute this exclusion applies to.
          * 
          * @return builder
          * 

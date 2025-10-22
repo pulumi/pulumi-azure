@@ -109,7 +109,7 @@ namespace Pulumi.Azure.MachineLearning
     public partial class DatastoreBlobstorage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        /// The access key of the Storage Account. Conflicts with `SharedAccessSignature`.
         /// </summary>
         [Output("accountKey")]
         public Output<string?> AccountKey { get; private set; } = null!;
@@ -121,9 +121,9 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `is_default` can only be set to `true` on update.
+        /// &gt; **Note:** `IsDefault` can only be set to `True` on update.
         /// </summary>
         [Output("isDefault")]
         public Output<bool?> IsDefault { get; private set; } = null!;
@@ -141,9 +141,9 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> ServiceDataAuthIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// The Shared Access Signature of the Storage Account. Conflicts with `AccountKey`.
         /// 
-        /// &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
+        /// &gt; **Note:** If `ServiceDataAuthIdentity` is set to `None` or omitted, one of `AccountKey` or `SharedAccessSignature` must be specified.
         /// </summary>
         [Output("sharedAccessSignature")]
         public Output<string?> SharedAccessSignature { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.MachineLearning
         private Input<string>? _accountKey;
 
         /// <summary>
-        /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        /// The access key of the Storage Account. Conflicts with `SharedAccessSignature`.
         /// </summary>
         public Input<string>? AccountKey
         {
@@ -240,9 +240,9 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `is_default` can only be set to `true` on update.
+        /// &gt; **Note:** `IsDefault` can only be set to `True` on update.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -263,9 +263,9 @@ namespace Pulumi.Azure.MachineLearning
         private Input<string>? _sharedAccessSignature;
 
         /// <summary>
-        /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// The Shared Access Signature of the Storage Account. Conflicts with `AccountKey`.
         /// 
-        /// &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
+        /// &gt; **Note:** If `ServiceDataAuthIdentity` is set to `None` or omitted, one of `AccountKey` or `SharedAccessSignature` must be specified.
         /// </summary>
         public Input<string>? SharedAccessSignature
         {
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.MachineLearning
         private Input<string>? _accountKey;
 
         /// <summary>
-        /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        /// The access key of the Storage Account. Conflicts with `SharedAccessSignature`.
         /// </summary>
         public Input<string>? AccountKey
         {
@@ -332,9 +332,9 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `is_default` can only be set to `true` on update.
+        /// &gt; **Note:** `IsDefault` can only be set to `True` on update.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -355,9 +355,9 @@ namespace Pulumi.Azure.MachineLearning
         private Input<string>? _sharedAccessSignature;
 
         /// <summary>
-        /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// The Shared Access Signature of the Storage Account. Conflicts with `AccountKey`.
         /// 
-        /// &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
+        /// &gt; **Note:** If `ServiceDataAuthIdentity` is set to `None` or omitted, one of `AccountKey` or `SharedAccessSignature` must be specified.
         /// </summary>
         public Input<string>? SharedAccessSignature
         {

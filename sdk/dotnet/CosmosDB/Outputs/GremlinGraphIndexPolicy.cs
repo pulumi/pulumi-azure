@@ -14,19 +14,19 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class GremlinGraphIndexPolicy
     {
         /// <summary>
-        /// Indicates if the indexing policy is automatic. Defaults to `true`.
+        /// Indicates if the indexing policy is automatic. Defaults to `True`.
         /// </summary>
         public readonly bool? Automatic;
         /// <summary>
-        /// One or more `composite_index` blocks as defined below.
+        /// One or more `CompositeIndex` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GremlinGraphIndexPolicyCompositeIndex> CompositeIndices;
         /// <summary>
-        /// List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// List of paths to exclude from indexing. Required if `IndexingMode` is `Consistent` or `Lazy`.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPaths;
         /// <summary>
-        /// List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// List of paths to include in the indexing. Required if `IndexingMode` is `Consistent` or `Lazy`.
         /// </summary>
         public readonly ImmutableArray<string> IncludedPaths;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string IndexingMode;
         /// <summary>
-        /// One or more `spatial_index` blocks as defined below.
+        /// One or more `SpatialIndex` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GremlinGraphIndexPolicySpatialIndex> SpatialIndices;
 

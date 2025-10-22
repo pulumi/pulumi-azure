@@ -18,7 +18,7 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `UserAssigned`
+        /// &gt; **Note:** This is required when `Type` is set to `UserAssigned`
         /// </summary>
         public InputList<string> IdentityIds
         {

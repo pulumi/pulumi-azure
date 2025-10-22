@@ -22,7 +22,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         /// </summary>
         public readonly string PodCidr;
         /// <summary>
-        /// Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+        /// Whether a preconfigured network security group is being used on the subnets.  Defaults to `False`.  Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? PreconfiguredNetworkSecurityGroupEnabled;
         /// <summary>

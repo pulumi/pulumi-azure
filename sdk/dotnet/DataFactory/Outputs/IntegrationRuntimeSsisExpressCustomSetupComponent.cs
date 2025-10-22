@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class IntegrationRuntimeSsisExpressCustomSetupComponent
     {
         /// <summary>
-        /// A `key_vault_secret_reference` block as defined below.
+        /// A `KeyVaultSecretReference` block as defined below.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense? KeyVaultLicense;
         /// <summary>

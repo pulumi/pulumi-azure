@@ -49,14 +49,14 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+     * A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="endpointConfigurations")
     private @Nullable Output<List<PoolNetworkConfigurationEndpointConfigurationArgs>> endpointConfigurations;
 
     /**
-     * @return A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+     * @return A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<PoolNetworkConfigurationEndpointConfigurationArgs>>> endpointConfigurations() {
@@ -180,7 +180,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param endpointConfigurations A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+         * @param endpointConfigurations A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param endpointConfigurations A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+         * @param endpointConfigurations A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param endpointConfigurations A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+         * @param endpointConfigurations A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

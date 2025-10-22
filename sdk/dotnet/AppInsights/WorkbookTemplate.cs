@@ -147,7 +147,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string?> Author { get; private set; } = null!;
 
         /// <summary>
-        /// A `galleries` block as defined below.
+        /// A `Galleries` block as defined below.
         /// </summary>
         [Output("galleries")]
         public Output<ImmutableArray<Outputs.WorkbookTemplateGallery>> Galleries { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.AppInsights
         private InputList<Inputs.WorkbookTemplateGalleryArgs>? _galleries;
 
         /// <summary>
-        /// A `galleries` block as defined below.
+        /// A `Galleries` block as defined below.
         /// </summary>
         public InputList<Inputs.WorkbookTemplateGalleryArgs> Galleries
         {
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.AppInsights
         private InputList<Inputs.WorkbookTemplateGalleryGetArgs>? _galleries;
 
         /// <summary>
-        /// A `galleries` block as defined below.
+        /// A `Galleries` block as defined below.
         /// </summary>
         public InputList<Inputs.WorkbookTemplateGalleryGetArgs> Galleries
         {

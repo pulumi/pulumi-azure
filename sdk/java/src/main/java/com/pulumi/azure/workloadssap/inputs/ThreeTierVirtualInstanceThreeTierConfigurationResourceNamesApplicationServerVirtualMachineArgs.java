@@ -18,14 +18,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
     public static final ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs Empty = new ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs();
 
     /**
-     * One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dataDisks")
     private @Nullable Output<List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs>> dataDisks;
 
     /**
-     * @return One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs>>> dataDisks() {
@@ -121,7 +121,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
         }
 
         /**
-         * @param dataDisks One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+         * @param dataDisks One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
         }
 
         /**
-         * @param dataDisks One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+         * @param dataDisks One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
         }
 
         /**
-         * @param dataDisks One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+         * @param dataDisks One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -222,28 +222,28 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.nonAzureComputerNames);
     }
     /**
-     * A `post_task` blocks as defined below.
+     * A `postTask` blocks as defined below.
      * 
      */
     @Export(name="postTask", refs={SoftwareUpdateConfigurationPostTask.class}, tree="[0]")
     private Output</* @Nullable */ SoftwareUpdateConfigurationPostTask> postTask;
 
     /**
-     * @return A `post_task` blocks as defined below.
+     * @return A `postTask` blocks as defined below.
      * 
      */
     public Output<Optional<SoftwareUpdateConfigurationPostTask>> postTask() {
         return Codegen.optional(this.postTask);
     }
     /**
-     * A `pre_task` blocks as defined below.
+     * A `preTask` blocks as defined below.
      * 
      */
     @Export(name="preTask", refs={SoftwareUpdateConfigurationPreTask.class}, tree="[0]")
     private Output</* @Nullable */ SoftwareUpdateConfigurationPreTask> preTask;
 
     /**
-     * @return A `pre_task` blocks as defined below.
+     * @return A `preTask` blocks as defined below.
      * 
      */
     public Output<Optional<SoftwareUpdateConfigurationPreTask>> preTask() {

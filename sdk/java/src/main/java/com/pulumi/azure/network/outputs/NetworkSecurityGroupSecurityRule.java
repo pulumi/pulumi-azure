@@ -25,12 +25,12 @@ public final class NetworkSecurityGroupSecurityRule {
      */
     private @Nullable String description;
     /**
-     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
+     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
      * 
      */
     private @Nullable String destinationAddressPrefix;
     /**
-     * @return List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+     * @return List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
      * 
      */
     private @Nullable List<String> destinationAddressPrefixes;
@@ -40,12 +40,12 @@ public final class NetworkSecurityGroupSecurityRule {
      */
     private @Nullable List<String> destinationApplicationSecurityGroupIds;
     /**
-     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      * 
      */
     private @Nullable String destinationPortRange;
     /**
-     * @return List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * @return List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      * 
      */
     private @Nullable List<String> destinationPortRanges;
@@ -70,12 +70,12 @@ public final class NetworkSecurityGroupSecurityRule {
      */
     private String protocol;
     /**
-     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
      * 
      */
     private @Nullable String sourceAddressPrefix;
     /**
-     * @return List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+     * @return List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
      * 
      */
     private @Nullable List<String> sourceAddressPrefixes;
@@ -85,12 +85,12 @@ public final class NetworkSecurityGroupSecurityRule {
      */
     private @Nullable List<String> sourceApplicationSecurityGroupIds;
     /**
-     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      * 
      */
     private @Nullable String sourcePortRange;
     /**
-     * @return List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * @return List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      * 
      */
     private @Nullable List<String> sourcePortRanges;
@@ -111,14 +111,14 @@ public final class NetworkSecurityGroupSecurityRule {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
+     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
      * 
      */
     public Optional<String> destinationAddressPrefix() {
         return Optional.ofNullable(this.destinationAddressPrefix);
     }
     /**
-     * @return List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+     * @return List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
      * 
      */
     public List<String> destinationAddressPrefixes() {
@@ -132,14 +132,14 @@ public final class NetworkSecurityGroupSecurityRule {
         return this.destinationApplicationSecurityGroupIds == null ? List.of() : this.destinationApplicationSecurityGroupIds;
     }
     /**
-     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      * 
      */
     public Optional<String> destinationPortRange() {
         return Optional.ofNullable(this.destinationPortRange);
     }
     /**
-     * @return List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * @return List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      * 
      */
     public List<String> destinationPortRanges() {
@@ -174,14 +174,14 @@ public final class NetworkSecurityGroupSecurityRule {
         return this.protocol;
     }
     /**
-     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
      * 
      */
     public Optional<String> sourceAddressPrefix() {
         return Optional.ofNullable(this.sourceAddressPrefix);
     }
     /**
-     * @return List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+     * @return List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
      * 
      */
     public List<String> sourceAddressPrefixes() {
@@ -195,14 +195,14 @@ public final class NetworkSecurityGroupSecurityRule {
         return this.sourceApplicationSecurityGroupIds == null ? List.of() : this.sourceApplicationSecurityGroupIds;
     }
     /**
-     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      * 
      */
     public Optional<String> sourcePortRange() {
         return Optional.ofNullable(this.sourcePortRange);
     }
     /**
-     * @return List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * @return List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      * 
      */
     public List<String> sourcePortRanges() {

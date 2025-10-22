@@ -29,7 +29,7 @@ public final class VpnGatewayConnectionRouting {
      */
     private @Nullable String outboundRouteMapId;
     /**
-     * @return A `propagated_route_table` block as defined below.
+     * @return A `propagatedRouteTable` block as defined below.
      * 
      */
     private @Nullable VpnGatewayConnectionRoutingPropagatedRouteTable propagatedRouteTable;
@@ -57,7 +57,7 @@ public final class VpnGatewayConnectionRouting {
         return Optional.ofNullable(this.outboundRouteMapId);
     }
     /**
-     * @return A `propagated_route_table` block as defined below.
+     * @return A `propagatedRouteTable` block as defined below.
      * 
      */
     public Optional<VpnGatewayConnectionRoutingPropagatedRouteTable> propagatedRouteTable() {

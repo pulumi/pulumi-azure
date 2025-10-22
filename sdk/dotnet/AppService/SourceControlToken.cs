@@ -56,7 +56,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Access Token Secret.
         /// 
-        /// &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+        /// &gt; **Note:** The token used for deploying App Service needs the following permissions: `Repo` and `Workflow`.
         /// </summary>
         [Output("tokenSecret")]
         public Output<string?> TokenSecret { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Access Token Secret.
         /// 
-        /// &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+        /// &gt; **Note:** The token used for deploying App Service needs the following permissions: `Repo` and `Workflow`.
         /// </summary>
         public Input<string>? TokenSecret
         {
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Access Token Secret.
         /// 
-        /// &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+        /// &gt; **Note:** The token used for deploying App Service needs the following permissions: `Repo` and `Workflow`.
         /// </summary>
         public Input<string>? TokenSecret
         {

@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Network
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRouteFilterRuleResult> Rules;
         /// <summary>

@@ -224,13 +224,13 @@ namespace Pulumi.Azure.DomainServices
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
+        /// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `False`.
         /// </summary>
         [Output("filteredSyncEnabled")]
         public Output<bool?> FilteredSyncEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+        /// An `InitialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         /// </summary>
         [Output("initialReplicaSet")]
         public Output<Outputs.ServiceInitialReplicaSet> InitialReplicaSet { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.DomainServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `notifications` block as defined below.
+        /// A `Notifications` block as defined below.
         /// </summary>
         [Output("notifications")]
         public Output<Outputs.ServiceNotifications> Notifications { get; private set; } = null!;
@@ -266,13 +266,13 @@ namespace Pulumi.Azure.DomainServices
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `secure_ldap` block as defined below.
+        /// A `SecureLdap` block as defined below.
         /// </summary>
         [Output("secureLdap")]
         public Output<Outputs.ServiceSecureLdap> SecureLdap { get; private set; } = null!;
 
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         [Output("security")]
         public Output<Outputs.ServiceSecurity> Security { get; private set; } = null!;
@@ -357,13 +357,13 @@ namespace Pulumi.Azure.DomainServices
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
+        /// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `False`.
         /// </summary>
         [Input("filteredSyncEnabled")]
         public Input<bool>? FilteredSyncEnabled { get; set; }
 
         /// <summary>
-        /// An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+        /// An `InitialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         /// </summary>
         [Input("initialReplicaSet", required: true)]
         public Input<Inputs.ServiceInitialReplicaSetArgs> InitialReplicaSet { get; set; } = null!;
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.DomainServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `notifications` block as defined below.
+        /// A `Notifications` block as defined below.
         /// </summary>
         [Input("notifications")]
         public Input<Inputs.ServiceNotificationsArgs>? Notifications { get; set; }
@@ -393,13 +393,13 @@ namespace Pulumi.Azure.DomainServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `secure_ldap` block as defined below.
+        /// A `SecureLdap` block as defined below.
         /// </summary>
         [Input("secureLdap")]
         public Input<Inputs.ServiceSecureLdapArgs>? SecureLdap { get; set; }
 
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         [Input("security")]
         public Input<Inputs.ServiceSecurityArgs>? Security { get; set; }
@@ -449,13 +449,13 @@ namespace Pulumi.Azure.DomainServices
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
+        /// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `False`.
         /// </summary>
         [Input("filteredSyncEnabled")]
         public Input<bool>? FilteredSyncEnabled { get; set; }
 
         /// <summary>
-        /// An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+        /// An `InitialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         /// </summary>
         [Input("initialReplicaSet")]
         public Input<Inputs.ServiceInitialReplicaSetGetArgs>? InitialReplicaSet { get; set; }
@@ -473,7 +473,7 @@ namespace Pulumi.Azure.DomainServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `notifications` block as defined below.
+        /// A `Notifications` block as defined below.
         /// </summary>
         [Input("notifications")]
         public Input<Inputs.ServiceNotificationsGetArgs>? Notifications { get; set; }
@@ -491,13 +491,13 @@ namespace Pulumi.Azure.DomainServices
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// A `secure_ldap` block as defined below.
+        /// A `SecureLdap` block as defined below.
         /// </summary>
         [Input("secureLdap")]
         public Input<Inputs.ServiceSecureLdapGetArgs>? SecureLdap { get; set; }
 
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         [Input("security")]
         public Input<Inputs.ServiceSecurityGetArgs>? Security { get; set; }

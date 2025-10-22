@@ -63,16 +63,16 @@ public final class StandardSiteConfig {
      */
     private @Nullable Boolean http2Enabled;
     /**
-     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     private @Nullable List<StandardSiteConfigIpRestriction> ipRestrictions;
     /**
      * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
      * 
-     * &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
+     * &gt; **Note:** You must set `osType` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
      * 
      */
     private @Nullable String linuxFxVersion;
@@ -90,10 +90,10 @@ public final class StandardSiteConfig {
     private @Nullable Integer preWarmedInstanceCount;
     /**
      * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
     private @Nullable Boolean publicNetworkAccessEnabled;
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
@@ -101,9 +101,9 @@ public final class StandardSiteConfig {
      */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
     /**
-     * @return A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+     * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
      * 
-     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     private @Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -120,14 +120,14 @@ public final class StandardSiteConfig {
      */
     private @Nullable String scmType;
     /**
-     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+     * @return Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
-     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     private @Nullable Boolean use32BitWorkerProcess;
@@ -207,9 +207,9 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.http2Enabled);
     }
     /**
-     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public List<StandardSiteConfigIpRestriction> ipRestrictions() {
@@ -218,7 +218,7 @@ public final class StandardSiteConfig {
     /**
      * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
      * 
-     * &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
+     * &gt; **Note:** You must set `osType` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
      * 
      */
     public Optional<String> linuxFxVersion() {
@@ -242,10 +242,10 @@ public final class StandardSiteConfig {
     }
     /**
      * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Boolean> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -257,9 +257,9 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
     /**
-     * @return A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+     * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
      * 
-     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public List<StandardSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -282,7 +282,7 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.scmType);
     }
     /**
-     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+     * @return Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {
@@ -291,7 +291,7 @@ public final class StandardSiteConfig {
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
-     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     public Optional<Boolean> use32BitWorkerProcess() {

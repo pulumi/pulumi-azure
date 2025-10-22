@@ -16,50 +16,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolMount {
     /**
-     * @return A `azure_blob_file_system` block defined as below.
+     * @return A `azureBlobFileSystem` block defined as below.
      * 
      */
     private @Nullable PoolMountAzureBlobFileSystem azureBlobFileSystem;
     /**
-     * @return A `azure_file_share` block defined as below.
+     * @return A `azureFileShare` block defined as below.
      * 
      */
     private @Nullable List<PoolMountAzureFileShare> azureFileShares;
     /**
-     * @return A `cifs_mount` block defined as below.
+     * @return A `cifsMount` block defined as below.
      * 
      */
     private @Nullable List<PoolMountCifsMount> cifsMounts;
     /**
-     * @return A `nfs_mount` block defined as below.
+     * @return A `nfsMount` block defined as below.
      * 
      */
     private @Nullable List<PoolMountNfsMount> nfsMounts;
 
     private PoolMount() {}
     /**
-     * @return A `azure_blob_file_system` block defined as below.
+     * @return A `azureBlobFileSystem` block defined as below.
      * 
      */
     public Optional<PoolMountAzureBlobFileSystem> azureBlobFileSystem() {
         return Optional.ofNullable(this.azureBlobFileSystem);
     }
     /**
-     * @return A `azure_file_share` block defined as below.
+     * @return A `azureFileShare` block defined as below.
      * 
      */
     public List<PoolMountAzureFileShare> azureFileShares() {
         return this.azureFileShares == null ? List.of() : this.azureFileShares;
     }
     /**
-     * @return A `cifs_mount` block defined as below.
+     * @return A `cifsMount` block defined as below.
      * 
      */
     public List<PoolMountCifsMount> cifsMounts() {
         return this.cifsMounts == null ? List.of() : this.cifsMounts;
     }
     /**
-     * @return A `nfs_mount` block defined as below.
+     * @return A `nfsMount` block defined as below.
      * 
      */
     public List<PoolMountNfsMount> nfsMounts() {

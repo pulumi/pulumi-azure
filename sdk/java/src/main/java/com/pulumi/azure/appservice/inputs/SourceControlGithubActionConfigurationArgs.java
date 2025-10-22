@@ -18,14 +18,14 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
     public static final SourceControlGithubActionConfigurationArgs Empty = new SourceControlGithubActionConfigurationArgs();
 
     /**
-     * A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+     * A `codeConfiguration` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="codeConfiguration")
     private @Nullable Output<SourceControlGithubActionConfigurationCodeConfigurationArgs> codeConfiguration;
 
     /**
-     * @return A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+     * @return A `codeConfiguration` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SourceControlGithubActionConfigurationCodeConfigurationArgs>> codeConfiguration() {
@@ -33,14 +33,14 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
     }
 
     /**
-     * A `container_configuration` block as defined above.
+     * A `containerConfiguration` block as defined above.
      * 
      */
     @Import(name="containerConfiguration")
     private @Nullable Output<SourceControlGithubActionConfigurationContainerConfigurationArgs> containerConfiguration;
 
     /**
-     * @return A `container_configuration` block as defined above.
+     * @return A `containerConfiguration` block as defined above.
      * 
      */
     public Optional<Output<SourceControlGithubActionConfigurationContainerConfigurationArgs>> containerConfiguration() {
@@ -105,7 +105,7 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param codeConfiguration A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+         * @param codeConfiguration A `codeConfiguration` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param codeConfiguration A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+         * @param codeConfiguration A `codeConfiguration` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param containerConfiguration A `container_configuration` block as defined above.
+         * @param containerConfiguration A `containerConfiguration` block as defined above.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param containerConfiguration A `container_configuration` block as defined above.
+         * @param containerConfiguration A `containerConfiguration` block as defined above.
          * 
          * @return builder
          * 

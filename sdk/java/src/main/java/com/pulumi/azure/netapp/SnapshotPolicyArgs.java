@@ -38,14 +38,14 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
+     * Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
      * 
      */
     @Import(name="dailySchedule")
     private @Nullable Output<SnapshotPolicyDailyScheduleArgs> dailySchedule;
 
     /**
-     * @return Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
+     * @return Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
      * 
      */
     public Optional<Output<SnapshotPolicyDailyScheduleArgs>> dailySchedule() {
@@ -68,14 +68,14 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
+     * Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
      * 
      */
     @Import(name="hourlySchedule")
     private @Nullable Output<SnapshotPolicyHourlyScheduleArgs> hourlySchedule;
 
     /**
-     * @return Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
+     * @return Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
      * 
      */
     public Optional<Output<SnapshotPolicyHourlyScheduleArgs>> hourlySchedule() {
@@ -98,14 +98,14 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
+     * Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
      * 
      */
     @Import(name="monthlySchedule")
     private @Nullable Output<SnapshotPolicyMonthlyScheduleArgs> monthlySchedule;
 
     /**
-     * @return Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
+     * @return Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
      * 
      */
     public Optional<Output<SnapshotPolicyMonthlyScheduleArgs>> monthlySchedule() {
@@ -158,14 +158,14 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
+     * Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
      * 
      */
     @Import(name="weeklySchedule")
     private @Nullable Output<SnapshotPolicyWeeklyScheduleArgs> weeklySchedule;
 
     /**
-     * @return Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
+     * @return Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
      * 
      */
     public Optional<Output<SnapshotPolicyWeeklyScheduleArgs>> weeklySchedule() {
@@ -227,7 +227,7 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dailySchedule Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
+         * @param dailySchedule Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dailySchedule Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
+         * @param dailySchedule Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hourlySchedule Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
+         * @param hourlySchedule Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hourlySchedule Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
+         * @param hourlySchedule Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param monthlySchedule Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
+         * @param monthlySchedule Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param monthlySchedule Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
+         * @param monthlySchedule Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param weeklySchedule Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
+         * @param weeklySchedule Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param weeklySchedule Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
+         * @param weeklySchedule Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
          * 
          * @return builder
          * 

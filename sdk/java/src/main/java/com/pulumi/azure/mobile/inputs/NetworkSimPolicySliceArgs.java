@@ -17,14 +17,14 @@ public final class NetworkSimPolicySliceArgs extends com.pulumi.resources.Resour
     public static final NetworkSimPolicySliceArgs Empty = new NetworkSimPolicySliceArgs();
 
     /**
-     * An array of `data_network` block as defined below.
+     * An array of `dataNetwork` block as defined below.
      * 
      */
     @Import(name="dataNetworks", required=true)
     private Output<List<NetworkSimPolicySliceDataNetworkArgs>> dataNetworks;
 
     /**
-     * @return An array of `data_network` block as defined below.
+     * @return An array of `dataNetwork` block as defined below.
      * 
      */
     public Output<List<NetworkSimPolicySliceDataNetworkArgs>> dataNetworks() {
@@ -32,14 +32,14 @@ public final class NetworkSimPolicySliceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+     * The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
      * 
      */
     @Import(name="defaultDataNetworkId", required=true)
     private Output<String> defaultDataNetworkId;
 
     /**
-     * @return The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+     * @return The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
      * 
      */
     public Output<String> defaultDataNetworkId() {
@@ -88,7 +88,7 @@ public final class NetworkSimPolicySliceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataNetworks An array of `data_network` block as defined below.
+         * @param dataNetworks An array of `dataNetwork` block as defined below.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class NetworkSimPolicySliceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataNetworks An array of `data_network` block as defined below.
+         * @param dataNetworks An array of `dataNetwork` block as defined below.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class NetworkSimPolicySliceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataNetworks An array of `data_network` block as defined below.
+         * @param dataNetworks An array of `dataNetwork` block as defined below.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class NetworkSimPolicySliceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param defaultDataNetworkId The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+         * @param defaultDataNetworkId The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class NetworkSimPolicySliceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param defaultDataNetworkId The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+         * @param defaultDataNetworkId The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
          * 
          * @return builder
          * 

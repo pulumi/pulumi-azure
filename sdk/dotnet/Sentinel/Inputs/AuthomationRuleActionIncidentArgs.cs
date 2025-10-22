@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         /// <summary>
         /// The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
         /// 
-        /// &gt; **Note:** The `classification` is required when `status` is `Closed`.
+        /// &gt; **Note:** The `Classification` is required when `Status` is `Closed`.
         /// </summary>
         [Input("classification")]
         public Input<string>? Classification { get; set; }
@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         /// <summary>
         /// The comment why the incident is to be closed.
         /// 
-        /// &gt; **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
+        /// &gt; **Note:** The `ClassificationComment` is allowed to set only when `Status` is `Closed`.
         /// </summary>
         [Input("classificationComment")]
         public Input<string>? ClassificationComment { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         /// <summary>
         /// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         /// 
-        /// &gt; **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+        /// &gt; **Note:** At least one of `Status`, `Labels`, `OwnerId` and `Severity` has to be set.
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }

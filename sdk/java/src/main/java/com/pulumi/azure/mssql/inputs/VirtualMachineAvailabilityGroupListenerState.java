@@ -36,18 +36,18 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
     }
 
     /**
-     * A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+     * &gt; **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      * 
      */
     @Import(name="loadBalancerConfiguration")
     private @Nullable Output<VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs> loadBalancerConfiguration;
 
     /**
-     * @return A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+     * &gt; **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      * 
      */
     public Optional<Output<VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs>> loadBalancerConfiguration() {
@@ -55,14 +55,14 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
     }
 
     /**
-     * One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="multiSubnetIpConfigurations")
     private @Nullable Output<List<VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs>> multiSubnetIpConfigurations;
 
     /**
-     * @return One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs>>> multiSubnetIpConfigurations() {
@@ -181,9 +181,9 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
         }
 
         /**
-         * @param loadBalancerConfiguration A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param loadBalancerConfiguration A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+         * &gt; **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
          * 
          * @return builder
          * 
@@ -194,9 +194,9 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
         }
 
         /**
-         * @param loadBalancerConfiguration A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param loadBalancerConfiguration A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+         * &gt; **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
         }
 
         /**
-         * @param multiSubnetIpConfigurations One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+         * @param multiSubnetIpConfigurations One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
         }
 
         /**
-         * @param multiSubnetIpConfigurations One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+         * @param multiSubnetIpConfigurations One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
         }
 
         /**
-         * @param multiSubnetIpConfigurations One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+         * @param multiSubnetIpConfigurations One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

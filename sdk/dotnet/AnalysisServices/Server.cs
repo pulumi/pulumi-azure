@@ -57,7 +57,7 @@ namespace Pulumi.Azure.AnalysisServices
     /// });
     /// ```
     /// 
-    /// &gt; **Note:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
+    /// &gt; **Note:** The server resource will automatically be started and stopped during an update if it is in `Paused` state.
     /// 
     /// ## API Providers
     /// 
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Output<string?> BackupBlobContainerUri { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ipv4_firewall_rule` block(s) as defined below.
+        /// One or more `Ipv4FirewallRule` block(s) as defined below.
         /// </summary>
         [Output("ipv4FirewallRules")]
         public Output<ImmutableArray<Outputs.ServerIpv4FirewallRule>> Ipv4FirewallRules { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.AnalysisServices
         private InputList<Inputs.ServerIpv4FirewallRuleArgs>? _ipv4FirewallRules;
 
         /// <summary>
-        /// One or more `ipv4_firewall_rule` block(s) as defined below.
+        /// One or more `Ipv4FirewallRule` block(s) as defined below.
         /// </summary>
         public InputList<Inputs.ServerIpv4FirewallRuleArgs> Ipv4FirewallRules
         {
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.AnalysisServices
         private InputList<Inputs.ServerIpv4FirewallRuleGetArgs>? _ipv4FirewallRules;
 
         /// <summary>
-        /// One or more `ipv4_firewall_rule` block(s) as defined below.
+        /// One or more `Ipv4FirewallRule` block(s) as defined below.
         /// </summary>
         public InputList<Inputs.ServerIpv4FirewallRuleGetArgs> Ipv4FirewallRules
         {

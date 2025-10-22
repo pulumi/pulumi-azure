@@ -67,14 +67,14 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `backend_request` block as defined below.
+     * A `backendRequest` block as defined below.
      * 
      */
     @Import(name="backendRequest")
     private @Nullable Output<DiagnosticBackendRequestArgs> backendRequest;
 
     /**
-     * @return A `backend_request` block as defined below.
+     * @return A `backendRequest` block as defined below.
      * 
      */
     public Optional<Output<DiagnosticBackendRequestArgs>> backendRequest() {
@@ -82,14 +82,14 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `backend_response` block as defined below.
+     * A `backendResponse` block as defined below.
      * 
      */
     @Import(name="backendResponse")
     private @Nullable Output<DiagnosticBackendResponseArgs> backendResponse;
 
     /**
-     * @return A `backend_response` block as defined below.
+     * @return A `backendResponse` block as defined below.
      * 
      */
     public Optional<Output<DiagnosticBackendResponseArgs>> backendResponse() {
@@ -97,14 +97,14 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `frontend_request` block as defined below.
+     * A `frontendRequest` block as defined below.
      * 
      */
     @Import(name="frontendRequest")
     private @Nullable Output<DiagnosticFrontendRequestArgs> frontendRequest;
 
     /**
-     * @return A `frontend_request` block as defined below.
+     * @return A `frontendRequest` block as defined below.
      * 
      */
     public Optional<Output<DiagnosticFrontendRequestArgs>> frontendRequest() {
@@ -112,14 +112,14 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `frontend_response` block as defined below.
+     * A `frontendResponse` block as defined below.
      * 
      */
     @Import(name="frontendResponse")
     private @Nullable Output<DiagnosticFrontendResponseArgs> frontendResponse;
 
     /**
-     * @return A `frontend_response` block as defined below.
+     * @return A `frontendResponse` block as defined below.
      * 
      */
     public Optional<Output<DiagnosticFrontendResponseArgs>> frontendResponse() {
@@ -332,7 +332,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendRequest A `backend_request` block as defined below.
+         * @param backendRequest A `backendRequest` block as defined below.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendRequest A `backend_request` block as defined below.
+         * @param backendRequest A `backendRequest` block as defined below.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendResponse A `backend_response` block as defined below.
+         * @param backendResponse A `backendResponse` block as defined below.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendResponse A `backend_response` block as defined below.
+         * @param backendResponse A `backendResponse` block as defined below.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendRequest A `frontend_request` block as defined below.
+         * @param frontendRequest A `frontendRequest` block as defined below.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendRequest A `frontend_request` block as defined below.
+         * @param frontendRequest A `frontendRequest` block as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendResponse A `frontend_response` block as defined below.
+         * @param frontendResponse A `frontendResponse` block as defined below.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendResponse A `frontend_response` block as defined below.
+         * @param frontendResponse A `frontendResponse` block as defined below.
          * 
          * @return builder
          * 

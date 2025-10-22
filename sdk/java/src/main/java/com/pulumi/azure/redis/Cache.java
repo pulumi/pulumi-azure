@@ -103,14 +103,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:redis/cache:Cache")
 public class Cache extends com.pulumi.resources.CustomResource {
     /**
-     * Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+     * Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
      * 
      */
     @Export(name="accessKeysAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessKeysAuthenticationEnabled;
 
     /**
-     * @return Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+     * @return Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
      * 
      */
     public Output<Optional<Boolean>> accessKeysAuthenticationEnabled() {
@@ -233,14 +233,14 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nonSslPortEnabled);
     }
     /**
-     * A list of `patch_schedule` blocks as defined below.
+     * A list of `patchSchedule` blocks as defined below.
      * 
      */
     @Export(name="patchSchedules", refs={List.class,CachePatchSchedule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CachePatchSchedule>> patchSchedules;
 
     /**
-     * @return A list of `patch_schedule` blocks as defined below.
+     * @return A list of `patchSchedule` blocks as defined below.
      * 
      */
     public Output<Optional<List<CachePatchSchedule>>> patchSchedules() {
@@ -289,14 +289,14 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return this.primaryConnectionString;
     }
     /**
-     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
+     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="privateStaticIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateStaticIpAddress;
 
     /**
-     * @return The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
+     * @return The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> privateStaticIpAddress() {
@@ -317,14 +317,14 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      * 
      */
     @Export(name="redisConfiguration", refs={CacheRedisConfiguration.class}, tree="[0]")
     private Output<CacheRedisConfiguration> redisConfiguration;
 
     /**
-     * @return A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
+     * @return A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      * 
      */
     public Output<CacheRedisConfiguration> redisConfiguration() {
@@ -363,14 +363,14 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return this.replicasPerMaster;
     }
     /**
-     * Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+     * Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
      * 
      */
     @Export(name="replicasPerPrimary", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicasPerPrimary;
 
     /**
-     * @return Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+     * @return Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
      * 
      */
     public Output<Integer> replicasPerPrimary() {

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly int? AllocationWeight;
         /// <summary>
-        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
+        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to `True`.
         /// </summary>
         public readonly bool? ApplyAllocationPolicy;
         /// <summary>

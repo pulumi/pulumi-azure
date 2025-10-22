@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? OutboundRouteMapId { get; set; }
 
         /// <summary>
-        /// A `propagated_route_table` block as defined below.
+        /// A `PropagatedRouteTable` block as defined below.
         /// </summary>
         [Input("propagatedRouteTable")]
         public Input<Inputs.VirtualHubConnectionRoutingPropagatedRouteTableArgs>? PropagatedRouteTable { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? StaticVnetLocalRouteOverrideCriteria { get; set; }
 
         /// <summary>
-        /// Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+        /// Whether the static routes should be propagated to the Virtual Hub. Defaults to `True`.
         /// </summary>
         [Input("staticVnetPropagateStaticRoutesEnabled")]
         public Input<bool>? StaticVnetPropagateStaticRoutesEnabled { get; set; }
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.VirtualHubConnectionRoutingStaticVnetRouteArgs>? _staticVnetRoutes;
 
         /// <summary>
-        /// A `static_vnet_route` block as defined below.
+        /// A `StaticVnetRoute` block as defined below.
         /// </summary>
         public InputList<Inputs.VirtualHubConnectionRoutingStaticVnetRouteArgs> StaticVnetRoutes
         {

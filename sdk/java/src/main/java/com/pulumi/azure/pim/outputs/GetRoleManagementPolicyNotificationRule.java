@@ -14,38 +14,38 @@ import java.util.Objects;
 @CustomType
 public final class GetRoleManagementPolicyNotificationRule {
     /**
-     * @return A `notification_target` block as defined below with the details of notfications on active role assignments.
+     * @return A `notificationTarget` block as defined below with the details of notfications on active role assignments.
      * 
      */
     private List<GetRoleManagementPolicyNotificationRuleActiveAssignment> activeAssignments;
     /**
-     * @return A `notification_target` block as defined below with the details of notifications on activation of eligible role.
+     * @return A `notificationTarget` block as defined below with the details of notifications on activation of eligible role.
      * 
      */
     private List<GetRoleManagementPolicyNotificationRuleEligibleActivation> eligibleActivations;
     /**
-     * @return A `notification_target` block as defined below with the details of notifications on eligible role assignments.
+     * @return A `notificationTarget` block as defined below with the details of notifications on eligible role assignments.
      * 
      */
     private List<GetRoleManagementPolicyNotificationRuleEligibleAssignment> eligibleAssignments;
 
     private GetRoleManagementPolicyNotificationRule() {}
     /**
-     * @return A `notification_target` block as defined below with the details of notfications on active role assignments.
+     * @return A `notificationTarget` block as defined below with the details of notfications on active role assignments.
      * 
      */
     public List<GetRoleManagementPolicyNotificationRuleActiveAssignment> activeAssignments() {
         return this.activeAssignments;
     }
     /**
-     * @return A `notification_target` block as defined below with the details of notifications on activation of eligible role.
+     * @return A `notificationTarget` block as defined below with the details of notifications on activation of eligible role.
      * 
      */
     public List<GetRoleManagementPolicyNotificationRuleEligibleActivation> eligibleActivations() {
         return this.eligibleActivations;
     }
     /**
-     * @return A `notification_target` block as defined below with the details of notifications on eligible role assignments.
+     * @return A `notificationTarget` block as defined below with the details of notifications on eligible role assignments.
      * 
      */
     public List<GetRoleManagementPolicyNotificationRuleEligibleAssignment> eligibleAssignments() {

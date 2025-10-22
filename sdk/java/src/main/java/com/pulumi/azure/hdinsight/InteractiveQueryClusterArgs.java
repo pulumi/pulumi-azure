@@ -48,14 +48,14 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      * 
      */
     @Import(name="componentVersion", required=true)
     private Output<InteractiveQueryClusterComponentVersionArgs> componentVersion;
 
     /**
-     * @return A `component_version` block as defined below.
+     * @return A `componentVersion` block as defined below.
      * 
      */
     public Output<InteractiveQueryClusterComponentVersionArgs> componentVersion() {
@@ -63,14 +63,14 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `compute_isolation` block as defined below.
+     * A `computeIsolation` block as defined below.
      * 
      */
     @Import(name="computeIsolation")
     private @Nullable Output<InteractiveQueryClusterComputeIsolationArgs> computeIsolation;
 
     /**
-     * @return A `compute_isolation` block as defined below.
+     * @return A `computeIsolation` block as defined below.
      * 
      */
     public Optional<Output<InteractiveQueryClusterComputeIsolationArgs>> computeIsolation() {
@@ -78,14 +78,14 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `disk_encryption` block as defined below.
+     * A `diskEncryption` block as defined below.
      * 
      */
     @Import(name="diskEncryptions")
     private @Nullable Output<List<InteractiveQueryClusterDiskEncryptionArgs>> diskEncryptions;
 
     /**
-     * @return A `disk_encryption` block as defined below.
+     * @return A `diskEncryption` block as defined below.
      * 
      */
     public Optional<Output<List<InteractiveQueryClusterDiskEncryptionArgs>>> diskEncryptions() {
@@ -213,14 +213,14 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `private_link_configuration` block as defined below.
+     * A `privateLinkConfiguration` block as defined below.
      * 
      */
     @Import(name="privateLinkConfiguration")
     private @Nullable Output<InteractiveQueryClusterPrivateLinkConfigurationArgs> privateLinkConfiguration;
 
     /**
-     * @return A `private_link_configuration` block as defined below.
+     * @return A `privateLinkConfiguration` block as defined below.
      * 
      */
     public Optional<Output<InteractiveQueryClusterPrivateLinkConfigurationArgs>> privateLinkConfiguration() {
@@ -258,14 +258,14 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="securityProfile")
     private @Nullable Output<InteractiveQueryClusterSecurityProfileArgs> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<InteractiveQueryClusterSecurityProfileArgs>> securityProfile() {
@@ -273,14 +273,14 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `storage_account_gen2` block as defined below.
+     * A `storageAccountGen2` block as defined below.
      * 
      */
     @Import(name="storageAccountGen2")
     private @Nullable Output<InteractiveQueryClusterStorageAccountGen2Args> storageAccountGen2;
 
     /**
-     * @return A `storage_account_gen2` block as defined below.
+     * @return A `storageAccountGen2` block as defined below.
      * 
      */
     public Optional<Output<InteractiveQueryClusterStorageAccountGen2Args>> storageAccountGen2() {
@@ -288,14 +288,14 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<InteractiveQueryClusterStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` block as defined below.
+     * @return One or more `storageAccount` block as defined below.
      * 
      */
     public Optional<Output<List<InteractiveQueryClusterStorageAccountArgs>>> storageAccounts() {
@@ -417,7 +417,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param componentVersion A `component_version` block as defined below.
+         * @param componentVersion A `componentVersion` block as defined below.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param componentVersion A `component_version` block as defined below.
+         * @param componentVersion A `componentVersion` block as defined below.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param computeIsolation A `compute_isolation` block as defined below.
+         * @param computeIsolation A `computeIsolation` block as defined below.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param computeIsolation A `compute_isolation` block as defined below.
+         * @param computeIsolation A `computeIsolation` block as defined below.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskEncryptions A `disk_encryption` block as defined below.
+         * @param diskEncryptions A `diskEncryption` block as defined below.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskEncryptions A `disk_encryption` block as defined below.
+         * @param diskEncryptions A `diskEncryption` block as defined below.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskEncryptions A `disk_encryption` block as defined below.
+         * @param diskEncryptions A `diskEncryption` block as defined below.
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * @param privateLinkConfiguration A `privateLinkConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * @param privateLinkConfiguration A `privateLinkConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param securityProfile A `securityProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -732,7 +732,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param securityProfile A `securityProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param storageAccountGen2 A `storage_account_gen2` block as defined below.
+         * @param storageAccountGen2 A `storageAccountGen2` block as defined below.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param storageAccountGen2 A `storage_account_gen2` block as defined below.
+         * @param storageAccountGen2 A `storageAccountGen2` block as defined below.
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` block as defined below.
+         * @param storageAccounts One or more `storageAccount` block as defined below.
          * 
          * @return builder
          * 
@@ -774,7 +774,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` block as defined below.
+         * @param storageAccounts One or more `storageAccount` block as defined below.
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` block as defined below.
+         * @param storageAccounts One or more `storageAccount` block as defined below.
          * 
          * @return builder
          * 

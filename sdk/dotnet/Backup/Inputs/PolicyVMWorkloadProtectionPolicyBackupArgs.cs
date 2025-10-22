@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Backup.Inputs
         private InputList<string>? _weekdays;
 
         /// <summary>
-        /// The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
+        /// The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `Frequency` is `Weekly`.
         /// </summary>
         public InputList<string> Weekdays
         {

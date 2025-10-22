@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SourceControlGithubActionConfiguration {
     /**
-     * @return A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+     * @return A `codeConfiguration` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable SourceControlGithubActionConfigurationCodeConfiguration codeConfiguration;
     /**
-     * @return A `container_configuration` block as defined above.
+     * @return A `containerConfiguration` block as defined above.
      * 
      */
     private @Nullable SourceControlGithubActionConfigurationContainerConfiguration containerConfiguration;
@@ -36,14 +36,14 @@ public final class SourceControlGithubActionConfiguration {
 
     private SourceControlGithubActionConfiguration() {}
     /**
-     * @return A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+     * @return A `codeConfiguration` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<SourceControlGithubActionConfigurationCodeConfiguration> codeConfiguration() {
         return Optional.ofNullable(this.codeConfiguration);
     }
     /**
-     * @return A `container_configuration` block as defined above.
+     * @return A `containerConfiguration` block as defined above.
      * 
      */
     public Optional<SourceControlGithubActionConfigurationContainerConfiguration> containerConfiguration() {

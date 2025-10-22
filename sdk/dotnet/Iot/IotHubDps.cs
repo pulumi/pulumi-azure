@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Iot
         public Output<string?> AllocationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dataResidencyEnabled")]
         public Output<bool?> DataResidencyEnabled { get; private set; } = null!;
@@ -87,13 +87,13 @@ namespace Pulumi.Azure.Iot
         public Output<string> IdScope { get; private set; } = null!;
 
         /// <summary>
-        /// An `ip_filter_rule` block as defined below.
+        /// An `IpFilterRule` block as defined below.
         /// </summary>
         [Output("ipFilterRules")]
         public Output<ImmutableArray<Outputs.IotHubDpsIpFilterRule>> IpFilterRules { get; private set; } = null!;
 
         /// <summary>
-        /// A `linked_hub` block as defined below.
+        /// A `LinkedHub` block as defined below.
         /// </summary>
         [Output("linkedHubs")]
         public Output<ImmutableArray<Outputs.IotHubDpsLinkedHub>> LinkedHubs { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether requests from Public Network are allowed. Defaults to `true`.
+        /// Whether requests from Public Network are allowed. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> ServiceOperationsHostName { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.IotHubDpsSku> Sku { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? AllocationPolicy { get; set; }
 
         /// <summary>
-        /// Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataResidencyEnabled")]
         public Input<bool>? DataResidencyEnabled { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.IotHubDpsIpFilterRuleArgs>? _ipFilterRules;
 
         /// <summary>
-        /// An `ip_filter_rule` block as defined below.
+        /// An `IpFilterRule` block as defined below.
         /// </summary>
         public InputList<Inputs.IotHubDpsIpFilterRuleArgs> IpFilterRules
         {
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.IotHubDpsLinkedHubArgs>? _linkedHubs;
 
         /// <summary>
-        /// A `linked_hub` block as defined below.
+        /// A `LinkedHub` block as defined below.
         /// </summary>
         public InputList<Inputs.IotHubDpsLinkedHubArgs> LinkedHubs
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether requests from Public Network are allowed. Defaults to `true`.
+        /// Whether requests from Public Network are allowed. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.IotHubDpsSkuArgs> Sku { get; set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? AllocationPolicy { get; set; }
 
         /// <summary>
-        /// Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataResidencyEnabled")]
         public Input<bool>? DataResidencyEnabled { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.IotHubDpsIpFilterRuleGetArgs>? _ipFilterRules;
 
         /// <summary>
-        /// An `ip_filter_rule` block as defined below.
+        /// An `IpFilterRule` block as defined below.
         /// </summary>
         public InputList<Inputs.IotHubDpsIpFilterRuleGetArgs> IpFilterRules
         {
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.IotHubDpsLinkedHubGetArgs>? _linkedHubs;
 
         /// <summary>
-        /// A `linked_hub` block as defined below.
+        /// A `LinkedHub` block as defined below.
         /// </summary>
         public InputList<Inputs.IotHubDpsLinkedHubGetArgs> LinkedHubs
         {
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether requests from Public Network are allowed. Defaults to `true`.
+        /// Whether requests from Public Network are allowed. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? ServiceOperationsHostName { get; set; }
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.IotHubDpsSkuGetArgs>? Sku { get; set; }

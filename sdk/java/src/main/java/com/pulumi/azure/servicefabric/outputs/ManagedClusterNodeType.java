@@ -38,7 +38,7 @@ public final class ManagedClusterNodeType {
      */
     private @Nullable String dataDiskType;
     /**
-     * @return Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+     * @return Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
      * 
      */
     private String ephemeralPortRange;
@@ -98,7 +98,7 @@ public final class ManagedClusterNodeType {
      */
     private Integer vmInstanceCount;
     /**
-     * @return One or more `vm_secrets` blocks as defined below.
+     * @return One or more `vmSecrets` blocks as defined below.
      * 
      */
     private @Nullable List<ManagedClusterNodeTypeVmSecret> vmSecrets;
@@ -138,7 +138,7 @@ public final class ManagedClusterNodeType {
         return Optional.ofNullable(this.dataDiskType);
     }
     /**
-     * @return Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+     * @return Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
      * 
      */
     public String ephemeralPortRange() {
@@ -222,7 +222,7 @@ public final class ManagedClusterNodeType {
         return this.vmInstanceCount;
     }
     /**
-     * @return One or more `vm_secrets` blocks as defined below.
+     * @return One or more `vmSecrets` blocks as defined below.
      * 
      */
     public List<ManagedClusterNodeTypeVmSecret> vmSecrets() {

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.KeyVault.Inputs
     public sealed class CertifiateCertificatePolicyLifetimeActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `action` block as defined below.
+        /// A `Action` block as defined below.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.CertifiateCertificatePolicyLifetimeActionActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         [Input("trigger", required: true)]
         public Input<Inputs.CertifiateCertificatePolicyLifetimeActionTriggerGetArgs> Trigger { get; set; } = null!;

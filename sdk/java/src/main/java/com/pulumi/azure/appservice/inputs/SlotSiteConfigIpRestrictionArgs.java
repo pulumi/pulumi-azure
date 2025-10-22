@@ -33,14 +33,14 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
     }
 
     /**
-     * The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * The `headers` block for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<SlotSiteConfigIpRestrictionHeadersArgs> headers;
 
     /**
-     * @return The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * @return The `headers` block for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
      * 
      */
     public Optional<Output<SlotSiteConfigIpRestrictionHeadersArgs>> headers() {
@@ -110,7 +110,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
     /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+     * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
      * 
      */
     @Import(name="virtualNetworkSubnetId")
@@ -119,7 +119,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+     * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -178,7 +178,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param headers The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         * @param headers The `headers` block for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param headers The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         * @param headers The `headers` block for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+         * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+         * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
          * 
          * @return builder
          * 

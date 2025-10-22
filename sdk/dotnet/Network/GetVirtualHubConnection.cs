@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Network
         public readonly string RemoteVirtualNetworkId;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualHubConnectionRoutingResult> Routings;
         /// <summary>

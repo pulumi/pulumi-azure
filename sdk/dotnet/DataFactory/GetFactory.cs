@@ -166,7 +166,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class GetFactoryResult
     {
         /// <summary>
-        /// A `github_configuration` block as defined below.
+        /// A `GithubConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFactoryGithubConfigurationResult> GithubConfigurations;
         /// <summary>
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFactoryIdentityResult> Identities;
         /// <summary>
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A `vsts_configuration` block as defined below.
+        /// A `VstsConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFactoryVstsConfigurationResult> VstsConfigurations;
 

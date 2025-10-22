@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RulesEngineRuleAction {
     /**
-     * @return A `request_header` block as defined below.
+     * @return A `requestHeader` block as defined below.
      * 
      */
     private @Nullable List<RulesEngineRuleActionRequestHeader> requestHeaders;
     /**
-     * @return A `response_header` block as defined below.
+     * @return A `responseHeader` block as defined below.
      * 
      */
     private @Nullable List<RulesEngineRuleActionResponseHeader> responseHeaders;
 
     private RulesEngineRuleAction() {}
     /**
-     * @return A `request_header` block as defined below.
+     * @return A `requestHeader` block as defined below.
      * 
      */
     public List<RulesEngineRuleActionRequestHeader> requestHeaders() {
         return this.requestHeaders == null ? List.of() : this.requestHeaders;
     }
     /**
-     * @return A `response_header` block as defined below.
+     * @return A `responseHeader` block as defined below.
      * 
      */
     public List<RulesEngineRuleActionResponseHeader> responseHeaders() {

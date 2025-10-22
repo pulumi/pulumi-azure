@@ -93,7 +93,7 @@ public class Container extends com.pulumi.resources.CustomResource {
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      * 
-     * &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+     * &gt; **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      * 
      */
     @Export(name="containerAccessType", refs={String.class}, tree="[0]")
@@ -102,7 +102,7 @@ public class Container extends com.pulumi.resources.CustomResource {
     /**
      * @return The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      * 
-     * &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+     * &gt; **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      * 
      */
     public Output<Optional<String>> containerAccessType() {
@@ -123,14 +123,14 @@ public class Container extends com.pulumi.resources.CustomResource {
         return this.defaultEncryptionScope;
     }
     /**
-     * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="encryptionScopeOverrideEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> encryptionScopeOverrideEnabled;
 
     /**
-     * @return Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+     * @return Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> encryptionScopeOverrideEnabled() {
@@ -213,7 +213,7 @@ public class Container extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -222,29 +222,29 @@ public class Container extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     public Output<Optional<String>> storageAccountId() {
         return Codegen.optional(this.storageAccountId);
     }
     /**
-     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      * 
-     * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
      * @deprecated
-     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountName;
 
     /**
-     * @return The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * @return The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      * 
-     * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
      */
     public Output<Optional<String>> storageAccountName() {

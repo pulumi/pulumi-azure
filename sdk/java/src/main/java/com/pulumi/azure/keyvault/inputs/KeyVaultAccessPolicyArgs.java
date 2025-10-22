@@ -108,14 +108,14 @@ public final class KeyVaultAccessPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
      * 
      */
     @Import(name="tenantId", required=true)
     private Output<String> tenantId;
 
     /**
-     * @return The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+     * @return The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
      * 
      */
     public Output<String> tenantId() {
@@ -319,7 +319,7 @@ public final class KeyVaultAccessPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tenantId The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+         * @param tenantId The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class KeyVaultAccessPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tenantId The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+         * @param tenantId The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
          * 
          * @return builder
          * 

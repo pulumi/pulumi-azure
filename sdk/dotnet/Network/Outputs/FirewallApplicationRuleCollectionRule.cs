@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// One or more `protocol` blocks as defined below.
+        /// One or more `Protocol` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallApplicationRuleCollectionRuleProtocol> Protocols;
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// A list of source IP Group IDs for the rule.
         /// 
-        /// &gt; **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        /// &gt; **Note:** At least one of `SourceAddresses` and `SourceIpGroups` must be specified for a rule.
         /// </summary>
         public readonly ImmutableArray<string> SourceIpGroups;
         /// <summary>

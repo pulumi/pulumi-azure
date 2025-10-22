@@ -44,14 +44,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     public static final ApplicationGatewayState Empty = new ApplicationGatewayState();
 
     /**
-     * One or more `authentication_certificate` blocks as defined below.
+     * One or more `authenticationCertificate` blocks as defined below.
      * 
      */
     @Import(name="authenticationCertificates")
     private @Nullable Output<List<ApplicationGatewayAuthenticationCertificateArgs>> authenticationCertificates;
 
     /**
-     * @return One or more `authentication_certificate` blocks as defined below.
+     * @return One or more `authenticationCertificate` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayAuthenticationCertificateArgs>>> authenticationCertificates() {
@@ -59,14 +59,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * An `autoscale_configuration` block as defined below.
+     * An `autoscaleConfiguration` block as defined below.
      * 
      */
     @Import(name="autoscaleConfiguration")
     private @Nullable Output<ApplicationGatewayAutoscaleConfigurationArgs> autoscaleConfiguration;
 
     /**
-     * @return An `autoscale_configuration` block as defined below.
+     * @return An `autoscaleConfiguration` block as defined below.
      * 
      */
     public Optional<Output<ApplicationGatewayAutoscaleConfigurationArgs>> autoscaleConfiguration() {
@@ -74,14 +74,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `backend_address_pool` blocks as defined below.
+     * One or more `backendAddressPool` blocks as defined below.
      * 
      */
     @Import(name="backendAddressPools")
     private @Nullable Output<List<ApplicationGatewayBackendAddressPoolArgs>> backendAddressPools;
 
     /**
-     * @return One or more `backend_address_pool` blocks as defined below.
+     * @return One or more `backendAddressPool` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayBackendAddressPoolArgs>>> backendAddressPools() {
@@ -89,14 +89,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `backend_http_settings` blocks as defined below.
+     * One or more `backendHttpSettings` blocks as defined below.
      * 
      */
     @Import(name="backendHttpSettings")
     private @Nullable Output<List<ApplicationGatewayBackendHttpSettingArgs>> backendHttpSettings;
 
     /**
-     * @return One or more `backend_http_settings` blocks as defined below.
+     * @return One or more `backendHttpSettings` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayBackendHttpSettingArgs>>> backendHttpSettings() {
@@ -104,14 +104,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `custom_error_configuration` blocks as defined below.
+     * One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     @Import(name="customErrorConfigurations")
     private @Nullable Output<List<ApplicationGatewayCustomErrorConfigurationArgs>> customErrorConfigurations;
 
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayCustomErrorConfigurationArgs>>> customErrorConfigurations() {
@@ -179,14 +179,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `frontend_ip_configuration` blocks as defined below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     @Import(name="frontendIpConfigurations")
     private @Nullable Output<List<ApplicationGatewayFrontendIpConfigurationArgs>> frontendIpConfigurations;
 
     /**
-     * @return One or more `frontend_ip_configuration` blocks as defined below.
+     * @return One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayFrontendIpConfigurationArgs>>> frontendIpConfigurations() {
@@ -194,14 +194,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `frontend_port` blocks as defined below.
+     * One or more `frontendPort` blocks as defined below.
      * 
      */
     @Import(name="frontendPorts")
     private @Nullable Output<List<ApplicationGatewayFrontendPortArgs>> frontendPorts;
 
     /**
-     * @return One or more `frontend_port` blocks as defined below.
+     * @return One or more `frontendPort` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayFrontendPortArgs>>> frontendPorts() {
@@ -209,14 +209,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `gateway_ip_configuration` blocks as defined below.
+     * One or more `gatewayIpConfiguration` blocks as defined below.
      * 
      */
     @Import(name="gatewayIpConfigurations")
     private @Nullable Output<List<ApplicationGatewayGatewayIpConfigurationArgs>> gatewayIpConfigurations;
 
     /**
-     * @return One or more `gateway_ip_configuration` blocks as defined below.
+     * @return One or more `gatewayIpConfiguration` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayGatewayIpConfigurationArgs>>> gatewayIpConfigurations() {
@@ -239,14 +239,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `http_listener` blocks as defined below.
+     * One or more `httpListener` blocks as defined below.
      * 
      */
     @Import(name="httpListeners")
     private @Nullable Output<List<ApplicationGatewayHttpListenerArgs>> httpListeners;
 
     /**
-     * @return One or more `http_listener` blocks as defined below.
+     * @return One or more `httpListener` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayHttpListenerArgs>>> httpListeners() {
@@ -299,14 +299,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of `private_endpoint_connection` blocks as defined below.
+     * A list of `privateEndpointConnection` blocks as defined below.
      * 
      */
     @Import(name="privateEndpointConnections")
     private @Nullable Output<List<ApplicationGatewayPrivateEndpointConnectionArgs>> privateEndpointConnections;
 
     /**
-     * @return A list of `private_endpoint_connection` blocks as defined below.
+     * @return A list of `privateEndpointConnection` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayPrivateEndpointConnectionArgs>>> privateEndpointConnections() {
@@ -314,14 +314,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `private_link_configuration` blocks as defined below.
+     * One or more `privateLinkConfiguration` blocks as defined below.
      * 
      */
     @Import(name="privateLinkConfigurations")
     private @Nullable Output<List<ApplicationGatewayPrivateLinkConfigurationArgs>> privateLinkConfigurations;
 
     /**
-     * @return One or more `private_link_configuration` blocks as defined below.
+     * @return One or more `privateLinkConfiguration` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayPrivateLinkConfigurationArgs>>> privateLinkConfigurations() {
@@ -344,14 +344,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `redirect_configuration` blocks as defined below.
+     * One or more `redirectConfiguration` blocks as defined below.
      * 
      */
     @Import(name="redirectConfigurations")
     private @Nullable Output<List<ApplicationGatewayRedirectConfigurationArgs>> redirectConfigurations;
 
     /**
-     * @return One or more `redirect_configuration` blocks as defined below.
+     * @return One or more `redirectConfiguration` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayRedirectConfigurationArgs>>> redirectConfigurations() {
@@ -359,14 +359,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `request_routing_rule` blocks as defined below.
+     * One or more `requestRoutingRule` blocks as defined below.
      * 
      */
     @Import(name="requestRoutingRules")
     private @Nullable Output<List<ApplicationGatewayRequestRoutingRuleArgs>> requestRoutingRules;
 
     /**
-     * @return One or more `request_routing_rule` blocks as defined below.
+     * @return One or more `requestRoutingRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayRequestRoutingRuleArgs>>> requestRoutingRules() {
@@ -389,14 +389,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+     * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      * 
      */
     @Import(name="rewriteRuleSets")
     private @Nullable Output<List<ApplicationGatewayRewriteRuleSetArgs>> rewriteRuleSets;
 
     /**
-     * @return One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+     * @return One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      * 
      */
     public Optional<Output<List<ApplicationGatewayRewriteRuleSetArgs>>> rewriteRuleSets() {
@@ -419,14 +419,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `ssl_certificate` blocks as defined below.
+     * One or more `sslCertificate` blocks as defined below.
      * 
      */
     @Import(name="sslCertificates")
     private @Nullable Output<List<ApplicationGatewaySslCertificateArgs>> sslCertificates;
 
     /**
-     * @return One or more `ssl_certificate` blocks as defined below.
+     * @return One or more `sslCertificate` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewaySslCertificateArgs>>> sslCertificates() {
@@ -434,14 +434,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * a `ssl_policy` block as defined below.
+     * a `sslPolicy` block as defined below.
      * 
      */
     @Import(name="sslPolicy")
     private @Nullable Output<ApplicationGatewaySslPolicyArgs> sslPolicy;
 
     /**
-     * @return a `ssl_policy` block as defined below.
+     * @return a `sslPolicy` block as defined below.
      * 
      */
     public Optional<Output<ApplicationGatewaySslPolicyArgs>> sslPolicy() {
@@ -449,14 +449,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `ssl_profile` blocks as defined below.
+     * One or more `sslProfile` blocks as defined below.
      * 
      */
     @Import(name="sslProfiles")
     private @Nullable Output<List<ApplicationGatewaySslProfileArgs>> sslProfiles;
 
     /**
-     * @return One or more `ssl_profile` blocks as defined below.
+     * @return One or more `sslProfile` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewaySslProfileArgs>>> sslProfiles() {
@@ -479,14 +479,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `trusted_client_certificate` blocks as defined below.
+     * One or more `trustedClientCertificate` blocks as defined below.
      * 
      */
     @Import(name="trustedClientCertificates")
     private @Nullable Output<List<ApplicationGatewayTrustedClientCertificateArgs>> trustedClientCertificates;
 
     /**
-     * @return One or more `trusted_client_certificate` blocks as defined below.
+     * @return One or more `trustedClientCertificate` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayTrustedClientCertificateArgs>>> trustedClientCertificates() {
@@ -494,14 +494,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `trusted_root_certificate` blocks as defined below.
+     * One or more `trustedRootCertificate` blocks as defined below.
      * 
      */
     @Import(name="trustedRootCertificates")
     private @Nullable Output<List<ApplicationGatewayTrustedRootCertificateArgs>> trustedRootCertificates;
 
     /**
-     * @return One or more `trusted_root_certificate` blocks as defined below.
+     * @return One or more `trustedRootCertificate` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayTrustedRootCertificateArgs>>> trustedRootCertificates() {
@@ -509,14 +509,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `url_path_map` blocks as defined below.
+     * One or more `urlPathMap` blocks as defined below.
      * 
      */
     @Import(name="urlPathMaps")
     private @Nullable Output<List<ApplicationGatewayUrlPathMapArgs>> urlPathMaps;
 
     /**
-     * @return One or more `url_path_map` blocks as defined below.
+     * @return One or more `urlPathMap` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayUrlPathMapArgs>>> urlPathMaps() {
@@ -524,14 +524,14 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `waf_configuration` block as defined below.
+     * A `wafConfiguration` block as defined below.
      * 
      */
     @Import(name="wafConfiguration")
     private @Nullable Output<ApplicationGatewayWafConfigurationArgs> wafConfiguration;
 
     /**
-     * @return A `waf_configuration` block as defined below.
+     * @return A `wafConfiguration` block as defined below.
      * 
      */
     public Optional<Output<ApplicationGatewayWafConfigurationArgs>> wafConfiguration() {
@@ -615,7 +615,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authenticationCertificates One or more `authentication_certificate` blocks as defined below.
+         * @param authenticationCertificates One or more `authenticationCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authenticationCertificates One or more `authentication_certificate` blocks as defined below.
+         * @param authenticationCertificates One or more `authenticationCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authenticationCertificates One or more `authentication_certificate` blocks as defined below.
+         * @param authenticationCertificates One or more `authenticationCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param autoscaleConfiguration An `autoscale_configuration` block as defined below.
+         * @param autoscaleConfiguration An `autoscaleConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param autoscaleConfiguration An `autoscale_configuration` block as defined below.
+         * @param autoscaleConfiguration An `autoscaleConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -667,7 +667,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backendAddressPools One or more `backend_address_pool` blocks as defined below.
+         * @param backendAddressPools One or more `backendAddressPool` blocks as defined below.
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backendAddressPools One or more `backend_address_pool` blocks as defined below.
+         * @param backendAddressPools One or more `backendAddressPool` blocks as defined below.
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backendAddressPools One or more `backend_address_pool` blocks as defined below.
+         * @param backendAddressPools One or more `backendAddressPool` blocks as defined below.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backendHttpSettings One or more `backend_http_settings` blocks as defined below.
+         * @param backendHttpSettings One or more `backendHttpSettings` blocks as defined below.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backendHttpSettings One or more `backend_http_settings` blocks as defined below.
+         * @param backendHttpSettings One or more `backendHttpSettings` blocks as defined below.
          * 
          * @return builder
          * 
@@ -719,7 +719,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backendHttpSettings One or more `backend_http_settings` blocks as defined below.
+         * @param backendHttpSettings One or more `backendHttpSettings` blocks as defined below.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.
+         * @param customErrorConfigurations One or more `customErrorConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.
+         * @param customErrorConfigurations One or more `customErrorConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.
+         * @param customErrorConfigurations One or more `customErrorConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -844,7 +844,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as defined below.
+         * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -855,7 +855,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as defined below.
+         * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -865,7 +865,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as defined below.
+         * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -875,7 +875,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param frontendPorts One or more `frontend_port` blocks as defined below.
+         * @param frontendPorts One or more `frontendPort` blocks as defined below.
          * 
          * @return builder
          * 
@@ -886,7 +886,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param frontendPorts One or more `frontend_port` blocks as defined below.
+         * @param frontendPorts One or more `frontendPort` blocks as defined below.
          * 
          * @return builder
          * 
@@ -896,7 +896,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param frontendPorts One or more `frontend_port` blocks as defined below.
+         * @param frontendPorts One or more `frontendPort` blocks as defined below.
          * 
          * @return builder
          * 
@@ -906,7 +906,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param gatewayIpConfigurations One or more `gateway_ip_configuration` blocks as defined below.
+         * @param gatewayIpConfigurations One or more `gatewayIpConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -917,7 +917,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param gatewayIpConfigurations One or more `gateway_ip_configuration` blocks as defined below.
+         * @param gatewayIpConfigurations One or more `gatewayIpConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -927,7 +927,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param gatewayIpConfigurations One or more `gateway_ip_configuration` blocks as defined below.
+         * @param gatewayIpConfigurations One or more `gatewayIpConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -958,7 +958,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param httpListeners One or more `http_listener` blocks as defined below.
+         * @param httpListeners One or more `httpListener` blocks as defined below.
          * 
          * @return builder
          * 
@@ -969,7 +969,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param httpListeners One or more `http_listener` blocks as defined below.
+         * @param httpListeners One or more `httpListener` blocks as defined below.
          * 
          * @return builder
          * 
@@ -979,7 +979,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param httpListeners One or more `http_listener` blocks as defined below.
+         * @param httpListeners One or more `httpListener` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1052,7 +1052,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateEndpointConnections A list of `private_endpoint_connection` blocks as defined below.
+         * @param privateEndpointConnections A list of `privateEndpointConnection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1063,7 +1063,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateEndpointConnections A list of `private_endpoint_connection` blocks as defined below.
+         * @param privateEndpointConnections A list of `privateEndpointConnection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1073,7 +1073,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateEndpointConnections A list of `private_endpoint_connection` blocks as defined below.
+         * @param privateEndpointConnections A list of `privateEndpointConnection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1083,7 +1083,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkConfigurations One or more `private_link_configuration` blocks as defined below.
+         * @param privateLinkConfigurations One or more `privateLinkConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1094,7 +1094,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkConfigurations One or more `private_link_configuration` blocks as defined below.
+         * @param privateLinkConfigurations One or more `privateLinkConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1104,7 +1104,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkConfigurations One or more `private_link_configuration` blocks as defined below.
+         * @param privateLinkConfigurations One or more `privateLinkConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1145,7 +1145,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param redirectConfigurations One or more `redirect_configuration` blocks as defined below.
+         * @param redirectConfigurations One or more `redirectConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1156,7 +1156,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param redirectConfigurations One or more `redirect_configuration` blocks as defined below.
+         * @param redirectConfigurations One or more `redirectConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1166,7 +1166,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param redirectConfigurations One or more `redirect_configuration` blocks as defined below.
+         * @param redirectConfigurations One or more `redirectConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1176,7 +1176,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param requestRoutingRules One or more `request_routing_rule` blocks as defined below.
+         * @param requestRoutingRules One or more `requestRoutingRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1187,7 +1187,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param requestRoutingRules One or more `request_routing_rule` blocks as defined below.
+         * @param requestRoutingRules One or more `requestRoutingRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1197,7 +1197,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param requestRoutingRules One or more `request_routing_rule` blocks as defined below.
+         * @param requestRoutingRules One or more `requestRoutingRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1228,7 +1228,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rewriteRuleSets One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+         * @param rewriteRuleSets One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
          * 
          * @return builder
          * 
@@ -1239,7 +1239,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rewriteRuleSets One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+         * @param rewriteRuleSets One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
          * 
          * @return builder
          * 
@@ -1249,7 +1249,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rewriteRuleSets One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+         * @param rewriteRuleSets One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
          * 
          * @return builder
          * 
@@ -1280,7 +1280,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sslCertificates One or more `ssl_certificate` blocks as defined below.
+         * @param sslCertificates One or more `sslCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1291,7 +1291,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sslCertificates One or more `ssl_certificate` blocks as defined below.
+         * @param sslCertificates One or more `sslCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1301,7 +1301,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sslCertificates One or more `ssl_certificate` blocks as defined below.
+         * @param sslCertificates One or more `sslCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1311,7 +1311,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sslPolicy a `ssl_policy` block as defined below.
+         * @param sslPolicy a `sslPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -1322,7 +1322,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sslPolicy a `ssl_policy` block as defined below.
+         * @param sslPolicy a `sslPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -1332,7 +1332,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sslProfiles One or more `ssl_profile` blocks as defined below.
+         * @param sslProfiles One or more `sslProfile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1343,7 +1343,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sslProfiles One or more `ssl_profile` blocks as defined below.
+         * @param sslProfiles One or more `sslProfile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1353,7 +1353,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sslProfiles One or more `ssl_profile` blocks as defined below.
+         * @param sslProfiles One or more `sslProfile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1384,7 +1384,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param trustedClientCertificates One or more `trusted_client_certificate` blocks as defined below.
+         * @param trustedClientCertificates One or more `trustedClientCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1395,7 +1395,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param trustedClientCertificates One or more `trusted_client_certificate` blocks as defined below.
+         * @param trustedClientCertificates One or more `trustedClientCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1405,7 +1405,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param trustedClientCertificates One or more `trusted_client_certificate` blocks as defined below.
+         * @param trustedClientCertificates One or more `trustedClientCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1415,7 +1415,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param trustedRootCertificates One or more `trusted_root_certificate` blocks as defined below.
+         * @param trustedRootCertificates One or more `trustedRootCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1426,7 +1426,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param trustedRootCertificates One or more `trusted_root_certificate` blocks as defined below.
+         * @param trustedRootCertificates One or more `trustedRootCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1436,7 +1436,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param trustedRootCertificates One or more `trusted_root_certificate` blocks as defined below.
+         * @param trustedRootCertificates One or more `trustedRootCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1446,7 +1446,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param urlPathMaps One or more `url_path_map` blocks as defined below.
+         * @param urlPathMaps One or more `urlPathMap` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1457,7 +1457,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param urlPathMaps One or more `url_path_map` blocks as defined below.
+         * @param urlPathMaps One or more `urlPathMap` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1467,7 +1467,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param urlPathMaps One or more `url_path_map` blocks as defined below.
+         * @param urlPathMaps One or more `urlPathMap` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1477,7 +1477,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param wafConfiguration A `waf_configuration` block as defined below.
+         * @param wafConfiguration A `wafConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -1488,7 +1488,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param wafConfiguration A `waf_configuration` block as defined below.
+         * @param wafConfiguration A `wafConfiguration` block as defined below.
          * 
          * @return builder
          * 

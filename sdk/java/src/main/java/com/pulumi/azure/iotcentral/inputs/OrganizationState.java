@@ -16,14 +16,14 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
     public static final OrganizationState Empty = new OrganizationState();
 
     /**
-     * Custom `display_name` for the organization.
+     * Custom `displayName` for the organization.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return Custom `display_name` for the organization.
+     * @return Custom `displayName` for the organization.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -61,14 +61,14 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The `organization_id` of the parent organization. Changing this forces a new resource to be created.
+     * The `organizationId` of the parent organization. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="parentOrganizationId")
     private @Nullable Output<String> parentOrganizationId;
 
     /**
-     * @return The `organization_id` of the parent organization. Changing this forces a new resource to be created.
+     * @return The `organizationId` of the parent organization. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> parentOrganizationId() {
@@ -103,7 +103,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Custom `display_name` for the organization.
+         * @param displayName Custom `displayName` for the organization.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Custom `display_name` for the organization.
+         * @param displayName Custom `displayName` for the organization.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentOrganizationId The `organization_id` of the parent organization. Changing this forces a new resource to be created.
+         * @param parentOrganizationId The `organizationId` of the parent organization. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentOrganizationId The `organization_id` of the parent organization. Changing this forces a new resource to be created.
+         * @param parentOrganizationId The `organizationId` of the parent organization. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> AutomationAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// Controls if Webhook is enabled. Defaults to `true`.
+        /// Controls if Webhook is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Controls if Webhook is enabled. Defaults to `true`.
+        /// Controls if Webhook is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
-        /// Controls if Webhook is enabled. Defaults to `true`.
+        /// Controls if Webhook is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

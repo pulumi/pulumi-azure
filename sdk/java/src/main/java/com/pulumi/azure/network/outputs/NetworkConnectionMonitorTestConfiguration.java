@@ -18,12 +18,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NetworkConnectionMonitorTestConfiguration {
     /**
-     * @return A `http_configuration` block as defined below.
+     * @return A `httpConfiguration` block as defined below.
      * 
      */
     private @Nullable NetworkConnectionMonitorTestConfigurationHttpConfiguration httpConfiguration;
     /**
-     * @return A `icmp_configuration` block as defined below.
+     * @return A `icmpConfiguration` block as defined below.
      * 
      */
     private @Nullable NetworkConnectionMonitorTestConfigurationIcmpConfiguration icmpConfiguration;
@@ -43,12 +43,12 @@ public final class NetworkConnectionMonitorTestConfiguration {
      */
     private String protocol;
     /**
-     * @return A `success_threshold` block as defined below.
+     * @return A `successThreshold` block as defined below.
      * 
      */
     private @Nullable NetworkConnectionMonitorTestConfigurationSuccessThreshold successThreshold;
     /**
-     * @return A `tcp_configuration` block as defined below.
+     * @return A `tcpConfiguration` block as defined below.
      * 
      */
     private @Nullable NetworkConnectionMonitorTestConfigurationTcpConfiguration tcpConfiguration;
@@ -60,14 +60,14 @@ public final class NetworkConnectionMonitorTestConfiguration {
 
     private NetworkConnectionMonitorTestConfiguration() {}
     /**
-     * @return A `http_configuration` block as defined below.
+     * @return A `httpConfiguration` block as defined below.
      * 
      */
     public Optional<NetworkConnectionMonitorTestConfigurationHttpConfiguration> httpConfiguration() {
         return Optional.ofNullable(this.httpConfiguration);
     }
     /**
-     * @return A `icmp_configuration` block as defined below.
+     * @return A `icmpConfiguration` block as defined below.
      * 
      */
     public Optional<NetworkConnectionMonitorTestConfigurationIcmpConfiguration> icmpConfiguration() {
@@ -95,14 +95,14 @@ public final class NetworkConnectionMonitorTestConfiguration {
         return this.protocol;
     }
     /**
-     * @return A `success_threshold` block as defined below.
+     * @return A `successThreshold` block as defined below.
      * 
      */
     public Optional<NetworkConnectionMonitorTestConfigurationSuccessThreshold> successThreshold() {
         return Optional.ofNullable(this.successThreshold);
     }
     /**
-     * @return A `tcp_configuration` block as defined below.
+     * @return A `tcpConfiguration` block as defined below.
      * 
      */
     public Optional<NetworkConnectionMonitorTestConfigurationTcpConfiguration> tcpConfiguration() {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Mobile.Outputs
     public sealed class GetNetworkSimPolicySliceResult
     {
         /// <summary>
-        /// An array of `data_network` block as defined below.
+        /// An array of `DataNetwork` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkSimPolicySliceDataNetworkResult> DataNetworks;
         /// <summary>

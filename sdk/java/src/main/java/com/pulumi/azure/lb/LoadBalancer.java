@@ -109,14 +109,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
-     * One or more `frontend_ip_configuration` blocks as documented below.
+     * One or more `frontendIpConfiguration` blocks as documented below.
      * 
      */
     @Export(name="frontendIpConfigurations", refs={List.class,LoadBalancerFrontendIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LoadBalancerFrontendIpConfiguration>> frontendIpConfigurations;
 
     /**
-     * @return One or more `frontend_ip_configuration` blocks as documented below.
+     * @return One or more `frontendIpConfiguration` blocks as documented below.
      * 
      */
     public Output<Optional<List<LoadBalancerFrontendIpConfiguration>>> frontendIpConfigurations() {
@@ -165,14 +165,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.privateIpAddress;
     }
     /**
-     * The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+     * The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
      * 
      */
     @Export(name="privateIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> privateIpAddresses;
 
     /**
-     * @return The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+     * @return The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
      * 
      */
     public Output<List<String>> privateIpAddresses() {
@@ -225,14 +225,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sku);
     }
     /**
-     * `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuTier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skuTier;
 
     /**
-     * @return `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * @return `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> skuTier() {

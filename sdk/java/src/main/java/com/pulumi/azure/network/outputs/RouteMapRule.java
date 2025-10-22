@@ -21,7 +21,7 @@ public final class RouteMapRule {
      */
     private @Nullable List<RouteMapRuleAction> actions;
     /**
-     * @return A `match_criterion` block as defined below.
+     * @return A `matchCriterion` block as defined below.
      * 
      */
     private @Nullable List<RouteMapRuleMatchCriterion> matchCriterions;
@@ -45,7 +45,7 @@ public final class RouteMapRule {
         return this.actions == null ? List.of() : this.actions;
     }
     /**
-     * @return A `match_criterion` block as defined below.
+     * @return A `matchCriterion` block as defined below.
      * 
      */
     public List<RouteMapRuleMatchCriterion> matchCriterions() {

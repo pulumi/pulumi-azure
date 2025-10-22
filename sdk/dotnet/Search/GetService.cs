@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Search
     public sealed class GetServiceResult
     {
         /// <summary>
-        /// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+        /// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `Enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
         /// </summary>
         public readonly string CustomerManagedKeyEncryptionComplianceStatus;
         /// <summary>
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Search
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceIdentityResult> Identities;
         /// <summary>
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Search
         /// </summary>
         public readonly bool PublicNetworkAccessEnabled;
         /// <summary>
-        /// A `query_keys` block as defined below.
+        /// A `QueryKeys` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceQueryKeyResult> QueryKeys;
         /// <summary>

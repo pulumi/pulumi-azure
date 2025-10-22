@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Backup
     public partial class PolicyFileShare : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configures the Policy backup frequency and times as documented in the `backup` block below.
+        /// Configures the Policy backup frequency and times as documented in the `Backup` block below.
         /// </summary>
         [Output("backup")]
         public Output<Outputs.PolicyFileShareBackup> Backup { get; private set; } = null!;
@@ -133,25 +133,25 @@ namespace Pulumi.Azure.Backup
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the policy daily retention as documented in the `retention_daily` block below.
+        /// Configures the policy daily retention as documented in the `RetentionDaily` block below.
         /// </summary>
         [Output("retentionDaily")]
         public Output<Outputs.PolicyFileShareRetentionDaily> RetentionDaily { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        /// Configures the policy monthly retention as documented in the `RetentionMonthly` block below.
         /// </summary>
         [Output("retentionMonthly")]
         public Output<Outputs.PolicyFileShareRetentionMonthly?> RetentionMonthly { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        /// Configures the policy weekly retention as documented in the `RetentionWeekly` block below.
         /// </summary>
         [Output("retentionWeekly")]
         public Output<Outputs.PolicyFileShareRetentionWeekly?> RetentionWeekly { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        /// Configures the policy yearly retention as documented in the `RetentionYearly` block below.
         /// </summary>
         [Output("retentionYearly")]
         public Output<Outputs.PolicyFileShareRetentionYearly?> RetentionYearly { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Backup
     public sealed class PolicyFileShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the Policy backup frequency and times as documented in the `backup` block below.
+        /// Configures the Policy backup frequency and times as documented in the `Backup` block below.
         /// </summary>
         [Input("backup", required: true)]
         public Input<Inputs.PolicyFileShareBackupArgs> Backup { get; set; } = null!;
@@ -235,25 +235,25 @@ namespace Pulumi.Azure.Backup
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Configures the policy daily retention as documented in the `retention_daily` block below.
+        /// Configures the policy daily retention as documented in the `RetentionDaily` block below.
         /// </summary>
         [Input("retentionDaily", required: true)]
         public Input<Inputs.PolicyFileShareRetentionDailyArgs> RetentionDaily { get; set; } = null!;
 
         /// <summary>
-        /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        /// Configures the policy monthly retention as documented in the `RetentionMonthly` block below.
         /// </summary>
         [Input("retentionMonthly")]
         public Input<Inputs.PolicyFileShareRetentionMonthlyArgs>? RetentionMonthly { get; set; }
 
         /// <summary>
-        /// Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        /// Configures the policy weekly retention as documented in the `RetentionWeekly` block below.
         /// </summary>
         [Input("retentionWeekly")]
         public Input<Inputs.PolicyFileShareRetentionWeeklyArgs>? RetentionWeekly { get; set; }
 
         /// <summary>
-        /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        /// Configures the policy yearly retention as documented in the `RetentionYearly` block below.
         /// </summary>
         [Input("retentionYearly")]
         public Input<Inputs.PolicyFileShareRetentionYearlyArgs>? RetentionYearly { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.Backup
     public sealed class PolicyFileShareState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the Policy backup frequency and times as documented in the `backup` block below.
+        /// Configures the Policy backup frequency and times as documented in the `Backup` block below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.PolicyFileShareBackupGetArgs>? Backup { get; set; }
@@ -299,25 +299,25 @@ namespace Pulumi.Azure.Backup
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Configures the policy daily retention as documented in the `retention_daily` block below.
+        /// Configures the policy daily retention as documented in the `RetentionDaily` block below.
         /// </summary>
         [Input("retentionDaily")]
         public Input<Inputs.PolicyFileShareRetentionDailyGetArgs>? RetentionDaily { get; set; }
 
         /// <summary>
-        /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        /// Configures the policy monthly retention as documented in the `RetentionMonthly` block below.
         /// </summary>
         [Input("retentionMonthly")]
         public Input<Inputs.PolicyFileShareRetentionMonthlyGetArgs>? RetentionMonthly { get; set; }
 
         /// <summary>
-        /// Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        /// Configures the policy weekly retention as documented in the `RetentionWeekly` block below.
         /// </summary>
         [Input("retentionWeekly")]
         public Input<Inputs.PolicyFileShareRetentionWeeklyGetArgs>? RetentionWeekly { get; set; }
 
         /// <summary>
-        /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        /// Configures the policy yearly retention as documented in the `RetentionYearly` block below.
         /// </summary>
         [Input("retentionYearly")]
         public Input<Inputs.PolicyFileShareRetentionYearlyGetArgs>? RetentionYearly { get; set; }

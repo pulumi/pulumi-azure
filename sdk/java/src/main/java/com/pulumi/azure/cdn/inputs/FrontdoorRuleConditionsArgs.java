@@ -35,14 +35,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     public static final FrontdoorRuleConditionsArgs Empty = new FrontdoorRuleConditionsArgs();
 
     /**
-     * A `client_port_condition` block as defined below.
+     * A `clientPortCondition` block as defined below.
      * 
      */
     @Import(name="clientPortConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsClientPortConditionArgs>> clientPortConditions;
 
     /**
-     * @return A `client_port_condition` block as defined below.
+     * @return A `clientPortCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsClientPortConditionArgs>>> clientPortConditions() {
@@ -50,14 +50,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `cookies_condition` block as defined below.
+     * A `cookiesCondition` block as defined below.
      * 
      */
     @Import(name="cookiesConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsCookiesConditionArgs>> cookiesConditions;
 
     /**
-     * @return A `cookies_condition` block as defined below.
+     * @return A `cookiesCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsCookiesConditionArgs>>> cookiesConditions() {
@@ -65,14 +65,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `host_name_condition` block as defined below.
+     * A `hostNameCondition` block as defined below.
      * 
      */
     @Import(name="hostNameConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsHostNameConditionArgs>> hostNameConditions;
 
     /**
-     * @return A `host_name_condition` block as defined below.
+     * @return A `hostNameCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsHostNameConditionArgs>>> hostNameConditions() {
@@ -80,14 +80,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `http_version_condition` block as defined below.
+     * A `httpVersionCondition` block as defined below.
      * 
      */
     @Import(name="httpVersionConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsHttpVersionConditionArgs>> httpVersionConditions;
 
     /**
-     * @return A `http_version_condition` block as defined below.
+     * @return A `httpVersionCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsHttpVersionConditionArgs>>> httpVersionConditions() {
@@ -95,14 +95,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `is_device_condition` block as defined below.
+     * A `isDeviceCondition` block as defined below.
      * 
      */
     @Import(name="isDeviceConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsIsDeviceConditionArgs>> isDeviceConditions;
 
     /**
-     * @return A `is_device_condition` block as defined below.
+     * @return A `isDeviceCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsIsDeviceConditionArgs>>> isDeviceConditions() {
@@ -110,14 +110,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `post_args_condition` block as defined below.
+     * A `postArgsCondition` block as defined below.
      * 
      */
     @Import(name="postArgsConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsPostArgsConditionArgs>> postArgsConditions;
 
     /**
-     * @return A `post_args_condition` block as defined below.
+     * @return A `postArgsCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsPostArgsConditionArgs>>> postArgsConditions() {
@@ -125,14 +125,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `query_string_condition` block as defined below.
+     * A `queryStringCondition` block as defined below.
      * 
      */
     @Import(name="queryStringConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsQueryStringConditionArgs>> queryStringConditions;
 
     /**
-     * @return A `query_string_condition` block as defined below.
+     * @return A `queryStringCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsQueryStringConditionArgs>>> queryStringConditions() {
@@ -140,14 +140,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `remote_address_condition` block as defined below.
+     * A `remoteAddressCondition` block as defined below.
      * 
      */
     @Import(name="remoteAddressConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsRemoteAddressConditionArgs>> remoteAddressConditions;
 
     /**
-     * @return A `remote_address_condition` block as defined below.
+     * @return A `remoteAddressCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsRemoteAddressConditionArgs>>> remoteAddressConditions() {
@@ -155,14 +155,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `request_body_condition` block as defined below.
+     * A `requestBodyCondition` block as defined below.
      * 
      */
     @Import(name="requestBodyConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsRequestBodyConditionArgs>> requestBodyConditions;
 
     /**
-     * @return A `request_body_condition` block as defined below.
+     * @return A `requestBodyCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsRequestBodyConditionArgs>>> requestBodyConditions() {
@@ -170,14 +170,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `request_header_condition` block as defined below.
+     * A `requestHeaderCondition` block as defined below.
      * 
      */
     @Import(name="requestHeaderConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsRequestHeaderConditionArgs>> requestHeaderConditions;
 
     /**
-     * @return A `request_header_condition` block as defined below.
+     * @return A `requestHeaderCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsRequestHeaderConditionArgs>>> requestHeaderConditions() {
@@ -185,14 +185,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `request_method_condition` block as defined below.
+     * A `requestMethodCondition` block as defined below.
      * 
      */
     @Import(name="requestMethodConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsRequestMethodConditionArgs>> requestMethodConditions;
 
     /**
-     * @return A `request_method_condition` block as defined below.
+     * @return A `requestMethodCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsRequestMethodConditionArgs>>> requestMethodConditions() {
@@ -200,14 +200,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `request_scheme_condition` block as defined below.
+     * A `requestSchemeCondition` block as defined below.
      * 
      */
     @Import(name="requestSchemeConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsRequestSchemeConditionArgs>> requestSchemeConditions;
 
     /**
-     * @return A `request_scheme_condition` block as defined below.
+     * @return A `requestSchemeCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsRequestSchemeConditionArgs>>> requestSchemeConditions() {
@@ -215,14 +215,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `request_uri_condition` block as defined below.
+     * A `requestUriCondition` block as defined below.
      * 
      */
     @Import(name="requestUriConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsRequestUriConditionArgs>> requestUriConditions;
 
     /**
-     * @return A `request_uri_condition` block as defined below.
+     * @return A `requestUriCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsRequestUriConditionArgs>>> requestUriConditions() {
@@ -230,14 +230,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `server_port_condition` block as defined below.
+     * A `serverPortCondition` block as defined below.
      * 
      */
     @Import(name="serverPortConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsServerPortConditionArgs>> serverPortConditions;
 
     /**
-     * @return A `server_port_condition` block as defined below.
+     * @return A `serverPortCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsServerPortConditionArgs>>> serverPortConditions() {
@@ -245,14 +245,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `socket_address_condition` block as defined below.
+     * A `socketAddressCondition` block as defined below.
      * 
      */
     @Import(name="socketAddressConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsSocketAddressConditionArgs>> socketAddressConditions;
 
     /**
-     * @return A `socket_address_condition` block as defined below.
+     * @return A `socketAddressCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsSocketAddressConditionArgs>>> socketAddressConditions() {
@@ -260,14 +260,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `ssl_protocol_condition` block as defined below.
+     * A `sslProtocolCondition` block as defined below.
      * 
      */
     @Import(name="sslProtocolConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsSslProtocolConditionArgs>> sslProtocolConditions;
 
     /**
-     * @return A `ssl_protocol_condition` block as defined below.
+     * @return A `sslProtocolCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsSslProtocolConditionArgs>>> sslProtocolConditions() {
@@ -275,14 +275,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `url_file_extension_condition` block as defined below.
+     * A `urlFileExtensionCondition` block as defined below.
      * 
      */
     @Import(name="urlFileExtensionConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsUrlFileExtensionConditionArgs>> urlFileExtensionConditions;
 
     /**
-     * @return A `url_file_extension_condition` block as defined below.
+     * @return A `urlFileExtensionCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsUrlFileExtensionConditionArgs>>> urlFileExtensionConditions() {
@@ -290,14 +290,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `url_filename_condition` block as defined below.
+     * A `urlFilenameCondition` block as defined below.
      * 
      */
     @Import(name="urlFilenameConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsUrlFilenameConditionArgs>> urlFilenameConditions;
 
     /**
-     * @return A `url_filename_condition` block as defined below.
+     * @return A `urlFilenameCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsUrlFilenameConditionArgs>>> urlFilenameConditions() {
@@ -305,14 +305,14 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `url_path_condition` block as defined below.
+     * A `urlPathCondition` block as defined below.
      * 
      */
     @Import(name="urlPathConditions")
     private @Nullable Output<List<FrontdoorRuleConditionsUrlPathConditionArgs>> urlPathConditions;
 
     /**
-     * @return A `url_path_condition` block as defined below.
+     * @return A `urlPathCondition` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleConditionsUrlPathConditionArgs>>> urlPathConditions() {
@@ -362,7 +362,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param clientPortConditions A `client_port_condition` block as defined below.
+         * @param clientPortConditions A `clientPortCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param clientPortConditions A `client_port_condition` block as defined below.
+         * @param clientPortConditions A `clientPortCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param clientPortConditions A `client_port_condition` block as defined below.
+         * @param clientPortConditions A `clientPortCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cookiesConditions A `cookies_condition` block as defined below.
+         * @param cookiesConditions A `cookiesCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cookiesConditions A `cookies_condition` block as defined below.
+         * @param cookiesConditions A `cookiesCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cookiesConditions A `cookies_condition` block as defined below.
+         * @param cookiesConditions A `cookiesCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param hostNameConditions A `host_name_condition` block as defined below.
+         * @param hostNameConditions A `hostNameCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param hostNameConditions A `host_name_condition` block as defined below.
+         * @param hostNameConditions A `hostNameCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param hostNameConditions A `host_name_condition` block as defined below.
+         * @param hostNameConditions A `hostNameCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param httpVersionConditions A `http_version_condition` block as defined below.
+         * @param httpVersionConditions A `httpVersionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param httpVersionConditions A `http_version_condition` block as defined below.
+         * @param httpVersionConditions A `httpVersionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param httpVersionConditions A `http_version_condition` block as defined below.
+         * @param httpVersionConditions A `httpVersionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param isDeviceConditions A `is_device_condition` block as defined below.
+         * @param isDeviceConditions A `isDeviceCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param isDeviceConditions A `is_device_condition` block as defined below.
+         * @param isDeviceConditions A `isDeviceCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param isDeviceConditions A `is_device_condition` block as defined below.
+         * @param isDeviceConditions A `isDeviceCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param postArgsConditions A `post_args_condition` block as defined below.
+         * @param postArgsConditions A `postArgsCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param postArgsConditions A `post_args_condition` block as defined below.
+         * @param postArgsConditions A `postArgsCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param postArgsConditions A `post_args_condition` block as defined below.
+         * @param postArgsConditions A `postArgsCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param queryStringConditions A `query_string_condition` block as defined below.
+         * @param queryStringConditions A `queryStringCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param queryStringConditions A `query_string_condition` block as defined below.
+         * @param queryStringConditions A `queryStringCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param queryStringConditions A `query_string_condition` block as defined below.
+         * @param queryStringConditions A `queryStringCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param remoteAddressConditions A `remote_address_condition` block as defined below.
+         * @param remoteAddressConditions A `remoteAddressCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param remoteAddressConditions A `remote_address_condition` block as defined below.
+         * @param remoteAddressConditions A `remoteAddressCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param remoteAddressConditions A `remote_address_condition` block as defined below.
+         * @param remoteAddressConditions A `remoteAddressCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestBodyConditions A `request_body_condition` block as defined below.
+         * @param requestBodyConditions A `requestBodyCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -621,7 +621,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestBodyConditions A `request_body_condition` block as defined below.
+         * @param requestBodyConditions A `requestBodyCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestBodyConditions A `request_body_condition` block as defined below.
+         * @param requestBodyConditions A `requestBodyCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestHeaderConditions A `request_header_condition` block as defined below.
+         * @param requestHeaderConditions A `requestHeaderCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestHeaderConditions A `request_header_condition` block as defined below.
+         * @param requestHeaderConditions A `requestHeaderCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestHeaderConditions A `request_header_condition` block as defined below.
+         * @param requestHeaderConditions A `requestHeaderCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -672,7 +672,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestMethodConditions A `request_method_condition` block as defined below.
+         * @param requestMethodConditions A `requestMethodCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestMethodConditions A `request_method_condition` block as defined below.
+         * @param requestMethodConditions A `requestMethodCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestMethodConditions A `request_method_condition` block as defined below.
+         * @param requestMethodConditions A `requestMethodCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -703,7 +703,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestSchemeConditions A `request_scheme_condition` block as defined below.
+         * @param requestSchemeConditions A `requestSchemeCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -714,7 +714,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestSchemeConditions A `request_scheme_condition` block as defined below.
+         * @param requestSchemeConditions A `requestSchemeCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -724,7 +724,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestSchemeConditions A `request_scheme_condition` block as defined below.
+         * @param requestSchemeConditions A `requestSchemeCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -734,7 +734,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestUriConditions A `request_uri_condition` block as defined below.
+         * @param requestUriConditions A `requestUriCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestUriConditions A `request_uri_condition` block as defined below.
+         * @param requestUriConditions A `requestUriCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -755,7 +755,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestUriConditions A `request_uri_condition` block as defined below.
+         * @param requestUriConditions A `requestUriCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -765,7 +765,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serverPortConditions A `server_port_condition` block as defined below.
+         * @param serverPortConditions A `serverPortCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -776,7 +776,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serverPortConditions A `server_port_condition` block as defined below.
+         * @param serverPortConditions A `serverPortCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -786,7 +786,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serverPortConditions A `server_port_condition` block as defined below.
+         * @param serverPortConditions A `serverPortCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -796,7 +796,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param socketAddressConditions A `socket_address_condition` block as defined below.
+         * @param socketAddressConditions A `socketAddressCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -807,7 +807,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param socketAddressConditions A `socket_address_condition` block as defined below.
+         * @param socketAddressConditions A `socketAddressCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param socketAddressConditions A `socket_address_condition` block as defined below.
+         * @param socketAddressConditions A `socketAddressCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -827,7 +827,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param sslProtocolConditions A `ssl_protocol_condition` block as defined below.
+         * @param sslProtocolConditions A `sslProtocolCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -838,7 +838,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param sslProtocolConditions A `ssl_protocol_condition` block as defined below.
+         * @param sslProtocolConditions A `sslProtocolCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -848,7 +848,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param sslProtocolConditions A `ssl_protocol_condition` block as defined below.
+         * @param sslProtocolConditions A `sslProtocolCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -858,7 +858,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param urlFileExtensionConditions A `url_file_extension_condition` block as defined below.
+         * @param urlFileExtensionConditions A `urlFileExtensionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -869,7 +869,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param urlFileExtensionConditions A `url_file_extension_condition` block as defined below.
+         * @param urlFileExtensionConditions A `urlFileExtensionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -879,7 +879,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param urlFileExtensionConditions A `url_file_extension_condition` block as defined below.
+         * @param urlFileExtensionConditions A `urlFileExtensionCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -889,7 +889,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param urlFilenameConditions A `url_filename_condition` block as defined below.
+         * @param urlFilenameConditions A `urlFilenameCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -900,7 +900,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param urlFilenameConditions A `url_filename_condition` block as defined below.
+         * @param urlFilenameConditions A `urlFilenameCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param urlFilenameConditions A `url_filename_condition` block as defined below.
+         * @param urlFilenameConditions A `urlFilenameCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -920,7 +920,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param urlPathConditions A `url_path_condition` block as defined below.
+         * @param urlPathConditions A `urlPathCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -931,7 +931,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param urlPathConditions A `url_path_condition` block as defined below.
+         * @param urlPathConditions A `urlPathCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -941,7 +941,7 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param urlPathConditions A `url_path_condition` block as defined below.
+         * @param urlPathConditions A `urlPathCondition` block as defined below.
          * 
          * @return builder
          * 

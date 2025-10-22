@@ -151,10 +151,10 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider.
+     * `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider. */
     @Export(name="singleNetworkSliceSelectionAssistanceInformation", refs={NetworkSliceSingleNetworkSliceSelectionAssistanceInformation.class}, tree="[0]")
     private Output<NetworkSliceSingleNetworkSliceSelectionAssistanceInformation> singleNetworkSliceSelectionAssistanceInformation;
 

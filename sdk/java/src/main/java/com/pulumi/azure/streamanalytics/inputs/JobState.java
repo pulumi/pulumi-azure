@@ -145,18 +145,18 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The details of the job storage account. A `job_storage_account` block as defined below.
+     * The details of the job storage account. A `jobStorageAccount` block as defined below.
      * 
-     * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+     * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      * 
      */
     @Import(name="jobStorageAccounts")
     private @Nullable Output<List<JobJobStorageAccountArgs>> jobStorageAccounts;
 
     /**
-     * @return The details of the job storage account. A `job_storage_account` block as defined below.
+     * @return The details of the job storage account. A `jobStorageAccount` block as defined below.
      * 
-     * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+     * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      * 
      */
     public Optional<Output<List<JobJobStorageAccountArgs>>> jobStorageAccounts() {
@@ -256,7 +256,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
      * 
-     * &gt; **Note:** `streaming_units` must be set when `type` is `Cloud`.
+     * &gt; **Note:** `streamingUnits` must be set when `type` is `Cloud`.
      * 
      */
     @Import(name="streamingUnits")
@@ -265,7 +265,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
      * 
-     * &gt; **Note:** `streaming_units` must be set when `type` is `Cloud`.
+     * &gt; **Note:** `streamingUnits` must be set when `type` is `Cloud`.
      * 
      */
     public Optional<Output<Integer>> streamingUnits() {
@@ -289,7 +289,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
+     * &gt; **Note:** `Edge` doesn&#39;t support `streamAnalyticsClusterId` and `streamingUnits`.
      * 
      */
     @Import(name="type")
@@ -298,7 +298,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
+     * &gt; **Note:** `Edge` doesn&#39;t support `streamAnalyticsClusterId` and `streamingUnits`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -520,9 +520,9 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobStorageAccounts The details of the job storage account. A `job_storage_account` block as defined below.
+         * @param jobStorageAccounts The details of the job storage account. A `jobStorageAccount` block as defined below.
          * 
-         * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+         * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
          * 
          * @return builder
          * 
@@ -533,9 +533,9 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobStorageAccounts The details of the job storage account. A `job_storage_account` block as defined below.
+         * @param jobStorageAccounts The details of the job storage account. A `jobStorageAccount` block as defined below.
          * 
-         * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+         * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
          * 
          * @return builder
          * 
@@ -545,9 +545,9 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobStorageAccounts The details of the job storage account. A `job_storage_account` block as defined below.
+         * @param jobStorageAccounts The details of the job storage account. A `jobStorageAccount` block as defined below.
          * 
-         * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+         * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param streamingUnits Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
          * 
-         * &gt; **Note:** `streaming_units` must be set when `type` is `Cloud`.
+         * &gt; **Note:** `streamingUnits` must be set when `type` is `Cloud`.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param streamingUnits Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
          * 
-         * &gt; **Note:** `streaming_units` must be set when `type` is `Cloud`.
+         * &gt; **Note:** `streamingUnits` must be set when `type` is `Cloud`.
          * 
          * @return builder
          * 
@@ -728,7 +728,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
+         * &gt; **Note:** `Edge` doesn&#39;t support `streamAnalyticsClusterId` and `streamingUnits`.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
+         * &gt; **Note:** `Edge` doesn&#39;t support `streamAnalyticsClusterId` and `streamingUnits`.
          * 
          * @return builder
          * 

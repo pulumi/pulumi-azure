@@ -110,6 +110,11 @@ type Secret struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	//
+	// * > **Note:** One of `value` or `valueWo` must be specified.
+	ValueWo pulumi.StringPtrOutput `pulumi:"valueWo"`
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
@@ -133,8 +138,12 @@ func NewSecret(ctx *pulumi.Context,
 	if args.Value != nil {
 		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrInput)
 	}
+	if args.ValueWo != nil {
+		args.ValueWo = pulumi.ToSecret(args.ValueWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"value",
+		"valueWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -178,6 +187,11 @@ type secretState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	Value *string `pulumi:"value"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	//
+	// * > **Note:** One of `value` or `valueWo` must be specified.
+	ValueWo *string `pulumi:"valueWo"`
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
@@ -207,6 +221,11 @@ type SecretState struct {
 	Tags pulumi.StringMapInput
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	Value pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	//
+	// * > **Note:** One of `value` or `valueWo` must be specified.
+	ValueWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
@@ -236,6 +255,11 @@ type secretArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	Value *string `pulumi:"value"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	//
+	// * > **Note:** One of `value` or `valueWo` must be specified.
+	ValueWo *string `pulumi:"valueWo"`
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
@@ -258,6 +282,11 @@ type SecretArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	Value pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	//
+	// * > **Note:** One of `value` or `valueWo` must be specified.
+	ValueWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
@@ -394,6 +423,14 @@ func (o SecretOutput) Tags() pulumi.StringMapOutput {
 // Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 func (o SecretOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+//
+// * > **Note:** One of `value` or `valueWo` must be specified.
+func (o SecretOutput) ValueWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.ValueWo }).(pulumi.StringPtrOutput)
 }
 
 // An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.

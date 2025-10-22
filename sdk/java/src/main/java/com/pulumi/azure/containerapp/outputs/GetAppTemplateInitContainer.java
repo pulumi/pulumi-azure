@@ -55,7 +55,7 @@ public final class GetAppTemplateInitContainer {
      */
     private String name;
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     private List<GetAppTemplateInitContainerVolumeMount> volumeMounts;
@@ -118,7 +118,7 @@ public final class GetAppTemplateInitContainer {
         return this.name;
     }
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     public List<GetAppTemplateInitContainerVolumeMount> volumeMounts() {

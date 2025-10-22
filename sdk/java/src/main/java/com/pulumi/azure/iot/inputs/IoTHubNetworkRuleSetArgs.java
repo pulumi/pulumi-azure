@@ -49,14 +49,14 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * One or more `ip_rule` blocks as defined below.
+     * One or more `ipRule` blocks as defined below.
      * 
      */
     @Import(name="ipRules")
     private @Nullable Output<List<IoTHubNetworkRuleSetIpRuleArgs>> ipRules;
 
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<IoTHubNetworkRuleSetIpRuleArgs>>> ipRules() {
@@ -132,7 +132,7 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 

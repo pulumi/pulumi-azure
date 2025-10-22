@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolStartTaskContainerGetArgs>? _containers;
 
         /// <summary>
-        /// A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        /// A `Container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         /// </summary>
         public InputList<Inputs.PoolStartTaskContainerGetArgs> Containers
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolStartTaskResourceFileGetArgs>? _resourceFiles;
 
         /// <summary>
-        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
+        /// One or more `ResourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
         /// </summary>
         public InputList<Inputs.PoolStartTaskResourceFileGetArgs> ResourceFiles
         {
@@ -61,13 +61,13 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<int>? TaskRetryMaximum { get; set; }
 
         /// <summary>
-        /// A `user_identity` block that describes the user identity under which the start task runs as defined below.
+        /// A `UserIdentity` block that describes the user identity under which the start task runs as defined below.
         /// </summary>
         [Input("userIdentity", required: true)]
         public Input<Inputs.PoolStartTaskUserIdentityGetArgs> UserIdentity { get; set; } = null!;
 
         /// <summary>
-        /// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
+        /// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `False`.
         /// </summary>
         [Input("waitForSuccess")]
         public Input<bool>? WaitForSuccess { get; set; }

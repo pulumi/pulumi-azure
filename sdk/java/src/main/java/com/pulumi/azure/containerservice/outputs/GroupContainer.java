@@ -46,7 +46,7 @@ public final class GroupContainer {
      */
     private String image;
     /**
-     * @return The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+     * @return The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable GroupContainerLivenessProbe livenessProbe;
@@ -71,7 +71,7 @@ public final class GroupContainer {
      */
     private @Nullable List<GroupContainerPort> ports;
     /**
-     * @return The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+     * @return The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable GroupContainerReadinessProbe readinessProbe;
@@ -128,7 +128,7 @@ public final class GroupContainer {
         return this.image;
     }
     /**
-     * @return The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+     * @return The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<GroupContainerLivenessProbe> livenessProbe() {
@@ -163,7 +163,7 @@ public final class GroupContainer {
         return this.ports == null ? List.of() : this.ports;
     }
     /**
-     * @return The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+     * @return The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<GroupContainerReadinessProbe> readinessProbe() {

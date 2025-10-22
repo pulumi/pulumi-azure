@@ -195,14 +195,14 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
         return this.routing;
     }
     /**
-     * One or more `traffic_selector_policy` blocks as defined below.
+     * One or more `trafficSelectorPolicy` blocks as defined below.
      * 
      */
     @Export(name="trafficSelectorPolicies", refs={List.class,VpnGatewayConnectionTrafficSelectorPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnGatewayConnectionTrafficSelectorPolicy>> trafficSelectorPolicies;
 
     /**
-     * @return One or more `traffic_selector_policy` blocks as defined below.
+     * @return One or more `trafficSelectorPolicy` blocks as defined below.
      * 
      */
     public Output<Optional<List<VpnGatewayConnectionTrafficSelectorPolicy>>> trafficSelectorPolicies() {
@@ -223,14 +223,14 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
         return this.vpnGatewayId;
     }
     /**
-     * One or more `vpn_link` blocks as defined below.
+     * One or more `vpnLink` blocks as defined below.
      * 
      */
     @Export(name="vpnLinks", refs={List.class,VpnGatewayConnectionVpnLink.class}, tree="[0,1]")
     private Output<List<VpnGatewayConnectionVpnLink>> vpnLinks;
 
     /**
-     * @return One or more `vpn_link` blocks as defined below.
+     * @return One or more `vpnLink` blocks as defined below.
      * 
      */
     public Output<List<VpnGatewayConnectionVpnLink>> vpnLinks() {

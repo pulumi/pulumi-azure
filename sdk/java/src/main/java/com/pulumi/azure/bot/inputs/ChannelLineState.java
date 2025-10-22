@@ -33,14 +33,14 @@ public final class ChannelLineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `line_channel` blocks as defined below.
+     * One or more `lineChannel` blocks as defined below.
      * 
      */
     @Import(name="lineChannels")
     private @Nullable Output<List<ChannelLineLineChannelArgs>> lineChannels;
 
     /**
-     * @return One or more `line_channel` blocks as defined below.
+     * @return One or more `lineChannel` blocks as defined below.
      * 
      */
     public Optional<Output<List<ChannelLineLineChannelArgs>>> lineChannels() {
@@ -126,7 +126,7 @@ public final class ChannelLineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lineChannels One or more `line_channel` blocks as defined below.
+         * @param lineChannels One or more `lineChannel` blocks as defined below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ChannelLineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lineChannels One or more `line_channel` blocks as defined below.
+         * @param lineChannels One or more `lineChannel` blocks as defined below.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ChannelLineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lineChannels One or more `line_channel` blocks as defined below.
+         * @param lineChannels One or more `lineChannel` blocks as defined below.
          * 
          * @return builder
          * 

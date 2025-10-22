@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
         /// 
-        /// &gt; **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
+        /// &gt; **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a DependsOn between this resource and the Load Balancer Rule.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerBackendAddressPoolIds;
         /// <summary>
@@ -32,19 +32,19 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+        /// Is this the Primary IP Configuration for this Network Interface? Possible values are `True` and `False`. Defaults to `False`.
         /// 
-        /// &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+        /// &gt; **Note:** One `IpConfiguration` block must be marked as Primary for each Network Interface.
         /// </summary>
         public readonly bool? Primary;
         /// <summary>
-        /// A `public_ip_address` block as defined below.
+        /// A `PublicIpAddress` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> PublicIpAddresses;
         /// <summary>
         /// The ID of the Subnet which this IP Configuration should be connected to.
         /// 
-        /// &gt; **Note:** `subnet_id` is required if version is set to `IPv4`.
+        /// &gt; **Note:** `SubnetId` is required if version is set to `IPv4`.
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>

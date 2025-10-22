@@ -167,7 +167,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string ClientCertMode;
         /// <summary>
-        /// An `connection_string` block as defined below.
+        /// An `ConnectionString` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionAppConnectionStringResult> ConnectionStrings;
         /// <summary>
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionAppIdentityResult> Identities;
         public readonly string Location;
@@ -204,17 +204,17 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string OutboundIpAddresses;
         /// <summary>
-        /// A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
         public readonly string ResourceGroupName;
         public readonly ImmutableArray<Outputs.GetFunctionAppSiteConfigResult> SiteConfigs;
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionAppSiteCredentialResult> SiteCredentials;
         /// <summary>
-        /// A `source_control` block as defined below.
+        /// A `SourceControl` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionAppSourceControlResult> SourceControls;
         public readonly ImmutableDictionary<string, string>? Tags;

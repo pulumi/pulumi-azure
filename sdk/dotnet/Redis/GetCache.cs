@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Redis
         public readonly string Name;
         public readonly bool NonSslPortEnabled;
         /// <summary>
-        /// A list of `patch_schedule` blocks as defined below.
+        /// A list of `PatchSchedule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCachePatchScheduleResult> PatchSchedules;
         /// <summary>
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         public readonly string PrivateStaticIpAddress;
         /// <summary>
-        /// A `redis_configuration` block as defined below.
+        /// A `RedisConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCacheRedisConfigurationResult> RedisConfigurations;
         public readonly string ResourceGroupName;

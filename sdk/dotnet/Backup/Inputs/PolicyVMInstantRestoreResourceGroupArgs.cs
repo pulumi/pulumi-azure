@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyVMInstantRestoreResourceGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The prefix for the `instant_restore_resource_group` name.
+        /// The prefix for the `InstantRestoreResourceGroup` name.
         /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
 
         /// <summary>
-        /// The suffix for the `instant_restore_resource_group` name.
+        /// The suffix for the `InstantRestoreResourceGroup` name.
         /// </summary>
         [Input("suffix")]
         public Input<string>? Suffix { get; set; }

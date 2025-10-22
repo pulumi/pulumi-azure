@@ -99,18 +99,18 @@ public class Vault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.classicVmwareReplicationEnabled);
     }
     /**
-     * Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+     * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
      * 
-     * &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+     * &gt; **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      * 
      */
     @Export(name="crossRegionRestoreEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> crossRegionRestoreEnabled;
 
     /**
-     * @return Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+     * @return Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
      * 
-     * &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+     * &gt; **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      * 
      */
     public Output<Optional<Boolean>> crossRegionRestoreEnabled() {

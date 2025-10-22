@@ -204,14 +204,14 @@ public final class DatasetAzureBlobState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Import(name="schemaColumns")
     private @Nullable Output<List<DatasetAzureBlobSchemaColumnArgs>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Optional<Output<List<DatasetAzureBlobSchemaColumnArgs>>> schemaColumns() {
@@ -521,7 +521,7 @@ public final class DatasetAzureBlobState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class DatasetAzureBlobState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class DatasetAzureBlobState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 

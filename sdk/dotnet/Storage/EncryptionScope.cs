@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> InfrastructureEncryptionRequired { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
+        /// The ID of the Key Vault Key. Required when `Source` is `Microsoft.KeyVault`.
         /// </summary>
         [Output("keyVaultKeyId")]
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? InfrastructureEncryptionRequired { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
+        /// The ID of the Key Vault Key. Required when `Source` is `Microsoft.KeyVault`.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? InfrastructureEncryptionRequired { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
+        /// The ID of the Key Vault Key. Required when `Source` is `Microsoft.KeyVault`.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }

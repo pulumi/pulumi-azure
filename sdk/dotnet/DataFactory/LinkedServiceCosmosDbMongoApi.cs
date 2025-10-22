@@ -116,7 +116,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// Whether API server version is 3.2 or higher. Defaults to `false`.
+        /// Whether API server version is 3.2 or higher. Defaults to `False`.
         /// </summary>
         [Output("serverVersionIs32OrHigher")]
         public Output<bool?> ServerVersionIs32OrHigher { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// Whether API server version is 3.2 or higher. Defaults to `false`.
+        /// Whether API server version is 3.2 or higher. Defaults to `False`.
         /// </summary>
         [Input("serverVersionIs32OrHigher")]
         public Input<bool>? ServerVersionIs32OrHigher { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// Whether API server version is 3.2 or higher. Defaults to `false`.
+        /// Whether API server version is 3.2 or higher. Defaults to `False`.
         /// </summary>
         [Input("serverVersionIs32OrHigher")]
         public Input<bool>? ServerVersionIs32OrHigher { get; set; }

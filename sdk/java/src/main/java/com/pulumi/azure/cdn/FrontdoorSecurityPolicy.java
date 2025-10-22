@@ -179,14 +179,14 @@ public class FrontdoorSecurityPolicy extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * An `security_policies` block as defined below.
+     * An `securityPolicies` block as defined below.
      * 
      */
     @Export(name="securityPolicies", refs={FrontdoorSecurityPolicySecurityPolicies.class}, tree="[0]")
     private Output<FrontdoorSecurityPolicySecurityPolicies> securityPolicies;
 
     /**
-     * @return An `security_policies` block as defined below.
+     * @return An `securityPolicies` block as defined below.
      * 
      */
     public Output<FrontdoorSecurityPolicySecurityPolicies> securityPolicies() {

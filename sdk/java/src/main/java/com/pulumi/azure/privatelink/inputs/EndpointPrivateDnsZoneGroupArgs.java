@@ -48,14 +48,14 @@ public final class EndpointPrivateDnsZoneGroupArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+     * Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
      * 
      */
     @Import(name="privateDnsZoneIds", required=true)
     private Output<List<String>> privateDnsZoneIds;
 
     /**
-     * @return Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+     * @return Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
      * 
      */
     public Output<List<String>> privateDnsZoneIds() {
@@ -131,7 +131,7 @@ public final class EndpointPrivateDnsZoneGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param privateDnsZoneIds Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+         * @param privateDnsZoneIds Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class EndpointPrivateDnsZoneGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param privateDnsZoneIds Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+         * @param privateDnsZoneIds Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class EndpointPrivateDnsZoneGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param privateDnsZoneIds Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+         * @param privateDnsZoneIds Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
          * 
          * @return builder
          * 

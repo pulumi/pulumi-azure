@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? AffinityCookieName;
         /// <summary>
-        /// One or more `authentication_certificate_backend` blocks as defined below.
+        /// One or more `AuthenticationCertificateBackend` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate> AuthenticationCertificates;
         /// <summary>
-        /// A `connection_draining` block as defined below.
+        /// A `ConnectionDraining` block as defined below.
         /// </summary>
         public readonly Outputs.ApplicationGatewayBackendHttpSettingConnectionDraining? ConnectionDraining;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string CookieBasedAffinity;
         /// <summary>
-        /// Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+        /// Host header to be sent to the backend servers. Cannot be set if `PickHostNameFromBackendAddress` is set to `True`.
         /// </summary>
         public readonly string? HostName;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+        /// Whether host header should be picked from the host name of the backend server. Defaults to `False`.
         /// </summary>
         public readonly bool? PickHostNameFromBackendAddress;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? RequestTimeout;
         /// <summary>
-        /// A list of `trusted_root_certificate` names.
+        /// A list of `TrustedRootCertificate` names.
         /// </summary>
         public readonly ImmutableArray<string> TrustedRootCertificateNames;
 

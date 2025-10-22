@@ -30,13 +30,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> DataCollectionEndpointId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `data_flow` blocks as defined below.
+        /// One or more `DataFlow` blocks as defined below.
         /// </summary>
         [Output("dataFlows")]
         public Output<ImmutableArray<Outputs.DataCollectionRuleDataFlow>> DataFlows { get; private set; } = null!;
 
         /// <summary>
-        /// A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+        /// A `DataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         /// </summary>
         [Output("dataSources")]
         public Output<Outputs.DataCollectionRuleDataSources?> DataSources { get; private set; } = null!;
@@ -48,13 +48,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `destinations` block as defined below.
+        /// A `Destinations` block as defined below.
         /// </summary>
         [Output("destinations")]
         public Output<Outputs.DataCollectionRuleDestinations> Destinations { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.DataCollectionRuleIdentity?> Identity { get; private set; } = null!;
@@ -66,9 +66,9 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> ImmutableId { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources. And a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// 
-        /// &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+        /// &gt; **Note:** Once `Kind` has been set, changing it forces a new Data Collection Rule to be created.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `stream_declaration` block as defined below.
+        /// A `StreamDeclaration` block as defined below.
         /// </summary>
         [Output("streamDeclarations")]
         public Output<ImmutableArray<Outputs.DataCollectionRuleStreamDeclaration>> StreamDeclarations { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.DataCollectionRuleDataFlowArgs>? _dataFlows;
 
         /// <summary>
-        /// One or more `data_flow` blocks as defined below.
+        /// One or more `DataFlow` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataFlowArgs> DataFlows
         {
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+        /// A `DataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         /// </summary>
         [Input("dataSources")]
         public Input<Inputs.DataCollectionRuleDataSourcesArgs>? DataSources { get; set; }
@@ -180,21 +180,21 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `destinations` block as defined below.
+        /// A `Destinations` block as defined below.
         /// </summary>
         [Input("destinations", required: true)]
         public Input<Inputs.DataCollectionRuleDestinationsArgs> Destinations { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DataCollectionRuleIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources. And a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// 
-        /// &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+        /// &gt; **Note:** Once `Kind` has been set, changing it forces a new Data Collection Rule to be created.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.DataCollectionRuleStreamDeclarationArgs>? _streamDeclarations;
 
         /// <summary>
-        /// A `stream_declaration` block as defined below.
+        /// A `StreamDeclaration` block as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleStreamDeclarationArgs> StreamDeclarations
         {
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.DataCollectionRuleDataFlowGetArgs>? _dataFlows;
 
         /// <summary>
-        /// One or more `data_flow` blocks as defined below.
+        /// One or more `DataFlow` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataFlowGetArgs> DataFlows
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+        /// A `DataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         /// </summary>
         [Input("dataSources")]
         public Input<Inputs.DataCollectionRuleDataSourcesGetArgs>? DataSources { get; set; }
@@ -280,13 +280,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `destinations` block as defined below.
+        /// A `Destinations` block as defined below.
         /// </summary>
         [Input("destinations")]
         public Input<Inputs.DataCollectionRuleDestinationsGetArgs>? Destinations { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DataCollectionRuleIdentityGetArgs>? Identity { get; set; }
@@ -298,9 +298,9 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? ImmutableId { get; set; }
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources. And a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// 
-        /// &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+        /// &gt; **Note:** Once `Kind` has been set, changing it forces a new Data Collection Rule to be created.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.DataCollectionRuleStreamDeclarationGetArgs>? _streamDeclarations;
 
         /// <summary>
-        /// A `stream_declaration` block as defined below.
+        /// A `StreamDeclaration` block as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleStreamDeclarationGetArgs> StreamDeclarations
         {

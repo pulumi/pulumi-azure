@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<string> AddressSpaces;
         /// <summary>
-        /// A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
+        /// A `BgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLocalNetworkGatewayBgpSettingResult> BgpSettings;
         /// <summary>

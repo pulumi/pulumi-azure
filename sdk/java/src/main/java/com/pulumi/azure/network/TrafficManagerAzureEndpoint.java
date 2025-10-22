@@ -132,14 +132,14 @@ public class TrafficManagerAzureEndpoint extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.alwaysServeEnabled);
     }
     /**
-     * One or more `custom_header` blocks as defined below.
+     * One or more `customHeader` blocks as defined below.
      * 
      */
     @Export(name="customHeaders", refs={List.class,TrafficManagerAzureEndpointCustomHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrafficManagerAzureEndpointCustomHeader>> customHeaders;
 
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     public Output<Optional<List<TrafficManagerAzureEndpointCustomHeader>>> customHeaders() {

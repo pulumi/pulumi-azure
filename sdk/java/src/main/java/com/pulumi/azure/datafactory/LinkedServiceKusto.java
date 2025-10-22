@@ -283,7 +283,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      * 
-     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+     * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
      * 
      * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      * 
@@ -294,7 +294,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
     /**
      * @return The service principal tenant id or name in which to authenticate against the Kusto Database.
      * 
-     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+     * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
      * 
      * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      * 

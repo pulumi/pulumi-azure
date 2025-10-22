@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.ScheduledQueryRulesAlertV2CriteriaDimensionGetArgs>? _dimensions;
 
         /// <summary>
-        /// A `dimension` block as defined below.
+        /// A `Dimension` block as defined below.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRulesAlertV2CriteriaDimensionGetArgs> Dimensions
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// A `failing_periods` block as defined below.
+        /// A `FailingPeriods` block as defined below.
         /// </summary>
         [Input("failingPeriods")]
         public Input<Inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsGetArgs>? FailingPeriods { get; set; }
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// Specifies the column containing the metric measure number.
         /// 
-        /// &gt; **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+        /// &gt; **Note:** `MetricMeasureColumn` is required if `TimeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `MetricMeasureColumn` can not be specified if `TimeAggregationMethod` is `Count`.
         /// </summary>
         [Input("metricMeasureColumn")]
         public Input<string>? MetricMeasureColumn { get; set; }

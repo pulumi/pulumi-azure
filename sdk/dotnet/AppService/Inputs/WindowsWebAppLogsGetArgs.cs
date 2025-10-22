@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `application_logs` block as defined above.
+        /// A `ApplicationLogs` block as defined above.
         /// </summary>
         [Input("applicationLogs")]
         public Input<Inputs.WindowsWebAppLogsApplicationLogsGetArgs>? ApplicationLogs { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? FailedRequestTracing { get; set; }
 
         /// <summary>
-        /// A `http_logs` block as defined above.
+        /// A `HttpLogs` block as defined above.
         /// </summary>
         [Input("httpLogs")]
         public Input<Inputs.WindowsWebAppLogsHttpLogsGetArgs>? HttpLogs { get; set; }

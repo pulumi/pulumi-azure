@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should path evaluation with trace route be enabled? Defaults to `true`.
+        /// Should path evaluation with trace route be enabled? Defaults to `True`.
         /// </summary>
         [Input("traceRouteEnabled")]
         public Input<bool>? TraceRouteEnabled { get; set; }

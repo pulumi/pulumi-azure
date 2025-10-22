@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EmailServiceDomainVerificationRecordDmarc {
     /**
-     * @return The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+     * @return The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      * 
      */
     private @Nullable String name;
@@ -35,7 +35,7 @@ public final class EmailServiceDomainVerificationRecordDmarc {
 
     private EmailServiceDomainVerificationRecordDmarc() {}
     /**
-     * @return The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+     * @return The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      * 
      */
     public Optional<String> name() {

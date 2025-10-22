@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Network
     public sealed class GetNetworkManagerConnectivityConfigurationResult
     {
         /// <summary>
-        /// An `applies_to_group` block as defined below.
+        /// An `AppliesToGroup` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkManagerConnectivityConfigurationAppliesToGroupResult> AppliesToGroups;
         /// <summary>
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly bool GlobalMeshEnabled;
         /// <summary>
-        /// A `hub` block as defined below.
+        /// A `Hub` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkManagerConnectivityConfigurationHubResult> Hubs;
         /// <summary>

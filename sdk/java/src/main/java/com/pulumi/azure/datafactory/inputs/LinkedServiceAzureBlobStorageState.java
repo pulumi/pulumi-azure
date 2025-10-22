@@ -55,14 +55,14 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
     }
 
     /**
-     * The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
+     * The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
+     * @return The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -70,18 +70,18 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
     }
 
     /**
-     * The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+     * The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
      * 
-     * &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+     * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
      * 
      */
     @Import(name="connectionStringInsecure")
     private @Nullable Output<String> connectionStringInsecure;
 
     /**
-     * @return The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+     * @return The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
      * 
-     * &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+     * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
      * 
      */
     public Optional<Output<String>> connectionStringInsecure() {
@@ -134,14 +134,14 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
     }
 
     /**
-     * A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+     * A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
      * 
      */
     @Import(name="keyVaultSasToken")
     private @Nullable Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs> keyVaultSasToken;
 
     /**
-     * @return A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+     * @return A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
      * 
      */
     public Optional<Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs>> keyVaultSasToken() {
@@ -179,14 +179,14 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
     }
 
     /**
-     * The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
+     * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      * 
      */
     @Import(name="sasUri")
     private @Nullable Output<String> sasUri;
 
     /**
-     * @return The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
+     * @return The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      * 
      */
     public Optional<Output<String>> sasUri() {
@@ -340,7 +340,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param connectionString The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
+         * @param connectionString The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param connectionString The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
+         * @param connectionString The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
          * 
          * @return builder
          * 
@@ -361,9 +361,9 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param connectionStringInsecure The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+         * @param connectionStringInsecure The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
          * 
-         * &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+         * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
          * 
          * @return builder
          * 
@@ -374,9 +374,9 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param connectionStringInsecure The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+         * @param connectionStringInsecure The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
          * 
-         * &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+         * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param keyVaultSasToken A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+         * @param keyVaultSasToken A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param keyVaultSasToken A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+         * @param keyVaultSasToken A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param sasUri The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
+         * @param sasUri The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param sasUri The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
+         * @param sasUri The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
          * 
          * @return builder
          * 

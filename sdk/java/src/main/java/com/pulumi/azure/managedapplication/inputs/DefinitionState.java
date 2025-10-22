@@ -187,7 +187,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
+     * &gt; **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      * 
      */
     @Import(name="tags")
@@ -196,7 +196,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
+     * &gt; **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -482,7 +482,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
-         * &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
+         * &gt; **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
-         * &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
+         * &gt; **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
          * 
          * @return builder
          * 

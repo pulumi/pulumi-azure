@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppTemplateTcpScaleRule
     {
         /// <summary>
-        /// Zero or more `authentication` blocks as defined below.
+        /// Zero or more `Authentication` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateTcpScaleRuleAuthentication> Authentications;
         /// <summary>

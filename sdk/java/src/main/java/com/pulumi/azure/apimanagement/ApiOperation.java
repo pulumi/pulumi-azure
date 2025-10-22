@@ -225,14 +225,14 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responses);
     }
     /**
-     * One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+     * One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      * 
      */
     @Export(name="templateParameters", refs={List.class,ApiOperationTemplateParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApiOperationTemplateParameter>> templateParameters;
 
     /**
-     * @return One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+     * @return One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      * 
      */
     public Output<Optional<List<ApiOperationTemplateParameter>>> templateParameters() {

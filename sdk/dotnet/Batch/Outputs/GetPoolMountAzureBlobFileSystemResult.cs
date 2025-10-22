@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string ContainerName;
         /// <summary>
-        /// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+        /// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `AccountKey` and `SasKey`; exactly one must be specified.
         /// </summary>
         public readonly string IdentityId;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string RelativeMountPath;
         /// <summary>
-        /// The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+        /// The Azure Storage SAS token. This property is mutually exclusive with both `AccountKey` and `IdentityId`; exactly one must be specified.
         /// </summary>
         public readonly string SasKey;
 

@@ -126,29 +126,29 @@ namespace Pulumi.Azure.SystemCenter
         public Output<string> CustomLocationId { get; private set; } = null!;
 
         /// <summary>
-        /// A `hardware` block as defined below. Changing this forces a new resource to be created.
+        /// A `Hardware` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This resource will be restarted while updating `hardware`.
+        /// &gt; **Note:** This resource will be restarted while updating `Hardware`.
         /// </summary>
         [Output("hardware")]
         public Output<Outputs.VirtualMachineManagerVirtualMachineInstanceHardware?> Hardware { get; private set; } = null!;
 
         /// <summary>
-        /// An `infrastructure` block as defined below.
+        /// An `Infrastructure` block as defined below.
         /// </summary>
         [Output("infrastructure")]
         public Output<Outputs.VirtualMachineManagerVirtualMachineInstanceInfrastructure> Infrastructure { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_interface` block as defined below.
+        /// A `NetworkInterface` block as defined below.
         /// 
-        /// &gt; **Note:** This resource will be restarted while updating `network_interface`.
+        /// &gt; **Note:** This resource will be restarted while updating `NetworkInterface`.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
-        /// An `operating_system` block as defined below. Changing this forces a new resource to be created.
+        /// An `OperatingSystem` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("operatingSystem")]
         public Output<Outputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystem?> OperatingSystem { get; private set; } = null!;
@@ -160,9 +160,9 @@ namespace Pulumi.Azure.SystemCenter
         public Output<string> ScopedResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_disk` block as defined below.
+        /// A `StorageDisk` block as defined below.
         /// 
-        /// &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+        /// &gt; **Note:** This resource will be restarted while updating `StorageDisk`.
         /// </summary>
         [Output("storageDisks")]
         public Output<ImmutableArray<Outputs.VirtualMachineManagerVirtualMachineInstanceStorageDisk>> StorageDisks { get; private set; } = null!;
@@ -226,15 +226,15 @@ namespace Pulumi.Azure.SystemCenter
         public Input<string> CustomLocationId { get; set; } = null!;
 
         /// <summary>
-        /// A `hardware` block as defined below. Changing this forces a new resource to be created.
+        /// A `Hardware` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This resource will be restarted while updating `hardware`.
+        /// &gt; **Note:** This resource will be restarted while updating `Hardware`.
         /// </summary>
         [Input("hardware")]
         public Input<Inputs.VirtualMachineManagerVirtualMachineInstanceHardwareArgs>? Hardware { get; set; }
 
         /// <summary>
-        /// An `infrastructure` block as defined below.
+        /// An `Infrastructure` block as defined below.
         /// </summary>
         [Input("infrastructure", required: true)]
         public Input<Inputs.VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs> Infrastructure { get; set; } = null!;
@@ -243,9 +243,9 @@ namespace Pulumi.Azure.SystemCenter
         private InputList<Inputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// A `network_interface` block as defined below.
+        /// A `NetworkInterface` block as defined below.
         /// 
-        /// &gt; **Note:** This resource will be restarted while updating `network_interface`.
+        /// &gt; **Note:** This resource will be restarted while updating `NetworkInterface`.
         /// </summary>
         public InputList<Inputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.SystemCenter
         }
 
         /// <summary>
-        /// An `operating_system` block as defined below. Changing this forces a new resource to be created.
+        /// An `OperatingSystem` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("operatingSystem")]
         public Input<Inputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs>? OperatingSystem { get; set; }
@@ -269,9 +269,9 @@ namespace Pulumi.Azure.SystemCenter
         private InputList<Inputs.VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs>? _storageDisks;
 
         /// <summary>
-        /// A `storage_disk` block as defined below.
+        /// A `StorageDisk` block as defined below.
         /// 
-        /// &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+        /// &gt; **Note:** This resource will be restarted while updating `StorageDisk`.
         /// </summary>
         public InputList<Inputs.VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs> StorageDisks
         {
@@ -306,15 +306,15 @@ namespace Pulumi.Azure.SystemCenter
         public Input<string>? CustomLocationId { get; set; }
 
         /// <summary>
-        /// A `hardware` block as defined below. Changing this forces a new resource to be created.
+        /// A `Hardware` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This resource will be restarted while updating `hardware`.
+        /// &gt; **Note:** This resource will be restarted while updating `Hardware`.
         /// </summary>
         [Input("hardware")]
         public Input<Inputs.VirtualMachineManagerVirtualMachineInstanceHardwareGetArgs>? Hardware { get; set; }
 
         /// <summary>
-        /// An `infrastructure` block as defined below.
+        /// An `Infrastructure` block as defined below.
         /// </summary>
         [Input("infrastructure")]
         public Input<Inputs.VirtualMachineManagerVirtualMachineInstanceInfrastructureGetArgs>? Infrastructure { get; set; }
@@ -323,9 +323,9 @@ namespace Pulumi.Azure.SystemCenter
         private InputList<Inputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// A `network_interface` block as defined below.
+        /// A `NetworkInterface` block as defined below.
         /// 
-        /// &gt; **Note:** This resource will be restarted while updating `network_interface`.
+        /// &gt; **Note:** This resource will be restarted while updating `NetworkInterface`.
         /// </summary>
         public InputList<Inputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.SystemCenter
         }
 
         /// <summary>
-        /// An `operating_system` block as defined below. Changing this forces a new resource to be created.
+        /// An `OperatingSystem` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("operatingSystem")]
         public Input<Inputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystemGetArgs>? OperatingSystem { get; set; }
@@ -349,9 +349,9 @@ namespace Pulumi.Azure.SystemCenter
         private InputList<Inputs.VirtualMachineManagerVirtualMachineInstanceStorageDiskGetArgs>? _storageDisks;
 
         /// <summary>
-        /// A `storage_disk` block as defined below.
+        /// A `StorageDisk` block as defined below.
         /// 
-        /// &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+        /// &gt; **Note:** This resource will be restarted while updating `StorageDisk`.
         /// </summary>
         public InputList<Inputs.VirtualMachineManagerVirtualMachineInstanceStorageDiskGetArgs> StorageDisks
         {

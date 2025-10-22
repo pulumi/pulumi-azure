@@ -129,7 +129,7 @@ namespace Pulumi.Azure.AppService
         public Output<string?> SendKeyName { get; private set; } = null!;
 
         /// <summary>
-        /// The Primary Access Key for the `send_key_name`
+        /// The Primary Access Key for the `SendKeyName`
         /// </summary>
         [Output("sendKeyValue")]
         public Output<string> SendKeyValue { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.AppService
         private Input<string>? _sendKeyValue;
 
         /// <summary>
-        /// The Primary Access Key for the `send_key_name`
+        /// The Primary Access Key for the `SendKeyName`
         /// </summary>
         public Input<string>? SendKeyValue
         {

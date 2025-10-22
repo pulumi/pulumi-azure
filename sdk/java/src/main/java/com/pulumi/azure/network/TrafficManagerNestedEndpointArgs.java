@@ -22,14 +22,14 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
     public static final TrafficManagerNestedEndpointArgs Empty = new TrafficManagerNestedEndpointArgs();
 
     /**
-     * One or more `custom_header` blocks as defined below.
+     * One or more `customHeader` blocks as defined below.
      * 
      */
     @Import(name="customHeaders")
     private @Nullable Output<List<TrafficManagerNestedEndpointCustomHeaderArgs>> customHeaders;
 
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     public Optional<Output<List<TrafficManagerNestedEndpointCustomHeaderArgs>>> customHeaders() {
@@ -84,7 +84,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
-     * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+     * &gt; **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won&#39;t have any effect.
      * 
      */
     @Import(name="minimumChildEndpoints", required=true)
@@ -93,7 +93,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
     /**
      * @return This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
-     * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+     * &gt; **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won&#39;t have any effect.
      * 
      */
     public Output<Integer> minimumChildEndpoints() {
@@ -257,7 +257,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         /**
          * @param minimumChildEndpoints This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
          * 
-         * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+         * &gt; **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won&#39;t have any effect.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         /**
          * @param minimumChildEndpoints This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
          * 
-         * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+         * &gt; **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won&#39;t have any effect.
          * 
          * @return builder
          * 

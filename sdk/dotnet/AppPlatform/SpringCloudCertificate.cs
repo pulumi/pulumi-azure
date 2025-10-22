@@ -170,7 +170,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string?> CertificateContent { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Output("excludePrivateKey")]
         public Output<bool?> ExcludePrivateKey { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? CertificateContent { get; set; }
 
         /// <summary>
-        /// Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("excludePrivateKey")]
         public Input<bool>? ExcludePrivateKey { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? CertificateContent { get; set; }
 
         /// <summary>
-        /// Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("excludePrivateKey")]
         public Input<bool>? ExcludePrivateKey { get; set; }

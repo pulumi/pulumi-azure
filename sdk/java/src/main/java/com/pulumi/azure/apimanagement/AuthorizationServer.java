@@ -289,7 +289,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * The password associated with the Resource Owner.
      * 
-     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      * 
      */
     @Export(name="resourceOwnerPassword", refs={String.class}, tree="[0]")
@@ -298,7 +298,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The password associated with the Resource Owner.
      * 
-     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      * 
      */
     public Output<Optional<String>> resourceOwnerPassword() {
@@ -307,7 +307,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * The username associated with the Resource Owner.
      * 
-     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      * 
      */
     @Export(name="resourceOwnerUsername", refs={String.class}, tree="[0]")
@@ -316,7 +316,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The username associated with the Resource Owner.
      * 
-     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      * 
      */
     public Output<Optional<String>> resourceOwnerUsername() {
@@ -337,14 +337,14 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.supportState);
     }
     /**
-     * A `token_body_parameter` block as defined below.
+     * A `tokenBodyParameter` block as defined below.
      * 
      */
     @Export(name="tokenBodyParameters", refs={List.class,AuthorizationServerTokenBodyParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AuthorizationServerTokenBodyParameter>> tokenBodyParameters;
 
     /**
-     * @return A `token_body_parameter` block as defined below.
+     * @return A `tokenBodyParameter` block as defined below.
      * 
      */
     public Output<Optional<List<AuthorizationServerTokenBodyParameter>>> tokenBodyParameters() {

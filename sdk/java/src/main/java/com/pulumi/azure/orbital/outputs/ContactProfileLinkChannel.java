@@ -31,7 +31,7 @@ public final class ContactProfileLinkChannel {
      */
     private @Nullable String demodulationConfiguration;
     /**
-     * @return Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+     * @return Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
      * 
      */
     private List<ContactProfileLinkChannelEndPoint> endPoints;
@@ -69,7 +69,7 @@ public final class ContactProfileLinkChannel {
         return Optional.ofNullable(this.demodulationConfiguration);
     }
     /**
-     * @return Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+     * @return Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
      * 
      */
     public List<ContactProfileLinkChannelEndPoint> endPoints() {

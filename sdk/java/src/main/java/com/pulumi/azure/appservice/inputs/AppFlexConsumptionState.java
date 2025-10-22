@@ -28,14 +28,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     public static final AppFlexConsumptionState Empty = new AppFlexConsumptionState();
 
     /**
-     * One or more `always_ready` blocks as defined below.
+     * One or more `alwaysReady` blocks as defined below.
      * 
      */
     @Import(name="alwaysReadies")
     private @Nullable Output<List<AppFlexConsumptionAlwaysReadyArgs>> alwaysReadies;
 
     /**
-     * @return One or more `always_ready` blocks as defined below.
+     * @return One or more `alwaysReady` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppFlexConsumptionAlwaysReadyArgs>>> alwaysReadies() {
@@ -58,14 +58,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<AppFlexConsumptionAuthSettingsArgs> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Optional<Output<AppFlexConsumptionAuthSettingsArgs>> authSettings() {
@@ -73,14 +73,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * An `auth_settings_v2` block as defined below.
+     * An `authSettingsV2` block as defined below.
      * 
      */
     @Import(name="authSettingsV2")
     private @Nullable Output<AppFlexConsumptionAuthSettingsV2Args> authSettingsV2;
 
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public Optional<Output<AppFlexConsumptionAuthSettingsV2Args>> authSettingsV2() {
@@ -133,14 +133,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<AppFlexConsumptionConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppFlexConsumptionConnectionStringArgs>>> connectionStrings() {
@@ -210,7 +210,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     /**
      * The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
      * 
-     * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+     * &gt; **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
      * 
      */
     @Import(name="httpConcurrency")
@@ -219,7 +219,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     /**
      * @return The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
      * 
-     * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+     * &gt; **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
      * 
      */
     public Optional<Output<Integer>> httpConcurrency() {
@@ -362,14 +362,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     @Import(name="possibleOutboundIpAddressLists")
     private @Nullable Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     public Optional<Output<List<String>>> possibleOutboundIpAddressLists() {
@@ -377,14 +377,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -467,14 +467,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<AppFlexConsumptionSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Optional<Output<AppFlexConsumptionSiteConfigArgs>> siteConfig() {
@@ -482,14 +482,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Import(name="siteCredentials")
     private @Nullable Output<List<AppFlexConsumptionSiteCredentialArgs>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Optional<Output<List<AppFlexConsumptionSiteCredentialArgs>>> siteCredentials() {
@@ -497,14 +497,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `sticky_settings` block as defined below.
+     * A `stickySettings` block as defined below.
      * 
      */
     @Import(name="stickySettings")
     private @Nullable Output<AppFlexConsumptionStickySettingsArgs> stickySettings;
 
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public Optional<Output<AppFlexConsumptionStickySettingsArgs>> stickySettings() {
@@ -514,7 +514,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      * 
-     * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+     * &gt; **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
      * 
      */
     @Import(name="storageAccessKey")
@@ -523,7 +523,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     /**
      * @return The access key which will be used to access the backend storage account for the Function App.
      * 
-     * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+     * &gt; **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
      * 
      */
     public Optional<Output<String>> storageAccessKey() {
@@ -576,18 +576,18 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
+     * The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
      * 
-     * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
+     * &gt; **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
      * 
      */
     @Import(name="storageUserAssignedIdentityId")
     private @Nullable Output<String> storageUserAssignedIdentityId;
 
     /**
-     * @return The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
+     * @return The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
      * 
-     * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
+     * &gt; **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
      * 
      */
     public Optional<Output<String>> storageUserAssignedIdentityId() {
@@ -619,7 +619,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     @Import(name="webdeployPublishBasicAuthenticationEnabled")
@@ -628,7 +628,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -638,7 +638,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     @Import(name="zipDeployFile")
@@ -647,7 +647,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     public Optional<Output<String>> zipDeployFile() {
@@ -719,7 +719,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param alwaysReadies One or more `always_ready` blocks as defined below.
+         * @param alwaysReadies One or more `alwaysReady` blocks as defined below.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param alwaysReadies One or more `always_ready` blocks as defined below.
+         * @param alwaysReadies One or more `alwaysReady` blocks as defined below.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param alwaysReadies One or more `always_ready` blocks as defined below.
+         * @param alwaysReadies One or more `alwaysReady` blocks as defined below.
          * 
          * @return builder
          * 
@@ -771,7 +771,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -782,7 +782,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -792,7 +792,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -803,7 +803,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -876,7 +876,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -887,7 +887,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -897,7 +897,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -993,7 +993,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         /**
          * @param httpConcurrency The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
          * 
-         * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+         * &gt; **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
          * 
          * @return builder
          * 
@@ -1006,7 +1006,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         /**
          * @param httpConcurrency The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
          * 
-         * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+         * &gt; **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
          * 
          * @return builder
          * 
@@ -1215,7 +1215,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
          * 
          * @return builder
          * 
@@ -1226,7 +1226,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
          * 
          * @return builder
          * 
@@ -1236,7 +1236,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
          * 
          * @return builder
          * 
@@ -1246,7 +1246,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1257,7 +1257,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1372,7 +1372,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1383,7 +1383,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1393,7 +1393,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1404,7 +1404,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1414,7 +1414,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1424,7 +1424,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stickySettings A `sticky_settings` block as defined below.
+         * @param stickySettings A `stickySettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1435,7 +1435,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stickySettings A `sticky_settings` block as defined below.
+         * @param stickySettings A `stickySettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1447,7 +1447,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         /**
          * @param storageAccessKey The access key which will be used to access the backend storage account for the Function App.
          * 
-         * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+         * &gt; **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
          * 
          * @return builder
          * 
@@ -1460,7 +1460,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         /**
          * @param storageAccessKey The access key which will be used to access the backend storage account for the Function App.
          * 
-         * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+         * &gt; **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
          * 
          * @return builder
          * 
@@ -1533,9 +1533,9 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
+         * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
          * 
-         * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
+         * &gt; **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
          * 
          * @return builder
          * 
@@ -1546,9 +1546,9 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
+         * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
          * 
-         * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
+         * &gt; **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
          * 
          * @return builder
          * 
@@ -1590,7 +1590,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1603,7 +1603,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1615,7 +1615,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Function App.
          * 
-         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 
@@ -1628,7 +1628,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Function App.
          * 
-         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 

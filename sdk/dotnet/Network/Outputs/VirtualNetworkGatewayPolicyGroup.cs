@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VirtualNetworkGatewayPolicyGroup
     {
         /// <summary>
-        /// Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
+        /// Is this a Default Virtual Network Gateway Policy Group? Defaults to `False`.
         /// </summary>
         public readonly bool? IsDefault;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// One or more `policy_member` blocks as defined below.
+        /// One or more `PolicyMember` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayPolicyGroupPolicyMember> PolicyMembers;
         /// <summary>

@@ -145,14 +145,14 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
         return this.clientConnectionPort;
     }
     /**
-     * One or more `custom_fabric_setting` blocks as defined below.
+     * One or more `customFabricSetting` blocks as defined below.
      * 
      */
     @Export(name="customFabricSettings", refs={List.class,ManagedClusterCustomFabricSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ManagedClusterCustomFabricSetting>> customFabricSettings;
 
     /**
-     * @return One or more `custom_fabric_setting` blocks as defined below.
+     * @return One or more `customFabricSetting` blocks as defined below.
      * 
      */
     public Output<Optional<List<ManagedClusterCustomFabricSetting>>> customFabricSettings() {
@@ -201,14 +201,14 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
         return this.httpGatewayPort;
     }
     /**
-     * One or more `lb_rule` blocks as defined below.
+     * One or more `lbRule` blocks as defined below.
      * 
      */
     @Export(name="lbRules", refs={List.class,ManagedClusterLbRule.class}, tree="[0,1]")
     private Output<List<ManagedClusterLbRule>> lbRules;
 
     /**
-     * @return One or more `lb_rule` blocks as defined below.
+     * @return One or more `lbRule` blocks as defined below.
      * 
      */
     public Output<List<ManagedClusterLbRule>> lbRules() {
@@ -243,14 +243,14 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `node_type` blocks as defined below.
+     * One or more `nodeType` blocks as defined below.
      * 
      */
     @Export(name="nodeTypes", refs={List.class,ManagedClusterNodeType.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ManagedClusterNodeType>> nodeTypes;
 
     /**
-     * @return One or more `node_type` blocks as defined below.
+     * @return One or more `nodeType` blocks as defined below.
      * 
      */
     public Output<Optional<List<ManagedClusterNodeType>>> nodeTypes() {

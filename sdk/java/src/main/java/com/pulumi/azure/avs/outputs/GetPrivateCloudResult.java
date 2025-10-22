@@ -41,7 +41,7 @@ public final class GetPrivateCloudResult {
      */
     private String location;
     /**
-     * @return A `management_cluster` block as defined below.
+     * @return A `managementCluster` block as defined below.
      * 
      */
     private List<GetPrivateCloudManagementCluster> managementClusters;
@@ -135,7 +135,7 @@ public final class GetPrivateCloudResult {
         return this.location;
     }
     /**
-     * @return A `management_cluster` block as defined below.
+     * @return A `managementCluster` block as defined below.
      * 
      */
     public List<GetPrivateCloudManagementCluster> managementClusters() {

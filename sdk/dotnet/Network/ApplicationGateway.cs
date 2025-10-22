@@ -170,37 +170,37 @@ namespace Pulumi.Azure.Network
     public partial class ApplicationGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `authentication_certificate` blocks as defined below.
+        /// One or more `AuthenticationCertificate` blocks as defined below.
         /// </summary>
         [Output("authenticationCertificates")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificate>> AuthenticationCertificates { get; private set; } = null!;
 
         /// <summary>
-        /// An `autoscale_configuration` block as defined below.
+        /// An `AutoscaleConfiguration` block as defined below.
         /// </summary>
         [Output("autoscaleConfiguration")]
         public Output<Outputs.ApplicationGatewayAutoscaleConfiguration?> AutoscaleConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `backend_address_pool` blocks as defined below.
+        /// One or more `BackendAddressPool` blocks as defined below.
         /// </summary>
         [Output("backendAddressPools")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPool>> BackendAddressPools { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `backend_http_settings` blocks as defined below.
+        /// One or more `BackendHttpSettings` blocks as defined below.
         /// </summary>
         [Output("backendHttpSettings")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSetting>> BackendHttpSettings { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `CustomErrorConfiguration` blocks as defined below.
         /// </summary>
         [Output("customErrorConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorConfiguration>> CustomErrorConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
         /// </summary>
         [Output("enableHttp2")]
         public Output<bool?> EnableHttp2 { get; private set; } = null!;
@@ -224,37 +224,37 @@ namespace Pulumi.Azure.Network
         public Output<bool?> ForceFirewallPolicyAssociation { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as defined below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// </summary>
         [Output("frontendIpConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIpConfiguration>> FrontendIpConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `frontend_port` blocks as defined below.
+        /// One or more `FrontendPort` blocks as defined below.
         /// </summary>
         [Output("frontendPorts")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPort>> FrontendPorts { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `gateway_ip_configuration` blocks as defined below.
+        /// One or more `GatewayIpConfiguration` blocks as defined below.
         /// </summary>
         [Output("gatewayIpConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayGatewayIpConfiguration>> GatewayIpConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// A `global` block as defined below.
+        /// A `Global` block as defined below.
         /// </summary>
         [Output("global")]
         public Output<Outputs.ApplicationGatewayGlobal?> Global { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `http_listener` blocks as defined below.
+        /// One or more `HttpListener` blocks as defined below.
         /// </summary>
         [Output("httpListeners")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListener>> HttpListeners { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ApplicationGatewayIdentity?> Identity { get; private set; } = null!;
@@ -272,31 +272,31 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `private_endpoint_connection` blocks as defined below.
+        /// A list of `PrivateEndpointConnection` blocks as defined below.
         /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayPrivateEndpointConnection>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `private_link_configuration` blocks as defined below.
+        /// One or more `PrivateLinkConfiguration` blocks as defined below.
         /// </summary>
         [Output("privateLinkConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayPrivateLinkConfiguration>> PrivateLinkConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `probe` blocks as defined below.
+        /// One or more `Probe` blocks as defined below.
         /// </summary>
         [Output("probes")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayProbe>> Probes { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `redirect_configuration` blocks as defined below.
+        /// One or more `RedirectConfiguration` blocks as defined below.
         /// </summary>
         [Output("redirectConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayRedirectConfiguration>> RedirectConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `request_routing_rule` blocks as defined below.
+        /// One or more `RequestRoutingRule` blocks as defined below.
         /// </summary>
         [Output("requestRoutingRules")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRule>> RequestRoutingRules { get; private set; } = null!;
@@ -308,31 +308,31 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+        /// One or more `RewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         /// </summary>
         [Output("rewriteRuleSets")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSet>> RewriteRuleSets { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ApplicationGatewaySku> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ssl_certificate` blocks as defined below.
+        /// One or more `SslCertificate` blocks as defined below.
         /// </summary>
         [Output("sslCertificates")]
         public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificate>> SslCertificates { get; private set; } = null!;
 
         /// <summary>
-        /// a `ssl_policy` block as defined below.
+        /// a `SslPolicy` block as defined below.
         /// </summary>
         [Output("sslPolicy")]
         public Output<Outputs.ApplicationGatewaySslPolicy> SslPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ssl_profile` blocks as defined below.
+        /// One or more `SslProfile` blocks as defined below.
         /// </summary>
         [Output("sslProfiles")]
         public Output<ImmutableArray<Outputs.ApplicationGatewaySslProfile>> SslProfiles { get; private set; } = null!;
@@ -344,25 +344,25 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `trusted_client_certificate` blocks as defined below.
+        /// One or more `TrustedClientCertificate` blocks as defined below.
         /// </summary>
         [Output("trustedClientCertificates")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayTrustedClientCertificate>> TrustedClientCertificates { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `trusted_root_certificate` blocks as defined below.
+        /// One or more `TrustedRootCertificate` blocks as defined below.
         /// </summary>
         [Output("trustedRootCertificates")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayTrustedRootCertificate>> TrustedRootCertificates { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `url_path_map` blocks as defined below.
+        /// One or more `UrlPathMap` blocks as defined below.
         /// </summary>
         [Output("urlPathMaps")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayUrlPathMap>> UrlPathMaps { get; private set; } = null!;
 
         /// <summary>
-        /// A `waf_configuration` block as defined below.
+        /// A `WafConfiguration` block as defined below.
         /// </summary>
         [Output("wafConfiguration")]
         public Output<Outputs.ApplicationGatewayWafConfiguration?> WafConfiguration { get; private set; } = null!;
@@ -425,7 +425,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs>? _authenticationCertificates;
 
         /// <summary>
-        /// One or more `authentication_certificate` blocks as defined below.
+        /// One or more `AuthenticationCertificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs> AuthenticationCertificates
         {
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// An `autoscale_configuration` block as defined below.
+        /// An `AutoscaleConfiguration` block as defined below.
         /// </summary>
         [Input("autoscaleConfiguration")]
         public Input<Inputs.ApplicationGatewayAutoscaleConfigurationArgs>? AutoscaleConfiguration { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs>? _backendAddressPools;
 
         /// <summary>
-        /// One or more `backend_address_pool` blocks as defined below.
+        /// One or more `BackendAddressPool` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs> BackendAddressPools
         {
@@ -455,7 +455,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayBackendHttpSettingArgs>? _backendHttpSettings;
 
         /// <summary>
-        /// One or more `backend_http_settings` blocks as defined below.
+        /// One or more `BackendHttpSettings` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayBackendHttpSettingArgs> BackendHttpSettings
         {
@@ -467,7 +467,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayCustomErrorConfigurationArgs>? _customErrorConfigurations;
 
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `CustomErrorConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayCustomErrorConfigurationArgs> CustomErrorConfigurations
         {
@@ -476,7 +476,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
         /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
@@ -503,7 +503,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as defined below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayFrontendIpConfigurationArgs> FrontendIpConfigurations
         {
@@ -515,7 +515,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayFrontendPortArgs>? _frontendPorts;
 
         /// <summary>
-        /// One or more `frontend_port` blocks as defined below.
+        /// One or more `FrontendPort` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayFrontendPortArgs> FrontendPorts
         {
@@ -527,7 +527,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayGatewayIpConfigurationArgs>? _gatewayIpConfigurations;
 
         /// <summary>
-        /// One or more `gateway_ip_configuration` blocks as defined below.
+        /// One or more `GatewayIpConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayGatewayIpConfigurationArgs> GatewayIpConfigurations
         {
@@ -536,7 +536,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `global` block as defined below.
+        /// A `Global` block as defined below.
         /// </summary>
         [Input("global")]
         public Input<Inputs.ApplicationGatewayGlobalArgs>? Global { get; set; }
@@ -545,7 +545,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayHttpListenerArgs>? _httpListeners;
 
         /// <summary>
-        /// One or more `http_listener` blocks as defined below.
+        /// One or more `HttpListener` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayHttpListenerArgs> HttpListeners
         {
@@ -554,7 +554,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ApplicationGatewayIdentityArgs>? Identity { get; set; }
@@ -575,7 +575,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationArgs>? _privateLinkConfigurations;
 
         /// <summary>
-        /// One or more `private_link_configuration` blocks as defined below.
+        /// One or more `PrivateLinkConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationArgs> PrivateLinkConfigurations
         {
@@ -587,7 +587,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayProbeArgs>? _probes;
 
         /// <summary>
-        /// One or more `probe` blocks as defined below.
+        /// One or more `Probe` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayProbeArgs> Probes
         {
@@ -599,7 +599,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRedirectConfigurationArgs>? _redirectConfigurations;
 
         /// <summary>
-        /// One or more `redirect_configuration` blocks as defined below.
+        /// One or more `RedirectConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRedirectConfigurationArgs> RedirectConfigurations
         {
@@ -611,7 +611,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs>? _requestRoutingRules;
 
         /// <summary>
-        /// One or more `request_routing_rule` blocks as defined below.
+        /// One or more `RequestRoutingRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs> RequestRoutingRules
         {
@@ -629,7 +629,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRewriteRuleSetArgs>? _rewriteRuleSets;
 
         /// <summary>
-        /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+        /// One or more `RewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRewriteRuleSetArgs> RewriteRuleSets
         {
@@ -638,7 +638,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ApplicationGatewaySkuArgs> Sku { get; set; } = null!;
@@ -647,7 +647,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewaySslCertificateArgs>? _sslCertificates;
 
         /// <summary>
-        /// One or more `ssl_certificate` blocks as defined below.
+        /// One or more `SslCertificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewaySslCertificateArgs> SslCertificates
         {
@@ -656,7 +656,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// a `ssl_policy` block as defined below.
+        /// a `SslPolicy` block as defined below.
         /// </summary>
         [Input("sslPolicy")]
         public Input<Inputs.ApplicationGatewaySslPolicyArgs>? SslPolicy { get; set; }
@@ -665,7 +665,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewaySslProfileArgs>? _sslProfiles;
 
         /// <summary>
-        /// One or more `ssl_profile` blocks as defined below.
+        /// One or more `SslProfile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewaySslProfileArgs> SslProfiles
         {
@@ -689,7 +689,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayTrustedClientCertificateArgs>? _trustedClientCertificates;
 
         /// <summary>
-        /// One or more `trusted_client_certificate` blocks as defined below.
+        /// One or more `TrustedClientCertificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayTrustedClientCertificateArgs> TrustedClientCertificates
         {
@@ -701,7 +701,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayTrustedRootCertificateArgs>? _trustedRootCertificates;
 
         /// <summary>
-        /// One or more `trusted_root_certificate` blocks as defined below.
+        /// One or more `TrustedRootCertificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayTrustedRootCertificateArgs> TrustedRootCertificates
         {
@@ -713,7 +713,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayUrlPathMapArgs>? _urlPathMaps;
 
         /// <summary>
-        /// One or more `url_path_map` blocks as defined below.
+        /// One or more `UrlPathMap` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayUrlPathMapArgs> UrlPathMaps
         {
@@ -722,7 +722,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `waf_configuration` block as defined below.
+        /// A `WafConfiguration` block as defined below.
         /// </summary>
         [Input("wafConfiguration")]
         public Input<Inputs.ApplicationGatewayWafConfigurationArgs>? WafConfiguration { get; set; }
@@ -753,7 +753,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayAuthenticationCertificateGetArgs>? _authenticationCertificates;
 
         /// <summary>
-        /// One or more `authentication_certificate` blocks as defined below.
+        /// One or more `AuthenticationCertificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayAuthenticationCertificateGetArgs> AuthenticationCertificates
         {
@@ -762,7 +762,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// An `autoscale_configuration` block as defined below.
+        /// An `AutoscaleConfiguration` block as defined below.
         /// </summary>
         [Input("autoscaleConfiguration")]
         public Input<Inputs.ApplicationGatewayAutoscaleConfigurationGetArgs>? AutoscaleConfiguration { get; set; }
@@ -771,7 +771,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayBackendAddressPoolGetArgs>? _backendAddressPools;
 
         /// <summary>
-        /// One or more `backend_address_pool` blocks as defined below.
+        /// One or more `BackendAddressPool` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayBackendAddressPoolGetArgs> BackendAddressPools
         {
@@ -783,7 +783,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayBackendHttpSettingGetArgs>? _backendHttpSettings;
 
         /// <summary>
-        /// One or more `backend_http_settings` blocks as defined below.
+        /// One or more `BackendHttpSettings` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayBackendHttpSettingGetArgs> BackendHttpSettings
         {
@@ -795,7 +795,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayCustomErrorConfigurationGetArgs>? _customErrorConfigurations;
 
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `CustomErrorConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayCustomErrorConfigurationGetArgs> CustomErrorConfigurations
         {
@@ -804,7 +804,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
         /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
@@ -831,7 +831,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as defined below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayFrontendIpConfigurationGetArgs> FrontendIpConfigurations
         {
@@ -843,7 +843,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayFrontendPortGetArgs>? _frontendPorts;
 
         /// <summary>
-        /// One or more `frontend_port` blocks as defined below.
+        /// One or more `FrontendPort` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayFrontendPortGetArgs> FrontendPorts
         {
@@ -855,7 +855,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayGatewayIpConfigurationGetArgs>? _gatewayIpConfigurations;
 
         /// <summary>
-        /// One or more `gateway_ip_configuration` blocks as defined below.
+        /// One or more `GatewayIpConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayGatewayIpConfigurationGetArgs> GatewayIpConfigurations
         {
@@ -864,7 +864,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `global` block as defined below.
+        /// A `Global` block as defined below.
         /// </summary>
         [Input("global")]
         public Input<Inputs.ApplicationGatewayGlobalGetArgs>? Global { get; set; }
@@ -873,7 +873,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayHttpListenerGetArgs>? _httpListeners;
 
         /// <summary>
-        /// One or more `http_listener` blocks as defined below.
+        /// One or more `HttpListener` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayHttpListenerGetArgs> HttpListeners
         {
@@ -882,7 +882,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ApplicationGatewayIdentityGetArgs>? Identity { get; set; }
@@ -903,7 +903,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayPrivateEndpointConnectionGetArgs>? _privateEndpointConnections;
 
         /// <summary>
-        /// A list of `private_endpoint_connection` blocks as defined below.
+        /// A list of `PrivateEndpointConnection` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayPrivateEndpointConnectionGetArgs> PrivateEndpointConnections
         {
@@ -915,7 +915,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationGetArgs>? _privateLinkConfigurations;
 
         /// <summary>
-        /// One or more `private_link_configuration` blocks as defined below.
+        /// One or more `PrivateLinkConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationGetArgs> PrivateLinkConfigurations
         {
@@ -927,7 +927,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayProbeGetArgs>? _probes;
 
         /// <summary>
-        /// One or more `probe` blocks as defined below.
+        /// One or more `Probe` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayProbeGetArgs> Probes
         {
@@ -939,7 +939,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRedirectConfigurationGetArgs>? _redirectConfigurations;
 
         /// <summary>
-        /// One or more `redirect_configuration` blocks as defined below.
+        /// One or more `RedirectConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRedirectConfigurationGetArgs> RedirectConfigurations
         {
@@ -951,7 +951,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRequestRoutingRuleGetArgs>? _requestRoutingRules;
 
         /// <summary>
-        /// One or more `request_routing_rule` blocks as defined below.
+        /// One or more `RequestRoutingRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRequestRoutingRuleGetArgs> RequestRoutingRules
         {
@@ -969,7 +969,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRewriteRuleSetGetArgs>? _rewriteRuleSets;
 
         /// <summary>
-        /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
+        /// One or more `RewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRewriteRuleSetGetArgs> RewriteRuleSets
         {
@@ -978,7 +978,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ApplicationGatewaySkuGetArgs>? Sku { get; set; }
@@ -987,7 +987,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewaySslCertificateGetArgs>? _sslCertificates;
 
         /// <summary>
-        /// One or more `ssl_certificate` blocks as defined below.
+        /// One or more `SslCertificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewaySslCertificateGetArgs> SslCertificates
         {
@@ -996,7 +996,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// a `ssl_policy` block as defined below.
+        /// a `SslPolicy` block as defined below.
         /// </summary>
         [Input("sslPolicy")]
         public Input<Inputs.ApplicationGatewaySslPolicyGetArgs>? SslPolicy { get; set; }
@@ -1005,7 +1005,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewaySslProfileGetArgs>? _sslProfiles;
 
         /// <summary>
-        /// One or more `ssl_profile` blocks as defined below.
+        /// One or more `SslProfile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewaySslProfileGetArgs> SslProfiles
         {
@@ -1029,7 +1029,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayTrustedClientCertificateGetArgs>? _trustedClientCertificates;
 
         /// <summary>
-        /// One or more `trusted_client_certificate` blocks as defined below.
+        /// One or more `TrustedClientCertificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayTrustedClientCertificateGetArgs> TrustedClientCertificates
         {
@@ -1041,7 +1041,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayTrustedRootCertificateGetArgs>? _trustedRootCertificates;
 
         /// <summary>
-        /// One or more `trusted_root_certificate` blocks as defined below.
+        /// One or more `TrustedRootCertificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayTrustedRootCertificateGetArgs> TrustedRootCertificates
         {
@@ -1053,7 +1053,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayUrlPathMapGetArgs>? _urlPathMaps;
 
         /// <summary>
-        /// One or more `url_path_map` blocks as defined below.
+        /// One or more `UrlPathMap` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayUrlPathMapGetArgs> UrlPathMaps
         {
@@ -1062,7 +1062,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `waf_configuration` block as defined below.
+        /// A `WafConfiguration` block as defined below.
         /// </summary>
         [Input("wafConfiguration")]
         public Input<Inputs.ApplicationGatewayWafConfigurationGetArgs>? WafConfiguration { get; set; }

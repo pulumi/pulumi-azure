@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagedInstanceAzureActiveDirectoryAdministrator {
     /**
-     * @return Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
+     * @return Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
      * 
      */
     private @Nullable Boolean azureadAuthenticationOnlyEnabled;
@@ -41,7 +41,7 @@ public final class ManagedInstanceAzureActiveDirectoryAdministrator {
 
     private ManagedInstanceAzureActiveDirectoryAdministrator() {}
     /**
-     * @return Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
+     * @return Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
      * 
      */
     public Optional<Boolean> azureadAuthenticationOnlyEnabled() {

@@ -18,19 +18,19 @@ namespace Pulumi.Azure.Stack.Outputs
         /// </summary>
         public readonly string ActiveDirectoryOrganizationalUnitPath;
         /// <summary>
-        /// Whether to enable BitLocker for boot volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable BitLocker for boot volume. Possible values are `True` and `False`. When set to `True`, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? BitlockerBootVolumeEnabled;
         /// <summary>
-        /// Whether to enable BitLocker for data volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable BitLocker for data volume. Possible values are `True` and `False`. When set to `True`, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? BitlockerDataVolumeEnabled;
         /// <summary>
-        /// A `cluster` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// A `Cluster` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly Outputs.HciDeploymentSettingScaleUnitCluster Cluster;
         /// <summary>
-        /// Whether to enable credential guard. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable credential guard. Possible values are `True` and `False`. Defaults to `False`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? CredentialGuardEnabled;
         /// <summary>
@@ -38,31 +38,31 @@ namespace Pulumi.Azure.Stack.Outputs
         /// </summary>
         public readonly string DomainFqdn;
         /// <summary>
-        /// Whether to enable drift control. Possible values are `true` and `false`. When set to `true`, the security baseline is re-applied regularly. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable drift control. Possible values are `True` and `False`. When set to `True`, the security baseline is re-applied regularly. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? DriftControlEnabled;
         /// <summary>
-        /// Whether to enable DRTM protection. Possible values are `true` and `false`. When set to `true`, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable DRTM protection. Possible values are `True` and `False`. When set to `True`, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? DrtmProtectionEnabled;
         /// <summary>
-        /// Whether to collect log data to facilitate quicker issue resolution. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to collect log data to facilitate quicker issue resolution. Possible values are `True` and `False`. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? EpisodicDataUploadEnabled;
         /// <summary>
-        /// Whether to store data sent to Microsoft in EU. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to `false` results in all data sent to Microsoft to be stored outside of the EU. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to store data sent to Microsoft in EU. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to `False` results in all data sent to Microsoft to be stored outside of the EU. Possible values are `True` and `False`. Defaults to `False`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? EuLocationEnabled;
         /// <summary>
-        /// A `host_network` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// A `HostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly Outputs.HciDeploymentSettingScaleUnitHostNetwork HostNetwork;
         /// <summary>
-        /// Whether to enable HVCI protection. Possible values are `true` and `false`. When set to `true`, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable HVCI protection. Possible values are `True` and `False`. When set to `True`, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? HvciProtectionEnabled;
         /// <summary>
-        /// One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// One or more `InfrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.HciDeploymentSettingScaleUnitInfrastructureNetwork> InfrastructureNetworks;
         /// <summary>
@@ -70,11 +70,11 @@ namespace Pulumi.Azure.Stack.Outputs
         /// </summary>
         public readonly string NamePrefix;
         /// <summary>
-        /// A `optional_service` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// A `OptionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly Outputs.HciDeploymentSettingScaleUnitOptionalService OptionalService;
         /// <summary>
-        /// One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// One or more `PhysicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.HciDeploymentSettingScaleUnitPhysicalNode> PhysicalNodes;
         /// <summary>
@@ -82,27 +82,27 @@ namespace Pulumi.Azure.Stack.Outputs
         /// </summary>
         public readonly string SecretsLocation;
         /// <summary>
-        /// Whether to enable side channel mitigation. Possible values are `true` and `false`. When set to `true`, all side channel mitigations are enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable side channel mitigation. Possible values are `True` and `False`. When set to `True`, all side channel mitigations are enabled on your Azure HCI cluster. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? SideChannelMitigationEnabled;
         /// <summary>
-        /// Whether to enable SMB cluster encryption. Possible values are `true` and `false`. When set to `true`, cluster east-west traffic is encrypted. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable SMB cluster encryption. Possible values are `True` and `False`. When set to `True`, cluster east-west traffic is encrypted. Defaults to `False`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? SmbClusterEncryptionEnabled;
         /// <summary>
-        /// Whether to enable SMB signing. Possible values are `true` and `false`. When set to `true`, the SMB default instance requires sign in for the client and server services. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable SMB signing. Possible values are `True` and `False`. When set to `True`, the SMB default instance requires sign in for the client and server services. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? SmbSigningEnabled;
         /// <summary>
-        /// A `storage` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// A `Storage` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly Outputs.HciDeploymentSettingScaleUnitStorage Storage;
         /// <summary>
-        /// Whether the telemetry data will be sent to Microsoft. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether the telemetry data will be sent to Microsoft. Possible values are `True` and `False`. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? StreamingDataClientEnabled;
         /// <summary>
-        /// Whether to enable WDAC. Possible values are `true` and `false`. When set to `true`, applications and the code that you can run on your Azure Stack HCI cluster are limited. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether to enable WDAC. Possible values are `True` and `False`. When set to `True`, applications and the code that you can run on your Azure Stack HCI cluster are limited. Defaults to `True`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly bool? WdacEnabled;
 

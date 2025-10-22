@@ -84,14 +84,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `application_stack` block as defined above.
+     * A `applicationStack` block as defined above.
      * 
      */
     @Import(name="applicationStack")
     private @Nullable Output<LinuxWebAppSlotSiteConfigApplicationStackArgs> applicationStack;
 
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     public Optional<Output<LinuxWebAppSlotSiteConfigApplicationStackArgs>> applicationStack() {
@@ -99,14 +99,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+     * A `autoHealSetting` block as defined above. Required with `autoHeal`.
      * 
      */
     @Import(name="autoHealSetting")
     private @Nullable Output<LinuxWebAppSlotSiteConfigAutoHealSettingArgs> autoHealSetting;
 
     /**
-     * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+     * @return A `autoHealSetting` block as defined above. Required with `autoHeal`.
      * 
      */
     public Optional<Output<LinuxWebAppSlotSiteConfigAutoHealSettingArgs>> autoHealSetting() {
@@ -207,14 +207,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     @Import(name="healthCheckEvictionTimeInMin")
     private @Nullable Output<Integer> healthCheckEvictionTimeInMin;
 
     /**
-     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     public Optional<Output<Integer>> healthCheckEvictionTimeInMin() {
@@ -252,14 +252,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="ipRestrictionDefaultAction")
     private @Nullable Output<String> ipRestrictionDefaultAction;
 
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> ipRestrictionDefaultAction() {
@@ -267,14 +267,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * One or more `ip_restriction` blocks as defined above.
+     * One or more `ipRestriction` blocks as defined above.
      * 
      */
     @Import(name="ipRestrictions")
     private @Nullable Output<List<LinuxWebAppSlotSiteConfigIpRestrictionArgs>> ipRestrictions;
 
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     public Optional<Output<List<LinuxWebAppSlotSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -379,14 +379,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="scmIpRestrictionDefaultAction")
     private @Nullable Output<String> scmIpRestrictionDefaultAction;
 
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> scmIpRestrictionDefaultAction() {
@@ -394,14 +394,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * One or more `scm_ip_restriction` blocks as defined above.
+     * One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<LinuxWebAppSlotSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     public Optional<Output<List<LinuxWebAppSlotSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -431,14 +431,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+     * Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
     private @Nullable Output<Boolean> scmUseMainIpRestriction;
 
     /**
-     * @return Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -647,7 +647,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param applicationStack A `application_stack` block as defined above.
+         * @param applicationStack A `applicationStack` block as defined above.
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param applicationStack A `application_stack` block as defined above.
+         * @param applicationStack A `applicationStack` block as defined above.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autoHealSetting A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+         * @param autoHealSetting A `autoHealSetting` block as defined above. Required with `autoHeal`.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autoHealSetting A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+         * @param autoHealSetting A `autoHealSetting` block as defined above. Required with `autoHeal`.
          * 
          * @return builder
          * 
@@ -826,7 +826,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          * 
          * @return builder
          * 
@@ -837,7 +837,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          * 
          * @return builder
          * 
@@ -889,7 +889,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -900,7 +900,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
+         * @param ipRestrictions One or more `ipRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -921,7 +921,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
+         * @param ipRestrictions One or more `ipRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -931,7 +931,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
+         * @param ipRestrictions One or more `ipRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1076,7 +1076,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1087,7 +1087,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1097,7 +1097,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scmIpRestrictions One or more `scm_ip_restriction` blocks as defined above.
+         * @param scmIpRestrictions One or more `scmIpRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1108,7 +1108,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scmIpRestrictions One or more `scm_ip_restriction` blocks as defined above.
+         * @param scmIpRestrictions One or more `scmIpRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1118,7 +1118,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scmIpRestrictions One or more `scm_ip_restriction` blocks as defined above.
+         * @param scmIpRestrictions One or more `scmIpRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1158,7 +1158,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+         * @param scmUseMainIpRestriction Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
          * 
          * @return builder
          * 
@@ -1169,7 +1169,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+         * @param scmUseMainIpRestriction Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
          * 
          * @return builder
          * 

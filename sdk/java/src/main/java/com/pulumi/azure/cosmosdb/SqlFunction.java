@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 /**
  * Manages an SQL User Defined Function.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * SQL User Defined Functions can be imported using the `resource id`, e.g.

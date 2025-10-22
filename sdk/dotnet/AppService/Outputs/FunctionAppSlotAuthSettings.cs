@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class FunctionAppSlotAuthSettings
     {
         /// <summary>
-        /// An `active_directory` block as defined below.
+        /// An `ActiveDirectory` block as defined below.
         /// </summary>
         public readonly Outputs.FunctionAppSlotAuthSettingsActiveDirectory? ActiveDirectory;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         /// 
-        /// &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+        /// &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `UnauthenticatedClientAction` to work.
         /// </summary>
         public readonly string? DefaultProvider;
         /// <summary>
@@ -36,11 +36,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A `facebook` block as defined below.
+        /// A `Facebook` block as defined below.
         /// </summary>
         public readonly Outputs.FunctionAppSlotAuthSettingsFacebook? Facebook;
         /// <summary>
-        /// A `google` block as defined below.
+        /// A `Google` block as defined below.
         /// </summary>
         public readonly Outputs.FunctionAppSlotAuthSettingsGoogle? Google;
         /// <summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Issuer;
         /// <summary>
-        /// A `microsoft` block as defined below.
+        /// A `Microsoft` block as defined below.
         /// </summary>
         public readonly Outputs.FunctionAppSlotAuthSettingsMicrosoft? Microsoft;
         /// <summary>
@@ -60,11 +60,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly double? TokenRefreshExtensionHours;
         /// <summary>
-        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
+        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `False`.
         /// </summary>
         public readonly bool? TokenStoreEnabled;
         /// <summary>
-        /// A `twitter` block as defined below.
+        /// A `Twitter` block as defined below.
         /// </summary>
         public readonly Outputs.FunctionAppSlotAuthSettingsTwitter? Twitter;
         /// <summary>

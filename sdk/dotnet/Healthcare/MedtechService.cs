@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string> EventhubNamespaceName { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.MedtechServiceIdentity?> Identity { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string> EventhubNamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.MedtechServiceIdentityArgs>? Identity { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? EventhubNamespaceName { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.MedtechServiceIdentityGetArgs>? Identity { get; set; }

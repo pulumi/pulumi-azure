@@ -21,7 +21,7 @@ namespace Pulumi.Azure.PaloAlto.Inputs
         /// <summary>
         /// The ID of the Public IP Address on which to receive traffic.
         /// 
-        /// &gt; **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+        /// &gt; **Note:** This must be an Azure Public IP address ID also specified in the `PublicIpAddressIds` list.
         /// </summary>
         [Input("publicIpAddressId", required: true)]
         public Input<string> PublicIpAddressId { get; set; } = null!;

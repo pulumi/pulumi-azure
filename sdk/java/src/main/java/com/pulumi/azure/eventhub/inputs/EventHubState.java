@@ -20,14 +20,14 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
     public static final EventHubState Empty = new EventHubState();
 
     /**
-     * A `capture_description` block as defined below.
+     * A `captureDescription` block as defined below.
      * 
      */
     @Import(name="captureDescription")
     private @Nullable Output<EventHubCaptureDescriptionArgs> captureDescription;
 
     /**
-     * @return A `capture_description` block as defined below.
+     * @return A `captureDescription` block as defined below.
      * 
      */
     public Optional<Output<EventHubCaptureDescriptionArgs>> captureDescription() {
@@ -37,7 +37,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the number of days to retain the events for this Event Hub.
      * 
-     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      * 
      */
     @Import(name="messageRetention")
@@ -46,7 +46,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the number of days to retain the events for this Event Hub.
      * 
-     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      * 
      */
     public Optional<Output<Integer>> messageRetention() {
@@ -85,19 +85,19 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+     * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="namespaceName")
     private @Nullable Output<String> namespaceName;
 
     /**
      * @deprecated
-     * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+     * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<String>> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -105,9 +105,9 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the current number of shards on the Event Hub.
      * 
-     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+     * &gt; **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
      * 
-     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 
      */
     @Import(name="partitionCount")
@@ -116,9 +116,9 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the current number of shards on the Event Hub.
      * 
-     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+     * &gt; **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
      * 
-     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 
      */
     public Optional<Output<Integer>> partitionCount() {
@@ -142,32 +142,32 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+     * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
      * @deprecated
-     * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+     * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
 
     /**
-     * A `retention_description` block as defined below.
+     * A `retentionDescription` block as defined below.
      * 
      */
     @Import(name="retentionDescription")
     private @Nullable Output<EventHubRetentionDescriptionArgs> retentionDescription;
 
     /**
-     * @return A `retention_description` block as defined below.
+     * @return A `retentionDescription` block as defined below.
      * 
      */
     public Optional<Output<EventHubRetentionDescriptionArgs>> retentionDescription() {
@@ -223,7 +223,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captureDescription A `capture_description` block as defined below.
+         * @param captureDescription A `captureDescription` block as defined below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captureDescription A `capture_description` block as defined below.
+         * @param captureDescription A `captureDescription` block as defined below.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param messageRetention Specifies the number of days to retain the events for this Event Hub.
          * 
-         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param messageRetention Specifies the number of days to retain the events for this Event Hub.
          * 
-         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
          * 
          * @return builder
          * 
@@ -314,10 +314,10 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+         * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder namespaceName(@Nullable Output<String> namespaceName) {
             $.namespaceName = namespaceName;
             return this;
@@ -327,10 +327,10 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+         * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
         }
@@ -338,9 +338,9 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param partitionCount Specifies the current number of shards on the Event Hub.
          * 
-         * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+         * &gt; **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
          * 
-         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
          * 
          * @return builder
          * 
@@ -353,9 +353,9 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param partitionCount Specifies the current number of shards on the Event Hub.
          * 
-         * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+         * &gt; **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
          * 
-         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
          * 
          * @return builder
          * 
@@ -399,10 +399,10 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+         * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
@@ -412,16 +412,16 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+         * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
         /**
-         * @param retentionDescription A `retention_description` block as defined below.
+         * @param retentionDescription A `retentionDescription` block as defined below.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionDescription A `retention_description` block as defined below.
+         * @param retentionDescription A `retentionDescription` block as defined below.
          * 
          * @return builder
          * 

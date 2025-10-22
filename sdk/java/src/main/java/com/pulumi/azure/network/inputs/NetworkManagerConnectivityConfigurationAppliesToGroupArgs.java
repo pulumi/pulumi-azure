@@ -20,7 +20,7 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroupArgs ext
     /**
      * Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
      * 
-     * &gt; **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+     * &gt; **Note:** A group can be global only if the `groupConnectivity` is `DirectlyConnected`.
      * 
      */
     @Import(name="globalMeshEnabled")
@@ -29,7 +29,7 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroupArgs ext
     /**
      * @return Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
      * 
-     * &gt; **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+     * &gt; **Note:** A group can be global only if the `groupConnectivity` is `DirectlyConnected`.
      * 
      */
     public Optional<Output<Boolean>> globalMeshEnabled() {
@@ -111,7 +111,7 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroupArgs ext
         /**
          * @param globalMeshEnabled Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
          * 
-         * &gt; **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+         * &gt; **Note:** A group can be global only if the `groupConnectivity` is `DirectlyConnected`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroupArgs ext
         /**
          * @param globalMeshEnabled Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
          * 
-         * &gt; **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+         * &gt; **Note:** A group can be global only if the `groupConnectivity` is `DirectlyConnected`.
          * 
          * @return builder
          * 

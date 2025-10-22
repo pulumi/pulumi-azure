@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Preload;
         /// <summary>
-        /// A `virtual_directory` block as defined below.
+        /// A `VirtualDirectory` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryResult> VirtualDirectories;
         /// <summary>

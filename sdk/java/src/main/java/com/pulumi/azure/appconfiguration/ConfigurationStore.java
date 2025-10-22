@@ -249,7 +249,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
      * 
      */
     @Export(name="dataPlaneProxyPrivateLinkDelegationEnabled", refs={Boolean.class}, tree="[0]")
@@ -258,7 +258,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether data plane proxy private link delegation is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
      * 
      */
     public Output<Optional<Boolean>> dataPlaneProxyPrivateLinkDelegationEnabled() {
@@ -349,28 +349,28 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `primary_read_key` block as defined below containing the primary read access key.
+     * A `primaryReadKey` block as defined below containing the primary read access key.
      * 
      */
     @Export(name="primaryReadKeys", refs={List.class,ConfigurationStorePrimaryReadKey.class}, tree="[0,1]")
     private Output<List<ConfigurationStorePrimaryReadKey>> primaryReadKeys;
 
     /**
-     * @return A `primary_read_key` block as defined below containing the primary read access key.
+     * @return A `primaryReadKey` block as defined below containing the primary read access key.
      * 
      */
     public Output<List<ConfigurationStorePrimaryReadKey>> primaryReadKeys() {
         return this.primaryReadKeys;
     }
     /**
-     * A `primary_write_key` block as defined below containing the primary write access key.
+     * A `primaryWriteKey` block as defined below containing the primary write access key.
      * 
      */
     @Export(name="primaryWriteKeys", refs={List.class,ConfigurationStorePrimaryWriteKey.class}, tree="[0,1]")
     private Output<List<ConfigurationStorePrimaryWriteKey>> primaryWriteKeys;
 
     /**
-     * @return A `primary_write_key` block as defined below containing the primary write access key.
+     * @return A `primaryWriteKey` block as defined below containing the primary write access key.
      * 
      */
     public Output<List<ConfigurationStorePrimaryWriteKey>> primaryWriteKeys() {
@@ -379,7 +379,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
@@ -388,7 +388,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * @return The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     public Output<Optional<String>> publicNetworkAccess() {
@@ -441,28 +441,28 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `secondary_read_key` block as defined below containing the secondary read access key.
+     * A `secondaryReadKey` block as defined below containing the secondary read access key.
      * 
      */
     @Export(name="secondaryReadKeys", refs={List.class,ConfigurationStoreSecondaryReadKey.class}, tree="[0,1]")
     private Output<List<ConfigurationStoreSecondaryReadKey>> secondaryReadKeys;
 
     /**
-     * @return A `secondary_read_key` block as defined below containing the secondary read access key.
+     * @return A `secondaryReadKey` block as defined below containing the secondary read access key.
      * 
      */
     public Output<List<ConfigurationStoreSecondaryReadKey>> secondaryReadKeys() {
         return this.secondaryReadKeys;
     }
     /**
-     * A `secondary_write_key` block as defined below containing the secondary write access key.
+     * A `secondaryWriteKey` block as defined below containing the secondary write access key.
      * 
      */
     @Export(name="secondaryWriteKeys", refs={List.class,ConfigurationStoreSecondaryWriteKey.class}, tree="[0,1]")
     private Output<List<ConfigurationStoreSecondaryWriteKey>> secondaryWriteKeys;
 
     /**
-     * @return A `secondary_write_key` block as defined below containing the secondary write access key.
+     * @return A `secondaryWriteKey` block as defined below containing the secondary write access key.
      * 
      */
     public Output<List<ConfigurationStoreSecondaryWriteKey>> secondaryWriteKeys() {

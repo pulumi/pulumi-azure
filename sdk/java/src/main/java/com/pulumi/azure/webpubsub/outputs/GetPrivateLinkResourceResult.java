@@ -18,7 +18,7 @@ public final class GetPrivateLinkResourceResult {
      */
     private String id;
     /**
-     * @return A `shared_private_link_resource_types` block as defined below.
+     * @return A `sharedPrivateLinkResourceTypes` block as defined below.
      * 
      */
     private List<GetPrivateLinkResourceSharedPrivateLinkResourceType> sharedPrivateLinkResourceTypes;
@@ -33,7 +33,7 @@ public final class GetPrivateLinkResourceResult {
         return this.id;
     }
     /**
-     * @return A `shared_private_link_resource_types` block as defined below.
+     * @return A `sharedPrivateLinkResourceTypes` block as defined below.
      * 
      */
     public List<GetPrivateLinkResourceSharedPrivateLinkResourceType> sharedPrivateLinkResourceTypes() {

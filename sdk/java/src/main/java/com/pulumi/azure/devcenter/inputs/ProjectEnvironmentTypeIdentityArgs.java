@@ -20,7 +20,7 @@ public final class ProjectEnvironmentTypeIdentityArgs extends com.pulumi.resourc
     /**
      * The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class ProjectEnvironmentTypeIdentityArgs extends com.pulumi.resourc
     /**
      * @return The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -95,7 +95,7 @@ public final class ProjectEnvironmentTypeIdentityArgs extends com.pulumi.resourc
         /**
          * @param identityIds The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
          * 
-         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ProjectEnvironmentTypeIdentityArgs extends com.pulumi.resourc
         /**
          * @param identityIds The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
          * 
-         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ProjectEnvironmentTypeIdentityArgs extends com.pulumi.resourc
         /**
          * @param identityIds The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
          * 
-         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

@@ -13,43 +13,43 @@ namespace Pulumi.Azure.DomainServices.Inputs
     public sealed class ServiceSecurityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable Kerberos Armoring. Defaults to `false`.
+        /// Whether to enable Kerberos Armoring. Defaults to `False`.
         /// </summary>
         [Input("kerberosArmoringEnabled")]
         public Input<bool>? KerberosArmoringEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+        /// Whether to enable Kerberos RC4 Encryption. Defaults to `False`.
         /// </summary>
         [Input("kerberosRc4EncryptionEnabled")]
         public Input<bool>? KerberosRc4EncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable legacy NTLM v1 support. Defaults to `false`.
+        /// Whether to enable legacy NTLM v1 support. Defaults to `False`.
         /// </summary>
         [Input("ntlmV1Enabled")]
         public Input<bool>? NtlmV1Enabled { get; set; }
 
         /// <summary>
-        /// Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
+        /// Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `False`.
         /// </summary>
         [Input("syncKerberosPasswords")]
         public Input<bool>? SyncKerberosPasswords { get; set; }
 
         /// <summary>
-        /// Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
+        /// Whether to synchronize NTLM password hashes to the managed domain. Defaults to `False`.
         /// </summary>
         [Input("syncNtlmPasswords")]
         public Input<bool>? SyncNtlmPasswords { get; set; }
 
         /// <summary>
-        /// Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
+        /// Whether to synchronize on-premises password hashes to the managed domain. Defaults to `False`.
         /// </summary>
         [Input("syncOnPremPasswords")]
         public Input<bool>? SyncOnPremPasswords { get; set; }
 
         /// <summary>
-        /// Whether to enable legacy TLS v1 support. Defaults to `false`.
+        /// Whether to enable legacy TLS v1 support. Defaults to `False`.
         /// </summary>
         [Input("tlsV1Enabled")]
         public Input<bool>? TlsV1Enabled { get; set; }

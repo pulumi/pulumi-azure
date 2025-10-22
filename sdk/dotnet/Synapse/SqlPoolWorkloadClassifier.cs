@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> EndTime { get; private set; } = null!;
 
         /// <summary>
-        /// The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
+        /// The workload classifier importance. The allowed values are `Low`, `BelowNormal`, `Normal`, `AboveNormal` and `High`.
         /// </summary>
         [Output("importance")]
         public Output<string?> Importance { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
+        /// The workload classifier importance. The allowed values are `Low`, `BelowNormal`, `Normal`, `AboveNormal` and `High`.
         /// </summary>
         [Input("importance")]
         public Input<string>? Importance { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
+        /// The workload classifier importance. The allowed values are `Low`, `BelowNormal`, `Normal`, `AboveNormal` and `High`.
         /// </summary>
         [Input("importance")]
         public Input<string>? Importance { get; set; }

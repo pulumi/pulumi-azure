@@ -118,7 +118,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
         public Output<ImmutableArray<Outputs.DatasetAzureSqlTableSchemaColumn>> SchemaColumns { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetAzureSqlTableSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetAzureSqlTableSchemaColumnArgs> SchemaColumns
         {
@@ -349,7 +349,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetAzureSqlTableSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetAzureSqlTableSchemaColumnGetArgs> SchemaColumns
         {

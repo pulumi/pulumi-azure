@@ -14,79 +14,79 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorRuleConditions
     {
         /// <summary>
-        /// A `client_port_condition` block as defined below.
+        /// A `ClientPortCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsClientPortCondition> ClientPortConditions;
         /// <summary>
-        /// A `cookies_condition` block as defined below.
+        /// A `CookiesCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsCookiesCondition> CookiesConditions;
         /// <summary>
-        /// A `host_name_condition` block as defined below.
+        /// A `HostNameCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsHostNameCondition> HostNameConditions;
         /// <summary>
-        /// A `http_version_condition` block as defined below.
+        /// A `HttpVersionCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsHttpVersionCondition> HttpVersionConditions;
         /// <summary>
-        /// A `is_device_condition` block as defined below.
+        /// A `IsDeviceCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsIsDeviceCondition> IsDeviceConditions;
         /// <summary>
-        /// A `post_args_condition` block as defined below.
+        /// A `PostArgsCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsPostArgsCondition> PostArgsConditions;
         /// <summary>
-        /// A `query_string_condition` block as defined below.
+        /// A `QueryStringCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsQueryStringCondition> QueryStringConditions;
         /// <summary>
-        /// A `remote_address_condition` block as defined below.
+        /// A `RemoteAddressCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRemoteAddressCondition> RemoteAddressConditions;
         /// <summary>
-        /// A `request_body_condition` block as defined below.
+        /// A `RequestBodyCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestBodyCondition> RequestBodyConditions;
         /// <summary>
-        /// A `request_header_condition` block as defined below.
+        /// A `RequestHeaderCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestHeaderCondition> RequestHeaderConditions;
         /// <summary>
-        /// A `request_method_condition` block as defined below.
+        /// A `RequestMethodCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestMethodCondition> RequestMethodConditions;
         /// <summary>
-        /// A `request_scheme_condition` block as defined below.
+        /// A `RequestSchemeCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestSchemeCondition> RequestSchemeConditions;
         /// <summary>
-        /// A `request_uri_condition` block as defined below.
+        /// A `RequestUriCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestUriCondition> RequestUriConditions;
         /// <summary>
-        /// A `server_port_condition` block as defined below.
+        /// A `ServerPortCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsServerPortCondition> ServerPortConditions;
         /// <summary>
-        /// A `socket_address_condition` block as defined below.
+        /// A `SocketAddressCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsSocketAddressCondition> SocketAddressConditions;
         /// <summary>
-        /// A `ssl_protocol_condition` block as defined below.
+        /// A `SslProtocolCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsSslProtocolCondition> SslProtocolConditions;
         /// <summary>
-        /// A `url_file_extension_condition` block as defined below.
+        /// A `UrlFileExtensionCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsUrlFileExtensionCondition> UrlFileExtensionConditions;
         /// <summary>
-        /// A `url_filename_condition` block as defined below.
+        /// A `UrlFilenameCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsUrlFilenameCondition> UrlFilenameConditions;
         /// <summary>
-        /// A `url_path_condition` block as defined below.
+        /// A `UrlPathCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsUrlPathCondition> UrlPathConditions;
 

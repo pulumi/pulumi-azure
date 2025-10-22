@@ -27,12 +27,12 @@ public final class GetFailoverGroupResult {
     private String id;
     private String name;
     /**
-     * @return A `partner_server` block as defined below.
+     * @return A `partnerServer` block as defined below.
      * 
      */
     private List<GetFailoverGroupPartnerServer> partnerServers;
     /**
-     * @return A `read_write_endpoint_failover_policy` block as defined below.
+     * @return A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     private List<GetFailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicies;
@@ -67,14 +67,14 @@ public final class GetFailoverGroupResult {
         return this.name;
     }
     /**
-     * @return A `partner_server` block as defined below.
+     * @return A `partnerServer` block as defined below.
      * 
      */
     public List<GetFailoverGroupPartnerServer> partnerServers() {
         return this.partnerServers;
     }
     /**
-     * @return A `read_write_endpoint_failover_policy` block as defined below.
+     * @return A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     public List<GetFailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicies() {

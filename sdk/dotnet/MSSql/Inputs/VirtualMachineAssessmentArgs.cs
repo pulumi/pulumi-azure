@@ -13,19 +13,19 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class VirtualMachineAssessmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Assessment be enabled? Defaults to `true`.
+        /// Should Assessment be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Should Assessment be run immediately? Defaults to `false`.
+        /// Should Assessment be run immediately? Defaults to `False`.
         /// </summary>
         [Input("runImmediately")]
         public Input<bool>? RunImmediately { get; set; }
 
         /// <summary>
-        /// An `schedule` block as defined below.
+        /// An `Schedule` block as defined below.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.VirtualMachineAssessmentScheduleArgs>? Schedule { get; set; }

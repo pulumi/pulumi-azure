@@ -200,14 +200,14 @@ public class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent extends c
         return this.destinationResourceId;
     }
     /**
-     * An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+     * An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      * 
      */
     @Export(name="ipTraffic", refs={NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic.class}, tree="[0]")
     private Output<NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic> ipTraffic;
 
     /**
-     * @return An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+     * @return An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      * 
      */
     public Output<NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic> ipTraffic() {

@@ -27,14 +27,14 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
     public static final SpringCloudGatewayState Empty = new SpringCloudGatewayState();
 
     /**
-     * A `api_metadata` block as defined below.
+     * A `apiMetadata` block as defined below.
      * 
      */
     @Import(name="apiMetadata")
     private @Nullable Output<SpringCloudGatewayApiMetadataArgs> apiMetadata;
 
     /**
-     * @return A `api_metadata` block as defined below.
+     * @return A `apiMetadata` block as defined below.
      * 
      */
     public Optional<Output<SpringCloudGatewayApiMetadataArgs>> apiMetadata() {
@@ -72,14 +72,14 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `client_authorization` block as defined below.
+     * A `clientAuthorization` block as defined below.
      * 
      */
     @Import(name="clientAuthorization")
     private @Nullable Output<SpringCloudGatewayClientAuthorizationArgs> clientAuthorization;
 
     /**
-     * @return A `client_authorization` block as defined below.
+     * @return A `clientAuthorization` block as defined below.
      * 
      */
     public Optional<Output<SpringCloudGatewayClientAuthorizationArgs>> clientAuthorization() {
@@ -147,14 +147,14 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      * 
      */
     @Import(name="localResponseCachePerInstance")
     private @Nullable Output<SpringCloudGatewayLocalResponseCachePerInstanceArgs> localResponseCachePerInstance;
 
     /**
-     * @return A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * @return A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      * 
      */
     public Optional<Output<SpringCloudGatewayLocalResponseCachePerInstanceArgs>> localResponseCachePerInstance() {
@@ -162,14 +162,14 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      * 
      */
     @Import(name="localResponseCachePerRoute")
     private @Nullable Output<SpringCloudGatewayLocalResponseCachePerRouteArgs> localResponseCachePerRoute;
 
     /**
-     * @return A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * @return A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      * 
      */
     public Optional<Output<SpringCloudGatewayLocalResponseCachePerRouteArgs>> localResponseCachePerRoute() {
@@ -322,7 +322,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param apiMetadata A `api_metadata` block as defined below.
+         * @param apiMetadata A `apiMetadata` block as defined below.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param apiMetadata A `api_metadata` block as defined below.
+         * @param apiMetadata A `apiMetadata` block as defined below.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param clientAuthorization A `client_authorization` block as defined below.
+         * @param clientAuthorization A `clientAuthorization` block as defined below.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param clientAuthorization A `client_authorization` block as defined below.
+         * @param clientAuthorization A `clientAuthorization` block as defined below.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param localResponseCachePerInstance A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+         * @param localResponseCachePerInstance A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param localResponseCachePerInstance A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+         * @param localResponseCachePerInstance A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param localResponseCachePerRoute A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+         * @param localResponseCachePerRoute A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param localResponseCachePerRoute A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+         * @param localResponseCachePerRoute A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
          * 
          * @return builder
          * 

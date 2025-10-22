@@ -13,25 +13,25 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppAuthSettingsV2GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `active_directory_v2` block as defined below.
+        /// An `ActiveDirectoryV2` block as defined below.
         /// </summary>
         [Input("activeDirectoryV2")]
         public Input<Inputs.WindowsWebAppAuthSettingsV2ActiveDirectoryV2GetArgs>? ActiveDirectoryV2 { get; set; }
 
         /// <summary>
-        /// An `apple_v2` block as defined below.
+        /// An `AppleV2` block as defined below.
         /// </summary>
         [Input("appleV2")]
         public Input<Inputs.WindowsWebAppAuthSettingsV2AppleV2GetArgs>? AppleV2 { get; set; }
 
         /// <summary>
-        /// Should the AuthV2 Settings be enabled. Defaults to `false`.
+        /// Should the AuthV2 Settings be enabled. Defaults to `False`.
         /// </summary>
         [Input("authEnabled")]
         public Input<bool>? AuthEnabled { get; set; }
 
         /// <summary>
-        /// An `azure_static_web_app_v2` block as defined below.
+        /// An `AzureStaticWebAppV2` block as defined below.
         /// </summary>
         [Input("azureStaticWebAppV2")]
         public Input<Inputs.WindowsWebAppAuthSettingsV2AzureStaticWebAppV2GetArgs>? AzureStaticWebAppV2 { get; set; }
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.WindowsWebAppAuthSettingsV2CustomOidcV2GetArgs>? _customOidcV2s;
 
         /// <summary>
-        /// Zero or more `custom_oidc_v2` blocks as defined below.
+        /// Zero or more `CustomOidcV2` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsWebAppAuthSettingsV2CustomOidcV2GetArgs> CustomOidcV2s
         {
@@ -57,9 +57,9 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        /// The Default Authentication Provider to use when the `UnauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `Apple`, `Azureactivedirectory`, `Facebook`, `Github`, `Google`, `Twitter` and the `Name` of your `CustomOidcV2` provider.
         /// 
-        /// &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        /// &gt; **Note:** Whilst any value will be accepted by the API for `DefaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or CustomOidc name) as it is used to build the auth endpoint URI.
         /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
@@ -68,9 +68,9 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _excludedPaths;
 
         /// <summary>
-        /// The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        /// The paths which should be excluded from the `UnauthenticatedAction` when it is set to `RedirectToLoginPage`.
         /// 
-        /// &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        /// &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `AppSettings` as it takes priority.
         /// </summary>
         public InputList<string> ExcludedPaths
         {
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// A `facebook_v2` block as defined below.
+        /// A `FacebookV2` block as defined below.
         /// </summary>
         [Input("facebookV2")]
         public Input<Inputs.WindowsWebAppAuthSettingsV2FacebookV2GetArgs>? FacebookV2 { get; set; }
@@ -103,13 +103,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? ForwardProxyCustomSchemeHeaderName { get; set; }
 
         /// <summary>
-        /// A `github_v2` block as defined below.
+        /// A `GithubV2` block as defined below.
         /// </summary>
         [Input("githubV2")]
         public Input<Inputs.WindowsWebAppAuthSettingsV2GithubV2GetArgs>? GithubV2 { get; set; }
 
         /// <summary>
-        /// A `google_v2` block as defined below.
+        /// A `GoogleV2` block as defined below.
         /// </summary>
         [Input("googleV2")]
         public Input<Inputs.WindowsWebAppAuthSettingsV2GoogleV2GetArgs>? GoogleV2 { get; set; }
@@ -121,13 +121,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? HttpRouteApiPrefix { get; set; }
 
         /// <summary>
-        /// A `login` block as defined below.
+        /// A `Login` block as defined below.
         /// </summary>
         [Input("login", required: true)]
         public Input<Inputs.WindowsWebAppAuthSettingsV2LoginGetArgs> Login { get; set; } = null!;
 
         /// <summary>
-        /// A `microsoft_v2` block as defined below.
+        /// A `MicrosoftV2` block as defined below.
         /// </summary>
         [Input("microsoftV2")]
         public Input<Inputs.WindowsWebAppAuthSettingsV2MicrosoftV2GetArgs>? MicrosoftV2 { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? RequireAuthentication { get; set; }
 
         /// <summary>
-        /// Should HTTPS be required on connections? Defaults to `true`.
+        /// Should HTTPS be required on connections? Defaults to `True`.
         /// </summary>
         [Input("requireHttps")]
         public Input<bool>? RequireHttps { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? RuntimeVersion { get; set; }
 
         /// <summary>
-        /// A `twitter_v2` block as defined below.
+        /// A `TwitterV2` block as defined below.
         /// </summary>
         [Input("twitterV2")]
         public Input<Inputs.WindowsWebAppAuthSettingsV2TwitterV2GetArgs>? TwitterV2 { get; set; }

@@ -71,14 +71,14 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<SlotAuthSettingsArgs> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Optional<Output<SlotAuthSettingsArgs>> authSettings() {
@@ -101,14 +101,14 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `connection_string` block as defined below.
+     * An `connectionString` block as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<SlotConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return An `connection_string` block as defined below.
+     * @return An `connectionString` block as defined below.
      * 
      */
     public Optional<Output<List<SlotConnectionStringArgs>>> connectionStrings() {
@@ -236,14 +236,14 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<SlotSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` object as defined below.
+     * @return A `siteConfig` object as defined below.
      * 
      */
     public Optional<Output<SlotSiteConfigArgs>> siteConfig() {
@@ -251,14 +251,14 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<SlotStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<SlotStorageAccountArgs>>> storageAccounts() {
@@ -384,7 +384,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings An `connection_string` block as defined below.
+         * @param connectionStrings An `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings An `connection_string` block as defined below.
+         * @param connectionStrings An `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings An `connection_string` block as defined below.
+         * @param connectionStrings An `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` object as defined below.
+         * @param siteConfig A `siteConfig` object as defined below.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` object as defined below.
+         * @param siteConfig A `siteConfig` object as defined below.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -667,7 +667,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 

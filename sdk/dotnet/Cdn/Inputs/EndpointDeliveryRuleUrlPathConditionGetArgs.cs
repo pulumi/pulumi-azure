@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<string>? _matchValues;
 
         /// <summary>
-        /// List of string values. This is required if `operator` is not `Any`.
+        /// List of string values. This is required if `Operator` is not `Any`.
         /// </summary>
         public InputList<string> MatchValues
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// Defaults to `false`.
+        /// Defaults to `False`.
         /// </summary>
         [Input("negateCondition")]
         public Input<bool>? NegateCondition { get; set; }

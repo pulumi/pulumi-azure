@@ -29,14 +29,14 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     public static final LinuxFunctionAppAuthSettingsV2Args Empty = new LinuxFunctionAppAuthSettingsV2Args();
 
     /**
-     * An `active_directory_v2` block as defined below.
+     * An `activeDirectoryV2` block as defined below.
      * 
      */
     @Import(name="activeDirectoryV2")
     private @Nullable Output<LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args> activeDirectoryV2;
 
     /**
-     * @return An `active_directory_v2` block as defined below.
+     * @return An `activeDirectoryV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args>> activeDirectoryV2() {
@@ -44,14 +44,14 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * An `apple_v2` block as defined below.
+     * An `appleV2` block as defined below.
      * 
      */
     @Import(name="appleV2")
     private @Nullable Output<LinuxFunctionAppAuthSettingsV2AppleV2Args> appleV2;
 
     /**
-     * @return An `apple_v2` block as defined below.
+     * @return An `appleV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsV2AppleV2Args>> appleV2() {
@@ -74,14 +74,14 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * An `azure_static_web_app_v2` block as defined below.
+     * An `azureStaticWebAppV2` block as defined below.
      * 
      */
     @Import(name="azureStaticWebAppV2")
     private @Nullable Output<LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args> azureStaticWebAppV2;
 
     /**
-     * @return An `azure_static_web_app_v2` block as defined below.
+     * @return An `azureStaticWebAppV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args>> azureStaticWebAppV2() {
@@ -108,14 +108,14 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * Zero or more `custom_oidc_v2` blocks as defined below.
+     * Zero or more `customOidcV2` blocks as defined below.
      * 
      */
     @Import(name="customOidcV2s")
     private @Nullable Output<List<LinuxFunctionAppAuthSettingsV2CustomOidcV2Args>> customOidcV2s;
 
     /**
-     * @return Zero or more `custom_oidc_v2` blocks as defined below.
+     * @return Zero or more `customOidcV2` blocks as defined below.
      * 
      */
     public Optional<Output<List<LinuxFunctionAppAuthSettingsV2CustomOidcV2Args>>> customOidcV2s() {
@@ -123,18 +123,18 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+     * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
      * 
-     * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+     * &gt; **Note:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
      * 
      */
     @Import(name="defaultProvider")
     private @Nullable Output<String> defaultProvider;
 
     /**
-     * @return The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+     * @return The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
      * 
-     * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+     * &gt; **Note:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -142,18 +142,18 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+     * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
      * 
-     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
      * 
      */
     @Import(name="excludedPaths")
     private @Nullable Output<List<String>> excludedPaths;
 
     /**
-     * @return The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+     * @return The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
      * 
-     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
      * 
      */
     public Optional<Output<List<String>>> excludedPaths() {
@@ -161,14 +161,14 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * A `facebook_v2` block as defined below.
+     * A `facebookV2` block as defined below.
      * 
      */
     @Import(name="facebookV2")
     private @Nullable Output<LinuxFunctionAppAuthSettingsV2FacebookV2Args> facebookV2;
 
     /**
-     * @return A `facebook_v2` block as defined below.
+     * @return A `facebookV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsV2FacebookV2Args>> facebookV2() {
@@ -221,14 +221,14 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * A `github_v2` block as defined below.
+     * A `githubV2` block as defined below.
      * 
      */
     @Import(name="githubV2")
     private @Nullable Output<LinuxFunctionAppAuthSettingsV2GithubV2Args> githubV2;
 
     /**
-     * @return A `github_v2` block as defined below.
+     * @return A `githubV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsV2GithubV2Args>> githubV2() {
@@ -236,14 +236,14 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * A `google_v2` block as defined below.
+     * A `googleV2` block as defined below.
      * 
      */
     @Import(name="googleV2")
     private @Nullable Output<LinuxFunctionAppAuthSettingsV2GoogleV2Args> googleV2;
 
     /**
-     * @return A `google_v2` block as defined below.
+     * @return A `googleV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsV2GoogleV2Args>> googleV2() {
@@ -281,14 +281,14 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * A `microsoft_v2` block as defined below.
+     * A `microsoftV2` block as defined below.
      * 
      */
     @Import(name="microsoftV2")
     private @Nullable Output<LinuxFunctionAppAuthSettingsV2MicrosoftV2Args> microsoftV2;
 
     /**
-     * @return A `microsoft_v2` block as defined below.
+     * @return A `microsoftV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsV2MicrosoftV2Args>> microsoftV2() {
@@ -341,14 +341,14 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     }
 
     /**
-     * A `twitter_v2` block as defined below.
+     * A `twitterV2` block as defined below.
      * 
      */
     @Import(name="twitterV2")
     private @Nullable Output<LinuxFunctionAppAuthSettingsV2TwitterV2Args> twitterV2;
 
     /**
-     * @return A `twitter_v2` block as defined below.
+     * @return A `twitterV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsV2TwitterV2Args>> twitterV2() {
@@ -416,7 +416,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param activeDirectoryV2 An `active_directory_v2` block as defined below.
+         * @param activeDirectoryV2 An `activeDirectoryV2` block as defined below.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param activeDirectoryV2 An `active_directory_v2` block as defined below.
+         * @param activeDirectoryV2 An `activeDirectoryV2` block as defined below.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param appleV2 An `apple_v2` block as defined below.
+         * @param appleV2 An `appleV2` block as defined below.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param appleV2 An `apple_v2` block as defined below.
+         * @param appleV2 An `appleV2` block as defined below.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param azureStaticWebAppV2 An `azure_static_web_app_v2` block as defined below.
+         * @param azureStaticWebAppV2 An `azureStaticWebAppV2` block as defined below.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param azureStaticWebAppV2 An `azure_static_web_app_v2` block as defined below.
+         * @param azureStaticWebAppV2 An `azureStaticWebAppV2` block as defined below.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param customOidcV2s Zero or more `custom_oidc_v2` blocks as defined below.
+         * @param customOidcV2s Zero or more `customOidcV2` blocks as defined below.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param customOidcV2s Zero or more `custom_oidc_v2` blocks as defined below.
+         * @param customOidcV2s Zero or more `customOidcV2` blocks as defined below.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param customOidcV2s Zero or more `custom_oidc_v2` blocks as defined below.
+         * @param customOidcV2s Zero or more `customOidcV2` blocks as defined below.
          * 
          * @return builder
          * 
@@ -556,9 +556,9 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultProvider The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+         * @param defaultProvider The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
          * 
-         * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+         * &gt; **Note:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          * 
          * @return builder
          * 
@@ -569,9 +569,9 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultProvider The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+         * @param defaultProvider The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
          * 
-         * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+         * &gt; **Note:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          * 
          * @return builder
          * 
@@ -581,9 +581,9 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param excludedPaths The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+         * @param excludedPaths The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
          * 
-         * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+         * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          * 
          * @return builder
          * 
@@ -594,9 +594,9 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param excludedPaths The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+         * @param excludedPaths The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
          * 
-         * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+         * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          * 
          * @return builder
          * 
@@ -606,9 +606,9 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param excludedPaths The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+         * @param excludedPaths The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
          * 
-         * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+         * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param facebookV2 A `facebook_v2` block as defined below.
+         * @param facebookV2 A `facebookV2` block as defined below.
          * 
          * @return builder
          * 
@@ -629,7 +629,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param facebookV2 A `facebook_v2` block as defined below.
+         * @param facebookV2 A `facebookV2` block as defined below.
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param githubV2 A `github_v2` block as defined below.
+         * @param githubV2 A `githubV2` block as defined below.
          * 
          * @return builder
          * 
@@ -713,7 +713,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param githubV2 A `github_v2` block as defined below.
+         * @param githubV2 A `githubV2` block as defined below.
          * 
          * @return builder
          * 
@@ -723,7 +723,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param googleV2 A `google_v2` block as defined below.
+         * @param googleV2 A `googleV2` block as defined below.
          * 
          * @return builder
          * 
@@ -734,7 +734,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param googleV2 A `google_v2` block as defined below.
+         * @param googleV2 A `googleV2` block as defined below.
          * 
          * @return builder
          * 
@@ -786,7 +786,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param microsoftV2 A `microsoft_v2` block as defined below.
+         * @param microsoftV2 A `microsoftV2` block as defined below.
          * 
          * @return builder
          * 
@@ -797,7 +797,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param microsoftV2 A `microsoft_v2` block as defined below.
+         * @param microsoftV2 A `microsoftV2` block as defined below.
          * 
          * @return builder
          * 
@@ -870,7 +870,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param twitterV2 A `twitter_v2` block as defined below.
+         * @param twitterV2 A `twitterV2` block as defined below.
          * 
          * @return builder
          * 
@@ -881,7 +881,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param twitterV2 A `twitter_v2` block as defined below.
+         * @param twitterV2 A `twitterV2` block as defined below.
          * 
          * @return builder
          * 

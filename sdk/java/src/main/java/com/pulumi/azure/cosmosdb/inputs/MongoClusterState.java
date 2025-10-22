@@ -20,14 +20,14 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
     public static final MongoClusterState Empty = new MongoClusterState();
 
     /**
-     * The Password associated with the `administrator_username` for the MongoDB Cluster.
+     * The Password associated with the `administratorUsername` for the MongoDB Cluster.
      * 
      */
     @Import(name="administratorPassword")
     private @Nullable Output<String> administratorPassword;
 
     /**
-     * @return The Password associated with the `administrator_username` for the MongoDB Cluster.
+     * @return The Password associated with the `administratorUsername` for the MongoDB Cluster.
      * 
      */
     public Optional<Output<String>> administratorPassword() {
@@ -65,14 +65,14 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of `connection_strings` blocks as defined below.
+     * The list of `connectionStrings` blocks as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<MongoClusterConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return The list of `connection_strings` blocks as defined below.
+     * @return The list of `connectionStrings` blocks as defined below.
      * 
      */
     public Optional<Output<List<MongoClusterConnectionStringArgs>>> connectionStrings() {
@@ -315,7 +315,7 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_username` for the MongoDB Cluster.
+         * @param administratorPassword The Password associated with the `administratorUsername` for the MongoDB Cluster.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_username` for the MongoDB Cluster.
+         * @param administratorPassword The Password associated with the `administratorUsername` for the MongoDB Cluster.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings The list of `connection_strings` blocks as defined below.
+         * @param connectionStrings The list of `connectionStrings` blocks as defined below.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings The list of `connection_strings` blocks as defined below.
+         * @param connectionStrings The list of `connectionStrings` blocks as defined below.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings The list of `connection_strings` blocks as defined below.
+         * @param connectionStrings The list of `connectionStrings` blocks as defined below.
          * 
          * @return builder
          * 

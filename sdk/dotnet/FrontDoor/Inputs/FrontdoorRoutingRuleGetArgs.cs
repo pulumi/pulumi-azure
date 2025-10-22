@@ -25,13 +25,13 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         }
 
         /// <summary>
-        /// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+        /// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// A `forwarding_configuration` block as defined below.
+        /// A `ForwardingConfiguration` block as defined below.
         /// </summary>
         [Input("forwardingConfiguration")]
         public Input<Inputs.FrontdoorRoutingRuleForwardingConfigurationGetArgs>? ForwardingConfiguration { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<string>? _frontendEndpoints;
 
         /// <summary>
-        /// The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        /// The names of the `FrontendEndpoint` blocks within this resource to associate with this `RoutingRule`.
         /// </summary>
         public InputList<string> FrontendEndpoints
         {
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         }
 
         /// <summary>
-        /// A `redirect_configuration` block as defined below.
+        /// A `RedirectConfiguration` block as defined below.
         /// </summary>
         [Input("redirectConfiguration")]
         public Input<Inputs.FrontdoorRoutingRuleRedirectConfigurationGetArgs>? RedirectConfiguration { get; set; }

@@ -35,18 +35,18 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+     * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
+     * &gt; **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
      * 
      */
     @Import(name="diffDiskSettings")
     private @Nullable Output<LinuxVirtualMachineOsDiskDiffDiskSettingsArgs> diffDiskSettings;
 
     /**
-     * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+     * @return A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
+     * &gt; **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
      * 
      */
     public Optional<Output<LinuxVirtualMachineOsDiskDiffDiskSettingsArgs>> diffDiskSettings() {
@@ -54,7 +54,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+     * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
      * 
      * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
@@ -63,7 +63,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     private @Nullable Output<String> diskEncryptionSetId;
 
     /**
-     * @return The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+     * @return The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
      * 
      * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
@@ -109,7 +109,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     /**
      * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
+     * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
      * 
      */
     @Import(name="name")
@@ -118,7 +118,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     /**
      * @return The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
+     * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -126,18 +126,18 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     @Import(name="secureVmDiskEncryptionSetId")
     private @Nullable Output<String> secureVmDiskEncryptionSetId;
 
     /**
-     * @return The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     public Optional<Output<String>> secureVmDiskEncryptionSetId() {
@@ -147,9 +147,9 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     /**
      * Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+     * &gt; **NOTE:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
      * 
-     * &gt; **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     @Import(name="securityEncryptionType")
@@ -158,9 +158,9 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     /**
      * @return Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+     * &gt; **NOTE:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
      * 
-     * &gt; **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     public Optional<Output<String>> securityEncryptionType() {
@@ -170,7 +170,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     /**
      * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      * 
      */
     @Import(name="storageAccountType")
@@ -179,7 +179,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     /**
      * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      * 
      */
     public Optional<Output<String>> storageAccountType() {
@@ -189,7 +189,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     /**
      * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
-     * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     @Import(name="writeAcceleratorEnabled")
@@ -198,7 +198,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     /**
      * @return Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
-     * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     public Optional<Output<Boolean>> writeAcceleratorEnabled() {
@@ -260,9 +260,9 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param diffDiskSettings A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+         * @param diffDiskSettings A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
+         * &gt; **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -273,9 +273,9 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param diffDiskSettings A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+         * @param diffDiskSettings A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
+         * &gt; **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
          * 
          * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          * 
@@ -298,7 +298,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
          * 
          * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          * 
@@ -358,7 +358,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         /**
          * @param name The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
+         * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         /**
          * @param name The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
+         * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -381,9 +381,9 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+         * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+         * &gt; **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          * 
          * @return builder
          * 
@@ -394,9 +394,9 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+         * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+         * &gt; **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          * 
          * @return builder
          * 
@@ -408,9 +408,9 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         /**
          * @param securityEncryptionType Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+         * &gt; **NOTE:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
          * 
-         * &gt; **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+         * &gt; **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          * 
          * @return builder
          * 
@@ -423,9 +423,9 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         /**
          * @param securityEncryptionType Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+         * &gt; **NOTE:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
          * 
-         * &gt; **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+         * &gt; **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         /**
          * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         /**
          * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         /**
          * @param writeAcceleratorEnabled Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          * 
-         * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * &gt; **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         /**
          * @param writeAcceleratorEnabled Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          * 
-         * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * &gt; **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          * 
          * @return builder
          * 

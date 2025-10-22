@@ -41,7 +41,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     /**
      * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
      * 
      */
     @Import(name="dataPlaneProxyPrivateLinkDelegationEnabled")
@@ -50,7 +50,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     /**
      * @return Whether data plane proxy private link delegation is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
      * 
      */
     public Optional<Output<Boolean>> dataPlaneProxyPrivateLinkDelegationEnabled() {
@@ -135,7 +135,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     @Import(name="publicNetworkAccess")
@@ -144,7 +144,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     public Optional<Output<String>> publicNetworkAccess() {
@@ -314,7 +314,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         /**
          * @param dataPlaneProxyPrivateLinkDelegationEnabled Whether data plane proxy private link delegation is enabled. Defaults to `false`.
          * 
-         * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+         * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         /**
          * @param dataPlaneProxyPrivateLinkDelegationEnabled Whether data plane proxy private link delegation is enabled. Defaults to `false`.
          * 
-         * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+         * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         /**
          * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
-         * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+         * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         /**
          * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
-         * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+         * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
          * 
          * @return builder
          * 

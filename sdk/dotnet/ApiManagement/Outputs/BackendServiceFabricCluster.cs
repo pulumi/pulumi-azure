@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// <summary>
         /// The client certificate resource id for the management endpoint.
         /// 
-        /// &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+        /// &gt; **Note:** At least one of `ClientCertificateThumbprint`, and `ClientCertificateId` must be set.
         /// </summary>
         public readonly string? ClientCertificateId;
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ServerCertificateThumbprints;
         /// <summary>
-        /// One or more `server_x509_name` blocks as documented below.
+        /// One or more `ServerX509Name` blocks as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BackendServiceFabricClusterServerX509Name> ServerX509Names;
 

@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Monitoring
         public readonly string MetricsIngestionEndpoint;
         public readonly string Name;
         /// <summary>
-        /// Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`.
+        /// Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `True` and `False`.
         /// </summary>
         public readonly bool PublicNetworkAccessEnabled;
         public readonly string ResourceGroupName;

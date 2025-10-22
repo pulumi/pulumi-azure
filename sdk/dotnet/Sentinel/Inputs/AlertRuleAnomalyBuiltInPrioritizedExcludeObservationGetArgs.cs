@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The excluded value per `description`.
+        /// The excluded value per `Description`.
         /// </summary>
         [Input("exclude")]
         public Input<string>? Exclude { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The prioritized value per `description`.
+        /// The prioritized value per `Description`.
         /// </summary>
         [Input("prioritize")]
         public Input<string>? Prioritize { get; set; }

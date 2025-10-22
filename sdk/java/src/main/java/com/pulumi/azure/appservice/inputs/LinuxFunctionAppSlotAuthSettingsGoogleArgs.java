@@ -33,14 +33,14 @@ public final class LinuxFunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi
     }
 
     /**
-     * The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+     * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+     * @return The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     public Optional<Output<String>> clientSecret() {
@@ -48,14 +48,14 @@ public final class LinuxFunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi
     }
 
     /**
-     * The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+     * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
      * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
-     * @return The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+     * @return The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -126,7 +126,7 @@ public final class LinuxFunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecret The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+         * @param clientSecret The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class LinuxFunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecret The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+         * @param clientSecret The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class LinuxFunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class LinuxFunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          * 
          * @return builder
          * 

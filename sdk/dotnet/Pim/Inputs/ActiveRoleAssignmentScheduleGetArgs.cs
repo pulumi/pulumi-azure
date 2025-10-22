@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Pim.Inputs
     public sealed class ActiveRoleAssignmentScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `expiration` block as defined above.
+        /// An `Expiration` block as defined above.
         /// </summary>
         [Input("expiration")]
         public Input<Inputs.ActiveRoleAssignmentScheduleExpirationGetArgs>? Expiration { get; set; }

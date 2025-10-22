@@ -17,12 +17,12 @@ import java.util.Objects;
 public final class GetServiceResult {
     private List<String> accessPolicyObjectIds;
     /**
-     * @return An `authentication_configuration` block as defined below.
+     * @return An `authenticationConfiguration` block as defined below.
      * 
      */
     private List<GetServiceAuthenticationConfiguration> authenticationConfigurations;
     /**
-     * @return A `cors_configuration` block as defined below.
+     * @return A `corsConfiguration` block as defined below.
      * 
      */
     private List<GetServiceCorsConfiguration> corsConfigurations;
@@ -64,14 +64,14 @@ public final class GetServiceResult {
         return this.accessPolicyObjectIds;
     }
     /**
-     * @return An `authentication_configuration` block as defined below.
+     * @return An `authenticationConfiguration` block as defined below.
      * 
      */
     public List<GetServiceAuthenticationConfiguration> authenticationConfigurations() {
         return this.authenticationConfigurations;
     }
     /**
-     * @return A `cors_configuration` block as defined below.
+     * @return A `corsConfiguration` block as defined below.
      * 
      */
     public List<GetServiceCorsConfiguration> corsConfigurations() {

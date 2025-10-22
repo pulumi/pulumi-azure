@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ArcKubernetes.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AdminGroupObjectIds;
         /// <summary>
-        /// Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+        /// Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `False`.
         /// </summary>
         public readonly bool? AzureRbacEnabled;
         /// <summary>

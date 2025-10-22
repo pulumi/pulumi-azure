@@ -105,14 +105,14 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
         return this.addonJson;
     }
     /**
-     * A `custom_persistent_disk` block as defined below.
+     * A `customPersistentDisk` block as defined below.
      * 
      */
     @Export(name="customPersistentDisks", refs={List.class,SpringCloudAppCustomPersistentDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpringCloudAppCustomPersistentDisk>> customPersistentDisks;
 
     /**
-     * @return A `custom_persistent_disk` block as defined below.
+     * @return A `customPersistentDisk` block as defined below.
      * 
      */
     public Output<Optional<List<SpringCloudAppCustomPersistentDisk>>> customPersistentDisks() {
@@ -161,14 +161,14 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * An `ingress_settings` block as defined below.
+     * An `ingressSettings` block as defined below.
      * 
      */
     @Export(name="ingressSettings", refs={SpringCloudAppIngressSettings.class}, tree="[0]")
     private Output<SpringCloudAppIngressSettings> ingressSettings;
 
     /**
-     * @return An `ingress_settings` block as defined below.
+     * @return An `ingressSettings` block as defined below.
      * 
      */
     public Output<SpringCloudAppIngressSettings> ingressSettings() {
@@ -203,14 +203,14 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An `persistent_disk` block as defined below.
+     * An `persistentDisk` block as defined below.
      * 
      */
     @Export(name="persistentDisk", refs={SpringCloudAppPersistentDisk.class}, tree="[0]")
     private Output<SpringCloudAppPersistentDisk> persistentDisk;
 
     /**
-     * @return An `persistent_disk` block as defined below.
+     * @return An `persistentDisk` block as defined below.
      * 
      */
     public Output<SpringCloudAppPersistentDisk> persistentDisk() {

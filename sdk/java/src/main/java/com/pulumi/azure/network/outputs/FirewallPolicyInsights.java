@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirewallPolicyInsights {
     /**
-     * @return The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+     * @return The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
      * 
      */
     private String defaultLogAnalyticsWorkspaceId;
@@ -27,7 +27,7 @@ public final class FirewallPolicyInsights {
      */
     private Boolean enabled;
     /**
-     * @return A list of `log_analytics_workspace` block as defined below.
+     * @return A list of `logAnalyticsWorkspace` block as defined below.
      * 
      */
     private @Nullable List<FirewallPolicyInsightsLogAnalyticsWorkspace> logAnalyticsWorkspaces;
@@ -39,7 +39,7 @@ public final class FirewallPolicyInsights {
 
     private FirewallPolicyInsights() {}
     /**
-     * @return The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+     * @return The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
      * 
      */
     public String defaultLogAnalyticsWorkspaceId() {
@@ -53,7 +53,7 @@ public final class FirewallPolicyInsights {
         return this.enabled;
     }
     /**
-     * @return A list of `log_analytics_workspace` block as defined below.
+     * @return A list of `logAnalyticsWorkspace` block as defined below.
      * 
      */
     public List<FirewallPolicyInsightsLogAnalyticsWorkspace> logAnalyticsWorkspaces() {

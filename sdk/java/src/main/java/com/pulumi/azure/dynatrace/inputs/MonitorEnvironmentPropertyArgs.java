@@ -16,14 +16,14 @@ public final class MonitorEnvironmentPropertyArgs extends com.pulumi.resources.R
     public static final MonitorEnvironmentPropertyArgs Empty = new MonitorEnvironmentPropertyArgs();
 
     /**
-     * Information about the Dynatrace environment. An `environment_info` block as defined below.
+     * Information about the Dynatrace environment. An `environmentInfo` block as defined below.
      * 
      */
     @Import(name="environmentInfos", required=true)
     private Output<List<MonitorEnvironmentPropertyEnvironmentInfoArgs>> environmentInfos;
 
     /**
-     * @return Information about the Dynatrace environment. An `environment_info` block as defined below.
+     * @return Information about the Dynatrace environment. An `environmentInfo` block as defined below.
      * 
      */
     public Output<List<MonitorEnvironmentPropertyEnvironmentInfoArgs>> environmentInfos() {
@@ -55,7 +55,7 @@ public final class MonitorEnvironmentPropertyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param environmentInfos Information about the Dynatrace environment. An `environment_info` block as defined below.
+         * @param environmentInfos Information about the Dynatrace environment. An `environmentInfo` block as defined below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class MonitorEnvironmentPropertyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param environmentInfos Information about the Dynatrace environment. An `environment_info` block as defined below.
+         * @param environmentInfos Information about the Dynatrace environment. An `environmentInfo` block as defined below.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class MonitorEnvironmentPropertyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param environmentInfos Information about the Dynatrace environment. An `environment_info` block as defined below.
+         * @param environmentInfos Information about the Dynatrace environment. An `environmentInfo` block as defined below.
          * 
          * @return builder
          * 

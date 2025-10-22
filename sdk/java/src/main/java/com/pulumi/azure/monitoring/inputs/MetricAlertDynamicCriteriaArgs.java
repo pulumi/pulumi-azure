@@ -66,14 +66,14 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
+     * The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`. Defaults to `4`.
      * 
      */
     @Import(name="evaluationFailureCount")
     private @Nullable Output<Integer> evaluationFailureCount;
 
     /**
-     * @return The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
+     * @return The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`. Defaults to `4`.
      * 
      */
     public Optional<Output<Integer>> evaluationFailureCount() {
@@ -81,14 +81,14 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
+     * The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points. Defaults to `4`.
      * 
      */
     @Import(name="evaluationTotalCount")
     private @Nullable Output<Integer> evaluationTotalCount;
 
     /**
-     * @return The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
+     * @return The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points. Defaults to `4`.
      * 
      */
     public Optional<Output<Integer>> evaluationTotalCount() {
@@ -277,7 +277,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluationFailureCount The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
+         * @param evaluationFailureCount The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluationFailureCount The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
+         * @param evaluationFailureCount The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluationTotalCount The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
+         * @param evaluationTotalCount The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluationTotalCount The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
+         * @param evaluationTotalCount The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points. Defaults to `4`.
          * 
          * @return builder
          * 

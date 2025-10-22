@@ -19,12 +19,12 @@ public final class EventHubRetentionDescription {
      */
     private String cleanupPolicy;
     /**
-     * @return Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
+     * @return Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanupPolicy` is `Delete`.
      * 
      */
     private @Nullable Integer retentionTimeInHours;
     /**
-     * @return Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanup_policy` is `Compact`.
+     * @return Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanupPolicy` is `Compact`.
      * 
      */
     private @Nullable Integer tombstoneRetentionTimeInHours;
@@ -38,14 +38,14 @@ public final class EventHubRetentionDescription {
         return this.cleanupPolicy;
     }
     /**
-     * @return Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
+     * @return Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanupPolicy` is `Delete`.
      * 
      */
     public Optional<Integer> retentionTimeInHours() {
         return Optional.ofNullable(this.retentionTimeInHours);
     }
     /**
-     * @return Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanup_policy` is `Compact`.
+     * @return Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanupPolicy` is `Compact`.
      * 
      */
     public Optional<Integer> tombstoneRetentionTimeInHours() {

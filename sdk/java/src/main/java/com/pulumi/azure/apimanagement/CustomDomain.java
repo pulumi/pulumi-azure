@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * 
  * ## Disclaimers
  * 
- * &gt; **Note:** It&#39;s possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However it&#39;s not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
+ * &gt; **Note:** It&#39;s possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `hostnameConfigurations` block and by using this resource. However it&#39;s not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
  * 
  * ## Example Usage
  * 
@@ -179,14 +179,14 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
         return this.apiManagementId;
     }
     /**
-     * One or more `developer_portal` blocks as defined below.
+     * One or more `developerPortal` blocks as defined below.
      * 
      */
     @Export(name="developerPortals", refs={List.class,CustomDomainDeveloperPortal.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomDomainDeveloperPortal>> developerPortals;
 
     /**
-     * @return One or more `developer_portal` blocks as defined below.
+     * @return One or more `developerPortal` blocks as defined below.
      * 
      */
     public Output<Optional<List<CustomDomainDeveloperPortal>>> developerPortals() {

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Front Door (standard/premium) Rule.
  * 
- * !&gt; **Note:** The Rules resource **must** include a `depends_on` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
+ * !&gt; **Note:** The Rules resource **must** include a `dependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
  * 
  * ## Example Usage
  * 
@@ -197,7 +197,7 @@ import javax.annotation.Nullable;
  * 
  * ## Specifying IP Address Ranges
  * 
- * When specifying IP address ranges in the `socket_address_condition` and the `remote_address_condition` `match_values` use the following format:
+ * When specifying IP address ranges in the `socketAddressCondition` and the `remoteAddressCondition` `matchValues` use the following format:
  * 
  * Use `CIDR` notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size For example:
  * 
@@ -219,19 +219,19 @@ import javax.annotation.Nullable;
  * 
  * | Variable name | Description |
  * |---------------|-------------|
- * | `socket_ip`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
- * | `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
- * | `client_port`    | The IP port of the client that made the request. |
+ * | `socketIp`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socketIp` is the IP address of the proxy or load balancer. |
+ * | `clientIp`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
+ * | `clientPort`    | The IP port of the client that made the request. |
  * | `hostname`       | The host name in the request from the client. |
- * | `geo_country`    | Indicates the requester&#39;s country/region of origin through its country/region code. |
- * | `http_method`    | The method used to make the URL request, such as `GET` or `POST`. |
- * | `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
- * | `query_string`   | The list of variable/value pairs that follows the &#34;?&#34; in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `query_string` value will be `id=123&amp;title=fabrikam`. |
- * | `request_scheme` | The request scheme: `http` or `https`. |
- * | `request_uri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&amp;title=fabrikam`. |
- * | `ssl_protocol`   | The protocol of an established TLS connection. |
- * | `server_port`    | The port of the server that accepted a request. |
- * | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
+ * | `geoCountry`    | Indicates the requester&#39;s country/region of origin through its country/region code. |
+ * | `httpMethod`    | The method used to make the URL request, such as `GET` or `POST`. |
+ * | `httpVersion`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
+ * | `queryString`   | The list of variable/value pairs that follows the &#34;?&#34; in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `queryString` value will be `id=123&amp;title=fabrikam`. |
+ * | `requestScheme` | The request scheme: `http` or `https`. |
+ * | `requestUri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `requestUri` value will be `/article.aspx?id=123&amp;title=fabrikam`. |
+ * | `sslProtocol`   | The protocol of an established TLS connection. |
+ * | `serverPort`    | The port of the server that accepted a request. |
+ * | `urlPath`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `uriPath` value will be `/article.aspx`. |
  * 
  * ### Action Server Variable Format
  * 
@@ -247,11 +247,11 @@ import javax.annotation.Nullable;
  * 
  * Action Server variables are supported on the following actions:
  * 
- * * `route_configuration_override_action`
- * * `request_header_action`
- * * `response_header_action`
- * * `url_redirect_action`
- * * `url_rewrite_action`
+ * * `routeConfigurationOverrideAction`
+ * * `requestHeaderAction`
+ * * `responseHeaderAction`
+ * * `urlRedirectAction`
+ * * `urlRewriteAction`
  * 
  * ***
  * 

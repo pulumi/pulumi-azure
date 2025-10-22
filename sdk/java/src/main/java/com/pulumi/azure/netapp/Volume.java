@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a NetApp Volume.
  * 
- * !&gt; **Note:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+ * !&gt; **Note:** This resource uses a feature to prevent deletion called `preventVolumeDestruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
  * 
  * ## Import
  * 
@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:netapp/volume:Volume")
 public class Volume extends com.pulumi.resources.CustomResource {
     /**
-     * While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
+     * While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `createFromSnapshotResourceId`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
      * 
@@ -50,7 +50,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> acceptGrowCapacityPoolForShortTermCloneSplit;
 
     /**
-     * @return While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
+     * @return While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `createFromSnapshotResourceId`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
      * 
@@ -87,98 +87,98 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.azureVmwareDataStoreEnabled);
     }
     /**
-     * A `cool_access` block as defined below.
+     * A `coolAccess` block as defined below.
      * 
      */
     @Export(name="coolAccess", refs={VolumeCoolAccess.class}, tree="[0]")
     private Output</* @Nullable */ VolumeCoolAccess> coolAccess;
 
     /**
-     * @return A `cool_access` block as defined below.
+     * @return A `coolAccess` block as defined below.
      * 
      */
     public Output<Optional<VolumeCoolAccess>> coolAccess() {
         return Codegen.optional(this.coolAccess);
     }
     /**
-     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
+     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="createFromSnapshotResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> createFromSnapshotResourceId;
 
     /**
-     * @return Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
+     * @return Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> createFromSnapshotResourceId() {
         return Codegen.optional(this.createFromSnapshotResourceId);
     }
     /**
-     * A `data_protection_backup_policy` block as defined below.
+     * A `dataProtectionBackupPolicy` block as defined below.
      * 
      */
     @Export(name="dataProtectionBackupPolicy", refs={VolumeDataProtectionBackupPolicy.class}, tree="[0]")
     private Output</* @Nullable */ VolumeDataProtectionBackupPolicy> dataProtectionBackupPolicy;
 
     /**
-     * @return A `data_protection_backup_policy` block as defined below.
+     * @return A `dataProtectionBackupPolicy` block as defined below.
      * 
      */
     public Output<Optional<VolumeDataProtectionBackupPolicy>> dataProtectionBackupPolicy() {
         return Codegen.optional(this.dataProtectionBackupPolicy);
     }
     /**
-     * A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
+     * A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dataProtectionReplication", refs={VolumeDataProtectionReplication.class}, tree="[0]")
     private Output</* @Nullable */ VolumeDataProtectionReplication> dataProtectionReplication;
 
     /**
-     * @return A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
+     * @return A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<VolumeDataProtectionReplication>> dataProtectionReplication() {
         return Codegen.optional(this.dataProtectionReplication);
     }
     /**
-     * A `data_protection_snapshot_policy` block as defined below.
+     * A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     @Export(name="dataProtectionSnapshotPolicy", refs={VolumeDataProtectionSnapshotPolicy.class}, tree="[0]")
     private Output</* @Nullable */ VolumeDataProtectionSnapshotPolicy> dataProtectionSnapshotPolicy;
 
     /**
-     * @return A `data_protection_snapshot_policy` block as defined below.
+     * @return A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     public Output<Optional<VolumeDataProtectionSnapshotPolicy>> dataProtectionSnapshotPolicy() {
         return Codegen.optional(this.dataProtectionSnapshotPolicy);
     }
     /**
-     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="encryptionKeySource", refs={String.class}, tree="[0]")
     private Output<String> encryptionKeySource;
 
     /**
-     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> encryptionKeySource() {
         return this.encryptionKeySource;
     }
     /**
-     * One or more `export_policy_rule` block defined below.
+     * One or more `exportPolicyRule` block defined below.
      * 
      */
     @Export(name="exportPolicyRules", refs={List.class,VolumeExportPolicyRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VolumeExportPolicyRule>> exportPolicyRules;
 
     /**
-     * @return One or more `export_policy_rule` block defined below.
+     * @return One or more `exportPolicyRule` block defined below.
      * 
      */
     public Output<Optional<List<VolumeExportPolicyRule>>> exportPolicyRules() {
@@ -199,14 +199,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kerberosEnabled);
     }
     /**
-     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="keyVaultPrivateEndpointId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultPrivateEndpointId;
 
     /**
-     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> keyVaultPrivateEndpointId() {
@@ -301,7 +301,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.poolName;
     }
     /**
-     * The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
+     * The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
      * 
      * &gt; **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `protocol` field in export policy rules accordingly.
      * 
@@ -310,7 +310,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     private Output<List<String>> protocols;
 
     /**
-     * @return The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
+     * @return The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
      * 
      * &gt; **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `protocol` field in export policy rules accordingly.
      * 

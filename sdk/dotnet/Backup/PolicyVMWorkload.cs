@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Backup
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `protection_policy` blocks as defined below.
+        /// One or more `ProtectionPolicy` blocks as defined below.
         /// </summary>
         [Output("protectionPolicies")]
         public Output<ImmutableArray<Outputs.PolicyVMWorkloadProtectionPolicy>> ProtectionPolicies { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Backup
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `settings` block as defined below.
+        /// A `Settings` block as defined below.
         /// </summary>
         [Output("settings")]
         public Output<Outputs.PolicyVMWorkloadSettings> Settings { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Backup
         private InputList<Inputs.PolicyVMWorkloadProtectionPolicyArgs>? _protectionPolicies;
 
         /// <summary>
-        /// One or more `protection_policy` blocks as defined below.
+        /// One or more `ProtectionPolicy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicyVMWorkloadProtectionPolicyArgs> ProtectionPolicies
         {
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Backup
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `settings` block as defined below.
+        /// A `Settings` block as defined below.
         /// </summary>
         [Input("settings", required: true)]
         public Input<Inputs.PolicyVMWorkloadSettingsArgs> Settings { get; set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Backup
         private InputList<Inputs.PolicyVMWorkloadProtectionPolicyGetArgs>? _protectionPolicies;
 
         /// <summary>
-        /// One or more `protection_policy` blocks as defined below.
+        /// One or more `ProtectionPolicy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicyVMWorkloadProtectionPolicyGetArgs> ProtectionPolicies
         {
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.Backup
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `settings` block as defined below.
+        /// A `Settings` block as defined below.
         /// </summary>
         [Input("settings")]
         public Input<Inputs.PolicyVMWorkloadSettingsGetArgs>? Settings { get; set; }

@@ -69,14 +69,14 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `custom_fabric_setting` blocks as defined below.
+     * One or more `customFabricSetting` blocks as defined below.
      * 
      */
     @Import(name="customFabricSettings")
     private @Nullable Output<List<ManagedClusterCustomFabricSettingArgs>> customFabricSettings;
 
     /**
-     * @return One or more `custom_fabric_setting` blocks as defined below.
+     * @return One or more `customFabricSetting` blocks as defined below.
      * 
      */
     public Optional<Output<List<ManagedClusterCustomFabricSettingArgs>>> customFabricSettings() {
@@ -129,14 +129,14 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `lb_rule` blocks as defined below.
+     * One or more `lbRule` blocks as defined below.
      * 
      */
     @Import(name="lbRules")
     private @Nullable Output<List<ManagedClusterLbRuleArgs>> lbRules;
 
     /**
-     * @return One or more `lb_rule` blocks as defined below.
+     * @return One or more `lbRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<ManagedClusterLbRuleArgs>>> lbRules() {
@@ -174,14 +174,14 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `node_type` blocks as defined below.
+     * One or more `nodeType` blocks as defined below.
      * 
      */
     @Import(name="nodeTypes")
     private @Nullable Output<List<ManagedClusterNodeTypeArgs>> nodeTypes;
 
     /**
-     * @return One or more `node_type` blocks as defined below.
+     * @return One or more `nodeType` blocks as defined below.
      * 
      */
     public Optional<Output<List<ManagedClusterNodeTypeArgs>>> nodeTypes() {
@@ -398,7 +398,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customFabricSettings One or more `custom_fabric_setting` blocks as defined below.
+         * @param customFabricSettings One or more `customFabricSetting` blocks as defined below.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customFabricSettings One or more `custom_fabric_setting` blocks as defined below.
+         * @param customFabricSettings One or more `customFabricSetting` blocks as defined below.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customFabricSettings One or more `custom_fabric_setting` blocks as defined below.
+         * @param customFabricSettings One or more `customFabricSetting` blocks as defined below.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lbRules One or more `lb_rule` blocks as defined below.
+         * @param lbRules One or more `lbRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lbRules One or more `lb_rule` blocks as defined below.
+         * @param lbRules One or more `lbRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lbRules One or more `lb_rule` blocks as defined below.
+         * @param lbRules One or more `lbRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param nodeTypes One or more `node_type` blocks as defined below.
+         * @param nodeTypes One or more `nodeType` blocks as defined below.
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param nodeTypes One or more `node_type` blocks as defined below.
+         * @param nodeTypes One or more `nodeType` blocks as defined below.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param nodeTypes One or more `node_type` blocks as defined below.
+         * @param nodeTypes One or more `nodeType` blocks as defined below.
          * 
          * @return builder
          * 

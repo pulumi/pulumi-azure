@@ -191,7 +191,7 @@ namespace Pulumi.Azure.DataShare
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `storage_account` block as defined below.
+        /// A `StorageAccount` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDatasetBlobStorageStorageAccountResult> StorageAccounts;
 

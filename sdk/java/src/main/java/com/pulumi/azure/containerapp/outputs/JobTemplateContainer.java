@@ -44,7 +44,7 @@ public final class JobTemplateContainer {
     /**
      * @return The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     private @Nullable String ephemeralStorage;
@@ -54,7 +54,7 @@ public final class JobTemplateContainer {
      */
     private String image;
     /**
-     * @return A `liveness_probe` block as detailed below.
+     * @return A `livenessProbe` block as detailed below.
      * 
      */
     private @Nullable List<JobTemplateContainerLivenessProbe> livenessProbes;
@@ -71,17 +71,17 @@ public final class JobTemplateContainer {
      */
     private String name;
     /**
-     * @return A `readiness_probe` block as detailed below.
+     * @return A `readinessProbe` block as detailed below.
      * 
      */
     private @Nullable List<JobTemplateContainerReadinessProbe> readinessProbes;
     /**
-     * @return A `startup_probe` block as detailed below.
+     * @return A `startupProbe` block as detailed below.
      * 
      */
     private @Nullable List<JobTemplateContainerStartupProbe> startupProbes;
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     private @Nullable List<JobTemplateContainerVolumeMount> volumeMounts;
@@ -120,7 +120,7 @@ public final class JobTemplateContainer {
     /**
      * @return The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     public Optional<String> ephemeralStorage() {
@@ -134,7 +134,7 @@ public final class JobTemplateContainer {
         return this.image;
     }
     /**
-     * @return A `liveness_probe` block as detailed below.
+     * @return A `livenessProbe` block as detailed below.
      * 
      */
     public List<JobTemplateContainerLivenessProbe> livenessProbes() {
@@ -157,21 +157,21 @@ public final class JobTemplateContainer {
         return this.name;
     }
     /**
-     * @return A `readiness_probe` block as detailed below.
+     * @return A `readinessProbe` block as detailed below.
      * 
      */
     public List<JobTemplateContainerReadinessProbe> readinessProbes() {
         return this.readinessProbes == null ? List.of() : this.readinessProbes;
     }
     /**
-     * @return A `startup_probe` block as detailed below.
+     * @return A `startupProbe` block as detailed below.
      * 
      */
     public List<JobTemplateContainerStartupProbe> startupProbes() {
         return this.startupProbes == null ? List.of() : this.startupProbes;
     }
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     public List<JobTemplateContainerVolumeMount> volumeMounts() {

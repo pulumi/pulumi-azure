@@ -53,14 +53,14 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
     }
 
     /**
-     * One or more `request_header_configuration` blocks as defined above.
+     * One or more `requestHeaderConfiguration` blocks as defined above.
      * 
      */
     @Import(name="requestHeaderConfigurations")
     private @Nullable Output<List<ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs>> requestHeaderConfigurations;
 
     /**
-     * @return One or more `request_header_configuration` blocks as defined above.
+     * @return One or more `requestHeaderConfiguration` blocks as defined above.
      * 
      */
     public Optional<Output<List<ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs>>> requestHeaderConfigurations() {
@@ -68,14 +68,14 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
     }
 
     /**
-     * One or more `response_header_configuration` blocks as defined above.
+     * One or more `responseHeaderConfiguration` blocks as defined above.
      * 
      */
     @Import(name="responseHeaderConfigurations")
     private @Nullable Output<List<ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs>> responseHeaderConfigurations;
 
     /**
-     * @return One or more `response_header_configuration` blocks as defined above.
+     * @return One or more `responseHeaderConfiguration` blocks as defined above.
      * 
      */
     public Optional<Output<List<ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs>>> responseHeaderConfigurations() {
@@ -194,7 +194,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
         }
 
         /**
-         * @param requestHeaderConfigurations One or more `request_header_configuration` blocks as defined above.
+         * @param requestHeaderConfigurations One or more `requestHeaderConfiguration` blocks as defined above.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
         }
 
         /**
-         * @param requestHeaderConfigurations One or more `request_header_configuration` blocks as defined above.
+         * @param requestHeaderConfigurations One or more `requestHeaderConfiguration` blocks as defined above.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
         }
 
         /**
-         * @param requestHeaderConfigurations One or more `request_header_configuration` blocks as defined above.
+         * @param requestHeaderConfigurations One or more `requestHeaderConfiguration` blocks as defined above.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
         }
 
         /**
-         * @param responseHeaderConfigurations One or more `response_header_configuration` blocks as defined above.
+         * @param responseHeaderConfigurations One or more `responseHeaderConfiguration` blocks as defined above.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
         }
 
         /**
-         * @param responseHeaderConfigurations One or more `response_header_configuration` blocks as defined above.
+         * @param responseHeaderConfigurations One or more `responseHeaderConfiguration` blocks as defined above.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
         }
 
         /**
-         * @param responseHeaderConfigurations One or more `response_header_configuration` blocks as defined above.
+         * @param responseHeaderConfigurations One or more `responseHeaderConfiguration` blocks as defined above.
          * 
          * @return builder
          * 

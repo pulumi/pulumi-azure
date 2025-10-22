@@ -18,12 +18,12 @@ public final class ApplicationGatewayWafConfigurationExclusion {
      */
     private String matchVariable;
     /**
-     * @return String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+     * @return String value which will be used for the filter operation. If empty will exclude all traffic on this `matchVariable`
      * 
      */
     private @Nullable String selector;
     /**
-     * @return Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
+     * @return Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `matchVariable`
      * 
      */
     private @Nullable String selectorMatchOperator;
@@ -37,14 +37,14 @@ public final class ApplicationGatewayWafConfigurationExclusion {
         return this.matchVariable;
     }
     /**
-     * @return String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+     * @return String value which will be used for the filter operation. If empty will exclude all traffic on this `matchVariable`
      * 
      */
     public Optional<String> selector() {
         return Optional.ofNullable(this.selector);
     }
     /**
-     * @return Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
+     * @return Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `matchVariable`
      * 
      */
     public Optional<String> selectorMatchOperator() {

@@ -28,14 +28,14 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     public static final SystemTopicEventSubscriptionState Empty = new SystemTopicEventSubscriptionState();
 
     /**
-     * A `advanced_filter` block as defined below.
+     * A `advancedFilter` block as defined below.
      * 
      */
     @Import(name="advancedFilter")
     private @Nullable Output<SystemTopicEventSubscriptionAdvancedFilterArgs> advancedFilter;
 
     /**
-     * @return A `advanced_filter` block as defined below.
+     * @return A `advancedFilter` block as defined below.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionAdvancedFilterArgs>> advancedFilter() {
@@ -58,14 +58,14 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     }
 
     /**
-     * An `azure_function_endpoint` block as defined below.
+     * An `azureFunctionEndpoint` block as defined below.
      * 
      */
     @Import(name="azureFunctionEndpoint")
     private @Nullable Output<SystemTopicEventSubscriptionAzureFunctionEndpointArgs> azureFunctionEndpoint;
 
     /**
-     * @return An `azure_function_endpoint` block as defined below.
+     * @return An `azureFunctionEndpoint` block as defined below.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionAzureFunctionEndpointArgs>> azureFunctionEndpoint() {
@@ -73,18 +73,18 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     }
 
     /**
-     * A `dead_letter_identity` block as defined below.
+     * A `deadLetterIdentity` block as defined below.
      * 
-     * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+     * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
      * 
      */
     @Import(name="deadLetterIdentity")
     private @Nullable Output<SystemTopicEventSubscriptionDeadLetterIdentityArgs> deadLetterIdentity;
 
     /**
-     * @return A `dead_letter_identity` block as defined below.
+     * @return A `deadLetterIdentity` block as defined below.
      * 
-     * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+     * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionDeadLetterIdentityArgs>> deadLetterIdentity() {
@@ -92,14 +92,14 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     }
 
     /**
-     * A `delivery_identity` block as defined below.
+     * A `deliveryIdentity` block as defined below.
      * 
      */
     @Import(name="deliveryIdentity")
     private @Nullable Output<SystemTopicEventSubscriptionDeliveryIdentityArgs> deliveryIdentity;
 
     /**
-     * @return A `delivery_identity` block as defined below.
+     * @return A `deliveryIdentity` block as defined below.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionDeliveryIdentityArgs>> deliveryIdentity() {
@@ -107,14 +107,14 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     }
 
     /**
-     * One or more `delivery_property` blocks as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      * 
      */
     @Import(name="deliveryProperties")
     private @Nullable Output<List<SystemTopicEventSubscriptionDeliveryPropertyArgs>> deliveryProperties;
 
     /**
-     * @return One or more `delivery_property` blocks as defined below.
+     * @return One or more `deliveryProperty` blocks as defined below.
      * 
      */
     public Optional<Output<List<SystemTopicEventSubscriptionDeliveryPropertyArgs>>> deliveryProperties() {
@@ -242,14 +242,14 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     }
 
     /**
-     * A `retry_policy` block as defined below.
+     * A `retryPolicy` block as defined below.
      * 
      */
     @Import(name="retryPolicy")
     private @Nullable Output<SystemTopicEventSubscriptionRetryPolicyArgs> retryPolicy;
 
     /**
-     * @return A `retry_policy` block as defined below.
+     * @return A `retryPolicy` block as defined below.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionRetryPolicyArgs>> retryPolicy() {
@@ -287,14 +287,14 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     }
 
     /**
-     * A `storage_blob_dead_letter_destination` block as defined below.
+     * A `storageBlobDeadLetterDestination` block as defined below.
      * 
      */
     @Import(name="storageBlobDeadLetterDestination")
     private @Nullable Output<SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs> storageBlobDeadLetterDestination;
 
     /**
-     * @return A `storage_blob_dead_letter_destination` block as defined below.
+     * @return A `storageBlobDeadLetterDestination` block as defined below.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs>> storageBlobDeadLetterDestination() {
@@ -302,14 +302,14 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     }
 
     /**
-     * A `storage_queue_endpoint` block as defined below.
+     * A `storageQueueEndpoint` block as defined below.
      * 
      */
     @Import(name="storageQueueEndpoint")
     private @Nullable Output<SystemTopicEventSubscriptionStorageQueueEndpointArgs> storageQueueEndpoint;
 
     /**
-     * @return A `storage_queue_endpoint` block as defined below.
+     * @return A `storageQueueEndpoint` block as defined below.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionStorageQueueEndpointArgs>> storageQueueEndpoint() {
@@ -317,14 +317,14 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     }
 
     /**
-     * A `subject_filter` block as defined below.
+     * A `subjectFilter` block as defined below.
      * 
      */
     @Import(name="subjectFilter")
     private @Nullable Output<SystemTopicEventSubscriptionSubjectFilterArgs> subjectFilter;
 
     /**
-     * @return A `subject_filter` block as defined below.
+     * @return A `subjectFilter` block as defined below.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionSubjectFilterArgs>> subjectFilter() {
@@ -347,18 +347,18 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     }
 
     /**
-     * A `webhook_endpoint` block as defined below.
+     * A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      * 
      */
     @Import(name="webhookEndpoint")
     private @Nullable Output<SystemTopicEventSubscriptionWebhookEndpointArgs> webhookEndpoint;
 
     /**
-     * @return A `webhook_endpoint` block as defined below.
+     * @return A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionWebhookEndpointArgs>> webhookEndpoint() {
@@ -411,7 +411,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param advancedFilter A `advanced_filter` block as defined below.
+         * @param advancedFilter A `advancedFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param advancedFilter A `advanced_filter` block as defined below.
+         * @param advancedFilter A `advancedFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param azureFunctionEndpoint An `azure_function_endpoint` block as defined below.
+         * @param azureFunctionEndpoint An `azureFunctionEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param azureFunctionEndpoint An `azure_function_endpoint` block as defined below.
+         * @param azureFunctionEndpoint An `azureFunctionEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -474,9 +474,9 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param deadLetterIdentity A `dead_letter_identity` block as defined below.
+         * @param deadLetterIdentity A `deadLetterIdentity` block as defined below.
          * 
-         * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+         * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
          * 
          * @return builder
          * 
@@ -487,9 +487,9 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param deadLetterIdentity A `dead_letter_identity` block as defined below.
+         * @param deadLetterIdentity A `deadLetterIdentity` block as defined below.
          * 
-         * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+         * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param deliveryIdentity A `delivery_identity` block as defined below.
+         * @param deliveryIdentity A `deliveryIdentity` block as defined below.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param deliveryIdentity A `delivery_identity` block as defined below.
+         * @param deliveryIdentity A `deliveryIdentity` block as defined below.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param deliveryProperties One or more `delivery_property` blocks as defined below.
+         * @param deliveryProperties One or more `deliveryProperty` blocks as defined below.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param deliveryProperties One or more `delivery_property` blocks as defined below.
+         * @param deliveryProperties One or more `deliveryProperty` blocks as defined below.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param deliveryProperties One or more `delivery_property` blocks as defined below.
+         * @param deliveryProperties One or more `deliveryProperty` blocks as defined below.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param retryPolicy A `retry_policy` block as defined below.
+         * @param retryPolicy A `retryPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param retryPolicy A `retry_policy` block as defined below.
+         * @param retryPolicy A `retryPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -802,7 +802,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param storageBlobDeadLetterDestination A `storage_blob_dead_letter_destination` block as defined below.
+         * @param storageBlobDeadLetterDestination A `storageBlobDeadLetterDestination` block as defined below.
          * 
          * @return builder
          * 
@@ -813,7 +813,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param storageBlobDeadLetterDestination A `storage_blob_dead_letter_destination` block as defined below.
+         * @param storageBlobDeadLetterDestination A `storageBlobDeadLetterDestination` block as defined below.
          * 
          * @return builder
          * 
@@ -823,7 +823,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param storageQueueEndpoint A `storage_queue_endpoint` block as defined below.
+         * @param storageQueueEndpoint A `storageQueueEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -834,7 +834,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param storageQueueEndpoint A `storage_queue_endpoint` block as defined below.
+         * @param storageQueueEndpoint A `storageQueueEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -844,7 +844,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param subjectFilter A `subject_filter` block as defined below.
+         * @param subjectFilter A `subjectFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -855,7 +855,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param subjectFilter A `subject_filter` block as defined below.
+         * @param subjectFilter A `subjectFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -886,9 +886,9 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param webhookEndpoint A `webhook_endpoint` block as defined below.
+         * @param webhookEndpoint A `webhookEndpoint` block as defined below.
          * 
-         * &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
          * 
          * @return builder
          * 
@@ -899,9 +899,9 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param webhookEndpoint A `webhook_endpoint` block as defined below.
+         * @param webhookEndpoint A `webhookEndpoint` block as defined below.
          * 
-         * &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
          * 
          * @return builder
          * 

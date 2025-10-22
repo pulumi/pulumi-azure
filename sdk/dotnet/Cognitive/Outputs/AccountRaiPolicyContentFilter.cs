@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Cognitive.Outputs
     public sealed class AccountRaiPolicyContentFilter
     {
         /// <summary>
-        /// Whether the filter should block content. Possible values are `true` or `false`.
+        /// Whether the filter should block content. Possible values are `True` or `False`.
         /// </summary>
         public readonly bool BlockEnabled;
         /// <summary>
-        /// Whether the filter is enabled. Possible values are `true` or `false`.
+        /// Whether the filter is enabled. Possible values are `True` or `False`.
         /// </summary>
         public readonly bool FilterEnabled;
         /// <summary>

@@ -111,15 +111,15 @@ namespace Pulumi.Azure.NetApp
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+        /// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        /// &gt; **Note:** Disabling `CoolAccessEnabled` is not allowed and forces a new resource to be created.
         /// </summary>
         [Output("coolAccessEnabled")]
         public Output<bool?> CoolAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+        /// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `ServiceLevel` is set to `Flexible` and `QosType` is set to `Manual`.
         /// </summary>
         [Output("customThroughputMibps")]
         public Output<int?> CustomThroughputMibps { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// &gt; **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
         /// 
-        /// &gt; **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+        /// &gt; **Note:** The maximum `SizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         /// </summary>
         [Output("sizeInTb")]
         public Output<int> SizeInTb { get; private set; } = null!;
@@ -229,15 +229,15 @@ namespace Pulumi.Azure.NetApp
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+        /// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        /// &gt; **Note:** Disabling `CoolAccessEnabled` is not allowed and forces a new resource to be created.
         /// </summary>
         [Input("coolAccessEnabled")]
         public Input<bool>? CoolAccessEnabled { get; set; }
 
         /// <summary>
-        /// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+        /// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `ServiceLevel` is set to `Flexible` and `QosType` is set to `Manual`.
         /// </summary>
         [Input("customThroughputMibps")]
         public Input<int>? CustomThroughputMibps { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// &gt; **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
         /// 
-        /// &gt; **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+        /// &gt; **Note:** The maximum `SizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         /// </summary>
         [Input("sizeInTb", required: true)]
         public Input<int> SizeInTb { get; set; } = null!;
@@ -315,15 +315,15 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+        /// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        /// &gt; **Note:** Disabling `CoolAccessEnabled` is not allowed and forces a new resource to be created.
         /// </summary>
         [Input("coolAccessEnabled")]
         public Input<bool>? CoolAccessEnabled { get; set; }
 
         /// <summary>
-        /// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+        /// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `ServiceLevel` is set to `Flexible` and `QosType` is set to `Manual`.
         /// </summary>
         [Input("customThroughputMibps")]
         public Input<int>? CustomThroughputMibps { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// &gt; **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
         /// 
-        /// &gt; **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+        /// &gt; **Note:** The maximum `SizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         /// </summary>
         [Input("sizeInTb")]
         public Input<int>? SizeInTb { get; set; }

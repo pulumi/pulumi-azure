@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identifier` block as defined below.
+        /// An `Identifier` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSharedImageIdentifierResult> Identifiers;
         /// <summary>
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string PrivacyStatementUri;
         /// <summary>
-        /// (Optional) A `purchase_plan` block as defined below.
+        /// (Optional) A `PurchasePlan` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSharedImagePurchasePlanResult> PurchasePlans;
         /// <summary>
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Compute
         public readonly string ReleaseNoteUri;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run).
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `Sysprep` on Windows has not been run).
         /// </summary>
         public readonly bool Specialized;
         /// <summary>

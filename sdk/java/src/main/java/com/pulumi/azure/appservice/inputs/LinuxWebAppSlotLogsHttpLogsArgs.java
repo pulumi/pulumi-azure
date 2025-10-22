@@ -17,14 +17,14 @@ public final class LinuxWebAppSlotLogsHttpLogsArgs extends com.pulumi.resources.
     public static final LinuxWebAppSlotLogsHttpLogsArgs Empty = new LinuxWebAppSlotLogsHttpLogsArgs();
 
     /**
-     * A `azure_blob_storage_http` block as defined above.
+     * A `azureBlobStorageHttp` block as defined above.
      * 
      */
     @Import(name="azureBlobStorage")
     private @Nullable Output<LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs> azureBlobStorage;
 
     /**
-     * @return A `azure_blob_storage_http` block as defined above.
+     * @return A `azureBlobStorageHttp` block as defined above.
      * 
      */
     public Optional<Output<LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs>> azureBlobStorage() {
@@ -32,14 +32,14 @@ public final class LinuxWebAppSlotLogsHttpLogsArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `file_system` block as defined above.
+     * A `fileSystem` block as defined above.
      * 
      */
     @Import(name="fileSystem")
     private @Nullable Output<LinuxWebAppSlotLogsHttpLogsFileSystemArgs> fileSystem;
 
     /**
-     * @return A `file_system` block as defined above.
+     * @return A `fileSystem` block as defined above.
      * 
      */
     public Optional<Output<LinuxWebAppSlotLogsHttpLogsFileSystemArgs>> fileSystem() {
@@ -72,7 +72,7 @@ public final class LinuxWebAppSlotLogsHttpLogsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param azureBlobStorage A `azure_blob_storage_http` block as defined above.
+         * @param azureBlobStorage A `azureBlobStorageHttp` block as defined above.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class LinuxWebAppSlotLogsHttpLogsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param azureBlobStorage A `azure_blob_storage_http` block as defined above.
+         * @param azureBlobStorage A `azureBlobStorageHttp` block as defined above.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class LinuxWebAppSlotLogsHttpLogsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param fileSystem A `file_system` block as defined above.
+         * @param fileSystem A `fileSystem` block as defined above.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class LinuxWebAppSlotLogsHttpLogsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param fileSystem A `file_system` block as defined above.
+         * @param fileSystem A `fileSystem` block as defined above.
          * 
          * @return builder
          * 

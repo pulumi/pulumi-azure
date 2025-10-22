@@ -173,42 +173,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:frontdoor/firewallPolicy:FirewallPolicy")
 public class FirewallPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+     * If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
      */
     @Export(name="customBlockResponseBody", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customBlockResponseBody;
 
     /**
-     * @return If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
      */
     public Output<Optional<String>> customBlockResponseBody() {
         return Codegen.optional(this.customBlockResponseBody);
     }
     /**
-     * If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      * 
      */
     @Export(name="customBlockResponseStatusCode", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> customBlockResponseStatusCode;
 
     /**
-     * @return If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      * 
      */
     public Output<Optional<Integer>> customBlockResponseStatusCode() {
         return Codegen.optional(this.customBlockResponseStatusCode);
     }
     /**
-     * One or more `custom_rule` blocks as defined below.
+     * One or more `customRule` blocks as defined below.
      * 
      */
     @Export(name="customRules", refs={List.class,FirewallPolicyCustomRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FirewallPolicyCustomRule>> customRules;
 
     /**
-     * @return One or more `custom_rule` blocks as defined below.
+     * @return One or more `customRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<FirewallPolicyCustomRule>>> customRules() {
@@ -257,14 +257,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * One or more `managed_rule` blocks as defined below.
+     * One or more `managedRule` blocks as defined below.
      * 
      */
     @Export(name="managedRules", refs={List.class,FirewallPolicyManagedRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FirewallPolicyManagedRule>> managedRules;
 
     /**
-     * @return One or more `managed_rule` blocks as defined below.
+     * @return One or more `managedRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<FirewallPolicyManagedRule>>> managedRules() {

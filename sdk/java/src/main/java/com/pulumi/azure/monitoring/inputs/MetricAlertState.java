@@ -39,18 +39,18 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `application_insights_web_test_location_availability_criteria` block as defined below.
+     * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     @Import(name="applicationInsightsWebTestLocationAvailabilityCriteria")
     private @Nullable Output<MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs> applicationInsightsWebTestLocationAvailabilityCriteria;
 
     /**
-     * @return A `application_insights_web_test_location_availability_criteria` block as defined below.
+     * @return A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     public Optional<Output<MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs>> applicationInsightsWebTestLocationAvailabilityCriteria() {
@@ -75,7 +75,7 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more (static) `criteria` blocks as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     @Import(name="criterias")
@@ -84,7 +84,7 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return One or more (static) `criteria` blocks as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     public Optional<Output<List<MetricAlertCriteriaArgs>>> criterias() {
@@ -107,18 +107,18 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `dynamic_criteria` block as defined below.
+     * A `dynamicCriteria` block as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     @Import(name="dynamicCriteria")
     private @Nullable Output<MetricAlertDynamicCriteriaArgs> dynamicCriteria;
 
     /**
-     * @return A `dynamic_criteria` block as defined below.
+     * @return A `dynamicCriteria` block as defined below.
      * 
-     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      * 
      */
     public Optional<Output<MetricAlertDynamicCriteriaArgs>> dynamicCriteria() {
@@ -354,9 +354,9 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationInsightsWebTestLocationAvailabilityCriteria A `application_insights_web_test_location_availability_criteria` block as defined below.
+         * @param applicationInsightsWebTestLocationAvailabilityCriteria A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
          * 
-         * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+         * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
          * 
          * @return builder
          * 
@@ -367,9 +367,9 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationInsightsWebTestLocationAvailabilityCriteria A `application_insights_web_test_location_availability_criteria` block as defined below.
+         * @param applicationInsightsWebTestLocationAvailabilityCriteria A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
          * 
-         * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+         * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param criterias One or more (static) `criteria` blocks as defined below.
          * 
-         * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+         * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param criterias One or more (static) `criteria` blocks as defined below.
          * 
-         * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+         * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param criterias One or more (static) `criteria` blocks as defined below.
          * 
-         * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+         * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
          * 
          * @return builder
          * 
@@ -458,9 +458,9 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicCriteria A `dynamic_criteria` block as defined below.
+         * @param dynamicCriteria A `dynamicCriteria` block as defined below.
          * 
-         * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+         * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
          * 
          * @return builder
          * 
@@ -471,9 +471,9 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicCriteria A `dynamic_criteria` block as defined below.
+         * @param dynamicCriteria A `dynamicCriteria` block as defined below.
          * 
-         * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+         * &gt; **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
          * 
          * @return builder
          * 

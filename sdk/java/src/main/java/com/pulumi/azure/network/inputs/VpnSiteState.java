@@ -22,7 +22,7 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      * 
-     * &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
+     * &gt; **Note:** The `addressCidrs` has to be set when the `link.bgp` isn&#39;t specified.
      * 
      */
     @Import(name="addressCidrs")
@@ -31,7 +31,7 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      * 
-     * &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
+     * &gt; **Note:** The `addressCidrs` has to be set when the `link.bgp` isn&#39;t specified.
      * 
      */
     public Optional<Output<List<String>>> addressCidrs() {
@@ -114,14 +114,14 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `o365_policy` block as defined below.
+     * An `o365Policy` block as defined below.
      * 
      */
     @Import(name="o365Policy")
     private @Nullable Output<VpnSiteO365PolicyArgs> o365Policy;
 
     /**
-     * @return An `o365_policy` block as defined below.
+     * @return An `o365Policy` block as defined below.
      * 
      */
     public Optional<Output<VpnSiteO365PolicyArgs>> o365Policy() {
@@ -209,7 +209,7 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param addressCidrs Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
          * 
-         * &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
+         * &gt; **Note:** The `addressCidrs` has to be set when the `link.bgp` isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param addressCidrs Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
          * 
-         * &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
+         * &gt; **Note:** The `addressCidrs` has to be set when the `link.bgp` isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param addressCidrs Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
          * 
-         * &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
+         * &gt; **Note:** The `addressCidrs` has to be set when the `link.bgp` isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param o365Policy An `o365_policy` block as defined below.
+         * @param o365Policy An `o365Policy` block as defined below.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param o365Policy An `o365_policy` block as defined below.
+         * @param o365Policy An `o365Policy` block as defined below.
          * 
          * @return builder
          * 

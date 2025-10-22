@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorFirewallPolicyCustomRuleMatchCondition {
     /**
-     * @return Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+     * @return Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
      * 
      */
     private List<String> matchValues;
@@ -35,7 +35,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchCondition {
      */
     private String operator;
     /**
-     * @return Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
+     * @return Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
      * 
      */
     private @Nullable String selector;
@@ -47,7 +47,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchCondition {
 
     private FrontdoorFirewallPolicyCustomRuleMatchCondition() {}
     /**
-     * @return Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+     * @return Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
      * 
      */
     public List<String> matchValues() {
@@ -75,7 +75,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchCondition {
         return this.operator;
     }
     /**
-     * @return Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
+     * @return Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
      * 
      */
     public Optional<String> selector() {

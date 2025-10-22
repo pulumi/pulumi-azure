@@ -178,7 +178,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
     /**
      * The pattern that blob path ends with for trigger to fire.
      * 
-     * &gt; **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
+     * &gt; **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
      * 
      */
     @Export(name="blobPathEndsWith", refs={String.class}, tree="[0]")
@@ -187,7 +187,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
     /**
      * @return The pattern that blob path ends with for trigger to fire.
      * 
-     * &gt; **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
+     * &gt; **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
      * 
      */
     public Output<Optional<String>> blobPathEndsWith() {

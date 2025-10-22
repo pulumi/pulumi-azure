@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Pim
     public sealed class GetRoleAssignmentsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether to limit the result exactly at the specified scope and not above or below it. Defaults to `false`.
+        /// Whether to limit the result exactly at the specified scope and not above or below it. Defaults to `False`.
         /// </summary>
         [Input("limitAtScope")]
         public bool? LimitAtScope { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Pim
     public sealed class GetRoleAssignmentsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether to limit the result exactly at the specified scope and not above or below it. Defaults to `false`.
+        /// Whether to limit the result exactly at the specified scope and not above or below it. Defaults to `False`.
         /// </summary>
         [Input("limitAtScope")]
         public Input<bool>? LimitAtScope { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.Pim
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// A `role_assignments` block as defined below.
+        /// A `RoleAssignments` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleAssignmentsRoleAssignmentResult> RoleAssignments;
         public readonly string Scope;

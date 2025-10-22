@@ -81,7 +81,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
     /**
      * A List of destination Application Security Group IDs
      * 
-     * &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+     * &gt; **Note:** One of `destinationAddressPrefix`, `destinationAddressPrefixes` or `destinationApplicationSecurityGroupIds` must be specified.
      * 
      */
     @Import(name="destinationApplicationSecurityGroupIds")
@@ -90,7 +90,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
     /**
      * @return A List of destination Application Security Group IDs
      * 
-     * &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+     * &gt; **Note:** One of `destinationAddressPrefix`, `destinationAddressPrefixes` or `destinationApplicationSecurityGroupIds` must be specified.
      * 
      */
     public Optional<Output<String>> destinationApplicationSecurityGroupIds() {
@@ -98,14 +98,14 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      * 
      */
     @Import(name="destinationPortRange")
     private @Nullable Output<String> destinationPortRange;
 
     /**
-     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      * 
      */
     public Optional<Output<String>> destinationPortRange() {
@@ -113,14 +113,14 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      * 
      */
     @Import(name="destinationPortRanges")
     private @Nullable Output<List<String>> destinationPortRanges;
 
     /**
-     * @return List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * @return List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      * 
      */
     public Optional<Output<List<String>>> destinationPortRanges() {
@@ -250,7 +250,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
     /**
      * A List of source Application Security Group IDs
      * 
-     * &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+     * &gt; **Note:** One of `sourceAddressPrefix`, `sourceAddressPrefixes` or `sourceApplicationSecurityGroupIds` must be specified.
      * 
      */
     @Import(name="sourceApplicationSecurityGroupIds")
@@ -259,7 +259,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
     /**
      * @return A List of source Application Security Group IDs
      * 
-     * &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+     * &gt; **Note:** One of `sourceAddressPrefix`, `sourceAddressPrefixes` or `sourceApplicationSecurityGroupIds` must be specified.
      * 
      */
     public Optional<Output<String>> sourceApplicationSecurityGroupIds() {
@@ -267,14 +267,14 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      * 
      */
     @Import(name="sourcePortRange")
     private @Nullable Output<String> sourcePortRange;
 
     /**
-     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      * 
      */
     public Optional<Output<String>> sourcePortRange() {
@@ -282,14 +282,14 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      * 
      */
     @Import(name="sourcePortRanges")
     private @Nullable Output<List<String>> sourcePortRanges;
 
     /**
-     * @return List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * @return List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      * 
      */
     public Optional<Output<List<String>>> sourcePortRanges() {
@@ -434,7 +434,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         /**
          * @param destinationApplicationSecurityGroupIds A List of destination Application Security Group IDs
          * 
-         * &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+         * &gt; **Note:** One of `destinationAddressPrefix`, `destinationAddressPrefixes` or `destinationApplicationSecurityGroupIds` must be specified.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         /**
          * @param destinationApplicationSecurityGroupIds A List of destination Application Security Group IDs
          * 
-         * &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+         * &gt; **Note:** One of `destinationAddressPrefix`, `destinationAddressPrefixes` or `destinationApplicationSecurityGroupIds` must be specified.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationPortRange Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+         * @param destinationPortRange Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationPortRange Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+         * @param destinationPortRange Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         /**
          * @param sourceApplicationSecurityGroupIds A List of source Application Security Group IDs
          * 
-         * &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+         * &gt; **Note:** One of `sourceAddressPrefix`, `sourceAddressPrefixes` or `sourceApplicationSecurityGroupIds` must be specified.
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         /**
          * @param sourceApplicationSecurityGroupIds A List of source Application Security Group IDs
          * 
-         * &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+         * &gt; **Note:** One of `sourceAddressPrefix`, `sourceAddressPrefixes` or `sourceApplicationSecurityGroupIds` must be specified.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sourcePortRange Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+         * @param sourcePortRange Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
          * 
          * @return builder
          * 
@@ -723,7 +723,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sourcePortRange Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+         * @param sourcePortRange Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sourcePortRanges List of source ports or port ranges. This is required if `source_port_range` is not specified.
+         * @param sourcePortRanges List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sourcePortRanges List of source ports or port ranges. This is required if `source_port_range` is not specified.
+         * @param sourcePortRanges List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
          * 
          * @return builder
          * 
@@ -754,7 +754,7 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sourcePortRanges List of source ports or port ranges. This is required if `source_port_range` is not specified.
+         * @param sourcePortRanges List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
          * 
          * @return builder
          * 

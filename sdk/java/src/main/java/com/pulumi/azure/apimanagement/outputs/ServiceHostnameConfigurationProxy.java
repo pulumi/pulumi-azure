@@ -21,7 +21,7 @@ public final class ServiceHostnameConfigurationProxy {
     /**
      * @return The password associated with the certificate provided above.
      * 
-     * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
+     * &gt; **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
      * 
      */
     private @Nullable String certificatePassword;
@@ -59,10 +59,10 @@ public final class ServiceHostnameConfigurationProxy {
     private @Nullable String keyVaultCertificateId;
     /**
      * @deprecated
-     * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
     private @Nullable String keyVaultId;
     /**
      * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -96,7 +96,7 @@ public final class ServiceHostnameConfigurationProxy {
     /**
      * @return The password associated with the certificate provided above.
      * 
-     * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
+     * &gt; **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
      * 
      */
     public Optional<String> certificatePassword() {
@@ -148,10 +148,10 @@ public final class ServiceHostnameConfigurationProxy {
     }
     /**
      * @deprecated
-     * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
     public Optional<String> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
+        /// This traffic Weight applies to the latest stable Container Revision. At most only one `TrafficWeight` block can have the `LatestRevision` set to `True`.
         /// </summary>
         [Input("latestRevision")]
         public Input<bool>? LatestRevision { get; set; }
@@ -27,15 +27,15 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The percentage of traffic which should be sent this revision.
         /// 
-        /// &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
+        /// &gt; **Note:** The cumulative values for `Weight` must equal 100 exactly and explicitly, no default weights are assumed.
         /// </summary>
         [Input("percentage", required: true)]
         public Input<int> Percentage { get; set; } = null!;
 
         /// <summary>
-        /// The suffix string to which this `traffic_weight` applies.
+        /// The suffix string to which this `TrafficWeight` applies.
         /// 
-        /// &gt; **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
+        /// &gt; **Note:** If `LatestRevision` is `False`, the `RevisionSuffix` shall be specified.
         /// </summary>
         [Input("revisionSuffix")]
         public Input<string>? RevisionSuffix { get; set; }

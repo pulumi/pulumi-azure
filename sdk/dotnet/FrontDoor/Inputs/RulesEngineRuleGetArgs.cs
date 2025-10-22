@@ -13,7 +13,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
     public sealed class RulesEngineRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         [Input("action")]
         public Input<Inputs.RulesEngineRuleActionGetArgs>? Action { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<Inputs.RulesEngineRuleMatchConditionGetArgs>? _matchConditions;
 
         /// <summary>
-        /// One or more `match_condition` block as defined below.
+        /// One or more `MatchCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.RulesEngineRuleMatchConditionGetArgs> MatchConditions
         {

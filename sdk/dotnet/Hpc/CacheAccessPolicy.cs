@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Hpc
     public partial class CacheAccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `access_rule` blocks (up to three) as defined below.
+        /// One or more `AccessRule` blocks (up to three) as defined below.
         /// </summary>
         [Output("accessRules")]
         public Output<ImmutableArray<Outputs.CacheAccessPolicyAccessRule>> AccessRules { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Hpc
         private InputList<Inputs.CacheAccessPolicyAccessRuleArgs>? _accessRules;
 
         /// <summary>
-        /// One or more `access_rule` blocks (up to three) as defined below.
+        /// One or more `AccessRule` blocks (up to three) as defined below.
         /// </summary>
         public InputList<Inputs.CacheAccessPolicyAccessRuleArgs> AccessRules
         {
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Hpc
         private InputList<Inputs.CacheAccessPolicyAccessRuleGetArgs>? _accessRules;
 
         /// <summary>
-        /// One or more `access_rule` blocks (up to three) as defined below.
+        /// One or more `AccessRule` blocks (up to three) as defined below.
         /// </summary>
         public InputList<Inputs.CacheAccessPolicyAccessRuleGetArgs> AccessRules
         {

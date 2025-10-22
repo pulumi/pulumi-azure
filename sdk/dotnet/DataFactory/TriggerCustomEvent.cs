@@ -100,7 +100,7 @@ namespace Pulumi.Azure.DataFactory
     public partial class TriggerCustomEvent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `True`.
         /// </summary>
         [Output("activated")]
         public Output<bool?> Activated { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `pipeline` blocks as defined below.
+        /// One or more `Pipeline` blocks as defined below.
         /// </summary>
         [Output("pipelines")]
         public Output<ImmutableArray<Outputs.TriggerCustomEventPipeline>> Pipelines { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class TriggerCustomEventArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `True`.
         /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerCustomEventPipelineArgs>? _pipelines;
 
         /// <summary>
-        /// One or more `pipeline` blocks as defined below.
+        /// One or more `Pipeline` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TriggerCustomEventPipelineArgs> Pipelines
         {
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class TriggerCustomEventState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `True`.
         /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
@@ -379,7 +379,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerCustomEventPipelineGetArgs>? _pipelines;
 
         /// <summary>
-        /// One or more `pipeline` blocks as defined below.
+        /// One or more `Pipeline` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TriggerCustomEventPipelineGetArgs> Pipelines
         {

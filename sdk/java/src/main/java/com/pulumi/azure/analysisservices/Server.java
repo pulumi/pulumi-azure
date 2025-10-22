@@ -122,14 +122,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.backupBlobContainerUri);
     }
     /**
-     * One or more `ipv4_firewall_rule` block(s) as defined below.
+     * One or more `ipv4FirewallRule` block(s) as defined below.
      * 
      */
     @Export(name="ipv4FirewallRules", refs={List.class,ServerIpv4FirewallRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServerIpv4FirewallRule>> ipv4FirewallRules;
 
     /**
-     * @return One or more `ipv4_firewall_rule` block(s) as defined below.
+     * @return One or more `ipv4FirewallRule` block(s) as defined below.
      * 
      */
     public Output<Optional<List<ServerIpv4FirewallRule>>> ipv4FirewallRules() {

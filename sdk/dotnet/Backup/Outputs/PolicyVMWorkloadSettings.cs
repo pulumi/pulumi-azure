@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyVMWorkloadSettings
     {
         /// <summary>
-        /// The compression setting for the VM Workload Backup Policy. Defaults to `false`.
+        /// The compression setting for the VM Workload Backup Policy. Defaults to `False`.
         /// </summary>
         public readonly bool? CompressionEnabled;
         /// <summary>

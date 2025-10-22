@@ -20,17 +20,17 @@ import javax.annotation.Nullable;
 public final class ThreeTierVirtualInstanceThreeTierConfiguration {
     private String appResourceGroupName;
     /**
-     * @return An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfiguration applicationServerConfiguration;
     /**
-     * @return A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `centralServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfiguration centralServerConfiguration;
     /**
-     * @return A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `databaseServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfiguration databaseServerConfiguration;
@@ -40,7 +40,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfiguration {
      */
     private @Nullable String highAvailabilityType;
     /**
-     * @return A `resource_names` block as defined below. Changing this forces a new resource to be created.
+     * @return A `resourceNames` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable ThreeTierVirtualInstanceThreeTierConfigurationResourceNames resourceNames;
@@ -50,9 +50,9 @@ public final class ThreeTierVirtualInstanceThreeTierConfiguration {
      */
     private @Nullable Boolean secondaryIpEnabled;
     /**
-     * @return A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
+     * @return A `transportCreateAndMount` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The file share configuration uses `skip` by default when `transport_create_and_mount` isn&#39;t set.
+     * &gt; **Note:** The file share configuration uses `skip` by default when `transportCreateAndMount` isn&#39;t set.
      * 
      * &gt; **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
      * 
@@ -64,21 +64,21 @@ public final class ThreeTierVirtualInstanceThreeTierConfiguration {
         return this.appResourceGroupName;
     }
     /**
-     * @return An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfiguration applicationServerConfiguration() {
         return this.applicationServerConfiguration;
     }
     /**
-     * @return A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `centralServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfiguration centralServerConfiguration() {
         return this.centralServerConfiguration;
     }
     /**
-     * @return A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `databaseServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfiguration databaseServerConfiguration() {
@@ -92,7 +92,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfiguration {
         return Optional.ofNullable(this.highAvailabilityType);
     }
     /**
-     * @return A `resource_names` block as defined below. Changing this forces a new resource to be created.
+     * @return A `resourceNames` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<ThreeTierVirtualInstanceThreeTierConfigurationResourceNames> resourceNames() {
@@ -106,9 +106,9 @@ public final class ThreeTierVirtualInstanceThreeTierConfiguration {
         return Optional.ofNullable(this.secondaryIpEnabled);
     }
     /**
-     * @return A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
+     * @return A `transportCreateAndMount` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The file share configuration uses `skip` by default when `transport_create_and_mount` isn&#39;t set.
+     * &gt; **Note:** The file share configuration uses `skip` by default when `transportCreateAndMount` isn&#39;t set.
      * 
      * &gt; **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
      * 

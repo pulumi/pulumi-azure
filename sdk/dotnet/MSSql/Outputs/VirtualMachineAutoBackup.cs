@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string? EncryptionPassword;
         /// <summary>
-        /// A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        /// A `ManualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         /// </summary>
         public readonly Outputs.VirtualMachineAutoBackupManualSchedule? ManualSchedule;
         /// <summary>

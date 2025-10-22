@@ -92,14 +92,14 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptContent")
     private @Nullable Output<String> scriptContent;
 
     /**
-     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> scriptContent() {
@@ -257,7 +257,7 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

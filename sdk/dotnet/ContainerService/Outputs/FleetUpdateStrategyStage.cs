@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? AfterStageWaitInSeconds;
         /// <summary>
-        /// One or more `group` blocks as defined below.
+        /// One or more `Group` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FleetUpdateStrategyStageGroup> Groups;
         /// <summary>

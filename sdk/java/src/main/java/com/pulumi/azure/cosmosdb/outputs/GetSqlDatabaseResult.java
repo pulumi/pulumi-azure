@@ -15,7 +15,7 @@ import java.util.Objects;
 public final class GetSqlDatabaseResult {
     private String accountName;
     /**
-     * @return An `autoscale_settings` block as defined below.
+     * @return An `autoscaleSettings` block as defined below.
      * 
      */
     private List<GetSqlDatabaseAutoscaleSetting> autoscaleSettings;
@@ -37,7 +37,7 @@ public final class GetSqlDatabaseResult {
         return this.accountName;
     }
     /**
-     * @return An `autoscale_settings` block as defined below.
+     * @return An `autoscaleSettings` block as defined below.
      * 
      */
     public List<GetSqlDatabaseAutoscaleSetting> autoscaleSettings() {

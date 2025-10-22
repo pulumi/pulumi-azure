@@ -154,11 +154,11 @@ namespace Pulumi.Azure.ContainerService
     public sealed class GetKubernetesClusterResult
     {
         /// <summary>
-        /// An `aci_connector_linux` block as documented below.
+        /// An `AciConnectorLinux` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAciConnectorLinuxResult> AciConnectorLinuxes;
         /// <summary>
-        /// An `agent_pool_profile` block as documented below.
+        /// An `AgentPoolProfile` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfileResult> AgentPoolProfiles;
         /// <summary>
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableArray<string> ApiServerAuthorizedIpRanges;
         /// <summary>
-        /// An `azure_active_directory_role_based_access_control` block as documented below.
+        /// An `AzureActiveDirectoryRoleBasedAccessControl` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult> AzureActiveDirectoryRoleBasedAccessControls;
         /// <summary>
@@ -202,19 +202,19 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as documented below.
+        /// An `Identity` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterIdentityResult> Identities;
         /// <summary>
-        /// An `ingress_application_gateway` block as documented below.
+        /// An `IngressApplicationGateway` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterIngressApplicationGatewayResult> IngressApplicationGateways;
         /// <summary>
-        /// A `key_management_service` block as documented below.
+        /// A `KeyManagementService` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKeyManagementServiceResult> KeyManagementServices;
         /// <summary>
-        /// A `key_vault_secrets_provider` block as documented below.
+        /// A `KeyVaultSecretsProvider` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKeyVaultSecretsProviderResult> KeyVaultSecretsProviders;
         /// <summary>
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string KubeAdminConfigRaw;
         /// <summary>
-        /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
+        /// A `KubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeAdminConfigResult> KubeAdminConfigs;
         /// <summary>
@@ -230,11 +230,11 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string KubeConfigRaw;
         /// <summary>
-        /// A `kube_config` block as defined below.
+        /// A `KubeConfig` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeConfigResult> KubeConfigs;
         /// <summary>
-        /// A `kubelet_identity` block as documented below.
+        /// A `KubeletIdentity` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeletIdentityResult> KubeletIdentities;
         /// <summary>
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string KubernetesVersion;
         /// <summary>
-        /// A `linux_profile` block as documented below.
+        /// A `LinuxProfile` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterLinuxProfileResult> LinuxProfiles;
         /// <summary>
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `microsoft_defender` block as defined below.
+        /// A `MicrosoftDefender` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterMicrosoftDefenderResult> MicrosoftDefenders;
         /// <summary>
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `network_profile` block as documented below.
+        /// A `NetworkProfile` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterNetworkProfileResult> NetworkProfiles;
         /// <summary>
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string OidcIssuerUrl;
         /// <summary>
-        /// An `oms_agent` block as documented below.
+        /// An `OmsAgent` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterOmsAgentResult> OmsAgents;
         /// <summary>
@@ -300,11 +300,11 @@ namespace Pulumi.Azure.ContainerService
         public readonly bool RoleBasedAccessControlEnabled;
         public readonly ImmutableArray<Outputs.GetKubernetesClusterServiceMeshProfileResult> ServiceMeshProfiles;
         /// <summary>
-        /// A `service_principal` block as documented below.
+        /// A `ServicePrincipal` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalResult> ServicePrincipals;
         /// <summary>
-        /// A `storage_profile` block as documented below.
+        /// A `StorageProfile` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterStorageProfileResult> StorageProfiles;
         /// <summary>
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A `windows_profile` block as documented below.
+        /// A `WindowsProfile` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterWindowsProfileResult> WindowsProfiles;
 

@@ -32,7 +32,7 @@ public final class DicomServiceStorageArgs extends com.pulumi.resources.Resource
     /**
      * The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
      * 
-     * &gt; **Note:** The `is_hns_enabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+     * &gt; **Note:** The `isHnsEnabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
      * 
      */
     @Import(name="storageAccountId", required=true)
@@ -41,7 +41,7 @@ public final class DicomServiceStorageArgs extends com.pulumi.resources.Resource
     /**
      * @return The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
      * 
-     * &gt; **Note:** The `is_hns_enabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+     * &gt; **Note:** The `isHnsEnabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
      * 
      */
     public Output<String> storageAccountId() {
@@ -97,7 +97,7 @@ public final class DicomServiceStorageArgs extends com.pulumi.resources.Resource
         /**
          * @param storageAccountId The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
          * 
-         * &gt; **Note:** The `is_hns_enabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+         * &gt; **Note:** The `isHnsEnabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DicomServiceStorageArgs extends com.pulumi.resources.Resource
         /**
          * @param storageAccountId The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
          * 
-         * &gt; **Note:** The `is_hns_enabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+         * &gt; **Note:** The `isHnsEnabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
          * 
          * @return builder
          * 

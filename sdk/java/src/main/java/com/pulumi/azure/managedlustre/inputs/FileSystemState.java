@@ -24,18 +24,18 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     public static final FileSystemState Empty = new FileSystemState();
 
     /**
-     * An `encryption_key` block as defined below.
+     * An `encryptionKey` block as defined below.
      * 
-     * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryptionKey` forces a new resource to be created.
      * 
      */
     @Import(name="encryptionKey")
     private @Nullable Output<FileSystemEncryptionKeyArgs> encryptionKey;
 
     /**
-     * @return An `encryption_key` block as defined below.
+     * @return An `encryptionKey` block as defined below.
      * 
-     * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryptionKey` forces a new resource to be created.
      * 
      */
     public Optional<Output<FileSystemEncryptionKeyArgs>> encryptionKey() {
@@ -43,14 +43,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+     * A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="hsmSetting")
     private @Nullable Output<FileSystemHsmSettingArgs> hsmSetting;
 
     /**
-     * @return A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+     * @return A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<FileSystemHsmSettingArgs>> hsmSetting() {
@@ -88,14 +88,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `maintenance_window` block as defined below.
+     * A `maintenanceWindow` block as defined below.
      * 
      */
     @Import(name="maintenanceWindow")
     private @Nullable Output<FileSystemMaintenanceWindowArgs> maintenanceWindow;
 
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     public Optional<Output<FileSystemMaintenanceWindowArgs>> maintenanceWindow() {
@@ -148,14 +148,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `root_squash` block as defined below.
+     * A `rootSquash` block as defined below.
      * 
      */
     @Import(name="rootSquash")
     private @Nullable Output<FileSystemRootSquashArgs> rootSquash;
 
     /**
-     * @return A `root_squash` block as defined below.
+     * @return A `rootSquash` block as defined below.
      * 
      */
     public Optional<Output<FileSystemRootSquashArgs>> rootSquash() {
@@ -178,14 +178,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+     * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageCapacityInTb")
     private @Nullable Output<Integer> storageCapacityInTb;
 
     /**
-     * @return The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+     * @return The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> storageCapacityInTb() {
@@ -275,9 +275,9 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionKey An `encryption_key` block as defined below.
+         * @param encryptionKey An `encryptionKey` block as defined below.
          * 
-         * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryptionKey` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -288,9 +288,9 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionKey An `encryption_key` block as defined below.
+         * @param encryptionKey An `encryptionKey` block as defined below.
          * 
-         * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryptionKey` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hsmSetting A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+         * @param hsmSetting A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hsmSetting A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+         * @param hsmSetting A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceWindow A `maintenance_window` block as defined below.
+         * @param maintenanceWindow A `maintenanceWindow` block as defined below.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceWindow A `maintenance_window` block as defined below.
+         * @param maintenanceWindow A `maintenanceWindow` block as defined below.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rootSquash A `root_squash` block as defined below.
+         * @param rootSquash A `rootSquash` block as defined below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rootSquash A `root_squash` block as defined below.
+         * @param rootSquash A `rootSquash` block as defined below.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageCapacityInTb The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+         * @param storageCapacityInTb The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageCapacityInTb The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+         * @param storageCapacityInTb The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

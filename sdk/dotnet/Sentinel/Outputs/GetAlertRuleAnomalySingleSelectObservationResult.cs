@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        /// The guid of this Sentinel Alert Rule Template. Either `DisplayName` or `Name` have to be specified.
         /// </summary>
         public readonly string Name;
         /// <summary>

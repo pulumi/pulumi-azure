@@ -64,9 +64,9 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
     /**
      * Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
      * 
-     * A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+     * A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
      * 
-     * &gt; **Note:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+     * &gt; **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
      * 
      */
     @Import(name="replicationFrequency", required=true)
@@ -75,9 +75,9 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
     /**
      * @return Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
      * 
-     * A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+     * A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
      * 
-     * &gt; **Note:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+     * &gt; **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
      * 
      */
     public Output<String> replicationFrequency() {
@@ -177,9 +177,9 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
         /**
          * @param replicationFrequency Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
          * 
-         * A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+         * A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
          * 
-         * &gt; **Note:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+         * &gt; **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
          * 
          * @return builder
          * 
@@ -192,9 +192,9 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
         /**
          * @param replicationFrequency Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
          * 
-         * A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+         * A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
          * 
-         * &gt; **Note:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+         * &gt; **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
          * 
          * @return builder
          * 

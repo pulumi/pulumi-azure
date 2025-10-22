@@ -117,15 +117,15 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<string>> OutboundRules { get; private set; } = null!;
 
         /// <summary>
-        /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+        /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `VirtualNetworkId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+        /// &gt; **Note:** The `SynchronousMode` can set only for Load Balancer with `Standard` SKU.
         /// </summary>
         [Output("synchronousMode")]
         public Output<string?> SynchronousMode { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `tunnel_interface` blocks as defined below.
+        /// One or more `TunnelInterface` blocks as defined below.
         /// </summary>
         [Output("tunnelInterfaces")]
         public Output<ImmutableArray<Outputs.BackendAddressPoolTunnelInterface>> TunnelInterfaces { get; private set; } = null!;
@@ -195,9 +195,9 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+        /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `VirtualNetworkId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+        /// &gt; **Note:** The `SynchronousMode` can set only for Load Balancer with `Standard` SKU.
         /// </summary>
         [Input("synchronousMode")]
         public Input<string>? SynchronousMode { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.BackendAddressPoolTunnelInterfaceArgs>? _tunnelInterfaces;
 
         /// <summary>
-        /// One or more `tunnel_interface` blocks as defined below.
+        /// One or more `TunnelInterface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.BackendAddressPoolTunnelInterfaceArgs> TunnelInterfaces
         {
@@ -289,9 +289,9 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+        /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `VirtualNetworkId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+        /// &gt; **Note:** The `SynchronousMode` can set only for Load Balancer with `Standard` SKU.
         /// </summary>
         [Input("synchronousMode")]
         public Input<string>? SynchronousMode { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.BackendAddressPoolTunnelInterfaceGetArgs>? _tunnelInterfaces;
 
         /// <summary>
-        /// One or more `tunnel_interface` blocks as defined below.
+        /// One or more `TunnelInterface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.BackendAddressPoolTunnelInterfaceGetArgs> TunnelInterfaces
         {

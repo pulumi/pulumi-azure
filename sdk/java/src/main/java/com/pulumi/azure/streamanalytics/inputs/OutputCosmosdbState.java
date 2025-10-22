@@ -106,14 +106,14 @@ public final class OutputCosmosdbState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+     * The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
      * 
      */
     @Import(name="partitionKey")
     private @Nullable Output<String> partitionKey;
 
     /**
-     * @return The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+     * @return The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
      * 
      */
     public Optional<Output<String>> partitionKey() {
@@ -293,7 +293,7 @@ public final class OutputCosmosdbState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param partitionKey The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+         * @param partitionKey The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class OutputCosmosdbState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param partitionKey The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+         * @param partitionKey The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
          * 
          * @return builder
          * 

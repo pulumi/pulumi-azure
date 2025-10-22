@@ -32,7 +32,7 @@ public final class LinuxFunctionAppAuthSettingsV2TwitterV2Args extends com.pulum
     /**
      * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     @Import(name="consumerSecretSettingName", required=true)
@@ -41,7 +41,7 @@ public final class LinuxFunctionAppAuthSettingsV2TwitterV2Args extends com.pulum
     /**
      * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Output<String> consumerSecretSettingName() {
@@ -97,7 +97,7 @@ public final class LinuxFunctionAppAuthSettingsV2TwitterV2Args extends com.pulum
         /**
          * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class LinuxFunctionAppAuthSettingsV2TwitterV2Args extends com.pulum
         /**
          * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 

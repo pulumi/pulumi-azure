@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NextGenerationFirewallVirtualNetworkPanoramaDestinationNat {
     /**
-     * @return A `backend_config` block as defined above.
+     * @return A `backendConfig` block as defined above.
      * 
      */
     private @Nullable NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig backendConfig;
     /**
-     * @return A `frontend_config` block as defined below.
+     * @return A `frontendConfig` block as defined below.
      * 
      */
     private @Nullable NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig frontendConfig;
@@ -37,14 +37,14 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDestinationNat {
 
     private NextGenerationFirewallVirtualNetworkPanoramaDestinationNat() {}
     /**
-     * @return A `backend_config` block as defined above.
+     * @return A `backendConfig` block as defined above.
      * 
      */
     public Optional<NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig> backendConfig() {
         return Optional.ofNullable(this.backendConfig);
     }
     /**
-     * @return A `frontend_config` block as defined below.
+     * @return A `frontendConfig` block as defined below.
      * 
      */
     public Optional<NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig> frontendConfig() {

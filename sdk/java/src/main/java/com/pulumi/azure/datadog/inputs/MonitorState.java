@@ -21,14 +21,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     public static final MonitorState Empty = new MonitorState();
 
     /**
-     * A `datadog_organization` block as defined below.
+     * A `datadogOrganization` block as defined below.
      * 
      */
     @Import(name="datadogOrganization")
     private @Nullable Output<MonitorDatadogOrganizationArgs> datadogOrganization;
 
     /**
-     * @return A `datadog_organization` block as defined below.
+     * @return A `datadogOrganization` block as defined below.
      * 
      */
     public Optional<Output<MonitorDatadogOrganizationArgs>> datadogOrganization() {
@@ -204,7 +204,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datadogOrganization A `datadog_organization` block as defined below.
+         * @param datadogOrganization A `datadogOrganization` block as defined below.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datadogOrganization A `datadog_organization` block as defined below.
+         * @param datadogOrganization A `datadogOrganization` block as defined below.
          * 
          * @return builder
          * 

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ManagedLustre.Outputs
     public sealed class FileSystemEncryptionKey
     {
         /// <summary>
-        /// The URL to the Key Vault Key used as the Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+        /// The URL to the Key Vault Key used as the Encryption Key. This can be found as `Id` on the `azure.keyvault.Key` resource.
         /// </summary>
         public readonly string KeyUrl;
         /// <summary>
-        /// The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+        /// The ID of the source Key Vault. This can be found as `Id` on the `azure.keyvault.KeyVault` resource.
         /// </summary>
         public readonly string SourceVaultId;
 

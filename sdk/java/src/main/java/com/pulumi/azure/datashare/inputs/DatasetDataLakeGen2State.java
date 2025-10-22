@@ -31,14 +31,14 @@ public final class DatasetDataLakeGen2State extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+     * The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
     @Import(name="filePath")
     private @Nullable Output<String> filePath;
 
     /**
-     * @return The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+     * @return The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
     public Optional<Output<String>> filePath() {
@@ -61,14 +61,14 @@ public final class DatasetDataLakeGen2State extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+     * The folder path in the data lake file system to be shared with the receiver. Conflicts with `filePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
     @Import(name="folderPath")
     private @Nullable Output<String> folderPath;
 
     /**
-     * @return The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+     * @return The folder path in the data lake file system to be shared with the receiver. Conflicts with `filePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
     public Optional<Output<String>> folderPath() {
@@ -172,7 +172,7 @@ public final class DatasetDataLakeGen2State extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param filePath The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+         * @param filePath The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class DatasetDataLakeGen2State extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param filePath The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+         * @param filePath The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class DatasetDataLakeGen2State extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param folderPath The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+         * @param folderPath The folder path in the data lake file system to be shared with the receiver. Conflicts with `filePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class DatasetDataLakeGen2State extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param folderPath The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+         * @param folderPath The folder path in the data lake file system to be shared with the receiver. Conflicts with `filePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
          * 
          * @return builder
          * 

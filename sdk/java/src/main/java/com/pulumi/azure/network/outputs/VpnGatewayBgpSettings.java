@@ -26,12 +26,12 @@ public final class VpnGatewayBgpSettings {
      */
     private @Nullable String bgpPeeringAddress;
     /**
-     * @return An `instance_bgp_peering_address` block as defined below.
+     * @return An `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     private @Nullable VpnGatewayBgpSettingsInstance0BgpPeeringAddress instance0BgpPeeringAddress;
     /**
-     * @return An `instance_bgp_peering_address` block as defined below.
+     * @return An `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     private @Nullable VpnGatewayBgpSettingsInstance1BgpPeeringAddress instance1BgpPeeringAddress;
@@ -57,14 +57,14 @@ public final class VpnGatewayBgpSettings {
         return Optional.ofNullable(this.bgpPeeringAddress);
     }
     /**
-     * @return An `instance_bgp_peering_address` block as defined below.
+     * @return An `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     public Optional<VpnGatewayBgpSettingsInstance0BgpPeeringAddress> instance0BgpPeeringAddress() {
         return Optional.ofNullable(this.instance0BgpPeeringAddress);
     }
     /**
-     * @return An `instance_bgp_peering_address` block as defined below.
+     * @return An `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     public Optional<VpnGatewayBgpSettingsInstance1BgpPeeringAddress> instance1BgpPeeringAddress() {

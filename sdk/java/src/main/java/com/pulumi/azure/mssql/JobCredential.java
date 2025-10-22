@@ -151,14 +151,14 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+     * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      * 
      */
     @Export(name="passwordWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordWoVersion;
 
     /**
-     * @return An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+     * @return An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      * 
      */
     public Output<Optional<Integer>> passwordWoVersion() {

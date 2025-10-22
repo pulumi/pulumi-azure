@@ -18,11 +18,11 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string BackendPoolName;
         /// <summary>
-        /// Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+        /// Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `CacheDuration` works only in combination with `CacheEnabled` set to `True`.
         /// </summary>
         public readonly string? CacheDuration;
         /// <summary>
-        /// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
+        /// Specifies whether to Enable caching or not. Valid options are `True` or `False`. Defaults to `False`.
         /// </summary>
         public readonly bool? CacheEnabled;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string? CacheQueryParameterStripDirective;
         /// <summary>
-        /// Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+        /// Specify query parameters (array). Works only in combination with `CacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
         /// </summary>
         public readonly ImmutableArray<string> CacheQueryParameters;
         /// <summary>
-        /// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
+        /// Whether to use dynamic compression when caching. Valid options are `True` or `False`. Defaults to `False`.
         /// </summary>
         public readonly bool? CacheUseDynamicCompression;
         /// <summary>

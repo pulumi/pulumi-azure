@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:logicapps/workflow:Workflow")
 public class Workflow extends com.pulumi.resources.CustomResource {
     /**
-     * A `access_control` block as defined below.
+     * A `accessControl` block as defined below.
      * 
      */
     @Export(name="accessControl", refs={WorkflowAccessControl.class}, tree="[0]")
     private Output</* @Nullable */ WorkflowAccessControl> accessControl;
 
     /**
-     * @return A `access_control` block as defined below.
+     * @return A `accessControl` block as defined below.
      * 
      */
     public Output<Optional<WorkflowAccessControl>> accessControl() {
@@ -225,7 +225,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
     /**
      * A map of Key-Value pairs.
      * 
-     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -234,7 +234,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
     /**
      * @return A map of Key-Value pairs.
      * 
-     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      * 
      */
     public Output<Optional<Map<String,String>>> parameters() {

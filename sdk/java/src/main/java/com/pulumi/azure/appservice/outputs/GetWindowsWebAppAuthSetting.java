@@ -21,12 +21,12 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppAuthSetting {
     /**
-     * @return A `active_directory` block as defined above.
+     * @return A `activeDirectory` block as defined above.
      * 
      */
     private List<GetWindowsWebAppAuthSettingActiveDirectory> activeDirectories;
     /**
-     * @return A `additional_login_parameters` block as defined above.
+     * @return A `additionalLoginParameters` block as defined above.
      * 
      */
     private Map<String,String> additionalLoginParameters;
@@ -36,7 +36,7 @@ public final class GetWindowsWebAppAuthSetting {
      */
     private List<String> allowedExternalRedirectUrls;
     /**
-     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
      * 
      */
     private String defaultProvider;
@@ -98,14 +98,14 @@ public final class GetWindowsWebAppAuthSetting {
 
     private GetWindowsWebAppAuthSetting() {}
     /**
-     * @return A `active_directory` block as defined above.
+     * @return A `activeDirectory` block as defined above.
      * 
      */
     public List<GetWindowsWebAppAuthSettingActiveDirectory> activeDirectories() {
         return this.activeDirectories;
     }
     /**
-     * @return A `additional_login_parameters` block as defined above.
+     * @return A `additionalLoginParameters` block as defined above.
      * 
      */
     public Map<String,String> additionalLoginParameters() {
@@ -119,7 +119,7 @@ public final class GetWindowsWebAppAuthSetting {
         return this.allowedExternalRedirectUrls;
     }
     /**
-     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
      * 
      */
     public String defaultProvider() {

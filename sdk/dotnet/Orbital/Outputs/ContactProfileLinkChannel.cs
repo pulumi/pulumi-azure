@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Orbital.Outputs
         /// </summary>
         public readonly string? DemodulationConfiguration;
         /// <summary>
-        /// Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+        /// Customer End point to store/retrieve data during a contact. An `EndPoint` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContactProfileLinkChannelEndPoint> EndPoints;
         /// <summary>

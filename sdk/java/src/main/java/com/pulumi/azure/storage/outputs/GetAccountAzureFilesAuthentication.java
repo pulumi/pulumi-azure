@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAccountAzureFilesAuthentication {
     /**
-     * @return An `active_directory` block as documented below.
+     * @return An `activeDirectory` block as documented below.
      * 
      */
     private List<GetAccountAzureFilesAuthenticationActiveDirectory> activeDirectories;
@@ -30,7 +30,7 @@ public final class GetAccountAzureFilesAuthentication {
 
     private GetAccountAzureFilesAuthentication() {}
     /**
-     * @return An `active_directory` block as documented below.
+     * @return An `activeDirectory` block as documented below.
      * 
      */
     public List<GetAccountAzureFilesAuthenticationActiveDirectory> activeDirectories() {

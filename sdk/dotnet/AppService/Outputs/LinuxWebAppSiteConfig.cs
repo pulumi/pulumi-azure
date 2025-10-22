@@ -14,9 +14,9 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppSiteConfig
     {
         /// <summary>
-        /// If this Linux Web App is Always On enabled. Defaults to `true`.
+        /// If this Linux Web App is Always On enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+        /// &gt; **Note:** `AlwaysOn` must be explicitly set to `False` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>
@@ -32,11 +32,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? AppCommandLine;
         /// <summary>
-        /// A `application_stack` block as defined above.
+        /// A `ApplicationStack` block as defined above.
         /// </summary>
         public readonly Outputs.LinuxWebAppSiteConfigApplicationStack? ApplicationStack;
         /// <summary>
-        /// A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        /// A `AutoHealSetting` block as defined above. Required with `AutoHeal`.
         /// </summary>
         public readonly Outputs.LinuxWebAppSiteConfigAutoHealSetting? AutoHealSetting;
         /// <summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? ContainerRegistryUseManagedIdentity;
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         public readonly Outputs.LinuxWebAppSiteConfigCors? Cors;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly bool? DetailedErrorLoggingEnabled;
         public readonly string? FtpsState;
         /// <summary>
-        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `HealthCheckPath`.
         /// </summary>
         public readonly int? HealthCheckEvictionTimeInMin;
         /// <summary>
@@ -70,11 +70,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `IpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? IpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `ip_restriction` blocks as defined above.
+        /// One or more `IpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxWebAppSiteConfigIpRestriction> IpRestrictions;
         public readonly string? LinuxFxVersion;
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? LoadBalancingMode;
         /// <summary>
-        /// Use Local MySQL. Defaults to `false`.
+        /// Use Local MySQL. Defaults to `False`.
         /// </summary>
         public readonly bool? LocalMysqlEnabled;
         /// <summary>
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? MinimumTlsVersion;
         /// <summary>
-        /// Should Remote Debugging be enabled? Defaults to `false`.
+        /// Should Remote Debugging be enabled? Defaults to `False`.
         /// </summary>
         public readonly bool? RemoteDebuggingEnabled;
         /// <summary>
@@ -103,11 +103,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? RemoteDebuggingVersion;
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? ScmIpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxWebAppSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
@@ -116,19 +116,19 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? ScmMinimumTlsVersion;
         public readonly string? ScmType;
         /// <summary>
-        /// Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+        /// Should the Linux Web App `IpRestriction` configuration be used for the SCM also.
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
-        /// Should the Linux Web App use a 32-bit worker? Defaults to `true`.
+        /// Should the Linux Web App use a 32-bit worker? Defaults to `True`.
         /// </summary>
         public readonly bool? Use32BitWorker;
         /// <summary>
-        /// Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `False`.
         /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         /// <summary>
-        /// Should Web Sockets be enabled? Defaults to `false`.
+        /// Should Web Sockets be enabled? Defaults to `False`.
         /// </summary>
         public readonly bool? WebsocketsEnabled;
         /// <summary>

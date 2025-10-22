@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool EnableIpForwarding;
         /// <summary>
-        /// An `ip_configuration` block as defined below.
+        /// An `IpConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult> IpConfigurations;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string NetworkSecurityGroupId;
         /// <summary>
-        /// If this ip_configuration is the primary one.
+        /// If this IpConfiguration is the primary one.
         /// </summary>
         public readonly bool Primary;
 

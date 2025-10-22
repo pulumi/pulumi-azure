@@ -218,7 +218,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
     /**
      * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+     * &gt; **Note:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
      * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      * 
@@ -229,7 +229,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
     /**
      * @return Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+     * &gt; **Note:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
      * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      * 

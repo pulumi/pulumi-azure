@@ -36,7 +36,7 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
     /**
      * Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
      * 
-     * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retention_period_in_days` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
+     * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retentionPeriodInDays` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
      * 
      */
     @Import(name="locked")
@@ -45,7 +45,7 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
     /**
      * @return Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
      * 
-     * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retention_period_in_days` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
+     * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retentionPeriodInDays` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
      * 
      */
     public Optional<Output<Boolean>> locked() {
@@ -53,14 +53,14 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
     }
 
     /**
-     * Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_enabled`.
+     * Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesEnabled`.
      * 
      */
     @Import(name="protectedAppendWritesAllEnabled")
     private @Nullable Output<Boolean> protectedAppendWritesAllEnabled;
 
     /**
-     * @return Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_enabled`.
+     * @return Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesEnabled`.
      * 
      */
     public Optional<Output<Boolean>> protectedAppendWritesAllEnabled() {
@@ -68,14 +68,14 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
     }
 
     /**
-     * Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_all_enabled`.
+     * Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesAllEnabled`.
      * 
      */
     @Import(name="protectedAppendWritesEnabled")
     private @Nullable Output<Boolean> protectedAppendWritesEnabled;
 
     /**
-     * @return Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_all_enabled`.
+     * @return Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesAllEnabled`.
      * 
      */
     public Optional<Output<Boolean>> protectedAppendWritesEnabled() {
@@ -149,7 +149,7 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
         /**
          * @param locked Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
          * 
-         * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retention_period_in_days` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
+         * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retentionPeriodInDays` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
         /**
          * @param locked Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
          * 
-         * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retention_period_in_days` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
+         * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retentionPeriodInDays` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param protectedAppendWritesAllEnabled Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_enabled`.
+         * @param protectedAppendWritesAllEnabled Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesEnabled`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param protectedAppendWritesAllEnabled Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_enabled`.
+         * @param protectedAppendWritesAllEnabled Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesEnabled`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param protectedAppendWritesEnabled Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_all_enabled`.
+         * @param protectedAppendWritesEnabled Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesAllEnabled`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ContainerImmutabilityPolicyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param protectedAppendWritesEnabled Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_all_enabled`.
+         * @param protectedAppendWritesEnabled Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesAllEnabled`.
          * 
          * @return builder
          * 

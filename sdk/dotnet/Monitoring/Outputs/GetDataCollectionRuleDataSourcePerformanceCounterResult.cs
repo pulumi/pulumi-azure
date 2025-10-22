@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class GetDataCollectionRuleDataSourcePerformanceCounterResult
     {
         /// <summary>
-        /// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+        /// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `Typeperf`.
         /// </summary>
         public readonly ImmutableArray<string> CounterSpecifiers;
         /// <summary>

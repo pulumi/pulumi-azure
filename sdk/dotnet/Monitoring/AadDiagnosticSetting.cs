@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Monitoring
     public partial class AadDiagnosticSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `enabled_log` blocks as defined below.
+        /// One or more `EnabledLog` blocks as defined below.
         /// </summary>
         [Output("enabledLogs")]
         public Output<ImmutableArray<Outputs.AadDiagnosticSettingEnabledLog>> EnabledLogs { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+        /// &gt; **Note:** One of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId` and `StorageAccountId` must be specified.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.AadDiagnosticSettingEnabledLogArgs>? _enabledLogs;
 
         /// <summary>
-        /// One or more `enabled_log` blocks as defined below.
+        /// One or more `EnabledLog` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AadDiagnosticSettingEnabledLogArgs> EnabledLogs
         {
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+        /// &gt; **Note:** One of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.AadDiagnosticSettingEnabledLogGetArgs>? _enabledLogs;
 
         /// <summary>
-        /// One or more `enabled_log` blocks as defined below.
+        /// One or more `EnabledLog` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AadDiagnosticSettingEnabledLogGetArgs> EnabledLogs
         {
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+        /// &gt; **Note:** One of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

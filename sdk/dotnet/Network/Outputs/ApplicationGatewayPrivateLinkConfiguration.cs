@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below.
+        /// One or more `IpConfiguration` blocks as defined below.
         /// 
         /// &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
         /// 

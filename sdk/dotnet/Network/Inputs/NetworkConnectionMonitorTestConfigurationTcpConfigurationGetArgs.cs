@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// Should path evaluation with trace route be enabled? Defaults to `true`.
+        /// Should path evaluation with trace route be enabled? Defaults to `True`.
         /// </summary>
         [Input("traceRouteEnabled")]
         public Input<bool>? TraceRouteEnabled { get; set; }

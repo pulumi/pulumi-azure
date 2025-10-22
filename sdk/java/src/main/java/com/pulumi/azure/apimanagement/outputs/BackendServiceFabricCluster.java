@@ -18,7 +18,7 @@ public final class BackendServiceFabricCluster {
     /**
      * @return The client certificate resource id for the management endpoint.
      * 
-     * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+     * &gt; **Note:** At least one of `clientCertificateThumbprint`, and `clientCertificateId` must be set.
      * 
      */
     private @Nullable String clientCertificateId;
@@ -43,7 +43,7 @@ public final class BackendServiceFabricCluster {
      */
     private @Nullable List<String> serverCertificateThumbprints;
     /**
-     * @return One or more `server_x509_name` blocks as documented below.
+     * @return One or more `serverX509Name` blocks as documented below.
      * 
      */
     private @Nullable List<BackendServiceFabricClusterServerX509Name> serverX509Names;
@@ -52,7 +52,7 @@ public final class BackendServiceFabricCluster {
     /**
      * @return The client certificate resource id for the management endpoint.
      * 
-     * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+     * &gt; **Note:** At least one of `clientCertificateThumbprint`, and `clientCertificateId` must be set.
      * 
      */
     public Optional<String> clientCertificateId() {
@@ -87,7 +87,7 @@ public final class BackendServiceFabricCluster {
         return this.serverCertificateThumbprints == null ? List.of() : this.serverCertificateThumbprints;
     }
     /**
-     * @return One or more `server_x509_name` blocks as documented below.
+     * @return One or more `serverX509Name` blocks as documented below.
      * 
      */
     public List<BackendServiceFabricClusterServerX509Name> serverX509Names() {

@@ -26,14 +26,14 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
     public static final AlertProcessingRuleSuppressionConditionArgs Empty = new AlertProcessingRuleSuppressionConditionArgs();
 
     /**
-     * A `alert_context` block as defined above.
+     * A `alertContext` block as defined above.
      * 
      */
     @Import(name="alertContext")
     private @Nullable Output<AlertProcessingRuleSuppressionConditionAlertContextArgs> alertContext;
 
     /**
-     * @return A `alert_context` block as defined above.
+     * @return A `alertContext` block as defined above.
      * 
      */
     public Optional<Output<AlertProcessingRuleSuppressionConditionAlertContextArgs>> alertContext() {
@@ -41,14 +41,14 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
     }
 
     /**
-     * A `alert_rule_id` block as defined above.
+     * A `alertRuleId` block as defined above.
      * 
      */
     @Import(name="alertRuleId")
     private @Nullable Output<AlertProcessingRuleSuppressionConditionAlertRuleIdArgs> alertRuleId;
 
     /**
-     * @return A `alert_rule_id` block as defined above.
+     * @return A `alertRuleId` block as defined above.
      * 
      */
     public Optional<Output<AlertProcessingRuleSuppressionConditionAlertRuleIdArgs>> alertRuleId() {
@@ -56,14 +56,14 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
     }
 
     /**
-     * A `alert_rule_name` block as defined above.
+     * A `alertRuleName` block as defined above.
      * 
      */
     @Import(name="alertRuleName")
     private @Nullable Output<AlertProcessingRuleSuppressionConditionAlertRuleNameArgs> alertRuleName;
 
     /**
-     * @return A `alert_rule_name` block as defined above.
+     * @return A `alertRuleName` block as defined above.
      * 
      */
     public Optional<Output<AlertProcessingRuleSuppressionConditionAlertRuleNameArgs>> alertRuleName() {
@@ -86,14 +86,14 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
     }
 
     /**
-     * A `monitor_condition` block as defined below.
+     * A `monitorCondition` block as defined below.
      * 
      */
     @Import(name="monitorCondition")
     private @Nullable Output<AlertProcessingRuleSuppressionConditionMonitorConditionArgs> monitorCondition;
 
     /**
-     * @return A `monitor_condition` block as defined below.
+     * @return A `monitorCondition` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleSuppressionConditionMonitorConditionArgs>> monitorCondition() {
@@ -101,14 +101,14 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
     }
 
     /**
-     * A `monitor_service` block as defined below.
+     * A `monitorService` block as defined below.
      * 
      */
     @Import(name="monitorService")
     private @Nullable Output<AlertProcessingRuleSuppressionConditionMonitorServiceArgs> monitorService;
 
     /**
-     * @return A `monitor_service` block as defined below.
+     * @return A `monitorService` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleSuppressionConditionMonitorServiceArgs>> monitorService() {
@@ -131,14 +131,14 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
     }
 
     /**
-     * A `signal_type` block as defined below.
+     * A `signalType` block as defined below.
      * 
      */
     @Import(name="signalType")
     private @Nullable Output<AlertProcessingRuleSuppressionConditionSignalTypeArgs> signalType;
 
     /**
-     * @return A `signal_type` block as defined below.
+     * @return A `signalType` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleSuppressionConditionSignalTypeArgs>> signalType() {
@@ -146,14 +146,14 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
     }
 
     /**
-     * A `target_resource` block as defined below.
+     * A `targetResource` block as defined below.
      * 
      */
     @Import(name="targetResource")
     private @Nullable Output<AlertProcessingRuleSuppressionConditionTargetResourceArgs> targetResource;
 
     /**
-     * @return A `target_resource` block as defined below.
+     * @return A `targetResource` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleSuppressionConditionTargetResourceArgs>> targetResource() {
@@ -161,14 +161,14 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
     }
 
     /**
-     * A `target_resource_group` block as defined below.
+     * A `targetResourceGroup` block as defined below.
      * 
      */
     @Import(name="targetResourceGroup")
     private @Nullable Output<AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs> targetResourceGroup;
 
     /**
-     * @return A `target_resource_group` block as defined below.
+     * @return A `targetResourceGroup` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs>> targetResourceGroup() {
@@ -176,14 +176,14 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
     }
 
     /**
-     * A `target_resource_type` block as defined below.
+     * A `targetResourceType` block as defined below.
      * 
      */
     @Import(name="targetResourceType")
     private @Nullable Output<AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs> targetResourceType;
 
     /**
-     * @return A `target_resource_type` block as defined below.
+     * @return A `targetResourceType` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs>> targetResourceType() {
@@ -225,7 +225,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertContext A `alert_context` block as defined above.
+         * @param alertContext A `alertContext` block as defined above.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertContext A `alert_context` block as defined above.
+         * @param alertContext A `alertContext` block as defined above.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertRuleId A `alert_rule_id` block as defined above.
+         * @param alertRuleId A `alertRuleId` block as defined above.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertRuleId A `alert_rule_id` block as defined above.
+         * @param alertRuleId A `alertRuleId` block as defined above.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertRuleName A `alert_rule_name` block as defined above.
+         * @param alertRuleName A `alertRuleName` block as defined above.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertRuleName A `alert_rule_name` block as defined above.
+         * @param alertRuleName A `alertRuleName` block as defined above.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param monitorCondition A `monitor_condition` block as defined below.
+         * @param monitorCondition A `monitorCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param monitorCondition A `monitor_condition` block as defined below.
+         * @param monitorCondition A `monitorCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param monitorService A `monitor_service` block as defined below.
+         * @param monitorService A `monitorService` block as defined below.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param monitorService A `monitor_service` block as defined below.
+         * @param monitorService A `monitorService` block as defined below.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param signalType A `signal_type` block as defined below.
+         * @param signalType A `signalType` block as defined below.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param signalType A `signal_type` block as defined below.
+         * @param signalType A `signalType` block as defined below.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResource A `target_resource` block as defined below.
+         * @param targetResource A `targetResource` block as defined below.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResource A `target_resource` block as defined below.
+         * @param targetResource A `targetResource` block as defined below.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResourceGroup A `target_resource_group` block as defined below.
+         * @param targetResourceGroup A `targetResourceGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResourceGroup A `target_resource_group` block as defined below.
+         * @param targetResourceGroup A `targetResourceGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResourceType A `target_resource_type` block as defined below.
+         * @param targetResourceType A `targetResourceType` block as defined below.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class AlertProcessingRuleSuppressionConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResourceType A `target_resource_type` block as defined below.
+         * @param targetResourceType A `targetResourceType` block as defined below.
          * 
          * @return builder
          * 

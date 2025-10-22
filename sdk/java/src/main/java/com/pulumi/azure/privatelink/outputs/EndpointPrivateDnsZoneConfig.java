@@ -29,7 +29,7 @@ public final class EndpointPrivateDnsZoneConfig {
      */
     private @Nullable String privateDnsZoneId;
     /**
-     * @return A `record_sets` block as defined below.
+     * @return A `recordSets` block as defined below.
      * 
      */
     private @Nullable List<EndpointPrivateDnsZoneConfigRecordSet> recordSets;
@@ -57,7 +57,7 @@ public final class EndpointPrivateDnsZoneConfig {
         return Optional.ofNullable(this.privateDnsZoneId);
     }
     /**
-     * @return A `record_sets` block as defined below.
+     * @return A `recordSets` block as defined below.
      * 
      */
     public List<EndpointPrivateDnsZoneConfigRecordSet> recordSets() {

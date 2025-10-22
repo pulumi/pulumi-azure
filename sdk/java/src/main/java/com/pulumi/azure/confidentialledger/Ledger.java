@@ -92,28 +92,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:confidentialledger/ledger:Ledger")
 public class Ledger extends com.pulumi.resources.CustomResource {
     /**
-     * A list of `azuread_based_service_principal` blocks as defined below.
+     * A list of `azureadBasedServicePrincipal` blocks as defined below.
      * 
      */
     @Export(name="azureadBasedServicePrincipals", refs={List.class,LedgerAzureadBasedServicePrincipal.class}, tree="[0,1]")
     private Output<List<LedgerAzureadBasedServicePrincipal>> azureadBasedServicePrincipals;
 
     /**
-     * @return A list of `azuread_based_service_principal` blocks as defined below.
+     * @return A list of `azureadBasedServicePrincipal` blocks as defined below.
      * 
      */
     public Output<List<LedgerAzureadBasedServicePrincipal>> azureadBasedServicePrincipals() {
         return this.azureadBasedServicePrincipals;
     }
     /**
-     * A list of `certificate_based_security_principal` blocks as defined below.
+     * A list of `certificateBasedSecurityPrincipal` blocks as defined below.
      * 
      */
     @Export(name="certificateBasedSecurityPrincipals", refs={List.class,LedgerCertificateBasedSecurityPrincipal.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LedgerCertificateBasedSecurityPrincipal>> certificateBasedSecurityPrincipals;
 
     /**
-     * @return A list of `certificate_based_security_principal` blocks as defined below.
+     * @return A list of `certificateBasedSecurityPrincipal` blocks as defined below.
      * 
      */
     public Output<Optional<List<LedgerCertificateBasedSecurityPrincipal>>> certificateBasedSecurityPrincipals() {

@@ -128,7 +128,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
         /// 
-        /// !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+        /// !&gt; **Note:** Once set, `JobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
         /// </summary>
         [Output("jobCredentialId")]
         public Output<string?> JobCredentialId { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The maximum retry interval in seconds. Defaults to `120`.
         /// 
-        /// &gt; **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
+        /// &gt; **Note:** `MaximumRetryIntervalSeconds` must be greater than `InitialRetryIntervalSeconds`.
         /// </summary>
         [Output("maximumRetryIntervalSeconds")]
         public Output<int?> MaximumRetryIntervalSeconds { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `output_target` block as defined below.
+        /// An `OutputTarget` block as defined below.
         /// </summary>
         [Output("outputTarget")]
         public Output<Outputs.JobStepOutputTarget?> OutputTarget { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
         /// 
-        /// !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+        /// !&gt; **Note:** Once set, `JobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
         /// </summary>
         [Input("jobCredentialId")]
         public Input<string>? JobCredentialId { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The maximum retry interval in seconds. Defaults to `120`.
         /// 
-        /// &gt; **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
+        /// &gt; **Note:** `MaximumRetryIntervalSeconds` must be greater than `InitialRetryIntervalSeconds`.
         /// </summary>
         [Input("maximumRetryIntervalSeconds")]
         public Input<int>? MaximumRetryIntervalSeconds { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `output_target` block as defined below.
+        /// An `OutputTarget` block as defined below.
         /// </summary>
         [Input("outputTarget")]
         public Input<Inputs.JobStepOutputTargetArgs>? OutputTarget { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
         /// 
-        /// !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+        /// !&gt; **Note:** Once set, `JobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
         /// </summary>
         [Input("jobCredentialId")]
         public Input<string>? JobCredentialId { get; set; }
@@ -370,7 +370,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The maximum retry interval in seconds. Defaults to `120`.
         /// 
-        /// &gt; **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
+        /// &gt; **Note:** `MaximumRetryIntervalSeconds` must be greater than `InitialRetryIntervalSeconds`.
         /// </summary>
         [Input("maximumRetryIntervalSeconds")]
         public Input<int>? MaximumRetryIntervalSeconds { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `output_target` block as defined below.
+        /// An `OutputTarget` block as defined below.
         /// </summary>
         [Input("outputTarget")]
         public Input<Inputs.JobStepOutputTargetGetArgs>? OutputTarget { get; set; }

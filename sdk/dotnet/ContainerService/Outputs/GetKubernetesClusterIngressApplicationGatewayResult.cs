@@ -18,20 +18,20 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string EffectiveGatewayId;
         /// <summary>
-        /// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gateway_id is specified when configuring the `ingress_application_gateway` addon.
+        /// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when GatewayId is specified when configuring the `IngressApplicationGateway` addon.
         /// </summary>
         public readonly string GatewayId;
         public readonly string GatewayName;
         /// <summary>
-        /// An `ingress_application_gateway_identity` block as defined below.
+        /// An `IngressApplicationGatewayIdentity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityResult> IngressApplicationGatewayIdentities;
         /// <summary>
-        /// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_cidr` is specified when configuring the `ingress_application_gateway` addon.
+        /// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `SubnetCidr` is specified when configuring the `IngressApplicationGateway` addon.
         /// </summary>
         public readonly string SubnetCidr;
         /// <summary>
-        /// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_id` is specified when configuring the `ingress_application_gateway` addon.
+        /// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `SubnetId` is specified when configuring the `IngressApplicationGateway` addon.
         /// </summary>
         public readonly string SubnetId;
 

@@ -22,17 +22,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AlertProcessingRuleSuppressionCondition {
     /**
-     * @return A `alert_context` block as defined above.
+     * @return A `alertContext` block as defined above.
      * 
      */
     private @Nullable AlertProcessingRuleSuppressionConditionAlertContext alertContext;
     /**
-     * @return A `alert_rule_id` block as defined above.
+     * @return A `alertRuleId` block as defined above.
      * 
      */
     private @Nullable AlertProcessingRuleSuppressionConditionAlertRuleId alertRuleId;
     /**
-     * @return A `alert_rule_name` block as defined above.
+     * @return A `alertRuleName` block as defined above.
      * 
      */
     private @Nullable AlertProcessingRuleSuppressionConditionAlertRuleName alertRuleName;
@@ -42,12 +42,12 @@ public final class AlertProcessingRuleSuppressionCondition {
      */
     private @Nullable AlertProcessingRuleSuppressionConditionDescription description;
     /**
-     * @return A `monitor_condition` block as defined below.
+     * @return A `monitorCondition` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleSuppressionConditionMonitorCondition monitorCondition;
     /**
-     * @return A `monitor_service` block as defined below.
+     * @return A `monitorService` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleSuppressionConditionMonitorService monitorService;
@@ -57,43 +57,43 @@ public final class AlertProcessingRuleSuppressionCondition {
      */
     private @Nullable AlertProcessingRuleSuppressionConditionSeverity severity;
     /**
-     * @return A `signal_type` block as defined below.
+     * @return A `signalType` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleSuppressionConditionSignalType signalType;
     /**
-     * @return A `target_resource` block as defined below.
+     * @return A `targetResource` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleSuppressionConditionTargetResource targetResource;
     /**
-     * @return A `target_resource_group` block as defined below.
+     * @return A `targetResourceGroup` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleSuppressionConditionTargetResourceGroup targetResourceGroup;
     /**
-     * @return A `target_resource_type` block as defined below.
+     * @return A `targetResourceType` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleSuppressionConditionTargetResourceType targetResourceType;
 
     private AlertProcessingRuleSuppressionCondition() {}
     /**
-     * @return A `alert_context` block as defined above.
+     * @return A `alertContext` block as defined above.
      * 
      */
     public Optional<AlertProcessingRuleSuppressionConditionAlertContext> alertContext() {
         return Optional.ofNullable(this.alertContext);
     }
     /**
-     * @return A `alert_rule_id` block as defined above.
+     * @return A `alertRuleId` block as defined above.
      * 
      */
     public Optional<AlertProcessingRuleSuppressionConditionAlertRuleId> alertRuleId() {
         return Optional.ofNullable(this.alertRuleId);
     }
     /**
-     * @return A `alert_rule_name` block as defined above.
+     * @return A `alertRuleName` block as defined above.
      * 
      */
     public Optional<AlertProcessingRuleSuppressionConditionAlertRuleName> alertRuleName() {
@@ -107,14 +107,14 @@ public final class AlertProcessingRuleSuppressionCondition {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return A `monitor_condition` block as defined below.
+     * @return A `monitorCondition` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleSuppressionConditionMonitorCondition> monitorCondition() {
         return Optional.ofNullable(this.monitorCondition);
     }
     /**
-     * @return A `monitor_service` block as defined below.
+     * @return A `monitorService` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleSuppressionConditionMonitorService> monitorService() {
@@ -128,28 +128,28 @@ public final class AlertProcessingRuleSuppressionCondition {
         return Optional.ofNullable(this.severity);
     }
     /**
-     * @return A `signal_type` block as defined below.
+     * @return A `signalType` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleSuppressionConditionSignalType> signalType() {
         return Optional.ofNullable(this.signalType);
     }
     /**
-     * @return A `target_resource` block as defined below.
+     * @return A `targetResource` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleSuppressionConditionTargetResource> targetResource() {
         return Optional.ofNullable(this.targetResource);
     }
     /**
-     * @return A `target_resource_group` block as defined below.
+     * @return A `targetResourceGroup` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleSuppressionConditionTargetResourceGroup> targetResourceGroup() {
         return Optional.ofNullable(this.targetResourceGroup);
     }
     /**
-     * @return A `target_resource_type` block as defined below.
+     * @return A `targetResourceType` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleSuppressionConditionTargetResourceType> targetResourceType() {

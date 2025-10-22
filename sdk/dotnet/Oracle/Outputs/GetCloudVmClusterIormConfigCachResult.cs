@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Oracle.Outputs
     public sealed class GetCloudVmClusterIormConfigCachResult
     {
         /// <summary>
-        /// A `db_plans` block as defined above.
+        /// A `DbPlans` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachDbPlanResult> DbPlans;
         /// <summary>

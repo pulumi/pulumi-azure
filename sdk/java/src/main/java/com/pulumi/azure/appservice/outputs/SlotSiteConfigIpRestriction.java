@@ -19,7 +19,7 @@ public final class SlotSiteConfigIpRestriction {
      */
     private @Nullable String action;
     /**
-     * @return The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * @return The `headers` block for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
      * 
      */
     private @Nullable SlotSiteConfigIpRestrictionHeaders headers;
@@ -46,7 +46,7 @@ public final class SlotSiteConfigIpRestriction {
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+     * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
      * 
      */
     private @Nullable String virtualNetworkSubnetId;
@@ -60,7 +60,7 @@ public final class SlotSiteConfigIpRestriction {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * @return The `headers` block for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
      * 
      */
     public Optional<SlotSiteConfigIpRestrictionHeaders> headers() {
@@ -97,7 +97,7 @@ public final class SlotSiteConfigIpRestriction {
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+     * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
      * 
      */
     public Optional<String> virtualNetworkSubnetId() {

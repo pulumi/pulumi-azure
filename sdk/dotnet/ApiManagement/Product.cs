@@ -79,7 +79,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Do subscribers need to be approved prior to being able to use the Product?
         /// 
-        /// &gt; **Note:** `approval_required` can only be set when `subscription_required` is set to `true`.
+        /// &gt; **Note:** `ApprovalRequired` can only be set when `SubscriptionRequired` is set to `True`.
         /// </summary>
         [Output("approvalRequired")]
         public Output<bool?> ApprovalRequired { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Is a Subscription required to access API's included in this Product? Defaults to `true`.
+        /// Is a Subscription required to access API's included in this Product? Defaults to `True`.
         /// </summary>
         [Output("subscriptionRequired")]
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The number of subscriptions a user can have to this Product at the same time.
         /// 
-        /// &gt; **Note:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
+        /// &gt; **Note:** `SubscriptionsLimit` can only be set when `SubscriptionRequired` is set to `True`.
         /// </summary>
         [Output("subscriptionsLimit")]
         public Output<int?> SubscriptionsLimit { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Do subscribers need to be approved prior to being able to use the Product?
         /// 
-        /// &gt; **Note:** `approval_required` can only be set when `subscription_required` is set to `true`.
+        /// &gt; **Note:** `ApprovalRequired` can only be set when `SubscriptionRequired` is set to `True`.
         /// </summary>
         [Input("approvalRequired")]
         public Input<bool>? ApprovalRequired { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Is a Subscription required to access API's included in this Product? Defaults to `true`.
+        /// Is a Subscription required to access API's included in this Product? Defaults to `True`.
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The number of subscriptions a user can have to this Product at the same time.
         /// 
-        /// &gt; **Note:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
+        /// &gt; **Note:** `SubscriptionsLimit` can only be set when `SubscriptionRequired` is set to `True`.
         /// </summary>
         [Input("subscriptionsLimit")]
         public Input<int>? SubscriptionsLimit { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Do subscribers need to be approved prior to being able to use the Product?
         /// 
-        /// &gt; **Note:** `approval_required` can only be set when `subscription_required` is set to `true`.
+        /// &gt; **Note:** `ApprovalRequired` can only be set when `SubscriptionRequired` is set to `True`.
         /// </summary>
         [Input("approvalRequired")]
         public Input<bool>? ApprovalRequired { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Is a Subscription required to access API's included in this Product? Defaults to `true`.
+        /// Is a Subscription required to access API's included in this Product? Defaults to `True`.
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The number of subscriptions a user can have to this Product at the same time.
         /// 
-        /// &gt; **Note:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
+        /// &gt; **Note:** `SubscriptionsLimit` can only be set when `SubscriptionRequired` is set to `True`.
         /// </summary>
         [Input("subscriptionsLimit")]
         public Input<int>? SubscriptionsLimit { get; set; }

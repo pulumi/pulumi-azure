@@ -18,7 +18,7 @@ namespace Pulumi.Azure.MachineLearning.Outputs
         /// </summary>
         public readonly string? IsolationMode;
         /// <summary>
-        /// Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? ProvisionOnCreationEnabled;
 

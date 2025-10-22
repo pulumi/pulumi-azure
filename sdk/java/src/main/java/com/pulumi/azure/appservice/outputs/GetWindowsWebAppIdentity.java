@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppIdentity {
     /**
-     * @return A `identity_ids` block as defined below.
+     * @return A `identityIds` block as defined below.
      * 
      */
     private List<String> identityIds;
@@ -34,7 +34,7 @@ public final class GetWindowsWebAppIdentity {
 
     private GetWindowsWebAppIdentity() {}
     /**
-     * @return A `identity_ids` block as defined below.
+     * @return A `identityIds` block as defined below.
      * 
      */
     public List<String> identityIds() {

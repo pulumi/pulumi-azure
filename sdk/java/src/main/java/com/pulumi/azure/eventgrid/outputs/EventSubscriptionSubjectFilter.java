@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventSubscriptionSubjectFilter {
     /**
-     * @return Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
+     * @return Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
      * 
      */
     private @Nullable Boolean caseSensitive;
@@ -30,7 +30,7 @@ public final class EventSubscriptionSubjectFilter {
 
     private EventSubscriptionSubjectFilter() {}
     /**
-     * @return Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
+     * @return Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
      * 
      */
     public Optional<Boolean> caseSensitive() {

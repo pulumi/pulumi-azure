@@ -35,18 +35,18 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `management_network_profile` block as defined below.
+     * A `managementNetworkProfile` block as defined below.
      * 
-     * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+     * &gt; **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      * 
      */
     @Import(name="managementNetworkProfile")
     private @Nullable Output<ModuleManagementNetworkProfileArgs> managementNetworkProfile;
 
     /**
-     * @return A `management_network_profile` block as defined below.
+     * @return A `managementNetworkProfile` block as defined below.
      * 
-     * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+     * &gt; **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      * 
      */
     public Optional<Output<ModuleManagementNetworkProfileArgs>> managementNetworkProfile() {
@@ -69,14 +69,14 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_profile` block as defined below.
+     * A `networkProfile` block as defined below.
      * 
      */
     @Import(name="networkProfile")
     private @Nullable Output<ModuleNetworkProfileArgs> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `networkProfile` block as defined below.
      * 
      */
     public Optional<Output<ModuleNetworkProfileArgs>> networkProfile() {
@@ -212,9 +212,9 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managementNetworkProfile A `management_network_profile` block as defined below.
+         * @param managementNetworkProfile A `managementNetworkProfile` block as defined below.
          * 
-         * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+         * &gt; **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
          * 
          * @return builder
          * 
@@ -225,9 +225,9 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managementNetworkProfile A `management_network_profile` block as defined below.
+         * @param managementNetworkProfile A `managementNetworkProfile` block as defined below.
          * 
-         * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+         * &gt; **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 

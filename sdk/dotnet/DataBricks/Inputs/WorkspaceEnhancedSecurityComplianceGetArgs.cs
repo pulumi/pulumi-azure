@@ -13,17 +13,17 @@ namespace Pulumi.Azure.DataBricks.Inputs
     public sealed class WorkspaceEnhancedSecurityComplianceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables automatic cluster updates for this workspace. Defaults to `false`.
+        /// Enables automatic cluster updates for this workspace. Defaults to `False`.
         /// </summary>
         [Input("automaticClusterUpdateEnabled")]
         public Input<bool>? AutomaticClusterUpdateEnabled { get; set; }
 
         /// <summary>
-        /// Enables compliance security profile for this workspace. Defaults to `false`.
+        /// Enables compliance security profile for this workspace. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+        /// &gt; **Note:** Changing the value of `ComplianceSecurityProfileEnabled` from `True` to `False` forces a replacement of the Databricks workspace.
         /// 
-        /// &gt; **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+        /// &gt; **Note:** The attributes `AutomaticClusterUpdateEnabled` and `EnhancedSecurityMonitoringEnabled` must be set to `True` in order to set `ComplianceSecurityProfileEnabled` to `True`.
         /// </summary>
         [Input("complianceSecurityProfileEnabled")]
         public Input<bool>? ComplianceSecurityProfileEnabled { get; set; }
@@ -34,9 +34,9 @@ namespace Pulumi.Azure.DataBricks.Inputs
         /// <summary>
         /// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
         /// 
-        /// &gt; **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+        /// &gt; **Note:** `ComplianceSecurityProfileEnabled` must be set to `True` in order to use `ComplianceSecurityProfileStandards`.
         /// 
-        /// &gt; **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+        /// &gt; **Note:** Removing a standard from the `ComplianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
         /// </summary>
         public InputList<string> ComplianceSecurityProfileStandards
         {
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.DataBricks.Inputs
         }
 
         /// <summary>
-        /// Enables enhanced security monitoring for this workspace. Defaults to `false`.
+        /// Enables enhanced security monitoring for this workspace. Defaults to `False`.
         /// </summary>
         [Input("enhancedSecurityMonitoringEnabled")]
         public Input<bool>? EnhancedSecurityMonitoringEnabled { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Automation.Outputs
     public sealed class ModuleModuleLink
     {
         /// <summary>
-        /// A `hash` block as defined below.
+        /// A `Hash` block as defined below.
         /// </summary>
         public readonly Outputs.ModuleModuleLinkHash? Hash;
         /// <summary>

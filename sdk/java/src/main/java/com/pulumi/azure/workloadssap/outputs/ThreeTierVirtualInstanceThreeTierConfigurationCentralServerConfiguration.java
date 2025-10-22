@@ -23,7 +23,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerCo
      */
     private String subnetId;
     /**
-     * @return A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfiguration virtualMachineConfiguration;
@@ -44,7 +44,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerCo
         return this.subnetId;
     }
     /**
-     * @return A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfiguration virtualMachineConfiguration() {

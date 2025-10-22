@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        /// An `Identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWorkspaceIdentityResult> Identities;
         /// <summary>

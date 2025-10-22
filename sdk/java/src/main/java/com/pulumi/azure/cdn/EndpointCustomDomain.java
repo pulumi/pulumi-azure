@@ -143,14 +143,14 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
         return this.cdnEndpointId;
     }
     /**
-     * A `cdn_managed_https` block as defined below.
+     * A `cdnManagedHttps` block as defined below.
      * 
      */
     @Export(name="cdnManagedHttps", refs={EndpointCustomDomainCdnManagedHttps.class}, tree="[0]")
     private Output</* @Nullable */ EndpointCustomDomainCdnManagedHttps> cdnManagedHttps;
 
     /**
-     * @return A `cdn_managed_https` block as defined below.
+     * @return A `cdnManagedHttps` block as defined below.
      * 
      */
     public Output<Optional<EndpointCustomDomainCdnManagedHttps>> cdnManagedHttps() {
@@ -185,18 +185,18 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `user_managed_https` block as defined below.
+     * A `userManagedHttps` block as defined below.
      * 
-     * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+     * &gt; **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      * 
      */
     @Export(name="userManagedHttps", refs={EndpointCustomDomainUserManagedHttps.class}, tree="[0]")
     private Output</* @Nullable */ EndpointCustomDomainUserManagedHttps> userManagedHttps;
 
     /**
-     * @return A `user_managed_https` block as defined below.
+     * @return A `userManagedHttps` block as defined below.
      * 
-     * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+     * &gt; **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      * 
      */
     public Output<Optional<EndpointCustomDomainUserManagedHttps>> userManagedHttps() {

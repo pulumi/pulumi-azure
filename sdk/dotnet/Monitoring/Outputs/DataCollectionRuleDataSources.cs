@@ -14,43 +14,43 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class DataCollectionRuleDataSources
     {
         /// <summary>
-        /// A `data_import` block as defined above.
+        /// A `DataImport` block as defined above.
         /// </summary>
         public readonly Outputs.DataCollectionRuleDataSourcesDataImport? DataImport;
         /// <summary>
-        /// One or more `extension` blocks as defined below.
+        /// One or more `Extension` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDataSourcesExtension> Extensions;
         /// <summary>
-        /// One or more `iis_log` blocks as defined below.
+        /// One or more `IisLog` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDataSourcesIisLog> IisLogs;
         /// <summary>
-        /// One or more `log_file` blocks as defined below.
+        /// One or more `LogFile` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDataSourcesLogFile> LogFiles;
         /// <summary>
-        /// One or more `performance_counter` blocks as defined below.
+        /// One or more `PerformanceCounter` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDataSourcesPerformanceCounter> PerformanceCounters;
         /// <summary>
-        /// One or more `platform_telemetry` blocks as defined below.
+        /// One or more `PlatformTelemetry` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDataSourcesPlatformTelemetry> PlatformTelemetries;
         /// <summary>
-        /// One or more `prometheus_forwarder` blocks as defined below.
+        /// One or more `PrometheusForwarder` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDataSourcesPrometheusForwarder> PrometheusForwarders;
         /// <summary>
-        /// One or more `syslog` blocks as defined below.
+        /// One or more `Syslog` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDataSourcesSyslog> Syslogs;
         /// <summary>
-        /// One or more `windows_event_log` blocks as defined below.
+        /// One or more `WindowsEventLog` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDataSourcesWindowsEventLog> WindowsEventLogs;
         /// <summary>
-        /// One or more `windows_firewall_log` blocks as defined below.
+        /// One or more `WindowsFirewallLog` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDataSourcesWindowsFirewallLog> WindowsFirewallLogs;
 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class JobEventTriggerConfigScaleRule
     {
         /// <summary>
-        /// A `authentication` block as defined below.
+        /// A `Authentication` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobEventTriggerConfigScaleRuleAuthentication> Authentications;
         /// <summary>

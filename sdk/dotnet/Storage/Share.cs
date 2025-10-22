@@ -88,13 +88,13 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         /// 
-        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
+        /// &gt; **Note:** The `FileStorage` `AccountKind` of the `azure.storage.Account` requires `Premium` `AccessTier`.
         /// </summary>
         [Output("accessTier")]
         public Output<string> AccessTier { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `acl` blocks as defined below.
+        /// One or more `Acl` blocks as defined below.
         /// </summary>
         [Output("acls")]
         public Output<ImmutableArray<Outputs.ShareAcl>> Acls { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
+        /// &gt; **Note:** The `FileStorage` `AccountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
         /// </summary>
         [Output("enabledProtocol")]
         public Output<string?> EnabledProtocol { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The maximum size of the share, in gigabytes.
         /// 
-        /// &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
+        /// &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `LargeFileShareEnabled` is set to `True` in the parent `azure.storage.Account`.
         /// 
         /// &gt; **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         /// </summary>
@@ -138,15 +138,15 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `StorageAccountId`.
         /// 
-        /// &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string?> StorageAccountName { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         /// 
-        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
+        /// &gt; **Note:** The `FileStorage` `AccountKind` of the `azure.storage.Account` requires `Premium` `AccessTier`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.ShareAclArgs>? _acls;
 
         /// <summary>
-        /// One or more `acl` blocks as defined below.
+        /// One or more `Acl` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ShareAclArgs> Acls
         {
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
+        /// &gt; **Note:** The `FileStorage` `AccountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
         /// </summary>
         [Input("enabledProtocol")]
         public Input<string>? EnabledProtocol { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The maximum size of the share, in gigabytes.
         /// 
-        /// &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
+        /// &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `LargeFileShareEnabled` is set to `True` in the parent `azure.storage.Account`.
         /// 
         /// &gt; **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         /// </summary>
@@ -262,15 +262,15 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `StorageAccountId`.
         /// 
-        /// &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         /// 
-        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
+        /// &gt; **Note:** The `FileStorage` `AccountKind` of the `azure.storage.Account` requires `Premium` `AccessTier`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.ShareAclGetArgs>? _acls;
 
         /// <summary>
-        /// One or more `acl` blocks as defined below.
+        /// One or more `Acl` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ShareAclGetArgs> Acls
         {
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
+        /// &gt; **Note:** The `FileStorage` `AccountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
         /// </summary>
         [Input("enabledProtocol")]
         public Input<string>? EnabledProtocol { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The maximum size of the share, in gigabytes.
         /// 
-        /// &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
+        /// &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `LargeFileShareEnabled` is set to `True` in the parent `azure.storage.Account`.
         /// 
         /// &gt; **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         /// </summary>
@@ -348,15 +348,15 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `StorageAccountId`.
         /// 
-        /// &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

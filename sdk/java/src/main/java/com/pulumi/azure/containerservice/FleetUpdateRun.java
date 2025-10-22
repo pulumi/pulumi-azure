@@ -136,14 +136,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerservice/fleetUpdateRun:FleetUpdateRun")
 public class FleetUpdateRun extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
+     * The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
      * 
      */
     @Export(name="fleetUpdateStrategyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fleetUpdateStrategyId;
 
     /**
-     * @return The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
+     * @return The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
      * 
      */
     public Output<Optional<String>> fleetUpdateStrategyId() {
@@ -164,14 +164,14 @@ public class FleetUpdateRun extends com.pulumi.resources.CustomResource {
         return this.kubernetesFleetManagerId;
     }
     /**
-     * A `managed_cluster_update` block as defined below.
+     * A `managedClusterUpdate` block as defined below.
      * 
      */
     @Export(name="managedClusterUpdate", refs={FleetUpdateRunManagedClusterUpdate.class}, tree="[0]")
     private Output<FleetUpdateRunManagedClusterUpdate> managedClusterUpdate;
 
     /**
-     * @return A `managed_cluster_update` block as defined below.
+     * @return A `managedClusterUpdate` block as defined below.
      * 
      */
     public Output<FleetUpdateRunManagedClusterUpdate> managedClusterUpdate() {
@@ -192,14 +192,14 @@ public class FleetUpdateRun extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+     * One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
      * 
      */
     @Export(name="stages", refs={List.class,FleetUpdateRunStage.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FleetUpdateRunStage>> stages;
 
     /**
-     * @return One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+     * @return One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
      * 
      */
     public Output<Optional<List<FleetUpdateRunStage>>> stages() {

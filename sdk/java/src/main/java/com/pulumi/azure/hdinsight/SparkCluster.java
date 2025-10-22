@@ -165,42 +165,42 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
         return this.clusterVersion;
     }
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      * 
      */
     @Export(name="componentVersion", refs={SparkClusterComponentVersion.class}, tree="[0]")
     private Output<SparkClusterComponentVersion> componentVersion;
 
     /**
-     * @return A `component_version` block as defined below.
+     * @return A `componentVersion` block as defined below.
      * 
      */
     public Output<SparkClusterComponentVersion> componentVersion() {
         return this.componentVersion;
     }
     /**
-     * A `compute_isolation` block as defined below.
+     * A `computeIsolation` block as defined below.
      * 
      */
     @Export(name="computeIsolation", refs={SparkClusterComputeIsolation.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterComputeIsolation> computeIsolation;
 
     /**
-     * @return A `compute_isolation` block as defined below.
+     * @return A `computeIsolation` block as defined below.
      * 
      */
     public Output<Optional<SparkClusterComputeIsolation>> computeIsolation() {
         return Codegen.optional(this.computeIsolation);
     }
     /**
-     * One or more `disk_encryption` block as defined below.
+     * One or more `diskEncryption` block as defined below.
      * 
      */
     @Export(name="diskEncryptions", refs={List.class,SparkClusterDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SparkClusterDiskEncryption>> diskEncryptions;
 
     /**
-     * @return One or more `disk_encryption` block as defined below.
+     * @return One or more `diskEncryption` block as defined below.
      * 
      */
     public Output<Optional<List<SparkClusterDiskEncryption>>> diskEncryptions() {
@@ -333,14 +333,14 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.network);
     }
     /**
-     * A `private_link_configuration` block as defined below.
+     * A `privateLinkConfiguration` block as defined below.
      * 
      */
     @Export(name="privateLinkConfiguration", refs={SparkClusterPrivateLinkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterPrivateLinkConfiguration> privateLinkConfiguration;
 
     /**
-     * @return A `private_link_configuration` block as defined below.
+     * @return A `privateLinkConfiguration` block as defined below.
      * 
      */
     public Output<Optional<SparkClusterPrivateLinkConfiguration>> privateLinkConfiguration() {
@@ -375,14 +375,14 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
         return this.roles;
     }
     /**
-     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="securityProfile", refs={SparkClusterSecurityProfile.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterSecurityProfile> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<SparkClusterSecurityProfile>> securityProfile() {
@@ -403,28 +403,28 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
         return this.sshEndpoint;
     }
     /**
-     * A `storage_account_gen2` block as defined below.
+     * A `storageAccountGen2` block as defined below.
      * 
      */
     @Export(name="storageAccountGen2", refs={SparkClusterStorageAccountGen2.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterStorageAccountGen2> storageAccountGen2;
 
     /**
-     * @return A `storage_account_gen2` block as defined below.
+     * @return A `storageAccountGen2` block as defined below.
      * 
      */
     public Output<Optional<SparkClusterStorageAccountGen2>> storageAccountGen2() {
         return Codegen.optional(this.storageAccountGen2);
     }
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      * 
      */
     @Export(name="storageAccounts", refs={List.class,SparkClusterStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SparkClusterStorageAccount>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` block as defined below.
+     * @return One or more `storageAccount` block as defined below.
      * 
      */
     public Output<Optional<List<SparkClusterStorageAccount>>> storageAccounts() {

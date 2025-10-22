@@ -221,7 +221,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
+        /// Which Storage Account access key that is managed by Key Vault. Possible values are `Key1` and `Key2`.
         /// </summary>
         [Output("storageAccountKey")]
         public Output<string> StorageAccountKey { get; private set; } = null!;
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string> StorageAccountId { get; set; } = null!;
 
         /// <summary>
-        /// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
+        /// Which Storage Account access key that is managed by Key Vault. Possible values are `Key1` and `Key2`.
         /// </summary>
         [Input("storageAccountKey", required: true)]
         public Input<string> StorageAccountKey { get; set; } = null!;
@@ -369,7 +369,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
-        /// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
+        /// Which Storage Account access key that is managed by Key Vault. Possible values are `Key1` and `Key2`.
         /// </summary>
         [Input("storageAccountKey")]
         public Input<string>? StorageAccountKey { get; set; }

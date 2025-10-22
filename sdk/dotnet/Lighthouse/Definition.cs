@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Lighthouse
     public partial class Definition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `authorization` block as defined below.
+        /// An `Authorization` block as defined below.
         /// </summary>
         [Output("authorizations")]
         public Output<ImmutableArray<Outputs.DefinitionAuthorization>> Authorizations { get; private set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Lighthouse
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `eligible_authorization` block as defined below.
+        /// An `EligibleAuthorization` block as defined below.
         /// </summary>
         [Output("eligibleAuthorizations")]
         public Output<ImmutableArray<Outputs.DefinitionEligibleAuthorization>> EligibleAuthorizations { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Lighthouse
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `Plan` block as defined below.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.DefinitionPlan?> Plan { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Lighthouse
         private InputList<Inputs.DefinitionAuthorizationArgs>? _authorizations;
 
         /// <summary>
-        /// An `authorization` block as defined below.
+        /// An `Authorization` block as defined below.
         /// </summary>
         public InputList<Inputs.DefinitionAuthorizationArgs> Authorizations
         {
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Lighthouse
         private InputList<Inputs.DefinitionEligibleAuthorizationArgs>? _eligibleAuthorizations;
 
         /// <summary>
-        /// An `eligible_authorization` block as defined below.
+        /// An `EligibleAuthorization` block as defined below.
         /// </summary>
         public InputList<Inputs.DefinitionEligibleAuthorizationArgs> EligibleAuthorizations
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Lighthouse
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `Plan` block as defined below.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.DefinitionPlanArgs>? Plan { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.Lighthouse
         private InputList<Inputs.DefinitionAuthorizationGetArgs>? _authorizations;
 
         /// <summary>
-        /// An `authorization` block as defined below.
+        /// An `Authorization` block as defined below.
         /// </summary>
         public InputList<Inputs.DefinitionAuthorizationGetArgs> Authorizations
         {
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Lighthouse
         private InputList<Inputs.DefinitionEligibleAuthorizationGetArgs>? _eligibleAuthorizations;
 
         /// <summary>
-        /// An `eligible_authorization` block as defined below.
+        /// An `EligibleAuthorization` block as defined below.
         /// </summary>
         public InputList<Inputs.DefinitionEligibleAuthorizationGetArgs> EligibleAuthorizations
         {
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Lighthouse
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `Plan` block as defined below.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.DefinitionPlanGetArgs>? Plan { get; set; }

@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class HadoopClusterRolesEdgeNode {
     /**
-     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
+     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
      * 
      */
     private @Nullable List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints;
     /**
-     * @return A `install_script_action` block as defined below.
+     * @return A `installScriptAction` block as defined below.
      * 
      */
     private List<HadoopClusterRolesEdgeNodeInstallScriptAction> installScriptActions;
@@ -32,7 +32,7 @@ public final class HadoopClusterRolesEdgeNode {
      */
     private Integer targetInstanceCount;
     /**
-     * @return A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+     * @return A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions;
@@ -44,14 +44,14 @@ public final class HadoopClusterRolesEdgeNode {
 
     private HadoopClusterRolesEdgeNode() {}
     /**
-     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
+     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
      * 
      */
     public List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints() {
         return this.httpsEndpoints == null ? List.of() : this.httpsEndpoints;
     }
     /**
-     * @return A `install_script_action` block as defined below.
+     * @return A `installScriptAction` block as defined below.
      * 
      */
     public List<HadoopClusterRolesEdgeNodeInstallScriptAction> installScriptActions() {
@@ -65,7 +65,7 @@ public final class HadoopClusterRolesEdgeNode {
         return this.targetInstanceCount;
     }
     /**
-     * @return A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+     * @return A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions() {

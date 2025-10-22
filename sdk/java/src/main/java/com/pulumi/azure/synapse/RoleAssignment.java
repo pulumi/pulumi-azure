@@ -136,7 +136,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+     * &gt; **NOTE:** While `principalType` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principalType` is not set to `ServicePrincipal`.
      * 
      */
     @Export(name="principalType", refs={String.class}, tree="[0]")
@@ -145,7 +145,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * @return The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+     * &gt; **NOTE:** While `principalType` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principalType` is not set to `ServicePrincipal`.
      * 
      */
     public Output<Optional<String>> principalType() {
@@ -176,7 +176,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
+     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapseWorkspaceId`, `synapseSparkPoolId` must be set.
      * 
      */
     @Export(name="synapseSparkPoolId", refs={String.class}, tree="[0]")
@@ -185,7 +185,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * @return The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
+     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapseWorkspaceId`, `synapseSparkPoolId` must be set.
      * 
      */
     public Output<Optional<String>> synapseSparkPoolId() {

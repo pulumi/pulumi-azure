@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// <summary>
         /// The client ID of the managed identity associated with the storage resource.
         /// 
-        /// &gt; **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+        /// &gt; **Note:** Not all `Kind` support a `Storage` block. For example the `Kind` `OpenAI` does not support it.
         /// </summary>
         public readonly string? IdentityClientId;
         /// <summary>

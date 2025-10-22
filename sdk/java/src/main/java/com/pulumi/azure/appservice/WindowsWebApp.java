@@ -119,28 +119,28 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appSettings);
     }
     /**
-     * An `auth_settings` block as defined below.
+     * An `authSettings` block as defined below.
      * 
      */
     @Export(name="authSettings", refs={WindowsWebAppAuthSettings.class}, tree="[0]")
     private Output</* @Nullable */ WindowsWebAppAuthSettings> authSettings;
 
     /**
-     * @return An `auth_settings` block as defined below.
+     * @return An `authSettings` block as defined below.
      * 
      */
     public Output<Optional<WindowsWebAppAuthSettings>> authSettings() {
         return Codegen.optional(this.authSettings);
     }
     /**
-     * An `auth_settings_v2` block as defined below.
+     * An `authSettingsV2` block as defined below.
      * 
      */
     @Export(name="authSettingsV2", refs={WindowsWebAppAuthSettingsV2.class}, tree="[0]")
     private Output</* @Nullable */ WindowsWebAppAuthSettingsV2> authSettingsV2;
 
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public Output<Optional<WindowsWebAppAuthSettingsV2>> authSettingsV2() {
@@ -203,28 +203,28 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateExclusionPaths);
     }
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      * 
      */
     @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      * 
      */
     public Output<Optional<String>> clientCertificateMode() {
         return Codegen.optional(this.clientCertificateMode);
     }
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,WindowsWebAppConnectionString.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsWebAppConnectionString>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Output<Optional<List<WindowsWebAppConnectionString>>> connectionStrings() {
@@ -441,14 +441,14 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Output<String> possibleOutboundIpAddresses() {
@@ -497,60 +497,60 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
         return this.servicePlanId;
     }
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Export(name="siteConfig", refs={WindowsWebAppSiteConfig.class}, tree="[0]")
     private Output<WindowsWebAppSiteConfig> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Output<WindowsWebAppSiteConfig> siteConfig() {
         return this.siteConfig;
     }
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Export(name="siteCredentials", refs={List.class,WindowsWebAppSiteCredential.class}, tree="[0,1]")
     private Output<List<WindowsWebAppSiteCredential>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Output<List<WindowsWebAppSiteCredential>> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * A `sticky_settings` block as defined below.
+     * A `stickySettings` block as defined below.
      * 
      */
     @Export(name="stickySettings", refs={WindowsWebAppStickySettings.class}, tree="[0]")
     private Output</* @Nullable */ WindowsWebAppStickySettings> stickySettings;
 
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public Output<Optional<WindowsWebAppStickySettings>> stickySettings() {
         return Codegen.optional(this.stickySettings);
     }
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     @Export(name="storageAccounts", refs={List.class,WindowsWebAppStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsWebAppStorageAccount>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     public Output<Optional<List<WindowsWebAppStorageAccount>>> storageAccounts() {
@@ -593,7 +593,7 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     @Export(name="webdeployPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
@@ -602,7 +602,7 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     public Output<Optional<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -611,7 +611,7 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
@@ -620,7 +620,7 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     public Output<String> zipDeployFile() {

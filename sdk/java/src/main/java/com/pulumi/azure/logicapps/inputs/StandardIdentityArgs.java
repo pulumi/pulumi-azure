@@ -20,9 +20,9 @@ public final class StandardIdentityArgs extends com.pulumi.resources.ResourceArg
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
      * 
-     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
      * 
-     * &gt; **Note:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -31,9 +31,9 @@ public final class StandardIdentityArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
      * 
-     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
      * 
-     * &gt; **Note:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -115,9 +115,9 @@ public final class StandardIdentityArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
          * 
-         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
          * 
-         * &gt; **Note:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -130,9 +130,9 @@ public final class StandardIdentityArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
          * 
-         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
          * 
-         * &gt; **Note:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -144,9 +144,9 @@ public final class StandardIdentityArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
          * 
-         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
          * 
-         * &gt; **Note:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

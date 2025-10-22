@@ -33,14 +33,14 @@ public final class ScaleSetStandbyPoolState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * An `elasticity_profile` block as defined below.
+     * An `elasticityProfile` block as defined below.
      * 
      */
     @Import(name="elasticityProfile")
     private @Nullable Output<ScaleSetStandbyPoolElasticityProfileArgs> elasticityProfile;
 
     /**
-     * @return An `elasticity_profile` block as defined below.
+     * @return An `elasticityProfile` block as defined below.
      * 
      */
     public Optional<Output<ScaleSetStandbyPoolElasticityProfileArgs>> elasticityProfile() {
@@ -174,7 +174,7 @@ public final class ScaleSetStandbyPoolState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param elasticityProfile An `elasticity_profile` block as defined below.
+         * @param elasticityProfile An `elasticityProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ScaleSetStandbyPoolState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param elasticityProfile An `elasticity_profile` block as defined below.
+         * @param elasticityProfile An `elasticityProfile` block as defined below.
          * 
          * @return builder
          * 

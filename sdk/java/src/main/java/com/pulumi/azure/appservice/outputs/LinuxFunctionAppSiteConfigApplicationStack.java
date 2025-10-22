@@ -27,7 +27,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
     /**
      * @return The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
      * 
-     * &gt; **Note:** The value `21` is currently in Preview for `java_version`.
+     * &gt; **Note:** The value `21` is currently in Preview for `javaVersion`.
      * 
      */
     private @Nullable String javaVersion;
@@ -75,7 +75,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
     /**
      * @return The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
      * 
-     * &gt; **Note:** The value `21` is currently in Preview for `java_version`.
+     * &gt; **Note:** The value `21` is currently in Preview for `javaVersion`.
      * 
      */
     public Optional<String> javaVersion() {

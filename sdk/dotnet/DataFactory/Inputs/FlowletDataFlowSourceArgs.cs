@@ -13,7 +13,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
     public sealed class FlowletDataFlowSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `dataset` block as defined below.
+        /// A `Dataset` block as defined below.
         /// </summary>
         [Input("dataset")]
         public Input<Inputs.FlowletDataFlowSourceDatasetArgs>? Dataset { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `flowlet` block as defined below.
+        /// A `Flowlet` block as defined below.
         /// </summary>
         [Input("flowlet")]
         public Input<Inputs.FlowletDataFlowSourceFlowletArgs>? Flowlet { get; set; }
 
         /// <summary>
-        /// A `linked_service` block as defined below.
+        /// A `LinkedService` block as defined below.
         /// </summary>
         [Input("linkedService")]
         public Input<Inputs.FlowletDataFlowSourceLinkedServiceArgs>? LinkedService { get; set; }
@@ -43,13 +43,13 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A `rejected_linked_service` block as defined below.
+        /// A `RejectedLinkedService` block as defined below.
         /// </summary>
         [Input("rejectedLinkedService")]
         public Input<Inputs.FlowletDataFlowSourceRejectedLinkedServiceArgs>? RejectedLinkedService { get; set; }
 
         /// <summary>
-        /// A `schema_linked_service` block as defined below.
+        /// A `SchemaLinkedService` block as defined below.
         /// </summary>
         [Input("schemaLinkedService")]
         public Input<Inputs.FlowletDataFlowSourceSchemaLinkedServiceArgs>? SchemaLinkedService { get; set; }

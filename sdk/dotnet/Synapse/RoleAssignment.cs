@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+        /// &gt; **NOTE:** While `PrincipalType` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `PrincipalType` is not set to `ServicePrincipal`.
         /// </summary>
         [Output("principalType")]
         public Output<string?> PrincipalType { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
+        /// &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `SynapseWorkspaceId`, `SynapseSparkPoolId` must be set.
         /// </summary>
         [Output("synapseSparkPoolId")]
         public Output<string?> SynapseSparkPoolId { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+        /// &gt; **NOTE:** While `PrincipalType` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `PrincipalType` is not set to `ServicePrincipal`.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
+        /// &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `SynapseWorkspaceId`, `SynapseSparkPoolId` must be set.
         /// </summary>
         [Input("synapseSparkPoolId")]
         public Input<string>? SynapseSparkPoolId { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+        /// &gt; **NOTE:** While `PrincipalType` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `PrincipalType` is not set to `ServicePrincipal`.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
+        /// &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `SynapseWorkspaceId`, `SynapseSparkPoolId` must be set.
         /// </summary>
         [Input("synapseSparkPoolId")]
         public Input<string>? SynapseSparkPoolId { get; set; }

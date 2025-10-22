@@ -103,7 +103,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string?> BindingType { get; private set; } = null!;
 
         /// <summary>
-        /// A `launch` block as defined below.
+        /// A `Launch` block as defined below.
         /// </summary>
         [Output("launch")]
         public Output<Outputs.SpringCloudBuildPackBindingLaunch?> Launch { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? BindingType { get; set; }
 
         /// <summary>
-        /// A `launch` block as defined below.
+        /// A `Launch` block as defined below.
         /// </summary>
         [Input("launch")]
         public Input<Inputs.SpringCloudBuildPackBindingLaunchArgs>? Launch { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? BindingType { get; set; }
 
         /// <summary>
-        /// A `launch` block as defined below.
+        /// A `Launch` block as defined below.
         /// </summary>
         [Input("launch")]
         public Input<Inputs.SpringCloudBuildPackBindingLaunchGetArgs>? Launch { get; set; }

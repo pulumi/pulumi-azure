@@ -156,14 +156,14 @@ public class Share extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `snapshot_schedule` block as defined below.
+     * A `snapshotSchedule` block as defined below.
      * 
      */
     @Export(name="snapshotSchedule", refs={ShareSnapshotSchedule.class}, tree="[0]")
     private Output</* @Nullable */ ShareSnapshotSchedule> snapshotSchedule;
 
     /**
-     * @return A `snapshot_schedule` block as defined below.
+     * @return A `snapshotSchedule` block as defined below.
      * 
      */
     public Output<Optional<ShareSnapshotSchedule>> snapshotSchedule() {

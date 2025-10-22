@@ -186,25 +186,25 @@ namespace Pulumi.Azure.MSSql
     public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
+        /// The administrator login name for the new server. Required unless `AzureadAuthenticationOnly` in the `AzureadAdministrator` block is `True`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
+        /// The password associated with the `AdministratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
         /// </summary>
         [Output("administratorLoginPassword")]
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
-        /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+        /// An integer value used to trigger an update for `AdministratorLoginPasswordWo`. This property should be incremented when updating `AdministratorLoginPasswordWo`.
         /// </summary>
         [Output("administratorLoginPasswordWoVersion")]
         public Output<int?> AdministratorLoginPasswordWoVersion { get; private set; } = null!;
 
         /// <summary>
-        /// An `azuread_administrator` block as defined below.
+        /// An `AzureadAdministrator` block as defined below.
         /// </summary>
         [Output("azureadAdministrator")]
         public Output<Outputs.ServerAzureadAdministrator?> AzureadAdministrator { get; private set; } = null!;
@@ -216,9 +216,9 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> ConnectionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+        /// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `False`.
         /// 
-        /// &gt; **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `azure.mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+        /// &gt; **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `azure.mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `ExpressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
         /// </summary>
         [Output("expressVulnerabilityAssessmentEnabled")]
         public Output<bool?> ExpressVulnerabilityAssessmentEnabled { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServerIdentity?> Identity { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
         /// 
-        /// &gt; **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+        /// &gt; **Note:** The `MinimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `MinimumTlsVersion`, it's not possible to revert to `Disabled`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -258,19 +258,19 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+        /// Whether outbound network traffic is restricted for this server. Defaults to `False`.
         /// </summary>
         [Output("outboundNetworkRestrictionEnabled")]
         public Output<bool?> OutboundNetworkRestrictionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
+        /// Specifies the primary user managed identity id. Required if `Type` within the `Identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `IdentityIds`.
         /// </summary>
         [Output("primaryUserAssignedIdentityId")]
         public Output<string> PrimaryUserAssignedIdentityId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// Whether public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The fully versioned `Key Vault` `Key` URL (e.g. `'https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
         /// 
-        /// &gt; **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        /// &gt; **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `Tenant`.
         /// 
         /// &gt; **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
         /// 
@@ -366,7 +366,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
+        /// The administrator login name for the new server. Required unless `AzureadAuthenticationOnly` in the `AzureadAdministrator` block is `True`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -375,7 +375,7 @@ namespace Pulumi.Azure.MSSql
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
+        /// The password associated with the `AdministratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -388,13 +388,13 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+        /// An integer value used to trigger an update for `AdministratorLoginPasswordWo`. This property should be incremented when updating `AdministratorLoginPasswordWo`.
         /// </summary>
         [Input("administratorLoginPasswordWoVersion")]
         public Input<int>? AdministratorLoginPasswordWoVersion { get; set; }
 
         /// <summary>
-        /// An `azuread_administrator` block as defined below.
+        /// An `AzureadAdministrator` block as defined below.
         /// </summary>
         [Input("azureadAdministrator")]
         public Input<Inputs.ServerAzureadAdministratorArgs>? AzureadAdministrator { get; set; }
@@ -406,15 +406,15 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ConnectionPolicy { get; set; }
 
         /// <summary>
-        /// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+        /// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `False`.
         /// 
-        /// &gt; **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `azure.mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+        /// &gt; **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `azure.mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `ExpressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
         /// </summary>
         [Input("expressVulnerabilityAssessmentEnabled")]
         public Input<bool>? ExpressVulnerabilityAssessmentEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServerIdentityArgs>? Identity { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
         /// 
-        /// &gt; **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+        /// &gt; **Note:** The `MinimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `MinimumTlsVersion`, it's not possible to revert to `Disabled`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -442,19 +442,19 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+        /// Whether outbound network traffic is restricted for this server. Defaults to `False`.
         /// </summary>
         [Input("outboundNetworkRestrictionEnabled")]
         public Input<bool>? OutboundNetworkRestrictionEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
+        /// Specifies the primary user managed identity id. Required if `Type` within the `Identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `IdentityIds`.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// Whether public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The fully versioned `Key Vault` `Key` URL (e.g. `'https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
         /// 
-        /// &gt; **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        /// &gt; **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `Tenant`.
         /// 
         /// &gt; **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
         /// 
@@ -504,7 +504,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
+        /// The administrator login name for the new server. Required unless `AzureadAuthenticationOnly` in the `AzureadAdministrator` block is `True`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.Azure.MSSql
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
+        /// The password associated with the `AdministratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -526,13 +526,13 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+        /// An integer value used to trigger an update for `AdministratorLoginPasswordWo`. This property should be incremented when updating `AdministratorLoginPasswordWo`.
         /// </summary>
         [Input("administratorLoginPasswordWoVersion")]
         public Input<int>? AdministratorLoginPasswordWoVersion { get; set; }
 
         /// <summary>
-        /// An `azuread_administrator` block as defined below.
+        /// An `AzureadAdministrator` block as defined below.
         /// </summary>
         [Input("azureadAdministrator")]
         public Input<Inputs.ServerAzureadAdministratorGetArgs>? AzureadAdministrator { get; set; }
@@ -544,9 +544,9 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ConnectionPolicy { get; set; }
 
         /// <summary>
-        /// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+        /// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `False`.
         /// 
-        /// &gt; **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `azure.mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+        /// &gt; **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `azure.mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `ExpressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
         /// </summary>
         [Input("expressVulnerabilityAssessmentEnabled")]
         public Input<bool>? ExpressVulnerabilityAssessmentEnabled { get; set; }
@@ -558,7 +558,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? FullyQualifiedDomainName { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServerIdentityGetArgs>? Identity { get; set; }
@@ -572,7 +572,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
         /// 
-        /// &gt; **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+        /// &gt; **Note:** The `MinimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `MinimumTlsVersion`, it's not possible to revert to `Disabled`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -586,19 +586,19 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+        /// Whether outbound network traffic is restricted for this server. Defaults to `False`.
         /// </summary>
         [Input("outboundNetworkRestrictionEnabled")]
         public Input<bool>? OutboundNetworkRestrictionEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
+        /// Specifies the primary user managed identity id. Required if `Type` within the `Identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `IdentityIds`.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// Whether public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -636,7 +636,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The fully versioned `Key Vault` `Key` URL (e.g. `'https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
         /// 
-        /// &gt; **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        /// &gt; **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `Tenant`.
         /// 
         /// &gt; **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
         /// 

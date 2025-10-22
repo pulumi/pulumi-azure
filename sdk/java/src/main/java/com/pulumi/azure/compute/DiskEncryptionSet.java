@@ -338,11 +338,11 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
         return this.identity;
     }
     /**
-     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      * &gt; **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
      * 
-     * &gt; **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+     * &gt; **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      * 
      */
@@ -350,11 +350,11 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> keyVaultKeyId;
 
     /**
-     * @return Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+     * @return Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      * &gt; **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
      * 
-     * &gt; **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+     * &gt; **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      * 
      */
@@ -390,14 +390,14 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      */
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedHsmKeyId;
 
     /**
-     * @return Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+     * @return Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      */
     public Output<Optional<String>> managedHsmKeyId() {

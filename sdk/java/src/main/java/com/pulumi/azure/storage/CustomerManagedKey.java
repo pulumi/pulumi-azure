@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Customer Managed Key for a Storage Account.
  * 
- * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within the `azure.storage.Account` resource via the `customer_managed_key` block and by using the `azure.storage.CustomerManagedKey` resource. However it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since there&#39;ll be conflicts.
+ * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within the `azure.storage.Account` resource via the `customerManagedKey` block and by using the `azure.storage.CustomerManagedKey` resource. However it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since there&#39;ll be conflicts.
  * 
  * ## Example Usage
  * 
@@ -199,14 +199,14 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyVaultId);
     }
     /**
-     * URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     @Export(name="keyVaultUri", refs={String.class}, tree="[0]")
     private Output<String> keyVaultUri;
 
     /**
-     * @return URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * @return URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     public Output<String> keyVaultUri() {
@@ -227,14 +227,14 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyVersion);
     }
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedHsmKeyId;
 
     /**
-     * @return Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * @return Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     public Output<Optional<String>> managedHsmKeyId() {

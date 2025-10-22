@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Specifies the desired minimum number of virtual machines in the standby pool.
         /// 
-        /// &gt; **Note:** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+        /// &gt; **Note:** `MinReadyCapacity` cannot exceed `MaxReadyCapacity`.
         /// </summary>
         [Input("minReadyCapacity", required: true)]
         public Input<int> MinReadyCapacity { get; set; } = null!;

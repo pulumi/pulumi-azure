@@ -100,7 +100,7 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `wsfc_domain_profile` block as defined below.
+        /// A `WsfcDomainProfile` block as defined below.
         /// </summary>
         [Output("wsfcDomainProfile")]
         public Output<Outputs.VirtualMachineGroupWsfcDomainProfile> WsfcDomainProfile { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// A `wsfc_domain_profile` block as defined below.
+        /// A `WsfcDomainProfile` block as defined below.
         /// </summary>
         [Input("wsfcDomainProfile", required: true)]
         public Input<Inputs.VirtualMachineGroupWsfcDomainProfileArgs> WsfcDomainProfile { get; set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// A `wsfc_domain_profile` block as defined below.
+        /// A `WsfcDomainProfile` block as defined below.
         /// </summary>
         [Input("wsfcDomainProfile")]
         public Input<Inputs.VirtualMachineGroupWsfcDomainProfileGetArgs>? WsfcDomainProfile { get; set; }

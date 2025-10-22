@@ -34,14 +34,14 @@ public final class LoggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `application_insights` block as documented below. Changing this forces a new resource to be created.
+     * An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="applicationInsights")
     private @Nullable Output<LoggerApplicationInsightsArgs> applicationInsights;
 
     /**
-     * @return An `application_insights` block as documented below. Changing this forces a new resource to be created.
+     * @return An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<LoggerApplicationInsightsArgs>> applicationInsights() {
@@ -191,7 +191,7 @@ public final class LoggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationInsights An `application_insights` block as documented below. Changing this forces a new resource to be created.
+         * @param applicationInsights An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class LoggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationInsights An `application_insights` block as documented below. Changing this forces a new resource to be created.
+         * @param applicationInsights An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

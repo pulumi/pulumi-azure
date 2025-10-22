@@ -18,14 +18,14 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
     public static final RoleManagementPolicyActivationRulesArgs Empty = new RoleManagementPolicyActivationRulesArgs();
 
     /**
-     * An `approval_stage` block as defined below.
+     * An `approvalStage` block as defined below.
      * 
      */
     @Import(name="approvalStage")
     private @Nullable Output<RoleManagementPolicyActivationRulesApprovalStageArgs> approvalStage;
 
     /**
-     * @return An `approval_stage` block as defined below.
+     * @return An `approvalStage` block as defined below.
      * 
      */
     public Optional<Output<RoleManagementPolicyActivationRulesApprovalStageArgs>> approvalStage() {
@@ -48,14 +48,14 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
     }
 
     /**
-     * Is approval required for activation. If `true` an `approval_stage` block must be provided.
+     * Is approval required for activation. If `true` an `approvalStage` block must be provided.
      * 
      */
     @Import(name="requireApproval")
     private @Nullable Output<Boolean> requireApproval;
 
     /**
-     * @return Is approval required for activation. If `true` an `approval_stage` block must be provided.
+     * @return Is approval required for activation. If `true` an `approvalStage` block must be provided.
      * 
      */
     public Optional<Output<Boolean>> requireApproval() {
@@ -78,14 +78,14 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
     }
 
     /**
-     * Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
+     * Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
      * 
      */
     @Import(name="requireMultifactorAuthentication")
     private @Nullable Output<Boolean> requireMultifactorAuthentication;
 
     /**
-     * @return Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
+     * @return Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
      * 
      */
     public Optional<Output<Boolean>> requireMultifactorAuthentication() {
@@ -108,14 +108,14 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
     }
 
     /**
-     * The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
+     * The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
      * 
      */
     @Import(name="requiredConditionalAccessAuthenticationContext")
     private @Nullable Output<String> requiredConditionalAccessAuthenticationContext;
 
     /**
-     * @return The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
+     * @return The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
      * 
      */
     public Optional<Output<String>> requiredConditionalAccessAuthenticationContext() {
@@ -153,7 +153,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param approvalStage An `approval_stage` block as defined below.
+         * @param approvalStage An `approvalStage` block as defined below.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param approvalStage An `approval_stage` block as defined below.
+         * @param approvalStage An `approvalStage` block as defined below.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param requireApproval Is approval required for activation. If `true` an `approval_stage` block must be provided.
+         * @param requireApproval Is approval required for activation. If `true` an `approvalStage` block must be provided.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param requireApproval Is approval required for activation. If `true` an `approval_stage` block must be provided.
+         * @param requireApproval Is approval required for activation. If `true` an `approvalStage` block must be provided.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param requireMultifactorAuthentication Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
+         * @param requireMultifactorAuthentication Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param requireMultifactorAuthentication Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
+         * @param requireMultifactorAuthentication Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param requiredConditionalAccessAuthenticationContext The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
+         * @param requiredConditionalAccessAuthenticationContext The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param requiredConditionalAccessAuthenticationContext The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
+         * @param requiredConditionalAccessAuthenticationContext The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
          * 
          * @return builder
          * 

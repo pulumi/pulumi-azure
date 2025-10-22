@@ -34,14 +34,14 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      * 
      */
     @Import(name="connectionString", required=true)
     private Output<String> connectionString;
 
     /**
-     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      * 
      */
     public Output<String> connectionString() {
@@ -259,7 +259,7 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
          * 
          * @return builder
          * 

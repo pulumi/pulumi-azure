@@ -20,7 +20,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Should the Elastic Job Schedule be enabled? Defaults to `false`.
      * 
-     * &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it&#39;s recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+     * &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it&#39;s recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
      * 
      */
     @Import(name="enabled")
@@ -29,7 +29,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Should the Elastic Job Schedule be enabled? Defaults to `false`.
      * 
-     * &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it&#39;s recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+     * &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it&#39;s recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -143,7 +143,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param enabled Should the Elastic Job Schedule be enabled? Defaults to `false`.
          * 
-         * &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it&#39;s recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+         * &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it&#39;s recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param enabled Should the Elastic Job Schedule be enabled? Defaults to `false`.
          * 
-         * &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it&#39;s recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+         * &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it&#39;s recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
          * 
          * @return builder
          * 

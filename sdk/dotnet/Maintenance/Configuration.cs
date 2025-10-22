@@ -62,15 +62,15 @@ namespace Pulumi.Azure.Maintenance
     public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        /// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `Scope` is `InGuestPatch`.
         /// </summary>
         [Output("inGuestUserPatchMode")]
         public Output<string?> InGuestUserPatchMode { get; private set; } = null!;
 
         /// <summary>
-        /// An `install_patches` block as defined below.
+        /// An `InstallPatches` block as defined below.
         /// 
-        /// &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+        /// &gt; **Note:** `InstallPatches` must be specified when `Scope` is `InGuestPatch`.
         /// </summary>
         [Output("installPatches")]
         public Output<Outputs.ConfigurationInstallPatches?> InstallPatches { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Maintenance
         public Output<string?> Visibility { get; private set; } = null!;
 
         /// <summary>
-        /// A `window` block as defined below.
+        /// A `Window` block as defined below.
         /// </summary>
         [Output("window")]
         public Output<Outputs.ConfigurationWindow?> Window { get; private set; } = null!;
@@ -170,15 +170,15 @@ namespace Pulumi.Azure.Maintenance
     public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        /// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `Scope` is `InGuestPatch`.
         /// </summary>
         [Input("inGuestUserPatchMode")]
         public Input<string>? InGuestUserPatchMode { get; set; }
 
         /// <summary>
-        /// An `install_patches` block as defined below.
+        /// An `InstallPatches` block as defined below.
         /// 
-        /// &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+        /// &gt; **Note:** `InstallPatches` must be specified when `Scope` is `InGuestPatch`.
         /// </summary>
         [Input("installPatches")]
         public Input<Inputs.ConfigurationInstallPatchesArgs>? InstallPatches { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.Maintenance
         public Input<string>? Visibility { get; set; }
 
         /// <summary>
-        /// A `window` block as defined below.
+        /// A `Window` block as defined below.
         /// </summary>
         [Input("window")]
         public Input<Inputs.ConfigurationWindowArgs>? Window { get; set; }
@@ -252,15 +252,15 @@ namespace Pulumi.Azure.Maintenance
     public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        /// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `Scope` is `InGuestPatch`.
         /// </summary>
         [Input("inGuestUserPatchMode")]
         public Input<string>? InGuestUserPatchMode { get; set; }
 
         /// <summary>
-        /// An `install_patches` block as defined below.
+        /// An `InstallPatches` block as defined below.
         /// 
-        /// &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+        /// &gt; **Note:** `InstallPatches` must be specified when `Scope` is `InGuestPatch`.
         /// </summary>
         [Input("installPatches")]
         public Input<Inputs.ConfigurationInstallPatchesGetArgs>? InstallPatches { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.Maintenance
         public Input<string>? Visibility { get; set; }
 
         /// <summary>
-        /// A `window` block as defined below.
+        /// A `Window` block as defined below.
         /// </summary>
         [Input("window")]
         public Input<Inputs.ConfigurationWindowGetArgs>? Window { get; set; }
