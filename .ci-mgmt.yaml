@@ -31,20 +31,6 @@ env:
     # PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION: true
 upstream-provider-repo: terraform-provider-azurerm
 makeTemplate: bridged
-plugins:
-    - name: random
-      version: "4.16.1"
-    - name: azuread
-      version: "5.48.0"
-    - name: time
-      version: "0.0.17"
-    - name: local
-      version: "0.0.1"
-    - name: std
-      version: "1.6.2"
-    - name: terraform
-      kind: converter
-      version: "1.0.16"
 goBuildParallelism: 2
 pulumiConvert: 1
 releaseVerification:

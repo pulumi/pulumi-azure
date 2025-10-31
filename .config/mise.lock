@@ -85,3 +85,27 @@ url = "https://github.com/pulumi/pulumi/releases/download/v3.190.0/pulumi-v3.190
 [[tools.python]]
 version = "3.11.8"
 backend = "core:python"
+
+[[tools."vfox-pulumi:pulumi/pulumi-azuread"]]
+version = "6.6.0"
+backend = "vfox-pulumi:pulumi/pulumi-azuread"
+
+[[tools."vfox-pulumi:pulumi/pulumi-converter-terraform"]]
+version = "1.2.4"
+backend = "vfox-pulumi:pulumi/pulumi-converter-terraform"
+
+[[tools."vfox-pulumi:pulumi/pulumi-local"]]
+version = "0.1.6"
+backend = "vfox-pulumi:pulumi/pulumi-local"
+
+[[tools."vfox-pulumi:pulumi/pulumi-random"]]
+version = "4.18.4"
+backend = "vfox-pulumi:pulumi/pulumi-random"
+
+[[tools."vfox-pulumi:pulumi/pulumi-std"]]
+version = "2.2.0"
+backend = "vfox-pulumi:pulumi/pulumi-std"
+
+[[tools."vfox-pulumi:pulumiverse/pulumi-time"]]
+version = "0.1.1"
+backend = "vfox-pulumi:pulumiverse/pulumi-time"
