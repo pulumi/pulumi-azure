@@ -94,7 +94,7 @@ import (
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				Type:               pulumi.String("AzureBlobStorage"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-//					return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
+//					return fmt.Sprintf("{\n  \\\"connectionString\\\": \\\"%v\\\"\n}\n", primaryConnectionString), nil
 //				}).(pulumi.StringOutput),
 //				IntegrationRuntime: &synapse.LinkedServiceIntegrationRuntimeArgs{
 //					Name: exampleIntegrationRuntimeAzure.Name,

@@ -312,6 +312,33 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="my-servicebus",
+            location="West US")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_queue = azure.servicebus.Queue("example",
+            name="tfex_servicebus_queue",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("example",
+            name="examplerule",
+            queue_id=example_queue.id,
+            listen=True,
+            send=True,
+            manage=False)
+        ```
+
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
@@ -347,6 +374,33 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         Manages an Authorization Rule for a ServiceBus Queue.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="my-servicebus",
+            location="West US")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_queue = azure.servicebus.Queue("example",
+            name="tfex_servicebus_queue",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("example",
+            name="examplerule",
+            queue_id=example_queue.id,
+            listen=True,
+            send=True,
+            manage=False)
+        ```
 
         ## API Providers
 

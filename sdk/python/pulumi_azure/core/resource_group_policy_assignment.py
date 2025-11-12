@@ -543,11 +543,11 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
             resource_group_id=example.id,
             policy_definition_id=example_definition.id,
             parameters=\"\"\"    {
-              "tagName": {
-                "value": "Business Unit"
+              \\"tagName\\": {
+                \\"value\\": \\"Business Unit\\"
               },
-              "tagValue": {
-                "value": "BU"
+              \\"tagValue\\": {
+                \\"value\\": \\"BU\\"
               }
             }
         \"\"\")
@@ -627,11 +627,11 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
             resource_group_id=example.id,
             policy_definition_id=example_definition.id,
             parameters=\"\"\"    {
-              "tagName": {
-                "value": "Business Unit"
+              \\"tagName\\": {
+                \\"value\\": \\"Business Unit\\"
               },
-              "tagValue": {
-                "value": "BU"
+              \\"tagValue\\": {
+                \\"value\\": \\"BU\\"
               }
             }
         \"\"\")

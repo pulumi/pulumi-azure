@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * const exampleEndpointCustomDomain = new azure.cdn.EndpointCustomDomain("example", {
  *     name: "example-domain",
  *     cdnEndpointId: exampleEndpoint.id,
- *     hostName: pulumi.all([exampleCNameRecord.name, example]).apply(([name, example]) => `${name}.${example.name}`),
+ *     hostName: Promise.all([exampleCNameRecord.name, example]).then(([name, example]) => `${name}.${example.name}`),
  * });
  * ```
  *

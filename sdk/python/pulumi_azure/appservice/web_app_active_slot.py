@@ -155,6 +155,34 @@ class WebAppActiveSlot(pulumi.CustomResource):
 
         ### Linux Web App
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-plan",
+            resource_group_name=example.name,
+            location=example.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        example_linux_web_app = azure.appservice.LinuxWebApp("example",
+            name="example-linux-web-app",
+            resource_group_name=example.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config={})
+        example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("example",
+            name="example-linux-web-app-slot",
+            app_service_name=example_linux_web_app.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config={})
+        example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_linux_web_app_slot.id)
+        ```
+
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
@@ -215,6 +243,34 @@ class WebAppActiveSlot(pulumi.CustomResource):
         ```
 
         ### Linux Web App
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-plan",
+            resource_group_name=example.name,
+            location=example.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        example_linux_web_app = azure.appservice.LinuxWebApp("example",
+            name="example-linux-web-app",
+            resource_group_name=example.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config={})
+        example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("example",
+            name="example-linux-web-app-slot",
+            app_service_name=example_linux_web_app.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config={})
+        example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_linux_web_app_slot.id)
+        ```
 
         ## API Providers
 

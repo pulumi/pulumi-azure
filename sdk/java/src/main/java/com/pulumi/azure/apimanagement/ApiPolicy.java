@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .xmlContent("""
  * <policies>
  *   <inbound>
- *     <find-and-replace from="xyz" to="abc" />
+ *     <find-and-replace from=\"xyz\" to=\"abc\" />
  *   </inbound>
  * </policies>
  *             """)

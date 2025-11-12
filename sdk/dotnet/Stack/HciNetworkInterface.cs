@@ -14,6 +14,74 @@ namespace Pulumi.Azure.Stack
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-rg",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleHciLogicalNetwork = new Azure.Stack.HciLogicalNetwork("example", new()
+    ///     {
+    ///         Name = "example-hci-ln",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         CustomLocationId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+    ///         VirtualSwitchName = "ConvergedSwitch(managementcompute)",
+    ///         DnsServers = new[]
+    ///         {
+    ///             "10.0.0.7",
+    ///             "10.0.0.8",
+    ///         },
+    ///         Subnet = new Azure.Stack.Inputs.HciLogicalNetworkSubnetArgs
+    ///         {
+    ///             IpAllocationMethod = "Static",
+    ///             AddressPrefix = "10.0.0.0/24",
+    ///             Route = 
+    ///             {
+    ///                 { "name", "example-route" },
+    ///                 { "addressPrefix", "0.0.0.0/0" },
+    ///                 { "nextHopIpAddress", "10.0.20.1" },
+    ///             },
+    ///             VlanId = 123,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleHciNetworkInterface = new Azure.Stack.HciNetworkInterface("example", new()
+    ///     {
+    ///         Name = "example-ni",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         CustomLocationId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+    ///         DnsServers = new[]
+    ///         {
+    ///             "10.0.0.8",
+    ///         },
+    ///         IpConfiguration = new Azure.Stack.Inputs.HciNetworkInterfaceIpConfigurationArgs
+    ///         {
+    ///             PrivateIpAddress = "10.0.0.2",
+    ///             SubnetId = test.Id,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

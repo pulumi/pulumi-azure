@@ -22,6 +22,88 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.servicebus.Namespace;
+ * import com.pulumi.azure.servicebus.NamespaceArgs;
+ * import com.pulumi.azure.servicebus.Queue;
+ * import com.pulumi.azure.servicebus.QueueArgs;
+ * import com.pulumi.azure.servicebus.QueueAuthorizationRule;
+ * import com.pulumi.azure.servicebus.QueueAuthorizationRuleArgs;
+ * import com.pulumi.azure.iot.IoTHub;
+ * import com.pulumi.azure.iot.IoTHubArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
+ * import com.pulumi.azure.iot.EndpointServicebusQueue;
+ * import com.pulumi.azure.iot.EndpointServicebusQueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
+ *             .name("exampleNamespace")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("Standard")
+ *             .build());
+ * 
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
+ *             .name("exampleQueue")
+ *             .namespaceId(exampleNamespace.id())
+ *             .enablePartitioning(true)
+ *             .build());
+ * 
+ *         var exampleQueueAuthorizationRule = new QueueAuthorizationRule("exampleQueueAuthorizationRule", QueueAuthorizationRuleArgs.builder()
+ *             .name("exampleRule")
+ *             .queueId(exampleQueue.id())
+ *             .listen(false)
+ *             .send(true)
+ *             .manage(false)
+ *             .build());
+ * 
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
+ *             .name("exampleIothub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku(IoTHubSkuArgs.builder()
+ *                 .name("B1")
+ *                 .capacity(1)
+ *                 .build())
+ *             .tags(Map.of("purpose", "example"))
+ *             .build());
+ * 
+ *         var exampleEndpointServicebusQueue = new EndpointServicebusQueue("exampleEndpointServicebusQueue", EndpointServicebusQueueArgs.builder()
+ *             .resourceGroupName(example.name())
+ *             .iothubId(exampleIoTHub.id())
+ *             .name("example")
+ *             .connectionString(exampleQueueAuthorizationRule.primaryConnectionString())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g.

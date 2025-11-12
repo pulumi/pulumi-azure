@@ -18,6 +18,62 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.inputs.VirtualNetworkSubnetArgs;
+ * import com.pulumi.azure.network.VirtualNetworkDnsServers;
+ * import com.pulumi.azure.network.VirtualNetworkDnsServersArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnets(VirtualNetworkSubnetArgs.builder()
+ *                 .name("subnet1")
+ *                 .addressPrefix("10.0.1.0/24")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleVirtualNetworkDnsServers = new VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers", VirtualNetworkDnsServersArgs.builder()
+ *             .virtualNetworkId(exampleVirtualNetwork.id())
+ *             .dnsServers(            
+ *                 "10.7.7.2",
+ *                 "10.7.7.7",
+ *                 "10.7.7.1")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

@@ -16,6 +16,50 @@ import javax.annotation.Nullable;
 /**
  * Manages a Managed Hardware Security Module Role Assignment.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+ * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var user = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
+ *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+ *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
+ *             .build());
+ * 
+ *         var example = new ManagedHardwareSecurityModuleRoleAssignment("example", ManagedHardwareSecurityModuleRoleAssignmentArgs.builder()
+ *             .name("a9dbe818-56e7-5878-c0ce-a1477692c1d6")
+ *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+ *             .scope(user.scope())
+ *             .roleDefinitionId(user.resourceManagerId())
+ *             .principalId(current.objectId())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Managed Hardware Security Modules can be imported using the `resource id`, e.g.

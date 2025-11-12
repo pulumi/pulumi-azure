@@ -16,6 +16,116 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
+//				Name:              pulumi.String("example-cosmosdb-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
+//					MaxIntervalInSeconds: pulumi.Int(10),
+//					MaxStalenessPrefix:   pulumi.Int(200),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         example.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
+//				Name:              pulumi.String("cosmos-sql-db"),
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
+//				Name:              pulumi.String("example-container"),
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				DatabaseName:      exampleSqlDatabase.Name,
+//				PartitionKeyPath:  "/definition",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageaccount"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Location:          example.Location,
+//				Name:              pulumi.String("example-serviceplan"),
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("P1v2"),
+//				OsType:            pulumi.String("Linux"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewFunctionApp(ctx, "test", &appservice.FunctionAppArgs{
+//				Name:                    pulumi.String("example-function-app"),
+//				Location:                pulumi.Any(testAzurermResourceGroup.Location),
+//				ResourceGroupName:       pulumi.Any(testAzurermResourceGroup.Name),
+//				AppServicePlanId:        pulumi.Any(testAzurermAppServicePlan.Id),
+//				StorageAccountName:      pulumi.Any(testAzurermStorageAccount.Name),
+//				StorageAccountAccessKey: pulumi.Any(testAzurermStorageAccount.PrimaryAccessKey),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewAppConnection(ctx, "example", &appservice.AppConnectionArgs{
+//				Name:             pulumi.String("example-serviceconnector"),
+//				FunctionAppId:    pulumi.Any(exampleAzurermFunctionApp.Id),
+//				TargetResourceId: pulumi.Any(testAzurermCosmosdbAccount.Id),
+//				Authentication: &appservice.AppConnectionAuthenticationArgs{
+//					Type: pulumi.String("systemAssignedIdentity"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

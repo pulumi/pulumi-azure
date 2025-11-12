@@ -12,6 +12,34 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Managed Hardware Security Module Role Assignment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var user = Azure.KeyVault.GetManagedHardwareSecurityModuleRoleDefinition.Invoke(new()
+    ///     {
+    ///         ManagedHsmId = exampleAzurermKeyVaultManagedHardwareSecurityModule.Id,
+    ///         Name = "21dbd100-6940-42c2-9190-5d6cb909625b",
+    ///     });
+    /// 
+    ///     var example = new Azure.KeyVault.ManagedHardwareSecurityModuleRoleAssignment("example", new()
+    ///     {
+    ///         Name = "a9dbe818-56e7-5878-c0ce-a1477692c1d6",
+    ///         ManagedHsmId = exampleAzurermKeyVaultManagedHardwareSecurityModule.Id,
+    ///         Scope = user.Apply(getManagedHardwareSecurityModuleRoleDefinitionResult =&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.Scope),
+    ///         RoleDefinitionId = user.Apply(getManagedHardwareSecurityModuleRoleDefinitionResult =&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.ResourceManagerId),
+    ///         PrincipalId = current.ObjectId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Managed Hardware Security Modules can be imported using the `resource id`, e.g.

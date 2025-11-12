@@ -13,18 +13,90 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.KeyVault.GetSecrets.Invoke(new()
+        ///     {
+        ///         KeyVaultId = existing.Id,
+        ///     });
+        /// 
+        ///     var exampleGetSecret = Std.Toset.Invoke(new()
+        ///     {
+        ///         Input = example.Apply(getSecretsResult =&gt; getSecretsResult.Names),
+        ///     }).Apply(invoke =&gt; );
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("azure:keyvault/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.KeyVault.GetSecrets.Invoke(new()
+        ///     {
+        ///         KeyVaultId = existing.Id,
+        ///     });
+        /// 
+        ///     var exampleGetSecret = Std.Toset.Invoke(new()
+        ///     {
+        ///         Input = example.Apply(getSecretsResult =&gt; getSecretsResult.Names),
+        ///     }).Apply(invoke =&gt; );
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("azure:keyvault/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.KeyVault.GetSecrets.Invoke(new()
+        ///     {
+        ///         KeyVaultId = existing.Id,
+        ///     });
+        /// 
+        ///     var exampleGetSecret = Std.Toset.Invoke(new()
+        ///     {
+        ///         Input = example.Apply(getSecretsResult =&gt; getSecretsResult.Names),
+        ///     }).Apply(invoke =&gt; );
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("azure:keyvault/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());

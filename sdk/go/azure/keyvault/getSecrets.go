@@ -12,6 +12,8 @@ import (
 )
 
 // Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+//
+// ## Example Usage
 func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.InvokeOption) (*GetSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecretsResult

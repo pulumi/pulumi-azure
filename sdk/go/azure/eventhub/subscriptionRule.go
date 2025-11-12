@@ -18,7 +18,139 @@ import (
 //
 // ### SQL Filter)
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-servicebus-subscription-rule-sql"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("tfex-servicebus-namespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
+//				Name:               pulumi.String("tfex_servicebus_topic"),
+//				NamespaceId:        exampleNamespace.ID(),
+//				EnablePartitioning: true,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubscription, err := servicebus.NewSubscription(ctx, "example", &servicebus.SubscriptionArgs{
+//				Name:             pulumi.String("tfex_servicebus_subscription"),
+//				TopicId:          exampleTopic.ID(),
+//				MaxDeliveryCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicebus.NewSubscriptionRule(ctx, "example", &servicebus.SubscriptionRuleArgs{
+//				Name:           pulumi.String("tfex_servicebus_rule"),
+//				SubscriptionId: exampleSubscription.ID(),
+//				FilterType:     pulumi.String("SqlFilter"),
+//				SqlFilter:      pulumi.String("colour = 'red'"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Correlation Filter)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-servicebus-subscription-rule-cor"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("tfex-servicebus-namespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
+//				Name:               pulumi.String("tfex_servicebus_topic"),
+//				NamespaceId:        exampleNamespace.ID(),
+//				EnablePartitioning: true,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubscription, err := servicebus.NewSubscription(ctx, "example", &servicebus.SubscriptionArgs{
+//				Name:             pulumi.String("tfex_servicebus_subscription"),
+//				TopicId:          exampleTopic.ID(),
+//				MaxDeliveryCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicebus.NewSubscriptionRule(ctx, "example", &servicebus.SubscriptionRuleArgs{
+//				Name:           pulumi.String("tfex_servicebus_rule"),
+//				SubscriptionId: exampleSubscription.ID(),
+//				FilterType:     pulumi.String("CorrelationFilter"),
+//				CorrelationFilter: &servicebus.SubscriptionRuleCorrelationFilterArgs{
+//					CorrelationId: pulumi.String("high"),
+//					Label:         pulumi.String("red"),
+//					Properties: pulumi.StringMap{
+//						"customProperty": pulumi.String("value"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## API Providers
 //

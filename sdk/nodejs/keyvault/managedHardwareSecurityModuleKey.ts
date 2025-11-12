@@ -11,6 +11,58 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const example = new azure.keyvault.ManagedHardwareSecurityModule("example", {
+ *     name: "example",
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     location: exampleAzurermResourceGroup.location,
+ *     skuName: "Standard_B1",
+ *     tenantId: current.then(current => current.tenantId),
+ *     adminObjectIds: [current.then(current => current.objectId)],
+ *     purgeProtectionEnabled: false,
+ *     activeConfig: [{
+ *         securityDomainCertificate: [
+ *             cert[0].id,
+ *             cert[1].id,
+ *             cert[2].id,
+ *         ],
+ *         securityDomainQuorum: 2,
+ *     }],
+ * });
+ * // this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
+ * const hsm_crypto_user = new azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user", {
+ *     managedHsmId: test.id,
+ *     name: "1e243909-064c-6ac3-84e9-1c8bf8d6ad22",
+ *     scope: "/keys",
+ *     roleDefinitionId: "/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/21dbd100-6940-42c2-9190-5d6cb909625b",
+ *     principalId: current.then(current => current.objectId),
+ * });
+ * // this gives your service principal the HSM Crypto Officer role which lets you purge hsm keys
+ * const hsm_crypto_officer = new azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-officer", {
+ *     managedHsmId: test.id,
+ *     name: "1e243909-064c-6ac3-84e9-1c8bf8d6ad23",
+ *     scope: "/keys",
+ *     roleDefinitionId: "/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/515eb02d-2335-4d2d-92f2-b1cbdf9c3778",
+ *     principalId: current.then(current => current.objectId),
+ * });
+ * const exampleManagedHardwareSecurityModuleKey = new azure.keyvault.ManagedHardwareSecurityModuleKey("example", {
+ *     name: "example",
+ *     managedHsmId: test.id,
+ *     keyType: "EC-HSM",
+ *     curve: "P-521",
+ *     keyOpts: ["sign"],
+ * }, {
+ *     dependsOn: [
+ *         testAzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment,
+ *         test1,
+ *     ],
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

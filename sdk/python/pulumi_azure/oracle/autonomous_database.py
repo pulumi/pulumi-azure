@@ -790,6 +790,32 @@ class AutonomousDatabase(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.oracle.AutonomousDatabase("example",
+            name="example",
+            resource_group_name="example",
+            location="West Europe",
+            subnet_id="example",
+            display_name="example",
+            db_workload="example",
+            mtls_connection_required=False,
+            backup_retention_period_in_days=42,
+            compute_model="example",
+            data_storage_size_in_gbs=42,
+            auto_scaling_for_storage_enabled=False,
+            virtual_network_id="example",
+            admin_password="example",
+            auto_scaling_enabled="example",
+            character_set="example",
+            compute_count=1.23456,
+            national_character_set="example",
+            license_model="false",
+            db_version="example")
+        ```
+
         ## > **Note:** `allowed_ips`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
 
                       size: the maximum number of Ips provided shouldn't exceed 1024. At this time we only support IpV4.
@@ -869,6 +895,32 @@ class AutonomousDatabase(pulumi.CustomResource):
         Manages an Autonomous Database.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.oracle.AutonomousDatabase("example",
+            name="example",
+            resource_group_name="example",
+            location="West Europe",
+            subnet_id="example",
+            display_name="example",
+            db_workload="example",
+            mtls_connection_required=False,
+            backup_retention_period_in_days=42,
+            compute_model="example",
+            data_storage_size_in_gbs=42,
+            auto_scaling_for_storage_enabled=False,
+            virtual_network_id="example",
+            admin_password="example",
+            auto_scaling_enabled="example",
+            character_set="example",
+            compute_count=1.23456,
+            national_character_set="example",
+            license_model="false",
+            db_version="example")
+        ```
 
         ## > **Note:** `allowed_ips`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
 

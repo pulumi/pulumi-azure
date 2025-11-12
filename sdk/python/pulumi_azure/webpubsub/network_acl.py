@@ -176,6 +176,57 @@ class NetworkAcl(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="terraform-webpubsub",
+            location="east us")
+        example_service = azure.webpubsub.Service("example",
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard_S1",
+            capacity=1)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            resource_group_name=example.name,
+            location=example.location,
+            address_spaces=["10.5.0.0/16"])
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.5.2.0/24"],
+            enforce_private_link_endpoint_network_policies=True)
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-privateendpoint",
+            resource_group_name=example.name,
+            location=example.location,
+            subnet_id=example_subnet.id,
+            private_service_connection={
+                "name": "psc-sig-test",
+                "is_manual_connection": False,
+                "private_connection_resource_id": example_service.id,
+                "subresource_names": ["webpubsub"],
+            })
+        example_network_acl = azure.webpubsub.NetworkAcl("example",
+            web_pubsub_id=example_service.id,
+            default_action="Allow",
+            public_network={
+                "denied_request_types": ["ClientConnection"],
+            },
+            private_endpoints=[{
+                "id": example_endpoint.id,
+                "denied_request_types": [
+                    "RESTAPI",
+                    "ClientConnection",
+                ],
+            }],
+            opts = pulumi.ResourceOptions(depends_on=[example_endpoint]))
+        ```
+
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
@@ -208,6 +259,57 @@ class NetworkAcl(pulumi.CustomResource):
         Manages the Network ACL for a Web Pubsub.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="terraform-webpubsub",
+            location="east us")
+        example_service = azure.webpubsub.Service("example",
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard_S1",
+            capacity=1)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            resource_group_name=example.name,
+            location=example.location,
+            address_spaces=["10.5.0.0/16"])
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.5.2.0/24"],
+            enforce_private_link_endpoint_network_policies=True)
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-privateendpoint",
+            resource_group_name=example.name,
+            location=example.location,
+            subnet_id=example_subnet.id,
+            private_service_connection={
+                "name": "psc-sig-test",
+                "is_manual_connection": False,
+                "private_connection_resource_id": example_service.id,
+                "subresource_names": ["webpubsub"],
+            })
+        example_network_acl = azure.webpubsub.NetworkAcl("example",
+            web_pubsub_id=example_service.id,
+            default_action="Allow",
+            public_network={
+                "denied_request_types": ["ClientConnection"],
+            },
+            private_endpoints=[{
+                "id": example_endpoint.id,
+                "denied_request_types": [
+                    "RESTAPI",
+                    "ClientConnection",
+                ],
+            }],
+            opts = pulumi.ResourceOptions(depends_on=[example_endpoint]))
+        ```
 
         ## API Providers
 

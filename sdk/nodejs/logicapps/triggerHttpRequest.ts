@@ -26,10 +26,10 @@ import * as utilities from "../utilities";
  *     name: "some-http-trigger",
  *     logicAppId: exampleWorkflow.id,
  *     schema: `{
- *     "type": "object",
- *     "properties": {
- *         "hello": {
- *             "type": "string"
+ *     \\"type\\": \\"object\\",
+ *     \\"properties\\": {
+ *         \\"hello\\": {
+ *             \\"type\\": \\"string\\"
  *         }
  *     }
  * }

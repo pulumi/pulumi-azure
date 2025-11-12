@@ -30,94 +30,92 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			builtin, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-//				Name: pulumi.StringRef("Contributor"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeSplit, err := std.Split(ctx, &std.SplitArgs{
-//				Separator: "/",
-//				Text:      builtin.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeSplit1, err := std.Split(ctx, map[string]interface{}{
-//				"separator": "/",
-//				"text":      builtin.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleDefinition, err := managedapplication.NewDefinition(ctx, "example", &managedapplication.DefinitionArgs{
-//				Name:              pulumi.String("examplemanagedapplicationdefinition"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				LockLevel:         pulumi.String("ReadOnly"),
-//				PackageFileUri:    pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
-//				DisplayName:       pulumi.String("TestManagedAppDefinition"),
-//				Description:       pulumi.String("Test Managed App Definition"),
-//				Authorizations: managedapplication.DefinitionAuthorizationArray{
-//					&managedapplication.DefinitionAuthorizationArgs{
-//						ServicePrincipalId: pulumi.String(current.ObjectId),
-//						RoleDefinitionId: len(invokeSplit.Result).ApplyT(func(length int) (string, error) {
-//							return invokeSplit1.Result[length-1], nil
-//						}).(pulumi.StringOutput),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = managedapplication.NewApplication(ctx, "example", &managedapplication.ApplicationArgs{
-//				Name:                     pulumi.String("example-managedapplication"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				Kind:                     pulumi.String("ServiceCatalog"),
-//				ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
-//				ApplicationDefinitionId:  exampleDefinition.ID(),
-//				ParameterValues: example.Location.ApplyT(func(location string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"location": map[string]interface{}{
-//							"value": location,
-//						},
-//						"storageAccountNamePrefix": map[string]interface{}{
-//							"value": "storeNamePrefix",
-//						},
-//						"storageAccountType": map[string]interface{}{
-//							"value": "Standard_LRS",
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// current, err := core.GetClientConfig(ctx, map[string]interface{}{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// builtin, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+// Name: pulumi.StringRef("Contributor"),
+// }, nil);
+// if err != nil {
+// return err
+// }
+// example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+// Name: pulumi.String("example-resources"),
+// Location: pulumi.String("West Europe"),
+// })
+// if err != nil {
+// return err
+// }
+// invokeSplit, err := std.Split(ctx, &std.SplitArgs{
+// Separator: "/",
+// Text: builtin.Id,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// invokeSplit1, err := std.Split(ctx, &std.SplitArgs{
+// Separator: "/",
+// Text: builtin.Id,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// exampleDefinition, err := managedapplication.NewDefinition(ctx, "example", &managedapplication.DefinitionArgs{
+// Name: pulumi.String("examplemanagedapplicationdefinition"),
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// LockLevel: pulumi.String("ReadOnly"),
+// PackageFileUri: pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
+// DisplayName: pulumi.String("TestManagedAppDefinition"),
+// Description: pulumi.String("Test Managed App Definition"),
+// Authorizations: managedapplication.DefinitionAuthorizationArray{
+// &managedapplication.DefinitionAuthorizationArgs{
+// ServicePrincipalId: pulumi.String(current.ObjectId),
+// RoleDefinitionId: len(invokeSplit.Result).ApplyT(func(length int) (string, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(pulumi.StringOutput),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = managedapplication.NewApplication(ctx, "example", &managedapplication.ApplicationArgs{
+// Name: pulumi.String("example-managedapplication"),
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Kind: pulumi.String("ServiceCatalog"),
+// ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
+// ApplicationDefinitionId: exampleDefinition.ID(),
+// ParameterValues: example.Location.ApplyT(func(location string) (pulumi.String, error) {
+// var _zero pulumi.String
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "location": map[string]interface{}{
+// "value": location,
+// },
+// "storageAccountNamePrefix": map[string]interface{}{
+// "value": "storeNamePrefix",
+// },
+// "storageAccountType": map[string]interface{}{
+// "value": "Standard_LRS",
+// },
+// })
+// if err != nil {
+// return _zero, err
+// }
+// json0 := string(tmpJSON0)
+// return pulumi.String(json0), nil
+// }).(pulumi.StringOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## API Providers

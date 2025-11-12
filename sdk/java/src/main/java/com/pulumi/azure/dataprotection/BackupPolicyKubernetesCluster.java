@@ -22,6 +22,79 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.dataprotection.BackupVault;
+ * import com.pulumi.azure.dataprotection.BackupVaultArgs;
+ * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesCluster;
+ * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesClusterArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .name("example-backup-vault")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
+ *             .build());
+ * 
+ *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster("exampleBackupPolicyKubernetesCluster", BackupPolicyKubernetesClusterArgs.builder()
+ *             .name("example-backup-policy")
+ *             .resourceGroupName(example.name())
+ *             .vaultName(exampleBackupVault.name())
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .timeZone("India Standard Time")
+ *             .defaultRetentionDuration("P4M")
+ *             .retentionRules(BackupPolicyKubernetesClusterRetentionRuleArgs.builder()
+ *                 .name("Daily")
+ *                 .priority(25)
+ *                 .lifeCycles(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs.builder()
+ *                     .duration("P84D")
+ *                     .dataStoreType("OperationalStore")
+ *                     .build())
+ *                 .criteria(BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs.builder()
+ *                     .absoluteCriteria("FirstOfDay")
+ *                     .build())
+ *                 .build())
+ *             .defaultRetentionRule(BackupPolicyKubernetesClusterDefaultRetentionRuleArgs.builder()
+ *                 .lifeCycles(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs.builder()
+ *                     .duration("P7D")
+ *                     .dataStoreType("OperationalStore")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

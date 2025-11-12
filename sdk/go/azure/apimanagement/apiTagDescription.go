@@ -16,6 +16,77 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@terraform.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
+//				Name:              pulumi.String("example-api"),
+//				ResourceGroupName: example.Name,
+//				ApiManagementName: exampleService.Name,
+//				Revision:          pulumi.String("1"),
+//				DisplayName:       pulumi.String("Example API"),
+//				Path:              pulumi.String("example"),
+//				Protocols: pulumi.StringArray{
+//					pulumi.String("https"),
+//				},
+//				Import: &apimanagement.ApiImportArgs{
+//					ContentFormat: pulumi.String("swagger-link-json"),
+//					ContentValue:  pulumi.String("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTag, err := apimanagement.NewTag(ctx, "example", &apimanagement.TagArgs{
+//				ApiManagementId: exampleService.ID(),
+//				Name:            pulumi.String("example-Tag"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiTagDescription(ctx, "example", &apimanagement.ApiTagDescriptionArgs{
+//				ApiTagId:                exampleTag.ID(),
+//				Description:             pulumi.String("This is an example description"),
+//				ExternalDocsUrl:         "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+//				ExternalDocsDescription: "This is an example external docs description",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

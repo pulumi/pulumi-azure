@@ -14,6 +14,105 @@ namespace Pulumi.Azure.Core
     /// 
     /// &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `Features` block by setting the `DeleteNestedItemsDuringDeletion` field to `False` within the `TemplateDeployment` block.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vnetName = "example-vnet";
+    /// 
+    ///     var example = new Azure.Core.ResourceGroupTemplateDeployment("example", new()
+    ///     {
+    ///         Name = "example-deploy",
+    ///         ResourceGroupName = "example-group",
+    ///         DeploymentMode = "Incremental",
+    ///         ParametersContent = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["vnetName"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["value"] = vnetName,
+    ///             },
+    ///         }),
+    ///         TemplateContent = @"{
+    ///     \""$schema\"": \""https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\"",
+    ///     \""contentVersion\"": \""1.0.0.0\"",
+    ///     \""parameters\"": {
+    ///         \""vnetName\"": {
+    ///             \""type\"": \""string\"",
+    ///             \""metadata\"": {
+    ///                 \""description\"": \""Name of the VNET\""
+    ///             }
+    ///         }
+    ///     },
+    ///     \""variables\"": {},
+    ///     \""resources\"": [
+    ///         {
+    ///             \""type\"": \""Microsoft.Network/virtualNetworks\"",
+    ///             \""apiVersion\"": \""2020-05-01\"",
+    ///             \""name\"": \""[parameters('vnetName')]\"",
+    ///             \""location\"": \""[resourceGroup().location]\"",
+    ///             \""properties\"": {
+    ///                 \""addressSpace\"": {
+    ///                     \""addressPrefixes\"": [
+    ///                         \""10.0.0.0/16\""
+    ///                     ]
+    ///                 }
+    ///             }
+    ///         }
+    ///     ],
+    ///     \""outputs\"": {
+    ///       \""exampleOutput\"": {
+    ///         \""type\"": \""string\"",
+    ///         \""value\"": \""someoutput\""
+    ///       }
+    ///     }
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["armExampleOutput"] = Std.Jsondecode.Invoke(new()
+    ///         {
+    ///             Input = example.OutputContent,
+    ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Azure.Core.GetTemplateSpecVersion.Invoke(new()
+    ///     {
+    ///         Name = "myTemplateForResourceGroup",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Version = "v3.4.0",
+    ///     });
+    /// 
+    ///     var exampleResourceGroupTemplateDeployment = new Azure.Core.ResourceGroupTemplateDeployment("example", new()
+    ///     {
+    ///         Name = "example-deploy",
+    ///         ResourceGroupName = "example-group",
+    ///         DeploymentMode = "Incremental",
+    ///         TemplateSpecVersionId = example.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Resource Group Template Deployments can be imported using the `resource id`, e.g.

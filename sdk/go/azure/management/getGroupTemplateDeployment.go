@@ -12,6 +12,38 @@ import (
 )
 
 // Use this data source to access information about an existing Management Group Template Deployment.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := management.LookupGroupTemplateDeployment(ctx, &management.LookupGroupTemplateDeploymentArgs{
+//				Name:              "existing",
+//				ManagementGroupId: "00000000-0000-0000-000000000000",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			ctx.Export("exampleOutput", pulumi.Any(std.Jsondecode(ctx, &std.JsondecodeArgs{
+//				Input: example.OutputContent,
+//			}, nil).Result.ExampleOutput.Value))
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupGroupTemplateDeployment(ctx *pulumi.Context, args *LookupGroupTemplateDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupGroupTemplateDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupTemplateDeploymentResult

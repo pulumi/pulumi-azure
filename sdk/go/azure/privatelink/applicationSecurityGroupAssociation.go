@@ -16,6 +16,154 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatelink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-PEASGAsso"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("examplevnet"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.5.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			service, err := network.NewSubnet(ctx, "service", &network.SubnetArgs{
+//				Name:               pulumi.String("examplenetservice"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.5.1.0/24"),
+//				},
+//				EnforcePrivateLinkServiceNetworkPolicies: true,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			endpoint, err := network.NewSubnet(ctx, "endpoint", &network.SubnetArgs{
+//				Name:               pulumi.String("examplenetendpoint"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.5.2.0/24"),
+//				},
+//				EnforcePrivateLinkEndpointNetworkPolicies: true,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("examplepip"),
+//				Sku:               pulumi.String("Standard"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:              pulumi.String("examplelb"),
+//				Sku:               pulumi.String("Standard"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
+//					&lb.LoadBalancerFrontendIpConfigurationArgs{
+//						Name:              examplePublicIp.Name,
+//						PublicIpAddressId: examplePublicIp.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkService, err := privatedns.NewLinkService(ctx, "example", &privatedns.LinkServiceArgs{
+//				Name:              pulumi.String("examplePLS"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AutoApprovalSubscriptionIds: pulumi.StringArray{
+//					pulumi.String(current.SubscriptionId),
+//				},
+//				VisibilitySubscriptionIds: pulumi.StringArray{
+//					pulumi.String(current.SubscriptionId),
+//				},
+//				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
+//					&privatedns.LinkServiceNatIpConfigurationArgs{
+//						Name:     pulumi.String("primaryIpConfiguration"),
+//						Primary:  pulumi.Bool(true),
+//						SubnetId: service.ID(),
+//					},
+//				},
+//				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
+//					pulumi.String(exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
+//						return &frontendIpConfigurations[0].Id, nil
+//					}).(pulumi.StringPtrOutput)),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEndpoint, err := privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
+//				Name:              pulumi.String("example-privatelink"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				SubnetId:          endpoint.ID(),
+//				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
+//					Name:                        exampleLinkService.Name,
+//					IsManualConnection:          pulumi.Bool(false),
+//					PrivateConnectionResourceId: exampleLinkService.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApplicationSecurityGroup, err := network.NewApplicationSecurityGroup(ctx, "example", &network.ApplicationSecurityGroupArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatelink.NewApplicationSecurityGroupAssociation(ctx, "example", &privatelink.ApplicationSecurityGroupAssociationArgs{
+//				PrivateEndpointId:          exampleEndpoint.ID(),
+//				ApplicationSecurityGroupId: exampleApplicationSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

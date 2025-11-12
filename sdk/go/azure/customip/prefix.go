@@ -75,52 +75,53 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			global, err := customip.NewPrefix(ctx, "global", &customip.PrefixArgs{
-//				Name:                       pulumi.String("example-Global-CustomIPPrefix"),
-//				Location:                   pulumi.Any(test.Location),
-//				ResourceGroupName:          pulumi.Any(test.Name),
-//				Cidr:                       pulumi.String("2001:db8:1::/48"),
-//				RoaValidityEndDate:         pulumi.String("2199-12-12"),
-//				WanValidationSignedMessage: pulumi.String("signed message for WAN validation"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = customip.NewPrefix(ctx, "regional", &customip.PrefixArgs{
-//				Name:                   pulumi.String("example-Regional-CustomIPPrefix"),
-//				Location:               pulumi.Any(test.Location),
-//				ResourceGroupName:      pulumi.Any(test.Name),
-//				ParentCustomIpPrefixId: global.ID(),
-//				Cidr: pulumi.String(global.Cidr.ApplyT(func(cidr string) (std.CidrsubnetResult, error) {
-//					return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
-//						Input:   cidr,
-//						Newbits: 16,
-//						Netnum:  1,
-//					}, nil))), nil
-//				}).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-//					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Zones: pulumi.StringArray{
-//					pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+// Name: pulumi.String("example-resources"),
+// Location: pulumi.String("West Europe"),
+// })
+// if err != nil {
+// return err
+// }
+// global, err := customip.NewPrefix(ctx, "global", &customip.PrefixArgs{
+// Name: pulumi.String("example-Global-CustomIPPrefix"),
+// Location: pulumi.Any(test.Location),
+// ResourceGroupName: pulumi.Any(test.Name),
+// Cidr: pulumi.String("2001:db8:1::/48"),
+// RoaValidityEndDate: pulumi.String("2199-12-12"),
+// WanValidationSignedMessage: pulumi.String("signed message for WAN validation"),
+// })
+// if err != nil {
+// return err
+// }
+// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: cidr,
+// Newbits: 16,
+// Netnum: 1,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// _, err = customip.NewPrefix(ctx, "regional", &customip.PrefixArgs{
+// Name: pulumi.String("example-Regional-CustomIPPrefix"),
+// Location: pulumi.Any(test.Location),
+// ResourceGroupName: pulumi.Any(test.Name),
+// ParentCustomIpPrefixId: global.ID(),
+// Cidr: pulumi.String(global.Cidr.ApplyT(func(cidr string) (std.CidrsubnetResult, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// return invoke.Result, nil
+// }).(pulumi.StringPtrOutput)),
+// Zones: pulumi.StringArray{
+// pulumi.String("1"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

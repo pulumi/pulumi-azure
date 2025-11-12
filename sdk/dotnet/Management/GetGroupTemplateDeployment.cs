@@ -13,18 +13,102 @@ namespace Pulumi.Azure.Management
     {
         /// <summary>
         /// Use this data source to access information about an existing Management Group Template Deployment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Management.GetGroupTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ManagementGroupId = "00000000-0000-0000-000000000000",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.OutputContent),
+        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetGroupTemplateDeploymentResult> InvokeAsync(GetGroupTemplateDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupTemplateDeploymentResult>("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args ?? new GetGroupTemplateDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Management Group Template Deployment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Management.GetGroupTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ManagementGroupId = "00000000-0000-0000-000000000000",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.OutputContent),
+        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetGroupTemplateDeploymentResult> Invoke(GetGroupTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupTemplateDeploymentResult>("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args ?? new GetGroupTemplateDeploymentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Management Group Template Deployment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Management.GetGroupTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ManagementGroupId = "00000000-0000-0000-000000000000",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.OutputContent),
+        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetGroupTemplateDeploymentResult> Invoke(GetGroupTemplateDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupTemplateDeploymentResult>("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args ?? new GetGroupTemplateDeploymentInvokeArgs(), options.WithDefaults());

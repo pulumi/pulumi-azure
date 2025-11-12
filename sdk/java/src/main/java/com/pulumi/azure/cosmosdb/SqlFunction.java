@@ -18,6 +18,65 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+ * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
+ * import com.pulumi.azure.cosmosdb.SqlDatabase;
+ * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
+ * import com.pulumi.azure.cosmosdb.SqlContainer;
+ * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
+ * import com.pulumi.azure.cosmosdb.SqlFunction;
+ * import com.pulumi.azure.cosmosdb.SqlFunctionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+ *             .name("tfex-cosmosdb-account")
+ *             .resourceGroupName("tfex-cosmosdb-account-rg")
+ *             .build());
+ * 
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
+ *             .name("tfex-cosmos-db")
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
+ *             .throughput(400)
+ *             .build());
+ * 
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
+ *             .name("example-container")
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
+ *             .databaseName(exampleSqlDatabase.name())
+ *             .partitionKeyPath("/id")
+ *             .build());
+ * 
+ *         var exampleSqlFunction = new SqlFunction("exampleSqlFunction", SqlFunctionArgs.builder()
+ *             .name("test-function")
+ *             .containerId(exampleSqlContainer.id())
+ *             .body("function trigger(){}")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * SQL User Defined Functions can be imported using the `resource id`, e.g.

@@ -14,6 +14,56 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
+    ///     {
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Consumption_0",
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("example", new()
+    ///     {
+    ///         Name = "example-cache",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Capacity = 1,
+    ///         Family = "C",
+    ///         SkuName = "Basic",
+    ///         EnableNonSslPort = false,
+    ///         MinimumTlsVersion = "1.2",
+    ///         RedisConfiguration = null,
+    ///     });
+    /// 
+    ///     var exampleRedisCache = new Azure.ApiManagement.RedisCache("example", new()
+    ///     {
+    ///         Name = "example-Redis-Cache",
+    ///         ApiManagementId = exampleService.Id,
+    ///         ConnectionString = exampleCache.PrimaryConnectionString,
+    ///         Description = "Redis cache instances",
+    ///         RedisCacheId = exampleCache.Id,
+    ///         CacheLocation = "East Us",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

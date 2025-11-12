@@ -40,11 +40,11 @@ namespace Pulumi.Azure.LogicApps
     ///         Name = "example-trigger",
     ///         LogicAppId = exampleWorkflow.Id,
     ///         Body = @"{
-    ///   ""recurrence"": {
-    ///     ""frequency"": ""Day"",
-    ///     ""interval"": 1
+    ///   \""recurrence\"": {
+    ///     \""frequency\"": \""Day\"",
+    ///     \""interval\"": 1
     ///   },
-    ///   ""type"": ""Recurrence""
+    ///   \""type\"": \""Recurrence\""
     /// }
     /// ",
     ///     });

@@ -22,6 +22,76 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appplatform.SpringCloudService;
+ * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
+ * import com.pulumi.azure.appplatform.SpringCloudApp;
+ * import com.pulumi.azure.appplatform.SpringCloudAppArgs;
+ * import com.pulumi.azure.redis.Cache;
+ * import com.pulumi.azure.redis.CacheArgs;
+ * import com.pulumi.azure.appplatform.SpringCloudAppRedisAssociation;
+ * import com.pulumi.azure.appplatform.SpringCloudAppRedisAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
+ *             .name("example-springcloud")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
+ *             .name("example-springcloudapp")
+ *             .resourceGroupName(example.name())
+ *             .serviceName(exampleSpringCloudService.name())
+ *             .build());
+ * 
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
+ *             .name("example-cache")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .capacity(0)
+ *             .family("C")
+ *             .skuName("Basic")
+ *             .enableNonSslPort(true)
+ *             .build());
+ * 
+ *         var exampleSpringCloudAppRedisAssociation = new SpringCloudAppRedisAssociation("exampleSpringCloudAppRedisAssociation", SpringCloudAppRedisAssociationArgs.builder()
+ *             .name("example-bind")
+ *             .springCloudAppId(exampleSpringCloudApp.id())
+ *             .redisCacheId(exampleCache.id())
+ *             .redisAccessKey(exampleCache.primaryAccessKey())
+ *             .sslEnabled(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Spring Cloud Application Redis Association can be imported using the `resource id`, e.g.

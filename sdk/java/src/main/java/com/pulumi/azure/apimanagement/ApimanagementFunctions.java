@@ -2117,12 +2117,98 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management User.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getUser(GetUserArgs.builder()
+     *             .userId("my-user")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
+     *             .build());
+     * 
+     *         ctx.export("notes", example.notes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2022-08-01
+     * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
         return getUser(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing API Management User.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getUser(GetUserArgs.builder()
+     *             .userId("my-user")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
+     *             .build());
+     * 
+     *         ctx.export("notes", example.notes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -2131,6 +2217,49 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management User.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getUser(GetUserArgs.builder()
+     *             .userId("my-user")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
+     *             .build());
+     * 
+     *         ctx.export("notes", example.notes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2022-08-01
+     * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
@@ -2138,12 +2267,98 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management User.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getUser(GetUserArgs.builder()
+     *             .userId("my-user")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
+     *             .build());
+     * 
+     *         ctx.export("notes", example.notes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2022-08-01
+     * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing API Management User.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getUser(GetUserArgs.builder()
+     *             .userId("my-user")
+     *             .apiManagementName("example-apim")
+     *             .resourceGroupName("search-service")
+     *             .build());
+     * 
+     *         ctx.export("notes", example.notes());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {

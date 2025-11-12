@@ -11,6 +11,100 @@ import * as utilities from "../utilities";
  *
  * > **Note:** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the azure.monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "monitoring-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "appinsights",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     applicationType: "web",
+ * });
+ * const example2 = new azure.appinsights.Insights("example2", {
+ *     name: "appinsights2",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     applicationType: "web",
+ * });
+ * // Example: Alerting Action with result count trigger
+ * const exampleScheduledQueryRulesAlert = new azure.monitoring.ScheduledQueryRulesAlert("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     action: {
+ *         actionGroups: [],
+ *         emailSubject: "Email Header",
+ *         customWebhookPayload: "{}",
+ *     },
+ *     dataSourceId: exampleInsights.id,
+ *     description: "Alert when total results cross threshold",
+ *     enabled: true,
+ *     query: `requests
+ *   | where tolong(resultCode) >= 500
+ *   | summarize count() by bin(timestamp, 5m)
+ * `,
+ *     severity: 1,
+ *     frequency: 5,
+ *     timeWindow: 30,
+ *     trigger: {
+ *         operator: "GreaterThan",
+ *         threshold: 3,
+ *     },
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * // Example: Alerting Action Cross-Resource
+ * const example2ScheduledQueryRulesAlert = new azure.monitoring.ScheduledQueryRulesAlert("example2", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     authorizedResourceIds: [example2.id],
+ *     action: {
+ *         actionGroups: [],
+ *         emailSubject: "Email Header",
+ *         customWebhookPayload: "{}",
+ *     },
+ *     dataSourceId: exampleInsights.id,
+ *     description: "Query may access data within multiple resources",
+ *     enabled: true,
+ *     query: std.format({
+ *         input: `let a=requests
+ *   | where toint(resultCode) >= 500
+ *   | extend fail=1; let b=app('%s').requests
+ *   | where toint(resultCode) >= 500 | extend fail=1; a
+ *   | join b on fail
+ * `,
+ *         args: [example2.id],
+ *     }).then(invoke => invoke.result),
+ *     severity: 1,
+ *     frequency: 5,
+ *     timeWindow: 30,
+ *     trigger: {
+ *         operator: "GreaterThan",
+ *         threshold: 3,
+ *     },
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights` - 2018-04-16
+ *
  * ## Import
  *
  * Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.

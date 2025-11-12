@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleMonitor = new azure.dynatrace.Monitor("example", {
+ *     name: "exmpledynatracemonitor",
+ *     resourceGroupName: example.name,
+ *     location: test.location,
+ *     monitoringEnabled: true,
+ *     marketplaceSubscriptionStatus: "Active",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     user: {
+ *         firstName: "Alice",
+ *         lastName: "Bobab",
+ *         email: "alice@microsoft.com",
+ *         phoneNumber: "123456",
+ *         country: "westus",
+ *     },
+ *     plan: {
+ *         usageType: "COMMITTED",
+ *         billingCycle: "MONTHLY",
+ *         plan: "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
+ *         effectiveDate: "2019-08-30T15:14:33Z",
+ *     },
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

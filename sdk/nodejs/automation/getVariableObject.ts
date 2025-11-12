@@ -6,6 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Automation Object Variable.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = azure.automation.getVariableObject({
+ *     name: "tfex-example-var",
+ *     resourceGroupName: "tfex-example-rg",
+ *     automationAccountName: "tfex-example-account",
+ * });
+ * export const variable = example.then(example => std.jsondecode({
+ *     input: example.value,
+ * })).then(invoke => invoke.result);
+ * ```
  */
 export function getVariableObject(args: GetVariableObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableObjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,6 +77,23 @@ export interface GetVariableObjectResult {
 }
 /**
  * Use this data source to access information about an existing Automation Object Variable.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = azure.automation.getVariableObject({
+ *     name: "tfex-example-var",
+ *     resourceGroupName: "tfex-example-rg",
+ *     automationAccountName: "tfex-example-account",
+ * });
+ * export const variable = example.then(example => std.jsondecode({
+ *     input: example.value,
+ * })).then(invoke => invoke.result);
+ * ```
  */
 export function getVariableObjectOutput(args: GetVariableObjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableObjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

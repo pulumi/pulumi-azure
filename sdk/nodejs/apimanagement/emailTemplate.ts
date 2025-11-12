@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *     body: `<!DOCTYPE html >
  * <html>
  * <head>
- *   <meta charset="UTF-8" />
+ *   <meta charset=\\"UTF-8\\" />
  *   <title>Customized Letter Title</title>
  * </head>
  * <body>
- *   <p style="font-size:12pt;font-family:'Segoe UI'">Dear DevFirstName DevLastName,</p>
+ *   <p style=\\"font-size:12pt;font-family:'Segoe UI'\\">Dear DevFirstName DevLastName,</p>
  * </body>
  * </html>
  * `,

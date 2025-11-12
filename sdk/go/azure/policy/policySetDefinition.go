@@ -35,12 +35,12 @@ import (
 //				PolicyType:  pulumi.String("Custom"),
 //				DisplayName: pulumi.String("Example"),
 //				Parameters: pulumi.String(`    {
-//	        "allowedLocations": {
-//	            "type": "Array",
-//	            "metadata": {
-//	                "description": "The list of allowed locations for resources.",
-//	                "displayName": "Allowed locations",
-//	                "strongType": "location"
+//	        \"allowedLocations\": {
+//	            \"type\": \"Array\",
+//	            \"metadata\": {
+//	                \"description\": \"The list of allowed locations for resources.\",
+//	                \"displayName\": \"Allowed locations\",
+//	                \"strongType\": \"location\"
 //	            }
 //	        }
 //	    }
@@ -51,7 +51,7 @@ import (
 //					&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
 //						Version:            pulumi.String("1.0.*"),
 //						PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
-//						ParameterValues:    pulumi.String("    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n"),
+//						ParameterValues:    pulumi.String("    {\n      \\\"listOfAllowedLocations\\\": {\\\"value\\\": \\\"[parameters('allowedLocations')]\\\"}\n    }\n"),
 //					},
 //				},
 //			})

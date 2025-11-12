@@ -47,12 +47,12 @@ namespace Pulumi.Azure.Core
     ///   }
     /// ",
     ///         Parameters = @"    {
-    ///     ""allowedLocations"": {
-    ///       ""type"": ""Array"",
-    ///       ""metadata"": {
-    ///         ""description"": ""The list of allowed locations for resources."",
-    ///         ""displayName"": ""Allowed locations"",
-    ///         ""strongType"": ""location""
+    ///     \""allowedLocations\"": {
+    ///       \""type\"": \""Array\"",
+    ///       \""metadata\"": {
+    ///         \""description\"": \""The list of allowed locations for resources.\"",
+    ///         \""displayName\"": \""Allowed locations\"",
+    ///         \""strongType\"": \""location\""
     ///       }
     ///     }
     ///   }

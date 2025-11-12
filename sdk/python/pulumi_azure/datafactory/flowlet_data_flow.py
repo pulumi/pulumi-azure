@@ -397,7 +397,7 @@ class FlowletDataFlow(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString": "{primary_connection_string}"
+          \\"connectionString\\": \\"{primary_connection_string}\\"
         }}
         \"\"\"))
         example1 = azure.datafactory.DatasetJson("example1",
@@ -570,7 +570,7 @@ class FlowletDataFlow(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString": "{primary_connection_string}"
+          \\"connectionString\\": \\"{primary_connection_string}\\"
         }}
         \"\"\"))
         example1 = azure.datafactory.DatasetJson("example1",

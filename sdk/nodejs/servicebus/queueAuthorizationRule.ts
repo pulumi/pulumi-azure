@@ -9,6 +9,37 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "my-servicebus",
+ *     location: "West US",
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "tfex-servicebus-namespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleQueue = new azure.servicebus.Queue("example", {
+ *     name: "tfex_servicebus_queue",
+ *     namespaceId: exampleNamespace.id,
+ *     enablePartitioning: true,
+ * });
+ * const exampleQueueAuthorizationRule = new azure.servicebus.QueueAuthorizationRule("example", {
+ *     name: "examplerule",
+ *     queueId: exampleQueue.id,
+ *     listen: true,
+ *     send: true,
+ *     manage: false,
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

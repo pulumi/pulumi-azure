@@ -16,6 +16,48 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/oracle"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := oracle.NewAutonomousDatabase(ctx, "example", &oracle.AutonomousDatabaseArgs{
+//				Name:                         pulumi.String("example"),
+//				ResourceGroupName:            pulumi.String("example"),
+//				Location:                     pulumi.String("West Europe"),
+//				SubnetId:                     pulumi.String("example"),
+//				DisplayName:                  pulumi.String("example"),
+//				DbWorkload:                   pulumi.String("example"),
+//				MtlsConnectionRequired:       pulumi.Bool(false),
+//				BackupRetentionPeriodInDays:  pulumi.Int(42),
+//				ComputeModel:                 pulumi.String("example"),
+//				DataStorageSizeInGbs:         42,
+//				AutoScalingForStorageEnabled: pulumi.Bool(false),
+//				VirtualNetworkId:             pulumi.String("example"),
+//				AdminPassword:                pulumi.String("example"),
+//				AutoScalingEnabled:           pulumi.Bool("example"),
+//				CharacterSet:                 pulumi.String("example"),
+//				ComputeCount:                 pulumi.Float64(1.23456),
+//				NationalCharacterSet:         pulumi.String("example"),
+//				LicenseModel:                 pulumi.String("false"),
+//				DbVersion:                    pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## > **Note:** `allowedIps`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
 //
 //	size: the maximum number of Ips provided shouldn't exceed 1024. At this time we only support IpV4.

@@ -26,6 +26,67 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.dynatrace.Monitor;
+ * import com.pulumi.azure.dynatrace.MonitorArgs;
+ * import com.pulumi.azure.dynatrace.inputs.MonitorIdentityArgs;
+ * import com.pulumi.azure.dynatrace.inputs.MonitorUserArgs;
+ * import com.pulumi.azure.dynatrace.inputs.MonitorPlanArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
+ *             .name("exmpledynatracemonitor")
+ *             .resourceGroupName(example.name())
+ *             .location(test.location())
+ *             .monitoringEnabled(true)
+ *             .marketplaceSubscriptionStatus("Active")
+ *             .identity(MonitorIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .user(MonitorUserArgs.builder()
+ *                 .firstName("Alice")
+ *                 .lastName("Bobab")
+ *                 .email("alice}{@literal @}{@code microsoft.com")
+ *                 .phoneNumber("123456")
+ *                 .country("westus")
+ *                 .build())
+ *             .plan(MonitorPlanArgs.builder()
+ *                 .usageType("COMMITTED")
+ *                 .billingCycle("MONTHLY")
+ *                 .plan("azureportalintegration_privatepreview}{@literal @}{@code TIDhjdtn7tfnxcy")
+ *                 .effectiveDate("2019-08-30T15:14:33Z")
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

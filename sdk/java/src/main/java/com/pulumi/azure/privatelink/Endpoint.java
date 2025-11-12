@@ -29,6 +29,119 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.lb.LoadBalancer;
+ * import com.pulumi.azure.lb.LoadBalancerArgs;
+ * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.privatedns.LinkService;
+ * import com.pulumi.azure.privatedns.LinkServiceArgs;
+ * import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-network")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var service = new Subnet("service", SubnetArgs.builder()
+ *             .name("service")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
+ *             .enforcePrivateLinkServiceNetworkPolicies(true)
+ *             .build());
+ * 
+ *         var endpoint = new Subnet("endpoint", SubnetArgs.builder()
+ *             .name("endpoint")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .enforcePrivateLinkEndpointNetworkPolicies(true)
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
+ *             .name("example-pip")
+ *             .sku("Standard")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .allocationMethod("Static")
+ *             .build());
+ * 
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
+ *             .name("example-lb")
+ *             .sku("Standard")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
+ *                 .name(examplePublicIp.name())
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()
+ *             .name("example-privatelink")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
+ *                 .name(examplePublicIp.name())
+ *                 .primary(true)
+ *                 .subnetId(service.id())
+ *                 .build())
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
+ *             .build());
+ * 
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
+ *             .name("example-endpoint")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnetId(endpoint.id())
+ *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
+ *                 .name("example-privateserviceconnection")
+ *                 .privateConnectionResourceId(exampleLinkService.id())
+ *                 .isManualConnection(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * Using a Private Link Service Alias with existing resources:
  * 
  * <pre>

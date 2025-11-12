@@ -19,6 +19,170 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.AuthorizationFunctions;
+ * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+ * import com.pulumi.azure.kusto.Cluster;
+ * import com.pulumi.azure.kusto.ClusterArgs;
+ * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
+ * import com.pulumi.azure.kusto.inputs.ClusterIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.cosmosdb.Account;
+ * import com.pulumi.azure.cosmosdb.AccountArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
+ * import com.pulumi.azure.cosmosdb.SqlDatabase;
+ * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
+ * import com.pulumi.azure.cosmosdb.SqlContainer;
+ * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
+ * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+ * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
+ * import com.pulumi.azure.cosmosdb.SqlRoleAssignment;
+ * import com.pulumi.azure.cosmosdb.SqlRoleAssignmentArgs;
+ * import com.pulumi.azure.kusto.Database;
+ * import com.pulumi.azure.kusto.DatabaseArgs;
+ * import com.pulumi.azure.kusto.Script;
+ * import com.pulumi.azure.kusto.ScriptArgs;
+ * import com.pulumi.azure.kusto.CosmosdbDataConnection;
+ * import com.pulumi.azure.kusto.CosmosdbDataConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("exampleRG")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+ *             .roleDefinitionId("fbdf93bf-df7d-467e-a4d2-9458aa1360c8")
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
+ *             .name("examplekc")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(ClusterSkuArgs.builder()
+ *                 .name("Dev(No SLA)_Standard_D11_v2")
+ *                 .capacity(1)
+ *                 .build())
+ *             .identity(ClusterIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *             .scope(exampleResourceGroup.id())
+ *             .roleDefinitionName(builtin.name())
+ *             .principalId(exampleCluster.identity().applyValue(_identity -> _identity.principalId()))
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("example-ca")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
+ *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
+ *                 .consistencyLevel("Session")
+ *                 .maxIntervalInSeconds(5)
+ *                 .maxStalenessPrefix(100)
+ *                 .build())
+ *             .geoLocations(AccountGeoLocationArgs.builder()
+ *                 .location(exampleResourceGroup.location())
+ *                 .failoverPriority(0)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
+ *             .name("examplecosmosdbsqldb")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .build());
+ * 
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
+ *             .name("examplecosmosdbsqlcon")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .databaseName(exampleSqlDatabase.name())
+ *             .partitionKeyPath("/part")
+ *             .throughput(400)
+ *             .build());
+ * 
+ *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
+ *             .roleDefinitionId("00000000-0000-0000-0000-000000000001")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .accountName(exampleAccount.name())
+ *             .build());
+ * 
+ *         var exampleSqlRoleAssignment = new SqlRoleAssignment("exampleSqlRoleAssignment", SqlRoleAssignmentArgs.builder()
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .accountName(exampleAccount.name())
+ *             .roleDefinitionId(example.applyValue(_example -> _example.id()))
+ *             .principalId(exampleCluster.identity().applyValue(_identity -> _identity.principalId()))
+ *             .scope(exampleAccount.id())
+ *             .build());
+ * 
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
+ *             .name("examplekd")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .clusterName(exampleCluster.name())
+ *             .build());
+ * 
+ *         var exampleScript = new Script("exampleScript", ScriptArgs.builder()
+ *             .name("create-table-script")
+ *             .databaseId(exampleDatabase.id())
+ *             .scriptContent("""
+ * .create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
+ * .create table TestTable ingestion json mapping \"TestMapping\"
+ * '['
+ * '    {\"column\":\"Id\",\"path\":\"$.id\"},'
+ * '    {\"column\":\"Name\",\"path\":\"$.name\"},'
+ * '    {\"column\":\"_ts\",\"path\":\"$._ts\"},'
+ * '    {\"column\":\"_timestamp\",\"path\":\"$._ts\", \"transform\":\"DateTimeFromUnixSeconds\"}'
+ * ']'
+ * .alter table TestTable policy ingestionbatching \"{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}\"
+ *             """)
+ *             .build());
+ * 
+ *         var exampleCosmosdbDataConnection = new CosmosdbDataConnection("exampleCosmosdbDataConnection", CosmosdbDataConnectionArgs.builder()
+ *             .name("examplekcdcd")
+ *             .location(exampleResourceGroup.location())
+ *             .cosmosdbContainerId(exampleSqlContainer.id())
+ *             .kustoDatabaseId(exampleDatabase.id())
+ *             .managedIdentityId(exampleCluster.id())
+ *             .tableName("TestTable")
+ *             .mappingRuleName("TestMapping")
+ *             .retrievalStartDate("2023-06-26T12:00:00.6554616Z")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

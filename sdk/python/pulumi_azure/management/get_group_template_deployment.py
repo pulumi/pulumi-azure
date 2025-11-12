@@ -85,6 +85,19 @@ def get_group_template_deployment(management_group_id: Optional[_builtins.str] =
     """
     Use this data source to access information about an existing Management Group Template Deployment.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+    import pulumi_std as std
+
+    example = azure.management.get_group_template_deployment(name="existing",
+        management_group_id="00000000-0000-0000-000000000000")
+    pulumi.export("id", example.id)
+    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content).result["exampleOutput"]["value"])
+    ```
+
 
     :param _builtins.str management_group_id: The ID of the Management Group to which this template was applied.
     :param _builtins.str name: The name of this Management Group Template Deployment.
@@ -105,6 +118,19 @@ def get_group_template_deployment_output(management_group_id: Optional[pulumi.In
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Management Group Template Deployment.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+    import pulumi_std as std
+
+    example = azure.management.get_group_template_deployment(name="existing",
+        management_group_id="00000000-0000-0000-000000000000")
+    pulumi.export("id", example.id)
+    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content).result["exampleOutput"]["value"])
+    ```
 
 
     :param _builtins.str management_group_id: The ID of the Management Group to which this template was applied.

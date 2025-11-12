@@ -12,6 +12,42 @@ import (
 )
 
 // Use this data source to access information about an existing API Management User.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := apimanagement.LookupUser(ctx, &apimanagement.LookupUserArgs{
+//				UserId:            "my-user",
+//				ApiManagementName: "example-apim",
+//				ResourceGroupName: "search-service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("notes", example.Notes)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement` - 2022-08-01
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult

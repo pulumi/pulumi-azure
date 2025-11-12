@@ -989,12 +989,16 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args) {
         return getCertificates(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args) {
@@ -1003,6 +1007,8 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
@@ -1010,12 +1016,16 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args, InvokeOptions options) {
@@ -2369,12 +2379,16 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args) {
         return getSecrets(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args) {
@@ -2383,6 +2397,8 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
@@ -2390,12 +2406,16 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args, InvokeOptions options) {

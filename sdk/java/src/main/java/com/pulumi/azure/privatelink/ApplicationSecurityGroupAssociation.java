@@ -18,6 +18,141 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.lb.LoadBalancer;
+ * import com.pulumi.azure.lb.LoadBalancerArgs;
+ * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.privatedns.LinkService;
+ * import com.pulumi.azure.privatedns.LinkServiceArgs;
+ * import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import com.pulumi.azure.network.ApplicationSecurityGroup;
+ * import com.pulumi.azure.network.ApplicationSecurityGroupArgs;
+ * import com.pulumi.azure.privatelink.ApplicationSecurityGroupAssociation;
+ * import com.pulumi.azure.privatelink.ApplicationSecurityGroupAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
+ * 
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-PEASGAsso")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("examplevnet")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .addressSpaces("10.5.0.0/16")
+ *             .build());
+ * 
+ *         var service = new Subnet("service", SubnetArgs.builder()
+ *             .name("examplenetservice")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.5.1.0/24")
+ *             .enforcePrivateLinkServiceNetworkPolicies(true)
+ *             .build());
+ * 
+ *         var endpoint = new Subnet("endpoint", SubnetArgs.builder()
+ *             .name("examplenetendpoint")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.5.2.0/24")
+ *             .enforcePrivateLinkEndpointNetworkPolicies(true)
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
+ *             .name("examplepip")
+ *             .sku("Standard")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .allocationMethod("Static")
+ *             .build());
+ * 
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
+ *             .name("examplelb")
+ *             .sku("Standard")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
+ *                 .name(examplePublicIp.name())
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()
+ *             .name("examplePLS")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .autoApprovalSubscriptionIds(current.subscriptionId())
+ *             .visibilitySubscriptionIds(current.subscriptionId())
+ *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
+ *                 .name("primaryIpConfiguration")
+ *                 .primary(true)
+ *                 .subnetId(service.id())
+ *                 .build())
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
+ *             .build());
+ * 
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
+ *             .name("example-privatelink")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .subnetId(endpoint.id())
+ *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
+ *                 .name(exampleLinkService.name())
+ *                 .isManualConnection(false)
+ *                 .privateConnectionResourceId(exampleLinkService.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleApplicationSecurityGroup = new ApplicationSecurityGroup("exampleApplicationSecurityGroup", ApplicationSecurityGroupArgs.builder()
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleApplicationSecurityGroupAssociation = new ApplicationSecurityGroupAssociation("exampleApplicationSecurityGroupAssociation", ApplicationSecurityGroupAssociationArgs.builder()
+ *             .privateEndpointId(exampleEndpoint.id())
+ *             .applicationSecurityGroupId(exampleApplicationSecurityGroup.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

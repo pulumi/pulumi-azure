@@ -22,6 +22,82 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+ * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+ * import com.pulumi.azure.servicebus.Namespace;
+ * import com.pulumi.azure.servicebus.NamespaceArgs;
+ * import com.pulumi.azure.servicebus.Topic;
+ * import com.pulumi.azure.servicebus.TopicArgs;
+ * import com.pulumi.azure.streamanalytics.OutputServicebusTopic;
+ * import com.pulumi.azure.streamanalytics.OutputServicebusTopicArgs;
+ * import com.pulumi.azure.streamanalytics.inputs.OutputServicebusTopicSerializationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("rg-example")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *             .name("example-job")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
+ *             .name("example-namespace")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku("Standard")
+ *             .build());
+ * 
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
+ *             .name("example-topic")
+ *             .namespaceId(exampleNamespace.id())
+ *             .enablePartitioning(true)
+ *             .build());
+ * 
+ *         var exampleOutputServicebusTopic = new OutputServicebusTopic("exampleOutputServicebusTopic", OutputServicebusTopicArgs.builder()
+ *             .name("service-bus-topic-output")
+ *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
+ *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
+ *             .topicName(exampleTopic.name())
+ *             .servicebusNamespace(exampleNamespace.name())
+ *             .sharedAccessPolicyKey(exampleNamespace.defaultPrimaryKey())
+ *             .sharedAccessPolicyName("RootManageSharedAccessKey")
+ *             .propertyColumns(            
+ *                 "col1",
+ *                 "col2")
+ *             .serialization(OutputServicebusTopicSerializationArgs.builder()
+ *                 .type("Csv")
+ *                 .format("Array")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

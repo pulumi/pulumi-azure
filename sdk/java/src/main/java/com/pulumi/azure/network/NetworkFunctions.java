@@ -9068,12 +9068,112 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Virtual Wan.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("allowBranchToBranchTraffic", example.allowBranchToBranchTraffic());
+     *         ctx.export("disableVpnEncryption", example.disableVpnEncryption());
+     *         ctx.export("location", example.location());
+     *         ctx.export("office365LocalBreakoutCategory", example.office365LocalBreakoutCategory());
+     *         ctx.export("sku", example.sku());
+     *         ctx.export("tags", example.tags());
+     *         ctx.export("virtualHubs", example.virtualHubs());
+     *         ctx.export("vpnSites", example.vpnSites());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2024-05-01
+     * 
      */
     public static Output<GetVirtualWanResult> getVirtualWan(GetVirtualWanArgs args) {
         return getVirtualWan(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Virtual Wan.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("allowBranchToBranchTraffic", example.allowBranchToBranchTraffic());
+     *         ctx.export("disableVpnEncryption", example.disableVpnEncryption());
+     *         ctx.export("location", example.location());
+     *         ctx.export("office365LocalBreakoutCategory", example.office365LocalBreakoutCategory());
+     *         ctx.export("sku", example.sku());
+     *         ctx.export("tags", example.tags());
+     *         ctx.export("virtualHubs", example.virtualHubs());
+     *         ctx.export("vpnSites", example.vpnSites());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetVirtualWanResult> getVirtualWanPlain(GetVirtualWanPlainArgs args) {
@@ -9082,6 +9182,56 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Virtual Wan.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("allowBranchToBranchTraffic", example.allowBranchToBranchTraffic());
+     *         ctx.export("disableVpnEncryption", example.disableVpnEncryption());
+     *         ctx.export("location", example.location());
+     *         ctx.export("office365LocalBreakoutCategory", example.office365LocalBreakoutCategory());
+     *         ctx.export("sku", example.sku());
+     *         ctx.export("tags", example.tags());
+     *         ctx.export("virtualHubs", example.virtualHubs());
+     *         ctx.export("vpnSites", example.vpnSites());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2024-05-01
+     * 
      */
     public static Output<GetVirtualWanResult> getVirtualWan(GetVirtualWanArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:network/getVirtualWan:getVirtualWan", TypeShape.of(GetVirtualWanResult.class), args, Utilities.withVersion(options));
@@ -9089,12 +9239,112 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Virtual Wan.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("allowBranchToBranchTraffic", example.allowBranchToBranchTraffic());
+     *         ctx.export("disableVpnEncryption", example.disableVpnEncryption());
+     *         ctx.export("location", example.location());
+     *         ctx.export("office365LocalBreakoutCategory", example.office365LocalBreakoutCategory());
+     *         ctx.export("sku", example.sku());
+     *         ctx.export("tags", example.tags());
+     *         ctx.export("virtualHubs", example.virtualHubs());
+     *         ctx.export("vpnSites", example.vpnSites());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2024-05-01
+     * 
      */
     public static Output<GetVirtualWanResult> getVirtualWan(GetVirtualWanArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:network/getVirtualWan:getVirtualWan", TypeShape.of(GetVirtualWanResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Virtual Wan.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualWan(GetVirtualWanArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("allowBranchToBranchTraffic", example.allowBranchToBranchTraffic());
+     *         ctx.export("disableVpnEncryption", example.disableVpnEncryption());
+     *         ctx.export("location", example.location());
+     *         ctx.export("office365LocalBreakoutCategory", example.office365LocalBreakoutCategory());
+     *         ctx.export("sku", example.sku());
+     *         ctx.export("tags", example.tags());
+     *         ctx.export("virtualHubs", example.virtualHubs());
+     *         ctx.export("vpnSites", example.vpnSites());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetVirtualWanResult> getVirtualWanPlain(GetVirtualWanPlainArgs args, InvokeOptions options) {

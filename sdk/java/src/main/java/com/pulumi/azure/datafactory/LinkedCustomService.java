@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .description("test description")
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
  * {
- *   "connectionString":"%s"
+ *   \"connectionString\":\"%s\"
  * }
  * ", _primaryConnectionString)))
  *             .parameters(Map.ofEntries(

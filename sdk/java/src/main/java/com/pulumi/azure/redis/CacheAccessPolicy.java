@@ -18,6 +18,64 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.redis.Cache;
+ * import com.pulumi.azure.redis.CacheArgs;
+ * import com.pulumi.azure.redis.inputs.CacheRedisConfigurationArgs;
+ * import com.pulumi.azure.redis.CacheAccessPolicy;
+ * import com.pulumi.azure.redis.CacheAccessPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("East US")
+ *             .build());
+ * 
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .capacity(1)
+ *             .family("P")
+ *             .skuName("Premium")
+ *             .enableNonSslPort(false)
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .maxmemoryReserved(2)
+ *                 .maxmemoryDelta(2)
+ *                 .maxmemoryPolicy("allkeys-lru")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleCacheAccessPolicy = new CacheAccessPolicy("exampleCacheAccessPolicy", CacheAccessPolicyArgs.builder()
+ *             .name("example")
+ *             .redisCacheId(exampleCache.id())
+ *             .permissions("+}{@literal @}{@code read +}{@literal @}{@code connection +cluster|info")
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

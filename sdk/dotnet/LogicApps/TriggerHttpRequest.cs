@@ -40,10 +40,10 @@ namespace Pulumi.Azure.LogicApps
     ///         Name = "some-http-trigger",
     ///         LogicAppId = exampleWorkflow.Id,
     ///         Schema = @"{
-    ///     ""type"": ""object"",
-    ///     ""properties"": {
-    ///         ""hello"": {
-    ///             ""type"": ""string""
+    ///     \""type\"": \""object\"",
+    ///     \""properties\"": {
+    ///         \""hello\"": {
+    ///             \""type\"": \""string\""
     ///         }
     ///     }
     /// }

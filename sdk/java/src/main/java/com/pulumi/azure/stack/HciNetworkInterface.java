@@ -22,6 +22,79 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.stack.HciLogicalNetwork;
+ * import com.pulumi.azure.stack.HciLogicalNetworkArgs;
+ * import com.pulumi.azure.stack.inputs.HciLogicalNetworkSubnetArgs;
+ * import com.pulumi.azure.stack.HciNetworkInterface;
+ * import com.pulumi.azure.stack.HciNetworkInterfaceArgs;
+ * import com.pulumi.azure.stack.inputs.HciNetworkInterfaceIpConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-rg")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleHciLogicalNetwork = new HciLogicalNetwork("exampleHciLogicalNetwork", HciLogicalNetworkArgs.builder()
+ *             .name("example-hci-ln")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .customLocationId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1")
+ *             .virtualSwitchName("ConvergedSwitch(managementcompute)")
+ *             .dnsServers(            
+ *                 "10.0.0.7",
+ *                 "10.0.0.8")
+ *             .subnet(HciLogicalNetworkSubnetArgs.builder()
+ *                 .ipAllocationMethod("Static")
+ *                 .addressPrefix("10.0.0.0/24")
+ *                 .route(Map.ofEntries(
+ *                     Map.entry("name", "example-route"),
+ *                     Map.entry("addressPrefix", "0.0.0.0/0"),
+ *                     Map.entry("nextHopIpAddress", "10.0.20.1")
+ *                 ))
+ *                 .vlanId(123)
+ *                 .build())
+ *             .tags(Map.of("foo", "bar"))
+ *             .build());
+ * 
+ *         var exampleHciNetworkInterface = new HciNetworkInterface("exampleHciNetworkInterface", HciNetworkInterfaceArgs.builder()
+ *             .name("example-ni")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .customLocationId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1")
+ *             .dnsServers("10.0.0.8")
+ *             .ipConfiguration(HciNetworkInterfaceIpConfigurationArgs.builder()
+ *                 .privateIpAddress("10.0.0.2")
+ *                 .subnetId(test.id())
+ *                 .build())
+ *             .tags(Map.of("foo", "bar"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

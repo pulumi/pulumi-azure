@@ -844,8 +844,8 @@ class AlertRuleScheduled(pulumi.CustomResource):
             display_name="example",
             severity="High",
             query=\"\"\"AzureActivity |
-          where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
-          where ActivityStatus == "Succeeded" |
+          where OperationName == \\"Create or Update Virtual Machine\\" or OperationName ==\\"Create Deployment\\" |
+          where ActivityStatus == \\"Succeeded\\" |
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
         \"\"\")
         ```
@@ -927,8 +927,8 @@ class AlertRuleScheduled(pulumi.CustomResource):
             display_name="example",
             severity="High",
             query=\"\"\"AzureActivity |
-          where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
-          where ActivityStatus == "Succeeded" |
+          where OperationName == \\"Create or Update Virtual Machine\\" or OperationName ==\\"Create Deployment\\" |
+          where ActivityStatus == \\"Succeeded\\" |
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
         \"\"\")
         ```

@@ -190,7 +190,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
             content=\"\"\" {
-               "controlNumber": "1234"
+               \\"controlNumber\\": \\"1234\\"
             }
         \"\"\")
         ```
@@ -245,7 +245,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
             content=\"\"\" {
-               "controlNumber": "1234"
+               \\"controlNumber\\": \\"1234\\"
             }
         \"\"\")
         ```

@@ -85,6 +85,19 @@ def get_resource_group_template_deployment(name: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing Resource Group Template Deployment.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+    import pulumi_std as std
+
+    example = azure.core.get_resource_group_template_deployment(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content).result["exampleOutput"]["value"])
+    ```
+
 
     :param _builtins.str name: The name of this Resource Group Template Deployment.
     :param _builtins.str resource_group_name: The name of the Resource Group to which the Resource Group Template Deployment was applied.
@@ -105,6 +118,19 @@ def get_resource_group_template_deployment_output(name: Optional[pulumi.Input[_b
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGroupTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Resource Group Template Deployment.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+    import pulumi_std as std
+
+    example = azure.core.get_resource_group_template_deployment(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content).result["exampleOutput"]["value"])
+    ```
 
 
     :param _builtins.str name: The name of this Resource Group Template Deployment.

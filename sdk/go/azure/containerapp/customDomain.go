@@ -16,6 +16,140 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
+//				Name:              pulumi.String("contoso.com"),
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//				RetentionInDays:   pulumi.Int(30),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEnvironment, err := containerapp.NewEnvironment(ctx, "example", &containerapp.EnvironmentArgs{
+//				Name:                    pulumi.String("Example-Environment"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApp, err := containerapp.NewApp(ctx, "example", &containerapp.AppArgs{
+//				Name:                      pulumi.String("example-app"),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				ResourceGroupName:         example.Name,
+//				RevisionMode:              pulumi.String("Single"),
+//				Template: &containerapp.AppTemplateArgs{
+//					Containers: containerapp.AppTemplateContainerArray{
+//						&containerapp.AppTemplateContainerArgs{
+//							Name:   pulumi.String("examplecontainerapp"),
+//							Image:  pulumi.String("mcr.microsoft.com/k8se/quickstart:latest"),
+//							Cpu:    pulumi.Float64(0.25),
+//							Memory: pulumi.String("0.5Gi"),
+//						},
+//					},
+//				},
+//				Ingress: &containerapp.AppIngressArgs{
+//					AllowInsecureConnections: pulumi.Bool(false),
+//					ExternalEnabled:          pulumi.Bool(true),
+//					TargetPort:               pulumi.Int(5000),
+//					Transport:                pulumi.String("http"),
+//					TrafficWeights: containerapp.AppIngressTrafficWeightArray{
+//						&containerapp.AppIngressTrafficWeightArgs{
+//							LatestRevision: pulumi.Bool(true),
+//							Percentage:     pulumi.Int(100),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
+//				Name:              pulumi.String("asuid.example"),
+//				ResourceGroupName: exampleZone.ResourceGroupName,
+//				ZoneName:          exampleZone.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: dns.TxtRecordRecordArray{
+//					&dns.TxtRecordRecordArgs{
+//						Value: exampleApp.CustomDomainVerificationId,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "path/to/certificate_file.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleEnvironmentCertificate, err := containerapp.NewEnvironmentCertificate(ctx, "example", &containerapp.EnvironmentCertificateArgs{
+//				Name:                      pulumi.String("myfriendlyname"),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				CertificateBlob:           invokeFilebase64.Result,
+//				CertificatePassword:       pulumi.String("$3cretSqu1rreL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeTrimsuffix1, err := std.Trimsuffix(ctx, &std.TrimsuffixArgs{
+//				Input: std.Trimprefix(ctx, &std.TrimprefixArgs{
+//					Input:  api.Fqdn,
+//					Prefix: "asuid.",
+//				}, nil).Result,
+//				Suffix: ".",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
+//				Name:                                 pulumi.String(invokeTrimsuffix1.Result),
+//				ContainerAppId:                       exampleApp.ID(),
+//				ContainerAppEnvironmentCertificateId: exampleEnvironmentCertificate.ID(),
+//				CertificateBindingType:               pulumi.String("SniEnabled"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Managed Certificate
 //
 // ```go

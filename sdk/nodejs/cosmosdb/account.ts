@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *     name: "sample-rg",
  *     location: "westus",
  * });
- * const ri = new random.RandomInteger("ri", {
+ * const ri = new random.index.Integer("ri", {
  *     min: 10000,
  *     max: 99999,
  * });
  * const db = new azure.cosmosdb.Account("db", {
- *     name: pulumi.interpolate`tfex-cosmos-db-${ri.result}`,
+ *     name: `tfex-cosmos-db-${ri.result}`,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     offerType: "Standard",

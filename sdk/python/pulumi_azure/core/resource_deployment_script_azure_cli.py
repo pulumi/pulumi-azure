@@ -641,7 +641,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             cleanup_preference="OnSuccess",
             force_update_tag="1",
             timeout="PT30M",
-            script_content="            echo \\"{\\\\\\"name\\\\\\":{\\\\\\"displayName\\\\\\":\\\\\\"$1 $2\\\\\\"}}\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
+            script_content="            echo \\\\\\"{\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\":{\\\\\\\\\\\\\\"displayName\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"$1 $2\\\\\\\\\\\\\\"}}\\\\\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
@@ -718,7 +718,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             cleanup_preference="OnSuccess",
             force_update_tag="1",
             timeout="PT30M",
-            script_content="            echo \\"{\\\\\\"name\\\\\\":{\\\\\\"displayName\\\\\\":\\\\\\"$1 $2\\\\\\"}}\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
+            script_content="            echo \\\\\\"{\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\":{\\\\\\\\\\\\\\"displayName\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"$1 $2\\\\\\\\\\\\\\"}}\\\\\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],

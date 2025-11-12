@@ -281,6 +281,80 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         """
         Manages a Microsoft SQL Virtual Machine Availability Group Listener.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.network.get_subnet(name="examplesubnet",
+            virtual_network_name="examplevnet",
+            resource_group_name="example-resources")
+        example_get_lb = azure.lb.get_lb(name="example-lb",
+            resource_group_name="example-resources")
+        example_get_virtual_machine = [azure.compute.get_virtual_machine(name="example-vm",
+            resource_group_name="example-resources") for __index in range(2)]
+        example_virtual_machine_group = azure.mssql.VirtualMachineGroup("example",
+            name="examplegroup",
+            resource_group_name="example-resources",
+            location="West Europe",
+            sql_image_offer="SQL2017-WS2016",
+            sql_image_sku="Developer",
+            wsfc_domain_profile={
+                "fqdn": "testdomain.com",
+                "cluster_subnet_type": "SingleSubnet",
+            })
+        example_virtual_machine = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example_virtual_machine.append(azure.mssql.VirtualMachine(f"example-{range['value']}",
+                virtual_machine_id=example_get_virtual_machine[range["value"]].id,
+                sql_license_type="PAYG",
+                sql_virtual_machine_group_id=example_virtual_machine_group.id,
+                wsfc_domain_credential={
+                    "cluster_bootstrap_account_password": "P@ssw0rd1234!",
+                    "cluster_operator_account_password": "P@ssw0rd1234!",
+                    "sql_service_account_password": "P@ssw0rd1234!",
+                }))
+        example_virtual_machine_availability_group_listener = azure.mssql.VirtualMachineAvailabilityGroupListener("example",
+            name="listener1",
+            availability_group_name="availabilitygroup1",
+            port=1433,
+            sql_virtual_machine_group_id=example_virtual_machine_group.id,
+            load_balancer_configuration={
+                "load_balancer_id": example_get_lb.id,
+                "private_ip_address": "10.0.2.11",
+                "probe_port": 51572,
+                "subnet_id": example.id,
+                "sql_virtual_machine_ids": [
+                    example_virtual_machine[0].id,
+                    example_virtual_machine[1].id,
+                ],
+            },
+            replicas=[
+                {
+                    "sql_virtual_machine_id": example_virtual_machine[0].id,
+                    "role": "Primary",
+                    "commit": "Synchronous_Commit",
+                    "failover": "Automatic",
+                    "readable_secondary": "All",
+                },
+                {
+                    "sql_virtual_machine_id": example_virtual_machine[1].id,
+                    "role": "Secondary",
+                    "commit": "Asynchronous_Commit",
+                    "failover": "Manual",
+                    "readable_secondary": "No",
+                },
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SqlVirtualMachine` - 2023-10-01
+
         ## Import
 
         Microsoft SQL Virtual Machine Availability Group Listeners can be imported using the `resource id`, e.g.
@@ -309,6 +383,80 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft SQL Virtual Machine Availability Group Listener.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.network.get_subnet(name="examplesubnet",
+            virtual_network_name="examplevnet",
+            resource_group_name="example-resources")
+        example_get_lb = azure.lb.get_lb(name="example-lb",
+            resource_group_name="example-resources")
+        example_get_virtual_machine = [azure.compute.get_virtual_machine(name="example-vm",
+            resource_group_name="example-resources") for __index in range(2)]
+        example_virtual_machine_group = azure.mssql.VirtualMachineGroup("example",
+            name="examplegroup",
+            resource_group_name="example-resources",
+            location="West Europe",
+            sql_image_offer="SQL2017-WS2016",
+            sql_image_sku="Developer",
+            wsfc_domain_profile={
+                "fqdn": "testdomain.com",
+                "cluster_subnet_type": "SingleSubnet",
+            })
+        example_virtual_machine = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example_virtual_machine.append(azure.mssql.VirtualMachine(f"example-{range['value']}",
+                virtual_machine_id=example_get_virtual_machine[range["value"]].id,
+                sql_license_type="PAYG",
+                sql_virtual_machine_group_id=example_virtual_machine_group.id,
+                wsfc_domain_credential={
+                    "cluster_bootstrap_account_password": "P@ssw0rd1234!",
+                    "cluster_operator_account_password": "P@ssw0rd1234!",
+                    "sql_service_account_password": "P@ssw0rd1234!",
+                }))
+        example_virtual_machine_availability_group_listener = azure.mssql.VirtualMachineAvailabilityGroupListener("example",
+            name="listener1",
+            availability_group_name="availabilitygroup1",
+            port=1433,
+            sql_virtual_machine_group_id=example_virtual_machine_group.id,
+            load_balancer_configuration={
+                "load_balancer_id": example_get_lb.id,
+                "private_ip_address": "10.0.2.11",
+                "probe_port": 51572,
+                "subnet_id": example.id,
+                "sql_virtual_machine_ids": [
+                    example_virtual_machine[0].id,
+                    example_virtual_machine[1].id,
+                ],
+            },
+            replicas=[
+                {
+                    "sql_virtual_machine_id": example_virtual_machine[0].id,
+                    "role": "Primary",
+                    "commit": "Synchronous_Commit",
+                    "failover": "Automatic",
+                    "readable_secondary": "All",
+                },
+                {
+                    "sql_virtual_machine_id": example_virtual_machine[1].id,
+                    "role": "Secondary",
+                    "commit": "Asynchronous_Commit",
+                    "failover": "Manual",
+                    "readable_secondary": "No",
+                },
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SqlVirtualMachine` - 2023-10-01
 
         ## Import
 

@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .type("AzureBlobStorage")
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
  * {
- *   "connectionString":"%s"
+ *   \"connectionString\":\"%s\"
  * }
  * ", _primaryConnectionString)))
  *             .build());
@@ -106,13 +106,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .typePropertiesJson(exampleContainer.name().applyValue(_name -> """
  * {
- *   "location": {
- *     "container":"%s",
- *     "fileName":"foo.txt",
- *     "folderPath": "foo/bar/",
- *     "type":"AzureBlobStorageLocation"
+ *   \"location\": {
+ *     \"container\":\"%s\",
+ *     \"fileName\":\"foo.txt\",
+ *     \"folderPath\": \"foo/bar/\",
+ *     \"type\":\"AzureBlobStorageLocation\"
  *   },
- *   "encodingName":"UTF-8"
+ *   \"encodingName\":\"UTF-8\"
  * }
  * ", _name)))
  *             .description("test description")
@@ -131,21 +131,21 @@ import javax.annotation.Nullable;
  *             ))
  *             .schemaJson("""
  * {
- *   "type": "object",
- *   "properties": {
- *     "name": {
- *       "type": "object",
- *       "properties": {
- *         "firstName": {
- *           "type": "string"
+ *   \"type\": \"object\",
+ *   \"properties\": {
+ *     \"name\": {
+ *       \"type\": \"object\",
+ *       \"properties\": {
+ *         \"firstName\": {
+ *           \"type\": \"string\"
  *         },
- *         "lastName": {
- *           "type": "string"
+ *         \"lastName\": {
+ *           \"type\": \"string\"
  *         }
  *       }
  *     },
- *     "age": {
- *       "type": "integer"
+ *     \"age\": {
+ *       \"type\": \"integer\"
  *     }
  *   }
  * }

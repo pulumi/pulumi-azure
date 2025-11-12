@@ -9,6 +9,44 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ *
+ * const server = new random.index.Id("server", {
+ *     keepers: {
+ *         aziId: 1,
+ *     },
+ *     byteLength: 8,
+ * });
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "redis-resourcegroup",
+ *     location: "West Europe",
+ * });
+ * const exampleCache = new azure.redis.Cache("example", {
+ *     name: `redis${server.hex}`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     capacity: 1,
+ *     family: "P",
+ *     skuName: "Premium",
+ *     enableNonSslPort: false,
+ *     redisConfiguration: {
+ *         maxmemoryReserved: 2,
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ * });
+ * const exampleFirewallRule = new azure.redis.FirewallRule("example", {
+ *     name: "someIPrange",
+ *     redisCacheName: exampleCache.name,
+ *     resourceGroupName: example.name,
+ *     startIp: "1.2.3.4",
+ *     endIp: "2.3.4.5",
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

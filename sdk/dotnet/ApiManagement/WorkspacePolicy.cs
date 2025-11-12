@@ -50,7 +50,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         ApiManagementWorkspaceId = exampleWorkspace.Id,
     ///         XmlContent = @"&lt;policies&gt;
     ///   &lt;inbound&gt;
-    ///     &lt;find-and-replace from=""abc"" to=""xyz"" /&gt;
+    ///     &lt;find-and-replace from=\""abc\"" to=\""xyz\"" /&gt;
     ///   &lt;/inbound&gt;
     /// &lt;/policies&gt;
     /// ",

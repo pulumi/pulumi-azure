@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.oracle.AutonomousDatabase("example", {
+ *     name: "example",
+ *     resourceGroupName: "example",
+ *     location: "West Europe",
+ *     subnetId: "example",
+ *     displayName: "example",
+ *     dbWorkload: "example",
+ *     mtlsConnectionRequired: false,
+ *     backupRetentionPeriodInDays: 42,
+ *     computeModel: "example",
+ *     dataStorageSizeInGbs: 42,
+ *     autoScalingForStorageEnabled: false,
+ *     virtualNetworkId: "example",
+ *     adminPassword: "example",
+ *     autoScalingEnabled: "example",
+ *     characterSet: "example",
+ *     computeCount: 1.23456,
+ *     nationalCharacterSet: "example",
+ *     licenseModel: "false",
+ *     dbVersion: "example",
+ * });
+ * ```
+ *
  * ## > **Note:** `allowedIps`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
  *
  *               size: the maximum number of Ips provided shouldn't exceed 1024. At this time we only support IpV4.

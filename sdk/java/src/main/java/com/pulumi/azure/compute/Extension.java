@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *             .typeHandlerVersion("2.0")
  *             .settings("""
  *  {
- *   "commandToExecute": "hostname && uptime"
+ *   \"commandToExecute\": \"hostname && uptime\"
  *  }
  *             """)
  *             .tags(Map.of("environment", "Production"))

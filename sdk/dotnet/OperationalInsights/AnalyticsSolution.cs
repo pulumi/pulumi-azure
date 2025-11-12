@@ -29,18 +29,18 @@ namespace Pulumi.Azure.OperationalInsights
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var workspace = new Random.RandomId("workspace", new()
+    ///     var workspace = new Random.Index.Id("workspace", new()
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "group_name", example.Name },
+    ///             { "groupName", example.Name },
     ///         },
     ///         ByteLength = 8,
     ///     });
     /// 
     ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Name = workspace.Hex.Apply(hex =&gt; $"k8s-workspace-{hex}"),
+    ///         Name = $"k8s-workspace-{workspace.Hex}",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",

@@ -13,18 +13,102 @@ namespace Pulumi.Azure.Automation
     {
         /// <summary>
         /// Use this data source to access information about an existing Automation Object Variable.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Automation.GetVariableObject.Invoke(new()
+        ///     {
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variable"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getVariableObjectResult =&gt; getVariableObjectResult.Value),
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetVariableObjectResult> InvokeAsync(GetVariableObjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableObjectResult>("azure:automation/getVariableObject:getVariableObject", args ?? new GetVariableObjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Automation Object Variable.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Automation.GetVariableObject.Invoke(new()
+        ///     {
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variable"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getVariableObjectResult =&gt; getVariableObjectResult.Value),
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetVariableObjectResult> Invoke(GetVariableObjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableObjectResult>("azure:automation/getVariableObject:getVariableObject", args ?? new GetVariableObjectInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Automation Object Variable.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Automation.GetVariableObject.Invoke(new()
+        ///     {
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variable"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getVariableObjectResult =&gt; getVariableObjectResult.Value),
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetVariableObjectResult> Invoke(GetVariableObjectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableObjectResult>("azure:automation/getVariableObject:getVariableObject", args ?? new GetVariableObjectInvokeArgs(), options.WithDefaults());

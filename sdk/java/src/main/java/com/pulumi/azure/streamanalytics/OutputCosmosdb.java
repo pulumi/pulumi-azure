@@ -20,6 +20,96 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+ * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+ * import com.pulumi.azure.cosmosdb.Account;
+ * import com.pulumi.azure.cosmosdb.AccountArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
+ * import com.pulumi.azure.cosmosdb.SqlDatabase;
+ * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
+ * import com.pulumi.azure.cosmosdb.SqlContainer;
+ * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
+ * import com.pulumi.azure.streamanalytics.OutputCosmosdb;
+ * import com.pulumi.azure.streamanalytics.OutputCosmosdbArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("rg-example")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *             .name("example-job")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("exampledb")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
+ *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
+ *                 .consistencyLevel("BoundedStaleness")
+ *                 .maxIntervalInSeconds(10)
+ *                 .maxStalenessPrefix(200)
+ *                 .build())
+ *             .geoLocations(AccountGeoLocationArgs.builder()
+ *                 .location(exampleResourceGroup.location())
+ *                 .failoverPriority(0)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
+ *             .name("cosmos-sql-db")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .throughput(400)
+ *             .build());
+ * 
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
+ *             .name("examplecontainer")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .databaseName(exampleSqlDatabase.name())
+ *             .partitionKeyPath("foo")
+ *             .build());
+ * 
+ *         var exampleOutputCosmosdb = new OutputCosmosdb("exampleOutputCosmosdb", OutputCosmosdbArgs.builder()
+ *             .name("output-to-cosmosdb")
+ *             .streamAnalyticsJobId(example.applyValue(_example -> _example.id()))
+ *             .cosmosdbAccountKey(exampleAccount.primaryKey())
+ *             .cosmosdbSqlDatabaseId(exampleSqlDatabase.id())
+ *             .containerName(exampleSqlContainer.name())
+ *             .documentId("exampledocumentid")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
