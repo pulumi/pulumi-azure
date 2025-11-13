@@ -12,6 +12,40 @@ namespace Pulumi.Azure.WebPubSub
     /// <summary>
     /// Manages a Web PubSub Service for Socket.IO.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSocketio = new Azure.WebPubSub.Socketio("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Free_F1"[0],
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService` - 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Web PubSub Service for Socket.IOs can be imported using the `resource id`, e.g.

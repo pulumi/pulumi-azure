@@ -9,6 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "East US",
+ * });
+ * const exampleAutonomousDatabase = new azure.oracle.AutonomousDatabase("example", {
+ *     name: "example-adb",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleAutonomousDatabaseBackup = new azure.oracle.AutonomousDatabaseBackup("example", {
+ *     name: "example-backup",
+ *     autonomousDatabaseId: exampleAutonomousDatabase.id,
+ *     retentionPeriodInDays: 120,
+ *     backupType: "Full",
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

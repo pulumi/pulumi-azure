@@ -1394,12 +1394,92 @@ public final class AutomationFunctions {
     /**
      * Use this data source to access information about an existing Automation Object Variable.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getVariableObject(GetVariableObjectArgs.builder()
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
+     *             .build());
+     * 
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args) {
         return getVariableObject(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Automation Object Variable.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getVariableObject(GetVariableObjectArgs.builder()
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
+     *             .build());
+     * 
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args) {
@@ -1408,6 +1488,46 @@ public final class AutomationFunctions {
     /**
      * Use this data source to access information about an existing Automation Object Variable.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getVariableObject(GetVariableObjectArgs.builder()
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
+     *             .build());
+     * 
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getVariableObject:getVariableObject", TypeShape.of(GetVariableObjectResult.class), args, Utilities.withVersion(options));
@@ -1415,12 +1535,92 @@ public final class AutomationFunctions {
     /**
      * Use this data source to access information about an existing Automation Object Variable.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getVariableObject(GetVariableObjectArgs.builder()
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
+     *             .build());
+     * 
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getVariableObject:getVariableObject", TypeShape.of(GetVariableObjectResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Automation Object Variable.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getVariableObject(GetVariableObjectArgs.builder()
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
+     *             .build());
+     * 
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args, InvokeOptions options) {

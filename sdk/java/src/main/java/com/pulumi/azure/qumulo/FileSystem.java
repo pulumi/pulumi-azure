@@ -21,6 +21,79 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+ * import com.pulumi.azure.qumulo.FileSystem;
+ * import com.pulumi.azure.qumulo.FileSystemArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name("delegation")
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
+ *                     .name("Qumulo.Storage/fileSystems")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFileSystem = new FileSystem("exampleFileSystem", FileSystemArgs.builder()
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .adminPassword(")^X#ZX#JRyIY}}{@code t9")
+ *             .availabilityZone("1")
+ *             .delegatedSubnetId(exampleSubnet.id())
+ *             .storageSku("Standard")
+ *             .email("test}{@literal @}{@code test.com")
+ *             .tags(Map.of("environment", "test"))
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

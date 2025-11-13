@@ -65,6 +65,55 @@ namespace Pulumi.Azure.AppService
     /// 
     /// ### Linux Web App
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
+    ///     {
+    ///         Name = "example-plan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         OsType = "Linux",
+    ///         SkuName = "P1v2",
+    ///     });
+    /// 
+    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("example", new()
+    ///     {
+    ///         Name = "example-linux-web-app",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = exampleServicePlan.Location,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = null,
+    ///     });
+    /// 
+    ///     var exampleLinuxWebAppSlot = new Azure.AppService.LinuxWebAppSlot("example", new()
+    ///     {
+    ///         Name = "example-linux-web-app-slot",
+    ///         AppServiceName = exampleLinuxWebApp.Name,
+    ///         Location = exampleServicePlan.Location,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = null,
+    ///     });
+    /// 
+    ///     var exampleWebAppActiveSlot = new Azure.AppService.WebAppActiveSlot("example", new()
+    ///     {
+    ///         SlotId = exampleLinuxWebAppSlot.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

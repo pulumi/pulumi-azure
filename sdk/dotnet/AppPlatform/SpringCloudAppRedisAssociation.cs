@@ -16,6 +16,57 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     {
+    ///         Name = "example-springcloud",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     {
+    ///         Name = "example-springcloudapp",
+    ///         ResourceGroupName = example.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("example", new()
+    ///     {
+    ///         Name = "example-cache",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Capacity = 0,
+    ///         Family = "C",
+    ///         SkuName = "Basic",
+    ///         EnableNonSslPort = true,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudAppRedisAssociation = new Azure.AppPlatform.SpringCloudAppRedisAssociation("example", new()
+    ///     {
+    ///         Name = "example-bind",
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         RedisCacheId = exampleCache.Id,
+    ///         RedisAccessKey = exampleCache.PrimaryAccessKey,
+    ///         SslEnabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Application Redis Association can be imported using the `resource id`, e.g.

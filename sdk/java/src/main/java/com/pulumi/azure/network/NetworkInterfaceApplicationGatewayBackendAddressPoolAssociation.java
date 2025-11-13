@@ -16,6 +16,172 @@ import javax.annotation.Nullable;
 /**
  * Manages the association between a Network Interface and a Application Gateway&#39;s Backend Address Pool.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.network.ApplicationGateway;
+ * import com.pulumi.azure.network.ApplicationGatewayArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewaySkuArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayGatewayIpConfigurationArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendPortArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayBackendAddressPoolArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayBackendHttpSettingArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayHttpListenerArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayRequestRoutingRuleArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation;
+ * import com.pulumi.azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-network")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var frontend = new Subnet("frontend", SubnetArgs.builder()
+ *             .name("frontend")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
+ *             .build());
+ * 
+ *         var backend = new Subnet("backend", SubnetArgs.builder()
+ *             .name("backend")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
+ *             .name("example-pip")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .allocationMethod("Static")
+ *             .build());
+ * 
+ *         final var backendAddressPoolName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-beap", _name));
+ * 
+ *         final var frontendPortName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-feport", _name));
+ * 
+ *         final var frontendIpConfigurationName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-feip", _name));
+ * 
+ *         final var httpSettingName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-be-htst", _name));
+ * 
+ *         final var listenerName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-httplstn", _name));
+ * 
+ *         final var requestRoutingRuleName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-rqrt", _name));
+ * 
+ *         var network = new ApplicationGateway("network", ApplicationGatewayArgs.builder()
+ *             .name("example-appgateway")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku(ApplicationGatewaySkuArgs.builder()
+ *                 .name("Standard_v2")
+ *                 .tier("Standard_v2")
+ *                 .capacity(2)
+ *                 .build())
+ *             .gatewayIpConfigurations(ApplicationGatewayGatewayIpConfigurationArgs.builder()
+ *                 .name("my-gateway-ip-configuration")
+ *                 .subnetId(backend.id())
+ *                 .build())
+ *             .frontendPorts(ApplicationGatewayFrontendPortArgs.builder()
+ *                 .name(frontendPortName)
+ *                 .port(80)
+ *                 .build())
+ *             .frontendIpConfigurations(ApplicationGatewayFrontendIpConfigurationArgs.builder()
+ *                 .name(frontendIpConfigurationName)
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .build())
+ *             .backendAddressPools(ApplicationGatewayBackendAddressPoolArgs.builder()
+ *                 .name(backendAddressPoolName)
+ *                 .build())
+ *             .backendHttpSettings(ApplicationGatewayBackendHttpSettingArgs.builder()
+ *                 .name(httpSettingName)
+ *                 .cookieBasedAffinity("Disabled")
+ *                 .port(80)
+ *                 .protocol("Http")
+ *                 .requestTimeout(1)
+ *                 .build())
+ *             .httpListeners(ApplicationGatewayHttpListenerArgs.builder()
+ *                 .name(listenerName)
+ *                 .frontendIpConfigurationName(frontendIpConfigurationName)
+ *                 .frontendPortName(frontendPortName)
+ *                 .protocol("Http")
+ *                 .build())
+ *             .requestRoutingRules(ApplicationGatewayRequestRoutingRuleArgs.builder()
+ *                 .name(requestRoutingRuleName)
+ *                 .ruleType("Basic")
+ *                 .priority(25)
+ *                 .httpListenerName(listenerName)
+ *                 .backendAddressPoolName(backendAddressPoolName)
+ *                 .backendHttpSettingsName(httpSettingName)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
+ *             .name("example-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
+ *                 .name("testconfiguration1")
+ *                 .subnetId(frontend.id())
+ *                 .privateIpAddressAllocation("Dynamic")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs.builder()
+ *             .networkInterfaceId(exampleNetworkInterface.id())
+ *             .ipConfigurationName("testconfiguration1")
+ *             .backendAddressPoolId(network.backendAddressPools().applyValue(_backendAddressPools -> _backendAddressPools[0].id()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network` - 2024-05-01
+ * 
  * ## Import
  * 
  * Associations between Network Interfaces and Application Gateway Backend Address Pools can be imported using the `resource id`, e.g.

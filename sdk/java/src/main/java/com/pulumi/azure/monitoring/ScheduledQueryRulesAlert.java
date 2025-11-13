@@ -25,6 +25,131 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the azure.monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appinsights.Insights;
+ * import com.pulumi.azure.appinsights.InsightsArgs;
+ * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlert;
+ * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertActionArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertTriggerArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FormatArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("monitoring-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
+ *             .name("appinsights")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .applicationType("web")
+ *             .build());
+ * 
+ *         var example2 = new Insights("example2", InsightsArgs.builder()
+ *             .name("appinsights2")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .applicationType("web")
+ *             .build());
+ * 
+ *         // Example: Alerting Action with result count trigger
+ *         var exampleScheduledQueryRulesAlert = new ScheduledQueryRulesAlert("exampleScheduledQueryRulesAlert", ScheduledQueryRulesAlertArgs.builder()
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .action(ScheduledQueryRulesAlertActionArgs.builder()
+ *                 .actionGroups()
+ *                 .emailSubject("Email Header")
+ *                 .customWebhookPayload("{}")
+ *                 .build())
+ *             .dataSourceId(exampleInsights.id())
+ *             .description("Alert when total results cross threshold")
+ *             .enabled(true)
+ *             .query("""
+ * requests
+ *   | where tolong(resultCode) >= 500
+ *   | summarize count() by bin(timestamp, 5m)
+ *             """)
+ *             .severity(1)
+ *             .frequency(5)
+ *             .timeWindow(30)
+ *             .trigger(ScheduledQueryRulesAlertTriggerArgs.builder()
+ *                 .operator("GreaterThan")
+ *                 .threshold(3.0)
+ *                 .build())
+ *             .tags(Map.of("foo", "bar"))
+ *             .build());
+ * 
+ *         // Example: Alerting Action Cross-Resource
+ *         var example2ScheduledQueryRulesAlert = new ScheduledQueryRulesAlert("example2ScheduledQueryRulesAlert", ScheduledQueryRulesAlertArgs.builder()
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .authorizedResourceIds(example2.id())
+ *             .action(ScheduledQueryRulesAlertActionArgs.builder()
+ *                 .actionGroups()
+ *                 .emailSubject("Email Header")
+ *                 .customWebhookPayload("{}")
+ *                 .build())
+ *             .dataSourceId(exampleInsights.id())
+ *             .description("Query may access data within multiple resources")
+ *             .enabled(true)
+ *             .query(StdFunctions.format(FormatArgs.builder()
+ *                 .input("""
+ * let a=requests
+ *   | where toint(resultCode) >= 500
+ *   | extend fail=1; let b=app('%s').requests
+ *   | where toint(resultCode) >= 500 | extend fail=1; a
+ *   | join b on fail
+ *                 """)
+ *                 .args(example2.id())
+ *                 .build()).result())
+ *             .severity(1)
+ *             .frequency(5)
+ *             .timeWindow(30)
+ *             .trigger(ScheduledQueryRulesAlertTriggerArgs.builder()
+ *                 .operator("GreaterThan")
+ *                 .threshold(3.0)
+ *                 .build())
+ *             .tags(Map.of("foo", "bar"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Insights` - 2018-04-16
+ * 
  * ## Import
  * 
  * Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.

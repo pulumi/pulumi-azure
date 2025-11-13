@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     integrationAccountName: exampleIntegrationAccount.name,
  *     content: ` {
- *        "controlNumber": "1234"
+ *        \\"controlNumber\\": \\"1234\\"
  *     }
  * `,
  * });

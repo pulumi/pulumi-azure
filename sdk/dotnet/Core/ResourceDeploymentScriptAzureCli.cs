@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Core
     ///         CleanupPreference = "OnSuccess",
     ///         ForceUpdateTag = "1",
     ///         Timeout = "PT30M",
-    ///         ScriptContent = @"            echo ""{\""name\"":{\""displayName\"":\""$1 $2\""}}"" &gt; $AZ_SCRIPTS_OUTPUT_PATH
+    ///         ScriptContent = @"            echo \""{\\\""name\\\"":{\\\""displayName\\\"":\\\""$1 $2\\\""}}\"" &gt; $AZ_SCRIPTS_OUTPUT_PATH
     /// ",
     ///         Identity = new Azure.Core.Inputs.ResourceDeploymentScriptAzureCliIdentityArgs
     ///         {

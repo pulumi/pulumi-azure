@@ -172,7 +172,7 @@ class WorkspacePolicy(pulumi.CustomResource):
             api_management_workspace_id=example_workspace.id,
             xml_content=\"\"\"<policies>
           <inbound>
-            <find-and-replace from="abc" to="xyz" />
+            <find-and-replace from=\\"abc\\" to=\\"xyz\\" />
           </inbound>
         </policies>
         \"\"\")
@@ -234,7 +234,7 @@ class WorkspacePolicy(pulumi.CustomResource):
             api_management_workspace_id=example_workspace.id,
             xml_content=\"\"\"<policies>
           <inbound>
-            <find-and-replace from="abc" to="xyz" />
+            <find-and-replace from=\\"abc\\" to=\\"xyz\\" />
           </inbound>
         </policies>
         \"\"\")

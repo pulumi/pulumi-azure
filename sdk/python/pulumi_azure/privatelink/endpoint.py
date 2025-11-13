@@ -390,6 +390,67 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        service = azure.network.Subnet("service",
+            name="service",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            enforce_private_link_service_network_policies=True)
+        endpoint = azure.network.Subnet("endpoint",
+            name="endpoint",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            enforce_private_link_endpoint_network_policies=True)
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            sku="Standard",
+            location=example.location,
+            resource_group_name=example.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="example-lb",
+            sku="Standard",
+            location=example.location,
+            resource_group_name=example.name,
+            frontend_ip_configurations=[{
+                "name": example_public_ip.name,
+                "public_ip_address_id": example_public_ip.id,
+            }])
+        example_link_service = azure.privatedns.LinkService("example",
+            name="example-privatelink",
+            location=example.location,
+            resource_group_name=example.name,
+            nat_ip_configurations=[{
+                "name": example_public_ip.name,
+                "primary": True,
+                "subnet_id": service.id,
+            }],
+            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-endpoint",
+            location=example.location,
+            resource_group_name=example.name,
+            subnet_id=endpoint.id,
+            private_service_connection={
+                "name": "example-privateserviceconnection",
+                "private_connection_resource_id": example_link_service.id,
+                "is_manual_connection": False,
+            })
+        ```
+
         Using a Private Link Service Alias with existing resources:
 
         ```python
@@ -514,6 +575,67 @@ class Endpoint(pulumi.CustomResource):
         Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        service = azure.network.Subnet("service",
+            name="service",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            enforce_private_link_service_network_policies=True)
+        endpoint = azure.network.Subnet("endpoint",
+            name="endpoint",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            enforce_private_link_endpoint_network_policies=True)
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            sku="Standard",
+            location=example.location,
+            resource_group_name=example.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="example-lb",
+            sku="Standard",
+            location=example.location,
+            resource_group_name=example.name,
+            frontend_ip_configurations=[{
+                "name": example_public_ip.name,
+                "public_ip_address_id": example_public_ip.id,
+            }])
+        example_link_service = azure.privatedns.LinkService("example",
+            name="example-privatelink",
+            location=example.location,
+            resource_group_name=example.name,
+            nat_ip_configurations=[{
+                "name": example_public_ip.name,
+                "primary": True,
+                "subnet_id": service.id,
+            }],
+            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-endpoint",
+            location=example.location,
+            resource_group_name=example.name,
+            subnet_id=endpoint.id,
+            private_service_connection={
+                "name": "example-privateserviceconnection",
+                "private_connection_resource_id": example_link_service.id,
+                "is_manual_connection": False,
+            })
+        ```
 
         Using a Private Link Service Alias with existing resources:
 

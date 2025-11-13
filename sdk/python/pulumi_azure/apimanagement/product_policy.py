@@ -219,7 +219,7 @@ class ProductPolicy(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             xml_content=\"\"\"<policies>
           <inbound>
-            <find-and-replace from="xyz" to="abc" />
+            <find-and-replace from=\\"xyz\\" to=\\"abc\\" />
           </inbound>
         </policies>
         \"\"\")
@@ -272,7 +272,7 @@ class ProductPolicy(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             xml_content=\"\"\"<policies>
           <inbound>
-            <find-and-replace from="xyz" to="abc" />
+            <find-and-replace from=\\"xyz\\" to=\\"abc\\" />
           </inbound>
         </policies>
         \"\"\")

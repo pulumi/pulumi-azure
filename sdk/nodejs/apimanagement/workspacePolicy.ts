@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     apiManagementWorkspaceId: exampleWorkspace.id,
  *     xmlContent: `<policies>
  *   <inbound>
- *     <find-and-replace from="abc" to="xyz" />
+ *     <find-and-replace from=\\"abc\\" to=\\"xyz\\" />
  *   </inbound>
  * </policies>
  * `,

@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *     name: "example-trigger",
  *     logicAppId: exampleWorkflow.id,
  *     body: `{
- *   "recurrence": {
- *     "frequency": "Day",
- *     "interval": 1
+ *   \\"recurrence\\": {
+ *     \\"frequency\\": \\"Day\\",
+ *     \\"interval\\": 1
  *   },
- *   "type": "Recurrence"
+ *   \\"type\\": \\"Recurrence\\"
  * }
  * `,
  * });

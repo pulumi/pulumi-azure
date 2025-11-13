@@ -16,6 +16,57 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Capacity:          pulumi.Int(1),
+//				Family:            pulumi.String("P"),
+//				SkuName:           pulumi.String("Premium"),
+//				EnableNonSslPort:  false,
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewCacheAccessPolicy(ctx, "example", &redis.CacheAccessPolicyArgs{
+//				Name:         pulumi.String("example"),
+//				RedisCacheId: exampleCache.ID(),
+//				Permissions:  pulumi.String("+@read +@connection +cluster|info"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

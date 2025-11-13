@@ -24,6 +24,88 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModule;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleArgs;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleAssignmentArgs;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleKey;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var example = new ManagedHardwareSecurityModule("example", ManagedHardwareSecurityModuleArgs.builder()
+ *             .name("example")
+ *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .location(exampleAzurermResourceGroup.location())
+ *             .skuName("Standard_B1")
+ *             .tenantId(current.tenantId())
+ *             .adminObjectIds(current.objectId())
+ *             .purgeProtectionEnabled(false)
+ *             .activeConfig(List.of(Map.ofEntries(
+ *                 Map.entry("securityDomainCertificate", List.of(                
+ *                     cert[0].id(),
+ *                     cert[1].id(),
+ *                     cert[2].id())),
+ *                 Map.entry("securityDomainQuorum", 2)
+ *             )))
+ *             .build());
+ * 
+ *         // this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
+ *         var hsm_crypto_user = new ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user", ManagedHardwareSecurityModuleRoleAssignmentArgs.builder()
+ *             .managedHsmId(test.id())
+ *             .name("1e243909-064c-6ac3-84e9-1c8bf8d6ad22")
+ *             .scope("/keys")
+ *             .roleDefinitionId("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/21dbd100-6940-42c2-9190-5d6cb909625b")
+ *             .principalId(current.objectId())
+ *             .build());
+ * 
+ *         // this gives your service principal the HSM Crypto Officer role which lets you purge hsm keys
+ *         var hsm_crypto_officer = new ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-officer", ManagedHardwareSecurityModuleRoleAssignmentArgs.builder()
+ *             .managedHsmId(test.id())
+ *             .name("1e243909-064c-6ac3-84e9-1c8bf8d6ad23")
+ *             .scope("/keys")
+ *             .roleDefinitionId("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/515eb02d-2335-4d2d-92f2-b1cbdf9c3778")
+ *             .principalId(current.objectId())
+ *             .build());
+ * 
+ *         var exampleManagedHardwareSecurityModuleKey = new ManagedHardwareSecurityModuleKey("exampleManagedHardwareSecurityModuleKey", ManagedHardwareSecurityModuleKeyArgs.builder()
+ *             .name("example")
+ *             .managedHsmId(test.id())
+ *             .keyType("EC-HSM")
+ *             .curve("P-521")
+ *             .keyOpts("sign")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     testAzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment,
+ *                     test1)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

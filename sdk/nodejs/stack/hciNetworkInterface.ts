@@ -11,6 +11,54 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleHciLogicalNetwork = new azure.stack.HciLogicalNetwork("example", {
+ *     name: "example-hci-ln",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     customLocationId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+ *     virtualSwitchName: "ConvergedSwitch(managementcompute)",
+ *     dnsServers: [
+ *         "10.0.0.7",
+ *         "10.0.0.8",
+ *     ],
+ *     subnet: {
+ *         ipAllocationMethod: "Static",
+ *         addressPrefix: "10.0.0.0/24",
+ *         route: {
+ *             name: "example-route",
+ *             addressPrefix: "0.0.0.0/0",
+ *             nextHopIpAddress: "10.0.20.1",
+ *         },
+ *         vlanId: 123,
+ *     },
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * const exampleHciNetworkInterface = new azure.stack.HciNetworkInterface("example", {
+ *     name: "example-ni",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     customLocationId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+ *     dnsServers: ["10.0.0.8"],
+ *     ipConfiguration: {
+ *         privateIpAddress: "10.0.0.2",
+ *         subnetId: test.id,
+ *     },
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

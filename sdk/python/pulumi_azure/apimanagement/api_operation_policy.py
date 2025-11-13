@@ -272,7 +272,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
             operation_id=example_api_operation.operation_id,
             xml_content=\"\"\"<policies>
           <inbound>
-            <find-and-replace from="xyz" to="abc" />
+            <find-and-replace from=\\"xyz\\" to=\\"abc\\" />
           </inbound>
         </policies>
         \"\"\")
@@ -347,7 +347,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
             operation_id=example_api_operation.operation_id,
             xml_content=\"\"\"<policies>
           <inbound>
-            <find-and-replace from="xyz" to="abc" />
+            <find-and-replace from=\\"xyz\\" to=\\"abc\\" />
           </inbound>
         </policies>
         \"\"\")

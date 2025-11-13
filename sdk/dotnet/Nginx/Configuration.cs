@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Nginx
     ///         listen 80;
     ///         location / {
     ///             default_type text/html;
-    ///             return 200 '&lt;!doctype html&gt;&lt;html lang=""en""&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+    ///             return 200 '&lt;!doctype html&gt;&lt;html lang=\""en\""&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
     ///                 &lt;div&gt;this one will be updated&lt;/div&gt;
     ///                 &lt;div&gt;at 10:38 am&lt;/div&gt;
     ///             &lt;/body&gt;&lt;/html&gt;';
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Nginx
     ///                 {
     ///                     Input = @"location /bbb {
     ///  default_type text/html;
-    ///  return 200 '&lt;!doctype html&gt;&lt;html lang=""en""&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+    ///  return 200 '&lt;!doctype html&gt;&lt;html lang=\""en\""&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
     ///   &lt;div&gt;this one will be updated&lt;/div&gt;
     ///   &lt;div&gt;at 10:38 am&lt;/div&gt;
     ///  &lt;/body&gt;&lt;/html&gt;';

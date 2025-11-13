@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .forceUpdateTag("1")
  *             .timeout("PT30M")
  *             .scriptContent("""
- *             echo "{\"name\":{\"displayName\":\"$1 $2\"}}" > $AZ_SCRIPTS_OUTPUT_PATH
+ *             echo \"{\\\"name\\\":{\\\"displayName\\\":\\\"$1 $2\\\"}}\" > $AZ_SCRIPTS_OUTPUT_PATH
  *             """)
  *             .identity(ResourceDeploymentScriptAzureCliIdentityArgs.builder()
  *                 .type("UserAssigned")

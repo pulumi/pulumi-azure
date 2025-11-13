@@ -42,7 +42,7 @@ import (
 //				ResourceGroupName: pulumi.String(example.ResourceGroupName),
 //				XmlContent: pulumi.String(`<policies>
 //	  <inbound>
-//	    <find-and-replace from="xyz" to="abc" />
+//	    <find-and-replace from=\"xyz\" to=\"abc\" />
 //	  </inbound>
 //
 // </policies>

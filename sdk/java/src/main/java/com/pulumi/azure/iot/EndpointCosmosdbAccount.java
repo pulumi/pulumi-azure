@@ -22,6 +22,102 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.iot.IoTHub;
+ * import com.pulumi.azure.iot.IoTHubArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
+ * import com.pulumi.azure.cosmosdb.Account;
+ * import com.pulumi.azure.cosmosdb.AccountArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
+ * import com.pulumi.azure.cosmosdb.SqlDatabase;
+ * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
+ * import com.pulumi.azure.cosmosdb.SqlContainer;
+ * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
+ * import com.pulumi.azure.iot.EndpointCosmosdbAccount;
+ * import com.pulumi.azure.iot.EndpointCosmosdbAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
+ *             .name("exampleIothub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku(IoTHubSkuArgs.builder()
+ *                 .name("B1")
+ *                 .capacity(1)
+ *                 .build())
+ *             .tags(Map.of("purpose", "example"))
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("cosmosdb-account")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
+ *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
+ *                 .consistencyLevel("Strong")
+ *                 .build())
+ *             .geoLocations(AccountGeoLocationArgs.builder()
+ *                 .location(example.location())
+ *                 .failoverPriority(0)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
+ *             .name("cosmos-sql-db")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .build());
+ * 
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
+ *             .name("example-container")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .databaseName(exampleSqlDatabase.name())
+ *             .partitionKeyPath("/definition/id")
+ *             .build());
+ * 
+ *         var exampleEndpointCosmosdbAccount = new EndpointCosmosdbAccount("exampleEndpointCosmosdbAccount", EndpointCosmosdbAccountArgs.builder()
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .iothubId(exampleIoTHub.id())
+ *             .containerName(exampleSqlContainer.name())
+ *             .databaseName(exampleSqlDatabase.name())
+ *             .endpointUri(exampleAccount.endpoint())
+ *             .primaryKey(exampleAccount.primaryKey())
+ *             .secondaryKey(exampleAccount.secondaryKey())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * IoTHub Cosmos DB Account Endpoint can be imported using the `resource id`, e.g.

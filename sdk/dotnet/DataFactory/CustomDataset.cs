@@ -55,7 +55,7 @@ namespace Pulumi.Azure.DataFactory
     ///         DataFactoryId = exampleFactory.Id,
     ///         Type = "AzureBlobStorage",
     ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
-    ///   ""connectionString"":""{primaryConnectionString}""
+    ///   \""connectionString\"":\""{primaryConnectionString}\""
     /// }}
     /// "),
     ///     });
@@ -81,13 +81,13 @@ namespace Pulumi.Azure.DataFactory
     ///             },
     ///         },
     ///         TypePropertiesJson = exampleContainer.Name.Apply(name =&gt; @$"{{
-    ///   ""location"": {{
-    ///     ""container"":""{name}"",
-    ///     ""fileName"":""foo.txt"",
-    ///     ""folderPath"": ""foo/bar/"",
-    ///     ""type"":""AzureBlobStorageLocation""
+    ///   \""location\"": {{
+    ///     \""container\"":\""{name}\"",
+    ///     \""fileName\"":\""foo.txt\"",
+    ///     \""folderPath\"": \""foo/bar/\"",
+    ///     \""type\"":\""AzureBlobStorageLocation\""
     ///   }},
-    ///   ""encodingName"":""UTF-8""
+    ///   \""encodingName\"":\""UTF-8\""
     /// }}
     /// "),
     ///         Description = "test description",
@@ -109,21 +109,21 @@ namespace Pulumi.Azure.DataFactory
     ///             { "bar", "test2" },
     ///         },
     ///         SchemaJson = @"{
-    ///   ""type"": ""object"",
-    ///   ""properties"": {
-    ///     ""name"": {
-    ///       ""type"": ""object"",
-    ///       ""properties"": {
-    ///         ""firstName"": {
-    ///           ""type"": ""string""
+    ///   \""type\"": \""object\"",
+    ///   \""properties\"": {
+    ///     \""name\"": {
+    ///       \""type\"": \""object\"",
+    ///       \""properties\"": {
+    ///         \""firstName\"": {
+    ///           \""type\"": \""string\""
     ///         },
-    ///         ""lastName"": {
-    ///           ""type"": ""string""
+    ///         \""lastName\"": {
+    ///           \""type\"": \""string\""
     ///         }
     ///       }
     ///     },
-    ///     ""age"": {
-    ///       ""type"": ""integer""
+    ///     \""age\"": {
+    ///       \""type\"": \""integer\""
     ///     }
     ///   }
     /// }

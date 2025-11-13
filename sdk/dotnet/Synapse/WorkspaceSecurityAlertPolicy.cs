@@ -14,6 +14,90 @@ namespace Pulumi.Azure.Synapse
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "examplestorageacc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         IsHnsEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         AadAdmin = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "login", "AzureAD Admin" },
+    ///                 { "objectId", "00000000-0000-0000-0000-000000000000" },
+    ///                 { "tenantId", "00000000-0000-0000-0000-000000000000" },
+    ///             },
+    ///         },
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var auditLogs = new Azure.Storage.Account("audit_logs", new()
+    ///     {
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleWorkspaceSecurityAlertPolicy = new Azure.Synapse.WorkspaceSecurityAlertPolicy("example", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         PolicyState = "Enabled",
+    ///         StorageEndpoint = auditLogs.PrimaryBlobEndpoint,
+    ///         StorageAccountAccessKey = auditLogs.PrimaryAccessKey,
+    ///         DisabledAlerts = new[]
+    ///         {
+    ///             "Sql_Injection",
+    ///             "Data_Exfiltration",
+    ///         },
+    ///         RetentionDays = 20,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Synapse Workspace Security Alert Policies can be imported using the `resource id`, e.g.

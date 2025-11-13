@@ -205,6 +205,40 @@ class FirewallRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.index.Id("server",
+            keepers={
+                aziId: 1,
+            },
+            byte_length=8)
+        example = azure.core.ResourceGroup("example",
+            name="redis-resourcegroup",
+            location="West Europe")
+        example_cache = azure.redis.Cache("example",
+            name=f"redis{server['hex']}",
+            location=example.location,
+            resource_group_name=example.name,
+            capacity=1,
+            family="P",
+            sku_name="Premium",
+            enable_non_ssl_port=False,
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            })
+        example_firewall_rule = azure.redis.FirewallRule("example",
+            name="someIPrange",
+            redis_cache_name=example_cache.name,
+            resource_group_name=example.name,
+            start_ip="1.2.3.4",
+            end_ip="2.3.4.5")
+        ```
+
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
@@ -238,6 +272,40 @@ class FirewallRule(pulumi.CustomResource):
         Manages a Firewall Rule associated with a Redis Cache.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.index.Id("server",
+            keepers={
+                aziId: 1,
+            },
+            byte_length=8)
+        example = azure.core.ResourceGroup("example",
+            name="redis-resourcegroup",
+            location="West Europe")
+        example_cache = azure.redis.Cache("example",
+            name=f"redis{server['hex']}",
+            location=example.location,
+            resource_group_name=example.name,
+            capacity=1,
+            family="P",
+            sku_name="Premium",
+            enable_non_ssl_port=False,
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            })
+        example_firewall_rule = azure.redis.FirewallRule("example",
+            name="someIPrange",
+            redis_cache_name=example_cache.name,
+            resource_group_name=example.name,
+            start_ip="1.2.3.4",
+            end_ip="2.3.4.5")
+        ```
 
         ## API Providers
 

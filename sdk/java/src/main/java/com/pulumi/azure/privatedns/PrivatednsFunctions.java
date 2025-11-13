@@ -2920,8 +2920,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecord;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2967,8 +2967,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecord;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -3014,8 +3014,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecord;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -3061,8 +3061,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecord;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -3108,8 +3108,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecord;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

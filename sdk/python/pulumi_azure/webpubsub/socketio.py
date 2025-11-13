@@ -681,6 +681,29 @@ class Socketio(pulumi.CustomResource):
         """
         Manages a Web PubSub Service for Socket.IO.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_socketio = azure.webpubsub.Socketio("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Free_F1"[0])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService` - 2024-03-01
+
         ## Import
 
         Web PubSub Service for Socket.IOs can be imported using the `resource id`, e.g.
@@ -719,6 +742,29 @@ class Socketio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Web PubSub Service for Socket.IO.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_socketio = azure.webpubsub.Socketio("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Free_F1"[0])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService` - 2024-03-01
 
         ## Import
 

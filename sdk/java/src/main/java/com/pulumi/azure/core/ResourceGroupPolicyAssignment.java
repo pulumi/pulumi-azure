@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  *             .policyDefinitionId(exampleDefinition.id())
  *             .parameters("""
  *     {
- *       "tagName": {
- *         "value": "Business Unit"
+ *       \"tagName\": {
+ *         \"value\": \"Business Unit\"
  *       },
- *       "tagValue": {
- *         "value": "BU"
+ *       \"tagValue\": {
+ *         \"value\": \"BU\"
  *       }
  *     }
  *             """)

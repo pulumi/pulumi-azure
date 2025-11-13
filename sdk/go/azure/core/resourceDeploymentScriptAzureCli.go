@@ -54,7 +54,7 @@ import (
 //				CleanupPreference: pulumi.String("OnSuccess"),
 //				ForceUpdateTag:    pulumi.String("1"),
 //				Timeout:           pulumi.String("PT30M"),
-//				ScriptContent:     pulumi.String("            echo \"{\\\"name\\\":{\\\"displayName\\\":\\\"$1 $2\\\"}}\" > $AZ_SCRIPTS_OUTPUT_PATH\n"),
+//				ScriptContent:     pulumi.String("            echo \\\"{\\\\\\\"name\\\\\\\":{\\\\\\\"displayName\\\\\\\":\\\\\\\"$1 $2\\\\\\\"}}\\\" > $AZ_SCRIPTS_OUTPUT_PATH\n"),
 //				Identity: &core.ResourceDeploymentScriptAzureCliIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{

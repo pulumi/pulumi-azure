@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .type("AzureBlobStorage")
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
  * }{{@code
- *   "connectionString": "%s"
+ *   \"connectionString\": \"%s\"
  * }}{@code
  * ", _primaryConnectionString)))
  *             .integrationRuntime(LinkedServiceIntegrationRuntimeArgs.builder()

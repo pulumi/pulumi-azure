@@ -12,6 +12,8 @@ import (
 )
 
 // Use this data source to retrieve a list of certificate names from an existing Key Vault.
+//
+// ## Example Usage
 func GetCertificates(ctx *pulumi.Context, args *GetCertificatesArgs, opts ...pulumi.InvokeOption) (*GetCertificatesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCertificatesResult

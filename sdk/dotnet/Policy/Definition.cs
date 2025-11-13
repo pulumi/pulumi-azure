@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Policy
     ///         Mode = "Indexed",
     ///         DisplayName = "acceptance test policy definition",
     ///         Metadata = @"    {
-    ///     ""category"": ""General""
+    ///     \""category\"": \""General\""
     ///     }
     /// 
     /// ",
@@ -48,12 +48,12 @@ namespace Pulumi.Azure.Policy
     ///   }
     /// ",
     ///         Parameters = @" {
-    ///     ""allowedLocations"": {
-    ///       ""type"": ""Array"",
-    ///       ""metadata"": {
-    ///         ""description"": ""The list of allowed locations for resources."",
-    ///         ""displayName"": ""Allowed locations"",
-    ///         ""strongType"": ""location""
+    ///     \""allowedLocations\"": {
+    ///       \""type\"": \""Array\"",
+    ///       \""metadata\"": {
+    ///         \""description\"": \""The list of allowed locations for resources.\"",
+    ///         \""displayName\"": \""Allowed locations\"",
+    ///         \""strongType\"": \""location\""
     ///       }
     ///     }
     ///   }

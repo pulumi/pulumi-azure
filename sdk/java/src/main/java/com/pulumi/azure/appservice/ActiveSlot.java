@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.random.RandomId;
+ * import com.pulumi.random.Id;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.AppService;
@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId("server");
+ *         var server = new Id("server");
  * 
  *         var example = new ResourceGroup("example");
  * 

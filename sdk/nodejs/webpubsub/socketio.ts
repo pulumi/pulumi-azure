@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a Web PubSub Service for Socket.IO.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleSocketio = new azure.webpubsub.Socketio("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Free_F1"[0],
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.SignalRService` - 2024-03-01
+ *
  * ## Import
  *
  * Web PubSub Service for Socket.IOs can be imported using the `resource id`, e.g.

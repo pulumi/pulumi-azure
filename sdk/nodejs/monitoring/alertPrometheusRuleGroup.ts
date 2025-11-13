@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     rules: [
  *         {
  *             enabled: false,
- *             expression: "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\"billing-processing\"}[5m])) by (job_type))\n",
+ *             expression: "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\\"billing-processing\\\"}[5m])) by (job_type))\n",
  *             record: "job_type:billing_jobs_duration_seconds:99p5m",
  *             labels: {
  *                 team: "prod",
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *         {
  *             alert: "Billing_Processing_Very_Slow",
  *             enabled: true,
- *             expression: "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\"billing-processing\"}[5m])) by (job_type))\n",
+ *             expression: "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\\"billing-processing\\\"}[5m])) by (job_type))\n",
  *             "for": "PT5M",
  *             severity: 2,
  *             actions: [{

@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     cleanupPreference: "OnSuccess",
  *     forceUpdateTag: "1",
  *     timeout: "PT30M",
- *     scriptContent: "            echo \"{\\\"name\\\":{\\\"displayName\\\":\\\"$1 $2\\\"}}\" > $AZ_SCRIPTS_OUTPUT_PATH\n",
+ *     scriptContent: "            echo \\\"{\\\\\\\"name\\\\\\\":{\\\\\\\"displayName\\\\\\\":\\\\\\\"$1 $2\\\\\\\"}}\\\" > $AZ_SCRIPTS_OUTPUT_PATH\n",
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],

@@ -11,6 +11,48 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resource-group",
+ *     location: "West Europe",
+ * });
+ * const exampleRegistry = new azure.containerservice.Registry("example", {
+ *     name: "example-registry",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Basic",
+ *     adminEnabled: false,
+ *     georeplicationLocations: [
+ *         "East US",
+ *         "West Europe",
+ *     ],
+ * });
+ * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("example", {
+ *     name: "example-scope-map",
+ *     containerRegistryName: exampleRegistry.name,
+ *     resourceGroupName: example.name,
+ *     actions: [
+ *         "repositories/repo1/content/read",
+ *         "repositories/repo1/content/write",
+ *     ],
+ * });
+ * const exampleRegistryToken = new azure.containerservice.RegistryToken("example", {
+ *     name: "exampletoken",
+ *     containerRegistryName: exampleRegistry.name,
+ *     resourceGroupName: example.name,
+ *     scopeMapId: exampleRegistryScopeMap.id,
+ * });
+ * const exampleTokenPassword = new azure.containerservice.TokenPassword("example", {
+ *     containerRegistryTokenId: exampleRegistryToken.id,
+ *     password1: {
+ *         expiry: "2023-03-22T17:57:36+08:00",
+ *     },
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

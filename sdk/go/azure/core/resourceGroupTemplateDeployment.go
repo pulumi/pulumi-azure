@@ -16,6 +16,123 @@ import (
 //
 // > **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `deleteNestedItemsDuringDeletion` field to `false` within the `templateDeployment` block.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// vnetName := "example-vnet";
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "vnetName": map[string]interface{}{
+// "value": vnetName,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// example, err := core.NewResourceGroupTemplateDeployment(ctx, "example", &core.ResourceGroupTemplateDeploymentArgs{
+// Name: pulumi.String("example-deploy"),
+// ResourceGroupName: pulumi.String("example-group"),
+// DeploymentMode: pulumi.String("Incremental"),
+// ParametersContent: pulumi.String(json0),
+//
+//	TemplateContent: pulumi.String(`{
+//	    \"$schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",
+//	    \"contentVersion\": \"1.0.0.0\",
+//	    \"parameters\": {
+//	        \"vnetName\": {
+//	            \"type\": \"string\",
+//	            \"metadata\": {
+//	                \"description\": \"Name of the VNET\"
+//	            }
+//	        }
+//	    },
+//	    \"variables\": {},
+//	    \"resources\": [
+//	        {
+//	            \"type\": \"Microsoft.Network/virtualNetworks\",
+//	            \"apiVersion\": \"2020-05-01\",
+//	            \"name\": \"[parameters('vnetName')]\",
+//	            \"location\": \"[resourceGroup().location]\",
+//	            \"properties\": {
+//	                \"addressSpace\": {
+//	                    \"addressPrefixes\": [
+//	                        \"10.0.0.0/16\"
+//	                    ]
+//	                }
+//	            }
+//	        }
+//	    ],
+//	    \"outputs\": {
+//	      \"exampleOutput\": {
+//	        \"type\": \"string\",
+//	        \"value\": \"someoutput\"
+//	      }
+//	    }
+//	}
+//
+// `),
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("armExampleOutput", std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
+// Input: example.OutputContent,
+// }, nil).ApplyT(func(invoke std.JsondecodeResult) (*interface{}, error) {
+// return invoke.Result.ExampleOutput.Value, nil
+// }).(pulumi.Interface{}PtrOutput))
+// return nil
+// })
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
+//				Name:              "myTemplateForResourceGroup",
+//				ResourceGroupName: "myResourceGroup",
+//				Version:           "v3.4.0",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourceGroupTemplateDeployment(ctx, "example", &core.ResourceGroupTemplateDeploymentArgs{
+//				Name:                  pulumi.String("example-deploy"),
+//				ResourceGroupName:     pulumi.String("example-group"),
+//				DeploymentMode:        pulumi.String("Incremental"),
+//				TemplateSpecVersionId: pulumi.String(example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Resource Group Template Deployments can be imported using the `resource id`, e.g.

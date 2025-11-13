@@ -42,13 +42,13 @@ import (
 //			}
 //			custom := customRoleDefinition.RoleDefinitionId.ApplyT(func(roleDefinitionId string) (authorization.GetRoleDefinitionResult, error) {
 //				return authorization.GetRoleDefinitionResult(authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-//					RoleDefinitionId: pulumi.StringRef(pulumi.String(pulumi.StringRef(roleDefinitionId))),
+//					RoleDefinitionId: pulumi.StringRef(pulumi.StringRef(roleDefinitionId)),
 //					Scope:            pulumi.StringRef(pulumi.StringRef(primary.Id)),
 //				}, nil)), nil
 //			}).(authorization.GetRoleDefinitionResultOutput)
 //			_ = customRoleDefinition.Name.ApplyT(func(name string) (authorization.GetRoleDefinitionResult, error) {
 //				return authorization.GetRoleDefinitionResult(authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-//					Name:  pulumi.StringRef(pulumi.String(pulumi.StringRef(name))),
+//					Name:  pulumi.StringRef(pulumi.StringRef(name)),
 //					Scope: pulumi.StringRef(pulumi.StringRef(primary.Id)),
 //				}, nil)), nil
 //			}).(authorization.GetRoleDefinitionResultOutput)
@@ -58,7 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("customRoleDefinitionId", custom.ID())
+//			ctx.Export("customRoleDefinitionId", custom.Id)
 //			ctx.Export("contributorRoleDefinitionId", builtin.Id)
 //			return nil
 //		})

@@ -18,6 +18,86 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.redis.Cache;
+ * import com.pulumi.azure.redis.CacheArgs;
+ * import com.pulumi.azure.redis.inputs.CacheRedisConfigurationArgs;
+ * import com.pulumi.azure.redis.LinkedServer;
+ * import com.pulumi.azure.redis.LinkedServerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example_primary = new ResourceGroup("example-primary", ResourceGroupArgs.builder()
+ *             .name("example-resources-primary")
+ *             .location("East US")
+ *             .build());
+ * 
+ *         var example_primaryCache = new Cache("example-primaryCache", CacheArgs.builder()
+ *             .name("example-cache1")
+ *             .location(example_primary.location())
+ *             .resourceGroupName(example_primary.name())
+ *             .capacity(1)
+ *             .family("P")
+ *             .skuName("Premium")
+ *             .enableNonSslPort(false)
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .maxmemoryReserved(2)
+ *                 .maxmemoryDelta(2)
+ *                 .maxmemoryPolicy("allkeys-lru")
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_secondary = new ResourceGroup("example-secondary", ResourceGroupArgs.builder()
+ *             .name("example-resources-secondary")
+ *             .location("West US")
+ *             .build());
+ * 
+ *         var example_secondaryCache = new Cache("example-secondaryCache", CacheArgs.builder()
+ *             .name("example-cache2")
+ *             .location(example_secondary.location())
+ *             .resourceGroupName(example_secondary.name())
+ *             .capacity(1)
+ *             .family("P")
+ *             .skuName("Premium")
+ *             .enableNonSslPort(false)
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .maxmemoryReserved(2)
+ *                 .maxmemoryDelta(2)
+ *                 .maxmemoryPolicy("allkeys-lru")
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_link = new LinkedServer("example-link", LinkedServerArgs.builder()
+ *             .targetRedisCacheName(example_primaryCache.name())
+ *             .resourceGroupName(example_primaryCache.resourceGroupName())
+ *             .linkedRedisCacheId(example_secondaryCache.id())
+ *             .linkedRedisCacheLocation(example_secondaryCache.location())
+ *             .serverRole("Secondary")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

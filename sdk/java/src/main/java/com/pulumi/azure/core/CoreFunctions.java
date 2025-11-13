@@ -921,12 +921,92 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Resource Group Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs args) {
         return getResourceGroupTemplateDeployment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Resource Group Template Deployment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeploymentPlain(GetResourceGroupTemplateDeploymentPlainArgs args) {
@@ -935,6 +1015,46 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Resource Group Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", TypeShape.of(GetResourceGroupTemplateDeploymentResult.class), args, Utilities.withVersion(options));
@@ -942,12 +1062,92 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Resource Group Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", TypeShape.of(GetResourceGroupTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Resource Group Template Deployment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeploymentPlain(GetResourceGroupTemplateDeploymentPlainArgs args, InvokeOptions options) {
@@ -1285,12 +1485,90 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Subscription Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs args) {
         return getSubscriptionTemplateDeployment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Subscription Template Deployment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeploymentPlain(GetSubscriptionTemplateDeploymentPlainArgs args) {
@@ -1299,6 +1577,45 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Subscription Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", TypeShape.of(GetSubscriptionTemplateDeploymentResult.class), args, Utilities.withVersion(options));
@@ -1306,12 +1623,90 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Subscription Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", TypeShape.of(GetSubscriptionTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Subscription Template Deployment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeploymentPlain(GetSubscriptionTemplateDeploymentPlainArgs args, InvokeOptions options) {
@@ -1857,12 +2252,90 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Tenant Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetTenantTemplateDeploymentResult> getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs args) {
         return getTenantTemplateDeployment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Tenant Template Deployment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetTenantTemplateDeploymentResult> getTenantTemplateDeploymentPlain(GetTenantTemplateDeploymentPlainArgs args) {
@@ -1871,6 +2344,45 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Tenant Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetTenantTemplateDeploymentResult> getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", TypeShape.of(GetTenantTemplateDeploymentResult.class), args, Utilities.withVersion(options));
@@ -1878,12 +2390,90 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Tenant Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetTenantTemplateDeploymentResult> getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", TypeShape.of(GetTenantTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Tenant Template Deployment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetTenantTemplateDeploymentResult> getTenantTemplateDeploymentPlain(GetTenantTemplateDeploymentPlainArgs args, InvokeOptions options) {

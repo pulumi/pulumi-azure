@@ -16,6 +16,69 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				PublisherName:     pulumi.String("pub1"),
+//				PublisherEmail:    pulumi.String("pub1@email.com"),
+//				SkuName:           pulumi.String("Consumption_0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
+//				Name:               pulumi.String("example-cache"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
+//				Capacity:           pulumi.Int(1),
+//				Family:             pulumi.String("C"),
+//				SkuName:            pulumi.String("Basic"),
+//				EnableNonSslPort:   false,
+//				MinimumTlsVersion:  pulumi.String("1.2"),
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewRedisCache(ctx, "example", &apimanagement.RedisCacheArgs{
+//				Name:             pulumi.String("example-Redis-Cache"),
+//				ApiManagementId:  exampleService.ID(),
+//				ConnectionString: exampleCache.PrimaryConnectionString,
+//				Description:      pulumi.String("Redis cache instances"),
+//				RedisCacheId:     exampleCache.ID(),
+//				CacheLocation:    pulumi.String("East Us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

@@ -7,6 +7,25 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Hardware Security Module Role Assignment.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const user = azure.keyvault.getManagedHardwareSecurityModuleRoleDefinition({
+ *     managedHsmId: exampleAzurermKeyVaultManagedHardwareSecurityModule.id,
+ *     name: "21dbd100-6940-42c2-9190-5d6cb909625b",
+ * });
+ * const example = new azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("example", {
+ *     name: "a9dbe818-56e7-5878-c0ce-a1477692c1d6",
+ *     managedHsmId: exampleAzurermKeyVaultManagedHardwareSecurityModule.id,
+ *     scope: user.then(user => user.scope),
+ *     roleDefinitionId: user.then(user => user.resourceManagerId),
+ *     principalId: current.objectId,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Managed Hardware Security Modules can be imported using the `resource id`, e.g.

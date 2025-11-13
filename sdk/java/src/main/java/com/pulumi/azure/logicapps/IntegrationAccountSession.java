@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .integrationAccountName(exampleIntegrationAccount.name())
  *             .content("""
  *  {
- *        "controlNumber": "1234"
+ *        \"controlNumber\": \"1234\"
  *     }
  *             """)
  *             .build());

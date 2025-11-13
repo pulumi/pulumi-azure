@@ -13,18 +13,99 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access information about an existing Tenant Template Deployment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetTenantTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.OutputContent),
+        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetTenantTemplateDeploymentResult> InvokeAsync(GetTenantTemplateDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTenantTemplateDeploymentResult>("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args ?? new GetTenantTemplateDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Tenant Template Deployment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetTenantTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.OutputContent),
+        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetTenantTemplateDeploymentResult> Invoke(GetTenantTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantTemplateDeploymentResult>("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args ?? new GetTenantTemplateDeploymentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Tenant Template Deployment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetTenantTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.OutputContent),
+        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetTenantTemplateDeploymentResult> Invoke(GetTenantTemplateDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantTemplateDeploymentResult>("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args ?? new GetTenantTemplateDeploymentInvokeArgs(), options.WithDefaults());

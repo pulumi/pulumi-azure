@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Monitoring
     ///             new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleArgs
     ///             {
     ///                 Enabled = false,
-    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=""billing-processing""}[5m])) by (job_type))
+    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\""billing-processing\""}[5m])) by (job_type))
     /// ",
     ///                 Record = "job_type:billing_jobs_duration_seconds:99p5m",
     ///                 Labels = 
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Monitoring
     ///             {
     ///                 Alert = "Billing_Processing_Very_Slow",
     ///                 Enabled = true,
-    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=""billing-processing""}[5m])) by (job_type))
+    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\""billing-processing\""}[5m])) by (job_type))
     /// ",
     ///                 For = "PT5M",
     ///                 Severity = 2,

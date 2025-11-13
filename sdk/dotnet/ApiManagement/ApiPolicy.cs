@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         ResourceGroupName = example.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
     ///         XmlContent = @"&lt;policies&gt;
     ///   &lt;inbound&gt;
-    ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;
+    ///     &lt;find-and-replace from=\""xyz\"" to=\""abc\"" /&gt;
     ///   &lt;/inbound&gt;
     /// &lt;/policies&gt;
     /// ",

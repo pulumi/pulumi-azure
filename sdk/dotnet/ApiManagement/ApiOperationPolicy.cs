@@ -65,7 +65,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         OperationId = exampleApiOperation.OperationId,
     ///         XmlContent = @"&lt;policies&gt;
     ///   &lt;inbound&gt;
-    ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;
+    ///     &lt;find-and-replace from=\""xyz\"" to=\""abc\"" /&gt;
     ///   &lt;/inbound&gt;
     /// &lt;/policies&gt;
     /// ",

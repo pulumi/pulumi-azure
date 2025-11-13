@@ -61,10 +61,10 @@ import javax.annotation.Nullable;
  *             .logicAppId(exampleWorkflow.id())
  *             .schema("""
  * {
- *     "type": "object",
- *     "properties": {
- *         "hello": {
- *             "type": "string"
+ *     \"type\": \"object\",
+ *     \"properties\": {
+ *         \"hello\": {
+ *             \"type\": \"string\"
  *         }
  *     }
  * }

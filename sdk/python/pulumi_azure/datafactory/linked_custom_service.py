@@ -367,7 +367,7 @@ class LinkedCustomService(pulumi.CustomResource):
             type="AzureBlobStorage",
             description="test description",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
+          \\"connectionString\\":\\"{primary_connection_string}\\"
         }}
         \"\"\"),
             parameters={
@@ -439,7 +439,7 @@ class LinkedCustomService(pulumi.CustomResource):
             type="AzureBlobStorage",
             description="test description",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
+          \\"connectionString\\":\\"{primary_connection_string}\\"
         }}
         \"\"\"),
             parameters={

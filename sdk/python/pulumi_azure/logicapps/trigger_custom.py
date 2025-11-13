@@ -180,11 +180,11 @@ class TriggerCustom(pulumi.CustomResource):
             name="example-trigger",
             logic_app_id=example_workflow.id,
             body=\"\"\"{
-          "recurrence": {
-            "frequency": "Day",
-            "interval": 1
+          \\"recurrence\\": {
+            \\"frequency\\": \\"Day\\",
+            \\"interval\\": 1
           },
-          "type": "Recurrence"
+          \\"type\\": \\"Recurrence\\"
         }
         \"\"\")
         ```
@@ -231,11 +231,11 @@ class TriggerCustom(pulumi.CustomResource):
             name="example-trigger",
             logic_app_id=example_workflow.id,
             body=\"\"\"{
-          "recurrence": {
-            "frequency": "Day",
-            "interval": 1
+          \\"recurrence\\": {
+            \\"frequency\\": \\"Day\\",
+            \\"interval\\": 1
           },
-          "type": "Recurrence"
+          \\"type\\": \\"Recurrence\\"
         }
         \"\"\")
         ```

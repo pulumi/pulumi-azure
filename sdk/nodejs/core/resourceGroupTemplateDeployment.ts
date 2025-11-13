@@ -9,6 +9,81 @@ import * as utilities from "../utilities";
  *
  * > **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `deleteNestedItemsDuringDeletion` field to `false` within the `templateDeployment` block.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const vnetName = "example-vnet";
+ * const example = new azure.core.ResourceGroupTemplateDeployment("example", {
+ *     name: "example-deploy",
+ *     resourceGroupName: "example-group",
+ *     deploymentMode: "Incremental",
+ *     parametersContent: JSON.stringify({
+ *         vnetName: {
+ *             value: vnetName,
+ *         },
+ *     }),
+ *     templateContent: `{
+ *     \\"schema\\": \\"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\\",
+ *     \\"contentVersion\\": \\"1.0.0.0\\",
+ *     \\"parameters\\": {
+ *         \\"vnetName\\": {
+ *             \\"type\\": \\"string\\",
+ *             \\"metadata\\": {
+ *                 \\"description\\": \\"Name of the VNET\\"
+ *             }
+ *         }
+ *     },
+ *     \\"variables\\": {},
+ *     \\"resources\\": [
+ *         {
+ *             \\"type\\": \\"Microsoft.Network/virtualNetworks\\",
+ *             \\"apiVersion\\": \\"2020-05-01\\",
+ *             \\"name\\": \\"[parameters('vnetName')]\\",
+ *             \\"location\\": \\"[resourceGroup().location]\\",
+ *             \\"properties\\": {
+ *                 \\"addressSpace\\": {
+ *                     \\"addressPrefixes\\": [
+ *                         \\"10.0.0.0/16\\"
+ *                     ]
+ *                 }
+ *             }
+ *         }
+ *     ],
+ *     \\"outputs\\": {
+ *       \\"exampleOutput\\": {
+ *         \\"type\\": \\"string\\",
+ *         \\"value\\": \\"someoutput\\"
+ *       }
+ *     }
+ * }
+ * `,
+ * });
+ * export const armExampleOutput = std.jsondecodeOutput({
+ *     input: example.outputContent,
+ * }).apply(invoke => invoke.result?.exampleOutput?.value);
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.core.getTemplateSpecVersion({
+ *     name: "myTemplateForResourceGroup",
+ *     resourceGroupName: "myResourceGroup",
+ *     version: "v3.4.0",
+ * });
+ * const exampleResourceGroupTemplateDeployment = new azure.core.ResourceGroupTemplateDeployment("example", {
+ *     name: "example-deploy",
+ *     resourceGroupName: "example-group",
+ *     deploymentMode: "Incremental",
+ *     templateSpecVersionId: example.then(example => example.id),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Resource Group Template Deployments can be imported using the `resource id`, e.g.

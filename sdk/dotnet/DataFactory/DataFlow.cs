@@ -50,7 +50,7 @@ namespace Pulumi.Azure.DataFactory
     ///         DataFactoryId = exampleFactory.Id,
     ///         Type = "AzureBlobStorage",
     ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
-    ///   ""connectionString"": ""{primaryConnectionString}""
+    ///   \""connectionString\"": \""{primaryConnectionString}\""
     /// }}
     /// "),
     ///     });

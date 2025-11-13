@@ -351,12 +351,12 @@ class PolicySetDefinition(pulumi.CustomResource):
             policy_type="Custom",
             display_name="Example",
             parameters=\"\"\"    {
-                "allowedLocations": {
-                    "type": "Array",
-                    "metadata": {
-                        "description": "The list of allowed locations for resources.",
-                        "displayName": "Allowed locations",
-                        "strongType": "location"
+                \\"allowedLocations\\": {
+                    \\"type\\": \\"Array\\",
+                    \\"metadata\\": {
+                        \\"description\\": \\"The list of allowed locations for resources.\\",
+                        \\"displayName\\": \\"Allowed locations\\",
+                        \\"strongType\\": \\"location\\"
                     }
                 }
             }
@@ -365,7 +365,7 @@ class PolicySetDefinition(pulumi.CustomResource):
                 "version": "1.0.*",
                 "policy_definition_id": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
                 "parameter_values": \"\"\"    {
-              "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
+              \\"listOfAllowedLocations\\": {\\"value\\": \\"[parameters('allowedLocations')]\\"}
             }
         \"\"\",
             }])
@@ -421,12 +421,12 @@ class PolicySetDefinition(pulumi.CustomResource):
             policy_type="Custom",
             display_name="Example",
             parameters=\"\"\"    {
-                "allowedLocations": {
-                    "type": "Array",
-                    "metadata": {
-                        "description": "The list of allowed locations for resources.",
-                        "displayName": "Allowed locations",
-                        "strongType": "location"
+                \\"allowedLocations\\": {
+                    \\"type\\": \\"Array\\",
+                    \\"metadata\\": {
+                        \\"description\\": \\"The list of allowed locations for resources.\\",
+                        \\"displayName\\": \\"Allowed locations\\",
+                        \\"strongType\\": \\"location\\"
                     }
                 }
             }
@@ -435,7 +435,7 @@ class PolicySetDefinition(pulumi.CustomResource):
                 "version": "1.0.*",
                 "policy_definition_id": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
                 "parameter_values": \"\"\"    {
-              "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
+              \\"listOfAllowedLocations\\": {\\"value\\": \\"[parameters('allowedLocations')]\\"}
             }
         \"\"\",
             }])

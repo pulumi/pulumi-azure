@@ -14,6 +14,43 @@ import (
 
 // Manages a Managed Hardware Security Module Role Assignment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			user, err := keyvault.LookupManagedHardwareSecurityModuleRoleDefinition(ctx, &keyvault.LookupManagedHardwareSecurityModuleRoleDefinitionArgs{
+//				ManagedHsmId: exampleAzurermKeyVaultManagedHardwareSecurityModule.Id,
+//				Name:         "21dbd100-6940-42c2-9190-5d6cb909625b",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedHardwareSecurityModuleRoleAssignment(ctx, "example", &keyvault.ManagedHardwareSecurityModuleRoleAssignmentArgs{
+//				Name:             pulumi.String("a9dbe818-56e7-5878-c0ce-a1477692c1d6"),
+//				ManagedHsmId:     pulumi.Any(exampleAzurermKeyVaultManagedHardwareSecurityModule.Id),
+//				Scope:            pulumi.Any(user.Scope),
+//				RoleDefinitionId: pulumi.String(user.ResourceManagerId),
+//				PrincipalId:      pulumi.Any(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Managed Hardware Security Modules can be imported using the `resource id`, e.g.

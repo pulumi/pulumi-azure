@@ -14,6 +14,51 @@ namespace Pulumi.Azure.Redis
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Capacity = 1,
+    ///         Family = "P",
+    ///         SkuName = "Premium",
+    ///         EnableNonSslPort = false,
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCacheAccessPolicyAssignment = new Azure.Redis.CacheAccessPolicyAssignment("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         RedisCacheId = exampleCache.Id,
+    ///         AccessPolicyName = "Data Contributor",
+    ///         ObjectId = test.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         ObjectIdAlias = "ServicePrincipal",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

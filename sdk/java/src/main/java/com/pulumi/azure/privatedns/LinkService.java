@@ -25,6 +25,108 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.lb.LoadBalancer;
+ * import com.pulumi.azure.lb.LoadBalancerArgs;
+ * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.privatedns.LinkService;
+ * import com.pulumi.azure.privatedns.LinkServiceArgs;
+ * import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-network")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .addressSpaces("10.5.0.0/16")
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.5.1.0/24")
+ *             .enforcePrivateLinkServiceNetworkPolicies(true)
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
+ *             .name("example-api")
+ *             .sku("Standard")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .allocationMethod("Static")
+ *             .build());
+ * 
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
+ *             .name("example-lb")
+ *             .sku("Standard")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
+ *                 .name(examplePublicIp.name())
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()
+ *             .name("example-privatelink")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .autoApprovalSubscriptionIds("00000000-0000-0000-0000-000000000000")
+ *             .visibilitySubscriptionIds("00000000-0000-0000-0000-000000000000")
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
+ *             .natIpConfigurations(            
+ *                 LinkServiceNatIpConfigurationArgs.builder()
+ *                     .name("primary")
+ *                     .privateIpAddress("10.5.1.17")
+ *                     .privateIpAddressVersion("IPv4")
+ *                     .subnetId(exampleSubnet.id())
+ *                     .primary(true)
+ *                     .build(),
+ *                 LinkServiceNatIpConfigurationArgs.builder()
+ *                     .name("secondary")
+ *                     .privateIpAddress("10.5.1.18")
+ *                     .privateIpAddressVersion("IPv4")
+ *                     .subnetId(exampleSubnet.id())
+ *                     .primary(false)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

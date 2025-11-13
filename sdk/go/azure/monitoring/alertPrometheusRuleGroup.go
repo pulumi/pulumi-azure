@@ -85,7 +85,7 @@ import (
 //				Rules: monitoring.AlertPrometheusRuleGroupRuleArray{
 //					&monitoring.AlertPrometheusRuleGroupRuleArgs{
 //						Enabled:    pulumi.Bool(false),
-//						Expression: pulumi.String("histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\"billing-processing\"}[5m])) by (job_type))\n"),
+//						Expression: pulumi.String("histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\\"billing-processing\\\"}[5m])) by (job_type))\n"),
 //						Record:     pulumi.String("job_type:billing_jobs_duration_seconds:99p5m"),
 //						Labels: pulumi.StringMap{
 //							"team": pulumi.String("prod"),
@@ -94,7 +94,7 @@ import (
 //					&monitoring.AlertPrometheusRuleGroupRuleArgs{
 //						Alert:      pulumi.String("Billing_Processing_Very_Slow"),
 //						Enabled:    pulumi.Bool(true),
-//						Expression: pulumi.String("histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\"billing-processing\"}[5m])) by (job_type))\n"),
+//						Expression: pulumi.String("histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\\"billing-processing\\\"}[5m])) by (job_type))\n"),
 //						For:        pulumi.String("PT5M"),
 //						Severity:   pulumi.Int(2),
 //						Actions: monitoring.AlertPrometheusRuleGroupRuleActionArray{

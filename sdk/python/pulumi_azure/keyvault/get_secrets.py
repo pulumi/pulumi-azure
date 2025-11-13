@@ -88,6 +88,18 @@ def get_secrets(key_vault_id: Optional[_builtins.str] = None,
     """
     Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+    import pulumi_std as std
+
+    example = azure.keyvault.get_secrets(key_vault_id=existing["id"])
+    example_get_secret = {__key: azure.keyvault.get_secret(name=__key,
+        key_vault_id=existing["id"]) for __key, __value in std.toset(input=example.names).result}
+    ```
+
 
     :param _builtins.str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
            
@@ -107,6 +119,18 @@ def get_secrets_output(key_vault_id: Optional[pulumi.Input[_builtins.str]] = Non
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+    import pulumi_std as std
+
+    example = azure.keyvault.get_secrets(key_vault_id=existing["id"])
+    example_get_secret = {__key: azure.keyvault.get_secret(name=__key,
+        key_vault_id=existing["id"]) for __key, __value in std.toset(input=example.names).result}
+    ```
 
 
     :param _builtins.str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.

@@ -25,6 +25,55 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.oracle.AutonomousDatabase;
+ * import com.pulumi.azure.oracle.AutonomousDatabaseArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AutonomousDatabase("example", AutonomousDatabaseArgs.builder()
+ *             .name("example")
+ *             .resourceGroupName("example")
+ *             .location("West Europe")
+ *             .subnetId("example")
+ *             .displayName("example")
+ *             .dbWorkload("example")
+ *             .mtlsConnectionRequired(false)
+ *             .backupRetentionPeriodInDays(42)
+ *             .computeModel("example")
+ *             .dataStorageSizeInGbs(42)
+ *             .autoScalingForStorageEnabled(false)
+ *             .virtualNetworkId("example")
+ *             .adminPassword("example")
+ *             .autoScalingEnabled("example")
+ *             .characterSet("example")
+ *             .computeCount(1.23456)
+ *             .nationalCharacterSet("example")
+ *             .licenseModel("false")
+ *             .dbVersion("example")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## &gt; **Note:** `allowedIps`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
  * 
  *               size: the maximum number of Ips provided shouldn&#39;t exceed 1024. At this time we only support IpV4.

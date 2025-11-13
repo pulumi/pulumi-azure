@@ -70,6 +70,89 @@ namespace Pulumi.Azure.Network
     /// });
     /// ```
     /// 
+    /// ### Global Virtual Network Peering)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var location = config.GetObject&lt;dynamic&gt;("location") ?? new[]
+    ///     {
+    ///         "uksouth",
+    ///         "southeastasia",
+    ///     };
+    ///     var vnetAddressSpace = config.GetObject&lt;dynamic&gt;("vnetAddressSpace") ?? new[]
+    ///     {
+    ///         "10.0.0.0/16",
+    ///         "10.1.0.0/16",
+    ///     };
+    ///     var example = new List&lt;Azure.Core.ResourceGroup&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; location.Length; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         example.Add(new Azure.Core.ResourceGroup($"example-{range.Value}", new()
+    ///         {
+    ///             Name = $"rg-global-vnet-peering-{range.Value}",
+    ///             Location = location[range.Value],
+    ///         }));
+    ///     }
+    ///     var vnet = new List&lt;Azure.Network.VirtualNetwork&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; location.Length; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         vnet.Add(new Azure.Network.VirtualNetwork($"vnet-{range.Value}", new()
+    ///         {
+    ///             Name = $"vnet-{range.Value}",
+    ///             ResourceGroupName = example.Select(__item =&gt; __item.Name).ToList()[range.Value],
+    ///             AddressSpaces = new[]
+    ///             {
+    ///                 vnetAddressSpace[range.Value],
+    ///             },
+    ///             Location = example.Select(__item =&gt; __item.Location).ToList()[range.Value],
+    ///         }));
+    ///     }
+    ///     var nva = new List&lt;Azure.Network.Subnet&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; location.Length; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         nva.Add(new Azure.Network.Subnet($"nva-{range.Value}", new()
+    ///         {
+    ///             Name = "nva",
+    ///             ResourceGroupName = example.Select(__item =&gt; __item.Name).ToList()[range.Value],
+    ///             VirtualNetworkName = vnet.Select(__item =&gt; __item.Name).ToList()[range.Value],
+    ///             AddressPrefix = Std.Cidrsubnet.Invoke(new()
+    ///             {
+    ///                 Input = vnet[range.Value].AddressSpace[range.Value],
+    ///                 Newbits = 13,
+    ///                 Netnum = 0,
+    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///         }));
+    ///     }
+    ///     // enable global peering between the two virtual network
+    ///     var peering = new List&lt;Azure.Network.VirtualNetworkPeering&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; location.Length; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         peering.Add(new Azure.Network.VirtualNetworkPeering($"peering-{range.Value}", new()
+    ///         {
+    ///             Name = vnet.Select(__item =&gt; __item.Name).ToList()[1 - range.Value].Apply(names =&gt; $"peering-to-{names}"),
+    ///             ResourceGroupName = example.Select(__item =&gt; __item.Name).ToList()[range.Value],
+    ///             VirtualNetworkName = vnet.Select(__item =&gt; __item.Name).ToList()[range.Value],
+    ///             RemoteVirtualNetworkId = vnet.Select(__item =&gt; __item.Id).ToList()[1 - range.Value],
+    ///             AllowVirtualNetworkAccess = true,
+    ///             AllowForwardedTraffic = true,
+    ///             AllowGatewayTransit = false,
+    ///         }));
+    ///     }
+    /// });
+    /// ```
+    /// 
     /// ### Triggers)
     /// 
     /// ```csharp

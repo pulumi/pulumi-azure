@@ -9,6 +9,47 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@terraform.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleApi = new azure.apimanagement.Api("example", {
+ *     name: "example-api",
+ *     resourceGroupName: example.name,
+ *     apiManagementName: exampleService.name,
+ *     revision: "1",
+ *     displayName: "Example API",
+ *     path: "example",
+ *     protocols: ["https"],
+ *     "import": {
+ *         contentFormat: "swagger-link-json",
+ *         contentValue: "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+ *     },
+ * });
+ * const exampleTag = new azure.apimanagement.Tag("example", {
+ *     apiManagementId: exampleService.id,
+ *     name: "example-Tag",
+ * });
+ * const exampleApiTagDescription = new azure.apimanagement.ApiTagDescription("example", {
+ *     apiTagId: exampleTag.id,
+ *     description: "This is an example description",
+ *     externalDocsUrl: "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+ *     externalDocsDescription: "This is an example external docs description",
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

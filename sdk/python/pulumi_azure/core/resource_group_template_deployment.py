@@ -338,6 +338,76 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
 
         > **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        vnet_name = "example-vnet"
+        example = azure.core.ResourceGroupTemplateDeployment("example",
+            name="example-deploy",
+            resource_group_name="example-group",
+            deployment_mode="Incremental",
+            parameters_content=json.dumps({
+                "vnetName": {
+                    "value": vnet_name,
+                },
+            }),
+            template_content=\"\"\"{
+            \\"$schema\\": \\"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\\",
+            \\"contentVersion\\": \\"1.0.0.0\\",
+            \\"parameters\\": {
+                \\"vnetName\\": {
+                    \\"type\\": \\"string\\",
+                    \\"metadata\\": {
+                        \\"description\\": \\"Name of the VNET\\"
+                    }
+                }
+            },
+            \\"variables\\": {},
+            \\"resources\\": [
+                {
+                    \\"type\\": \\"Microsoft.Network/virtualNetworks\\",
+                    \\"apiVersion\\": \\"2020-05-01\\",
+                    \\"name\\": \\"[parameters('vnetName')]\\",
+                    \\"location\\": \\"[resourceGroup().location]\\",
+                    \\"properties\\": {
+                        \\"addressSpace\\": {
+                            \\"addressPrefixes\\": [
+                                \\"10.0.0.0/16\\"
+                            ]
+                        }
+                    }
+                }
+            ],
+            \\"outputs\\": {
+              \\"exampleOutput\\": {
+                \\"type\\": \\"string\\",
+                \\"value\\": \\"someoutput\\"
+              }
+            }
+        }
+        \"\"\")
+        pulumi.export("armExampleOutput", std.jsondecode_output(input=example.output_content).apply(lambda invoke: invoke.result["exampleOutput"]["value"]))
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.get_template_spec_version(name="myTemplateForResourceGroup",
+            resource_group_name="myResourceGroup",
+            version="v3.4.0")
+        example_resource_group_template_deployment = azure.core.ResourceGroupTemplateDeployment("example",
+            name="example-deploy",
+            resource_group_name="example-group",
+            deployment_mode="Incremental",
+            template_spec_version_id=example.id)
+        ```
+
         ## Import
 
         Resource Group Template Deployments can be imported using the `resource id`, e.g.
@@ -371,6 +441,76 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         Manages a Resource Group Template Deployment.
 
         > **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        vnet_name = "example-vnet"
+        example = azure.core.ResourceGroupTemplateDeployment("example",
+            name="example-deploy",
+            resource_group_name="example-group",
+            deployment_mode="Incremental",
+            parameters_content=json.dumps({
+                "vnetName": {
+                    "value": vnet_name,
+                },
+            }),
+            template_content=\"\"\"{
+            \\"$schema\\": \\"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\\",
+            \\"contentVersion\\": \\"1.0.0.0\\",
+            \\"parameters\\": {
+                \\"vnetName\\": {
+                    \\"type\\": \\"string\\",
+                    \\"metadata\\": {
+                        \\"description\\": \\"Name of the VNET\\"
+                    }
+                }
+            },
+            \\"variables\\": {},
+            \\"resources\\": [
+                {
+                    \\"type\\": \\"Microsoft.Network/virtualNetworks\\",
+                    \\"apiVersion\\": \\"2020-05-01\\",
+                    \\"name\\": \\"[parameters('vnetName')]\\",
+                    \\"location\\": \\"[resourceGroup().location]\\",
+                    \\"properties\\": {
+                        \\"addressSpace\\": {
+                            \\"addressPrefixes\\": [
+                                \\"10.0.0.0/16\\"
+                            ]
+                        }
+                    }
+                }
+            ],
+            \\"outputs\\": {
+              \\"exampleOutput\\": {
+                \\"type\\": \\"string\\",
+                \\"value\\": \\"someoutput\\"
+              }
+            }
+        }
+        \"\"\")
+        pulumi.export("armExampleOutput", std.jsondecode_output(input=example.output_content).apply(lambda invoke: invoke.result["exampleOutput"]["value"]))
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.get_template_spec_version(name="myTemplateForResourceGroup",
+            resource_group_name="myResourceGroup",
+            version="v3.4.0")
+        example_resource_group_template_deployment = azure.core.ResourceGroupTemplateDeployment("example",
+            name="example-deploy",
+            resource_group_name="example-group",
+            deployment_mode="Incremental",
+            template_spec_version_id=example.id)
+        ```
 
         ## Import
 

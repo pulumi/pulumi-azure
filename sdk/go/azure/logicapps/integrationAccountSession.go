@@ -49,7 +49,7 @@ import (
 //				Name:                   pulumi.String("example-ias"),
 //				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
-//				Content:                pulumi.String(" {\n       \"controlNumber\": \"1234\"\n    }\n"),
+//				Content:                pulumi.String(" {\n       \\\"controlNumber\\\": \\\"1234\\\"\n    }\n"),
 //			})
 //			if err != nil {
 //				return err

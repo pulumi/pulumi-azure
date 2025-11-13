@@ -7,6 +7,116 @@ import * as utilities from "../utilities";
 /**
  * Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const frontend = new azure.network.Subnet("frontend", {
+ *     name: "frontend",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ * });
+ * const backend = new azure.network.Subnet("backend", {
+ *     name: "backend",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-pip",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     allocationMethod: "Static",
+ * });
+ * const backendAddressPoolName = pulumi.interpolate`${exampleVirtualNetwork.name}-beap`;
+ * const frontendPortName = pulumi.interpolate`${exampleVirtualNetwork.name}-feport`;
+ * const frontendIpConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-feip`;
+ * const httpSettingName = pulumi.interpolate`${exampleVirtualNetwork.name}-be-htst`;
+ * const listenerName = pulumi.interpolate`${exampleVirtualNetwork.name}-httplstn`;
+ * const requestRoutingRuleName = pulumi.interpolate`${exampleVirtualNetwork.name}-rqrt`;
+ * const network = new azure.network.ApplicationGateway("network", {
+ *     name: "example-appgateway",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: {
+ *         name: "Standard_v2",
+ *         tier: "Standard_v2",
+ *         capacity: 2,
+ *     },
+ *     gatewayIpConfigurations: [{
+ *         name: "my-gateway-ip-configuration",
+ *         subnetId: backend.id,
+ *     }],
+ *     frontendPorts: [{
+ *         name: frontendPortName,
+ *         port: 80,
+ *     }],
+ *     frontendIpConfigurations: [{
+ *         name: frontendIpConfigurationName,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ *     backendAddressPools: [{
+ *         name: backendAddressPoolName,
+ *     }],
+ *     backendHttpSettings: [{
+ *         name: httpSettingName,
+ *         cookieBasedAffinity: "Disabled",
+ *         port: 80,
+ *         protocol: "Http",
+ *         requestTimeout: 1,
+ *     }],
+ *     httpListeners: [{
+ *         name: listenerName,
+ *         frontendIpConfigurationName: frontendIpConfigurationName,
+ *         frontendPortName: frontendPortName,
+ *         protocol: "Http",
+ *     }],
+ *     requestRoutingRules: [{
+ *         name: requestRoutingRuleName,
+ *         ruleType: "Basic",
+ *         priority: 25,
+ *         httpListenerName: listenerName,
+ *         backendAddressPoolName: backendAddressPoolName,
+ *         backendHttpSettingsName: httpSettingName,
+ *     }],
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     ipConfigurations: [{
+ *         name: "testconfiguration1",
+ *         subnetId: frontend.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("example", {
+ *     networkInterfaceId: exampleNetworkInterface.id,
+ *     ipConfigurationName: "testconfiguration1",
+ *     backendAddressPoolId: network.backendAddressPools.apply(backendAddressPools => backendAddressPools[0].id),
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network` - 2024-05-01
+ *
  * ## Import
  *
  * Associations between Network Interfaces and Application Gateway Backend Address Pools can be imported using the `resource id`, e.g.

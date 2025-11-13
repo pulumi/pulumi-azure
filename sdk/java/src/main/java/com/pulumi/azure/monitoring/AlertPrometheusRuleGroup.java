@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *                 AlertPrometheusRuleGroupRuleArgs.builder()
  *                     .enabled(false)
  *                     .expression("""
- * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service="billing-processing"}[5m])) by (job_type))
+ * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\"billing-processing\"}[5m])) by (job_type))
  *                     """)
  *                     .record("job_type:billing_jobs_duration_seconds:99p5m")
  *                     .labels(Map.of("team", "prod"))
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *                     .alert("Billing_Processing_Very_Slow")
  *                     .enabled(true)
  *                     .expression("""
- * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service="billing-processing"}[5m])) by (job_type))
+ * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\"billing-processing\"}[5m])) by (job_type))
  *                     """)
  *                     .for_("PT5M")
  *                     .severity(2)
