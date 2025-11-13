@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "exampleNamespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "Standard",
+ * });
+ * const exampleQueue = new azure.servicebus.Queue("example", {
+ *     name: "exampleQueue",
+ *     namespaceId: exampleNamespace.id,
+ *     enablePartitioning: true,
+ * });
+ * const exampleQueueAuthorizationRule = new azure.servicebus.QueueAuthorizationRule("example", {
+ *     name: "exampleRule",
+ *     queueId: exampleQueue.id,
+ *     listen: false,
+ *     send: true,
+ *     manage: false,
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     name: "exampleIothub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: {
+ *         name: "B1",
+ *         capacity: 1,
+ *     },
+ *     tags: {
+ *         purpose: "example",
+ *     },
+ * });
+ * const exampleEndpointServicebusQueue = new azure.iot.EndpointServicebusQueue("example", {
+ *     resourceGroupName: example.name,
+ *     iothubId: exampleIoTHub.id,
+ *     name: "example",
+ *     connectionString: exampleQueueAuthorizationRule.primaryConnectionString,
+ * });
+ * ```
+ *
  * ## Import
  *
  * IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g.

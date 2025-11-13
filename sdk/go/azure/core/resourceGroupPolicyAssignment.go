@@ -64,11 +64,11 @@ import (
 //				ResourceGroupId:    example.ID(),
 //				PolicyDefinitionId: exampleDefinition.ID(),
 //				Parameters: pulumi.String(`    {
-//	      "tagName": {
-//	        "value": "Business Unit"
+//	      \"tagName\": {
+//	        \"value\": \"Business Unit\"
 //	      },
-//	      "tagValue": {
-//	        "value": "BU"
+//	      \"tagValue\": {
+//	        \"value\": \"BU\"
 //	      }
 //	    }
 //

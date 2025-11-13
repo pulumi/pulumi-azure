@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Compute
     ///         Type = "CustomScript",
     ///         TypeHandlerVersion = "2.0",
     ///         Settings = @" {
-    ///   ""commandToExecute"": ""hostname &amp;&amp; uptime""
+    ///   \""commandToExecute\"": \""hostname &amp;&amp; uptime\""
     ///  }
     /// ",
     ///         Tags = 

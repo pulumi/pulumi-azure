@@ -14,6 +14,69 @@ import (
 
 // Manages a Kusto Cluster Principal Assignment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("KustoRG"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
+//				Name:              pulumi.String("kustocluster"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Standard_D13_v2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewClusterPrincipalAssignment(ctx, "example", &kusto.ClusterPrincipalAssignmentArgs{
+//				Name:              pulumi.String("KustoPrincipalAssignment"),
+//				ResourceGroupName: example.Name,
+//				ClusterName:       exampleCluster.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				PrincipalId:       pulumi.Any(current.PrincipalId),
+//				PrincipalType:     pulumi.String("App"),
+//				Role:              pulumi.String("AllDatabasesAdmin"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Kusto` - 2024-04-13
+//
 // ## Import
 //
 // Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.

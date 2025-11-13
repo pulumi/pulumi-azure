@@ -14,6 +14,145 @@ namespace Pulumi.Azure.Kusto
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "exampleRG",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var builtin = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         RoleDefinitionId = "fbdf93bf-df7d-467e-a4d2-9458aa1360c8",
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
+    ///     {
+    ///         Name = "examplekc",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Dev(No SLA)_Standard_D11_v2",
+    ///             Capacity = 1,
+    ///         },
+    ///         Identity = new Azure.Kusto.Inputs.ClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         Scope = exampleResourceGroup.Id,
+    ///         RoleDefinitionName = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Name),
+    ///         PrincipalId = exampleCluster.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     {
+    ///         Name = "example-ca",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Session",
+    ///             MaxIntervalInSeconds = 5,
+    ///             MaxStalenessPrefix = 100,
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     {
+    ///         Name = "examplecosmosdbsqldb",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     {
+    ///         Name = "examplecosmosdbsqlcon",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/part",
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var example = Azure.CosmosDB.GetSqlRoleDefinition.Invoke(new()
+    ///     {
+    ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000001",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleSqlRoleAssignment = new Azure.CosmosDB.SqlRoleAssignment("example", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         RoleDefinitionId = example.Apply(getSqlRoleDefinitionResult =&gt; getSqlRoleDefinitionResult.Id),
+    ///         PrincipalId = exampleCluster.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         Scope = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
+    ///     {
+    ///         Name = "examplekd",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///     });
+    /// 
+    ///     var exampleScript = new Azure.Kusto.Script("example", new()
+    ///     {
+    ///         Name = "create-table-script",
+    ///         DatabaseId = exampleDatabase.Id,
+    ///         ScriptContent = @".create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
+    /// .create table TestTable ingestion json mapping \""TestMapping\""
+    /// '['
+    /// '    {\""column\"":\""Id\"",\""path\"":\""$.id\""},'
+    /// '    {\""column\"":\""Name\"",\""path\"":\""$.name\""},'
+    /// '    {\""column\"":\""_ts\"",\""path\"":\""$._ts\""},'
+    /// '    {\""column\"":\""_timestamp\"",\""path\"":\""$._ts\"", \""transform\"":\""DateTimeFromUnixSeconds\""}'
+    /// ']'
+    /// .alter table TestTable policy ingestionbatching \""{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}\""
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleCosmosdbDataConnection = new Azure.Kusto.CosmosdbDataConnection("example", new()
+    ///     {
+    ///         Name = "examplekcdcd",
+    ///         Location = exampleResourceGroup.Location,
+    ///         CosmosdbContainerId = exampleSqlContainer.Id,
+    ///         KustoDatabaseId = exampleDatabase.Id,
+    ///         ManagedIdentityId = exampleCluster.Id,
+    ///         TableName = "TestTable",
+    ///         MappingRuleName = "TestMapping",
+    ///         RetrievalStartDate = "2023-06-26T12:00:00.6554616Z",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

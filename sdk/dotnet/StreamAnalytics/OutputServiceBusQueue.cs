@@ -14,6 +14,60 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "rg-example",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
+    ///     {
+    ///         Name = "example-namespace",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleQueue = new Azure.ServiceBus.Queue("example", new()
+    ///     {
+    ///         Name = "example-queue",
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleOutputServiceBusQueue = new Azure.StreamAnalytics.OutputServiceBusQueue("example", new()
+    ///     {
+    ///         Name = "blob-storage-output",
+    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         QueueName = exampleQueue.Name,
+    ///         ServicebusNamespace = exampleNamespace.Name,
+    ///         SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,
+    ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputServiceBusQueueSerializationArgs
+    ///         {
+    ///             Type = "Csv",
+    ///             Format = "Array",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

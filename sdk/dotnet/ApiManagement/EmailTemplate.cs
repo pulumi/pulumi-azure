@@ -47,11 +47,11 @@ namespace Pulumi.Azure.ApiManagement
     ///         Body = @"&lt;!DOCTYPE html &gt;
     /// &lt;html&gt;
     /// &lt;head&gt;
-    ///   &lt;meta charset=""UTF-8"" /&gt;
+    ///   &lt;meta charset=\""UTF-8\"" /&gt;
     ///   &lt;title&gt;Customized Letter Title&lt;/title&gt;
     /// &lt;/head&gt;
     /// &lt;body&gt;
-    ///   &lt;p style=""font-size:12pt;font-family:'Segoe UI'""&gt;Dear $DevFirstName $DevLastName,&lt;/p&gt;
+    ///   &lt;p style=\""font-size:12pt;font-family:'Segoe UI'\""&gt;Dear $DevFirstName $DevLastName,&lt;/p&gt;
     /// &lt;/body&gt;
     /// &lt;/html&gt;
     /// ",

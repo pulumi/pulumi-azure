@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     dataFactoryId: exampleFactory.id,
  *     type: "AzureBlobStorage",
  *     typePropertiesJson: pulumi.interpolate`{
- *   "connectionString": "${exampleAccount.primaryConnectionString}"
+ *   \"connectionString\": \"${exampleAccount.primaryConnectionString}\"
  * }
  * `,
  * });

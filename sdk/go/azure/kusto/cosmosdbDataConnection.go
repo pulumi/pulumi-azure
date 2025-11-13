@@ -16,6 +16,169 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("exampleRG"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			builtin, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//				RoleDefinitionId: pulumi.StringRef("fbdf93bf-df7d-467e-a4d2-9458aa1360c8"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
+//				Name:              pulumi.String("examplekc"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
+//					Capacity: pulumi.Int(1),
+//				},
+//				Identity: &kusto.ClusterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				Scope:              exampleResourceGroup.ID(),
+//				RoleDefinitionName: pulumi.String(builtin.Name),
+//				PrincipalId: pulumi.String(exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
+//				Name:              pulumi.String("example-ca"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel:     pulumi.String("Session"),
+//					MaxIntervalInSeconds: pulumi.Int(5),
+//					MaxStalenessPrefix:   pulumi.Int(100),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
+//				Name:              pulumi.String("examplecosmosdbsqldb"),
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
+//				Name:              pulumi.String("examplecosmosdbsqlcon"),
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				DatabaseName:      exampleSqlDatabase.Name,
+//				PartitionKeyPath:  "/part",
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := cosmosdb.LookupSqlRoleDefinitionOutput(ctx, cosmosdb.GetSqlRoleDefinitionOutputArgs{
+//				RoleDefinitionId:  pulumi.String("00000000-0000-0000-0000-000000000001"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleAccount.Name,
+//			}, nil)
+//			_, err = cosmosdb.NewSqlRoleAssignment(ctx, "example", &cosmosdb.SqlRoleAssignmentArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleAccount.Name,
+//				RoleDefinitionId: pulumi.String(example.ApplyT(func(example cosmosdb.GetSqlRoleDefinitionResult) (*string, error) {
+//					return &example.Id, nil
+//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId: pulumi.String(exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput)),
+//				Scope: exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
+//				Name:              pulumi.String("examplekd"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterName:       exampleCluster.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewScript(ctx, "example", &kusto.ScriptArgs{
+//				Name:       pulumi.String("create-table-script"),
+//				DatabaseId: exampleDatabase.ID(),
+//				ScriptContent: pulumi.String(`.create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
+//
+// .create table TestTable ingestion json mapping \"TestMapping\"
+// '['
+// '    {\"column\":\"Id\",\"path\":\"$.id\"},'
+// '    {\"column\":\"Name\",\"path\":\"$.name\"},'
+// '    {\"column\":\"_ts\",\"path\":\"$._ts\"},'
+// '    {\"column\":\"_timestamp\",\"path\":\"$._ts\", \"transform\":\"DateTimeFromUnixSeconds\"}'
+// ']'
+// .alter table TestTable policy ingestionbatching \"{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}\"
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewCosmosdbDataConnection(ctx, "example", &kusto.CosmosdbDataConnectionArgs{
+//				Name:                pulumi.String("examplekcdcd"),
+//				Location:            exampleResourceGroup.Location,
+//				CosmosdbContainerId: exampleSqlContainer.ID(),
+//				KustoDatabaseId:     exampleDatabase.ID(),
+//				ManagedIdentityId:   exampleCluster.ID(),
+//				TableName:           pulumi.String("TestTable"),
+//				MappingRuleName:     pulumi.String("TestMapping"),
+//				RetrievalStartDate:  pulumi.String("2023-06-26T12:00:00.6554616Z"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

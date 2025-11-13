@@ -13,6 +13,75 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const service = new azure.network.Subnet("service", {
+ *     name: "service",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ *     enforcePrivateLinkServiceNetworkPolicies: true,
+ * });
+ * const endpoint = new azure.network.Subnet("endpoint", {
+ *     name: "endpoint",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ *     enforcePrivateLinkEndpointNetworkPolicies: true,
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-pip",
+ *     sku: "Standard",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     allocationMethod: "Static",
+ * });
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: "example-lb",
+ *     sku: "Standard",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     frontendIpConfigurations: [{
+ *         name: examplePublicIp.name,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ * });
+ * const exampleLinkService = new azure.privatedns.LinkService("example", {
+ *     name: "example-privatelink",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     natIpConfigurations: [{
+ *         name: examplePublicIp.name,
+ *         primary: true,
+ *         subnetId: service.id,
+ *     }],
+ *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
+ * });
+ * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
+ *     name: "example-endpoint",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     subnetId: endpoint.id,
+ *     privateServiceConnection: {
+ *         name: "example-privateserviceconnection",
+ *         privateConnectionResourceId: exampleLinkService.id,
+ *         isManualConnection: false,
+ *     },
+ * });
+ * ```
+ *
  * Using a Private Link Service Alias with existing resources:
  *
  * ```typescript

@@ -16,6 +16,58 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dynatrace"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dynatrace.NewMonitor(ctx, "example", &dynatrace.MonitorArgs{
+//				Name:                          pulumi.String("exmpledynatracemonitor"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      pulumi.Any(test.Location),
+//				MonitoringEnabled:             pulumi.Bool(true),
+//				MarketplaceSubscriptionStatus: "Active",
+//				Identity: &dynatrace.MonitorIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				User: &dynatrace.MonitorUserArgs{
+//					FirstName:   pulumi.String("Alice"),
+//					LastName:    pulumi.String("Bobab"),
+//					Email:       pulumi.String("alice@microsoft.com"),
+//					PhoneNumber: pulumi.String("123456"),
+//					Country:     pulumi.String("westus"),
+//				},
+//				Plan: &dynatrace.MonitorPlanArgs{
+//					UsageType:     pulumi.String("COMMITTED"),
+//					BillingCycle:  pulumi.String("MONTHLY"),
+//					Plan:          pulumi.String("azureportalintegration_privatepreview@TIDhjdtn7tfnxcy"),
+//					EffectiveDate: pulumi.String("2019-08-30T15:14:33Z"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

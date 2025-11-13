@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Synapse
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
     ///         Type = "AzureBlobStorage",
     ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
-    ///   ""connectionString"": ""{primaryConnectionString}""
+    ///   \""connectionString\"": \""{primaryConnectionString}\""
     /// }}
     /// "),
     ///         IntegrationRuntime = new Azure.Synapse.Inputs.LinkedServiceIntegrationRuntimeArgs

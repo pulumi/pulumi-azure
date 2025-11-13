@@ -254,10 +254,10 @@ class TriggerHttpRequest(pulumi.CustomResource):
             name="some-http-trigger",
             logic_app_id=example_workflow.id,
             schema=\"\"\"{
-            "type": "object",
-            "properties": {
-                "hello": {
-                    "type": "string"
+            \\"type\\": \\"object\\",
+            \\"properties\\": {
+                \\"hello\\": {
+                    \\"type\\": \\"string\\"
                 }
             }
         }
@@ -310,10 +310,10 @@ class TriggerHttpRequest(pulumi.CustomResource):
             name="some-http-trigger",
             logic_app_id=example_workflow.id,
             schema=\"\"\"{
-            "type": "object",
-            "properties": {
-                "hello": {
-                    "type": "string"
+            \\"type\\": \\"object\\",
+            \\"properties\\": {
+                \\"hello\\": {
+                    \\"type\\": \\"string\\"
                 }
             }
         }

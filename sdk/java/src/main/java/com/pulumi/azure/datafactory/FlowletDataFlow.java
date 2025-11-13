@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .type("AzureBlobStorage")
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
  * {
- *   "connectionString": "%s"
+ *   \"connectionString\": \"%s\"
  * }
  * ", _primaryConnectionString)))
  *             .build());

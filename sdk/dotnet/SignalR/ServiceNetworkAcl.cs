@@ -14,6 +14,100 @@ namespace Pulumi.Azure.SignalR
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.SignalR.Service("example", new()
+    ///     {
+    ///         Name = "example-signalr",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
+    ///         {
+    ///             Name = "Standard_S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.5.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.2.0/24",
+    ///         },
+    ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
+    ///     {
+    ///         Name = "example-privateendpoint",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = "psc-sig-test",
+    ///             IsManualConnection = false,
+    ///             PrivateConnectionResourceId = exampleService.Id,
+    ///             SubresourceNames = new[]
+    ///             {
+    ///                 "signalr",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServiceNetworkAcl = new Azure.SignalR.ServiceNetworkAcl("example", new()
+    ///     {
+    ///         SignalrServiceId = exampleService.Id,
+    ///         DefaultAction = "Deny",
+    ///         PublicNetwork = new Azure.SignalR.Inputs.ServiceNetworkAclPublicNetworkArgs
+    ///         {
+    ///             AllowedRequestTypes = new[]
+    ///             {
+    ///                 "ClientConnection",
+    ///             },
+    ///         },
+    ///         PrivateEndpoints = new[]
+    ///         {
+    ///             new Azure.SignalR.Inputs.ServiceNetworkAclPrivateEndpointArgs
+    ///             {
+    ///                 Id = exampleEndpoint.Id,
+    ///                 AllowedRequestTypes = new[]
+    ///                 {
+    ///                     "ServerConnection",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

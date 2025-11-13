@@ -56,7 +56,7 @@ namespace Pulumi.Azure.DataFactory
     ///         Type = "AzureBlobStorage",
     ///         Description = "test description",
     ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
-    ///   ""connectionString"":""{primaryConnectionString}""
+    ///   \""connectionString\"":\""{primaryConnectionString}\""
     /// }}
     /// "),
     ///         Parameters = 

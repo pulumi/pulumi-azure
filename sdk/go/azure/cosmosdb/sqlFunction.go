@@ -16,6 +16,58 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//				Name:              "tfex-cosmosdb-account",
+//				ResourceGroupName: "tfex-cosmosdb-account-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
+//				Name:              pulumi.String("tfex-cosmos-db"),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
+//				Name:              pulumi.String("example-container"),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
+//				DatabaseName:      exampleSqlDatabase.Name,
+//				PartitionKeyPath:  "/id",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewSqlFunction(ctx, "example", &cosmosdb.SqlFunctionArgs{
+//				Name:        pulumi.String("test-function"),
+//				ContainerId: exampleSqlContainer.ID(),
+//				Body:        pulumi.String("function trigger(){}"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // SQL User Defined Functions can be imported using the `resource id`, e.g.

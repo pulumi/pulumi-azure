@@ -14,6 +14,47 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
+    /// 
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     {
+    ///         Name = "tfex-cosmos-db",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     {
+    ///         Name = "example-container",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/id",
+    ///     });
+    /// 
+    ///     var exampleSqlFunction = new Azure.CosmosDB.SqlFunction("example", new()
+    ///     {
+    ///         Name = "test-function",
+    ///         ContainerId = exampleSqlContainer.Id,
+    ///         Body = "function trigger(){}",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// SQL User Defined Functions can be imported using the `resource id`, e.g.

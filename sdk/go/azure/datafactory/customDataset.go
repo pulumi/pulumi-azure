@@ -66,7 +66,7 @@ import (
 //				DataFactoryId: exampleFactory.ID(),
 //				Type:          pulumi.String("AzureBlobStorage"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-//					return fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", primaryConnectionString), nil
+//					return fmt.Sprintf("{\n  \\\"connectionString\\\":\\\"%v\\\"\n}\n", primaryConnectionString), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
@@ -92,13 +92,13 @@ import (
 //				},
 //				TypePropertiesJson: exampleContainer.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf(`{
-//	  "location": {
-//	    "container":"%v",
-//	    "fileName":"foo.txt",
-//	    "folderPath": "foo/bar/",
-//	    "type":"AzureBlobStorageLocation"
+//	  \"location\": {
+//	    \"container\":\"%v\",
+//	    \"fileName\":\"foo.txt\",
+//	    \"folderPath\": \"foo/bar/\",
+//	    \"type\":\"AzureBlobStorageLocation\"
 //	  },
-//	  "encodingName":"UTF-8"
+//	  \"encodingName\":\"UTF-8\"
 //	}
 //
 // `, name), nil
@@ -120,21 +120,21 @@ import (
 //					"bar": pulumi.String("test2"),
 //				},
 //				SchemaJson: pulumi.String(`{
-//	  "type": "object",
-//	  "properties": {
-//	    "name": {
-//	      "type": "object",
-//	      "properties": {
-//	        "firstName": {
-//	          "type": "string"
+//	  \"type\": \"object\",
+//	  \"properties\": {
+//	    \"name\": {
+//	      \"type\": \"object\",
+//	      \"properties\": {
+//	        \"firstName\": {
+//	          \"type\": \"string\"
 //	        },
-//	        "lastName": {
-//	          "type": "string"
+//	        \"lastName\": {
+//	          \"type\": \"string\"
 //	        }
 //	      }
 //	    },
-//	    "age": {
-//	      "type": "integer"
+//	    \"age\": {
+//	      \"type\": \"integer\"
 //	    }
 //	  }
 //	}

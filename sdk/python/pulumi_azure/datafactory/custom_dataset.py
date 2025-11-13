@@ -431,7 +431,7 @@ class CustomDataset(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
+          \\"connectionString\\":\\"{primary_connection_string}\\"
         }}
         \"\"\"))
         example_container = azure.storage.Container("example",
@@ -449,13 +449,13 @@ class CustomDataset(pulumi.CustomResource):
                 },
             },
             type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
-          "location": {{
-            "container":"{name}",
-            "fileName":"foo.txt",
-            "folderPath": "foo/bar/",
-            "type":"AzureBlobStorageLocation"
+          \\"location\\": {{
+            \\"container\\":\\"{name}\\",
+            \\"fileName\\":\\"foo.txt\\",
+            \\"folderPath\\": \\"foo/bar/\\",
+            \\"type\\":\\"AzureBlobStorageLocation\\"
           }},
-          "encodingName":"UTF-8"
+          \\"encodingName\\":\\"UTF-8\\"
         }}
         \"\"\"),
             description="test description",
@@ -474,21 +474,21 @@ class CustomDataset(pulumi.CustomResource):
                 "bar": "test2",
             },
             schema_json=\"\"\"{
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "type": "string"
+          \\"type\\": \\"object\\",
+          \\"properties\\": {
+            \\"name\\": {
+              \\"type\\": \\"object\\",
+              \\"properties\\": {
+                \\"firstName\\": {
+                  \\"type\\": \\"string\\"
                 },
-                "lastName": {
-                  "type": "string"
+                \\"lastName\\": {
+                  \\"type\\": \\"string\\"
                 }
               }
             },
-            "age": {
-              "type": "integer"
+            \\"age\\": {
+              \\"type\\": \\"integer\\"
             }
           }
         }
@@ -554,7 +554,7 @@ class CustomDataset(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
+          \\"connectionString\\":\\"{primary_connection_string}\\"
         }}
         \"\"\"))
         example_container = azure.storage.Container("example",
@@ -572,13 +572,13 @@ class CustomDataset(pulumi.CustomResource):
                 },
             },
             type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
-          "location": {{
-            "container":"{name}",
-            "fileName":"foo.txt",
-            "folderPath": "foo/bar/",
-            "type":"AzureBlobStorageLocation"
+          \\"location\\": {{
+            \\"container\\":\\"{name}\\",
+            \\"fileName\\":\\"foo.txt\\",
+            \\"folderPath\\": \\"foo/bar/\\",
+            \\"type\\":\\"AzureBlobStorageLocation\\"
           }},
-          "encodingName":"UTF-8"
+          \\"encodingName\\":\\"UTF-8\\"
         }}
         \"\"\"),
             description="test description",
@@ -597,21 +597,21 @@ class CustomDataset(pulumi.CustomResource):
                 "bar": "test2",
             },
             schema_json=\"\"\"{
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "type": "string"
+          \\"type\\": \\"object\\",
+          \\"properties\\": {
+            \\"name\\": {
+              \\"type\\": \\"object\\",
+              \\"properties\\": {
+                \\"firstName\\": {
+                  \\"type\\": \\"string\\"
                 },
-                "lastName": {
-                  "type": "string"
+                \\"lastName\\": {
+                  \\"type\\": \\"string\\"
                 }
               }
             },
-            "age": {
-              "type": "integer"
+            \\"age\\": {
+              \\"type\\": \\"integer\\"
             }
           }
         }

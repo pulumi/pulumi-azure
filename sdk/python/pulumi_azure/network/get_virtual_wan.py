@@ -169,6 +169,32 @@ def get_virtual_wan(name: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing Virtual Wan.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_virtual_wan(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    pulumi.export("allowBranchToBranchTraffic", example.allow_branch_to_branch_traffic)
+    pulumi.export("disableVpnEncryption", example.disable_vpn_encryption)
+    pulumi.export("location", example.location)
+    pulumi.export("office365LocalBreakoutCategory", example.office365_local_breakout_category)
+    pulumi.export("sku", example.sku)
+    pulumi.export("tags", example.tags)
+    pulumi.export("virtualHubs", example.virtual_hubs)
+    pulumi.export("vpnSites", example.vpn_sites)
+    ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network` - 2024-05-01
+
 
     :param _builtins.str name: The name of this Virtual Wan.
     :param _builtins.str resource_group_name: The name of the Resource Group where the Virtual Wan exists.
@@ -196,6 +222,32 @@ def get_virtual_wan_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualWanResult]:
     """
     Use this data source to access information about an existing Virtual Wan.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_virtual_wan(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    pulumi.export("allowBranchToBranchTraffic", example.allow_branch_to_branch_traffic)
+    pulumi.export("disableVpnEncryption", example.disable_vpn_encryption)
+    pulumi.export("location", example.location)
+    pulumi.export("office365LocalBreakoutCategory", example.office365_local_breakout_category)
+    pulumi.export("sku", example.sku)
+    pulumi.export("tags", example.tags)
+    pulumi.export("virtualHubs", example.virtual_hubs)
+    pulumi.export("vpnSites", example.vpn_sites)
+    ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: The name of this Virtual Wan.

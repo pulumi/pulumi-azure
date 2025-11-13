@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     mode: "Indexed",
  *     displayName: "acceptance test policy definition",
  *     metadata: `    {
- *     "category": "General"
+ *     \\"category\\": \\"General\\"
  *     }
  *
  * `,
@@ -38,12 +38,12 @@ import * as utilities from "../utilities";
  *   }
  * `,
  *     parameters: ` {
- *     "allowedLocations": {
- *       "type": "Array",
- *       "metadata": {
- *         "description": "The list of allowed locations for resources.",
- *         "displayName": "Allowed locations",
- *         "strongType": "location"
+ *     \\"allowedLocations\\": {
+ *       \\"type\\": \\"Array\\",
+ *       \\"metadata\\": {
+ *         \\"description\\": \\"The list of allowed locations for resources.\\",
+ *         \\"displayName\\": \\"Allowed locations\\",
+ *         \\"strongType\\": \\"location\\"
  *       }
  *     }
  *   }

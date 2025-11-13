@@ -208,6 +208,37 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example-springcloud",
+            resource_group_name=example.name,
+            location=example.location)
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
+            name="example-springcloudapp",
+            resource_group_name=example.name,
+            service_name=example_spring_cloud_service.name)
+        example_cache = azure.redis.Cache("example",
+            name="example-cache",
+            location=example.location,
+            resource_group_name=example.name,
+            capacity=0,
+            family="C",
+            sku_name="Basic",
+            enable_non_ssl_port=True)
+        example_spring_cloud_app_redis_association = azure.appplatform.SpringCloudAppRedisAssociation("example",
+            name="example-bind",
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            redis_cache_id=example_cache.id,
+            redis_access_key=example_cache.primary_access_key,
+            ssl_enabled=True)
+        ```
+
         ## Import
 
         Spring Cloud Application Redis Association can be imported using the `resource id`, e.g.
@@ -236,6 +267,37 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudAppRedisAssociation` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example-springcloud",
+            resource_group_name=example.name,
+            location=example.location)
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
+            name="example-springcloudapp",
+            resource_group_name=example.name,
+            service_name=example_spring_cloud_service.name)
+        example_cache = azure.redis.Cache("example",
+            name="example-cache",
+            location=example.location,
+            resource_group_name=example.name,
+            capacity=0,
+            family="C",
+            sku_name="Basic",
+            enable_non_ssl_port=True)
+        example_spring_cloud_app_redis_association = azure.appplatform.SpringCloudAppRedisAssociation("example",
+            name="example-bind",
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            redis_cache_id=example_cache.id,
+            redis_access_key=example_cache.primary_access_key,
+            ssl_enabled=True)
+        ```
 
         ## Import
 

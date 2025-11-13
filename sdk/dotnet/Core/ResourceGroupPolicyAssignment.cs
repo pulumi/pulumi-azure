@@ -54,11 +54,11 @@ namespace Pulumi.Azure.Core
     ///         ResourceGroupId = example.Id,
     ///         PolicyDefinitionId = exampleDefinition.Id,
     ///         Parameters = @"    {
-    ///       ""tagName"": {
-    ///         ""value"": ""Business Unit""
+    ///       \""tagName\"": {
+    ///         \""value\"": \""Business Unit\""
     ///       },
-    ///       ""tagValue"": {
-    ///         ""value"": ""BU""
+    ///       \""tagValue\"": {
+    ///         \""value\"": \""BU\""
     ///       }
     ///     }
     /// ",

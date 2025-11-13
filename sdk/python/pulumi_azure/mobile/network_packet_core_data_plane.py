@@ -307,6 +307,51 @@ class NetworkPacketCoreDataPlane(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_device = azure.databoxedge.Device("example",
+            name="example-device",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="EdgeP_Base-Standard")
+        example_network = azure.mobile.Network("example",
+            name="example-mn",
+            resource_group_name=example.name,
+            location=example.location,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("example",
+            name="example-mnpccp",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="G0",
+            mobile_network_id=example_network.id,
+            control_plane_access_name="default-interface",
+            control_plane_access_ipv4_address="192.168.1.199",
+            control_plane_access_ipv4_gateway="192.168.1.1",
+            control_plane_access_ipv4_subnet="192.168.1.0/25",
+            platform={
+                "type": "AKS-HCI",
+                "edge_device_id": example_device.id,
+            })
+        example_network_packet_core_data_plane = azure.mobile.NetworkPacketCoreDataPlane("example",
+            name="example-mnpcdp",
+            mobile_network_packet_core_control_plane_id=example_network_packet_core_control_plane.id,
+            location=example.location,
+            user_plane_access_name="default-interface",
+            user_plane_access_ipv4_address="192.168.1.199",
+            user_plane_access_ipv4_gateway="192.168.1.1",
+            user_plane_access_ipv4_subnet="192.168.1.0/25",
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
@@ -343,6 +388,51 @@ class NetworkPacketCoreDataPlane(pulumi.CustomResource):
         Manages a Mobile Network Packet Core Data Plane.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_device = azure.databoxedge.Device("example",
+            name="example-device",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="EdgeP_Base-Standard")
+        example_network = azure.mobile.Network("example",
+            name="example-mn",
+            resource_group_name=example.name,
+            location=example.location,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("example",
+            name="example-mnpccp",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="G0",
+            mobile_network_id=example_network.id,
+            control_plane_access_name="default-interface",
+            control_plane_access_ipv4_address="192.168.1.199",
+            control_plane_access_ipv4_gateway="192.168.1.1",
+            control_plane_access_ipv4_subnet="192.168.1.0/25",
+            platform={
+                "type": "AKS-HCI",
+                "edge_device_id": example_device.id,
+            })
+        example_network_packet_core_data_plane = azure.mobile.NetworkPacketCoreDataPlane("example",
+            name="example-mnpcdp",
+            mobile_network_packet_core_control_plane_id=example_network_packet_core_control_plane.id,
+            location=example.location,
+            user_plane_access_name="default-interface",
+            user_plane_access_ipv4_address="192.168.1.199",
+            user_plane_access_ipv4_gateway="192.168.1.1",
+            user_plane_access_ipv4_subnet="192.168.1.0/25",
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## API Providers
 

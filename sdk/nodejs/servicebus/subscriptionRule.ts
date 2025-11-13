@@ -13,7 +13,83 @@ import * as utilities from "../utilities";
  *
  * ### SQL Filter)
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "tfex-servicebus-subscription-rule-sql",
+ *     location: "West Europe",
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "tfex-servicebus-namespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("example", {
+ *     name: "tfex_servicebus_topic",
+ *     namespaceId: exampleNamespace.id,
+ *     enablePartitioning: true,
+ * });
+ * const exampleSubscription = new azure.servicebus.Subscription("example", {
+ *     name: "tfex_servicebus_subscription",
+ *     topicId: exampleTopic.id,
+ *     maxDeliveryCount: 1,
+ * });
+ * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("example", {
+ *     name: "tfex_servicebus_rule",
+ *     subscriptionId: exampleSubscription.id,
+ *     filterType: "SqlFilter",
+ *     sqlFilter: "colour = 'red'",
+ * });
+ * ```
+ *
  * ### Correlation Filter)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "tfex-servicebus-subscription-rule-cor",
+ *     location: "West Europe",
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "tfex-servicebus-namespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("example", {
+ *     name: "tfex_servicebus_topic",
+ *     namespaceId: exampleNamespace.id,
+ *     enablePartitioning: true,
+ * });
+ * const exampleSubscription = new azure.servicebus.Subscription("example", {
+ *     name: "tfex_servicebus_subscription",
+ *     topicId: exampleTopic.id,
+ *     maxDeliveryCount: 1,
+ * });
+ * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("example", {
+ *     name: "tfex_servicebus_rule",
+ *     subscriptionId: exampleSubscription.id,
+ *     filterType: "CorrelationFilter",
+ *     correlationFilter: {
+ *         correlationId: "high",
+ *         label: "red",
+ *         properties: {
+ *             customProperty: "value",
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## API Providers
  *

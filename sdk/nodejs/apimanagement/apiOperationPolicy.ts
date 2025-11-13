@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     operationId: exampleApiOperation.operationId,
  *     xmlContent: `<policies>
  *   <inbound>
- *     <find-and-replace from="xyz" to="abc" />
+ *     <find-and-replace from=\\"xyz\\" to=\\"abc\\" />
  *   </inbound>
  * </policies>
  * `,

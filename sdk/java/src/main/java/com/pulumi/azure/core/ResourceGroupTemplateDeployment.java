@@ -22,6 +22,133 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `deleteNestedItemsDuringDeletion` field to `false` within the `templateDeployment` block.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroupTemplateDeployment;
+ * import com.pulumi.azure.core.ResourceGroupTemplateDeploymentArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JsondecodeArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var vnetName = "example-vnet";
+ * 
+ *         var example = new ResourceGroupTemplateDeployment("example", ResourceGroupTemplateDeploymentArgs.builder()
+ *             .name("example-deploy")
+ *             .resourceGroupName("example-group")
+ *             .deploymentMode("Incremental")
+ *             .parametersContent(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("vnetName", jsonObject(
+ *                         jsonProperty("value", vnetName)
+ *                     ))
+ *                 )))
+ *             .templateContent("""
+ * {
+ *     \"$schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",
+ *     \"contentVersion\": \"1.0.0.0\",
+ *     \"parameters\": {
+ *         \"vnetName\": {
+ *             \"type\": \"string\",
+ *             \"metadata\": {
+ *                 \"description\": \"Name of the VNET\"
+ *             }
+ *         }
+ *     },
+ *     \"variables\": {},
+ *     \"resources\": [
+ *         {
+ *             \"type\": \"Microsoft.Network/virtualNetworks\",
+ *             \"apiVersion\": \"2020-05-01\",
+ *             \"name\": \"[parameters('vnetName')]\",
+ *             \"location\": \"[resourceGroup().location]\",
+ *             \"properties\": {
+ *                 \"addressSpace\": {
+ *                     \"addressPrefixes\": [
+ *                         \"10.0.0.0/16\"
+ *                     ]
+ *                 }
+ *             }
+ *         }
+ *     ],
+ *     \"outputs\": {
+ *       \"exampleOutput\": {
+ *         \"type\": \"string\",
+ *         \"value\": \"someoutput\"
+ *       }
+ *     }
+ * }
+ *             """)
+ *             .build());
+ * 
+ *         ctx.export("armExampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+ *             .input(example.outputContent())
+ *             .build()).applyValue(_invoke -> _invoke.result().exampleOutput().value()));
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
+ * import com.pulumi.azure.core.ResourceGroupTemplateDeployment;
+ * import com.pulumi.azure.core.ResourceGroupTemplateDeploymentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+ *             .name("myTemplateForResourceGroup")
+ *             .resourceGroupName("myResourceGroup")
+ *             .version("v3.4.0")
+ *             .build());
+ * 
+ *         var exampleResourceGroupTemplateDeployment = new ResourceGroupTemplateDeployment("exampleResourceGroupTemplateDeployment", ResourceGroupTemplateDeploymentArgs.builder()
+ *             .name("example-deploy")
+ *             .resourceGroupName("example-group")
+ *             .deploymentMode("Incremental")
+ *             .templateSpecVersionId(example.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Resource Group Template Deployments can be imported using the `resource id`, e.g.

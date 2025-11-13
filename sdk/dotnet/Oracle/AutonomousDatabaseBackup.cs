@@ -14,6 +14,38 @@ namespace Pulumi.Azure.Oracle
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var exampleAutonomousDatabase = new Azure.Oracle.AutonomousDatabase("example", new()
+    ///     {
+    ///         Name = "example-adb",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleAutonomousDatabaseBackup = new Azure.Oracle.AutonomousDatabaseBackup("example", new()
+    ///     {
+    ///         Name = "example-backup",
+    ///         AutonomousDatabaseId = exampleAutonomousDatabase.Id,
+    ///         RetentionPeriodInDays = 120,
+    ///         BackupType = "Full",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

@@ -87,6 +87,148 @@ import javax.annotation.Nullable;
  * 
  * ### With Storage Account Behind VNet And Firewall
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.mssql.Server;
+ * import com.pulumi.azure.mssql.ServerArgs;
+ * import com.pulumi.azure.mssql.inputs.ServerIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azurerm.SqlVirtualNetworkRule;
+ * import com.pulumi.azurerm.SqlVirtualNetworkRuleArgs;
+ * import com.pulumi.azurerm.SqlFirewallRule;
+ * import com.pulumi.azurerm.SqlFirewallRuleArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.inputs.AccountNetworkRulesArgs;
+ * import com.pulumi.azure.storage.inputs.AccountIdentityArgs;
+ * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicy;
+ * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
+ * 
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("example")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("virtnetname-1")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("subnetname-1")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .serviceEndpoints(            
+ *                 "Microsoft.Sql",
+ *                 "Microsoft.Storage")
+ *             .enforcePrivateLinkEndpointNetworkPolicies(true)
+ *             .build());
+ * 
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
+ *             .name("example-sqlserver")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .version("12.0")
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("AdminPassword123!")
+ *             .minimumTlsVersion("1.2")
+ *             .identity(ServerIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *             .scope(primary.id())
+ *             .roleDefinitionName("Storage Blob Data Contributor")
+ *             .principalId(exampleServer.identity().applyValue(_identity -> _identity.principalId()))
+ *             .build());
+ * 
+ *         var sqlvnetrule = new SqlVirtualNetworkRule("sqlvnetrule", SqlVirtualNetworkRuleArgs.builder()
+ *             .name("sql-vnet-rule")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .serverName(exampleServer.name())
+ *             .subnetId(exampleSubnet.id())
+ *             .build());
+ * 
+ *         var exampleSqlFirewallRule = new SqlFirewallRule("exampleSqlFirewallRule", SqlFirewallRuleArgs.builder()
+ *             .name("FirewallRule1")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .serverName(exampleServer.name())
+ *             .startIpAddress("0.0.0.0")
+ *             .endIpAddress("0.0.0.0")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("examplesa")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .accountKind("StorageV2")
+ *             .allowNestedItemsToBePublic(false)
+ *             .networkRules(AccountNetworkRulesArgs.builder()
+ *                 .defaultAction("Deny")
+ *                 .ipRules("127.0.0.1")
+ *                 .virtualNetworkSubnetIds(exampleSubnet.id())
+ *                 .bypasses("AzureServices")
+ *                 .build())
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()
+ *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
+ *             .serverId(exampleServer.id())
+ *             .retentionInDays(6)
+ *             .logMonitoringEnabled(false)
+ *             .storageAccountSubscriptionId(primaryAzurermSubscription.subscriptionId())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleAssignment,
+ *                     exampleAccount)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.

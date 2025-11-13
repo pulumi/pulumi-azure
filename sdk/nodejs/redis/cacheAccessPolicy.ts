@@ -9,6 +9,35 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "East US",
+ * });
+ * const exampleCache = new azure.redis.Cache("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     capacity: 1,
+ *     family: "P",
+ *     skuName: "Premium",
+ *     enableNonSslPort: false,
+ *     redisConfiguration: {
+ *         maxmemoryReserved: 2,
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ * });
+ * const exampleCacheAccessPolicy = new azure.redis.CacheAccessPolicy("example", {
+ *     name: "example",
+ *     redisCacheId: exampleCache.id,
+ *     permissions: "+@read +@connection +cluster|info",
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

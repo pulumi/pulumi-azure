@@ -14,6 +14,60 @@ import (
 
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Subnets: network.VirtualNetworkSubnetArray{
+//					&network.VirtualNetworkSubnetArgs{
+//						Name:          pulumi.String("subnet1"),
+//						AddressPrefix: "10.0.1.0/24",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetworkDnsServers(ctx, "example", &network.VirtualNetworkDnsServersArgs{
+//				VirtualNetworkId: exampleVirtualNetwork.ID(),
+//				DnsServers: pulumi.StringArray{
+//					pulumi.String("10.7.7.2"),
+//					pulumi.String("10.7.7.7"),
+//					pulumi.String("10.7.7.1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

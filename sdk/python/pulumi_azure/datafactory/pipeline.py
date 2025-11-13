@@ -403,13 +403,13 @@ class Pipeline(pulumi.CustomResource):
             },
             activities_json=\"\"\"[
             {
-                "name": "Append variable1",
-                "type": "AppendVariable",
-                "dependsOn": [],
-                "userProperties": [],
-                "typeProperties": {
-                  "variableName": "bob",
-                  "value": "something"
+                \\"name\\": \\"Append variable1\\",
+                \\"type\\": \\"AppendVariable\\",
+                \\"dependsOn\\": [],
+                \\"userProperties\\": [],
+                \\"typeProperties\\": {
+                  \\"variableName\\": \\"bob\\",
+                  \\"value\\": \\"something\\"
                 }
             }
         ]
@@ -485,13 +485,13 @@ class Pipeline(pulumi.CustomResource):
             },
             activities_json=\"\"\"[
             {
-                "name": "Append variable1",
-                "type": "AppendVariable",
-                "dependsOn": [],
-                "userProperties": [],
-                "typeProperties": {
-                  "variableName": "bob",
-                  "value": "something"
+                \\"name\\": \\"Append variable1\\",
+                \\"type\\": \\"AppendVariable\\",
+                \\"dependsOn\\": [],
+                \\"userProperties\\": [],
+                \\"typeProperties\\": {
+                  \\"variableName\\": \\"bob\\",
+                  \\"value\\": \\"something\\"
                 }
             }
         ]

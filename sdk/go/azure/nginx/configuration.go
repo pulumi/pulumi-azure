@@ -110,7 +110,7 @@ import (
 //	        listen 80;
 //	        location / {
 //	            default_type text/html;
-//	            return 200 '<!doctype html><html lang="en"><head></head><body>
+//	            return 200 '<!doctype html><html lang=\"en\"><head></head><body>
 //	                <div>this one will be updated</div>
 //	                <div>at 10:38 am</div>
 //	            </body></html>';
@@ -128,7 +128,7 @@ import (
 //			invokeBase64encode1, err := std.Base64encode(ctx, &std.Base64encodeArgs{
 //				Input: `location /bbb {
 //	 default_type text/html;
-//	 return 200 '<!doctype html><html lang="en"><head></head><body>
+//	 return 200 '<!doctype html><html lang=\"en\"><head></head><body>
 //	  <div>this one will be updated</div>
 //	  <div>at 10:38 am</div>
 //	 </body></html>';

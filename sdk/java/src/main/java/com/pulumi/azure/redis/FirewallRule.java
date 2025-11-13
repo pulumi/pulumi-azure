@@ -18,6 +18,73 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.random.Id;
+ * import com.pulumi.random.IdArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.redis.Cache;
+ * import com.pulumi.azure.redis.CacheArgs;
+ * import com.pulumi.azure.redis.inputs.CacheRedisConfigurationArgs;
+ * import com.pulumi.azure.redis.FirewallRule;
+ * import com.pulumi.azure.redis.FirewallRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var server = new Id("server", IdArgs.builder()
+ *             .keepers(Map.of("aziId", 1))
+ *             .byteLength(8)
+ *             .build());
+ * 
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("redis-resourcegroup")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
+ *             .name(String.format("redis%s", server.hex()))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .capacity(1)
+ *             .family("P")
+ *             .skuName("Premium")
+ *             .enableNonSslPort(false)
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .maxmemoryReserved(2)
+ *                 .maxmemoryDelta(2)
+ *                 .maxmemoryPolicy("allkeys-lru")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
+ *             .name("someIPrange")
+ *             .redisCacheName(exampleCache.name())
+ *             .resourceGroupName(example.name())
+ *             .startIp("1.2.3.4")
+ *             .endIp("2.3.4.5")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

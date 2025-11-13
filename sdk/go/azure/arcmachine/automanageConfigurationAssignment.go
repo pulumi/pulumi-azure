@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			example := exampleResourceGroup.Name.ApplyT(func(name string) (arcmachine.GetResult, error) {
-//				return arcmachine.GetResult(interface{}(arcmachine.GetOutput(ctx, arcmachine.GetOutputArgs{
+//				return arcmachine.GetResult(interface{}(arcmachine.Get(ctx, &arcmachine.GetArgs{
 //					Name:              arcMachineName,
 //					ResourceGroupName: name,
 //				}, nil))), nil

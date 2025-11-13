@@ -14,6 +14,125 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     {
+    ///         Name = "contoso.com",
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
+    ///     {
+    ///         Name = "Example-Environment",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///     });
+    /// 
+    ///     var exampleApp = new Azure.ContainerApp.App("example", new()
+    ///     {
+    ///         Name = "example-app",
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         ResourceGroupName = example.Name,
+    ///         RevisionMode = "Single",
+    ///         Template = new Azure.ContainerApp.Inputs.AppTemplateArgs
+    ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new Azure.ContainerApp.Inputs.AppTemplateContainerArgs
+    ///                 {
+    ///                     Name = "examplecontainerapp",
+    ///                     Image = "mcr.microsoft.com/k8se/quickstart:latest",
+    ///                     Cpu = 0.25,
+    ///                     Memory = "0.5Gi",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Ingress = new Azure.ContainerApp.Inputs.AppIngressArgs
+    ///         {
+    ///             AllowInsecureConnections = false,
+    ///             ExternalEnabled = true,
+    ///             TargetPort = 5000,
+    ///             Transport = "http",
+    ///             TrafficWeights = new[]
+    ///             {
+    ///                 new Azure.ContainerApp.Inputs.AppIngressTrafficWeightArgs
+    ///                 {
+    ///                     LatestRevision = true,
+    ///                     Percentage = 100,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
+    ///     {
+    ///         Name = "asuid.example",
+    ///         ResourceGroupName = exampleZone.ResourceGroupName,
+    ///         ZoneName = exampleZone.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
+    ///             {
+    ///                 Value = exampleApp.CustomDomainVerificationId,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEnvironmentCertificate = new Azure.ContainerApp.EnvironmentCertificate("example", new()
+    ///     {
+    ///         Name = "myfriendlyname",
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         CertificateBlob = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "path/to/certificate_file.pfx",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         CertificatePassword = "$3cretSqu1rreL",
+    ///     });
+    /// 
+    ///     var exampleCustomDomain = new Azure.ContainerApp.CustomDomain("example", new()
+    ///     {
+    ///         Name = Std.Trimprefix.Invoke(new()
+    ///         {
+    ///             Input = api.Fqdn,
+    ///             Prefix = "asuid.",
+    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
+    ///         {
+    ///             Input = invoke.Result,
+    ///             Suffix = ".",
+    ///         })).Apply(invoke =&gt; invoke.Result),
+    ///         ContainerAppId = exampleApp.Id,
+    ///         ContainerAppEnvironmentCertificateId = exampleEnvironmentCertificate.Id,
+    ///         CertificateBindingType = "SniEnabled",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Managed Certificate
     /// 
     /// ```csharp

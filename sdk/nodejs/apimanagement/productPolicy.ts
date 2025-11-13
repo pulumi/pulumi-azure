@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.then(example => example.resourceGroupName),
  *     xmlContent: `<policies>
  *   <inbound>
- *     <find-and-replace from="xyz" to="abc" />
+ *     <find-and-replace from=\\"xyz\\" to=\\"abc\\" />
  *   </inbound>
  * </policies>
  * `,

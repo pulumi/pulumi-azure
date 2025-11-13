@@ -265,7 +265,7 @@ class Configuration(pulumi.CustomResource):
                 listen 80;
                 location / {
                     default_type text/html;
-                    return 200 '<!doctype html><html lang="en"><head></head><body>
+                    return 200 '<!doctype html><html lang=\\"en\\"><head></head><body>
                         <div>this one will be updated</div>
                         <div>at 10:38 am</div>
                     </body></html>';
@@ -279,7 +279,7 @@ class Configuration(pulumi.CustomResource):
                 {
                     "content": std.base64encode(input=\"\"\"location /bbb {
          default_type text/html;
-         return 200 '<!doctype html><html lang="en"><head></head><body>
+         return 200 '<!doctype html><html lang=\\"en\\"><head></head><body>
           <div>this one will be updated</div>
           <div>at 10:38 am</div>
          </body></html>';
@@ -380,7 +380,7 @@ class Configuration(pulumi.CustomResource):
                 listen 80;
                 location / {
                     default_type text/html;
-                    return 200 '<!doctype html><html lang="en"><head></head><body>
+                    return 200 '<!doctype html><html lang=\\"en\\"><head></head><body>
                         <div>this one will be updated</div>
                         <div>at 10:38 am</div>
                     </body></html>';
@@ -394,7 +394,7 @@ class Configuration(pulumi.CustomResource):
                 {
                     "content": std.base64encode(input=\"\"\"location /bbb {
          default_type text/html;
-         return 200 '<!doctype html><html lang="en"><head></head><body>
+         return 200 '<!doctype html><html lang=\\"en\\"><head></head><body>
           <div>this one will be updated</div>
           <div>at 10:38 am</div>
          </body></html>';

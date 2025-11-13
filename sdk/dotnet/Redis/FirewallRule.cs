@@ -14,6 +14,59 @@ namespace Pulumi.Azure.Redis
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new Random.Index.Id("server", new()
+    ///     {
+    ///         Keepers = 
+    ///         {
+    ///             { "aziId", 1 },
+    ///         },
+    ///         ByteLength = 8,
+    ///     });
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "redis-resourcegroup",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("example", new()
+    ///     {
+    ///         Name = $"redis{server.Hex}",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Capacity = 1,
+    ///         Family = "P",
+    ///         SkuName = "Premium",
+    ///         EnableNonSslPort = false,
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.Redis.FirewallRule("example", new()
+    ///     {
+    ///         Name = "someIPrange",
+    ///         RedisCacheName = exampleCache.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         StartIp = "1.2.3.4",
+    ///         EndIp = "2.3.4.5",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

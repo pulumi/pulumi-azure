@@ -6,6 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Resource Group Template Deployment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = azure.core.getResourceGroupTemplateDeployment({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const exampleOutput = example.then(example => std.jsondecode({
+ *     input: example.outputContent,
+ * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * ```
  */
 export function getResourceGroupTemplateDeployment(args: GetResourceGroupTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupTemplateDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +63,23 @@ export interface GetResourceGroupTemplateDeploymentResult {
 }
 /**
  * Use this data source to access information about an existing Resource Group Template Deployment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = azure.core.getResourceGroupTemplateDeployment({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const exampleOutput = example.then(example => std.jsondecode({
+ *     input: example.outputContent,
+ * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * ```
  */
 export function getResourceGroupTemplateDeploymentOutput(args: GetResourceGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGroupTemplateDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -374,7 +374,7 @@ class Definition(pulumi.CustomResource):
             mode="Indexed",
             display_name="acceptance test policy definition",
             metadata=\"\"\"    {
-            "category": "General"
+            \\"category\\": \\"General\\"
             }
 
         \"\"\",
@@ -391,12 +391,12 @@ class Definition(pulumi.CustomResource):
           }
         \"\"\",
             parameters=\"\"\" {
-            "allowedLocations": {
-              "type": "Array",
-              "metadata": {
-                "description": "The list of allowed locations for resources.",
-                "displayName": "Allowed locations",
-                "strongType": "location"
+            \\"allowedLocations\\": {
+              \\"type\\": \\"Array\\",
+              \\"metadata\\": {
+                \\"description\\": \\"The list of allowed locations for resources.\\",
+                \\"displayName\\": \\"Allowed locations\\",
+                \\"strongType\\": \\"location\\"
               }
             }
           }
@@ -454,7 +454,7 @@ class Definition(pulumi.CustomResource):
             mode="Indexed",
             display_name="acceptance test policy definition",
             metadata=\"\"\"    {
-            "category": "General"
+            \\"category\\": \\"General\\"
             }
 
         \"\"\",
@@ -471,12 +471,12 @@ class Definition(pulumi.CustomResource):
           }
         \"\"\",
             parameters=\"\"\" {
-            "allowedLocations": {
-              "type": "Array",
-              "metadata": {
-                "description": "The list of allowed locations for resources.",
-                "displayName": "Allowed locations",
-                "strongType": "location"
+            \\"allowedLocations\\": {
+              \\"type\\": \\"Array\\",
+              \\"metadata\\": {
+                \\"description\\": \\"The list of allowed locations for resources.\\",
+                \\"displayName\\": \\"Allowed locations\\",
+                \\"strongType\\": \\"location\\"
               }
             }
           }

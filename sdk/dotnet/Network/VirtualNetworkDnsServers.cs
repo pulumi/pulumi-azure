@@ -12,6 +12,53 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Subnets = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///             {
+    ///                 Name = "subnet1",
+    ///                 AddressPrefix = "10.0.1.0/24",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkDnsServers = new Azure.Network.VirtualNetworkDnsServers("example", new()
+    ///     {
+    ///         VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///         DnsServers = new[]
+    ///         {
+    ///             "10.7.7.2",
+    ///             "10.7.7.7",
+    ///             "10.7.7.1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

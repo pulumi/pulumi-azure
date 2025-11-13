@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     type: "AzureBlobStorage",
  *     description: "test description",
  *     typePropertiesJson: pulumi.interpolate`{
- *   "connectionString":"${exampleAccount.primaryConnectionString}"
+ *   \"connectionString\":\"${exampleAccount.primaryConnectionString}\"
  * }
  * `,
  *     parameters: {

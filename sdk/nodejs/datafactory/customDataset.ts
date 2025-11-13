@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     dataFactoryId: exampleFactory.id,
  *     type: "AzureBlobStorage",
  *     typePropertiesJson: pulumi.interpolate`{
- *   "connectionString":"${exampleAccount.primaryConnectionString}"
+ *   \"connectionString\":\"${exampleAccount.primaryConnectionString}\"
  * }
  * `,
  * });
@@ -60,13 +60,13 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     typePropertiesJson: pulumi.interpolate`{
- *   "location": {
- *     "container":"${exampleContainer.name}",
- *     "fileName":"foo.txt",
- *     "folderPath": "foo/bar/",
- *     "type":"AzureBlobStorageLocation"
+ *   \"location\": {
+ *     \"container\":\"${exampleContainer.name}\",
+ *     \"fileName\":\"foo.txt\",
+ *     \"folderPath\": \"foo/bar/\",
+ *     \"type\":\"AzureBlobStorageLocation\"
  *   },
- *   "encodingName":"UTF-8"
+ *   \"encodingName\":\"UTF-8\"
  * }
  * `,
  *     description: "test description",
@@ -85,21 +85,21 @@ import * as utilities from "../utilities";
  *         bar: "test2",
  *     },
  *     schemaJson: `{
- *   "type": "object",
- *   "properties": {
- *     "name": {
- *       "type": "object",
- *       "properties": {
- *         "firstName": {
- *           "type": "string"
+ *   \\"type\\": \\"object\\",
+ *   \\"properties\\": {
+ *     \\"name\\": {
+ *       \\"type\\": \\"object\\",
+ *       \\"properties\\": {
+ *         \\"firstName\\": {
+ *           \\"type\\": \\"string\\"
  *         },
- *         "lastName": {
- *           "type": "string"
+ *         \\"lastName\\": {
+ *           \\"type\\": \\"string\\"
  *         }
  *       }
  *     },
- *     "age": {
- *       "type": "integer"
+ *     \\"age\\": {
+ *       \\"type\\": \\"integer\\"
  *     }
  *   }
  * }

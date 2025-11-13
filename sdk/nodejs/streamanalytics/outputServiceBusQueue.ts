@@ -11,6 +11,44 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
+ *     name: "example-job",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "example-namespace",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleQueue = new azure.servicebus.Queue("example", {
+ *     name: "example-queue",
+ *     namespaceId: exampleNamespace.id,
+ *     enablePartitioning: true,
+ * });
+ * const exampleOutputServiceBusQueue = new azure.streamanalytics.OutputServiceBusQueue("example", {
+ *     name: "blob-storage-output",
+ *     streamAnalyticsJobName: example.apply(example => example.name),
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     queueName: exampleQueue.name,
+ *     servicebusNamespace: exampleNamespace.name,
+ *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
+ *     sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *     serialization: {
+ *         type: "Csv",
+ *         format: "Array",
+ *     },
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

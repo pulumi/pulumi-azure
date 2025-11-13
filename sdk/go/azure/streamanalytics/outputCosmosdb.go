@@ -16,6 +16,90 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
+//				Name:              pulumi.String("exampledb"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
+//					MaxIntervalInSeconds: pulumi.Int(10),
+//					MaxStalenessPrefix:   pulumi.Int(200),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
+//				Name:              pulumi.String("cosmos-sql-db"),
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
+//				Name:              pulumi.String("examplecontainer"),
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				DatabaseName:      exampleSqlDatabase.Name,
+//				PartitionKeyPath:  "foo",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewOutputCosmosdb(ctx, "example", &streamanalytics.OutputCosmosdbArgs{
+//				Name: pulumi.String("output-to-cosmosdb"),
+//				StreamAnalyticsJobId: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//					return &example.Id, nil
+//				}).(pulumi.StringPtrOutput)),
+//				CosmosdbAccountKey:    exampleAccount.PrimaryKey,
+//				CosmosdbSqlDatabaseId: exampleSqlDatabase.ID(),
+//				ContainerName:         exampleSqlContainer.Name,
+//				DocumentId:            pulumi.String("exampledocumentid"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

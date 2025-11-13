@@ -62,7 +62,7 @@ import (
 //				DataFactoryId: exampleFactory.ID(),
 //				Type:          pulumi.String("AzureBlobStorage"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-//					return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
+//					return fmt.Sprintf("{\n  \\\"connectionString\\\": \\\"%v\\\"\n}\n", primaryConnectionString), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {

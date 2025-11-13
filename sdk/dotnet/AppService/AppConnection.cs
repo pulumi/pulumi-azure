@@ -14,6 +14,102 @@ namespace Pulumi.Azure.AppService
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     {
+    ///         Name = "example-cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "BoundedStaleness",
+    ///             MaxIntervalInSeconds = 10,
+    ///             MaxStalenessPrefix = 200,
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = example.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     {
+    ///         Name = "cosmos-sql-db",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     {
+    ///         Name = "example-container",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/definition",
+    ///     });
+    /// 
+    ///     var exampleAccount2 = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "examplestorageaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         Name = "example-serviceplan",
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "P1v2",
+    ///         OsType = "Linux",
+    ///     });
+    /// 
+    ///     var test = new Azure.AppService.FunctionApp("test", new()
+    ///     {
+    ///         Name = "example-function-app",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         AppServicePlanId = testAzurermAppServicePlan.Id,
+    ///         StorageAccountName = testAzurermStorageAccount.Name,
+    ///         StorageAccountAccessKey = testAzurermStorageAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    ///     var exampleAppConnection = new Azure.AppService.AppConnection("example", new()
+    ///     {
+    ///         Name = "example-serviceconnector",
+    ///         FunctionAppId = exampleAzurermFunctionApp.Id,
+    ///         TargetResourceId = testAzurermCosmosdbAccount.Id,
+    ///         Authentication = new Azure.AppService.Inputs.AppConnectionAuthenticationArgs
+    ///         {
+    ///             Type = "systemAssignedIdentity",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

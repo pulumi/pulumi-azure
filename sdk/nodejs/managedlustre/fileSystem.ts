@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleFileSystem = new azure.managedlustre.FileSystem("example", {
+ *     name: "example-amlfs",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     skuName: "AMLFS-Durable-Premium-250",
+ *     subnetId: exampleSubnet.id,
+ *     storageCapacityInTb: 8,
+ *     zones: ["2"],
+ *     maintenanceWindow: {
+ *         dayOfWeek: "Friday",
+ *         timeOfDayUtc: "22:00",
+ *     },
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

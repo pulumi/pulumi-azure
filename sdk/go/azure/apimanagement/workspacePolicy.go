@@ -59,7 +59,7 @@ import (
 //				ApiManagementWorkspaceId: exampleWorkspace.ID(),
 //				XmlContent: pulumi.String(`<policies>
 //	  <inbound>
-//	    <find-and-replace from="abc" to="xyz" />
+//	    <find-and-replace from=\"abc\" to=\"xyz\" />
 //	  </inbound>
 //
 // </policies>

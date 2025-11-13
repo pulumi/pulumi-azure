@@ -16,6 +16,85 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var example = new Azure.KeyVault.ManagedHardwareSecurityModule("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+    ///         Location = exampleAzurermResourceGroup.Location,
+    ///         SkuName = "Standard_B1",
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         AdminObjectIds = new[]
+    ///         {
+    ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         },
+    ///         PurgeProtectionEnabled = false,
+    ///         ActiveConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "securityDomainCertificate", new[]
+    ///                 {
+    ///                     cert[0].Id,
+    ///                     cert[1].Id,
+    ///                     cert[2].Id,
+    ///                 } },
+    ///                 { "securityDomainQuorum", 2 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
+    ///     var hsm_crypto_user = new Azure.KeyVault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user", new()
+    ///     {
+    ///         ManagedHsmId = test.Id,
+    ///         Name = "1e243909-064c-6ac3-84e9-1c8bf8d6ad22",
+    ///         Scope = "/keys",
+    ///         RoleDefinitionId = "/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/21dbd100-6940-42c2-9190-5d6cb909625b",
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    ///     // this gives your service principal the HSM Crypto Officer role which lets you purge hsm keys
+    ///     var hsm_crypto_officer = new Azure.KeyVault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-officer", new()
+    ///     {
+    ///         ManagedHsmId = test.Id,
+    ///         Name = "1e243909-064c-6ac3-84e9-1c8bf8d6ad23",
+    ///         Scope = "/keys",
+    ///         RoleDefinitionId = "/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/515eb02d-2335-4d2d-92f2-b1cbdf9c3778",
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleManagedHardwareSecurityModuleKey = new Azure.KeyVault.ManagedHardwareSecurityModuleKey("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ManagedHsmId = test.Id,
+    ///         KeyType = "EC-HSM",
+    ///         Curve = "P-521",
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "sign",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             testAzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment,
+    ///             test1,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

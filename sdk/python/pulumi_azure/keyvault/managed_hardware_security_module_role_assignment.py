@@ -223,6 +223,22 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
         """
         Manages a Managed Hardware Security Module Role Assignment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        user = azure.keyvault.get_managed_hardware_security_module_role_definition(managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
+            name="21dbd100-6940-42c2-9190-5d6cb909625b")
+        example = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("example",
+            name="a9dbe818-56e7-5878-c0ce-a1477692c1d6",
+            managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
+            scope=user.scope,
+            role_definition_id=user.resource_manager_id,
+            principal_id=current["objectId"])
+        ```
+
         ## Import
 
         Managed Hardware Security Modules can be imported using the `resource id`, e.g.
@@ -248,6 +264,22 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Hardware Security Module Role Assignment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        user = azure.keyvault.get_managed_hardware_security_module_role_definition(managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
+            name="21dbd100-6940-42c2-9190-5d6cb909625b")
+        example = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("example",
+            name="a9dbe818-56e7-5878-c0ce-a1477692c1d6",
+            managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
+            scope=user.scope,
+            role_definition_id=user.resource_manager_id,
+            principal_id=current["objectId"])
+        ```
 
         ## Import
 

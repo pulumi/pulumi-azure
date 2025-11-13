@@ -79,13 +79,13 @@ import (
 //				},
 //				ActivitiesJson: pulumi.String(`[
 //	    {
-//	        "name": "Append variable1",
-//	        "type": "AppendVariable",
-//	        "dependsOn": [],
-//	        "userProperties": [],
-//	        "typeProperties": {
-//	          "variableName": "bob",
-//	          "value": "something"
+//	        \"name\": \"Append variable1\",
+//	        \"type\": \"AppendVariable\",
+//	        \"dependsOn\": [],
+//	        \"userProperties\": [],
+//	        \"typeProperties\": {
+//	          \"variableName\": \"bob\",
+//	          \"value\": \"something\"
 //	        }
 //	    }
 //

@@ -14,6 +14,40 @@ namespace Pulumi.Azure.Oracle
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Oracle.AutonomousDatabase("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = "example",
+    ///         Location = "West Europe",
+    ///         SubnetId = "example",
+    ///         DisplayName = "example",
+    ///         DbWorkload = "example",
+    ///         MtlsConnectionRequired = false,
+    ///         BackupRetentionPeriodInDays = 42,
+    ///         ComputeModel = "example",
+    ///         DataStorageSizeInGbs = 42,
+    ///         AutoScalingForStorageEnabled = false,
+    ///         VirtualNetworkId = "example",
+    ///         AdminPassword = "example",
+    ///         AutoScalingEnabled = "example",
+    ///         CharacterSet = "example",
+    ///         ComputeCount = 1.23456,
+    ///         NationalCharacterSet = "example",
+    ///         LicenseModel = "false",
+    ///         DbVersion = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## &gt; **Note:** `AllowedIps`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
     /// 
     ///               size: the maximum number of Ips provided shouldn't exceed 1024. At this time we only support IpV4.

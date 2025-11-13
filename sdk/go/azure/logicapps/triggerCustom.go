@@ -48,11 +48,11 @@ import (
 //				Name:       pulumi.String("example-trigger"),
 //				LogicAppId: exampleWorkflow.ID(),
 //				Body: pulumi.String(`{
-//	  "recurrence": {
-//	    "frequency": "Day",
-//	    "interval": 1
+//	  \"recurrence\": {
+//	    \"frequency\": \"Day\",
+//	    \"interval\": 1
 //	  },
-//	  "type": "Recurrence"
+//	  \"type\": \"Recurrence\"
 //	}
 //
 // `),

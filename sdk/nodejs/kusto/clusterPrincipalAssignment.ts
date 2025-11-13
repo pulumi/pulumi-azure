@@ -7,6 +7,44 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto Cluster Principal Assignment.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "KustoRG",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "kustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: {
+ *         name: "Standard_D13_v2",
+ *         capacity: 2,
+ *     },
+ * });
+ * const exampleClusterPrincipalAssignment = new azure.kusto.ClusterPrincipalAssignment("example", {
+ *     name: "KustoPrincipalAssignment",
+ *     resourceGroupName: example.name,
+ *     clusterName: exampleCluster.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     principalId: current.then(current => current.principalId),
+ *     principalType: "App",
+ *     role: "AllDatabasesAdmin",
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Kusto` - 2024-04-13
+ *
  * ## Import
  *
  * Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.

@@ -6,6 +6,34 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Virtual Wan.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getVirtualWan({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const allowBranchToBranchTraffic = example.then(example => example.allowBranchToBranchTraffic);
+ * export const disableVpnEncryption = example.then(example => example.disableVpnEncryption);
+ * export const location = example.then(example => example.location);
+ * export const office365LocalBreakoutCategory = example.then(example => example.office365LocalBreakoutCategory);
+ * export const sku = example.then(example => example.sku);
+ * export const tags = example.then(example => example.tags);
+ * export const virtualHubs = example.then(example => example.virtualHubs);
+ * export const vpnSites = example.then(example => example.vpnSites);
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network` - 2024-05-01
  */
 export function getVirtualWan(args: GetVirtualWanArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +102,34 @@ export interface GetVirtualWanResult {
 }
 /**
  * Use this data source to access information about an existing Virtual Wan.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getVirtualWan({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const allowBranchToBranchTraffic = example.then(example => example.allowBranchToBranchTraffic);
+ * export const disableVpnEncryption = example.then(example => example.disableVpnEncryption);
+ * export const location = example.then(example => example.location);
+ * export const office365LocalBreakoutCategory = example.then(example => example.office365LocalBreakoutCategory);
+ * export const sku = example.then(example => example.sku);
+ * export const tags = example.then(example => example.tags);
+ * export const virtualHubs = example.then(example => example.virtualHubs);
+ * export const vpnSites = example.then(example => example.vpnSites);
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network` - 2024-05-01
  */
 export function getVirtualWanOutput(args: GetVirtualWanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualWanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

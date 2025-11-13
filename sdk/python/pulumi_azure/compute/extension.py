@@ -587,7 +587,7 @@ class Extension(pulumi.CustomResource):
             type="CustomScript",
             type_handler_version="2.0",
             settings=\"\"\" {
-          "commandToExecute": "hostname && uptime"
+          \\"commandToExecute\\": \\"hostname && uptime\\"
          }
         \"\"\",
             tags={
@@ -711,7 +711,7 @@ class Extension(pulumi.CustomResource):
             type="CustomScript",
             type_handler_version="2.0",
             settings=\"\"\" {
-          "commandToExecute": "hostname && uptime"
+          \\"commandToExecute\\": \\"hostname && uptime\\"
          }
         \"\"\",
             tags={

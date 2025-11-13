@@ -143,6 +143,25 @@ def get_user(api_management_name: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing API Management User.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_user(user_id="my-user",
+        api_management_name="example-apim",
+        resource_group_name="search-service")
+    pulumi.export("notes", example.notes)
+    ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement` - 2022-08-01
+
 
     :param _builtins.str api_management_name: The Name of the API Management Service in which this User exists.
     :param _builtins.str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
@@ -171,6 +190,25 @@ def get_user_output(api_management_name: Optional[pulumi.Input[_builtins.str]] =
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to access information about an existing API Management User.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_user(user_id="my-user",
+        api_management_name="example-apim",
+        resource_group_name="search-service")
+    pulumi.export("notes", example.notes)
+    ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement` - 2022-08-01
 
 
     :param _builtins.str api_management_name: The Name of the API Management Service in which this User exists.

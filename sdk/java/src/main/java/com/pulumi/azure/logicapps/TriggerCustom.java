@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  *             .logicAppId(exampleWorkflow.id())
  *             .body("""
  * {
- *   "recurrence": {
- *     "frequency": "Day",
- *     "interval": 1
+ *   \"recurrence\": {
+ *     \"frequency\": \"Day\",
+ *     \"interval\": 1
  *   },
- *   "type": "Recurrence"
+ *   \"type\": \"Recurrence\"
  * }
  *             """)
  *             .build());

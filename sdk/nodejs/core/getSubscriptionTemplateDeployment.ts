@@ -6,6 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Subscription Template Deployment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = azure.core.getSubscriptionTemplateDeployment({
+ *     name: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const exampleOutput = example.then(example => std.jsondecode({
+ *     input: example.outputContent,
+ * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * ```
  */
 export function getSubscriptionTemplateDeployment(args: GetSubscriptionTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionTemplateDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +56,22 @@ export interface GetSubscriptionTemplateDeploymentResult {
 }
 /**
  * Use this data source to access information about an existing Subscription Template Deployment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = azure.core.getSubscriptionTemplateDeployment({
+ *     name: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const exampleOutput = example.then(example => std.jsondecode({
+ *     input: example.outputContent,
+ * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * ```
  */
 export function getSubscriptionTemplateDeploymentOutput(args: GetSubscriptionTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionTemplateDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

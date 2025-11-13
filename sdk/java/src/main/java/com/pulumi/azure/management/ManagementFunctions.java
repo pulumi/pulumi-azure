@@ -357,12 +357,92 @@ public final class ManagementFunctions {
     /**
      * Use this data source to access information about an existing Management Group Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .managementGroupId("00000000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetGroupTemplateDeploymentResult> getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs args) {
         return getGroupTemplateDeployment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Management Group Template Deployment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .managementGroupId("00000000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetGroupTemplateDeploymentResult> getGroupTemplateDeploymentPlain(GetGroupTemplateDeploymentPlainArgs args) {
@@ -371,6 +451,46 @@ public final class ManagementFunctions {
     /**
      * Use this data source to access information about an existing Management Group Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .managementGroupId("00000000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetGroupTemplateDeploymentResult> getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", TypeShape.of(GetGroupTemplateDeploymentResult.class), args, Utilities.withVersion(options));
@@ -378,12 +498,92 @@ public final class ManagementFunctions {
     /**
      * Use this data source to access information about an existing Management Group Template Deployment.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .managementGroupId("00000000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetGroupTemplateDeploymentResult> getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", TypeShape.of(GetGroupTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Management Group Template Deployment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagementFunctions.getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs.builder()
+     *             .name("existing")
+     *             .managementGroupId("00000000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetGroupTemplateDeploymentResult> getGroupTemplateDeploymentPlain(GetGroupTemplateDeploymentPlainArgs args, InvokeOptions options) {

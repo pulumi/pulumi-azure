@@ -20,6 +20,89 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.databoxedge.Device;
+ * import com.pulumi.azure.databoxedge.DeviceArgs;
+ * import com.pulumi.azure.mobile.Network;
+ * import com.pulumi.azure.mobile.NetworkArgs;
+ * import com.pulumi.azure.mobile.NetworkPacketCoreControlPlane;
+ * import com.pulumi.azure.mobile.NetworkPacketCoreControlPlaneArgs;
+ * import com.pulumi.azure.mobile.inputs.NetworkPacketCoreControlPlanePlatformArgs;
+ * import com.pulumi.azure.mobile.NetworkPacketCoreDataPlane;
+ * import com.pulumi.azure.mobile.NetworkPacketCoreDataPlaneArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()
+ *             .name("example-device")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .skuName("EdgeP_Base-Standard")
+ *             .build());
+ * 
+ *         var exampleNetwork = new Network("exampleNetwork", NetworkArgs.builder()
+ *             .name("example-mn")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .mobileCountryCode("001")
+ *             .mobileNetworkCode("01")
+ *             .build());
+ * 
+ *         var exampleNetworkPacketCoreControlPlane = new NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane", NetworkPacketCoreControlPlaneArgs.builder()
+ *             .name("example-mnpccp")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("G0")
+ *             .mobileNetworkId(exampleNetwork.id())
+ *             .controlPlaneAccessName("default-interface")
+ *             .controlPlaneAccessIpv4Address("192.168.1.199")
+ *             .controlPlaneAccessIpv4Gateway("192.168.1.1")
+ *             .controlPlaneAccessIpv4Subnet("192.168.1.0/25")
+ *             .platform(NetworkPacketCoreControlPlanePlatformArgs.builder()
+ *                 .type("AKS-HCI")
+ *                 .edgeDeviceId(exampleDevice.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleNetworkPacketCoreDataPlane = new NetworkPacketCoreDataPlane("exampleNetworkPacketCoreDataPlane", NetworkPacketCoreDataPlaneArgs.builder()
+ *             .name("example-mnpcdp")
+ *             .mobileNetworkPacketCoreControlPlaneId(exampleNetworkPacketCoreControlPlane.id())
+ *             .location(example.location())
+ *             .userPlaneAccessName("default-interface")
+ *             .userPlaneAccessIpv4Address("192.168.1.199")
+ *             .userPlaneAccessIpv4Gateway("192.168.1.1")
+ *             .userPlaneAccessIpv4Subnet("192.168.1.0/25")
+ *             .tags(Map.of("key", "value"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

@@ -7,53 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const current = azure.core.getClientConfig({});
- * const example = current.then(current => azuread.getServicePrincipal({
- *     objectId: current.objectId,
- * }));
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("example", {
- *     name: "example-fs",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     administratorLogin: "adminTerraform",
- *     administratorPassword: "QAZwsx123",
- *     storageMb: 32768,
- *     version: "12",
- *     skuName: "GP_Standard_D2s_v3",
- *     zone: "2",
- *     authentication: {
- *         activeDirectoryAuthEnabled: true,
- *         tenantId: current.then(current => current.tenantId),
- *     },
- * });
- * const exampleFlexibleServerActiveDirectoryAdministrator = new azure.postgresql.FlexibleServerActiveDirectoryAdministrator("example", {
- *     serverName: exampleFlexibleServer.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: example.then(example => example.objectId),
- *     principalName: example.then(example => example.displayName),
- *     principalType: "ServicePrincipal",
- * });
- * ```
- *
- * ## API Providers
- *
- * <!-- This section is generated, changes will be overwritten -->
- * This resource uses the following Azure API Providers:
- *
- * * `Microsoft.DBforPostgreSQL` - 2024-08-01
- *
  * ## Import
  *
  * A PostgreSQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.

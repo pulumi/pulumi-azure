@@ -16,6 +16,71 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redis"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			server, err := random.NewId(ctx, "server", &random.IdArgs{
+//				Keepers: map[string]interface{}{
+//					"aziId": 1,
+//				},
+//				ByteLength: 8,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("redis-resourcegroup"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
+//				Name:              pulumi.Sprintf("redis%v", server.Hex),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Capacity:          pulumi.Int(1),
+//				Family:            pulumi.String("P"),
+//				SkuName:           pulumi.String("Premium"),
+//				EnableNonSslPort:  false,
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewFirewallRule(ctx, "example", &redis.FirewallRuleArgs{
+//				Name:              pulumi.String("someIPrange"),
+//				RedisCacheName:    exampleCache.Name,
+//				ResourceGroupName: example.Name,
+//				StartIp:           pulumi.String("1.2.3.4"),
+//				EndIp:             pulumi.String("2.3.4.5"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

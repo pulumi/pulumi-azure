@@ -48,10 +48,10 @@ import (
 //				Name:       pulumi.String("some-http-trigger"),
 //				LogicAppId: exampleWorkflow.ID(),
 //				Schema: pulumi.String(`{
-//	    "type": "object",
-//	    "properties": {
-//	        "hello": {
-//	            "type": "string"
+//	    \"type\": \"object\",
+//	    \"properties\": {
+//	        \"hello\": {
+//	            \"type\": \"string\"
 //	        }
 //	    }
 //	}

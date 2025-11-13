@@ -414,7 +414,7 @@ class LinkedService(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString": "{primary_connection_string}"
+          \\"connectionString\\": \\"{primary_connection_string}\\"
         }}
         \"\"\"),
             integration_runtime={
@@ -504,7 +504,7 @@ class LinkedService(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString": "{primary_connection_string}"
+          \\"connectionString\\": \\"{primary_connection_string}\\"
         }}
         \"\"\"),
             integration_runtime={

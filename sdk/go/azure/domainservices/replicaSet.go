@@ -24,7 +24,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/domainservices"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	"github.com/pulumi/pulumi-azuread/sdk/v6/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -143,7 +143,7 @@ import (
 // return err
 // }
 // example, err := azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
-// ApplicationId: pulumi.String("2565bd9d-da50-47d4-8b85-4c97f669dc36"),
+// ApplicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36",
 // })
 // if err != nil {
 // return err

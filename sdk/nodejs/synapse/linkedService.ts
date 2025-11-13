@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     type: "AzureBlobStorage",
  *     typePropertiesJson: pulumi.interpolate`{
- *   "connectionString": "${exampleAccount.primaryConnectionString}"
+ *   \"connectionString\": \"${exampleAccount.primaryConnectionString}\"
  * }
  * `,
  *     integrationRuntime: {
