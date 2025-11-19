@@ -170,9 +170,6 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Specifies the plan's pricing tier.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -247,6 +244,9 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> _builtins.str:
+        """
+        The SKU of the API Management Service consisting of the name and capacity, separated by an underscore.
+        """
         return pulumi.get(self, "sku_name")
 
     @_builtins.property

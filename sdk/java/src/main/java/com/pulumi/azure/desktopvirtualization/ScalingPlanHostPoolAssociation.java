@@ -17,6 +17,122 @@ import javax.annotation.Nullable;
 /**
  * Manages a Virtual Desktop Scaling Plan Host Pool Association.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.desktopvirtualization.HostPool;
+ * import com.pulumi.azure.desktopvirtualization.HostPoolArgs;
+ * import com.pulumi.azure.desktopvirtualization.ScalingPlan;
+ * import com.pulumi.azure.desktopvirtualization.ScalingPlanArgs;
+ * import com.pulumi.azure.desktopvirtualization.inputs.ScalingPlanScheduleArgs;
+ * import com.pulumi.azure.desktopvirtualization.ScalingPlanHostPoolAssociation;
+ * import com.pulumi.azure.desktopvirtualization.ScalingPlanHostPoolAssociationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("rg-example-virtualdesktop")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .displayName("Windows Virtual Desktop")
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *             .scope(exampleResourceGroup.id())
+ *             .roleDefinitionName("Desktop Virtualization Power On Off Contributor")
+ *             .principalId(example.objectId())
+ *             .build());
+ * 
+ *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()
+ *             .name("example-hostpool")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .type("Pooled")
+ *             .validateEnvironment(true)
+ *             .loadBalancerType("BreadthFirst")
+ *             .build());
+ * 
+ *         var exampleScalingPlan = new ScalingPlan("exampleScalingPlan", ScalingPlanArgs.builder()
+ *             .name("example-scaling-plan")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .friendlyName("Scaling Plan Test")
+ *             .description("Test Scaling Plan")
+ *             .timeZone("GMT Standard Time")
+ *             .schedules(ScalingPlanScheduleArgs.builder()
+ *                 .name("Weekdays")
+ *                 .daysOfWeeks(                
+ *                     "Monday",
+ *                     "Tuesday",
+ *                     "Wednesday",
+ *                     "Thursday",
+ *                     "Friday")
+ *                 .rampUpStartTime("06:00")
+ *                 .rampUpLoadBalancingAlgorithm("BreadthFirst")
+ *                 .rampUpMinimumHostsPercent(20)
+ *                 .rampUpCapacityThresholdPercent(10)
+ *                 .peakStartTime("09:00")
+ *                 .peakLoadBalancingAlgorithm("BreadthFirst")
+ *                 .rampDownStartTime("18:00")
+ *                 .rampDownLoadBalancingAlgorithm("BreadthFirst")
+ *                 .rampDownMinimumHostsPercent(10)
+ *                 .rampDownForceLogoffUsers(false)
+ *                 .rampDownWaitTimeMinutes(45)
+ *                 .rampDownNotificationMessage("Please log of in the next 45 minutes...")
+ *                 .rampDownCapacityThresholdPercent(5)
+ *                 .rampDownStopHostsWhen("ZeroSessions")
+ *                 .offPeakStartTime("22:00")
+ *                 .offPeakLoadBalancingAlgorithm("BreadthFirst")
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
+ * 
+ *         var exampleScalingPlanHostPoolAssociation = new ScalingPlanHostPoolAssociation("exampleScalingPlanHostPoolAssociation", ScalingPlanHostPoolAssociationArgs.builder()
+ *             .hostPoolId(exampleHostPool.id())
+ *             .scalingPlanId(exampleScalingPlan.id())
+ *             .enabled(true)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DesktopVirtualization` - 2024-04-03
+ * 
  * ## Import
  * 
  * Associations between Virtual Desktop Scaling Plans and Virtual Desktop Host Pools can be imported using the `resource id`, e.g.

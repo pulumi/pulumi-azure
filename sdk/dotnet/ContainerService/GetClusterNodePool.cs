@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2025-05-01
+        /// * `Microsoft.ContainerService` - 2025-07-01
         /// </summary>
         public static Task<GetClusterNodePoolResult> InvokeAsync(GetClusterNodePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2025-05-01
+        /// * `Microsoft.ContainerService` - 2025-07-01
         /// </summary>
         public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2025-05-01
+        /// * `Microsoft.ContainerService` - 2025-07-01
         /// </summary>
         public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithDefaults());

@@ -2115,7 +2115,7 @@ type JobTargetGroupJobTarget struct {
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	// The ID of the job credential to use during execution of jobs.
 	//
-	// > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+	// > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
 	JobCredentialId *string `pulumi:"jobCredentialId"`
 	// The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
 	MembershipType *string `pulumi:"membershipType"`
@@ -2147,7 +2147,7 @@ type JobTargetGroupJobTargetArgs struct {
 	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
 	// The ID of the job credential to use during execution of jobs.
 	//
-	// > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+	// > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
 	JobCredentialId pulumi.StringPtrInput `pulumi:"jobCredentialId"`
 	// The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
 	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
@@ -2224,7 +2224,7 @@ func (o JobTargetGroupJobTargetOutput) ElasticPoolName() pulumi.StringPtrOutput 
 
 // The ID of the job credential to use during execution of jobs.
 //
-// > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+// > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
 func (o JobTargetGroupJobTargetOutput) JobCredentialId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetGroupJobTarget) *string { return v.JobCredentialId }).(pulumi.StringPtrOutput)
 }

@@ -16,7 +16,7 @@ public final class GetPoolMountAzureFileShare {
      */
     private String accountKey;
     /**
-     * @return The Azure Storage Account name.
+     * @return The Batch Account name associated with the Batch pool.
      * 
      */
     private String accountName;
@@ -45,7 +45,7 @@ public final class GetPoolMountAzureFileShare {
         return this.accountKey;
     }
     /**
-     * @return The Azure Storage Account name.
+     * @return The Batch Account name associated with the Batch pool.
      * 
      */
     public String accountName() {

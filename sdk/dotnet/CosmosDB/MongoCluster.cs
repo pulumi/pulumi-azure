@@ -28,7 +28,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleMongoCluster = new Azure.CosmosDB.MongoCluster("example", new()
+    ///     var exampleMongoCluster = new Azure.MongoCluster.MongoCluster("example", new()
     ///     {
     ///         Name = "example-mc",
     ///         ResourceGroupName = example.Name,
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleMongoCluster = new Azure.CosmosDB.MongoCluster("example", new()
+    ///     var exampleMongoCluster = new Azure.MongoCluster.MongoCluster("example", new()
     ///     {
     ///         Name = "example-mc",
     ///         ResourceGroupName = example.Name,
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         },
     ///     });
     /// 
-    ///     var exampleGeoReplica = new Azure.CosmosDB.MongoCluster("example_geo_replica", new()
+    ///     var exampleGeoReplica = new Azure.MongoCluster.MongoCluster("example_geo_replica", new()
     ///     {
     ///         Name = "example-mc-geo",
     ///         ResourceGroupName = example.Name,
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.CosmosDB
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DocumentDB` - 2024-07-01
+    /// * `Microsoft.DocumentDB` - 2025-09-01
     /// 
     /// ## Import
     /// 
@@ -105,6 +105,7 @@ namespace Pulumi.Azure.CosmosDB
     /// $ pulumi import azure:cosmosdb/mongoCluster:MongoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster
     /// ```
     /// </summary>
+    [Obsolete(@"azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster")]
     [AzureResourceType("azure:cosmosdb/mongoCluster:MongoCluster")]
     public partial class MongoCluster : global::Pulumi.CustomResource
     {
@@ -233,6 +234,10 @@ namespace Pulumi.Azure.CosmosDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure:cosmosdb/mongoCluster:MongoCluster" },
+                },
                 AdditionalSecretOutputs =
                 {
                     "administratorPassword",

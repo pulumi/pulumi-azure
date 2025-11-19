@@ -33,6 +33,119 @@ import javax.annotation.Nullable;
  * 
  * -&gt; **Note:** You only need to add the `Access Policy` for your personal AAD Object ID if you are planning to view the `secrets` via the Azure Portal.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultNetworkAclsArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Certificate;
+ * import com.pulumi.azure.keyvault.CertificateArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
+ * import com.pulumi.azure.cdn.FrontdoorProfile;
+ * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+ * import com.pulumi.azure.cdn.FrontdoorSecret;
+ * import com.pulumi.azure.cdn.FrontdoorSecretArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorSecretSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         final var frontdoor = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .displayName("Microsoft.AzurefrontDoor-Cdn")
+ *             .build());
+ * 
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-cdn-frontdoor")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
+ *             .name("example-keyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .tenantId(current.tenantId())
+ *             .skuName("premium")
+ *             .softDeleteRetentionDays(7)
+ *             .networkAcls(KeyVaultNetworkAclsArgs.builder()
+ *                 .defaultAction("Deny")
+ *                 .bypass("AzureServices")
+ *                 .ipRules("10.0.0.0/24")
+ *                 .build())
+ *             .accessPolicies(            
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(frontdoor.objectId())
+ *                     .secretPermissions("Get")
+ *                     .build(),
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
+ *                     .certificatePermissions(                    
+ *                         "Get",
+ *                         "Import",
+ *                         "Delete",
+ *                         "Purge")
+ *                     .secretPermissions("Get")
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
+ *             .name("example-cert")
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .certificate(CertificateCertificateArgs.builder()
+ *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
+ *                     .input("my-certificate.pfx")
+ *                     .build()).result())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
+ *             .name("example-cdn-profile")
+ *             .resourceGroupName(example.name())
+ *             .skuName("Standard_AzureFrontDoor")
+ *             .build());
+ * 
+ *         var exampleFrontdoorSecret = new FrontdoorSecret("exampleFrontdoorSecret", FrontdoorSecretArgs.builder()
+ *             .name("example-customer-managed-secret")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .secret(FrontdoorSecretSecretArgs.builder()
+ *                 .customerCertificates(FrontdoorSecretSecretCustomerCertificateArgs.builder()
+ *                     .keyVaultCertificateId(exampleCertificate.id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Front Door Secrets can be imported using the `resource id`, e.g.

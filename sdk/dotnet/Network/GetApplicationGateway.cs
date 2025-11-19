@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Task<GetApplicationGatewayResult> InvokeAsync(GetApplicationGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure:network/getApplicationGateway:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetApplicationGatewayResult> Invoke(GetApplicationGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayResult>("azure:network/getApplicationGateway:getApplicationGateway", args ?? new GetApplicationGatewayInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetApplicationGatewayResult> Invoke(GetApplicationGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayResult>("azure:network/getApplicationGateway:getApplicationGateway", args ?? new GetApplicationGatewayInvokeArgs(), options.WithDefaults());

@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Dashboard` - 2023-09-01
+// * `Microsoft.Dashboard` - 2025-08-01
 func LookupGrafana(ctx *pulumi.Context, args *LookupGrafanaArgs, opts ...pulumi.InvokeOption) (*LookupGrafanaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGrafanaResult

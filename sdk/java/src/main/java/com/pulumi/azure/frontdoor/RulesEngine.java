@@ -184,9 +184,17 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
     public Output<String> frontdoorName() {
         return this.frontdoorName;
     }
+    /**
+     * The location in which the Front Door Rules Engine exists.
+     * 
+     */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
+    /**
+     * @return The location in which the Front Door Rules Engine exists.
+     * 
+     */
     public Output<String> location() {
         return this.location;
     }

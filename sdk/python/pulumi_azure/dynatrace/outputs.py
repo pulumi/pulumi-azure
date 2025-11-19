@@ -185,7 +185,7 @@ class MonitorPlan(dict):
                  usage_type: Optional[_builtins.str] = None):
         """
         :param _builtins.str plan: Plan id as published by Dynatrace.
-        :param _builtins.str billing_cycle: Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+        :param _builtins.str billing_cycle: Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
         :param _builtins.str effective_date: Date when plan was applied.
         :param _builtins.str usage_type: Different usage type. Possible values are `PAYG` and `COMMITTED`.
         """
@@ -209,7 +209,7 @@ class MonitorPlan(dict):
     @pulumi.getter(name="billingCycle")
     def billing_cycle(self) -> Optional[_builtins.str]:
         """
-        Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+        Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
         """
         return pulumi.get(self, "billing_cycle")
 
@@ -254,31 +254,25 @@ class MonitorUser(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 country: _builtins.str,
                  email: _builtins.str,
                  first_name: _builtins.str,
                  last_name: _builtins.str,
-                 phone_number: _builtins.str):
+                 country: Optional[_builtins.str] = None,
+                 phone_number: Optional[_builtins.str] = None):
         """
-        :param _builtins.str country: Country of the user.
         :param _builtins.str email: Email of the user used by Dynatrace for contacting them if needed.
         :param _builtins.str first_name: First name of the user.
         :param _builtins.str last_name: Last name of the user.
+        :param _builtins.str country: Country of the user.
         :param _builtins.str phone_number: phone number of the user by Dynatrace for contacting them if needed.
         """
-        pulumi.set(__self__, "country", country)
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "first_name", first_name)
         pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "phone_number", phone_number)
-
-    @_builtins.property
-    @pulumi.getter
-    def country(self) -> _builtins.str:
-        """
-        Country of the user.
-        """
-        return pulumi.get(self, "country")
+        if country is not None:
+            pulumi.set(__self__, "country", country)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
 
     @_builtins.property
     @pulumi.getter
@@ -305,8 +299,16 @@ class MonitorUser(dict):
         return pulumi.get(self, "last_name")
 
     @_builtins.property
+    @pulumi.getter
+    def country(self) -> Optional[_builtins.str]:
+        """
+        Country of the user.
+        """
+        return pulumi.get(self, "country")
+
+    @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> _builtins.str:
+    def phone_number(self) -> Optional[_builtins.str]:
         """
         phone number of the user by Dynatrace for contacting them if needed.
         """
@@ -339,7 +341,7 @@ class TagRulesLogRule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 filtering_tags: Sequence['outputs.TagRulesLogRuleFilteringTag'],
+                 filtering_tags: Optional[Sequence['outputs.TagRulesLogRuleFilteringTag']] = None,
                  send_activity_logs_enabled: Optional[_builtins.bool] = None,
                  send_azure_active_directory_logs_enabled: Optional[_builtins.bool] = None,
                  send_subscription_logs_enabled: Optional[_builtins.bool] = None):
@@ -349,7 +351,8 @@ class TagRulesLogRule(dict):
         :param _builtins.bool send_azure_active_directory_logs_enabled: Send Azure Active Directory logs. The default value is `false`.
         :param _builtins.bool send_subscription_logs_enabled: Send Subscription logs. The default value is `false`.
         """
-        pulumi.set(__self__, "filtering_tags", filtering_tags)
+        if filtering_tags is not None:
+            pulumi.set(__self__, "filtering_tags", filtering_tags)
         if send_activity_logs_enabled is not None:
             pulumi.set(__self__, "send_activity_logs_enabled", send_activity_logs_enabled)
         if send_azure_active_directory_logs_enabled is not None:
@@ -359,7 +362,7 @@ class TagRulesLogRule(dict):
 
     @_builtins.property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Sequence['outputs.TagRulesLogRuleFilteringTag']:
+    def filtering_tags(self) -> Optional[Sequence['outputs.TagRulesLogRuleFilteringTag']]:
         """
         Filtering tag for the log rule. A `filtering_tag` block as defined below.
         """
@@ -452,19 +455,20 @@ class TagRulesMetricRule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 filtering_tags: Sequence['outputs.TagRulesMetricRuleFilteringTag'],
+                 filtering_tags: Optional[Sequence['outputs.TagRulesMetricRuleFilteringTag']] = None,
                  sending_metrics_enabled: Optional[_builtins.bool] = None):
         """
         :param Sequence['TagRulesMetricRuleFilteringTagArgs'] filtering_tags: Filtering tag for the metric rule. A `filtering_tag` block as defined below.
         :param _builtins.bool sending_metrics_enabled: If sending metrics is enabled. The default value is `false`.
         """
-        pulumi.set(__self__, "filtering_tags", filtering_tags)
+        if filtering_tags is not None:
+            pulumi.set(__self__, "filtering_tags", filtering_tags)
         if sending_metrics_enabled is not None:
             pulumi.set(__self__, "sending_metrics_enabled", sending_metrics_enabled)
 
     @_builtins.property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Sequence['outputs.TagRulesMetricRuleFilteringTag']:
+    def filtering_tags(self) -> Optional[Sequence['outputs.TagRulesMetricRuleFilteringTag']]:
         """
         Filtering tag for the metric rule. A `filtering_tag` block as defined below.
         """

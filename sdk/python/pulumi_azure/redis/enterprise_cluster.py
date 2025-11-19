@@ -295,6 +295,8 @@ class EnterpriseCluster(pulumi.CustomResource):
         """
         Manages a Redis Enterprise Cluster.
 
+        > **Note:** This resource has been deprecated in favor of azurerm_managed_redis.
+
         ## Example Usage
 
         ```python
@@ -346,6 +348,8 @@ class EnterpriseCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Redis Enterprise Cluster.
+
+        > **Note:** This resource has been deprecated in favor of azurerm_managed_redis.
 
         ## Example Usage
 

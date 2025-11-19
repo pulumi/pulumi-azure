@@ -16,11 +16,11 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **Note:** This resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `azure.compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
     /// 
-    /// &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. Read more about [sensitive data](https://www.terraform.io/docs/state/sensitive-data.html) in state.
     /// 
     /// &gt; **Note:** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `Features` setting within the Provider block.
     /// 
-    /// &gt; **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
+    /// &gt; **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead.
     /// 
     /// ## Example Usage
     /// 
@@ -359,6 +359,22 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("proximityPlacementGroupId")]
         public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmCreationEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Output("resilientVmCreationEnabled")]
+        public Output<bool?> ResilientVmCreationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmDeletionEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Output("resilientVmDeletionEnabled")]
+        public Output<bool?> ResilientVmDeletionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
@@ -823,6 +839,22 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
+        /// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmCreationEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Input("resilientVmCreationEnabled")]
+        public Input<bool>? ResilientVmCreationEnabled { get; set; }
+
+        /// <summary>
+        /// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmDeletionEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Input("resilientVmDeletionEnabled")]
+        public Input<bool>? ResilientVmDeletionEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -1258,6 +1290,22 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
+
+        /// <summary>
+        /// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmCreationEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Input("resilientVmCreationEnabled")]
+        public Input<bool>? ResilientVmCreationEnabled { get; set; }
+
+        /// <summary>
+        /// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmDeletionEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Input("resilientVmDeletionEnabled")]
+        public Input<bool>? ResilientVmDeletionEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.

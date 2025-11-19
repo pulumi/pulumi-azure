@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithDefaults());

@@ -39,7 +39,7 @@ class EnterpriseDatabaseArgs:
         :param pulumi.Input[_builtins.str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
-               > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+               > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]] modules: A `module` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
@@ -130,7 +130,7 @@ class EnterpriseDatabaseArgs:
         """
         A list of database resources to link with this database with a maximum of 5.
 
-        > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+        > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         """
         return pulumi.get(self, "linked_database_ids")
 
@@ -200,7 +200,7 @@ class _EnterpriseDatabaseState:
         :param pulumi.Input[_builtins.str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
-               > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+               > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]] modules: A `module` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
@@ -298,7 +298,7 @@ class _EnterpriseDatabaseState:
         """
         A list of database resources to link with this database with a maximum of 5.
 
-        > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+        > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         """
         return pulumi.get(self, "linked_database_ids")
 
@@ -388,6 +388,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
         """
         Manages a Redis Enterprise Database.
 
+        > **Note:** This resource has been deprecated in favor of azurerm_managed_redis.
+
         ## Example Usage
 
         ```python
@@ -445,7 +447,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
-               > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+               > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]] modules: A `module` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
@@ -460,6 +462,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Redis Enterprise Database.
+
+        > **Note:** This resource has been deprecated in favor of azurerm_managed_redis.
 
         ## Example Usage
 
@@ -592,7 +596,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
-               > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+               > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]] modules: A `module` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
@@ -664,7 +668,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         """
         A list of database resources to link with this database with a maximum of 5.
 
-        > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+        > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         """
         return pulumi.get(self, "linked_database_ids")
 

@@ -15,7 +15,6 @@ namespace Pulumi.Azure.Compute
     /// ## Disclaimers
     /// 
     /// &gt; **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `azure.compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
-    /// rraform will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `Features` setting within the Provider block.
     /// 
     /// ## Example Usage
     /// 
@@ -366,6 +365,22 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("proximityPlacementGroupId")]
         public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmCreationEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Output("resilientVmCreationEnabled")]
+        public Output<bool?> ResilientVmCreationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmDeletionEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Output("resilientVmDeletionEnabled")]
+        public Output<bool?> ResilientVmDeletionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
@@ -822,6 +837,22 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
+        /// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmCreationEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Input("resilientVmCreationEnabled")]
+        public Input<bool>? ResilientVmCreationEnabled { get; set; }
+
+        /// <summary>
+        /// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmDeletionEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Input("resilientVmDeletionEnabled")]
+        public Input<bool>? ResilientVmDeletionEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -1243,6 +1274,22 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
+
+        /// <summary>
+        /// Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmCreationEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Input("resilientVmCreationEnabled")]
+        public Input<bool>? ResilientVmCreationEnabled { get; set; }
+
+        /// <summary>
+        /// Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ResilientVmDeletionEnabled` is currently not supported in the `Austriaeast`, `Belgiumcentral`, `Centraluseuap`, `Chilecentral`, `Indonesiacentral`, `Israelnorthwest`, `Malaysiawest`, `Mexicocentral`, `Newzealandnorth`, `Southcentralus2`, `Southindia`, `Southeastus3`, `Southwestus`, `Eastasia`, `Eastus`, `Southcentralus`, `Southeastasia`, and `Westeurope` regions.
+        /// </summary>
+        [Input("resilientVmDeletionEnabled")]
+        public Input<bool>? ResilientVmDeletionEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.

@@ -39,7 +39,7 @@ namespace Pulumi.Azure.ContainerApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.App` - 2025-01-01
+        /// * `Microsoft.App` - 2025-07-01
         /// 
         /// * `Microsoft.OperationalInsights` - 2020-08-01
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.ContainerApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.App` - 2025-01-01
+        /// * `Microsoft.App` - 2025-07-01
         /// 
         /// * `Microsoft.OperationalInsights` - 2020-08-01
         /// </summary>
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.ContainerApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.App` - 2025-01-01
+        /// * `Microsoft.App` - 2025-07-01
         /// 
         /// * `Microsoft.OperationalInsights` - 2020-08-01
         /// </summary>
@@ -203,6 +203,10 @@ namespace Pulumi.Azure.ContainerApp
         /// The IP address from the IP range defined by `PlatformReservedCidr` that is reserved for the internal DNS server.
         /// </summary>
         public readonly string PlatformReservedDnsIpAddress;
+        /// <summary>
+        /// The public network access setting for this Container App Environment.
+        /// </summary>
+        public readonly string PublicNetworkAccess;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The Static IP address of the Environment.
@@ -237,6 +241,8 @@ namespace Pulumi.Azure.ContainerApp
 
             string platformReservedDnsIpAddress,
 
+            string publicNetworkAccess,
+
             string resourceGroupName,
 
             string staticIpAddress,
@@ -254,6 +260,7 @@ namespace Pulumi.Azure.ContainerApp
             Name = name;
             PlatformReservedCidr = platformReservedCidr;
             PlatformReservedDnsIpAddress = platformReservedDnsIpAddress;
+            PublicNetworkAccess = publicNetworkAccess;
             ResourceGroupName = resourceGroupName;
             StaticIpAddress = staticIpAddress;
             Tags = tags;

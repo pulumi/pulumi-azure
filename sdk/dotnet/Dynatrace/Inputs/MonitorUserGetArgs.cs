@@ -15,8 +15,8 @@ namespace Pulumi.Azure.Dynatrace.Inputs
         /// <summary>
         /// Country of the user.
         /// </summary>
-        [Input("country", required: true)]
-        public Input<string> Country { get; set; } = null!;
+        [Input("country")]
+        public Input<string>? Country { get; set; }
 
         /// <summary>
         /// Email of the user used by Dynatrace for contacting them if needed.
@@ -39,8 +39,8 @@ namespace Pulumi.Azure.Dynatrace.Inputs
         /// <summary>
         /// phone number of the user by Dynatrace for contacting them if needed.
         /// </summary>
-        [Input("phoneNumber", required: true)]
-        public Input<string> PhoneNumber { get; set; } = null!;
+        [Input("phoneNumber")]
+        public Input<string>? PhoneNumber { get; set; }
 
         public MonitorUserGetArgs()
         {

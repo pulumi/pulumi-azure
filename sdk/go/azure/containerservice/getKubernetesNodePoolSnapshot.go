@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerService` - 2025-05-01
+// * `Microsoft.ContainerService` - 2025-07-01
 func GetKubernetesNodePoolSnapshot(ctx *pulumi.Context, args *GetKubernetesNodePoolSnapshotArgs, opts ...pulumi.InvokeOption) (*GetKubernetesNodePoolSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetKubernetesNodePoolSnapshotResult

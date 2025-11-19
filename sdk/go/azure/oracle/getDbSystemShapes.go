@@ -48,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Oracle.Database` - 2025-03-01
+// * `Oracle.Database` - 2025-09-01
 func GetDbSystemShapes(ctx *pulumi.Context, args *GetDbSystemShapesArgs, opts ...pulumi.InvokeOption) (*GetDbSystemShapesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDbSystemShapesResult

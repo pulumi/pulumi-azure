@@ -30,6 +30,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string CookieBasedAffinity;
         /// <summary>
+        /// Whether a dedicated backend connection is used.
+        /// </summary>
+        public readonly bool DedicatedBackendConnectionEnabled;
+        /// <summary>
         /// The Hostname which is used for this HTTP Listener.
         /// </summary>
         public readonly string HostName;
@@ -84,6 +88,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             string cookieBasedAffinity,
 
+            bool dedicatedBackendConnectionEnabled,
+
             string hostName,
 
             string id,
@@ -110,6 +116,7 @@ namespace Pulumi.Azure.Network.Outputs
             AuthenticationCertificates = authenticationCertificates;
             ConnectionDrainings = connectionDrainings;
             CookieBasedAffinity = cookieBasedAffinity;
+            DedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
             HostName = hostName;
             Id = id;
             Name = name;

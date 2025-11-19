@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Dynatrace.Outputs
     public sealed class MonitorPlan
     {
         /// <summary>
-        /// Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+        /// Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
         /// </summary>
         public readonly string? BillingCycle;
         /// <summary>

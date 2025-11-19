@@ -91,7 +91,7 @@ def get_db_nodes(cloud_vm_cluster_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str cloud_vm_cluster_id: The id of the Cloud VM cluster.
@@ -125,7 +125,7 @@ def get_db_nodes_output(cloud_vm_cluster_id: Optional[pulumi.Input[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str cloud_vm_cluster_id: The id of the Cloud VM cluster.

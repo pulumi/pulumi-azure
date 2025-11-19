@@ -106,6 +106,8 @@ __all__ = [
     'NetworkManagerConnectivityConfigurationAppliesToGroup',
     'NetworkManagerConnectivityConfigurationHub',
     'NetworkManagerCrossTenantScope',
+    'NetworkManagerRoutingRuleDestination',
+    'NetworkManagerRoutingRuleNextHop',
     'NetworkManagerScope',
     'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic',
     'NetworkSecurityGroupSecurityRule',
@@ -450,6 +452,8 @@ class ApplicationGatewayBackendHttpSetting(dict):
             suggest = "authentication_certificates"
         elif key == "connectionDraining":
             suggest = "connection_draining"
+        elif key == "dedicatedBackendConnectionEnabled":
+            suggest = "dedicated_backend_connection_enabled"
         elif key == "hostName":
             suggest = "host_name"
         elif key == "pickHostNameFromBackendAddress":
@@ -482,6 +486,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
                  affinity_cookie_name: Optional[_builtins.str] = None,
                  authentication_certificates: Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate']] = None,
                  connection_draining: Optional['outputs.ApplicationGatewayBackendHttpSettingConnectionDraining'] = None,
+                 dedicated_backend_connection_enabled: Optional[_builtins.bool] = None,
                  host_name: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
                  path: Optional[_builtins.str] = None,
@@ -498,6 +503,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
         :param _builtins.str affinity_cookie_name: The name of the affinity cookie.
         :param Sequence['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate_backend` blocks as defined below.
         :param 'ApplicationGatewayBackendHttpSettingConnectionDrainingArgs' connection_draining: A `connection_draining` block as defined below.
+        :param _builtins.bool dedicated_backend_connection_enabled: Whether to use a dedicated backend connection. Defaults to `false`.
         :param _builtins.str host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
         :param _builtins.str id: The ID of the Rewrite Rule Set
         :param _builtins.str path: The Path which should be used as a prefix for all HTTP requests.
@@ -517,6 +523,8 @@ class ApplicationGatewayBackendHttpSetting(dict):
             pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         if connection_draining is not None:
             pulumi.set(__self__, "connection_draining", connection_draining)
+        if dedicated_backend_connection_enabled is not None:
+            pulumi.set(__self__, "dedicated_backend_connection_enabled", dedicated_backend_connection_enabled)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
         if id is not None:
@@ -589,6 +597,14 @@ class ApplicationGatewayBackendHttpSetting(dict):
         A `connection_draining` block as defined below.
         """
         return pulumi.get(self, "connection_draining")
+
+    @_builtins.property
+    @pulumi.getter(name="dedicatedBackendConnectionEnabled")
+    def dedicated_backend_connection_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to use a dedicated backend connection. Defaults to `false`.
+        """
+        return pulumi.get(self, "dedicated_backend_connection_enabled")
 
     @_builtins.property
     @pulumi.getter(name="hostName")
@@ -7719,6 +7735,65 @@ class NetworkManagerCrossTenantScope(dict):
 
 
 @pulumi.output_type
+class NetworkManagerRoutingRuleDestination(dict):
+    def __init__(__self__, *,
+                 address: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str address: The destination address.
+        :param _builtins.str type: The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def address(self) -> _builtins.str:
+        """
+        The destination address.
+        """
+        return pulumi.get(self, "address")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class NetworkManagerRoutingRuleNextHop(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 address: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+        :param _builtins.str address: The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+        """
+        pulumi.set(__self__, "type", type)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def address(self) -> Optional[_builtins.str]:
+        """
+        The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+        """
+        return pulumi.get(self, "address")
+
+
+@pulumi.output_type
 class NetworkManagerScope(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -13341,6 +13416,7 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
                  authentication_certificates: Sequence['outputs.GetApplicationGatewayBackendHttpSettingAuthenticationCertificateResult'],
                  connection_drainings: Sequence['outputs.GetApplicationGatewayBackendHttpSettingConnectionDrainingResult'],
                  cookie_based_affinity: _builtins.str,
+                 dedicated_backend_connection_enabled: _builtins.bool,
                  host_name: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str,
@@ -13357,6 +13433,7 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
         :param Sequence['GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
         :param Sequence['GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs'] connection_drainings: A `connection_draining` block as defined below.
         :param _builtins.str cookie_based_affinity: Is Cookie-Based Affinity enabled?
+        :param _builtins.bool dedicated_backend_connection_enabled: Whether a dedicated backend connection is used.
         :param _builtins.str host_name: The Hostname which is used for this HTTP Listener.
         :param _builtins.str id: The ID of the Rewrite Rule Set
         :param _builtins.str name: The name of this Application Gateway.
@@ -13373,6 +13450,7 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
         pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         pulumi.set(__self__, "connection_drainings", connection_drainings)
         pulumi.set(__self__, "cookie_based_affinity", cookie_based_affinity)
+        pulumi.set(__self__, "dedicated_backend_connection_enabled", dedicated_backend_connection_enabled)
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -13416,6 +13494,14 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
         Is Cookie-Based Affinity enabled?
         """
         return pulumi.get(self, "cookie_based_affinity")
+
+    @_builtins.property
+    @pulumi.getter(name="dedicatedBackendConnectionEnabled")
+    def dedicated_backend_connection_enabled(self) -> _builtins.bool:
+        """
+        Whether a dedicated backend connection is used.
+        """
+        return pulumi.get(self, "dedicated_backend_connection_enabled")
 
     @_builtins.property
     @pulumi.getter(name="hostName")

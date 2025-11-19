@@ -75,6 +75,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
+        /// A `CircuitBreakerRule` block as documented below.
+        /// </summary>
+        [Output("circuitBreakerRule")]
+        public Output<Outputs.BackendCircuitBreakerRule?> CircuitBreakerRule { get; private set; } = null!;
+
+        /// <summary>
         /// A `Credentials` block as documented below.
         /// </summary>
         [Output("credentials")]
@@ -193,6 +199,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
+        /// A `CircuitBreakerRule` block as documented below.
+        /// </summary>
+        [Input("circuitBreakerRule")]
+        public Input<Inputs.BackendCircuitBreakerRuleArgs>? CircuitBreakerRule { get; set; }
+
+        /// <summary>
         /// A `Credentials` block as documented below.
         /// </summary>
         [Input("credentials")]
@@ -271,6 +283,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("apiManagementName")]
         public Input<string>? ApiManagementName { get; set; }
+
+        /// <summary>
+        /// A `CircuitBreakerRule` block as documented below.
+        /// </summary>
+        [Input("circuitBreakerRule")]
+        public Input<Inputs.BackendCircuitBreakerRuleGetArgs>? CircuitBreakerRule { get; set; }
 
         /// <summary>
         /// A `Credentials` block as documented below.

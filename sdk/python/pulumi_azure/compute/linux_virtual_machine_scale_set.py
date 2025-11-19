@@ -58,6 +58,8 @@ class LinuxVirtualMachineScaleSetArgs:
                  priority: Optional[pulumi.Input[_builtins.str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  scale_in: Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]] = None,
@@ -142,6 +144,12 @@ class LinuxVirtualMachineScaleSetArgs:
                > **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+               
+               > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+               
+               > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
         :param pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs'] scale_in: A `scale_in` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]] secrets: One or more `secret` blocks as defined below.
@@ -234,6 +242,10 @@ class LinuxVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if resilient_vm_creation_enabled is not None:
+            pulumi.set(__self__, "resilient_vm_creation_enabled", resilient_vm_creation_enabled)
+        if resilient_vm_deletion_enabled is not None:
+            pulumi.set(__self__, "resilient_vm_deletion_enabled", resilient_vm_deletion_enabled)
         if rolling_upgrade_policy is not None:
             pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if scale_in is not None:
@@ -740,6 +752,34 @@ class LinuxVirtualMachineScaleSetArgs:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="resilientVmCreationEnabled")
+    def resilient_vm_creation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+
+        > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        """
+        return pulumi.get(self, "resilient_vm_creation_enabled")
+
+    @resilient_vm_creation_enabled.setter
+    def resilient_vm_creation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "resilient_vm_creation_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resilientVmDeletionEnabled")
+    def resilient_vm_deletion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+
+        > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        """
+        return pulumi.get(self, "resilient_vm_deletion_enabled")
+
+    @resilient_vm_deletion_enabled.setter
+    def resilient_vm_deletion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "resilient_vm_deletion_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="rollingUpgradePolicy")
     def rolling_upgrade_policy(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
         """
@@ -963,6 +1003,8 @@ class _LinuxVirtualMachineScaleSetState:
                  priority: Optional[pulumi.Input[_builtins.str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  scale_in: Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']] = None,
@@ -1048,6 +1090,12 @@ class _LinuxVirtualMachineScaleSetState:
                > **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+               
+               > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+               
+               > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs'] scale_in: A `scale_in` block as defined below.
@@ -1144,6 +1192,10 @@ class _LinuxVirtualMachineScaleSetState:
             pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if resilient_vm_creation_enabled is not None:
+            pulumi.set(__self__, "resilient_vm_creation_enabled", resilient_vm_creation_enabled)
+        if resilient_vm_deletion_enabled is not None:
+            pulumi.set(__self__, "resilient_vm_deletion_enabled", resilient_vm_deletion_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rolling_upgrade_policy is not None:
@@ -1632,6 +1684,34 @@ class _LinuxVirtualMachineScaleSetState:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="resilientVmCreationEnabled")
+    def resilient_vm_creation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+
+        > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        """
+        return pulumi.get(self, "resilient_vm_creation_enabled")
+
+    @resilient_vm_creation_enabled.setter
+    def resilient_vm_creation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "resilient_vm_creation_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resilientVmDeletionEnabled")
+    def resilient_vm_deletion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+
+        > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        """
+        return pulumi.get(self, "resilient_vm_deletion_enabled")
+
+    @resilient_vm_deletion_enabled.setter
+    def resilient_vm_deletion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "resilient_vm_deletion_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1894,6 +1974,8 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[_builtins.str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
                  scale_in: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
@@ -1918,7 +2000,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
-        rraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 
         ## Example Usage
 
@@ -2056,6 +2137,12 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+               
+               > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+               
+               > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']] scale_in: A `scale_in` block as defined below.
@@ -2093,7 +2180,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
-        rraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 
         ## Example Usage
 
@@ -2214,6 +2300,8 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[_builtins.str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
                  scale_in: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
@@ -2281,6 +2369,8 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["priority"] = priority
             __props__.__dict__["provision_vm_agent"] = provision_vm_agent
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+            __props__.__dict__["resilient_vm_creation_enabled"] = resilient_vm_creation_enabled
+            __props__.__dict__["resilient_vm_deletion_enabled"] = resilient_vm_deletion_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -2350,6 +2440,8 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             priority: Optional[pulumi.Input[_builtins.str]] = None,
             provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+            resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+            resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             rolling_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
             scale_in: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
@@ -2440,6 +2532,12 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] resilient_vm_creation_enabled: Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+               
+               > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+               
+               > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']] scale_in: A `scale_in` block as defined below.
@@ -2505,6 +2603,8 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["priority"] = priority
         __props__.__dict__["provision_vm_agent"] = provision_vm_agent
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+        __props__.__dict__["resilient_vm_creation_enabled"] = resilient_vm_creation_enabled
+        __props__.__dict__["resilient_vm_deletion_enabled"] = resilient_vm_deletion_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
         __props__.__dict__["scale_in"] = scale_in
@@ -2834,6 +2934,26 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "proximity_placement_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resilientVmCreationEnabled")
+    def resilient_vm_creation_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+
+        > **Note:** `resilient_vm_creation_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        """
+        return pulumi.get(self, "resilient_vm_creation_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="resilientVmDeletionEnabled")
+    def resilient_vm_deletion_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+
+        > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+        """
+        return pulumi.get(self, "resilient_vm_deletion_enabled")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")

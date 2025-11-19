@@ -377,7 +377,7 @@ func (o MonitorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type MonitorPlan struct {
-	// Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+	// Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
 	BillingCycle *string `pulumi:"billingCycle"`
 	// Date when plan was applied.
 	EffectiveDate *string `pulumi:"effectiveDate"`
@@ -399,7 +399,7 @@ type MonitorPlanInput interface {
 }
 
 type MonitorPlanArgs struct {
-	// Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+	// Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
 	BillingCycle pulumi.StringPtrInput `pulumi:"billingCycle"`
 	// Date when plan was applied.
 	EffectiveDate pulumi.StringPtrInput `pulumi:"effectiveDate"`
@@ -486,7 +486,7 @@ func (o MonitorPlanOutput) ToMonitorPlanPtrOutputWithContext(ctx context.Context
 	}).(MonitorPlanPtrOutput)
 }
 
-// Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+// Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
 func (o MonitorPlanOutput) BillingCycle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorPlan) *string { return v.BillingCycle }).(pulumi.StringPtrOutput)
 }
@@ -530,7 +530,7 @@ func (o MonitorPlanPtrOutput) Elem() MonitorPlanOutput {
 	}).(MonitorPlanOutput)
 }
 
-// Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+// Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
 func (o MonitorPlanPtrOutput) BillingCycle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorPlan) *string {
 		if v == nil {
@@ -572,7 +572,7 @@ func (o MonitorPlanPtrOutput) UsageType() pulumi.StringPtrOutput {
 
 type MonitorUser struct {
 	// Country of the user.
-	Country string `pulumi:"country"`
+	Country *string `pulumi:"country"`
 	// Email of the user used by Dynatrace for contacting them if needed.
 	Email string `pulumi:"email"`
 	// First name of the user.
@@ -580,7 +580,7 @@ type MonitorUser struct {
 	// Last name of the user.
 	LastName string `pulumi:"lastName"`
 	// phone number of the user by Dynatrace for contacting them if needed.
-	PhoneNumber string `pulumi:"phoneNumber"`
+	PhoneNumber *string `pulumi:"phoneNumber"`
 }
 
 // MonitorUserInput is an input type that accepts MonitorUserArgs and MonitorUserOutput values.
@@ -596,7 +596,7 @@ type MonitorUserInput interface {
 
 type MonitorUserArgs struct {
 	// Country of the user.
-	Country pulumi.StringInput `pulumi:"country"`
+	Country pulumi.StringPtrInput `pulumi:"country"`
 	// Email of the user used by Dynatrace for contacting them if needed.
 	Email pulumi.StringInput `pulumi:"email"`
 	// First name of the user.
@@ -604,7 +604,7 @@ type MonitorUserArgs struct {
 	// Last name of the user.
 	LastName pulumi.StringInput `pulumi:"lastName"`
 	// phone number of the user by Dynatrace for contacting them if needed.
-	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
+	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
 }
 
 func (MonitorUserArgs) ElementType() reflect.Type {
@@ -685,8 +685,8 @@ func (o MonitorUserOutput) ToMonitorUserPtrOutputWithContext(ctx context.Context
 }
 
 // Country of the user.
-func (o MonitorUserOutput) Country() pulumi.StringOutput {
-	return o.ApplyT(func(v MonitorUser) string { return v.Country }).(pulumi.StringOutput)
+func (o MonitorUserOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorUser) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
 // Email of the user used by Dynatrace for contacting them if needed.
@@ -705,8 +705,8 @@ func (o MonitorUserOutput) LastName() pulumi.StringOutput {
 }
 
 // phone number of the user by Dynatrace for contacting them if needed.
-func (o MonitorUserOutput) PhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v MonitorUser) string { return v.PhoneNumber }).(pulumi.StringOutput)
+func (o MonitorUserOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorUser) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
 
 type MonitorUserPtrOutput struct{ *pulumi.OutputState }
@@ -739,7 +739,7 @@ func (o MonitorUserPtrOutput) Country() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Country
+		return v.Country
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -779,7 +779,7 @@ func (o MonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.PhoneNumber
+		return v.PhoneNumber
 	}).(pulumi.StringPtrOutput)
 }
 

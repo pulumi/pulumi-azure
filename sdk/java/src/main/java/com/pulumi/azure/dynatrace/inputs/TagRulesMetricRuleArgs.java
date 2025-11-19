@@ -6,7 +6,6 @@ package com.pulumi.azure.dynatrace.inputs;
 import com.pulumi.azure.dynatrace.inputs.TagRulesMetricRuleFilteringTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -22,15 +21,15 @@ public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceA
      * Filtering tag for the metric rule. A `filteringTag` block as defined below.
      * 
      */
-    @Import(name="filteringTags", required=true)
-    private Output<List<TagRulesMetricRuleFilteringTagArgs>> filteringTags;
+    @Import(name="filteringTags")
+    private @Nullable Output<List<TagRulesMetricRuleFilteringTagArgs>> filteringTags;
 
     /**
      * @return Filtering tag for the metric rule. A `filteringTag` block as defined below.
      * 
      */
-    public Output<List<TagRulesMetricRuleFilteringTagArgs>> filteringTags() {
-        return this.filteringTags;
+    public Optional<Output<List<TagRulesMetricRuleFilteringTagArgs>>> filteringTags() {
+        return Optional.ofNullable(this.filteringTags);
     }
 
     /**
@@ -79,7 +78,7 @@ public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder filteringTags(Output<List<TagRulesMetricRuleFilteringTagArgs>> filteringTags) {
+        public Builder filteringTags(@Nullable Output<List<TagRulesMetricRuleFilteringTagArgs>> filteringTags) {
             $.filteringTags = filteringTags;
             return this;
         }
@@ -126,9 +125,6 @@ public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         public TagRulesMetricRuleArgs build() {
-            if ($.filteringTags == null) {
-                throw new MissingRequiredPropertyException("TagRulesMetricRuleArgs", "filteringTags");
-            }
             return $;
         }
     }

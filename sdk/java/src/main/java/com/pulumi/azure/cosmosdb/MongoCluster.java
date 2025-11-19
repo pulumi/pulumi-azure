@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.cosmosdb.MongoClusterArgs;
 import com.pulumi.azure.cosmosdb.inputs.MongoClusterState;
 import com.pulumi.azure.cosmosdb.outputs.MongoClusterConnectionString;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -32,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.cosmosdb.MongoCluster;
- * import com.pulumi.azure.cosmosdb.MongoClusterArgs;
+ * import com.pulumi.azure.mongocluster.MongoCluster;
+ * import com.pulumi.azure.mongocluster.MongoClusterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,8 +81,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.cosmosdb.MongoCluster;
- * import com.pulumi.azure.cosmosdb.MongoClusterArgs;
+ * import com.pulumi.azure.mongocluster.MongoCluster;
+ * import com.pulumi.azure.mongocluster.MongoClusterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -132,7 +133,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DocumentDB` - 2024-07-01
+ * * `Microsoft.DocumentDB` - 2025-09-01
  * 
  * ## Import
  * 
@@ -142,7 +143,11 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:cosmosdb/mongoCluster:MongoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster
  * ```
  * 
+ * @deprecated
+ * azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster
+ * 
  */
+@Deprecated /* azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster */
 @ResourceType(type="azure:cosmosdb/mongoCluster:MongoCluster")
 public class MongoCluster extends com.pulumi.resources.CustomResource {
     /**
@@ -423,6 +428,9 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:cosmosdb/mongoCluster:MongoCluster").build())
+            ))
             .additionalSecretOutputs(List.of(
                 "administratorPassword",
                 "connectionStrings"

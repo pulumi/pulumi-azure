@@ -27,6 +27,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. &lt;!-- The 0 default happens in code, not in Schema --&gt;
         /// </summary>
         public readonly int? NodeSoakDurationInMinutes;
+        /// <summary>
+        /// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+        /// </summary>
+        public readonly string? UndrainableNodeBehavior;
 
         [OutputConstructor]
         private KubernetesClusterDefaultNodePoolUpgradeSettings(
@@ -34,11 +38,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string maxSurge,
 
-            int? nodeSoakDurationInMinutes)
+            int? nodeSoakDurationInMinutes,
+
+            string? undrainableNodeBehavior)
         {
             DrainTimeoutInMinutes = drainTimeoutInMinutes;
             MaxSurge = maxSurge;
             NodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
+            UndrainableNodeBehavior = undrainableNodeBehavior;
         }
     }
 }

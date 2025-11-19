@@ -417,6 +417,8 @@ type ApplicationGatewayBackendHttpSetting struct {
 	ConnectionDraining *ApplicationGatewayBackendHttpSettingConnectionDraining `pulumi:"connectionDraining"`
 	// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
 	CookieBasedAffinity string `pulumi:"cookieBasedAffinity"`
+	// Whether to use a dedicated backend connection. Defaults to `false`.
+	DedicatedBackendConnectionEnabled *bool `pulumi:"dedicatedBackendConnectionEnabled"`
 	// Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
 	HostName *string `pulumi:"hostName"`
 	// The ID of the Rewrite Rule Set
@@ -461,6 +463,8 @@ type ApplicationGatewayBackendHttpSettingArgs struct {
 	ConnectionDraining ApplicationGatewayBackendHttpSettingConnectionDrainingPtrInput `pulumi:"connectionDraining"`
 	// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
 	CookieBasedAffinity pulumi.StringInput `pulumi:"cookieBasedAffinity"`
+	// Whether to use a dedicated backend connection. Defaults to `false`.
+	DedicatedBackendConnectionEnabled pulumi.BoolPtrInput `pulumi:"dedicatedBackendConnectionEnabled"`
 	// Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
 	// The ID of the Rewrite Rule Set
@@ -558,6 +562,11 @@ func (o ApplicationGatewayBackendHttpSettingOutput) ConnectionDraining() Applica
 // Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
 func (o ApplicationGatewayBackendHttpSettingOutput) CookieBasedAffinity() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) string { return v.CookieBasedAffinity }).(pulumi.StringOutput)
+}
+
+// Whether to use a dedicated backend connection. Defaults to `false`.
+func (o ApplicationGatewayBackendHttpSettingOutput) DedicatedBackendConnectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *bool { return v.DedicatedBackendConnectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
@@ -14529,6 +14538,318 @@ func (o NetworkManagerCrossTenantScopeArrayOutput) Index(i pulumi.IntInput) Netw
 	}).(NetworkManagerCrossTenantScopeOutput)
 }
 
+type NetworkManagerRoutingRuleDestination struct {
+	// The destination address.
+	Address string `pulumi:"address"`
+	// The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+	Type string `pulumi:"type"`
+}
+
+// NetworkManagerRoutingRuleDestinationInput is an input type that accepts NetworkManagerRoutingRuleDestinationArgs and NetworkManagerRoutingRuleDestinationOutput values.
+// You can construct a concrete instance of `NetworkManagerRoutingRuleDestinationInput` via:
+//
+//	NetworkManagerRoutingRuleDestinationArgs{...}
+type NetworkManagerRoutingRuleDestinationInput interface {
+	pulumi.Input
+
+	ToNetworkManagerRoutingRuleDestinationOutput() NetworkManagerRoutingRuleDestinationOutput
+	ToNetworkManagerRoutingRuleDestinationOutputWithContext(context.Context) NetworkManagerRoutingRuleDestinationOutput
+}
+
+type NetworkManagerRoutingRuleDestinationArgs struct {
+	// The destination address.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NetworkManagerRoutingRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerRoutingRuleDestination)(nil)).Elem()
+}
+
+func (i NetworkManagerRoutingRuleDestinationArgs) ToNetworkManagerRoutingRuleDestinationOutput() NetworkManagerRoutingRuleDestinationOutput {
+	return i.ToNetworkManagerRoutingRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerRoutingRuleDestinationArgs) ToNetworkManagerRoutingRuleDestinationOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerRoutingRuleDestinationOutput)
+}
+
+func (i NetworkManagerRoutingRuleDestinationArgs) ToNetworkManagerRoutingRuleDestinationPtrOutput() NetworkManagerRoutingRuleDestinationPtrOutput {
+	return i.ToNetworkManagerRoutingRuleDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerRoutingRuleDestinationArgs) ToNetworkManagerRoutingRuleDestinationPtrOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerRoutingRuleDestinationOutput).ToNetworkManagerRoutingRuleDestinationPtrOutputWithContext(ctx)
+}
+
+// NetworkManagerRoutingRuleDestinationPtrInput is an input type that accepts NetworkManagerRoutingRuleDestinationArgs, NetworkManagerRoutingRuleDestinationPtr and NetworkManagerRoutingRuleDestinationPtrOutput values.
+// You can construct a concrete instance of `NetworkManagerRoutingRuleDestinationPtrInput` via:
+//
+//	        NetworkManagerRoutingRuleDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkManagerRoutingRuleDestinationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkManagerRoutingRuleDestinationPtrOutput() NetworkManagerRoutingRuleDestinationPtrOutput
+	ToNetworkManagerRoutingRuleDestinationPtrOutputWithContext(context.Context) NetworkManagerRoutingRuleDestinationPtrOutput
+}
+
+type networkManagerRoutingRuleDestinationPtrType NetworkManagerRoutingRuleDestinationArgs
+
+func NetworkManagerRoutingRuleDestinationPtr(v *NetworkManagerRoutingRuleDestinationArgs) NetworkManagerRoutingRuleDestinationPtrInput {
+	return (*networkManagerRoutingRuleDestinationPtrType)(v)
+}
+
+func (*networkManagerRoutingRuleDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkManagerRoutingRuleDestination)(nil)).Elem()
+}
+
+func (i *networkManagerRoutingRuleDestinationPtrType) ToNetworkManagerRoutingRuleDestinationPtrOutput() NetworkManagerRoutingRuleDestinationPtrOutput {
+	return i.ToNetworkManagerRoutingRuleDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkManagerRoutingRuleDestinationPtrType) ToNetworkManagerRoutingRuleDestinationPtrOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerRoutingRuleDestinationPtrOutput)
+}
+
+type NetworkManagerRoutingRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerRoutingRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerRoutingRuleDestination)(nil)).Elem()
+}
+
+func (o NetworkManagerRoutingRuleDestinationOutput) ToNetworkManagerRoutingRuleDestinationOutput() NetworkManagerRoutingRuleDestinationOutput {
+	return o
+}
+
+func (o NetworkManagerRoutingRuleDestinationOutput) ToNetworkManagerRoutingRuleDestinationOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleDestinationOutput {
+	return o
+}
+
+func (o NetworkManagerRoutingRuleDestinationOutput) ToNetworkManagerRoutingRuleDestinationPtrOutput() NetworkManagerRoutingRuleDestinationPtrOutput {
+	return o.ToNetworkManagerRoutingRuleDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkManagerRoutingRuleDestinationOutput) ToNetworkManagerRoutingRuleDestinationPtrOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkManagerRoutingRuleDestination) *NetworkManagerRoutingRuleDestination {
+		return &v
+	}).(NetworkManagerRoutingRuleDestinationPtrOutput)
+}
+
+// The destination address.
+func (o NetworkManagerRoutingRuleDestinationOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagerRoutingRuleDestination) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+func (o NetworkManagerRoutingRuleDestinationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagerRoutingRuleDestination) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type NetworkManagerRoutingRuleDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerRoutingRuleDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkManagerRoutingRuleDestination)(nil)).Elem()
+}
+
+func (o NetworkManagerRoutingRuleDestinationPtrOutput) ToNetworkManagerRoutingRuleDestinationPtrOutput() NetworkManagerRoutingRuleDestinationPtrOutput {
+	return o
+}
+
+func (o NetworkManagerRoutingRuleDestinationPtrOutput) ToNetworkManagerRoutingRuleDestinationPtrOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleDestinationPtrOutput {
+	return o
+}
+
+func (o NetworkManagerRoutingRuleDestinationPtrOutput) Elem() NetworkManagerRoutingRuleDestinationOutput {
+	return o.ApplyT(func(v *NetworkManagerRoutingRuleDestination) NetworkManagerRoutingRuleDestination {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkManagerRoutingRuleDestination
+		return ret
+	}).(NetworkManagerRoutingRuleDestinationOutput)
+}
+
+// The destination address.
+func (o NetworkManagerRoutingRuleDestinationPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerRoutingRuleDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+func (o NetworkManagerRoutingRuleDestinationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerRoutingRuleDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkManagerRoutingRuleNextHop struct {
+	// The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+	Address *string `pulumi:"address"`
+	// The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+	Type string `pulumi:"type"`
+}
+
+// NetworkManagerRoutingRuleNextHopInput is an input type that accepts NetworkManagerRoutingRuleNextHopArgs and NetworkManagerRoutingRuleNextHopOutput values.
+// You can construct a concrete instance of `NetworkManagerRoutingRuleNextHopInput` via:
+//
+//	NetworkManagerRoutingRuleNextHopArgs{...}
+type NetworkManagerRoutingRuleNextHopInput interface {
+	pulumi.Input
+
+	ToNetworkManagerRoutingRuleNextHopOutput() NetworkManagerRoutingRuleNextHopOutput
+	ToNetworkManagerRoutingRuleNextHopOutputWithContext(context.Context) NetworkManagerRoutingRuleNextHopOutput
+}
+
+type NetworkManagerRoutingRuleNextHopArgs struct {
+	// The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NetworkManagerRoutingRuleNextHopArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerRoutingRuleNextHop)(nil)).Elem()
+}
+
+func (i NetworkManagerRoutingRuleNextHopArgs) ToNetworkManagerRoutingRuleNextHopOutput() NetworkManagerRoutingRuleNextHopOutput {
+	return i.ToNetworkManagerRoutingRuleNextHopOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerRoutingRuleNextHopArgs) ToNetworkManagerRoutingRuleNextHopOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleNextHopOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerRoutingRuleNextHopOutput)
+}
+
+func (i NetworkManagerRoutingRuleNextHopArgs) ToNetworkManagerRoutingRuleNextHopPtrOutput() NetworkManagerRoutingRuleNextHopPtrOutput {
+	return i.ToNetworkManagerRoutingRuleNextHopPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerRoutingRuleNextHopArgs) ToNetworkManagerRoutingRuleNextHopPtrOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleNextHopPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerRoutingRuleNextHopOutput).ToNetworkManagerRoutingRuleNextHopPtrOutputWithContext(ctx)
+}
+
+// NetworkManagerRoutingRuleNextHopPtrInput is an input type that accepts NetworkManagerRoutingRuleNextHopArgs, NetworkManagerRoutingRuleNextHopPtr and NetworkManagerRoutingRuleNextHopPtrOutput values.
+// You can construct a concrete instance of `NetworkManagerRoutingRuleNextHopPtrInput` via:
+//
+//	        NetworkManagerRoutingRuleNextHopArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkManagerRoutingRuleNextHopPtrInput interface {
+	pulumi.Input
+
+	ToNetworkManagerRoutingRuleNextHopPtrOutput() NetworkManagerRoutingRuleNextHopPtrOutput
+	ToNetworkManagerRoutingRuleNextHopPtrOutputWithContext(context.Context) NetworkManagerRoutingRuleNextHopPtrOutput
+}
+
+type networkManagerRoutingRuleNextHopPtrType NetworkManagerRoutingRuleNextHopArgs
+
+func NetworkManagerRoutingRuleNextHopPtr(v *NetworkManagerRoutingRuleNextHopArgs) NetworkManagerRoutingRuleNextHopPtrInput {
+	return (*networkManagerRoutingRuleNextHopPtrType)(v)
+}
+
+func (*networkManagerRoutingRuleNextHopPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkManagerRoutingRuleNextHop)(nil)).Elem()
+}
+
+func (i *networkManagerRoutingRuleNextHopPtrType) ToNetworkManagerRoutingRuleNextHopPtrOutput() NetworkManagerRoutingRuleNextHopPtrOutput {
+	return i.ToNetworkManagerRoutingRuleNextHopPtrOutputWithContext(context.Background())
+}
+
+func (i *networkManagerRoutingRuleNextHopPtrType) ToNetworkManagerRoutingRuleNextHopPtrOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleNextHopPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerRoutingRuleNextHopPtrOutput)
+}
+
+type NetworkManagerRoutingRuleNextHopOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerRoutingRuleNextHopOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerRoutingRuleNextHop)(nil)).Elem()
+}
+
+func (o NetworkManagerRoutingRuleNextHopOutput) ToNetworkManagerRoutingRuleNextHopOutput() NetworkManagerRoutingRuleNextHopOutput {
+	return o
+}
+
+func (o NetworkManagerRoutingRuleNextHopOutput) ToNetworkManagerRoutingRuleNextHopOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleNextHopOutput {
+	return o
+}
+
+func (o NetworkManagerRoutingRuleNextHopOutput) ToNetworkManagerRoutingRuleNextHopPtrOutput() NetworkManagerRoutingRuleNextHopPtrOutput {
+	return o.ToNetworkManagerRoutingRuleNextHopPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkManagerRoutingRuleNextHopOutput) ToNetworkManagerRoutingRuleNextHopPtrOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleNextHopPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkManagerRoutingRuleNextHop) *NetworkManagerRoutingRuleNextHop {
+		return &v
+	}).(NetworkManagerRoutingRuleNextHopPtrOutput)
+}
+
+// The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+func (o NetworkManagerRoutingRuleNextHopOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkManagerRoutingRuleNextHop) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+func (o NetworkManagerRoutingRuleNextHopOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagerRoutingRuleNextHop) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type NetworkManagerRoutingRuleNextHopPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerRoutingRuleNextHopPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkManagerRoutingRuleNextHop)(nil)).Elem()
+}
+
+func (o NetworkManagerRoutingRuleNextHopPtrOutput) ToNetworkManagerRoutingRuleNextHopPtrOutput() NetworkManagerRoutingRuleNextHopPtrOutput {
+	return o
+}
+
+func (o NetworkManagerRoutingRuleNextHopPtrOutput) ToNetworkManagerRoutingRuleNextHopPtrOutputWithContext(ctx context.Context) NetworkManagerRoutingRuleNextHopPtrOutput {
+	return o
+}
+
+func (o NetworkManagerRoutingRuleNextHopPtrOutput) Elem() NetworkManagerRoutingRuleNextHopOutput {
+	return o.ApplyT(func(v *NetworkManagerRoutingRuleNextHop) NetworkManagerRoutingRuleNextHop {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkManagerRoutingRuleNextHop
+		return ret
+	}).(NetworkManagerRoutingRuleNextHopOutput)
+}
+
+// The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+func (o NetworkManagerRoutingRuleNextHopPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerRoutingRuleNextHop) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+func (o NetworkManagerRoutingRuleNextHopPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerRoutingRuleNextHop) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type NetworkManagerScope struct {
 	// A list of management group IDs.
 	//
@@ -27444,6 +27765,8 @@ type GetApplicationGatewayBackendHttpSetting struct {
 	ConnectionDrainings []GetApplicationGatewayBackendHttpSettingConnectionDraining `pulumi:"connectionDrainings"`
 	// Is Cookie-Based Affinity enabled?
 	CookieBasedAffinity string `pulumi:"cookieBasedAffinity"`
+	// Whether a dedicated backend connection is used.
+	DedicatedBackendConnectionEnabled bool `pulumi:"dedicatedBackendConnectionEnabled"`
 	// The Hostname which is used for this HTTP Listener.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Rewrite Rule Set
@@ -27488,6 +27811,8 @@ type GetApplicationGatewayBackendHttpSettingArgs struct {
 	ConnectionDrainings GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayInput `pulumi:"connectionDrainings"`
 	// Is Cookie-Based Affinity enabled?
 	CookieBasedAffinity pulumi.StringInput `pulumi:"cookieBasedAffinity"`
+	// Whether a dedicated backend connection is used.
+	DedicatedBackendConnectionEnabled pulumi.BoolInput `pulumi:"dedicatedBackendConnectionEnabled"`
 	// The Hostname which is used for this HTTP Listener.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Rewrite Rule Set
@@ -27585,6 +27910,11 @@ func (o GetApplicationGatewayBackendHttpSettingOutput) ConnectionDrainings() Get
 // Is Cookie-Based Affinity enabled?
 func (o GetApplicationGatewayBackendHttpSettingOutput) CookieBasedAffinity() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.CookieBasedAffinity }).(pulumi.StringOutput)
+}
+
+// Whether a dedicated backend connection is used.
+func (o GetApplicationGatewayBackendHttpSettingOutput) DedicatedBackendConnectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) bool { return v.DedicatedBackendConnectionEnabled }).(pulumi.BoolOutput)
 }
 
 // The Hostname which is used for this HTTP Listener.
@@ -38278,6 +38608,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerConnectivityConfigurationHubPtrInput)(nil)).Elem(), NetworkManagerConnectivityConfigurationHubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerCrossTenantScopeInput)(nil)).Elem(), NetworkManagerCrossTenantScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerCrossTenantScopeArrayInput)(nil)).Elem(), NetworkManagerCrossTenantScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerRoutingRuleDestinationInput)(nil)).Elem(), NetworkManagerRoutingRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerRoutingRuleDestinationPtrInput)(nil)).Elem(), NetworkManagerRoutingRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerRoutingRuleNextHopInput)(nil)).Elem(), NetworkManagerRoutingRuleNextHopArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerRoutingRuleNextHopPtrInput)(nil)).Elem(), NetworkManagerRoutingRuleNextHopArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerScopeInput)(nil)).Elem(), NetworkManagerScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerScopePtrInput)(nil)).Elem(), NetworkManagerScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficInput)(nil)).Elem(), NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs{})
@@ -38791,6 +39125,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkManagerConnectivityConfigurationHubPtrOutput{})
 	pulumi.RegisterOutputType(NetworkManagerCrossTenantScopeOutput{})
 	pulumi.RegisterOutputType(NetworkManagerCrossTenantScopeArrayOutput{})
+	pulumi.RegisterOutputType(NetworkManagerRoutingRuleDestinationOutput{})
+	pulumi.RegisterOutputType(NetworkManagerRoutingRuleDestinationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkManagerRoutingRuleNextHopOutput{})
+	pulumi.RegisterOutputType(NetworkManagerRoutingRuleNextHopPtrOutput{})
 	pulumi.RegisterOutputType(NetworkManagerScopeOutput{})
 	pulumi.RegisterOutputType(NetworkManagerScopePtrOutput{})
 	pulumi.RegisterOutputType(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput{})

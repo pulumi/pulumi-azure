@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Dynatrace.Inputs
 
     public sealed class TagRulesLogRuleGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("filteringTags", required: true)]
+        [Input("filteringTags")]
         private InputList<Inputs.TagRulesLogRuleFilteringTagGetArgs>? _filteringTags;
 
         /// <summary>

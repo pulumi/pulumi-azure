@@ -195,6 +195,10 @@ __all__ = [
     'NetworkManagerConnectivityConfigurationHubArgsDict',
     'NetworkManagerCrossTenantScopeArgs',
     'NetworkManagerCrossTenantScopeArgsDict',
+    'NetworkManagerRoutingRuleDestinationArgs',
+    'NetworkManagerRoutingRuleDestinationArgsDict',
+    'NetworkManagerRoutingRuleNextHopArgs',
+    'NetworkManagerRoutingRuleNextHopArgsDict',
     'NetworkManagerScopeArgs',
     'NetworkManagerScopeArgsDict',
     'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs',
@@ -609,6 +613,10 @@ if not MYPY:
         """
         A `connection_draining` block as defined below.
         """
+        dedicated_backend_connection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to use a dedicated backend connection. Defaults to `false`.
+        """
         host_name: NotRequired[pulumi.Input[_builtins.str]]
         """
         Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
@@ -654,6 +662,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
                  affinity_cookie_name: Optional[pulumi.Input[_builtins.str]] = None,
                  authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]] = None,
                  connection_draining: Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']] = None,
+                 dedicated_backend_connection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_name: Optional[pulumi.Input[_builtins.str]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None,
@@ -670,6 +679,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
         :param pulumi.Input[_builtins.str] affinity_cookie_name: The name of the affinity cookie.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate_backend` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs'] connection_draining: A `connection_draining` block as defined below.
+        :param pulumi.Input[_builtins.bool] dedicated_backend_connection_enabled: Whether to use a dedicated backend connection. Defaults to `false`.
         :param pulumi.Input[_builtins.str] host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
         :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[_builtins.str] path: The Path which should be used as a prefix for all HTTP requests.
@@ -689,6 +699,8 @@ class ApplicationGatewayBackendHttpSettingArgs:
             pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         if connection_draining is not None:
             pulumi.set(__self__, "connection_draining", connection_draining)
+        if dedicated_backend_connection_enabled is not None:
+            pulumi.set(__self__, "dedicated_backend_connection_enabled", dedicated_backend_connection_enabled)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
         if id is not None:
@@ -789,6 +801,18 @@ class ApplicationGatewayBackendHttpSettingArgs:
     @connection_draining.setter
     def connection_draining(self, value: Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']]):
         pulumi.set(self, "connection_draining", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dedicatedBackendConnectionEnabled")
+    def dedicated_backend_connection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to use a dedicated backend connection. Defaults to `false`.
+        """
+        return pulumi.get(self, "dedicated_backend_connection_enabled")
+
+    @dedicated_backend_connection_enabled.setter
+    def dedicated_backend_connection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "dedicated_backend_connection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
@@ -10108,6 +10132,107 @@ class NetworkManagerCrossTenantScopeArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class NetworkManagerRoutingRuleDestinationArgsDict(TypedDict):
+        address: pulumi.Input[_builtins.str]
+        """
+        The destination address.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+        """
+elif False:
+    NetworkManagerRoutingRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkManagerRoutingRuleDestinationArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] address: The destination address.
+        :param pulumi.Input[_builtins.str] type: The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[_builtins.str]:
+        """
+        The destination address.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "address", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class NetworkManagerRoutingRuleNextHopArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+        """
+        address: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+        """
+elif False:
+    NetworkManagerRoutingRuleNextHopArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkManagerRoutingRuleNextHopArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 address: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+        :param pulumi.Input[_builtins.str] address: The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+        """
+        pulumi.set(__self__, "type", type)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "address", value)
 
 
 if not MYPY:

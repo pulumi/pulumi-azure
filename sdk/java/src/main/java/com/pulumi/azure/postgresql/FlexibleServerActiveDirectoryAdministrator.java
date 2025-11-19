@@ -16,6 +16,86 @@ import javax.annotation.Nullable;
 /**
  * Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.postgresql.FlexibleServer;
+ * import com.pulumi.azure.postgresql.FlexibleServerArgs;
+ * import com.pulumi.azure.postgresql.inputs.FlexibleServerAuthenticationArgs;
+ * import com.pulumi.azure.postgresql.FlexibleServerActiveDirectoryAdministrator;
+ * import com.pulumi.azure.postgresql.FlexibleServerActiveDirectoryAdministratorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .objectId(current.objectId())
+ *             .build());
+ * 
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
+ *             .name("example-fs")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .administratorLogin("adminTerraform")
+ *             .administratorPassword("QAZwsx123")
+ *             .storageMb(32768)
+ *             .version("12")
+ *             .skuName("GP_Standard_D2s_v3")
+ *             .zone("2")
+ *             .authentication(FlexibleServerAuthenticationArgs.builder()
+ *                 .activeDirectoryAuthEnabled(true)
+ *                 .tenantId(current.tenantId())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFlexibleServerActiveDirectoryAdministrator = new FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator", FlexibleServerActiveDirectoryAdministratorArgs.builder()
+ *             .serverName(exampleFlexibleServer.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.tenantId())
+ *             .objectId(example.objectId())
+ *             .principalName(example.displayName())
+ *             .principalType("ServicePrincipal")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DBforPostgreSQL` - 2024-08-01
+ * 
  * ## Import
  * 
  * A PostgreSQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.

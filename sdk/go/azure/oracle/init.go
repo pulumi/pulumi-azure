@@ -25,10 +25,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AutonomousDatabase{}
 	case "azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup":
 		r = &AutonomousDatabaseBackup{}
+	case "azure:oracle/autonomousDatabaseCloneFromBackup:AutonomousDatabaseCloneFromBackup":
+		r = &AutonomousDatabaseCloneFromBackup{}
+	case "azure:oracle/autonomousDatabaseCloneFromDatabase:AutonomousDatabaseCloneFromDatabase":
+		r = &AutonomousDatabaseCloneFromDatabase{}
 	case "azure:oracle/cloudVmCluster:CloudVmCluster":
 		r = &CloudVmCluster{}
 	case "azure:oracle/exadataInfrastructure:ExadataInfrastructure":
 		r = &ExadataInfrastructure{}
+	case "azure:oracle/exascaleDatabaseStorageVault:ExascaleDatabaseStorageVault":
+		r = &ExascaleDatabaseStorageVault{}
+	case "azure:oracle/resourceAnchor:ResourceAnchor":
+		r = &ResourceAnchor{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -54,12 +62,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"oracle/autonomousDatabaseCloneFromBackup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"oracle/autonomousDatabaseCloneFromDatabase",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"oracle/cloudVmCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"oracle/exadataInfrastructure",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"oracle/exascaleDatabaseStorageVault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"oracle/resourceAnchor",
 		&module{version},
 	)
 }

@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Task<GetVirtualWanResult> InvokeAsync(GetVirtualWanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanArgs(), options.WithDefaults());
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetVirtualWanResult> Invoke(GetVirtualWanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanInvokeArgs(), options.WithDefaults());
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetVirtualWanResult> Invoke(GetVirtualWanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanInvokeArgs(), options.WithDefaults());

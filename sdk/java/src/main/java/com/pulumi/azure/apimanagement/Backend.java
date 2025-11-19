@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.apimanagement.BackendArgs;
 import com.pulumi.azure.apimanagement.inputs.BackendState;
+import com.pulumi.azure.apimanagement.outputs.BackendCircuitBreakerRule;
 import com.pulumi.azure.apimanagement.outputs.BackendCredentials;
 import com.pulumi.azure.apimanagement.outputs.BackendProxy;
 import com.pulumi.azure.apimanagement.outputs.BackendServiceFabricCluster;
@@ -107,6 +108,20 @@ public class Backend extends com.pulumi.resources.CustomResource {
      */
     public Output<String> apiManagementName() {
         return this.apiManagementName;
+    }
+    /**
+     * A `circuitBreakerRule` block as documented below.
+     * 
+     */
+    @Export(name="circuitBreakerRule", refs={BackendCircuitBreakerRule.class}, tree="[0]")
+    private Output</* @Nullable */ BackendCircuitBreakerRule> circuitBreakerRule;
+
+    /**
+     * @return A `circuitBreakerRule` block as documented below.
+     * 
+     */
+    public Output<Optional<BackendCircuitBreakerRule>> circuitBreakerRule() {
+        return Codegen.optional(this.circuitBreakerRule);
     }
     /**
      * A `credentials` block as documented below.

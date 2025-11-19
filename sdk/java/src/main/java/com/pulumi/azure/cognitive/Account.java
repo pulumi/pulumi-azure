@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  * * `Microsoft.CognitiveServices` - 2025-06-01
  * 
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  * 
  * ## Import
  * 

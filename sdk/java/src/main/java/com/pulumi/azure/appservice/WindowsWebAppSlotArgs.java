@@ -372,6 +372,25 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.virtualNetworkBackupRestoreEnabled);
     }
 
+    /**
+     * Whether traffic for the image pull should be routed over the virtual network.
+     * 
+     * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+     * 
+     */
+    @Import(name="virtualNetworkImagePullEnabled")
+    private @Nullable Output<Boolean> virtualNetworkImagePullEnabled;
+
+    /**
+     * @return Whether traffic for the image pull should be routed over the virtual network.
+     * 
+     * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+     * 
+     */
+    public Optional<Output<Boolean>> virtualNetworkImagePullEnabled() {
+        return Optional.ofNullable(this.virtualNetworkImagePullEnabled);
+    }
+
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
@@ -439,6 +458,7 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         this.storageAccounts = $.storageAccounts;
         this.tags = $.tags;
         this.virtualNetworkBackupRestoreEnabled = $.virtualNetworkBackupRestoreEnabled;
+        this.virtualNetworkImagePullEnabled = $.virtualNetworkImagePullEnabled;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
         this.webdeployPublishBasicAuthenticationEnabled = $.webdeployPublishBasicAuthenticationEnabled;
         this.zipDeployFile = $.zipDeployFile;
@@ -961,6 +981,31 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder virtualNetworkBackupRestoreEnabled(Boolean virtualNetworkBackupRestoreEnabled) {
             return virtualNetworkBackupRestoreEnabled(Output.of(virtualNetworkBackupRestoreEnabled));
+        }
+
+        /**
+         * @param virtualNetworkImagePullEnabled Whether traffic for the image pull should be routed over the virtual network.
+         * 
+         * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkImagePullEnabled(@Nullable Output<Boolean> virtualNetworkImagePullEnabled) {
+            $.virtualNetworkImagePullEnabled = virtualNetworkImagePullEnabled;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkImagePullEnabled Whether traffic for the image pull should be routed over the virtual network.
+         * 
+         * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkImagePullEnabled(Boolean virtualNetworkImagePullEnabled) {
+            return virtualNetworkImagePullEnabled(Output.of(virtualNetworkImagePullEnabled));
         }
 
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {

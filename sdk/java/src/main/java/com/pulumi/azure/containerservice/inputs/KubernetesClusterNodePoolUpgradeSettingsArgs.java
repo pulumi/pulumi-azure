@@ -5,7 +5,6 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -36,15 +35,34 @@ public final class KubernetesClusterNodePoolUpgradeSettingsArgs extends com.pulu
      * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
      */
-    @Import(name="maxSurge", required=true)
-    private Output<String> maxSurge;
+    @Import(name="maxSurge")
+    private @Nullable Output<String> maxSurge;
 
     /**
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
      */
-    public Output<String> maxSurge() {
-        return this.maxSurge;
+    public Optional<Output<String>> maxSurge() {
+        return Optional.ofNullable(this.maxSurge);
+    }
+
+    /**
+     * The maximum number or percentage of nodes which can be unavailable during the upgrade.
+     * 
+     * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+     * 
+     */
+    @Import(name="maxUnavailable")
+    private @Nullable Output<String> maxUnavailable;
+
+    /**
+     * @return The maximum number or percentage of nodes which can be unavailable during the upgrade.
+     * 
+     * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+     * 
+     */
+    public Optional<Output<String>> maxUnavailable() {
+        return Optional.ofNullable(this.maxUnavailable);
     }
 
     /**
@@ -62,12 +80,29 @@ public final class KubernetesClusterNodePoolUpgradeSettingsArgs extends com.pulu
         return Optional.ofNullable(this.nodeSoakDurationInMinutes);
     }
 
+    /**
+     * Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+     * 
+     */
+    @Import(name="undrainableNodeBehavior")
+    private @Nullable Output<String> undrainableNodeBehavior;
+
+    /**
+     * @return Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> undrainableNodeBehavior() {
+        return Optional.ofNullable(this.undrainableNodeBehavior);
+    }
+
     private KubernetesClusterNodePoolUpgradeSettingsArgs() {}
 
     private KubernetesClusterNodePoolUpgradeSettingsArgs(KubernetesClusterNodePoolUpgradeSettingsArgs $) {
         this.drainTimeoutInMinutes = $.drainTimeoutInMinutes;
         this.maxSurge = $.maxSurge;
+        this.maxUnavailable = $.maxUnavailable;
         this.nodeSoakDurationInMinutes = $.nodeSoakDurationInMinutes;
+        this.undrainableNodeBehavior = $.undrainableNodeBehavior;
     }
 
     public static Builder builder() {
@@ -115,7 +150,7 @@ public final class KubernetesClusterNodePoolUpgradeSettingsArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder maxSurge(Output<String> maxSurge) {
+        public Builder maxSurge(@Nullable Output<String> maxSurge) {
             $.maxSurge = maxSurge;
             return this;
         }
@@ -128,6 +163,31 @@ public final class KubernetesClusterNodePoolUpgradeSettingsArgs extends com.pulu
          */
         public Builder maxSurge(String maxSurge) {
             return maxSurge(Output.of(maxSurge));
+        }
+
+        /**
+         * @param maxUnavailable The maximum number or percentage of nodes which can be unavailable during the upgrade.
+         * 
+         * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxUnavailable(@Nullable Output<String> maxUnavailable) {
+            $.maxUnavailable = maxUnavailable;
+            return this;
+        }
+
+        /**
+         * @param maxUnavailable The maximum number or percentage of nodes which can be unavailable during the upgrade.
+         * 
+         * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxUnavailable(String maxUnavailable) {
+            return maxUnavailable(Output.of(maxUnavailable));
         }
 
         /**
@@ -151,10 +211,28 @@ public final class KubernetesClusterNodePoolUpgradeSettingsArgs extends com.pulu
             return nodeSoakDurationInMinutes(Output.of(nodeSoakDurationInMinutes));
         }
 
+        /**
+         * @param undrainableNodeBehavior Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder undrainableNodeBehavior(@Nullable Output<String> undrainableNodeBehavior) {
+            $.undrainableNodeBehavior = undrainableNodeBehavior;
+            return this;
+        }
+
+        /**
+         * @param undrainableNodeBehavior Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder undrainableNodeBehavior(String undrainableNodeBehavior) {
+            return undrainableNodeBehavior(Output.of(undrainableNodeBehavior));
+        }
+
         public KubernetesClusterNodePoolUpgradeSettingsArgs build() {
-            if ($.maxSurge == null) {
-                throw new MissingRequiredPropertyException("KubernetesClusterNodePoolUpgradeSettingsArgs", "maxSurge");
-            }
             return $;
         }
     }

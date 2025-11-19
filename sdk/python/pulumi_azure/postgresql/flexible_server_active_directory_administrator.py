@@ -234,6 +234,48 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         """
         Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        current = azure.core.get_client_config()
+        example = azuread.get_service_principal(object_id=current.object_id)
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_flexible_server = azure.postgresql.FlexibleServer("example",
+            name="example-fs",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="adminTerraform",
+            administrator_password="QAZwsx123",
+            storage_mb=32768,
+            version="12",
+            sku_name="GP_Standard_D2s_v3",
+            zone="2",
+            authentication={
+                "active_directory_auth_enabled": True,
+                "tenant_id": current.tenant_id,
+            })
+        example_flexible_server_active_directory_administrator = azure.postgresql.FlexibleServerActiveDirectoryAdministrator("example",
+            server_name=example_flexible_server.name,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            object_id=example.object_id,
+            principal_name=example.display_name,
+            principal_type="ServicePrincipal")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL` - 2024-08-01
+
         ## Import
 
         A PostgreSQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -259,6 +301,48 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        current = azure.core.get_client_config()
+        example = azuread.get_service_principal(object_id=current.object_id)
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_flexible_server = azure.postgresql.FlexibleServer("example",
+            name="example-fs",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="adminTerraform",
+            administrator_password="QAZwsx123",
+            storage_mb=32768,
+            version="12",
+            sku_name="GP_Standard_D2s_v3",
+            zone="2",
+            authentication={
+                "active_directory_auth_enabled": True,
+                "tenant_id": current.tenant_id,
+            })
+        example_flexible_server_active_directory_administrator = azure.postgresql.FlexibleServerActiveDirectoryAdministrator("example",
+            server_name=example_flexible_server.name,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            object_id=example.object_id,
+            principal_name=example.display_name,
+            principal_type="ServicePrincipal")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL` - 2024-08-01
 
         ## Import
 

@@ -63,6 +63,11 @@ public final class GetEnvironmentResult {
      * 
      */
     private String platformReservedDnsIpAddress;
+    /**
+     * @return The public network access setting for this Container App Environment.
+     * 
+     */
+    private String publicNetworkAccess;
     private String resourceGroupName;
     /**
      * @return The Static IP address of the Environment.
@@ -149,6 +154,13 @@ public final class GetEnvironmentResult {
     public String platformReservedDnsIpAddress() {
         return this.platformReservedDnsIpAddress;
     }
+    /**
+     * @return The public network access setting for this Container App Environment.
+     * 
+     */
+    public String publicNetworkAccess() {
+        return this.publicNetworkAccess;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -187,6 +199,7 @@ public final class GetEnvironmentResult {
         private String name;
         private String platformReservedCidr;
         private String platformReservedDnsIpAddress;
+        private String publicNetworkAccess;
         private String resourceGroupName;
         private String staticIpAddress;
         private Map<String,String> tags;
@@ -204,6 +217,7 @@ public final class GetEnvironmentResult {
     	      this.name = defaults.name;
     	      this.platformReservedCidr = defaults.platformReservedCidr;
     	      this.platformReservedDnsIpAddress = defaults.platformReservedDnsIpAddress;
+    	      this.publicNetworkAccess = defaults.publicNetworkAccess;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.staticIpAddress = defaults.staticIpAddress;
     	      this.tags = defaults.tags;
@@ -298,6 +312,14 @@ public final class GetEnvironmentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            if (publicNetworkAccess == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "publicNetworkAccess");
+            }
+            this.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetEnvironmentResult", "resourceGroupName");
@@ -334,6 +356,7 @@ public final class GetEnvironmentResult {
             _resultValue.name = name;
             _resultValue.platformReservedCidr = platformReservedCidr;
             _resultValue.platformReservedDnsIpAddress = platformReservedDnsIpAddress;
+            _resultValue.publicNetworkAccess = publicNetworkAccess;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.staticIpAddress = staticIpAddress;
             _resultValue.tags = tags;

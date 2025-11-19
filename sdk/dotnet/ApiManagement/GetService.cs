@@ -225,9 +225,6 @@ namespace Pulumi.Azure.ApiManagement
         /// The URL for the Management API.
         /// </summary>
         public readonly string ManagementApiUrl;
-        /// <summary>
-        /// Specifies the plan's pricing tier.
-        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The email address from which the notification will be sent.
@@ -262,6 +259,9 @@ namespace Pulumi.Azure.ApiManagement
         /// The SCM (Source Code Management) endpoint.
         /// </summary>
         public readonly string ScmUrl;
+        /// <summary>
+        /// The SKU of the API Management Service consisting of the name and capacity, separated by an underscore.
+        /// </summary>
         public readonly string SkuName;
         /// <summary>
         /// A mapping of tags assigned to the resource.

@@ -89,7 +89,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Oracle.Database` - 2025-03-01
+// * `Oracle.Database` - 2025-09-01
 //
 // ## Import
 //
@@ -127,6 +127,8 @@ type AutonomousDatabase struct {
 	// * DW - indicates an Autonomous Data Warehouse database
 	// * AJD - indicates an Autonomous JSON Database
 	// * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+	//
+	// > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
 	DbWorkload pulumi.StringOutput `pulumi:"dbWorkload"`
 	// The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
@@ -260,6 +262,8 @@ type autonomousDatabaseState struct {
 	// * DW - indicates an Autonomous Data Warehouse database
 	// * AJD - indicates an Autonomous JSON Database
 	// * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+	//
+	// > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
 	DbWorkload *string `pulumi:"dbWorkload"`
 	// The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
 	DisplayName *string `pulumi:"displayName"`
@@ -312,6 +316,8 @@ type AutonomousDatabaseState struct {
 	// * DW - indicates an Autonomous Data Warehouse database
 	// * AJD - indicates an Autonomous JSON Database
 	// * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+	//
+	// > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
 	DbWorkload pulumi.StringPtrInput
 	// The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
 	DisplayName pulumi.StringPtrInput
@@ -368,6 +374,8 @@ type autonomousDatabaseArgs struct {
 	// * DW - indicates an Autonomous Data Warehouse database
 	// * AJD - indicates an Autonomous JSON Database
 	// * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+	//
+	// > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
 	DbWorkload string `pulumi:"dbWorkload"`
 	// The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
 	DisplayName string `pulumi:"displayName"`
@@ -421,6 +429,8 @@ type AutonomousDatabaseArgs struct {
 	// * DW - indicates an Autonomous Data Warehouse database
 	// * AJD - indicates an Autonomous JSON Database
 	// * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+	//
+	// > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
 	DbWorkload pulumi.StringInput
 	// The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
 	DisplayName pulumi.StringInput
@@ -592,6 +602,8 @@ func (o AutonomousDatabaseOutput) DbVersion() pulumi.StringOutput {
 // * DW - indicates an Autonomous Data Warehouse database
 // * AJD - indicates an Autonomous JSON Database
 // * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+//
+// > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
 func (o AutonomousDatabaseOutput) DbWorkload() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringOutput { return v.DbWorkload }).(pulumi.StringOutput)
 }

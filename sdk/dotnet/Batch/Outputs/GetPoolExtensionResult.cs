@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly bool AutoUpgradeMinorVersion;
         /// <summary>
-        /// The name of the user account.
+        /// The name of the Batch pool.
         /// </summary>
         public readonly string Name;
         /// <summary>

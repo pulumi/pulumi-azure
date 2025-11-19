@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolUserAccountLinuxUserConfigurationResult> LinuxUserConfigurations;
         /// <summary>
-        /// The name of the user account.
+        /// The name of the Batch pool.
         /// </summary>
         public readonly string Name;
         /// <summary>

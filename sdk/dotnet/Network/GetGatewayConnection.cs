@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Task<GetGatewayConnectionResult> InvokeAsync(GetGatewayConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetGatewayConnectionResult> Invoke(GetGatewayConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetGatewayConnectionResult> Invoke(GetGatewayConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionInvokeArgs(), options.WithDefaults());

@@ -114,7 +114,7 @@ def get_gi_versions(location: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str location: The Azure Region to query for the GI Versions in.
@@ -160,7 +160,7 @@ def get_gi_versions_output(location: Optional[pulumi.Input[_builtins.str]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str location: The Azure Region to query for the GI Versions in.

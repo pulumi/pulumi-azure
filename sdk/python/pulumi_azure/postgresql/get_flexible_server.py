@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetFlexibleServerResult',
@@ -26,7 +27,7 @@ class GetFlexibleServerResult:
     """
     A collection of values returned by getFlexibleServer.
     """
-    def __init__(__self__, administrator_login=None, auto_grow_enabled=None, backup_retention_days=None, delegated_subnet_id=None, fqdn=None, id=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, sku_name=None, storage_mb=None, tags=None, version=None):
+    def __init__(__self__, administrator_login=None, auto_grow_enabled=None, backup_retention_days=None, delegated_subnet_id=None, fqdn=None, high_availabilities=None, id=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, sku_name=None, storage_mb=None, tags=None, version=None, zone=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -42,6 +43,9 @@ class GetFlexibleServerResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
+        if high_availabilities and not isinstance(high_availabilities, list):
+            raise TypeError("Expected argument 'high_availabilities' to be a list")
+        pulumi.set(__self__, "high_availabilities", high_availabilities)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -69,6 +73,9 @@ class GetFlexibleServerResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if zone and not isinstance(zone, str):
+            raise TypeError("Expected argument 'zone' to be a str")
+        pulumi.set(__self__, "zone", zone)
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
@@ -109,6 +116,14 @@ class GetFlexibleServerResult:
         The FQDN of the PostgreSQL Flexible Server.
         """
         return pulumi.get(self, "fqdn")
+
+    @_builtins.property
+    @pulumi.getter(name="highAvailabilities")
+    def high_availabilities(self) -> Sequence['outputs.GetFlexibleServerHighAvailabilityResult']:
+        """
+        A `high_availability` block for this PostgreSQL Flexible Server as defined below.
+        """
+        return pulumi.get(self, "high_availabilities")
 
     @_builtins.property
     @pulumi.getter
@@ -176,6 +191,14 @@ class GetFlexibleServerResult:
         """
         return pulumi.get(self, "version")
 
+    @_builtins.property
+    @pulumi.getter
+    def zone(self) -> _builtins.str:
+        """
+        The Availability Zones where this PostgreSQL Flexible Server is located.
+        """
+        return pulumi.get(self, "zone")
+
 
 class AwaitableGetFlexibleServerResult(GetFlexibleServerResult):
     # pylint: disable=using-constant-test
@@ -188,6 +211,7 @@ class AwaitableGetFlexibleServerResult(GetFlexibleServerResult):
             backup_retention_days=self.backup_retention_days,
             delegated_subnet_id=self.delegated_subnet_id,
             fqdn=self.fqdn,
+            high_availabilities=self.high_availabilities,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -196,7 +220,8 @@ class AwaitableGetFlexibleServerResult(GetFlexibleServerResult):
             sku_name=self.sku_name,
             storage_mb=self.storage_mb,
             tags=self.tags,
-            version=self.version)
+            version=self.version,
+            zone=self.zone)
 
 
 def get_flexible_server(name: Optional[_builtins.str] = None,
@@ -239,6 +264,7 @@ def get_flexible_server(name: Optional[_builtins.str] = None,
         backup_retention_days=pulumi.get(__ret__, 'backup_retention_days'),
         delegated_subnet_id=pulumi.get(__ret__, 'delegated_subnet_id'),
         fqdn=pulumi.get(__ret__, 'fqdn'),
+        high_availabilities=pulumi.get(__ret__, 'high_availabilities'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -247,7 +273,8 @@ def get_flexible_server(name: Optional[_builtins.str] = None,
         sku_name=pulumi.get(__ret__, 'sku_name'),
         storage_mb=pulumi.get(__ret__, 'storage_mb'),
         tags=pulumi.get(__ret__, 'tags'),
-        version=pulumi.get(__ret__, 'version'))
+        version=pulumi.get(__ret__, 'version'),
+        zone=pulumi.get(__ret__, 'zone'))
 def get_flexible_server_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlexibleServerResult]:
@@ -287,6 +314,7 @@ def get_flexible_server_output(name: Optional[pulumi.Input[_builtins.str]] = Non
         backup_retention_days=pulumi.get(__response__, 'backup_retention_days'),
         delegated_subnet_id=pulumi.get(__response__, 'delegated_subnet_id'),
         fqdn=pulumi.get(__response__, 'fqdn'),
+        high_availabilities=pulumi.get(__response__, 'high_availabilities'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
@@ -295,4 +323,5 @@ def get_flexible_server_output(name: Optional[pulumi.Input[_builtins.str]] = Non
         sku_name=pulumi.get(__response__, 'sku_name'),
         storage_mb=pulumi.get(__response__, 'storage_mb'),
         tags=pulumi.get(__response__, 'tags'),
-        version=pulumi.get(__response__, 'version')))
+        version=pulumi.get(__response__, 'version'),
+        zone=pulumi.get(__response__, 'zone')))

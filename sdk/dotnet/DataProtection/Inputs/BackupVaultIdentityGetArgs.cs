@@ -12,6 +12,18 @@ namespace Pulumi.Azure.DataProtection.Inputs
 
     public sealed class BackupVaultIdentityGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
         /// </summary>
@@ -25,7 +37,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

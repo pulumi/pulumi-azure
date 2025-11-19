@@ -57,7 +57,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
     /**
      * The ID of the job credential to use during execution of jobs.
      * 
-     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
      * 
      */
     @Import(name="jobCredentialId")
@@ -66,7 +66,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
     /**
      * @return The ID of the job credential to use during execution of jobs.
      * 
-     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
      * 
      */
     public Optional<Output<String>> jobCredentialId() {
@@ -200,7 +200,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         /**
          * @param jobCredentialId The ID of the job credential to use during execution of jobs.
          * 
-         * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+         * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         /**
          * @param jobCredentialId The ID of the job credential to use during execution of jobs.
          * 
-         * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+         * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
          * 
          * @return builder
          * 

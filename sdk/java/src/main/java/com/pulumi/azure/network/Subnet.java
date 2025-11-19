@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  * 
  * ## Import
  * 
@@ -109,8 +109,6 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     /**
      * The address prefixes to use for the subnet.
      * 
-     * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-     * 
      * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      * 
      */
@@ -119,8 +117,6 @@ public class Subnet extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The address prefixes to use for the subnet.
-     * 
-     * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
      * 
      * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      * 

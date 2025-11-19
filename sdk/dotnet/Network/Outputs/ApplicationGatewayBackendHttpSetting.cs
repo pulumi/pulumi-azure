@@ -30,6 +30,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string CookieBasedAffinity;
         /// <summary>
+        /// Whether to use a dedicated backend connection. Defaults to `False`.
+        /// </summary>
+        public readonly bool? DedicatedBackendConnectionEnabled;
+        /// <summary>
         /// Host header to be sent to the backend servers. Cannot be set if `PickHostNameFromBackendAddress` is set to `True`.
         /// </summary>
         public readonly string? HostName;
@@ -84,6 +88,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             string cookieBasedAffinity,
 
+            bool? dedicatedBackendConnectionEnabled,
+
             string? hostName,
 
             string? id,
@@ -110,6 +116,7 @@ namespace Pulumi.Azure.Network.Outputs
             AuthenticationCertificates = authenticationCertificates;
             ConnectionDraining = connectionDraining;
             CookieBasedAffinity = cookieBasedAffinity;
+            DedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
             HostName = hostName;
             Id = id;
             Name = name;

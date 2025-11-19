@@ -15,41 +15,117 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStaticWebAppResult {
+    /**
+     * @return The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
+     * 
+     */
     private String apiKey;
+    /**
+     * @return The map of key-value pairs of App Settings for the Static Web App.
+     * 
+     */
     private Map<String,String> appSettings;
+    /**
+     * @return A `basicAuth` block as defined below.
+     * 
+     */
     private List<GetStaticWebAppBasicAuth> basicAuths;
+    /**
+     * @return Are changes to the configuration file permitted.
+     * 
+     */
     private Boolean configurationFileChangesEnabled;
+    /**
+     * @return The default host name of the Static Web App.
+     * 
+     */
     private String defaultHostName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     private List<GetStaticWebAppIdentity> identities;
+    /**
+     * @return The Azure region in which this Static Web App exists.
+     * 
+     */
     private String location;
     private String name;
+    /**
+     * @return Are Preview (Staging) environments enabled.
+     * 
+     */
     private Boolean previewEnvironmentsEnabled;
+    /**
+     * @return Should public network access be enabled for the Static Web App.
+     * 
+     */
     private Boolean publicNetworkAccessEnabled;
+    /**
+     * @return Repository branch of the Static Web App.
+     * 
+     */
     private String repositoryBranch;
+    /**
+     * @return Repository URL of the Static Web App.
+     * 
+     */
     private String repositoryUrl;
     private String resourceGroupName;
+    /**
+     * @return The SKU size of the Static Web App.
+     * 
+     */
     private String skuSize;
+    /**
+     * @return The SKU tier of the Static Web App.
+     * 
+     */
     private String skuTier;
+    /**
+     * @return The mapping of tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetStaticWebAppResult() {}
+    /**
+     * @return The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
+     * 
+     */
     public String apiKey() {
         return this.apiKey;
     }
+    /**
+     * @return The map of key-value pairs of App Settings for the Static Web App.
+     * 
+     */
     public Map<String,String> appSettings() {
         return this.appSettings;
     }
+    /**
+     * @return A `basicAuth` block as defined below.
+     * 
+     */
     public List<GetStaticWebAppBasicAuth> basicAuths() {
         return this.basicAuths;
     }
+    /**
+     * @return Are changes to the configuration file permitted.
+     * 
+     */
     public Boolean configurationFileChangesEnabled() {
         return this.configurationFileChangesEnabled;
     }
+    /**
+     * @return The default host name of the Static Web App.
+     * 
+     */
     public String defaultHostName() {
         return this.defaultHostName;
     }
@@ -60,36 +136,72 @@ public final class GetStaticWebAppResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public List<GetStaticWebAppIdentity> identities() {
         return this.identities;
     }
+    /**
+     * @return The Azure region in which this Static Web App exists.
+     * 
+     */
     public String location() {
         return this.location;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return Are Preview (Staging) environments enabled.
+     * 
+     */
     public Boolean previewEnvironmentsEnabled() {
         return this.previewEnvironmentsEnabled;
     }
+    /**
+     * @return Should public network access be enabled for the Static Web App.
+     * 
+     */
     public Boolean publicNetworkAccessEnabled() {
         return this.publicNetworkAccessEnabled;
     }
+    /**
+     * @return Repository branch of the Static Web App.
+     * 
+     */
     public String repositoryBranch() {
         return this.repositoryBranch;
     }
+    /**
+     * @return Repository URL of the Static Web App.
+     * 
+     */
     public String repositoryUrl() {
         return this.repositoryUrl;
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * @return The SKU size of the Static Web App.
+     * 
+     */
     public String skuSize() {
         return this.skuSize;
     }
+    /**
+     * @return The SKU tier of the Static Web App.
+     * 
+     */
     public String skuTier() {
         return this.skuTier;
     }
+    /**
+     * @return The mapping of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

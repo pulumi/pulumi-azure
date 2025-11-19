@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// Use this data source to access information about an existing Redis Enterprise Database
         /// 
+        /// &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
+        /// 
         /// ## Example Usage
         /// 
         /// 
@@ -31,6 +33,8 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// Use this data source to access information about an existing Redis Enterprise Database
         /// 
+        /// &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
+        /// 
         /// ## Example Usage
         /// 
         /// 
@@ -47,6 +51,8 @@ namespace Pulumi.Azure.Redis
 
         /// <summary>
         /// Use this data source to access information about an existing Redis Enterprise Database
+        /// 
+        /// &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
         /// 
         /// ## Example Usage
         /// 

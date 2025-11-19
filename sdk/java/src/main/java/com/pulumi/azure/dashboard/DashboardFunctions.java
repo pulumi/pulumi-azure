@@ -326,7 +326,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard` - 2023-09-01
+     * * `Microsoft.Dashboard` - 2025-08-01
      * 
      */
     public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args) {
@@ -375,7 +375,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard` - 2023-09-01
+     * * `Microsoft.Dashboard` - 2025-08-01
      * 
      */
     public static CompletableFuture<GetGrafanaResult> getGrafanaPlain(GetGrafanaPlainArgs args) {
@@ -424,7 +424,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard` - 2023-09-01
+     * * `Microsoft.Dashboard` - 2025-08-01
      * 
      */
     public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args, InvokeOptions options) {
@@ -473,7 +473,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard` - 2023-09-01
+     * * `Microsoft.Dashboard` - 2025-08-01
      * 
      */
     public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args, InvokeOutputOptions options) {
@@ -522,7 +522,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard` - 2023-09-01
+     * * `Microsoft.Dashboard` - 2025-08-01
      * 
      */
     public static CompletableFuture<GetGrafanaResult> getGrafanaPlain(GetGrafanaPlainArgs args, InvokeOptions options) {

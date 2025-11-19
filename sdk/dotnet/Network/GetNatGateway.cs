@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure:network/getNatGateway:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure:network/getNatGateway:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure:network/getNatGateway:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());

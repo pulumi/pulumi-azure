@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.App` - 2025-01-01
+// * `Microsoft.App` - 2025-07-01
 //
 // * `Microsoft.OperationalInsights` - 2020-08-01
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
@@ -89,7 +89,9 @@ type LookupEnvironmentResult struct {
 	PlatformReservedCidr string `pulumi:"platformReservedCidr"`
 	// The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
 	PlatformReservedDnsIpAddress string `pulumi:"platformReservedDnsIpAddress"`
-	ResourceGroupName            string `pulumi:"resourceGroupName"`
+	// The public network access setting for this Container App Environment.
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 	// The Static IP address of the Environment.
 	StaticIpAddress string `pulumi:"staticIpAddress"`
 	// A mapping of tags assigned to the resource.
@@ -184,6 +186,11 @@ func (o LookupEnvironmentResultOutput) PlatformReservedCidr() pulumi.StringOutpu
 // The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
 func (o LookupEnvironmentResultOutput) PlatformReservedDnsIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.PlatformReservedDnsIpAddress }).(pulumi.StringOutput)
+}
+
+// The public network access setting for this Container App Environment.
+func (o LookupEnvironmentResultOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
 }
 
 func (o LookupEnvironmentResultOutput) ResourceGroupName() pulumi.StringOutput {

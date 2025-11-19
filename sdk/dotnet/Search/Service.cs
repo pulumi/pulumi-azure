@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Search
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Search` - 2024-06-01-preview
+    /// * `Microsoft.Search` - 2025-05-01
     /// 
     /// ## Import
     /// 
@@ -235,11 +235,13 @@ namespace Pulumi.Azure.Search
         public Output<string?> SemanticSearchSku { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU which should be used for this Search Service. Possible values include `Basic`, `Free`, `Standard`, `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2`. Changing this forces a new Search Service to be created.
+        /// The SKU which should be used for this Search Service. Possible values include `Basic`, `Free`, `Standard`, `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2`.
         /// 
         /// &gt; **Note:** The `Basic` and `Free` SKUs provision the Search Service in a Shared Cluster - the `Standard` SKUs use a Dedicated Cluster.
         /// 
         /// &gt; **Note:** The SKUs `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+        /// 
+        /// &gt; **Note:** SKU upgrades between Basic and Standard (S1, S2, S3) tiers from a lower tier to a higher tier (e.g., Basic → S1, S1 → S2, S2 → S3) are supported without recreating the resource. And your region must support the higher tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -402,11 +404,13 @@ namespace Pulumi.Azure.Search
         public Input<string>? SemanticSearchSku { get; set; }
 
         /// <summary>
-        /// The SKU which should be used for this Search Service. Possible values include `Basic`, `Free`, `Standard`, `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2`. Changing this forces a new Search Service to be created.
+        /// The SKU which should be used for this Search Service. Possible values include `Basic`, `Free`, `Standard`, `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2`.
         /// 
         /// &gt; **Note:** The `Basic` and `Free` SKUs provision the Search Service in a Shared Cluster - the `Standard` SKUs use a Dedicated Cluster.
         /// 
         /// &gt; **Note:** The SKUs `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+        /// 
+        /// &gt; **Note:** SKU upgrades between Basic and Standard (S1, S2, S3) tiers from a lower tier to a higher tier (e.g., Basic → S1, S1 → S2, S2 → S3) are supported without recreating the resource. And your region must support the higher tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -582,11 +586,13 @@ namespace Pulumi.Azure.Search
         public Input<string>? SemanticSearchSku { get; set; }
 
         /// <summary>
-        /// The SKU which should be used for this Search Service. Possible values include `Basic`, `Free`, `Standard`, `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2`. Changing this forces a new Search Service to be created.
+        /// The SKU which should be used for this Search Service. Possible values include `Basic`, `Free`, `Standard`, `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2`.
         /// 
         /// &gt; **Note:** The `Basic` and `Free` SKUs provision the Search Service in a Shared Cluster - the `Standard` SKUs use a Dedicated Cluster.
         /// 
         /// &gt; **Note:** The SKUs `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+        /// 
+        /// &gt; **Note:** SKU upgrades between Basic and Standard (S1, S2, S3) tiers from a lower tier to a higher tier (e.g., Basic → S1, S1 → S2, S2 → S3) are supported without recreating the resource. And your region must support the higher tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

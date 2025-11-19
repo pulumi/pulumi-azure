@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Oracle
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Oracle.Database` - 2025-03-01
+    /// * `Oracle.Database` - 2025-09-01
     /// 
     /// ## Import
     /// 
@@ -160,6 +160,8 @@ namespace Pulumi.Azure.Oracle
         /// * DW - indicates an Autonomous Data Warehouse database
         /// * AJD - indicates an Autonomous JSON Database
         /// * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+        /// 
+        /// &gt; **Note:** When Provisioning Database with `APEX` workload `MtlsConnectionRequired` must be set to `True`.
         /// </summary>
         [Output("dbWorkload")]
         public Output<string> DbWorkload { get; private set; } = null!;
@@ -366,6 +368,8 @@ namespace Pulumi.Azure.Oracle
         /// * DW - indicates an Autonomous Data Warehouse database
         /// * AJD - indicates an Autonomous JSON Database
         /// * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+        /// 
+        /// &gt; **Note:** When Provisioning Database with `APEX` workload `MtlsConnectionRequired` must be set to `True`.
         /// </summary>
         [Input("dbWorkload", required: true)]
         public Input<string> DbWorkload { get; set; } = null!;
@@ -535,6 +539,8 @@ namespace Pulumi.Azure.Oracle
         /// * DW - indicates an Autonomous Data Warehouse database
         /// * AJD - indicates an Autonomous JSON Database
         /// * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+        /// 
+        /// &gt; **Note:** When Provisioning Database with `APEX` workload `MtlsConnectionRequired` must be set to `True`.
         /// </summary>
         [Input("dbWorkload")]
         public Input<string>? DbWorkload { get; set; }

@@ -703,7 +703,7 @@ def get_cloud_vm_cluster(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str name: The name of this Cloud VM Cluster.
@@ -792,7 +792,7 @@ def get_cloud_vm_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str name: The name of this Cloud VM Cluster.

@@ -25,8 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.random.String;
- * import com.pulumi.random.StringArgs;
+ * import com.pulumi.random.RandomString;
+ * import com.pulumi.random.RandomStringArgs;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.VirtualNetwork;
@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Paths;
  * 
  * public class App {
- *     public static void main(java.lang.String[] args) {
+ *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new String("example", StringArgs.builder()
+ *         var example = new RandomString("example", RandomStringArgs.builder()
  *             .length(12)
  *             .special(true)
  *             .build());

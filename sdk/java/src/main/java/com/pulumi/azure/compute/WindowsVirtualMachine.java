@@ -234,9 +234,17 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     public Output<Boolean> allowExtensionOperations() {
         return this.allowExtensionOperations;
     }
+    /**
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     * 
+     */
     @Export(name="automaticUpdatesEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> automaticUpdatesEnabled;
 
+    /**
+     * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     * 
+     */
     public Output<Boolean> automaticUpdatesEnabled() {
         return this.automaticUpdatesEnabled;
     }
@@ -389,8 +397,6 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-     * 
      * @deprecated
      * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      * 
@@ -399,10 +405,6 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     @Export(name="enableAutomaticUpdates", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableAutomaticUpdates;
 
-    /**
-     * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-     * 
-     */
     public Output<Boolean> enableAutomaticUpdates() {
         return this.enableAutomaticUpdates;
     }

@@ -121,7 +121,7 @@ def get_public_i_ps(allocation_type: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2024-05-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
@@ -167,7 +167,7 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[_buil
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2024-05-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.

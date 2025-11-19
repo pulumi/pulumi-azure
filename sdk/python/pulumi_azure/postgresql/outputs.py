@@ -22,6 +22,7 @@ __all__ = [
     'FlexibleServerMaintenanceWindow',
     'ServerIdentity',
     'ServerThreatDetectionPolicy',
+    'GetFlexibleServerHighAvailabilityResult',
     'GetServerIdentityResult',
 ]
 
@@ -557,6 +558,35 @@ class ServerThreatDetectionPolicy(dict):
         Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         return pulumi.get(self, "storage_endpoint")
+
+
+@pulumi.output_type
+class GetFlexibleServerHighAvailabilityResult(dict):
+    def __init__(__self__, *,
+                 mode: _builtins.str,
+                 standby_availability_zone: _builtins.str):
+        """
+        :param _builtins.str mode: The high availability mode of the PostgreSQL Flexible Server.
+        :param _builtins.str standby_availability_zone: The availability zone of the standby Flexible Server.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        """
+        The high availability mode of the PostgreSQL Flexible Server.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> _builtins.str:
+        """
+        The availability zone of the standby Flexible Server.
+        """
+        return pulumi.get(self, "standby_availability_zone")
 
 
 @pulumi.output_type

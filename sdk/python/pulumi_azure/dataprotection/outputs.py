@@ -1499,7 +1499,9 @@ class BackupVaultIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -1517,14 +1519,18 @@ class BackupVaultIdentity(dict):
 
     def __init__(__self__, *,
                  type: _builtins.str,
+                 identity_ids: Optional[Sequence[_builtins.str]] = None,
                  principal_id: Optional[_builtins.str] = None,
                  tenant_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+        :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        :param Sequence[_builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
         :param _builtins.str principal_id: The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
         :param _builtins.str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -1534,9 +1540,17 @@ class BackupVaultIdentity(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @_builtins.property
     @pulumi.getter(name="principalId")
@@ -1558,17 +1572,28 @@ class BackupVaultIdentity(dict):
 @pulumi.output_type
 class GetBackupVaultIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[_builtins.str],
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: _builtins.str):
         """
+        :param Sequence[_builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Backup Vault.
         :param _builtins.str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
         :param _builtins.str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
         :param _builtins.str type: The type of Managed Service Identity that is configured on this Backup Vault.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[_builtins.str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Backup Vault.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @_builtins.property
     @pulumi.getter(name="principalId")

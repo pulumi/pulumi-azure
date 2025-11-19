@@ -623,6 +623,162 @@ func (o ExadataInfrastructureMaintenanceWindowArrayOutput) Index(i pulumi.IntInp
 	}).(ExadataInfrastructureMaintenanceWindowOutput)
 }
 
+type ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage struct {
+	// Available size in gigabytes.
+	AvailableSizeInGb *int `pulumi:"availableSizeInGb"`
+	// Total capacity in gigabytes. Changing this forces a new Exadata Database Storage Vault to be created.
+	TotalSizeInGb int `pulumi:"totalSizeInGb"`
+}
+
+// ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageInput is an input type that accepts ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs and ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput values.
+// You can construct a concrete instance of `ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageInput` via:
+//
+//	ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs{...}
+type ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageInput interface {
+	pulumi.Input
+
+	ToExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput() ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput
+	ToExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutputWithContext(context.Context) ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput
+}
+
+type ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs struct {
+	// Available size in gigabytes.
+	AvailableSizeInGb pulumi.IntPtrInput `pulumi:"availableSizeInGb"`
+	// Total capacity in gigabytes. Changing this forces a new Exadata Database Storage Vault to be created.
+	TotalSizeInGb pulumi.IntInput `pulumi:"totalSizeInGb"`
+}
+
+func (ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage)(nil)).Elem()
+}
+
+func (i ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput() ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return i.ToExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutputWithContext(context.Background())
+}
+
+func (i ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutputWithContext(ctx context.Context) ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput)
+}
+
+func (i ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput() ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput {
+	return i.ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutputWithContext(context.Background())
+}
+
+func (i ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutputWithContext(ctx context.Context) ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput).ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutputWithContext(ctx)
+}
+
+// ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrInput is an input type that accepts ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs, ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtr and ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput values.
+// You can construct a concrete instance of `ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrInput` via:
+//
+//	        ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrInput interface {
+	pulumi.Input
+
+	ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput() ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput
+	ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutputWithContext(context.Context) ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput
+}
+
+type exascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrType ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs
+
+func ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtr(v *ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs) ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrInput {
+	return (*exascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrType)(v)
+}
+
+func (*exascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage)(nil)).Elem()
+}
+
+func (i *exascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrType) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput() ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput {
+	return i.ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *exascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrType) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutputWithContext(ctx context.Context) ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput)
+}
+
+type ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput struct{ *pulumi.OutputState }
+
+func (ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage)(nil)).Elem()
+}
+
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput() ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return o
+}
+
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutputWithContext(ctx context.Context) ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return o
+}
+
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput() ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput {
+	return o.ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutputWithContext(context.Background())
+}
+
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutputWithContext(ctx context.Context) ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage) *ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage {
+		return &v
+	}).(ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput)
+}
+
+// Available size in gigabytes.
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) AvailableSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage) *int { return v.AvailableSizeInGb }).(pulumi.IntPtrOutput)
+}
+
+// Total capacity in gigabytes. Changing this forces a new Exadata Database Storage Vault to be created.
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) TotalSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage) int { return v.TotalSizeInGb }).(pulumi.IntOutput)
+}
+
+type ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage)(nil)).Elem()
+}
+
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput() ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput {
+	return o
+}
+
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput) ToExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutputWithContext(ctx context.Context) ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput {
+	return o
+}
+
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput) Elem() ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return o.ApplyT(func(v *ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage) ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage {
+		if v != nil {
+			return *v
+		}
+		var ret ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage
+		return ret
+	}).(ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput)
+}
+
+// Available size in gigabytes.
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput) AvailableSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AvailableSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Total capacity in gigabytes. Changing this forces a new Exadata Database Storage Vault to be created.
+func (o ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput) TotalSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
 type GetAdbsCharacterSetsCharacterSet struct {
 	// A valid Oracle character set.
 	CharacterSet string `pulumi:"characterSet"`
@@ -1055,6 +1211,258 @@ func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput) Index(i
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseBackupsAutonomousDatabaseBackup {
 		return vs[0].([]GetAutonomousDatabaseBackupsAutonomousDatabaseBackup)[vs[1].(int)]
 	}).(GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput)
+}
+
+type GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule struct {
+	// A boolean value that indicates if long-term backup is enabled/disabled.
+	Enabled bool `pulumi:"enabled"`
+	// The frequency for automated long-term backups.
+	RepeatCadence string `pulumi:"repeatCadence"`
+	// The retention period in days for Autonomous database backup.
+	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
+	// The timestamp in which the backup would be made.
+	TimeOfBackupInUtc string `pulumi:"timeOfBackupInUtc"`
+}
+
+// GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleInput is an input type that accepts GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArgs and GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleInput` via:
+//
+//	GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArgs{...}
+type GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput() GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput
+	ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutputWithContext(context.Context) GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput
+}
+
+type GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArgs struct {
+	// A boolean value that indicates if long-term backup is enabled/disabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The frequency for automated long-term backups.
+	RepeatCadence pulumi.StringInput `pulumi:"repeatCadence"`
+	// The retention period in days for Autonomous database backup.
+	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
+	// The timestamp in which the backup would be made.
+	TimeOfBackupInUtc pulumi.StringInput `pulumi:"timeOfBackupInUtc"`
+}
+
+func (GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArgs) ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput() GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput {
+	return i.ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArgs) ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutputWithContext(ctx context.Context) GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput)
+}
+
+// GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayInput is an input type that accepts GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArray and GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayInput` via:
+//
+//	GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArray{ GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArgs{...} }
+type GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput
+	ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutputWithContext(context.Context) GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput
+}
+
+type GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArray []GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleInput
+
+func (GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArray) ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput {
+	return i.ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArray) ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput)
+}
+
+type GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput) ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput() GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput) ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutputWithContext(ctx context.Context) GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput {
+	return o
+}
+
+// A boolean value that indicates if long-term backup is enabled/disabled.
+func (o GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The frequency for automated long-term backups.
+func (o GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput) RepeatCadence() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule) string { return v.RepeatCadence }).(pulumi.StringOutput)
+}
+
+// The retention period in days for Autonomous database backup.
+func (o GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+// The timestamp in which the backup would be made.
+func (o GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput) TimeOfBackupInUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule) string { return v.TimeOfBackupInUtc }).(pulumi.StringOutput)
+}
+
+type GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput) ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput) ToGetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule {
+		return vs[0].([]GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule)[vs[1].(int)]
+	}).(GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput)
+}
+
+type GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule struct {
+	// A boolean value that indicates if long-term backup is enabled/disabled.
+	Enabled bool `pulumi:"enabled"`
+	// The frequency for automated long-term backups.
+	RepeatCadence string `pulumi:"repeatCadence"`
+	// The retention period in days for Autonomous database backup.
+	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
+	// The timestamp in which the backup would be made.
+	TimeOfBackupInUtc string `pulumi:"timeOfBackupInUtc"`
+}
+
+// GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleInput is an input type that accepts GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArgs and GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleInput` via:
+//
+//	GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArgs{...}
+type GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput() GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput
+	ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutputWithContext(context.Context) GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput
+}
+
+type GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArgs struct {
+	// A boolean value that indicates if long-term backup is enabled/disabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The frequency for automated long-term backups.
+	RepeatCadence pulumi.StringInput `pulumi:"repeatCadence"`
+	// The retention period in days for Autonomous database backup.
+	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
+	// The timestamp in which the backup would be made.
+	TimeOfBackupInUtc pulumi.StringInput `pulumi:"timeOfBackupInUtc"`
+}
+
+func (GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArgs) ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput() GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput {
+	return i.ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArgs) ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput)
+}
+
+// GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayInput is an input type that accepts GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArray and GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayInput` via:
+//
+//	GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArray{ GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArgs{...} }
+type GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput
+	ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutputWithContext(context.Context) GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput
+}
+
+type GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArray []GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleInput
+
+func (GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArray) ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput {
+	return i.ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArray) ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput)
+}
+
+type GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput) ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput() GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput) ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+// A boolean value that indicates if long-term backup is enabled/disabled.
+func (o GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The frequency for automated long-term backups.
+func (o GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput) RepeatCadence() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule) string { return v.RepeatCadence }).(pulumi.StringOutput)
+}
+
+// The retention period in days for Autonomous database backup.
+func (o GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule) int {
+		return v.RetentionPeriodInDays
+	}).(pulumi.IntOutput)
+}
+
+// The timestamp in which the backup would be made.
+func (o GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput) TimeOfBackupInUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule) string {
+		return v.TimeOfBackupInUtc
+	}).(pulumi.StringOutput)
+}
+
+type GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput) ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput) ToGetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule {
+		return vs[0].([]GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule)[vs[1].(int)]
+	}).(GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput)
 }
 
 type GetAutonomousDatabaseLongTermBackupSchedule struct {
@@ -2897,6 +3305,112 @@ func (o GetExadataInfrastructureMaintenanceWindowArrayOutput) Index(i pulumi.Int
 	}).(GetExadataInfrastructureMaintenanceWindowOutput)
 }
 
+type GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage struct {
+	// Available capacity in gigabytes.
+	AvailableSizeInGb int `pulumi:"availableSizeInGb"`
+	// Total capacity in gigabytes.
+	TotalSizeInGb int `pulumi:"totalSizeInGb"`
+}
+
+// GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageInput is an input type that accepts GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs and GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput values.
+// You can construct a concrete instance of `GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageInput` via:
+//
+//	GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs{...}
+type GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageInput interface {
+	pulumi.Input
+
+	ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput() GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput
+	ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutputWithContext(context.Context) GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput
+}
+
+type GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs struct {
+	// Available capacity in gigabytes.
+	AvailableSizeInGb pulumi.IntInput `pulumi:"availableSizeInGb"`
+	// Total capacity in gigabytes.
+	TotalSizeInGb pulumi.IntInput `pulumi:"totalSizeInGb"`
+}
+
+func (GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage)(nil)).Elem()
+}
+
+func (i GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs) ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput() GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return i.ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutputWithContext(context.Background())
+}
+
+func (i GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs) ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutputWithContext(ctx context.Context) GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput)
+}
+
+// GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayInput is an input type that accepts GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArray and GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput values.
+// You can construct a concrete instance of `GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayInput` via:
+//
+//	GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArray{ GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs{...} }
+type GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput() GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput
+	ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutputWithContext(context.Context) GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput
+}
+
+type GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArray []GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageInput
+
+func (GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage)(nil)).Elem()
+}
+
+func (i GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArray) ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput() GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput {
+	return i.ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArray) ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutputWithContext(ctx context.Context) GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput)
+}
+
+type GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput struct{ *pulumi.OutputState }
+
+func (GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage)(nil)).Elem()
+}
+
+func (o GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput() GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return o
+}
+
+func (o GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutputWithContext(ctx context.Context) GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return o
+}
+
+// Available capacity in gigabytes.
+func (o GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) AvailableSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage) int { return v.AvailableSizeInGb }).(pulumi.IntOutput)
+}
+
+// Total capacity in gigabytes.
+func (o GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput) TotalSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage) int { return v.TotalSizeInGb }).(pulumi.IntOutput)
+}
+
+type GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage)(nil)).Elem()
+}
+
+func (o GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput) ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput() GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput {
+	return o
+}
+
+func (o GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput) ToGetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutputWithContext(ctx context.Context) GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput {
+	return o
+}
+
+func (o GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput) Index(i pulumi.IntInput) GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage {
+		return vs[0].([]GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage)[vs[1].(int)]
+	}).(GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseLongTermBackupScheduleInput)(nil)).Elem(), AutonomousDatabaseLongTermBackupScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseLongTermBackupSchedulePtrInput)(nil)).Elem(), AutonomousDatabaseLongTermBackupScheduleArgs{})
@@ -2906,12 +3420,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterFileSystemConfigurationArrayInput)(nil)).Elem(), CloudVmClusterFileSystemConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExadataInfrastructureMaintenanceWindowInput)(nil)).Elem(), ExadataInfrastructureMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExadataInfrastructureMaintenanceWindowArrayInput)(nil)).Elem(), ExadataInfrastructureMaintenanceWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageInput)(nil)).Elem(), ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrInput)(nil)).Elem(), ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsCharacterSetsCharacterSetInput)(nil)).Elem(), GetAdbsCharacterSetsCharacterSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsCharacterSetsCharacterSetArrayInput)(nil)).Elem(), GetAdbsCharacterSetsCharacterSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSetInput)(nil)).Elem(), GetAdbsNationalCharacterSetsCharacterSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSetArrayInput)(nil)).Elem(), GetAdbsNationalCharacterSetsCharacterSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseBackupsAutonomousDatabaseBackupInput)(nil)).Elem(), GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayInput)(nil)).Elem(), GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleInput)(nil)).Elem(), GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayInput)(nil)).Elem(), GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleInput)(nil)).Elem(), GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayInput)(nil)).Elem(), GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupScheduleInput)(nil)).Elem(), GetAutonomousDatabaseLongTermBackupScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupScheduleArrayInput)(nil)).Elem(), GetAutonomousDatabaseLongTermBackupScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterDataCollectionOptionInput)(nil)).Elem(), GetCloudVmClusterDataCollectionOptionArgs{})
@@ -2934,6 +3454,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureEstimatedPatchingTimeArrayInput)(nil)).Elem(), GetExadataInfrastructureEstimatedPatchingTimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureMaintenanceWindowInput)(nil)).Elem(), GetExadataInfrastructureMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureMaintenanceWindowArrayInput)(nil)).Elem(), GetExadataInfrastructureMaintenanceWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageInput)(nil)).Elem(), GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayInput)(nil)).Elem(), GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArray{})
 	pulumi.RegisterOutputType(AutonomousDatabaseLongTermBackupScheduleOutput{})
 	pulumi.RegisterOutputType(AutonomousDatabaseLongTermBackupSchedulePtrOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterDataCollectionOptionsOutput{})
@@ -2942,12 +3464,18 @@ func init() {
 	pulumi.RegisterOutputType(CloudVmClusterFileSystemConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ExadataInfrastructureMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(ExadataInfrastructureMaintenanceWindowArrayOutput{})
+	pulumi.RegisterOutputType(ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput{})
+	pulumi.RegisterOutputType(ExascaleDatabaseStorageVaultHighCapacityDatabaseStoragePtrOutput{})
 	pulumi.RegisterOutputType(GetAdbsCharacterSetsCharacterSetOutput{})
 	pulumi.RegisterOutputType(GetAdbsCharacterSetsCharacterSetArrayOutput{})
 	pulumi.RegisterOutputType(GetAdbsNationalCharacterSetsCharacterSetOutput{})
 	pulumi.RegisterOutputType(GetAdbsNationalCharacterSetsCharacterSetArrayOutput{})
 	pulumi.RegisterOutputType(GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput{})
 	pulumi.RegisterOutputType(GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseCloneFromBackupLongTermBackupScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseCloneFromDatabaseLongTermBackupScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetAutonomousDatabaseLongTermBackupScheduleOutput{})
 	pulumi.RegisterOutputType(GetAutonomousDatabaseLongTermBackupScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterDataCollectionOptionOutput{})
@@ -2970,4 +3498,6 @@ func init() {
 	pulumi.RegisterOutputType(GetExadataInfrastructureEstimatedPatchingTimeArrayOutput{})
 	pulumi.RegisterOutputType(GetExadataInfrastructureMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(GetExadataInfrastructureMaintenanceWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageOutput{})
+	pulumi.RegisterOutputType(GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArrayOutput{})
 }

@@ -210,16 +210,16 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.index.Id("server",
+        server = random.RandomId("server",
             keepers={
-                aziId: 1,
+                "azi_id": "1",
             },
             byte_length=8)
         example = azure.core.ResourceGroup("example",
             name="redis-resourcegroup",
             location="West Europe")
         example_cache = azure.redis.Cache("example",
-            name=f"redis{server['hex']}",
+            name=server.hex.apply(lambda hex: f"redis{hex}"),
             location=example.location,
             resource_group_name=example.name,
             capacity=1,
@@ -278,16 +278,16 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.index.Id("server",
+        server = random.RandomId("server",
             keepers={
-                aziId: 1,
+                "azi_id": "1",
             },
             byte_length=8)
         example = azure.core.ResourceGroup("example",
             name="redis-resourcegroup",
             location="West Europe")
         example_cache = azure.redis.Cache("example",
-            name=f"redis{server['hex']}",
+            name=server.hex.apply(lambda hex: f"redis{hex}"),
             location=example.location,
             resource_group_name=example.name,
             capacity=1,

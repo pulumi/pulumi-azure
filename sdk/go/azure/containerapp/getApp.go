@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.App` - 2025-01-01
+// * `Microsoft.App` - 2025-07-01
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppResult

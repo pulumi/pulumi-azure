@@ -237,7 +237,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Automation` - 2023-11-01
+        * `Microsoft.Automation` - 2024-10-23
 
         ## Import
 
@@ -317,7 +317,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Automation` - 2023-11-01
+        * `Microsoft.Automation` - 2024-10-23
 
         ## Import
 

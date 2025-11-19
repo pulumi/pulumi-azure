@@ -14,6 +14,167 @@ namespace Pulumi.Azure.RedHatOpenShift
     /// 
     /// &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleGetClientConfig = AzureAD.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleApplication = new AzureAD.Application("example", new()
+    ///     {
+    ///         DisplayName = "example-aro",
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = new AzureAD.ServicePrincipal("example", new()
+    ///     {
+    ///         ClientId = exampleApplication.ClientId,
+    ///     });
+    /// 
+    ///     var exampleServicePrincipalPassword = new AzureAD.ServicePrincipalPassword("example", new()
+    ///     {
+    ///         ServicePrincipalId = exampleServicePrincipal.ObjectId,
+    ///     });
+    /// 
+    ///     var redhatopenshift = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         ClientId = "f1dd0a37-89c6-4e07-bcd1-ffd3d43d8875",
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/22",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var roleNetwork1 = new Azure.Authorization.Assignment("role_network1", new()
+    ///     {
+    ///         Scope = exampleVirtualNetwork.Id,
+    ///         RoleDefinitionName = "Network Contributor",
+    ///         PrincipalId = exampleServicePrincipal.ObjectId,
+    ///     });
+    /// 
+    ///     var roleNetwork2 = new Azure.Authorization.Assignment("role_network2", new()
+    ///     {
+    ///         Scope = exampleVirtualNetwork.Id,
+    ///         RoleDefinitionName = "Network Contributor",
+    ///         PrincipalId = redhatopenshift.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var mainSubnet = new Azure.Network.Subnet("main_subnet", new()
+    ///     {
+    ///         Name = "main-subnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/23",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Storage",
+    ///             "Microsoft.ContainerRegistry",
+    ///         },
+    ///     });
+    /// 
+    ///     var workerSubnet = new Azure.Network.Subnet("worker_subnet", new()
+    ///     {
+    ///         Name = "worker-subnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/23",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Storage",
+    ///             "Microsoft.ContainerRegistry",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.RedHatOpenShift.Cluster("example", new()
+    ///     {
+    ///         Name = "examplearo",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ClusterProfile = new Azure.RedHatOpenShift.Inputs.ClusterClusterProfileArgs
+    ///         {
+    ///             Domain = "aro-example.com",
+    ///             Version = "4.13.23",
+    ///         },
+    ///         NetworkProfile = new Azure.RedHatOpenShift.Inputs.ClusterNetworkProfileArgs
+    ///         {
+    ///             PodCidr = "10.128.0.0/14",
+    ///             ServiceCidr = "172.30.0.0/16",
+    ///         },
+    ///         MainProfile = new Azure.RedHatOpenShift.Inputs.ClusterMainProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D8s_v3",
+    ///             SubnetId = mainSubnet.Id,
+    ///         },
+    ///         ApiServerProfile = new Azure.RedHatOpenShift.Inputs.ClusterApiServerProfileArgs
+    ///         {
+    ///             Visibility = "Public",
+    ///         },
+    ///         IngressProfile = new Azure.RedHatOpenShift.Inputs.ClusterIngressProfileArgs
+    ///         {
+    ///             Visibility = "Public",
+    ///         },
+    ///         WorkerProfile = new Azure.RedHatOpenShift.Inputs.ClusterWorkerProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D4s_v3",
+    ///             DiskSizeGb = 128,
+    ///             NodeCount = 3,
+    ///             SubnetId = workerSubnet.Id,
+    ///         },
+    ///         ServicePrincipal = new Azure.RedHatOpenShift.Inputs.ClusterServicePrincipalArgs
+    ///         {
+    ///             ClientId = exampleApplication.ClientId,
+    ///             ClientSecret = exampleServicePrincipalPassword.Value,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             roleNetwork1,
+    ///             roleNetwork2,
+    ///         },
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["consoleUrl"] = exampleCluster.ConsoleUrl,
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.RedHatOpenShift` - 2023-09-04
+    /// 
     /// ## Import
     /// 
     /// Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.

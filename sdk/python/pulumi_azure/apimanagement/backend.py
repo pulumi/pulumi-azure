@@ -25,6 +25,7 @@ class BackendArgs:
                  protocol: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
+                 circuit_breaker_rule: Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']] = None,
                  credentials: Optional[pulumi.Input['BackendCredentialsArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -39,6 +40,7 @@ class BackendArgs:
         :param pulumi.Input[_builtins.str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] url: The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
+        :param pulumi.Input['BackendCircuitBreakerRuleArgs'] circuit_breaker_rule: A `circuit_breaker_rule` block as documented below.
         :param pulumi.Input['BackendCredentialsArgs'] credentials: A `credentials` block as documented below.
         :param pulumi.Input[_builtins.str] description: The description of the backend.
         :param pulumi.Input[_builtins.str] name: The name of the API Management backend. Changing this forces a new resource to be created.
@@ -52,6 +54,8 @@ class BackendArgs:
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "url", url)
+        if circuit_breaker_rule is not None:
+            pulumi.set(__self__, "circuit_breaker_rule", circuit_breaker_rule)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if description is not None:
@@ -116,6 +120,18 @@ class BackendArgs:
     @url.setter
     def url(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="circuitBreakerRule")
+    def circuit_breaker_rule(self) -> Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']]:
+        """
+        A `circuit_breaker_rule` block as documented below.
+        """
+        return pulumi.get(self, "circuit_breaker_rule")
+
+    @circuit_breaker_rule.setter
+    def circuit_breaker_rule(self, value: Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']]):
+        pulumi.set(self, "circuit_breaker_rule", value)
 
     @_builtins.property
     @pulumi.getter
@@ -218,6 +234,7 @@ class BackendArgs:
 class _BackendState:
     def __init__(__self__, *,
                  api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 circuit_breaker_rule: Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']] = None,
                  credentials: Optional[pulumi.Input['BackendCredentialsArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -232,6 +249,7 @@ class _BackendState:
         """
         Input properties used for looking up and filtering Backend resources.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input['BackendCircuitBreakerRuleArgs'] circuit_breaker_rule: A `circuit_breaker_rule` block as documented below.
         :param pulumi.Input['BackendCredentialsArgs'] credentials: A `credentials` block as documented below.
         :param pulumi.Input[_builtins.str] description: The description of the backend.
         :param pulumi.Input[_builtins.str] name: The name of the API Management backend. Changing this forces a new resource to be created.
@@ -246,6 +264,8 @@ class _BackendState:
         """
         if api_management_name is not None:
             pulumi.set(__self__, "api_management_name", api_management_name)
+        if circuit_breaker_rule is not None:
+            pulumi.set(__self__, "circuit_breaker_rule", circuit_breaker_rule)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if description is not None:
@@ -280,6 +300,18 @@ class _BackendState:
     @api_management_name.setter
     def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="circuitBreakerRule")
+    def circuit_breaker_rule(self) -> Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']]:
+        """
+        A `circuit_breaker_rule` block as documented below.
+        """
+        return pulumi.get(self, "circuit_breaker_rule")
+
+    @circuit_breaker_rule.setter
+    def circuit_breaker_rule(self, value: Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']]):
+        pulumi.set(self, "circuit_breaker_rule", value)
 
     @_builtins.property
     @pulumi.getter
@@ -421,6 +453,7 @@ class Backend(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 circuit_breaker_rule: Optional[pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']]] = None,
                  credentials: Optional[pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -478,6 +511,7 @@ class Backend(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']] circuit_breaker_rule: A `circuit_breaker_rule` block as documented below.
         :param pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']] credentials: A `credentials` block as documented below.
         :param pulumi.Input[_builtins.str] description: The description of the backend.
         :param pulumi.Input[_builtins.str] name: The name of the API Management backend. Changing this forces a new resource to be created.
@@ -554,6 +588,7 @@ class Backend(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 circuit_breaker_rule: Optional[pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']]] = None,
                  credentials: Optional[pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -577,6 +612,7 @@ class Backend(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
+            __props__.__dict__["circuit_breaker_rule"] = circuit_breaker_rule
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -605,6 +641,7 @@ class Backend(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
+            circuit_breaker_rule: Optional[pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']]] = None,
             credentials: Optional[pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -624,6 +661,7 @@ class Backend(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']] circuit_breaker_rule: A `circuit_breaker_rule` block as documented below.
         :param pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']] credentials: A `credentials` block as documented below.
         :param pulumi.Input[_builtins.str] description: The description of the backend.
         :param pulumi.Input[_builtins.str] name: The name of the API Management backend. Changing this forces a new resource to be created.
@@ -641,6 +679,7 @@ class Backend(pulumi.CustomResource):
         __props__ = _BackendState.__new__(_BackendState)
 
         __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["circuit_breaker_rule"] = circuit_breaker_rule
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
@@ -661,6 +700,14 @@ class Backend(pulumi.CustomResource):
         The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
+
+    @_builtins.property
+    @pulumi.getter(name="circuitBreakerRule")
+    def circuit_breaker_rule(self) -> pulumi.Output[Optional['outputs.BackendCircuitBreakerRule']]:
+        """
+        A `circuit_breaker_rule` block as documented below.
+        """
+        return pulumi.get(self, "circuit_breaker_rule")
 
     @_builtins.property
     @pulumi.getter

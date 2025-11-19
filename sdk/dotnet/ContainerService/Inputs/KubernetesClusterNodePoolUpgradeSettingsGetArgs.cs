@@ -21,14 +21,28 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         /// </summary>
-        [Input("maxSurge", required: true)]
-        public Input<string> MaxSurge { get; set; } = null!;
+        [Input("maxSurge")]
+        public Input<string>? MaxSurge { get; set; }
+
+        /// <summary>
+        /// The maximum number or percentage of nodes which can be unavailable during the upgrade.
+        /// 
+        /// &gt; **Note:** Exactly one of `MaxSurge` or `MaxUnavailable` must be specified.
+        /// </summary>
+        [Input("maxUnavailable")]
+        public Input<string>? MaxUnavailable { get; set; }
 
         /// <summary>
         /// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
         /// </summary>
         [Input("nodeSoakDurationInMinutes")]
         public Input<int>? NodeSoakDurationInMinutes { get; set; }
+
+        /// <summary>
+        /// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+        /// </summary>
+        [Input("undrainableNodeBehavior")]
+        public Input<string>? UndrainableNodeBehavior { get; set; }
 
         public KubernetesClusterNodePoolUpgradeSettingsGetArgs()
         {

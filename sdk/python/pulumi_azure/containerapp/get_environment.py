@@ -26,7 +26,7 @@ class GetEnvironmentResult:
     """
     A collection of values returned by getEnvironment.
     """
-    def __init__(__self__, custom_domain_verification_id=None, default_domain=None, docker_bridge_cidr=None, id=None, infrastructure_subnet_id=None, internal_load_balancer_enabled=None, location=None, log_analytics_workspace_name=None, name=None, platform_reserved_cidr=None, platform_reserved_dns_ip_address=None, resource_group_name=None, static_ip_address=None, tags=None):
+    def __init__(__self__, custom_domain_verification_id=None, default_domain=None, docker_bridge_cidr=None, id=None, infrastructure_subnet_id=None, internal_load_balancer_enabled=None, location=None, log_analytics_workspace_name=None, name=None, platform_reserved_cidr=None, platform_reserved_dns_ip_address=None, public_network_access=None, resource_group_name=None, static_ip_address=None, tags=None):
         if custom_domain_verification_id and not isinstance(custom_domain_verification_id, str):
             raise TypeError("Expected argument 'custom_domain_verification_id' to be a str")
         pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
@@ -60,6 +60,9 @@ class GetEnvironmentResult:
         if platform_reserved_dns_ip_address and not isinstance(platform_reserved_dns_ip_address, str):
             raise TypeError("Expected argument 'platform_reserved_dns_ip_address' to be a str")
         pulumi.set(__self__, "platform_reserved_dns_ip_address", platform_reserved_dns_ip_address)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -156,6 +159,14 @@ class GetEnvironmentResult:
         return pulumi.get(self, "platform_reserved_dns_ip_address")
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> _builtins.str:
+        """
+        The public network access setting for this Container App Environment.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> _builtins.str:
         return pulumi.get(self, "resource_group_name")
@@ -194,6 +205,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             name=self.name,
             platform_reserved_cidr=self.platform_reserved_cidr,
             platform_reserved_dns_ip_address=self.platform_reserved_dns_ip_address,
+            public_network_access=self.public_network_access,
             resource_group_name=self.resource_group_name,
             static_ip_address=self.static_ip_address,
             tags=self.tags)
@@ -220,7 +232,7 @@ def get_environment(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.App` - 2025-01-01
+    * `Microsoft.App` - 2025-07-01
 
     * `Microsoft.OperationalInsights` - 2020-08-01
 
@@ -246,6 +258,7 @@ def get_environment(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         platform_reserved_cidr=pulumi.get(__ret__, 'platform_reserved_cidr'),
         platform_reserved_dns_ip_address=pulumi.get(__ret__, 'platform_reserved_dns_ip_address'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         static_ip_address=pulumi.get(__ret__, 'static_ip_address'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -270,7 +283,7 @@ def get_environment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.App` - 2025-01-01
+    * `Microsoft.App` - 2025-07-01
 
     * `Microsoft.OperationalInsights` - 2020-08-01
 
@@ -295,6 +308,7 @@ def get_environment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         name=pulumi.get(__response__, 'name'),
         platform_reserved_cidr=pulumi.get(__response__, 'platform_reserved_cidr'),
         platform_reserved_dns_ip_address=pulumi.get(__response__, 'platform_reserved_dns_ip_address'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         static_ip_address=pulumi.get(__response__, 'static_ip_address'),
         tags=pulumi.get(__response__, 'tags')))

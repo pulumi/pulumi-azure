@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
 /**
  * Manages an Automation Software Update Configuration.
  * 
+ * !&gt; **Note:** The `azure.automation.SoftwareUpdateConfiguration` resource has been deprecated because the Azure Automation Update Management was retired on 2024-08-31 and has been shutdown on 2025-02-28. This resource will be removed in v5.0 of the AzureRM Provider. Please migrate to Azure Update Manager, and use the `azure.maintenance.Configuration` resource combined with the appropriate assignment resources instead. See https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/log-analytics-agent-based-azure-management-services-shut-down-starting-28-februa/4381853 for more information.
+ * 
  * ## Example Usage
  * 
  * <pre>

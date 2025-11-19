@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Oracle.Database` - 2025-03-01
+ * * `Oracle.Database` - 2025-09-01
  * 
  * ## Import
  * 
@@ -270,6 +270,8 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
      * * AJD - indicates an Autonomous JSON Database
      * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
      * 
+     * &gt; **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
+     * 
      */
     @Export(name="dbWorkload", refs={String.class}, tree="[0]")
     private Output<String> dbWorkload;
@@ -280,6 +282,8 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
      * * DW - indicates an Autonomous Data Warehouse database
      * * AJD - indicates an Autonomous JSON Database
      * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+     * 
+     * &gt; **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
      * 
      */
     public Output<String> dbWorkload() {

@@ -188,6 +188,9 @@ namespace Pulumi.Azure.FrontDoor
         [Output("frontdoorName")]
         public Output<string> FrontdoorName { get; private set; } = null!;
 
+        /// <summary>
+        /// The location in which the Front Door Rules Engine exists.
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
@@ -311,6 +314,9 @@ namespace Pulumi.Azure.FrontDoor
         [Input("frontdoorName")]
         public Input<string>? FrontdoorName { get; set; }
 
+        /// <summary>
+        /// The location in which the Front Door Rules Engine exists.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 

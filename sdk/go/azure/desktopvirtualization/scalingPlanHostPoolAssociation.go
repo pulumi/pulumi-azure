@@ -14,6 +14,119 @@ import (
 
 // Manages a Virtual Desktop Scaling Plan Host Pool Association.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/desktopvirtualization"
+//	"github.com/pulumi/pulumi-azuread/sdk/v6/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example-virtualdesktop"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//				DisplayName: pulumi.StringRef("Windows Virtual Desktop"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				Scope:              exampleResourceGroup.ID(),
+//				RoleDefinitionName: pulumi.String("Desktop Virtualization Power On Off Contributor"),
+//				PrincipalId:        pulumi.String(example.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHostPool, err := desktopvirtualization.NewHostPool(ctx, "example", &desktopvirtualization.HostPoolArgs{
+//				Name:                pulumi.String("example-hostpool"),
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Type:                pulumi.String("Pooled"),
+//				ValidateEnvironment: pulumi.Bool(true),
+//				LoadBalancerType:    pulumi.String("BreadthFirst"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleScalingPlan, err := desktopvirtualization.NewScalingPlan(ctx, "example", &desktopvirtualization.ScalingPlanArgs{
+//				Name:              pulumi.String("example-scaling-plan"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				FriendlyName:      pulumi.String("Scaling Plan Test"),
+//				Description:       pulumi.String("Test Scaling Plan"),
+//				TimeZone:          pulumi.String("GMT Standard Time"),
+//				Schedules: desktopvirtualization.ScalingPlanScheduleArray{
+//					&desktopvirtualization.ScalingPlanScheduleArgs{
+//						Name: pulumi.String("Weekdays"),
+//						DaysOfWeeks: pulumi.StringArray{
+//							pulumi.String("Monday"),
+//							pulumi.String("Tuesday"),
+//							pulumi.String("Wednesday"),
+//							pulumi.String("Thursday"),
+//							pulumi.String("Friday"),
+//						},
+//						RampUpStartTime:                  pulumi.String("06:00"),
+//						RampUpLoadBalancingAlgorithm:     pulumi.String("BreadthFirst"),
+//						RampUpMinimumHostsPercent:        pulumi.Int(20),
+//						RampUpCapacityThresholdPercent:   pulumi.Int(10),
+//						PeakStartTime:                    pulumi.String("09:00"),
+//						PeakLoadBalancingAlgorithm:       pulumi.String("BreadthFirst"),
+//						RampDownStartTime:                pulumi.String("18:00"),
+//						RampDownLoadBalancingAlgorithm:   pulumi.String("BreadthFirst"),
+//						RampDownMinimumHostsPercent:      pulumi.Int(10),
+//						RampDownForceLogoffUsers:         pulumi.Bool(false),
+//						RampDownWaitTimeMinutes:          pulumi.Int(45),
+//						RampDownNotificationMessage:      pulumi.String("Please log of in the next 45 minutes..."),
+//						RampDownCapacityThresholdPercent: pulumi.Int(5),
+//						RampDownStopHostsWhen:            pulumi.String("ZeroSessions"),
+//						OffPeakStartTime:                 pulumi.String("22:00"),
+//						OffPeakLoadBalancingAlgorithm:    pulumi.String("BreadthFirst"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = desktopvirtualization.NewScalingPlanHostPoolAssociation(ctx, "example", &desktopvirtualization.ScalingPlanHostPoolAssociationArgs{
+//				HostPoolId:    exampleHostPool.ID(),
+//				ScalingPlanId: exampleScalingPlan.ID(),
+//				Enabled:       pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DesktopVirtualization` - 2024-04-03
+//
 // ## Import
 //
 // Associations between Virtual Desktop Scaling Plans and Virtual Desktop Host Pools can be imported using the `resource id`, e.g.

@@ -117,6 +117,7 @@ class _RulesEngineState:
         Input properties used for looking up and filtering RulesEngine resources.
         :param pulumi.Input[_builtins.bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: The location in which the Front Door Rules Engine exists.
         :param pulumi.Input[_builtins.str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A `rule` block as defined below.
@@ -161,6 +162,9 @@ class _RulesEngineState:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The location in which the Front Door Rules Engine exists.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -498,6 +502,7 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: The location in which the Front Door Rules Engine exists.
         :param pulumi.Input[_builtins.str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]] rules: A `rule` block as defined below.
@@ -533,6 +538,9 @@ class RulesEngine(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
+        """
+        The location in which the Front Door Rules Engine exists.
+        """
         return pulumi.get(self, "location")
 
     @_builtins.property

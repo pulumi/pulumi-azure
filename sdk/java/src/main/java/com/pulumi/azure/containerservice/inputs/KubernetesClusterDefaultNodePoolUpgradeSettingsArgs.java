@@ -66,12 +66,28 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
         return Optional.ofNullable(this.nodeSoakDurationInMinutes);
     }
 
+    /**
+     * Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+     * 
+     */
+    @Import(name="undrainableNodeBehavior")
+    private @Nullable Output<String> undrainableNodeBehavior;
+
+    /**
+     * @return Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> undrainableNodeBehavior() {
+        return Optional.ofNullable(this.undrainableNodeBehavior);
+    }
+
     private KubernetesClusterDefaultNodePoolUpgradeSettingsArgs() {}
 
     private KubernetesClusterDefaultNodePoolUpgradeSettingsArgs(KubernetesClusterDefaultNodePoolUpgradeSettingsArgs $) {
         this.drainTimeoutInMinutes = $.drainTimeoutInMinutes;
         this.maxSurge = $.maxSurge;
         this.nodeSoakDurationInMinutes = $.nodeSoakDurationInMinutes;
+        this.undrainableNodeBehavior = $.undrainableNodeBehavior;
     }
 
     public static Builder builder() {
@@ -157,6 +173,27 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
          */
         public Builder nodeSoakDurationInMinutes(Integer nodeSoakDurationInMinutes) {
             return nodeSoakDurationInMinutes(Output.of(nodeSoakDurationInMinutes));
+        }
+
+        /**
+         * @param undrainableNodeBehavior Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder undrainableNodeBehavior(@Nullable Output<String> undrainableNodeBehavior) {
+            $.undrainableNodeBehavior = undrainableNodeBehavior;
+            return this;
+        }
+
+        /**
+         * @param undrainableNodeBehavior Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder undrainableNodeBehavior(String undrainableNodeBehavior) {
+            return undrainableNodeBehavior(Output.of(undrainableNodeBehavior));
         }
 
         public KubernetesClusterDefaultNodePoolUpgradeSettingsArgs build() {

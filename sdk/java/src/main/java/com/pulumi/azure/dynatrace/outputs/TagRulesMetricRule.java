@@ -5,7 +5,6 @@ package com.pulumi.azure.dynatrace.outputs;
 
 import com.pulumi.azure.dynatrace.outputs.TagRulesMetricRuleFilteringTag;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -18,7 +17,7 @@ public final class TagRulesMetricRule {
      * @return Filtering tag for the metric rule. A `filteringTag` block as defined below.
      * 
      */
-    private List<TagRulesMetricRuleFilteringTag> filteringTags;
+    private @Nullable List<TagRulesMetricRuleFilteringTag> filteringTags;
     /**
      * @return If sending metrics is enabled. The default value is `false`.
      * 
@@ -31,7 +30,7 @@ public final class TagRulesMetricRule {
      * 
      */
     public List<TagRulesMetricRuleFilteringTag> filteringTags() {
-        return this.filteringTags;
+        return this.filteringTags == null ? List.of() : this.filteringTags;
     }
     /**
      * @return If sending metrics is enabled. The default value is `false`.
@@ -50,7 +49,7 @@ public final class TagRulesMetricRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<TagRulesMetricRuleFilteringTag> filteringTags;
+        private @Nullable List<TagRulesMetricRuleFilteringTag> filteringTags;
         private @Nullable Boolean sendingMetricsEnabled;
         public Builder() {}
         public Builder(TagRulesMetricRule defaults) {
@@ -60,10 +59,8 @@ public final class TagRulesMetricRule {
         }
 
         @CustomType.Setter
-        public Builder filteringTags(List<TagRulesMetricRuleFilteringTag> filteringTags) {
-            if (filteringTags == null) {
-              throw new MissingRequiredPropertyException("TagRulesMetricRule", "filteringTags");
-            }
+        public Builder filteringTags(@Nullable List<TagRulesMetricRuleFilteringTag> filteringTags) {
+
             this.filteringTags = filteringTags;
             return this;
         }

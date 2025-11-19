@@ -119,8 +119,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &User{}
 	case "azure:apimanagement/workspace:Workspace":
 		r = &Workspace{}
+	case "azure:apimanagement/workspaceApiVersionSet:WorkspaceApiVersionSet":
+		r = &WorkspaceApiVersionSet{}
+	case "azure:apimanagement/workspaceCertificate:WorkspaceCertificate":
+		r = &WorkspaceCertificate{}
 	case "azure:apimanagement/workspacePolicy:WorkspacePolicy":
 		r = &WorkspacePolicy{}
+	case "azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment":
+		r = &WorkspacePolicyFragment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -381,7 +387,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"apimanagement/workspaceApiVersionSet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/workspaceCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"apimanagement/workspacePolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/workspacePolicyFragment",
 		&module{version},
 	)
 }

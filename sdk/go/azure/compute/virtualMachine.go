@@ -140,7 +140,7 @@ import (
 //
 // * `Microsoft.Compute` - 2024-03-01, 2023-04-02
 //
-// * `Microsoft.Network` - 2024-05-01
+// * `Microsoft.Network` - 2025-01-01
 //
 // ## Import
 //

@@ -138,6 +138,20 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.namespaceType;
     }
     /**
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="replicationRegion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> replicationRegion;
+
+    /**
+     * @return The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> replicationRegion() {
+        return Codegen.optional(this.replicationRegion);
+    }
+    /**
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -192,6 +206,20 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="zoneRedundancyEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> zoneRedundancyEnabled;
+
+    /**
+     * @return Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> zoneRedundancyEnabled() {
+        return Codegen.optional(this.zoneRedundancyEnabled);
     }
 
     /**

@@ -854,7 +854,7 @@ class JobTargetGroupJobTarget(dict):
                > **Note:** This cannot be set in combination with `database_name`.
         :param _builtins.str job_credential_id: The ID of the job credential to use during execution of jobs.
                
-               > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+               > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set or the target resource is configured to use a managed identity for authentication.
         :param _builtins.str membership_type: The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
         :param _builtins.str type: The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
         """
@@ -904,7 +904,7 @@ class JobTargetGroupJobTarget(dict):
         """
         The ID of the job credential to use during execution of jobs.
 
-        > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+        > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set or the target resource is configured to use a managed identity for authentication.
         """
         return pulumi.get(self, "job_credential_id")
 

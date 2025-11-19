@@ -148,8 +148,12 @@ type WindowsWebApp struct {
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput   `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// Whether traffic for the image pull should be routed over the virtual network.
+	//
+	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+	VirtualNetworkImagePullEnabled pulumi.BoolOutput      `pulumi:"virtualNetworkImagePullEnabled"`
+	VirtualNetworkSubnetId         pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -273,8 +277,12 @@ type windowsWebAppState struct {
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// Whether traffic for the image pull should be routed over the virtual network.
+	//
+	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+	VirtualNetworkImagePullEnabled *bool   `pulumi:"virtualNetworkImagePullEnabled"`
+	VirtualNetworkSubnetId         *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -356,7 +364,11 @@ type WindowsWebAppState struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// Whether traffic for the image pull should be routed over the virtual network.
+	//
+	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
+	VirtualNetworkSubnetId         pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -423,8 +435,12 @@ type windowsWebAppArgs struct {
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// Whether traffic for the image pull should be routed over the virtual network.
+	//
+	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+	VirtualNetworkImagePullEnabled *bool   `pulumi:"virtualNetworkImagePullEnabled"`
+	VirtualNetworkSubnetId         *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -489,7 +505,11 @@ type WindowsWebAppArgs struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// Whether traffic for the image pull should be routed over the virtual network.
+	//
+	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
+	VirtualNetworkSubnetId         pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -757,6 +777,13 @@ func (o WindowsWebAppOutput) Tags() pulumi.StringMapOutput {
 // Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 func (o WindowsWebAppOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether traffic for the image pull should be routed over the virtual network.
+//
+// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+func (o WindowsWebAppOutput) VirtualNetworkImagePullEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolOutput { return v.VirtualNetworkImagePullEnabled }).(pulumi.BoolOutput)
 }
 
 func (o WindowsWebAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {

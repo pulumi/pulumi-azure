@@ -4,7 +4,6 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -22,12 +21,24 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
      */
-    private String maxSurge;
+    private @Nullable String maxSurge;
+    /**
+     * @return The maximum number or percentage of nodes which can be unavailable during the upgrade.
+     * 
+     * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+     * 
+     */
+    private @Nullable String maxUnavailable;
     /**
      * @return The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
      * 
      */
     private @Nullable Integer nodeSoakDurationInMinutes;
+    /**
+     * @return Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+     * 
+     */
+    private @Nullable String undrainableNodeBehavior;
 
     private KubernetesClusterNodePoolUpgradeSettings() {}
     /**
@@ -41,8 +52,17 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
      */
-    public String maxSurge() {
-        return this.maxSurge;
+    public Optional<String> maxSurge() {
+        return Optional.ofNullable(this.maxSurge);
+    }
+    /**
+     * @return The maximum number or percentage of nodes which can be unavailable during the upgrade.
+     * 
+     * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+     * 
+     */
+    public Optional<String> maxUnavailable() {
+        return Optional.ofNullable(this.maxUnavailable);
     }
     /**
      * @return The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
@@ -50,6 +70,13 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
      */
     public Optional<Integer> nodeSoakDurationInMinutes() {
         return Optional.ofNullable(this.nodeSoakDurationInMinutes);
+    }
+    /**
+     * @return Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+     * 
+     */
+    public Optional<String> undrainableNodeBehavior() {
+        return Optional.ofNullable(this.undrainableNodeBehavior);
     }
 
     public static Builder builder() {
@@ -62,14 +89,18 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer drainTimeoutInMinutes;
-        private String maxSurge;
+        private @Nullable String maxSurge;
+        private @Nullable String maxUnavailable;
         private @Nullable Integer nodeSoakDurationInMinutes;
+        private @Nullable String undrainableNodeBehavior;
         public Builder() {}
         public Builder(KubernetesClusterNodePoolUpgradeSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.drainTimeoutInMinutes = defaults.drainTimeoutInMinutes;
     	      this.maxSurge = defaults.maxSurge;
+    	      this.maxUnavailable = defaults.maxUnavailable;
     	      this.nodeSoakDurationInMinutes = defaults.nodeSoakDurationInMinutes;
+    	      this.undrainableNodeBehavior = defaults.undrainableNodeBehavior;
         }
 
         @CustomType.Setter
@@ -79,11 +110,15 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
             return this;
         }
         @CustomType.Setter
-        public Builder maxSurge(String maxSurge) {
-            if (maxSurge == null) {
-              throw new MissingRequiredPropertyException("KubernetesClusterNodePoolUpgradeSettings", "maxSurge");
-            }
+        public Builder maxSurge(@Nullable String maxSurge) {
+
             this.maxSurge = maxSurge;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxUnavailable(@Nullable String maxUnavailable) {
+
+            this.maxUnavailable = maxUnavailable;
             return this;
         }
         @CustomType.Setter
@@ -92,11 +127,19 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
             this.nodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
             return this;
         }
+        @CustomType.Setter
+        public Builder undrainableNodeBehavior(@Nullable String undrainableNodeBehavior) {
+
+            this.undrainableNodeBehavior = undrainableNodeBehavior;
+            return this;
+        }
         public KubernetesClusterNodePoolUpgradeSettings build() {
             final var _resultValue = new KubernetesClusterNodePoolUpgradeSettings();
             _resultValue.drainTimeoutInMinutes = drainTimeoutInMinutes;
             _resultValue.maxSurge = maxSurge;
+            _resultValue.maxUnavailable = maxUnavailable;
             _resultValue.nodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
+            _resultValue.undrainableNodeBehavior = undrainableNodeBehavior;
             return _resultValue;
         }
     }

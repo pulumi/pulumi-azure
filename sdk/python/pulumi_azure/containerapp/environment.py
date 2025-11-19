@@ -32,6 +32,7 @@ class EnvironmentArgs:
                  logs_destination: Optional[pulumi.Input[_builtins.str]] = None,
                  mutual_tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
@@ -58,6 +59,7 @@ class EnvironmentArgs:
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         :param pulumi.Input[_builtins.str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] public_network_access: The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]] workload_profiles: One or more `workload_profile` blocks as defined below.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
@@ -85,6 +87,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "mutual_tls_enabled", mutual_tls_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workload_profiles is not None:
@@ -235,6 +239,18 @@ class EnvironmentArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -291,6 +307,7 @@ class _EnvironmentState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  platform_reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  platform_reserved_dns_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  static_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -323,6 +340,7 @@ class _EnvironmentState:
         :param pulumi.Input[_builtins.str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] platform_reserved_cidr: The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
         :param pulumi.Input[_builtins.str] platform_reserved_dns_ip_address: The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+        :param pulumi.Input[_builtins.str] public_network_access: The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -361,6 +379,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "platform_reserved_cidr", platform_reserved_cidr)
         if platform_reserved_dns_ip_address is not None:
             pulumi.set(__self__, "platform_reserved_dns_ip_address", platform_reserved_dns_ip_address)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if static_ip_address is not None:
@@ -563,6 +583,18 @@ class _EnvironmentState:
         pulumi.set(self, "platform_reserved_dns_ip_address", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -641,6 +673,7 @@ class Environment(pulumi.CustomResource):
                  logs_destination: Optional[pulumi.Input[_builtins.str]] = None,
                  mutual_tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
@@ -677,7 +710,7 @@ class Environment(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.App` - 2025-01-01
+        * `Microsoft.App` - 2025-07-01
 
         * `Microsoft.OperationalInsights` - 2020-08-01
 
@@ -711,6 +744,7 @@ class Environment(pulumi.CustomResource):
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         :param pulumi.Input[_builtins.str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] public_network_access: The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]] workload_profiles: One or more `workload_profile` blocks as defined below.
@@ -755,7 +789,7 @@ class Environment(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.App` - 2025-01-01
+        * `Microsoft.App` - 2025-07-01
 
         * `Microsoft.OperationalInsights` - 2020-08-01
 
@@ -792,6 +826,7 @@ class Environment(pulumi.CustomResource):
                  logs_destination: Optional[pulumi.Input[_builtins.str]] = None,
                  mutual_tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
@@ -815,6 +850,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["logs_destination"] = logs_destination
             __props__.__dict__["mutual_tls_enabled"] = mutual_tls_enabled
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -854,6 +890,7 @@ class Environment(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             platform_reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
             platform_reserved_dns_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             static_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -891,6 +928,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] platform_reserved_cidr: The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
         :param pulumi.Input[_builtins.str] platform_reserved_dns_ip_address: The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+        :param pulumi.Input[_builtins.str] public_network_access: The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -918,6 +956,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["platform_reserved_cidr"] = platform_reserved_cidr
         __props__.__dict__["platform_reserved_dns_ip_address"] = platform_reserved_dns_ip_address
+        __props__.__dict__["public_network_access"] = public_network_access
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["static_ip_address"] = static_ip_address
         __props__.__dict__["tags"] = tags
@@ -1054,6 +1093,14 @@ class Environment(pulumi.CustomResource):
         The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
         """
         return pulumi.get(self, "platform_reserved_dns_ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[_builtins.str]:
+        """
+        The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")

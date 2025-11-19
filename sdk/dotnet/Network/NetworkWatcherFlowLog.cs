@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2024-05-01
+    /// * `Microsoft.Network` - 2025-01-01
     /// 
     /// ## Import
     /// 
@@ -159,7 +159,9 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+        /// The ID of the Resource for which to enable flow logs for.
+        /// 
+        /// &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string> TargetResourceId { get; private set; } = null!;
@@ -280,7 +282,9 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+        /// The ID of the Resource for which to enable flow logs for.
+        /// 
+        /// &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }
@@ -363,7 +367,9 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+        /// The ID of the Resource for which to enable flow logs for.
+        /// 
+        /// &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

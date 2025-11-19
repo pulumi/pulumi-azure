@@ -64,7 +64,7 @@ public final class SearchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Search` - 2024-06-01-preview
+     * * `Microsoft.Search` - 2025-05-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -119,7 +119,7 @@ public final class SearchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Search` - 2024-06-01-preview
+     * * `Microsoft.Search` - 2025-05-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -174,7 +174,7 @@ public final class SearchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Search` - 2024-06-01-preview
+     * * `Microsoft.Search` - 2025-05-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -229,7 +229,7 @@ public final class SearchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Search` - 2024-06-01-preview
+     * * `Microsoft.Search` - 2025-05-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
@@ -284,7 +284,7 @@ public final class SearchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Search` - 2024-06-01-preview
+     * * `Microsoft.Search` - 2025-05-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

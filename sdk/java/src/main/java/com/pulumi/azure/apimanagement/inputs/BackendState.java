@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.apimanagement.inputs;
 
+import com.pulumi.azure.apimanagement.inputs.BackendCircuitBreakerRuleArgs;
 import com.pulumi.azure.apimanagement.inputs.BackendCredentialsArgs;
 import com.pulumi.azure.apimanagement.inputs.BackendProxyArgs;
 import com.pulumi.azure.apimanagement.inputs.BackendServiceFabricClusterArgs;
@@ -32,6 +33,21 @@ public final class BackendState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> apiManagementName() {
         return Optional.ofNullable(this.apiManagementName);
+    }
+
+    /**
+     * A `circuitBreakerRule` block as documented below.
+     * 
+     */
+    @Import(name="circuitBreakerRule")
+    private @Nullable Output<BackendCircuitBreakerRuleArgs> circuitBreakerRule;
+
+    /**
+     * @return A `circuitBreakerRule` block as documented below.
+     * 
+     */
+    public Optional<Output<BackendCircuitBreakerRuleArgs>> circuitBreakerRule() {
+        return Optional.ofNullable(this.circuitBreakerRule);
     }
 
     /**
@@ -203,6 +219,7 @@ public final class BackendState extends com.pulumi.resources.ResourceArgs {
 
     private BackendState(BackendState $) {
         this.apiManagementName = $.apiManagementName;
+        this.circuitBreakerRule = $.circuitBreakerRule;
         this.credentials = $.credentials;
         this.description = $.description;
         this.name = $.name;
@@ -253,6 +270,27 @@ public final class BackendState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder apiManagementName(String apiManagementName) {
             return apiManagementName(Output.of(apiManagementName));
+        }
+
+        /**
+         * @param circuitBreakerRule A `circuitBreakerRule` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder circuitBreakerRule(@Nullable Output<BackendCircuitBreakerRuleArgs> circuitBreakerRule) {
+            $.circuitBreakerRule = circuitBreakerRule;
+            return this;
+        }
+
+        /**
+         * @param circuitBreakerRule A `circuitBreakerRule` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder circuitBreakerRule(BackendCircuitBreakerRuleArgs circuitBreakerRule) {
+            return circuitBreakerRule(Output.of(circuitBreakerRule));
         }
 
         /**

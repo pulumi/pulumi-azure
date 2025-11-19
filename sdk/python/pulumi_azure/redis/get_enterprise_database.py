@@ -127,6 +127,8 @@ def get_enterprise_database(cluster_id: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing Redis Enterprise Database
 
+    > **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
+
     ## Example Usage
 
     ## API Providers
@@ -159,6 +161,8 @@ def get_enterprise_database_output(cluster_id: Optional[pulumi.Input[_builtins.s
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseDatabaseResult]:
     """
     Use this data source to access information about an existing Redis Enterprise Database
+
+    > **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
 
     ## Example Usage
 

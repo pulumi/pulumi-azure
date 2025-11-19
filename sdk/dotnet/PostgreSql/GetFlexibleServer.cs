@@ -186,6 +186,10 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// A `HighAvailability` block for this PostgreSQL Flexible Server as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFlexibleServerHighAvailabilityResult> HighAvailabilities;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -215,6 +219,10 @@ namespace Pulumi.Azure.PostgreSql
         /// The version of PostgreSQL Flexible Server to use.
         /// </summary>
         public readonly string Version;
+        /// <summary>
+        /// The Availability Zones where this PostgreSQL Flexible Server is located.
+        /// </summary>
+        public readonly string Zone;
 
         [OutputConstructor]
         private GetFlexibleServerResult(
@@ -227,6 +235,8 @@ namespace Pulumi.Azure.PostgreSql
             string delegatedSubnetId,
 
             string fqdn,
+
+            ImmutableArray<Outputs.GetFlexibleServerHighAvailabilityResult> highAvailabilities,
 
             string id,
 
@@ -244,13 +254,16 @@ namespace Pulumi.Azure.PostgreSql
 
             ImmutableDictionary<string, string> tags,
 
-            string version)
+            string version,
+
+            string zone)
         {
             AdministratorLogin = administratorLogin;
             AutoGrowEnabled = autoGrowEnabled;
             BackupRetentionDays = backupRetentionDays;
             DelegatedSubnetId = delegatedSubnetId;
             Fqdn = fqdn;
+            HighAvailabilities = highAvailabilities;
             Id = id;
             Location = location;
             Name = name;
@@ -260,6 +273,7 @@ namespace Pulumi.Azure.PostgreSql
             StorageMb = storageMb;
             Tags = tags;
             Version = version;
+            Zone = zone;
         }
     }
 }

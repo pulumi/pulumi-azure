@@ -22,10 +22,20 @@ public final class GetClusterNodePoolUpgradeSetting {
      */
     private String maxSurge;
     /**
+     * @return The maximum number or percentage of nodes which can be unavailable during the upgrade.
+     * 
+     */
+    private String maxUnavailable;
+    /**
      * @return The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
      * 
      */
     private Integer nodeSoakDurationInMinutes;
+    /**
+     * @return The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+     * 
+     */
+    private String undrainableNodeBehavior;
 
     private GetClusterNodePoolUpgradeSetting() {}
     /**
@@ -43,11 +53,25 @@ public final class GetClusterNodePoolUpgradeSetting {
         return this.maxSurge;
     }
     /**
+     * @return The maximum number or percentage of nodes which can be unavailable during the upgrade.
+     * 
+     */
+    public String maxUnavailable() {
+        return this.maxUnavailable;
+    }
+    /**
      * @return The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
      * 
      */
     public Integer nodeSoakDurationInMinutes() {
         return this.nodeSoakDurationInMinutes;
+    }
+    /**
+     * @return The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+     * 
+     */
+    public String undrainableNodeBehavior() {
+        return this.undrainableNodeBehavior;
     }
 
     public static Builder builder() {
@@ -61,13 +85,17 @@ public final class GetClusterNodePoolUpgradeSetting {
     public static final class Builder {
         private Integer drainTimeoutInMinutes;
         private String maxSurge;
+        private String maxUnavailable;
         private Integer nodeSoakDurationInMinutes;
+        private String undrainableNodeBehavior;
         public Builder() {}
         public Builder(GetClusterNodePoolUpgradeSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.drainTimeoutInMinutes = defaults.drainTimeoutInMinutes;
     	      this.maxSurge = defaults.maxSurge;
+    	      this.maxUnavailable = defaults.maxUnavailable;
     	      this.nodeSoakDurationInMinutes = defaults.nodeSoakDurationInMinutes;
+    	      this.undrainableNodeBehavior = defaults.undrainableNodeBehavior;
         }
 
         @CustomType.Setter
@@ -87,6 +115,14 @@ public final class GetClusterNodePoolUpgradeSetting {
             return this;
         }
         @CustomType.Setter
+        public Builder maxUnavailable(String maxUnavailable) {
+            if (maxUnavailable == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolUpgradeSetting", "maxUnavailable");
+            }
+            this.maxUnavailable = maxUnavailable;
+            return this;
+        }
+        @CustomType.Setter
         public Builder nodeSoakDurationInMinutes(Integer nodeSoakDurationInMinutes) {
             if (nodeSoakDurationInMinutes == null) {
               throw new MissingRequiredPropertyException("GetClusterNodePoolUpgradeSetting", "nodeSoakDurationInMinutes");
@@ -94,11 +130,21 @@ public final class GetClusterNodePoolUpgradeSetting {
             this.nodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
             return this;
         }
+        @CustomType.Setter
+        public Builder undrainableNodeBehavior(String undrainableNodeBehavior) {
+            if (undrainableNodeBehavior == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolUpgradeSetting", "undrainableNodeBehavior");
+            }
+            this.undrainableNodeBehavior = undrainableNodeBehavior;
+            return this;
+        }
         public GetClusterNodePoolUpgradeSetting build() {
             final var _resultValue = new GetClusterNodePoolUpgradeSetting();
             _resultValue.drainTimeoutInMinutes = drainTimeoutInMinutes;
             _resultValue.maxSurge = maxSurge;
+            _resultValue.maxUnavailable = maxUnavailable;
             _resultValue.nodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
+            _resultValue.undrainableNodeBehavior = undrainableNodeBehavior;
             return _resultValue;
         }
     }

@@ -82,6 +82,21 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
+     * Whether to use a dedicated backend connection. Defaults to `false`.
+     * 
+     */
+    @Import(name="dedicatedBackendConnectionEnabled")
+    private @Nullable Output<Boolean> dedicatedBackendConnectionEnabled;
+
+    /**
+     * @return Whether to use a dedicated backend connection. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> dedicatedBackendConnectionEnabled() {
+        return Optional.ofNullable(this.dedicatedBackendConnectionEnabled);
+    }
+
+    /**
      * Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
      * 
      */
@@ -253,6 +268,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         this.authenticationCertificates = $.authenticationCertificates;
         this.connectionDraining = $.connectionDraining;
         this.cookieBasedAffinity = $.cookieBasedAffinity;
+        this.dedicatedBackendConnectionEnabled = $.dedicatedBackendConnectionEnabled;
         this.hostName = $.hostName;
         this.id = $.id;
         this.name = $.name;
@@ -376,6 +392,27 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
          */
         public Builder cookieBasedAffinity(String cookieBasedAffinity) {
             return cookieBasedAffinity(Output.of(cookieBasedAffinity));
+        }
+
+        /**
+         * @param dedicatedBackendConnectionEnabled Whether to use a dedicated backend connection. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dedicatedBackendConnectionEnabled(@Nullable Output<Boolean> dedicatedBackendConnectionEnabled) {
+            $.dedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param dedicatedBackendConnectionEnabled Whether to use a dedicated backend connection. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dedicatedBackendConnectionEnabled(Boolean dedicatedBackendConnectionEnabled) {
+            return dedicatedBackendConnectionEnabled(Output.of(dedicatedBackendConnectionEnabled));
         }
 
         /**

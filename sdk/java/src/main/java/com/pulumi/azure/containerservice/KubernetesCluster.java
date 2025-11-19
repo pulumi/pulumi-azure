@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.ContainerService` - 2025-05-01
+ * * `Microsoft.ContainerService` - 2025-07-01
  * 
  * ## Import
  * 
@@ -142,6 +142,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<KubernetesClusterAciConnectorLinux>> aciConnectorLinux() {
         return Codegen.optional(this.aciConnectorLinux);
+    }
+    /**
+     * Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+     * 
+     */
+    @Export(name="aiToolchainOperatorEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> aiToolchainOperatorEnabled;
+
+    /**
+     * @return Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> aiToolchainOperatorEnabled() {
+        return Codegen.optional(this.aiToolchainOperatorEnabled);
     }
     /**
      * An `apiServerAccessProfile` block as defined below.

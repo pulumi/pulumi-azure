@@ -179,6 +179,225 @@ namespace Pulumi.Azure.MachineLearning
     /// });
     /// ```
     /// 
+    /// ### With User Assigned Identity And Data Encryption
+    /// 
+    /// &gt; **Note:** The Key Vault must enable purge protection.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     {
+    ///         Name = "example-ai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "examplestorageaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
+    ///     {
+    ///         Name = "example-keyvalut",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Name = "example-identity",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var example_identity = new Azure.KeyVault.AccessPolicy("example-identity", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = exampleUserAssignedIdentity.PrincipalId,
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "WrapKey",
+    ///             "UnwrapKey",
+    ///             "Get",
+    ///             "Recover",
+    ///         },
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "List",
+    ///             "Set",
+    ///             "Delete",
+    ///             "Recover",
+    ///             "Backup",
+    ///             "Restore",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_sp = new Azure.KeyVault.AccessPolicy("example-sp", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "Create",
+    ///             "Recover",
+    ///             "Delete",
+    ///             "Purge",
+    ///             "GetRotationPolicy",
+    ///         },
+    ///     });
+    /// 
+    ///     var test = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "Azure Cosmos DB",
+    ///     });
+    /// 
+    ///     var example_cosmosdb = new Azure.KeyVault.AccessPolicy("example-cosmosdb", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = test.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "Recover",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             test,
+    ///             current,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
+    ///     {
+    ///         Name = "example-keyvaultkey",
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleKeyVault,
+    ///             example_sp,
+    ///         },
+    ///     });
+    /// 
+    ///     var example_role1 = new Azure.Authorization.Assignment("example-role1", new()
+    ///     {
+    ///         Scope = exampleKeyVault.Id,
+    ///         RoleDefinitionName = "Contributor",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var example_role2 = new Azure.Authorization.Assignment("example-role2", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Storage Blob Data Contributor",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var example_role3 = new Azure.Authorization.Assignment("example-role3", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Contributor",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var example_role4 = new Azure.Authorization.Assignment("example-role4", new()
+    ///     {
+    ///         Scope = exampleInsights.Id,
+    ///         RoleDefinitionName = "Contributor",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
+    ///     {
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         HighBusinessImpact = true,
+    ///         PrimaryUserAssignedIdentity = exampleUserAssignedIdentity.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         Encryption = new Azure.MachineLearning.Inputs.WorkspaceEncryptionArgs
+    ///         {
+    ///             UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyId = exampleKey.Id,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example_role1,
+    ///             example_role2,
+    ///             example_role3,
+    ///             example_role4,
+    ///             example_cosmosdb,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.MachineLearningServices` - 2025-06-01
+    /// 
     /// ## Import
     /// 
     /// Machine Learning Workspace can be imported using the `resource id`, e.g.

@@ -280,13 +280,13 @@ class AnalyticsSolution(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="k8s-log-analytics-test",
             location="West Europe")
-        workspace = random.index.Id("workspace",
+        workspace = random.RandomId("workspace",
             keepers={
-                groupName: example.name,
+                "group_name": example.name,
             },
             byte_length=8)
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name=f"k8s-workspace-{workspace['hex']}",
+            name=workspace.hex.apply(lambda hex: f"k8s-workspace-{hex}"),
             location=example.location,
             resource_group_name=example.name,
             sku="PerGB2018")
@@ -346,13 +346,13 @@ class AnalyticsSolution(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="k8s-log-analytics-test",
             location="West Europe")
-        workspace = random.index.Id("workspace",
+        workspace = random.RandomId("workspace",
             keepers={
-                groupName: example.name,
+                "group_name": example.name,
             },
             byte_length=8)
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name=f"k8s-workspace-{workspace['hex']}",
+            name=workspace.hex.apply(lambda hex: f"k8s-workspace-{hex}"),
             location=example.location,
             resource_group_name=example.name,
             sku="PerGB2018")

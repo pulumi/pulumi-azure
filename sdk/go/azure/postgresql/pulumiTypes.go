@@ -1393,6 +1393,112 @@ func (o ServerThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetFlexibleServerHighAvailability struct {
+	// The high availability mode of the PostgreSQL Flexible Server.
+	Mode string `pulumi:"mode"`
+	// The availability zone of the standby Flexible Server.
+	StandbyAvailabilityZone string `pulumi:"standbyAvailabilityZone"`
+}
+
+// GetFlexibleServerHighAvailabilityInput is an input type that accepts GetFlexibleServerHighAvailabilityArgs and GetFlexibleServerHighAvailabilityOutput values.
+// You can construct a concrete instance of `GetFlexibleServerHighAvailabilityInput` via:
+//
+//	GetFlexibleServerHighAvailabilityArgs{...}
+type GetFlexibleServerHighAvailabilityInput interface {
+	pulumi.Input
+
+	ToGetFlexibleServerHighAvailabilityOutput() GetFlexibleServerHighAvailabilityOutput
+	ToGetFlexibleServerHighAvailabilityOutputWithContext(context.Context) GetFlexibleServerHighAvailabilityOutput
+}
+
+type GetFlexibleServerHighAvailabilityArgs struct {
+	// The high availability mode of the PostgreSQL Flexible Server.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The availability zone of the standby Flexible Server.
+	StandbyAvailabilityZone pulumi.StringInput `pulumi:"standbyAvailabilityZone"`
+}
+
+func (GetFlexibleServerHighAvailabilityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (i GetFlexibleServerHighAvailabilityArgs) ToGetFlexibleServerHighAvailabilityOutput() GetFlexibleServerHighAvailabilityOutput {
+	return i.ToGetFlexibleServerHighAvailabilityOutputWithContext(context.Background())
+}
+
+func (i GetFlexibleServerHighAvailabilityArgs) ToGetFlexibleServerHighAvailabilityOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerHighAvailabilityOutput)
+}
+
+// GetFlexibleServerHighAvailabilityArrayInput is an input type that accepts GetFlexibleServerHighAvailabilityArray and GetFlexibleServerHighAvailabilityArrayOutput values.
+// You can construct a concrete instance of `GetFlexibleServerHighAvailabilityArrayInput` via:
+//
+//	GetFlexibleServerHighAvailabilityArray{ GetFlexibleServerHighAvailabilityArgs{...} }
+type GetFlexibleServerHighAvailabilityArrayInput interface {
+	pulumi.Input
+
+	ToGetFlexibleServerHighAvailabilityArrayOutput() GetFlexibleServerHighAvailabilityArrayOutput
+	ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(context.Context) GetFlexibleServerHighAvailabilityArrayOutput
+}
+
+type GetFlexibleServerHighAvailabilityArray []GetFlexibleServerHighAvailabilityInput
+
+func (GetFlexibleServerHighAvailabilityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (i GetFlexibleServerHighAvailabilityArray) ToGetFlexibleServerHighAvailabilityArrayOutput() GetFlexibleServerHighAvailabilityArrayOutput {
+	return i.ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlexibleServerHighAvailabilityArray) ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerHighAvailabilityArrayOutput)
+}
+
+type GetFlexibleServerHighAvailabilityOutput struct{ *pulumi.OutputState }
+
+func (GetFlexibleServerHighAvailabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (o GetFlexibleServerHighAvailabilityOutput) ToGetFlexibleServerHighAvailabilityOutput() GetFlexibleServerHighAvailabilityOutput {
+	return o
+}
+
+func (o GetFlexibleServerHighAvailabilityOutput) ToGetFlexibleServerHighAvailabilityOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityOutput {
+	return o
+}
+
+// The high availability mode of the PostgreSQL Flexible Server.
+func (o GetFlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The availability zone of the standby Flexible Server.
+func (o GetFlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlexibleServerHighAvailability) string { return v.StandbyAvailabilityZone }).(pulumi.StringOutput)
+}
+
+type GetFlexibleServerHighAvailabilityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlexibleServerHighAvailabilityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (o GetFlexibleServerHighAvailabilityArrayOutput) ToGetFlexibleServerHighAvailabilityArrayOutput() GetFlexibleServerHighAvailabilityArrayOutput {
+	return o
+}
+
+func (o GetFlexibleServerHighAvailabilityArrayOutput) ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityArrayOutput {
+	return o
+}
+
+func (o GetFlexibleServerHighAvailabilityArrayOutput) Index(i pulumi.IntInput) GetFlexibleServerHighAvailabilityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlexibleServerHighAvailability {
+		return vs[0].([]GetFlexibleServerHighAvailability)[vs[1].(int)]
+	}).(GetFlexibleServerHighAvailabilityOutput)
+}
+
 type GetServerIdentity struct {
 	// The ID of the System Managed Service Principal assigned to the PostgreSQL Server.
 	PrincipalId string `pulumi:"principalId"`
@@ -1523,6 +1629,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityPtrInput)(nil)).Elem(), ServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyPtrInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlexibleServerHighAvailabilityInput)(nil)).Elem(), GetFlexibleServerHighAvailabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlexibleServerHighAvailabilityArrayInput)(nil)).Elem(), GetFlexibleServerHighAvailabilityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
 	pulumi.RegisterOutputType(FlexibleServerAuthenticationOutput{})
@@ -1539,6 +1647,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerThreatDetectionPolicyOutput{})
 	pulumi.RegisterOutputType(ServerThreatDetectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GetFlexibleServerHighAvailabilityOutput{})
+	pulumi.RegisterOutputType(GetFlexibleServerHighAvailabilityArrayOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityArrayOutput{})
 }

@@ -60,6 +60,8 @@ class AutonomousDatabaseArgs:
                * DW - indicates an Autonomous Data Warehouse database
                * AJD - indicates an Autonomous JSON Database
                * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+               
+               > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
@@ -222,6 +224,8 @@ class AutonomousDatabaseArgs:
         * DW - indicates an Autonomous Data Warehouse database
         * AJD - indicates an Autonomous JSON Database
         * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+
+        > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         """
         return pulumi.get(self, "db_workload")
 
@@ -422,6 +426,8 @@ class _AutonomousDatabaseState:
                * DW - indicates an Autonomous Data Warehouse database
                * AJD - indicates an Autonomous JSON Database
                * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+               
+               > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
@@ -619,6 +625,8 @@ class _AutonomousDatabaseState:
         * DW - indicates an Autonomous Data Warehouse database
         * AJD - indicates an Autonomous JSON Database
         * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+
+        > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         """
         return pulumi.get(self, "db_workload")
 
@@ -846,7 +854,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Oracle.Database` - 2025-03-01
+        * `Oracle.Database` - 2025-09-01
 
         ## Import
 
@@ -873,6 +881,8 @@ class AutonomousDatabase(pulumi.CustomResource):
                * DW - indicates an Autonomous Data Warehouse database
                * AJD - indicates an Autonomous JSON Database
                * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+               
+               > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
@@ -952,7 +962,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Oracle.Database` - 2025-03-01
+        * `Oracle.Database` - 2025-09-01
 
         ## Import
 
@@ -1119,6 +1129,8 @@ class AutonomousDatabase(pulumi.CustomResource):
                * DW - indicates an Autonomous Data Warehouse database
                * AJD - indicates an Autonomous JSON Database
                * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+               
+               > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
@@ -1254,6 +1266,8 @@ class AutonomousDatabase(pulumi.CustomResource):
         * DW - indicates an Autonomous Data Warehouse database
         * AJD - indicates an Autonomous JSON Database
         * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+
+        > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         """
         return pulumi.get(self, "db_workload")
 

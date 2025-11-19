@@ -14,6 +14,94 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// &gt; **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "accexample-rg",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "Azure Cosmos DB",
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         Scope = exampleVirtualNetwork.Id,
+    ///         RoleDefinitionName = "Network Contributor",
+    ///         PrincipalId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleCassandraCluster = new Azure.CosmosDB.CassandraCluster("example", new()
+    ///     {
+    ///         Name = "example-cluster",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DelegatedManagementSubnetId = exampleSubnet.Id,
+    ///         DefaultAdminPassword = "Password1234",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCassandraDatacenter = new Azure.CosmosDB.CassandraDatacenter("example", new()
+    ///     {
+    ///         Name = "example-datacenter",
+    ///         Location = exampleCassandraCluster.Location,
+    ///         CassandraClusterId = exampleCassandraCluster.Id,
+    ///         DelegatedManagementSubnetId = exampleSubnet.Id,
+    ///         NodeCount = 3,
+    ///         DiskCount = 4,
+    ///         SkuName = "Standard_DS14_v2",
+    ///         AvailabilityZonesEnabled = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DocumentDB` - 2023-04-15
+    /// 
     /// ## Import
     /// 
     /// Cassandra Datacenters can be imported using the `resource id`, e.g.

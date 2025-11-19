@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database` - 2025-03-01
+        /// * `Oracle.Database` - 2025-09-01
         /// </summary>
         public static Task<GetAutonomousDatabaseBackupResult> InvokeAsync(GetAutonomousDatabaseBackupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutonomousDatabaseBackupResult>("azure:oracle/getAutonomousDatabaseBackup:getAutonomousDatabaseBackup", args ?? new GetAutonomousDatabaseBackupArgs(), options.WithDefaults());
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database` - 2025-03-01
+        /// * `Oracle.Database` - 2025-09-01
         /// </summary>
         public static Output<GetAutonomousDatabaseBackupResult> Invoke(GetAutonomousDatabaseBackupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutonomousDatabaseBackupResult>("azure:oracle/getAutonomousDatabaseBackup:getAutonomousDatabaseBackup", args ?? new GetAutonomousDatabaseBackupInvokeArgs(), options.WithDefaults());
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database` - 2025-03-01
+        /// * `Oracle.Database` - 2025-09-01
         /// </summary>
         public static Output<GetAutonomousDatabaseBackupResult> Invoke(GetAutonomousDatabaseBackupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutonomousDatabaseBackupResult>("azure:oracle/getAutonomousDatabaseBackup:getAutonomousDatabaseBackup", args ?? new GetAutonomousDatabaseBackupInvokeArgs(), options.WithDefaults());

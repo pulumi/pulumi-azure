@@ -159,7 +159,7 @@ def get_account(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Automation` - 2023-11-01, 2019-06-01
+    * `Microsoft.Automation` - 2024-10-23, 2019-06-01
 
 
     :param _builtins.str name: The name of the Automation Account.
@@ -203,7 +203,7 @@ def get_account_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Automation` - 2023-11-01, 2019-06-01
+    * `Microsoft.Automation` - 2024-10-23, 2019-06-01
 
 
     :param _builtins.str name: The name of the Automation Account.

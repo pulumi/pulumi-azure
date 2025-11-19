@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.App` - 2025-01-01
+ * * `Microsoft.App` - 2025-07-01
  * 
  * * `Microsoft.OperationalInsights` - 2020-08-01
  * 
@@ -325,6 +325,20 @@ public class Environment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> platformReservedDnsIpAddress() {
         return this.platformReservedDnsIpAddress;
+    }
+    /**
+     * The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+     * 
+     */
+    @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
+    private Output<String> publicNetworkAccess;
+
+    /**
+     * @return The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+     * 
+     */
+    public Output<String> publicNetworkAccess() {
+        return this.publicNetworkAccess;
     }
     /**
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.

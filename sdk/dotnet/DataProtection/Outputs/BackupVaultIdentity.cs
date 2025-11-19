@@ -14,6 +14,10 @@ namespace Pulumi.Azure.DataProtection.Outputs
     public sealed class BackupVaultIdentity
     {
         /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,18 +26,21 @@ namespace Pulumi.Azure.DataProtection.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private BackupVaultIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

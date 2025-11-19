@@ -83,6 +83,12 @@ namespace Pulumi.Azure.NotificationHub
         public Output<string> NamespaceType { get; private set; } = null!;
 
         /// <summary>
+        /// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("replicationRegion")]
+        public Output<string?> ReplicationRegion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -105,6 +111,12 @@ namespace Pulumi.Azure.NotificationHub
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `False`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("zoneRedundancyEnabled")]
+        public Output<bool?> ZoneRedundancyEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -177,6 +189,12 @@ namespace Pulumi.Azure.NotificationHub
         public Input<string> NamespaceType { get; set; } = null!;
 
         /// <summary>
+        /// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("replicationRegion")]
+        public Input<string>? ReplicationRegion { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -199,6 +217,12 @@ namespace Pulumi.Azure.NotificationHub
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `False`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("zoneRedundancyEnabled")]
+        public Input<bool>? ZoneRedundancyEnabled { get; set; }
 
         public NamespaceArgs()
         {
@@ -233,6 +257,12 @@ namespace Pulumi.Azure.NotificationHub
         public Input<string>? NamespaceType { get; set; }
 
         /// <summary>
+        /// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("replicationRegion")]
+        public Input<string>? ReplicationRegion { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
@@ -261,6 +291,12 @@ namespace Pulumi.Azure.NotificationHub
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `False`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("zoneRedundancyEnabled")]
+        public Input<bool>? ZoneRedundancyEnabled { get; set; }
 
         public NamespaceState()
         {

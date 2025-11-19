@@ -576,7 +576,7 @@ if not MYPY:
         """
         Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 
-        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
         """
         ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -600,7 +600,7 @@ class AccountNetworkAclsArgs:
         :param pulumi.Input[_builtins.str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[_builtins.str] bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
                
-               > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+               > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
@@ -630,7 +630,7 @@ class AccountNetworkAclsArgs:
         """
         Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 
-        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
         """
         return pulumi.get(self, "bypass")
 

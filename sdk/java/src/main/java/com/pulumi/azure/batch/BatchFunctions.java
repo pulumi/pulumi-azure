@@ -797,9 +797,9 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
-     *             .name("testbatchpool")
-     *             .accountName("testbatchaccount")
-     *             .resourceGroupName("test")
+     *             .name("examplebatchpool")
+     *             .accountName("examplebatchaccount")
+     *             .resourceGroupName("example")
      *             .build());
      * 
      *     }
@@ -846,9 +846,9 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
-     *             .name("testbatchpool")
-     *             .accountName("testbatchaccount")
-     *             .resourceGroupName("test")
+     *             .name("examplebatchpool")
+     *             .accountName("examplebatchaccount")
+     *             .resourceGroupName("example")
      *             .build());
      * 
      *     }
@@ -895,9 +895,9 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
-     *             .name("testbatchpool")
-     *             .accountName("testbatchaccount")
-     *             .resourceGroupName("test")
+     *             .name("examplebatchpool")
+     *             .accountName("examplebatchaccount")
+     *             .resourceGroupName("example")
      *             .build());
      * 
      *     }
@@ -944,9 +944,9 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
-     *             .name("testbatchpool")
-     *             .accountName("testbatchaccount")
-     *             .resourceGroupName("test")
+     *             .name("examplebatchpool")
+     *             .accountName("examplebatchaccount")
+     *             .resourceGroupName("example")
      *             .build());
      * 
      *     }
@@ -993,9 +993,9 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
-     *             .name("testbatchpool")
-     *             .accountName("testbatchaccount")
-     *             .resourceGroupName("test")
+     *             .name("examplebatchpool")
+     *             .accountName("examplebatchaccount")
+     *             .resourceGroupName("example")
      *             .build());
      * 
      *     }

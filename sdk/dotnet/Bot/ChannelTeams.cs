@@ -69,6 +69,12 @@ namespace Pulumi.Azure.Bot
         public Output<string> BotName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `False`.
+        /// </summary>
+        [Output("callingEnabled")]
+        public Output<bool> CallingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the webhook for Microsoft Teams channel calls.
         /// </summary>
         [Output("callingWebHook")]
@@ -80,11 +86,8 @@ namespace Pulumi.Azure.Bot
         [Output("deploymentEnvironment")]
         public Output<string?> DeploymentEnvironment { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `False`.
-        /// </summary>
         [Output("enableCalling")]
-        public Output<bool?> EnableCalling { get; private set; } = null!;
+        public Output<bool> EnableCalling { get; private set; } = null!;
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -151,6 +154,12 @@ namespace Pulumi.Azure.Bot
         public Input<string> BotName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `False`.
+        /// </summary>
+        [Input("callingEnabled")]
+        public Input<bool>? CallingEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the webhook for Microsoft Teams channel calls.
         /// </summary>
         [Input("callingWebHook")]
@@ -162,9 +171,6 @@ namespace Pulumi.Azure.Bot
         [Input("deploymentEnvironment")]
         public Input<string>? DeploymentEnvironment { get; set; }
 
-        /// <summary>
-        /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `False`.
-        /// </summary>
         [Input("enableCalling")]
         public Input<bool>? EnableCalling { get; set; }
 
@@ -195,6 +201,12 @@ namespace Pulumi.Azure.Bot
         public Input<string>? BotName { get; set; }
 
         /// <summary>
+        /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `False`.
+        /// </summary>
+        [Input("callingEnabled")]
+        public Input<bool>? CallingEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the webhook for Microsoft Teams channel calls.
         /// </summary>
         [Input("callingWebHook")]
@@ -206,9 +218,6 @@ namespace Pulumi.Azure.Bot
         [Input("deploymentEnvironment")]
         public Input<string>? DeploymentEnvironment { get; set; }
 
-        /// <summary>
-        /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `False`.
-        /// </summary>
         [Input("enableCalling")]
         public Input<bool>? EnableCalling { get; set; }
 

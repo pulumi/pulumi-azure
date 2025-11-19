@@ -110,7 +110,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2024-05-01
+// * `Microsoft.Network` - 2025-01-01
 //
 // ## Import
 //
@@ -140,7 +140,9 @@ type NetworkWatcherFlowLog struct {
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	// The ID of the Resource for which to enable flow logs for.
+	//
+	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrOutput `pulumi:"trafficAnalytics"`
@@ -211,7 +213,9 @@ type networkWatcherFlowLogState struct {
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	// The ID of the Resource for which to enable flow logs for.
+	//
+	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
@@ -238,7 +242,9 @@ type NetworkWatcherFlowLogState struct {
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags pulumi.StringMapInput
-	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	// The ID of the Resource for which to enable flow logs for.
+	//
+	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId pulumi.StringPtrInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
@@ -269,7 +275,9 @@ type networkWatcherFlowLogArgs struct {
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	// The ID of the Resource for which to enable flow logs for.
+	//
+	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
@@ -297,7 +305,9 @@ type NetworkWatcherFlowLogArgs struct {
 	StorageAccountId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags pulumi.StringMapInput
-	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	// The ID of the Resource for which to enable flow logs for.
+	//
+	// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 	TargetResourceId pulumi.StringPtrInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
@@ -437,7 +447,9 @@ func (o NetworkWatcherFlowLogOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+// The ID of the Resource for which to enable flow logs for.
+//
+// > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
 func (o NetworkWatcherFlowLogOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }

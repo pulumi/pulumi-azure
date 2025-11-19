@@ -36,11 +36,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			server, err := random.NewId(ctx, "server", &random.IdArgs{
-//				Keepers: map[string]interface{}{
-//					"aziId": 1,
+//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+//				Keepers: pulumi.StringMap{
+//					"azi_id": pulumi.String("1"),
 //				},
-//				ByteLength: 8,
+//				ByteLength: pulumi.Int(8),
 //			})
 //			if err != nil {
 //				return err
@@ -131,11 +131,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			server, err := random.NewId(ctx, "server", &random.IdArgs{
-//				Keepers: map[string]interface{}{
-//					"aziId": 1,
+//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+//				Keepers: pulumi.StringMap{
+//					"azi_id": pulumi.String("1"),
 //				},
-//				ByteLength: 8,
+//				ByteLength: pulumi.Int(8),
 //			})
 //			if err != nil {
 //				return err

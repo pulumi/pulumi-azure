@@ -21,10 +21,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
         /// </summary>
         public readonly string MaxSurge;
+        public readonly string MaxUnavailable;
         /// <summary>
         /// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
         /// </summary>
         public readonly int NodeSoakDurationInMinutes;
+        /// <summary>
+        /// The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+        /// </summary>
+        public readonly string UndrainableNodeBehavior;
 
         [OutputConstructor]
         private GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(
@@ -32,11 +37,17 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string maxSurge,
 
-            int nodeSoakDurationInMinutes)
+            string maxUnavailable,
+
+            int nodeSoakDurationInMinutes,
+
+            string undrainableNodeBehavior)
         {
             DrainTimeoutInMinutes = drainTimeoutInMinutes;
             MaxSurge = maxSurge;
+            MaxUnavailable = maxUnavailable;
             NodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
+            UndrainableNodeBehavior = undrainableNodeBehavior;
         }
     }
 }

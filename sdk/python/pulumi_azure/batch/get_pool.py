@@ -363,9 +363,9 @@ def get_pool(account_name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.batch.get_pool(name="testbatchpool",
-        account_name="testbatchaccount",
-        resource_group_name="test")
+    example = azure.batch.get_pool(name="examplebatchpool",
+        account_name="examplebatchaccount",
+        resource_group_name="example")
     ```
 
     ## API Providers
@@ -376,8 +376,9 @@ def get_pool(account_name: Optional[_builtins.str] = None,
     * `Microsoft.Batch` - 2024-07-01
 
 
-    :param _builtins.str account_name: The Azure Storage Account name.
-    :param _builtins.str name: The name of the user account.
+    :param _builtins.str account_name: The Batch Account name associated with the Batch pool.
+    :param _builtins.str name: The name of the Batch pool.
+    :param _builtins.str resource_group_name: The name of the resource group in which the Batch pool exists.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -427,9 +428,9 @@ def get_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.batch.get_pool(name="testbatchpool",
-        account_name="testbatchaccount",
-        resource_group_name="test")
+    example = azure.batch.get_pool(name="examplebatchpool",
+        account_name="examplebatchaccount",
+        resource_group_name="example")
     ```
 
     ## API Providers
@@ -440,8 +441,9 @@ def get_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
     * `Microsoft.Batch` - 2024-07-01
 
 
-    :param _builtins.str account_name: The Azure Storage Account name.
-    :param _builtins.str name: The name of the user account.
+    :param _builtins.str account_name: The Batch Account name associated with the Batch pool.
+    :param _builtins.str name: The name of the Batch pool.
+    :param _builtins.str resource_group_name: The name of the resource group in which the Batch pool exists.
     """
     __args__ = dict()
     __args__['accountName'] = account_name

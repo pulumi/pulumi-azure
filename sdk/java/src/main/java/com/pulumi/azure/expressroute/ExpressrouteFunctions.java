@@ -58,7 +58,7 @@ public final class ExpressrouteFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetCircuitPeeringResult> getCircuitPeering(GetCircuitPeeringArgs args) {
@@ -107,7 +107,7 @@ public final class ExpressrouteFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetCircuitPeeringResult> getCircuitPeeringPlain(GetCircuitPeeringPlainArgs args) {
@@ -156,7 +156,7 @@ public final class ExpressrouteFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetCircuitPeeringResult> getCircuitPeering(GetCircuitPeeringArgs args, InvokeOptions options) {
@@ -205,7 +205,7 @@ public final class ExpressrouteFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetCircuitPeeringResult> getCircuitPeering(GetCircuitPeeringArgs args, InvokeOutputOptions options) {
@@ -254,7 +254,7 @@ public final class ExpressrouteFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetCircuitPeeringResult> getCircuitPeeringPlain(GetCircuitPeeringPlainArgs args, InvokeOptions options) {

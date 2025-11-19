@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class GetServiceAdditionalLocationResult
     {
         /// <summary>
-        /// Specifies the number of units associated with this API Management service.
+        /// The number of compute units in this region.
         /// </summary>
         public readonly int Capacity;
         /// <summary>

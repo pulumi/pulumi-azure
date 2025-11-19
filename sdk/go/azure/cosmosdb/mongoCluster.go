@@ -22,7 +22,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mongocluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewMongoCluster(ctx, "example", &cosmosdb.MongoClusterArgs{
+//			_, err = mongocluster.NewMongoCluster(ctx, "example", &mongocluster.MongoClusterArgs{
 //				Name:                  pulumi.String("example-mc"),
 //				ResourceGroupName:     example.Name,
 //				Location:              example.Location,
@@ -64,7 +64,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mongocluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +78,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleMongoCluster, err := cosmosdb.NewMongoCluster(ctx, "example", &cosmosdb.MongoClusterArgs{
+//			exampleMongoCluster, err := mongocluster.NewMongoCluster(ctx, "example", &mongocluster.MongoClusterArgs{
 //				Name:                  pulumi.String("example-mc"),
 //				ResourceGroupName:     example.Name,
 //				Location:              example.Location,
@@ -95,7 +95,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewMongoCluster(ctx, "example_geo_replica", &cosmosdb.MongoClusterArgs{
+//			_, err = mongocluster.NewMongoCluster(ctx, "example_geo_replica", &mongocluster.MongoClusterArgs{
 //				Name:              pulumi.String("example-mc-geo"),
 //				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("Central US"),
@@ -117,7 +117,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DocumentDB` - 2024-07-01
+// * `Microsoft.DocumentDB` - 2025-09-01
 //
 // ## Import
 //
@@ -126,6 +126,8 @@ import (
 // ```sh
 // $ pulumi import azure:cosmosdb/mongoCluster:MongoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster
 // ```
+//
+// Deprecated: azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster
 type MongoCluster struct {
 	pulumi.CustomResourceState
 
@@ -175,6 +177,12 @@ func NewMongoCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:cosmosdb/mongoCluster:MongoCluster"),
+		},
+	})
+	opts = append(opts, aliases)
 	if args.AdministratorPassword != nil {
 		args.AdministratorPassword = pulumi.ToSecret(args.AdministratorPassword).(pulumi.StringPtrInput)
 	}

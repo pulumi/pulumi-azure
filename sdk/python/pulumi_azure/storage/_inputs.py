@@ -790,6 +790,8 @@ if not MYPY:
         use_subdomain: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Should the Custom Domain Name be validated by using indirect CNAME validation?
+
+        > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         """
 elif False:
     AccountCustomDomainArgsDict: TypeAlias = Mapping[str, Any]
@@ -802,6 +804,8 @@ class AccountCustomDomainArgs:
         """
         :param pulumi.Input[_builtins.str] name: The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
         :param pulumi.Input[_builtins.bool] use_subdomain: Should the Custom Domain Name be validated by using indirect CNAME validation?
+               
+               > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         """
         pulumi.set(__self__, "name", name)
         if use_subdomain is not None:
@@ -824,6 +828,8 @@ class AccountCustomDomainArgs:
     def use_subdomain(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Should the Custom Domain Name be validated by using indirect CNAME validation?
+
+        > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         """
         return pulumi.get(self, "use_subdomain")
 
@@ -1104,8 +1110,6 @@ if not MYPY:
         > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
 
         > **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
-
-        > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         """
         virtual_network_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -1133,8 +1137,6 @@ class AccountNetworkRulesArgs:
                > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
                
                > **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
-               
-               > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] virtual_network_subnet_ids: A list of resource ids for subnets.
         """
         pulumi.set(__self__, "default_action", default_action)
@@ -1194,8 +1196,6 @@ class AccountNetworkRulesArgs:
         > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
 
         > **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
-
-        > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         """
         return pulumi.get(self, "private_link_accesses")
 

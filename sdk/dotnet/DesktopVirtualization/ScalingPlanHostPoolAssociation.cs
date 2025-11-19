@@ -12,6 +12,115 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// <summary>
     /// Manages a Virtual Desktop Scaling Plan Host Pool Association.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "rg-example-virtualdesktop",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "Windows Virtual Desktop",
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         Scope = exampleResourceGroup.Id,
+    ///         RoleDefinitionName = "Desktop Virtualization Power On Off Contributor",
+    ///         PrincipalId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleHostPool = new Azure.DesktopVirtualization.HostPool("example", new()
+    ///     {
+    ///         Name = "example-hostpool",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Type = "Pooled",
+    ///         ValidateEnvironment = true,
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var exampleScalingPlan = new Azure.DesktopVirtualization.ScalingPlan("example", new()
+    ///     {
+    ///         Name = "example-scaling-plan",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FriendlyName = "Scaling Plan Test",
+    ///         Description = "Test Scaling Plan",
+    ///         TimeZone = "GMT Standard Time",
+    ///         Schedules = new[]
+    ///         {
+    ///             new Azure.DesktopVirtualization.Inputs.ScalingPlanScheduleArgs
+    ///             {
+    ///                 Name = "Weekdays",
+    ///                 DaysOfWeeks = new[]
+    ///                 {
+    ///                     "Monday",
+    ///                     "Tuesday",
+    ///                     "Wednesday",
+    ///                     "Thursday",
+    ///                     "Friday",
+    ///                 },
+    ///                 RampUpStartTime = "06:00",
+    ///                 RampUpLoadBalancingAlgorithm = "BreadthFirst",
+    ///                 RampUpMinimumHostsPercent = 20,
+    ///                 RampUpCapacityThresholdPercent = 10,
+    ///                 PeakStartTime = "09:00",
+    ///                 PeakLoadBalancingAlgorithm = "BreadthFirst",
+    ///                 RampDownStartTime = "18:00",
+    ///                 RampDownLoadBalancingAlgorithm = "BreadthFirst",
+    ///                 RampDownMinimumHostsPercent = 10,
+    ///                 RampDownForceLogoffUsers = false,
+    ///                 RampDownWaitTimeMinutes = 45,
+    ///                 RampDownNotificationMessage = "Please log of in the next 45 minutes...",
+    ///                 RampDownCapacityThresholdPercent = 5,
+    ///                 RampDownStopHostsWhen = "ZeroSessions",
+    ///                 OffPeakStartTime = "22:00",
+    ///                 OffPeakLoadBalancingAlgorithm = "BreadthFirst",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleScalingPlanHostPoolAssociation = new Azure.DesktopVirtualization.ScalingPlanHostPoolAssociation("example", new()
+    ///     {
+    ///         HostPoolId = exampleHostPool.Id,
+    ///         ScalingPlanId = exampleScalingPlan.Id,
+    ///         Enabled = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DesktopVirtualization` - 2024-04-03
+    /// 
     /// ## Import
     /// 
     /// Associations between Virtual Desktop Scaling Plans and Virtual Desktop Host Pools can be imported using the `resource id`, e.g.

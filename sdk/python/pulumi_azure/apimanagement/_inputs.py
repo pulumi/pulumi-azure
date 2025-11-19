@@ -99,6 +99,12 @@ __all__ = [
     'ApiSubscriptionKeyParameterNamesArgsDict',
     'AuthorizationServerTokenBodyParameterArgs',
     'AuthorizationServerTokenBodyParameterArgsDict',
+    'BackendCircuitBreakerRuleArgs',
+    'BackendCircuitBreakerRuleArgsDict',
+    'BackendCircuitBreakerRuleFailureConditionArgs',
+    'BackendCircuitBreakerRuleFailureConditionArgsDict',
+    'BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs',
+    'BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgsDict',
     'BackendCredentialsArgs',
     'BackendCredentialsArgsDict',
     'BackendCredentialsAuthorizationArgs',
@@ -4006,6 +4012,268 @@ class AuthorizationServerTokenBodyParameterArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class BackendCircuitBreakerRuleArgsDict(TypedDict):
+        failure_condition: pulumi.Input['BackendCircuitBreakerRuleFailureConditionArgsDict']
+        """
+        A `failure_condition` block as defined below.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        The name of the circuit breaker rule.
+        """
+        trip_duration: pulumi.Input[_builtins.str]
+        """
+        Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+        """
+        accept_retry_after_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+        """
+elif False:
+    BackendCircuitBreakerRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackendCircuitBreakerRuleArgs:
+    def __init__(__self__, *,
+                 failure_condition: pulumi.Input['BackendCircuitBreakerRuleFailureConditionArgs'],
+                 name: pulumi.Input[_builtins.str],
+                 trip_duration: pulumi.Input[_builtins.str],
+                 accept_retry_after_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input['BackendCircuitBreakerRuleFailureConditionArgs'] failure_condition: A `failure_condition` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name of the circuit breaker rule.
+        :param pulumi.Input[_builtins.str] trip_duration: Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+        :param pulumi.Input[_builtins.bool] accept_retry_after_enabled: Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+        """
+        pulumi.set(__self__, "failure_condition", failure_condition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "trip_duration", trip_duration)
+        if accept_retry_after_enabled is not None:
+            pulumi.set(__self__, "accept_retry_after_enabled", accept_retry_after_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="failureCondition")
+    def failure_condition(self) -> pulumi.Input['BackendCircuitBreakerRuleFailureConditionArgs']:
+        """
+        A `failure_condition` block as defined below.
+        """
+        return pulumi.get(self, "failure_condition")
+
+    @failure_condition.setter
+    def failure_condition(self, value: pulumi.Input['BackendCircuitBreakerRuleFailureConditionArgs']):
+        pulumi.set(self, "failure_condition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the circuit breaker rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tripDuration")
+    def trip_duration(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+        """
+        return pulumi.get(self, "trip_duration")
+
+    @trip_duration.setter
+    def trip_duration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "trip_duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptRetryAfterEnabled")
+    def accept_retry_after_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+        """
+        return pulumi.get(self, "accept_retry_after_enabled")
+
+    @accept_retry_after_enabled.setter
+    def accept_retry_after_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "accept_retry_after_enabled", value)
+
+
+if not MYPY:
+    class BackendCircuitBreakerRuleFailureConditionArgsDict(TypedDict):
+        interval_duration: pulumi.Input[_builtins.str]
+        """
+        Specifies the time window over which failures are counted, in ISO 8601 format.
+        """
+        count: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+        """
+        error_reasons: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies a list of error reasons to consider as failures.
+        """
+        percentage: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+
+        > **Note:** Exactly one of `percentage` or `count` must be specified.
+        """
+        status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgsDict']]]]
+        """
+        One or more `status_code_range` blocks as defined below.
+
+        > **Note:** At least one of `status_code_range`, and `error_reasons` must be set.
+        """
+elif False:
+    BackendCircuitBreakerRuleFailureConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackendCircuitBreakerRuleFailureConditionArgs:
+    def __init__(__self__, *,
+                 interval_duration: pulumi.Input[_builtins.str],
+                 count: Optional[pulumi.Input[_builtins.int]] = None,
+                 error_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 percentage: Optional[pulumi.Input[_builtins.int]] = None,
+                 status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] interval_duration: Specifies the time window over which failures are counted, in ISO 8601 format.
+        :param pulumi.Input[_builtins.int] count: Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] error_reasons: Specifies a list of error reasons to consider as failures.
+        :param pulumi.Input[_builtins.int] percentage: Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+               
+               > **Note:** Exactly one of `percentage` or `count` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs']]] status_code_ranges: One or more `status_code_range` blocks as defined below.
+               
+               > **Note:** At least one of `status_code_range`, and `error_reasons` must be set.
+        """
+        pulumi.set(__self__, "interval_duration", interval_duration)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if error_reasons is not None:
+            pulumi.set(__self__, "error_reasons", error_reasons)
+        if percentage is not None:
+            pulumi.set(__self__, "percentage", percentage)
+        if status_code_ranges is not None:
+            pulumi.set(__self__, "status_code_ranges", status_code_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="intervalDuration")
+    def interval_duration(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the time window over which failures are counted, in ISO 8601 format.
+        """
+        return pulumi.get(self, "interval_duration")
+
+    @interval_duration.setter
+    def interval_duration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "interval_duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorReasons")
+    def error_reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of error reasons to consider as failures.
+        """
+        return pulumi.get(self, "error_reasons")
+
+    @error_reasons.setter
+    def error_reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "error_reasons", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+
+        > **Note:** Exactly one of `percentage` or `count` must be specified.
+        """
+        return pulumi.get(self, "percentage")
+
+    @percentage.setter
+    def percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "percentage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statusCodeRanges")
+    def status_code_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs']]]]:
+        """
+        One or more `status_code_range` blocks as defined below.
+
+        > **Note:** At least one of `status_code_range`, and `error_reasons` must be set.
+        """
+        return pulumi.get(self, "status_code_ranges")
+
+    @status_code_ranges.setter
+    def status_code_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs']]]]):
+        pulumi.set(self, "status_code_ranges", value)
+
+
+if not MYPY:
+    class BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgsDict(TypedDict):
+        max: pulumi.Input[_builtins.int]
+        """
+        Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        """
+        min: pulumi.Input[_builtins.int]
+        """
+        Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        """
+elif False:
+    BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs:
+    def __init__(__self__, *,
+                 max: pulumi.Input[_builtins.int],
+                 min: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] max: Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        :param pulumi.Input[_builtins.int] min: Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> pulumi.Input[_builtins.int]:
+        """
+        Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[_builtins.int]:
+        """
+        Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "min", value)
 
 
 if not MYPY:

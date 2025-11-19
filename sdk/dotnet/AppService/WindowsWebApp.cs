@@ -273,6 +273,14 @@ namespace Pulumi.Azure.AppService
         [Output("virtualNetworkBackupRestoreEnabled")]
         public Output<bool?> VirtualNetworkBackupRestoreEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether traffic for the image pull should be routed over the virtual network.
+        /// 
+        /// &gt; **Note:** `VirtualNetworkImagePullEnabled` must be set to `True` when running in an App Service Environment.
+        /// </summary>
+        [Output("virtualNetworkImagePullEnabled")]
+        public Output<bool> VirtualNetworkImagePullEnabled { get; private set; } = null!;
+
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
@@ -518,6 +526,14 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
+
+        /// <summary>
+        /// Whether traffic for the image pull should be routed over the virtual network.
+        /// 
+        /// &gt; **Note:** `VirtualNetworkImagePullEnabled` must be set to `True` when running in an App Service Environment.
+        /// </summary>
+        [Input("virtualNetworkImagePullEnabled")]
+        public Input<bool>? VirtualNetworkImagePullEnabled { get; set; }
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
@@ -807,6 +823,14 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
+
+        /// <summary>
+        /// Whether traffic for the image pull should be routed over the virtual network.
+        /// 
+        /// &gt; **Note:** `VirtualNetworkImagePullEnabled` must be set to `True` when running in an App Service Environment.
+        /// </summary>
+        [Input("virtualNetworkImagePullEnabled")]
+        public Input<bool>? VirtualNetworkImagePullEnabled { get; set; }
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }

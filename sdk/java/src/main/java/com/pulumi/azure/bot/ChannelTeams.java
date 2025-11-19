@@ -101,6 +101,20 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
         return this.botName;
     }
     /**
+     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * 
+     */
+    @Export(name="callingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> callingEnabled;
+
+    /**
+     * @return Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * 
+     */
+    public Output<Boolean> callingEnabled() {
+        return this.callingEnabled;
+    }
+    /**
      * Specifies the webhook for Microsoft Teams channel calls.
      * 
      */
@@ -129,18 +143,16 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deploymentEnvironment);
     }
     /**
-     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * @deprecated
+     * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
     @Export(name="enableCalling", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableCalling;
+    private Output<Boolean> enableCalling;
 
-    /**
-     * @return Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> enableCalling() {
-        return Codegen.optional(this.enableCalling);
+    public Output<Boolean> enableCalling() {
+        return this.enableCalling;
     }
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.

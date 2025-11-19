@@ -1177,7 +1177,7 @@ public final class PolicyFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute` - 2020-06-25
+     * * `Microsoft.Compute` - 2024-04-05
      * 
      */
     public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args) {
@@ -1227,7 +1227,7 @@ public final class PolicyFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute` - 2020-06-25
+     * * `Microsoft.Compute` - 2024-04-05
      * 
      */
     public static CompletableFuture<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignmentPlain(GetVirtualMachineConfigurationAssignmentPlainArgs args) {
@@ -1277,7 +1277,7 @@ public final class PolicyFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute` - 2020-06-25
+     * * `Microsoft.Compute` - 2024-04-05
      * 
      */
     public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args, InvokeOptions options) {
@@ -1327,7 +1327,7 @@ public final class PolicyFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute` - 2020-06-25
+     * * `Microsoft.Compute` - 2024-04-05
      * 
      */
     public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args, InvokeOutputOptions options) {
@@ -1377,7 +1377,7 @@ public final class PolicyFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute` - 2020-06-25
+     * * `Microsoft.Compute` - 2024-04-05
      * 
      */
     public static CompletableFuture<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignmentPlain(GetVirtualMachineConfigurationAssignmentPlainArgs args, InvokeOptions options) {

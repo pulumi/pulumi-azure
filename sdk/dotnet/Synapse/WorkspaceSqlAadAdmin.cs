@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Synapse
     /// 
     /// ## Import
     /// 
-    /// Synapse Workspace Azure AD Administrator can be imported using the `resource id`, e.g.
+    /// Synapse Workspace Azure AD SQL Administrator can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlAdministrators/activeDirectory
@@ -132,25 +132,25 @@ namespace Pulumi.Azure.Synapse
     public partial class WorkspaceSqlAadAdmin : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The login name of the Azure AD Administrator of this Synapse Workspace.
+        /// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
         /// </summary>
         [Output("login")]
         public Output<string> Login { get; private set; } = null!;
 
         /// <summary>
-        /// The object id of the Azure AD Administrator of this Synapse Workspace.
+        /// The object id of the Azure AD SQL Administrator of this Synapse Workspace.
         /// </summary>
         [Output("objectId")]
         public Output<string> ObjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+        /// The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
         /// </summary>
         [Output("synapseWorkspaceId")]
         public Output<string> SynapseWorkspaceId { get; private set; } = null!;
 
         /// <summary>
-        /// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        /// The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -202,25 +202,25 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceSqlAadAdminArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The login name of the Azure AD Administrator of this Synapse Workspace.
+        /// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
         /// </summary>
         [Input("login", required: true)]
         public Input<string> Login { get; set; } = null!;
 
         /// <summary>
-        /// The object id of the Azure AD Administrator of this Synapse Workspace.
+        /// The object id of the Azure AD SQL Administrator of this Synapse Workspace.
         /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+        /// The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
         /// </summary>
         [Input("synapseWorkspaceId", required: true)]
         public Input<string> SynapseWorkspaceId { get; set; } = null!;
 
         /// <summary>
-        /// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        /// The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
@@ -234,25 +234,25 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceSqlAadAdminState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The login name of the Azure AD Administrator of this Synapse Workspace.
+        /// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
         /// </summary>
         [Input("login")]
         public Input<string>? Login { get; set; }
 
         /// <summary>
-        /// The object id of the Azure AD Administrator of this Synapse Workspace.
+        /// The object id of the Azure AD SQL Administrator of this Synapse Workspace.
         /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }
 
         /// <summary>
-        /// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+        /// The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
         /// </summary>
         [Input("synapseWorkspaceId")]
         public Input<string>? SynapseWorkspaceId { get; set; }
 
         /// <summary>
-        /// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        /// The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
