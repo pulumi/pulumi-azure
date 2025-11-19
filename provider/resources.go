@@ -519,6 +519,7 @@ func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) er
 
 	_, err = auth.NewAuthorizerFromCredentials(context.Background(), authConfig, env.MicrosoftGraph)
 	if err != nil {
+		//nolint:ST1005
 		return fmt.Errorf("failed to load application credentials:\n"+
 			"Details: %v\n\n"+
 			"\tPlease make sure you have signed in via 'az login' or configured another authentication method.\n\n"+
