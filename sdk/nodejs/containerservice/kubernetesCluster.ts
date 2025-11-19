@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-05-01
+ * * `Microsoft.ContainerService` - 2025-07-01
  *
  * ## Import
  *
@@ -91,6 +91,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
      */
     declare public readonly aciConnectorLinux: pulumi.Output<outputs.containerservice.KubernetesClusterAciConnectorLinux | undefined>;
+    /**
+     * Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+     */
+    declare public readonly aiToolchainOperatorEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `apiServerAccessProfile` block as defined below.
      */
@@ -444,6 +448,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as KubernetesClusterState | undefined;
             resourceInputs["aciConnectorLinux"] = state?.aciConnectorLinux;
+            resourceInputs["aiToolchainOperatorEnabled"] = state?.aiToolchainOperatorEnabled;
             resourceInputs["apiServerAccessProfile"] = state?.apiServerAccessProfile;
             resourceInputs["autoScalerProfile"] = state?.autoScalerProfile;
             resourceInputs["automaticUpgradeChannel"] = state?.automaticUpgradeChannel;
@@ -520,6 +525,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["aciConnectorLinux"] = args?.aciConnectorLinux;
+            resourceInputs["aiToolchainOperatorEnabled"] = args?.aiToolchainOperatorEnabled;
             resourceInputs["apiServerAccessProfile"] = args?.apiServerAccessProfile;
             resourceInputs["autoScalerProfile"] = args?.autoScalerProfile;
             resourceInputs["automaticUpgradeChannel"] = args?.automaticUpgradeChannel;
@@ -603,6 +609,10 @@ export interface KubernetesClusterState {
      * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
+    /**
+     * Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+     */
+    aiToolchainOperatorEnabled?: pulumi.Input<boolean>;
     /**
      * An `apiServerAccessProfile` block as defined below.
      */
@@ -951,6 +961,10 @@ export interface KubernetesClusterArgs {
      * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
+    /**
+     * Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+     */
+    aiToolchainOperatorEnabled?: pulumi.Input<boolean>;
     /**
      * An `apiServerAccessProfile` block as defined below.
      */

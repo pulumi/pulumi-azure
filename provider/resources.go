@@ -306,6 +306,7 @@ var moduleMap = map[string]string{
 	"maintenance":         azureMaintenance,
 	"managed_application": azureManagedApplication,
 	"managed_lustre":      azureManagedLustre,
+	"managed_redis":       "ManagedRedis",
 	"management":          azureManagement,
 	"resource_management": azureManagement,
 	"maps":                azureMaps,
@@ -314,6 +315,7 @@ var moduleMap = map[string]string{
 	// Ignored: azureMixedReality. The only token is "azurerm_spatial_anchors_account".
 	"monitor":          azureMonitoring,
 	"mobile":           azureMobile,
+	"mongo_cluster":    "MongoCluster",
 	"mssql":            azureMSSQL,
 	"mysql":            azureMySQL,
 	"netapp":           azureNetapp,
@@ -1600,9 +1602,11 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_cosmosdb_cassandra_keyspace": {Tok: azureResource(azureCosmosDB, "CassandraKeyspace")},
-			// Despite not having "cosmosdb" in the name, this is a CosmosDB resource.
-			// https://github.com/hashicorp/terraform-provider-azurerm/pull/27636
-			"azurerm_mongo_cluster":                  {Tok: azureResource(azureCosmosDB, "MongoCluster")},
+			"azurerm_mongo_cluster": {
+				Tok: azureResource("MongoCluster", "MongoCluster"),
+				// Alias added to maintain backward compatibility - this resource was previously mapped to CosmosDB
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:cosmosdb/mongoCluster:MongoCluster")}},
+			},
 			"azurerm_cosmosdb_mongo_collection":      {Tok: azureResource(azureCosmosDB, "MongoCollection")},
 			"azurerm_cosmosdb_mongo_database":        {Tok: azureResource(azureCosmosDB, "MongoDatabase")},
 			"azurerm_cosmosdb_sql_container":         {Tok: azureResource(azureCosmosDB, "SqlContainer")},
@@ -2519,9 +2523,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_hpc_cache_blob_nfs_target": {Tok: azureResource(azureHpc, "CacheBlobNfsTarget")},
 			"azurerm_hpc_cache_access_policy":   {Tok: azureResource(azureHpc, "CacheAccessPolicy")},
 
-			// Mixed Reality
-			"azurerm_spatial_anchors_account": {Tok: azureResource(azureMixedReality, "SpatialAnchorsAccount")},
-
 			// Palo Alto
 			"azurerm_palo_alto_next_generation_firewall_virtual_hub_local_rulestack": {
 				Tok:  azureResource(azurePaloAlto, "NextGenerationFirewallVirtualHubLocalRulestack"),
@@ -3267,7 +3268,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_billing_mca_account_scope":         {Tok: azureDataSource(azureBilling, "getMcaAccountScope")},
 			"azurerm_billing_mpa_account_scope":         {Tok: azureDataSource(azureBilling, "getMpaAccountScope")},
 			"azurerm_eventhub_cluster":                  {Tok: azureDataSource(azureEventHub, "getCluster")},
-			"azurerm_spatial_anchors_account":           {Tok: azureDataSource(azureMixedReality, "getSpatialAnchorsAccount")},
 			"azurerm_storage_share":                     {Tok: azureDataSource(azureStorage, "getShare")},
 			"azurerm_consumption_budget_resource_group": {Tok: azureDataSource(azureConsumption, "getBudgetResourceGroup")},
 			"azurerm_consumption_budget_subscription":   {Tok: azureDataSource(azureConsumption, "getBudgetSubscription")},

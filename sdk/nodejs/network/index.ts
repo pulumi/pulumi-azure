@@ -390,6 +390,11 @@ export type NetworkManagerRoutingConfiguration = import("./networkManagerRouting
 export const NetworkManagerRoutingConfiguration: typeof import("./networkManagerRoutingConfiguration").NetworkManagerRoutingConfiguration = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerRoutingConfiguration"], () => require("./networkManagerRoutingConfiguration"));
 
+export { NetworkManagerRoutingRuleArgs, NetworkManagerRoutingRuleState } from "./networkManagerRoutingRule";
+export type NetworkManagerRoutingRule = import("./networkManagerRoutingRule").NetworkManagerRoutingRule;
+export const NetworkManagerRoutingRule: typeof import("./networkManagerRoutingRule").NetworkManagerRoutingRule = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerRoutingRule"], () => require("./networkManagerRoutingRule"));
+
 export { NetworkManagerRoutingRuleCollectionArgs, NetworkManagerRoutingRuleCollectionState } from "./networkManagerRoutingRuleCollection";
 export type NetworkManagerRoutingRuleCollection = import("./networkManagerRoutingRuleCollection").NetworkManagerRoutingRuleCollection;
 export const NetworkManagerRoutingRuleCollection: typeof import("./networkManagerRoutingRuleCollection").NetworkManagerRoutingRuleCollection = null as any;
@@ -727,6 +732,8 @@ const _module = {
                 return new NetworkManagerNetworkGroup(name, <any>undefined, { urn })
             case "azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration":
                 return new NetworkManagerRoutingConfiguration(name, <any>undefined, { urn })
+            case "azure:network/networkManagerRoutingRule:NetworkManagerRoutingRule":
+                return new NetworkManagerRoutingRule(name, <any>undefined, { urn })
             case "azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection":
                 return new NetworkManagerRoutingRuleCollection(name, <any>undefined, { urn })
             case "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection":
@@ -873,6 +880,7 @@ pulumi.runtime.registerResourceModule("azure", "network/networkManagerIpamPoolSt
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerManagementGroupConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerRoutingConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerRoutingRule", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerRoutingRuleCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerScopeConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerSecurityAdminConfiguration", _module)

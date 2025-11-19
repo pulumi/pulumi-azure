@@ -6,7 +6,7 @@ Subject: [PATCH] Update provider version in deprecation notices
 We want to include the deprecation notices, but need them to match our version number which is not the same at the upstream version number.
 
 diff --git a/website/docs/d/app_service.html.markdown b/website/docs/d/app_service.html.markdown
-index 5ad2aef18c..5a0bfaae66 100644
+index 77ceb94e32..a380ad8f5a 100644
 --- a/website/docs/d/app_service.html.markdown
 +++ b/website/docs/d/app_service.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -19,7 +19,7 @@ index 5ad2aef18c..5a0bfaae66 100644
  ## Example Usage
  
 diff --git a/website/docs/d/app_service_plan.html.markdown b/website/docs/d/app_service_plan.html.markdown
-index 605f775c7c..b0c7115241 100644
+index a6418991ee..bd60be6332 100644
 --- a/website/docs/d/app_service_plan.html.markdown
 +++ b/website/docs/d/app_service_plan.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -32,7 +32,7 @@ index 605f775c7c..b0c7115241 100644
  ## Example Usage
  
 diff --git a/website/docs/d/function_app.html.markdown b/website/docs/d/function_app.html.markdown
-index a106968f00..5e53106812 100644
+index fbd76f78e4..301bcd8707 100644
 --- a/website/docs/d/function_app.html.markdown
 +++ b/website/docs/d/function_app.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -45,7 +45,7 @@ index a106968f00..5e53106812 100644
  ## Example Usage
  
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index 094474464a..1d724046e3 100644
+index 50d939053a..9fe07a8278 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -183,7 +183,7 @@ index 094474464a..1d724046e3 100644
  
  ## Import
 diff --git a/website/docs/r/app_service_active_slot.html.markdown b/website/docs/r/app_service_active_slot.html.markdown
-index 521e43054b..4b431a3334 100644
+index 79cb24a216..104a3050ac 100644
 --- a/website/docs/r/app_service_active_slot.html.markdown
 +++ b/website/docs/r/app_service_active_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -195,7 +195,7 @@ index 521e43054b..4b431a3334 100644
  
  -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
  
-@@ -60,6 +60,6 @@ The following arguments are supported:
+@@ -66,6 +66,6 @@ In addition to the Arguments listed above - the following Attributes are exporte
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the App Service Active Slot.
@@ -204,7 +204,7 @@ index 521e43054b..4b431a3334 100644
 +* `read` - (Defaults to 5 minutes) Used when retrieving the App Service Active Slot.
  * `delete` - (Defaults to 30 minutes) Used when deleting the App Service Active Slot.
 diff --git a/website/docs/r/app_service_hybrid_connection.html.markdown b/website/docs/r/app_service_hybrid_connection.html.markdown
-index 73f6d96bcf..91970307cb 100644
+index 38e98d1b85..ad1dda3e9a 100644
 --- a/website/docs/r/app_service_hybrid_connection.html.markdown
 +++ b/website/docs/r/app_service_hybrid_connection.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -227,7 +227,7 @@ index 73f6d96bcf..91970307cb 100644
  * `delete` - (Defaults to 30 minutes) Used when deleting the App Service Hybrid Connection.
  
 diff --git a/website/docs/r/app_service_plan.html.markdown b/website/docs/r/app_service_plan.html.markdown
-index 3803162c4b..2335b63419 100644
+index d80d3704b7..a6ef8e1de2 100644
 --- a/website/docs/r/app_service_plan.html.markdown
 +++ b/website/docs/r/app_service_plan.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -281,7 +281,7 @@ index 3803162c4b..2335b63419 100644
  ## Import
  
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 23f583a76a..890b54826f 100644
+index 0e864bdade..a15c9ca07b 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -410,7 +410,7 @@ index 23f583a76a..890b54826f 100644
  
  ## Import
 diff --git a/website/docs/r/app_service_source_control_token.html.markdown b/website/docs/r/app_service_source_control_token.html.markdown
-index e535174e48..22f8a6eaca 100644
+index c26ae05424..87c503c09b 100644
 --- a/website/docs/r/app_service_source_control_token.html.markdown
 +++ b/website/docs/r/app_service_source_control_token.html.markdown
 @@ -11,9 +11,9 @@ description: |-
@@ -425,7 +425,7 @@ index e535174e48..22f8a6eaca 100644
  
  ## Example Usage
  
-@@ -39,8 +39,8 @@ The following arguments are supported:
+@@ -45,8 +45,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the App Service Source Control Token.
@@ -436,7 +436,7 @@ index e535174e48..22f8a6eaca 100644
  
  ## Import
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index 458d0600d8..7b101221d3 100644
+index 539333189f..c6616153b5 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -575,7 +575,7 @@ index 458d0600d8..7b101221d3 100644
  
  ## Import
 diff --git a/website/docs/r/function_app_slot.html.markdown b/website/docs/r/function_app_slot.html.markdown
-index f688787d0a..39700f62e6 100644
+index 4d5e29e88d..dfb68bed02 100644
 --- a/website/docs/r/function_app_slot.html.markdown
 +++ b/website/docs/r/function_app_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-

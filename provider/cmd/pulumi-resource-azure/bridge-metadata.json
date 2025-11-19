@@ -566,6 +566,26 @@
                 "current": "azure:apimanagement/backend:Backend",
                 "majorVersion": 6,
                 "fields": {
+                    "circuit_breaker_rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "failure_condition": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "error_reasons": {
+                                                "maxItemsOne": false
+                                            },
+                                            "status_code_range": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "credentials": {
                         "maxItemsOne": true,
                         "elem": {
@@ -885,8 +905,20 @@
                 "current": "azure:apimanagement/workspace:Workspace",
                 "majorVersion": 6
             },
+            "azurerm_api_management_workspace_api_version_set": {
+                "current": "azure:apimanagement/workspaceApiVersionSet:WorkspaceApiVersionSet",
+                "majorVersion": 6
+            },
+            "azurerm_api_management_workspace_certificate": {
+                "current": "azure:apimanagement/workspaceCertificate:WorkspaceCertificate",
+                "majorVersion": 6
+            },
             "azurerm_api_management_workspace_policy": {
                 "current": "azure:apimanagement/workspacePolicy:WorkspacePolicy",
+                "majorVersion": 6
+            },
+            "azurerm_api_management_workspace_policy_fragment": {
+                "current": "azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment",
                 "majorVersion": 6
             },
             "azurerm_app_configuration": {
@@ -6281,7 +6313,14 @@
                 "majorVersion": 6,
                 "fields": {
                     "identity": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -13796,6 +13835,44 @@
                     }
                 }
             },
+            "azurerm_managed_redis": {
+                "current": "azure:managedredis/managedRedis:ManagedRedis",
+                "majorVersion": 6,
+                "fields": {
+                    "customer_managed_key": {
+                        "maxItemsOne": true
+                    },
+                    "default_database": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "module": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_managed_redis_geo_replication": {
+                "current": "azure:managedredis/geoReplication:GeoReplication",
+                "majorVersion": 6,
+                "fields": {
+                    "linked_managed_redis_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_management_group": {
                 "current": "azure:management/group:Group",
                 "majorVersion": 6,
@@ -14160,7 +14237,14 @@
                 }
             },
             "azurerm_mongo_cluster": {
-                "current": "azure:cosmosdb/mongoCluster:MongoCluster",
+                "current": "azure:mongocluster/mongoCluster:MongoCluster",
+                "past": [
+                    {
+                        "name": "azure:cosmosdb/mongoCluster:MongoCluster",
+                        "inCodegen": true,
+                        "majorVersion": 6
+                    }
+                ],
                 "majorVersion": 6,
                 "fields": {
                     "connection_strings": {
@@ -14170,6 +14254,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_mongo_cluster_firewall_rule": {
+                "current": "azure:mongocluster/firewallRule:FirewallRule",
+                "majorVersion": 6
             },
             "azurerm_monitor_aad_diagnostic_setting": {
                 "current": "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting",
@@ -16112,6 +16200,18 @@
                 "current": "azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration",
                 "majorVersion": 6
             },
+            "azurerm_network_manager_routing_rule": {
+                "current": "azure:network/networkManagerRoutingRule:NetworkManagerRoutingRule",
+                "majorVersion": 6,
+                "fields": {
+                    "destination": {
+                        "maxItemsOne": true
+                    },
+                    "next_hop": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_network_manager_routing_rule_collection": {
                 "current": "azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection",
                 "majorVersion": 6,
@@ -16417,6 +16517,30 @@
                 "current": "azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup",
                 "majorVersion": 6
             },
+            "azurerm_oracle_autonomous_database_clone_from_backup": {
+                "current": "azure:oracle/autonomousDatabaseCloneFromBackup:AutonomousDatabaseCloneFromBackup",
+                "majorVersion": 6,
+                "fields": {
+                    "allowed_ip_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "customer_contacts": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_autonomous_database_clone_from_database": {
+                "current": "azure:oracle/autonomousDatabaseCloneFromDatabase:AutonomousDatabaseCloneFromDatabase",
+                "majorVersion": 6,
+                "fields": {
+                    "allowed_ip_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "customer_contacts": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_oracle_cloud_vm_cluster": {
                 "current": "azure:oracle/cloudVmCluster:CloudVmCluster",
                 "majorVersion": 6,
@@ -16465,6 +16589,22 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_oracle_exascale_database_storage_vault": {
+                "current": "azure:oracle/exascaleDatabaseStorageVault:ExascaleDatabaseStorageVault",
+                "majorVersion": 6,
+                "fields": {
+                    "high_capacity_database_storage": {
+                        "maxItemsOne": true
+                    },
+                    "zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_resource_anchor": {
+                "current": "azure:oracle/resourceAnchor:ResourceAnchor",
+                "majorVersion": 6
             },
             "azurerm_orbital_contact": {
                 "current": "azure:orbital/contact:Contact",
@@ -19451,10 +19591,6 @@
             },
             "azurerm_source_control_token": {
                 "current": "azure:appservice/sourceControlToken:SourceControlToken",
-                "majorVersion": 6
-            },
-            "azurerm_spatial_anchors_account": {
-                "current": "azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount",
                 "majorVersion": 6
             },
             "azurerm_spring_cloud_accelerator": {
@@ -26063,7 +26199,14 @@
                 "majorVersion": 6,
                 "fields": {
                     "identity": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -26799,6 +26942,10 @@
             },
             "azurerm_function_app_host_keys": {
                 "current": "azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys",
+                "majorVersion": 6
+            },
+            "azurerm_graph_services_account": {
+                "current": "azure:graph/getServicesAccount:getServicesAccount",
                 "majorVersion": 6
             },
             "azurerm_hdinsight_cluster": {
@@ -28476,6 +28623,38 @@
                     }
                 }
             },
+            "azurerm_managed_redis": {
+                "current": "azure:managedredis/get:get",
+                "majorVersion": 6,
+                "fields": {
+                    "customer_managed_key": {
+                        "maxItemsOne": false
+                    },
+                    "default_database": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "geo_replication_linked_database_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "module": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_management_group": {
                 "current": "azure:management/getGroup:getGroup",
                 "majorVersion": 6,
@@ -29624,6 +29803,66 @@
                     }
                 }
             },
+            "azurerm_oracle_autonomous_database_clone_from_backup": {
+                "current": "azure:oracle/getAutonomousDatabaseCloneFromBackup:getAutonomousDatabaseCloneFromBackup",
+                "majorVersion": 6,
+                "fields": {
+                    "allowed_ip_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "available_upgrade_versions": {
+                        "maxItemsOne": false
+                    },
+                    "connection_strings": {
+                        "maxItemsOne": false
+                    },
+                    "customer_contacts": {
+                        "maxItemsOne": false
+                    },
+                    "long_term_backup_schedule": {
+                        "maxItemsOne": false
+                    },
+                    "peer_database_ids": {
+                        "maxItemsOne": false
+                    },
+                    "provisionable_cpus": {
+                        "maxItemsOne": false
+                    },
+                    "supported_regions_to_clone_to": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_autonomous_database_clone_from_database": {
+                "current": "azure:oracle/getAutonomousDatabaseCloneFromDatabase:getAutonomousDatabaseCloneFromDatabase",
+                "majorVersion": 6,
+                "fields": {
+                    "allowed_ip_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "available_upgrade_versions": {
+                        "maxItemsOne": false
+                    },
+                    "connection_strings": {
+                        "maxItemsOne": false
+                    },
+                    "customer_contacts": {
+                        "maxItemsOne": false
+                    },
+                    "long_term_backup_schedule": {
+                        "maxItemsOne": false
+                    },
+                    "peer_database_ids": {
+                        "maxItemsOne": false
+                    },
+                    "provisionable_cpus": {
+                        "maxItemsOne": false
+                    },
+                    "supported_regions_to_clone_to": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_oracle_cloud_vm_cluster": {
                 "current": "azure:oracle/getCloudVmCluster:getCloudVmCluster",
                 "majorVersion": 6,
@@ -29741,6 +29980,18 @@
                     }
                 }
             },
+            "azurerm_oracle_exascale_database_storage_vault": {
+                "current": "azure:oracle/getExascaleDatabaseStorageVault:getExascaleDatabaseStorageVault",
+                "majorVersion": 6,
+                "fields": {
+                    "high_capacity_database_storage": {
+                        "maxItemsOne": false
+                    },
+                    "zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_oracle_gi_versions": {
                 "current": "azure:oracle/getGiVersions:getGiVersions",
                 "majorVersion": 6,
@@ -29749,6 +30000,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_oracle_resource_anchor": {
+                "current": "azure:oracle/getResourceAnchor:getResourceAnchor",
+                "majorVersion": 6
             },
             "azurerm_orchestrated_virtual_machine_scale_set": {
                 "current": "azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet",
@@ -29894,7 +30149,12 @@
             },
             "azurerm_postgresql_flexible_server": {
                 "current": "azure:postgresql/getFlexibleServer:getFlexibleServer",
-                "majorVersion": 6
+                "majorVersion": 6,
+                "fields": {
+                    "high_availability": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_postgresql_server": {
                 "current": "azure:postgresql/getServer:getServer",
@@ -30667,10 +30927,6 @@
             },
             "azurerm_source_control_token": {
                 "current": "azure:appservice/getSourceControlToken:getSourceControlToken",
-                "majorVersion": 6
-            },
-            "azurerm_spatial_anchors_account": {
-                "current": "azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount",
                 "majorVersion": 6
             },
             "azurerm_spring_cloud_app": {
@@ -32188,6 +32444,11 @@
                 "maxItemsOneOverrides": {
                     "site_ids": false
                 }
+            },
+            "azurerm_mongo_cluster": {
+                "aliases": [
+                    "azure:cosmosdb/mongoCluster:MongoCluster"
+                ]
             },
             "azurerm_mysql_flexible_server_active_directory_administrator": {
                 "renames": [

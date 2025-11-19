@@ -54,25 +54,67 @@ export interface GetStaticWebAppArgs {
  * A collection of values returned by getStaticWebApp.
  */
 export interface GetStaticWebAppResult {
+    /**
+     * The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
+     */
     readonly apiKey: string;
+    /**
+     * The map of key-value pairs of App Settings for the Static Web App.
+     */
     readonly appSettings: {[key: string]: string};
+    /**
+     * A `basicAuth` block as defined below.
+     */
     readonly basicAuths: outputs.appservice.GetStaticWebAppBasicAuth[];
+    /**
+     * Are changes to the configuration file permitted.
+     */
     readonly configurationFileChangesEnabled: boolean;
+    /**
+     * The default host name of the Static Web App.
+     */
     readonly defaultHostName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * An `identity` block as defined below.
+     */
     readonly identities: outputs.appservice.GetStaticWebAppIdentity[];
+    /**
+     * The Azure region in which this Static Web App exists.
+     */
     readonly location: string;
     readonly name: string;
+    /**
+     * Are Preview (Staging) environments enabled.
+     */
     readonly previewEnvironmentsEnabled: boolean;
+    /**
+     * Should public network access be enabled for the Static Web App.
+     */
     readonly publicNetworkAccessEnabled: boolean;
+    /**
+     * Repository branch of the Static Web App.
+     */
     readonly repositoryBranch: string;
+    /**
+     * Repository URL of the Static Web App.
+     */
     readonly repositoryUrl: string;
     readonly resourceGroupName: string;
+    /**
+     * The SKU size of the Static Web App.
+     */
     readonly skuSize: string;
+    /**
+     * The SKU tier of the Static Web App.
+     */
     readonly skuTier: string;
+    /**
+     * The mapping of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
 }
 /**

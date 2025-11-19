@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "example-rg",
  *     location: "East US",
  * });
- * const exampleMongoCluster = new azure.cosmosdb.MongoCluster("example", {
+ * const exampleMongoCluster = new azure.mongocluster.MongoCluster("example", {
  *     name: "example-mc",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     name: "example-rg",
  *     location: "East US",
  * });
- * const exampleMongoCluster = new azure.cosmosdb.MongoCluster("example", {
+ * const exampleMongoCluster = new azure.mongocluster.MongoCluster("example", {
  *     name: "example-mc",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     storageSizeInGb: 64,
  *     previewFeatures: ["GeoReplicas"],
  * });
- * const exampleGeoReplica = new azure.cosmosdb.MongoCluster("example_geo_replica", {
+ * const exampleGeoReplica = new azure.mongocluster.MongoCluster("example_geo_replica", {
  *     name: "example-mc-geo",
  *     resourceGroupName: example.name,
  *     location: "Central US",
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DocumentDB` - 2024-07-01
+ * * `Microsoft.DocumentDB` - 2025-09-01
  *
  * ## Import
  *
@@ -78,6 +78,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import azure:cosmosdb/mongoCluster:MongoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster
  * ```
+ *
+ * @deprecated azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster
  */
 export class MongoCluster extends pulumi.CustomResource {
     /**
@@ -90,6 +92,7 @@ export class MongoCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MongoClusterState, opts?: pulumi.CustomResourceOptions): MongoCluster {
+        pulumi.log.warn("MongoCluster is deprecated: azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster")
         return new MongoCluster(name, <any>state, { ...opts, id: id });
     }
 
@@ -183,8 +186,11 @@ export class MongoCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster */
     constructor(name: string, args: MongoClusterArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster */
     constructor(name: string, argsOrState?: MongoClusterArgs | MongoClusterState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MongoCluster is deprecated: azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -230,6 +236,8 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["connectionStrings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:cosmosdb/mongoCluster:MongoCluster" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["administratorPassword", "connectionStrings"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(MongoCluster.__pulumiType, name, resourceInputs, opts);

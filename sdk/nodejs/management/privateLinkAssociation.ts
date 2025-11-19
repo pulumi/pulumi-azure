@@ -27,9 +27,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  * });
- * const exampleUuid = new random.index.Uuid("example", {});
+ * const exampleRandomUuid = new random.RandomUuid("example", {});
  * const examplePrivateLinkAssociation = new azure.management.PrivateLinkAssociation("example", {
- *     name: exampleUuid.result,
+ *     name: exampleRandomUuid.result,
  *     managementGroupId: exampleAzurermManagementGroup.id,
  *     resourceManagementPrivateLinkId: examplePrivateLink.id,
  *     publicNetworkAccessEnabled: true,

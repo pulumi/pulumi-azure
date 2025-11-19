@@ -75,6 +75,10 @@ export class ChannelTeams extends pulumi.CustomResource {
      */
     declare public readonly botName: pulumi.Output<string>;
     /**
+     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     */
+    declare public readonly callingEnabled: pulumi.Output<boolean>;
+    /**
      * Specifies the webhook for Microsoft Teams channel calls.
      */
     declare public readonly callingWebHook: pulumi.Output<string>;
@@ -83,9 +87,9 @@ export class ChannelTeams extends pulumi.CustomResource {
      */
     declare public readonly deploymentEnvironment: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      */
-    declare public readonly enableCalling: pulumi.Output<boolean | undefined>;
+    declare public readonly enableCalling: pulumi.Output<boolean>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -109,6 +113,7 @@ export class ChannelTeams extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ChannelTeamsState | undefined;
             resourceInputs["botName"] = state?.botName;
+            resourceInputs["callingEnabled"] = state?.callingEnabled;
             resourceInputs["callingWebHook"] = state?.callingWebHook;
             resourceInputs["deploymentEnvironment"] = state?.deploymentEnvironment;
             resourceInputs["enableCalling"] = state?.enableCalling;
@@ -123,6 +128,7 @@ export class ChannelTeams extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["botName"] = args?.botName;
+            resourceInputs["callingEnabled"] = args?.callingEnabled;
             resourceInputs["callingWebHook"] = args?.callingWebHook;
             resourceInputs["deploymentEnvironment"] = args?.deploymentEnvironment;
             resourceInputs["enableCalling"] = args?.enableCalling;
@@ -143,6 +149,10 @@ export interface ChannelTeamsState {
      */
     botName?: pulumi.Input<string>;
     /**
+     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     */
+    callingEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the webhook for Microsoft Teams channel calls.
      */
     callingWebHook?: pulumi.Input<string>;
@@ -151,7 +161,7 @@ export interface ChannelTeamsState {
      */
     deploymentEnvironment?: pulumi.Input<string>;
     /**
-     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      */
     enableCalling?: pulumi.Input<boolean>;
     /**
@@ -173,6 +183,10 @@ export interface ChannelTeamsArgs {
      */
     botName: pulumi.Input<string>;
     /**
+     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     */
+    callingEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the webhook for Microsoft Teams channel calls.
      */
     callingWebHook?: pulumi.Input<string>;
@@ -181,7 +195,7 @@ export interface ChannelTeamsArgs {
      */
     deploymentEnvironment?: pulumi.Input<string>;
     /**
-     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      */
     enableCalling?: pulumi.Input<boolean>;
     /**

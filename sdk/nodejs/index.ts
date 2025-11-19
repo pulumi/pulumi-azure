@@ -92,13 +92,14 @@ import * as machinelearning from "./machinelearning";
 import * as maintenance from "./maintenance";
 import * as managedapplication from "./managedapplication";
 import * as managedlustre from "./managedlustre";
+import * as managedredis from "./managedredis";
 import * as management from "./management";
 import * as managementgroups from "./managementgroups";
 import * as managementresource from "./managementresource";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
-import * as mixedreality from "./mixedreality";
 import * as mobile from "./mobile";
+import * as mongocluster from "./mongocluster";
 import * as monitoring from "./monitoring";
 import * as msi from "./msi";
 import * as mssql from "./mssql";
@@ -230,13 +231,14 @@ export {
     maintenance,
     managedapplication,
     managedlustre,
+    managedredis,
     management,
     managementgroups,
     managementresource,
     maps,
     marketplace,
-    mixedreality,
     mobile,
+    mongocluster,
     monitoring,
     msi,
     mssql,

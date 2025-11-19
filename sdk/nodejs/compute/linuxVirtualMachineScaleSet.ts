@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * ## Disclaimers
  *
  * > **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `azure.compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
- * rraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
  *
  * ## Example Usage
  *
@@ -286,6 +285,18 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     declare public readonly proximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
+     * Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+     *
+     * > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     */
+    declare public readonly resilientVmCreationEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+     *
+     * > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     */
+    declare public readonly resilientVmDeletionEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
@@ -411,6 +422,8 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["priority"] = state?.priority;
             resourceInputs["provisionVmAgent"] = state?.provisionVmAgent;
             resourceInputs["proximityPlacementGroupId"] = state?.proximityPlacementGroupId;
+            resourceInputs["resilientVmCreationEnabled"] = state?.resilientVmCreationEnabled;
+            resourceInputs["resilientVmDeletionEnabled"] = state?.resilientVmDeletionEnabled;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["rollingUpgradePolicy"] = state?.rollingUpgradePolicy;
             resourceInputs["scaleIn"] = state?.scaleIn;
@@ -481,6 +494,8 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["priority"] = args?.priority;
             resourceInputs["provisionVmAgent"] = args?.provisionVmAgent;
             resourceInputs["proximityPlacementGroupId"] = args?.proximityPlacementGroupId;
+            resourceInputs["resilientVmCreationEnabled"] = args?.resilientVmCreationEnabled;
+            resourceInputs["resilientVmDeletionEnabled"] = args?.resilientVmDeletionEnabled;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["rollingUpgradePolicy"] = args?.rollingUpgradePolicy;
             resourceInputs["scaleIn"] = args?.scaleIn;
@@ -681,6 +696,18 @@ export interface LinuxVirtualMachineScaleSetState {
      * The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
      */
     proximityPlacementGroupId?: pulumi.Input<string>;
+    /**
+     * Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+     *
+     * > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     */
+    resilientVmCreationEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+     *
+     * > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     */
+    resilientVmDeletionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      */
@@ -934,6 +961,18 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
      */
     proximityPlacementGroupId?: pulumi.Input<string>;
+    /**
+     * Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+     *
+     * > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     */
+    resilientVmCreationEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+     *
+     * > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     */
+    resilientVmDeletionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      */

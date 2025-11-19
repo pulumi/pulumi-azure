@@ -84,6 +84,10 @@ export class Backend extends pulumi.CustomResource {
      */
     declare public readonly apiManagementName: pulumi.Output<string>;
     /**
+     * A `circuitBreakerRule` block as documented below.
+     */
+    declare public readonly circuitBreakerRule: pulumi.Output<outputs.apimanagement.BackendCircuitBreakerRule | undefined>;
+    /**
      * A `credentials` block as documented below.
      */
     declare public readonly credentials: pulumi.Output<outputs.apimanagement.BackendCredentials | undefined>;
@@ -142,6 +146,7 @@ export class Backend extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BackendState | undefined;
             resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["circuitBreakerRule"] = state?.circuitBreakerRule;
             resourceInputs["credentials"] = state?.credentials;
             resourceInputs["description"] = state?.description;
             resourceInputs["name"] = state?.name;
@@ -168,6 +173,7 @@ export class Backend extends pulumi.CustomResource {
                 throw new Error("Missing required property 'url'");
             }
             resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["circuitBreakerRule"] = args?.circuitBreakerRule;
             resourceInputs["credentials"] = args?.credentials;
             resourceInputs["description"] = args?.description;
             resourceInputs["name"] = args?.name;
@@ -193,6 +199,10 @@ export interface BackendState {
      * The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
      */
     apiManagementName?: pulumi.Input<string>;
+    /**
+     * A `circuitBreakerRule` block as documented below.
+     */
+    circuitBreakerRule?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRule>;
     /**
      * A `credentials` block as documented below.
      */
@@ -247,6 +257,10 @@ export interface BackendArgs {
      * The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
      */
     apiManagementName: pulumi.Input<string>;
+    /**
+     * A `circuitBreakerRule` block as documented below.
+     */
+    circuitBreakerRule?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRule>;
     /**
      * A `credentials` block as documented below.
      */

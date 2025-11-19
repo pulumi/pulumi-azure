@@ -15,6 +15,16 @@ export type AutonomousDatabaseBackup = import("./autonomousDatabaseBackup").Auto
 export const AutonomousDatabaseBackup: typeof import("./autonomousDatabaseBackup").AutonomousDatabaseBackup = null as any;
 utilities.lazyLoad(exports, ["AutonomousDatabaseBackup"], () => require("./autonomousDatabaseBackup"));
 
+export { AutonomousDatabaseCloneFromBackupArgs, AutonomousDatabaseCloneFromBackupState } from "./autonomousDatabaseCloneFromBackup";
+export type AutonomousDatabaseCloneFromBackup = import("./autonomousDatabaseCloneFromBackup").AutonomousDatabaseCloneFromBackup;
+export const AutonomousDatabaseCloneFromBackup: typeof import("./autonomousDatabaseCloneFromBackup").AutonomousDatabaseCloneFromBackup = null as any;
+utilities.lazyLoad(exports, ["AutonomousDatabaseCloneFromBackup"], () => require("./autonomousDatabaseCloneFromBackup"));
+
+export { AutonomousDatabaseCloneFromDatabaseArgs, AutonomousDatabaseCloneFromDatabaseState } from "./autonomousDatabaseCloneFromDatabase";
+export type AutonomousDatabaseCloneFromDatabase = import("./autonomousDatabaseCloneFromDatabase").AutonomousDatabaseCloneFromDatabase;
+export const AutonomousDatabaseCloneFromDatabase: typeof import("./autonomousDatabaseCloneFromDatabase").AutonomousDatabaseCloneFromDatabase = null as any;
+utilities.lazyLoad(exports, ["AutonomousDatabaseCloneFromDatabase"], () => require("./autonomousDatabaseCloneFromDatabase"));
+
 export { CloudVmClusterArgs, CloudVmClusterState } from "./cloudVmCluster";
 export type CloudVmCluster = import("./cloudVmCluster").CloudVmCluster;
 export const CloudVmCluster: typeof import("./cloudVmCluster").CloudVmCluster = null as any;
@@ -24,6 +34,11 @@ export { ExadataInfrastructureArgs, ExadataInfrastructureState } from "./exadata
 export type ExadataInfrastructure = import("./exadataInfrastructure").ExadataInfrastructure;
 export const ExadataInfrastructure: typeof import("./exadataInfrastructure").ExadataInfrastructure = null as any;
 utilities.lazyLoad(exports, ["ExadataInfrastructure"], () => require("./exadataInfrastructure"));
+
+export { ExascaleDatabaseStorageVaultArgs, ExascaleDatabaseStorageVaultState } from "./exascaleDatabaseStorageVault";
+export type ExascaleDatabaseStorageVault = import("./exascaleDatabaseStorageVault").ExascaleDatabaseStorageVault;
+export const ExascaleDatabaseStorageVault: typeof import("./exascaleDatabaseStorageVault").ExascaleDatabaseStorageVault = null as any;
+utilities.lazyLoad(exports, ["ExascaleDatabaseStorageVault"], () => require("./exascaleDatabaseStorageVault"));
 
 export { GetAdbsCharacterSetsArgs, GetAdbsCharacterSetsResult, GetAdbsCharacterSetsOutputArgs } from "./getAdbsCharacterSets";
 export const getAdbsCharacterSets: typeof import("./getAdbsCharacterSets").getAdbsCharacterSets = null as any;
@@ -50,6 +65,16 @@ export const getAutonomousDatabaseBackups: typeof import("./getAutonomousDatabas
 export const getAutonomousDatabaseBackupsOutput: typeof import("./getAutonomousDatabaseBackups").getAutonomousDatabaseBackupsOutput = null as any;
 utilities.lazyLoad(exports, ["getAutonomousDatabaseBackups","getAutonomousDatabaseBackupsOutput"], () => require("./getAutonomousDatabaseBackups"));
 
+export { GetAutonomousDatabaseCloneFromBackupArgs, GetAutonomousDatabaseCloneFromBackupResult, GetAutonomousDatabaseCloneFromBackupOutputArgs } from "./getAutonomousDatabaseCloneFromBackup";
+export const getAutonomousDatabaseCloneFromBackup: typeof import("./getAutonomousDatabaseCloneFromBackup").getAutonomousDatabaseCloneFromBackup = null as any;
+export const getAutonomousDatabaseCloneFromBackupOutput: typeof import("./getAutonomousDatabaseCloneFromBackup").getAutonomousDatabaseCloneFromBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getAutonomousDatabaseCloneFromBackup","getAutonomousDatabaseCloneFromBackupOutput"], () => require("./getAutonomousDatabaseCloneFromBackup"));
+
+export { GetAutonomousDatabaseCloneFromDatabaseArgs, GetAutonomousDatabaseCloneFromDatabaseResult, GetAutonomousDatabaseCloneFromDatabaseOutputArgs } from "./getAutonomousDatabaseCloneFromDatabase";
+export const getAutonomousDatabaseCloneFromDatabase: typeof import("./getAutonomousDatabaseCloneFromDatabase").getAutonomousDatabaseCloneFromDatabase = null as any;
+export const getAutonomousDatabaseCloneFromDatabaseOutput: typeof import("./getAutonomousDatabaseCloneFromDatabase").getAutonomousDatabaseCloneFromDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getAutonomousDatabaseCloneFromDatabase","getAutonomousDatabaseCloneFromDatabaseOutput"], () => require("./getAutonomousDatabaseCloneFromDatabase"));
+
 export { GetCloudVmClusterArgs, GetCloudVmClusterResult, GetCloudVmClusterOutputArgs } from "./getCloudVmCluster";
 export const getCloudVmCluster: typeof import("./getCloudVmCluster").getCloudVmCluster = null as any;
 export const getCloudVmClusterOutput: typeof import("./getCloudVmCluster").getCloudVmClusterOutput = null as any;
@@ -75,10 +100,25 @@ export const getExadataInfrastructure: typeof import("./getExadataInfrastructure
 export const getExadataInfrastructureOutput: typeof import("./getExadataInfrastructure").getExadataInfrastructureOutput = null as any;
 utilities.lazyLoad(exports, ["getExadataInfrastructure","getExadataInfrastructureOutput"], () => require("./getExadataInfrastructure"));
 
+export { GetExascaleDatabaseStorageVaultArgs, GetExascaleDatabaseStorageVaultResult, GetExascaleDatabaseStorageVaultOutputArgs } from "./getExascaleDatabaseStorageVault";
+export const getExascaleDatabaseStorageVault: typeof import("./getExascaleDatabaseStorageVault").getExascaleDatabaseStorageVault = null as any;
+export const getExascaleDatabaseStorageVaultOutput: typeof import("./getExascaleDatabaseStorageVault").getExascaleDatabaseStorageVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getExascaleDatabaseStorageVault","getExascaleDatabaseStorageVaultOutput"], () => require("./getExascaleDatabaseStorageVault"));
+
 export { GetGiVersionsArgs, GetGiVersionsResult, GetGiVersionsOutputArgs } from "./getGiVersions";
 export const getGiVersions: typeof import("./getGiVersions").getGiVersions = null as any;
 export const getGiVersionsOutput: typeof import("./getGiVersions").getGiVersionsOutput = null as any;
 utilities.lazyLoad(exports, ["getGiVersions","getGiVersionsOutput"], () => require("./getGiVersions"));
+
+export { GetResourceAnchorArgs, GetResourceAnchorResult, GetResourceAnchorOutputArgs } from "./getResourceAnchor";
+export const getResourceAnchor: typeof import("./getResourceAnchor").getResourceAnchor = null as any;
+export const getResourceAnchorOutput: typeof import("./getResourceAnchor").getResourceAnchorOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceAnchor","getResourceAnchorOutput"], () => require("./getResourceAnchor"));
+
+export { ResourceAnchorArgs, ResourceAnchorState } from "./resourceAnchor";
+export type ResourceAnchor = import("./resourceAnchor").ResourceAnchor;
+export const ResourceAnchor: typeof import("./resourceAnchor").ResourceAnchor = null as any;
+utilities.lazyLoad(exports, ["ResourceAnchor"], () => require("./resourceAnchor"));
 
 
 const _module = {
@@ -89,10 +129,18 @@ const _module = {
                 return new AutonomousDatabase(name, <any>undefined, { urn })
             case "azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup":
                 return new AutonomousDatabaseBackup(name, <any>undefined, { urn })
+            case "azure:oracle/autonomousDatabaseCloneFromBackup:AutonomousDatabaseCloneFromBackup":
+                return new AutonomousDatabaseCloneFromBackup(name, <any>undefined, { urn })
+            case "azure:oracle/autonomousDatabaseCloneFromDatabase:AutonomousDatabaseCloneFromDatabase":
+                return new AutonomousDatabaseCloneFromDatabase(name, <any>undefined, { urn })
             case "azure:oracle/cloudVmCluster:CloudVmCluster":
                 return new CloudVmCluster(name, <any>undefined, { urn })
             case "azure:oracle/exadataInfrastructure:ExadataInfrastructure":
                 return new ExadataInfrastructure(name, <any>undefined, { urn })
+            case "azure:oracle/exascaleDatabaseStorageVault:ExascaleDatabaseStorageVault":
+                return new ExascaleDatabaseStorageVault(name, <any>undefined, { urn })
+            case "azure:oracle/resourceAnchor:ResourceAnchor":
+                return new ResourceAnchor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -100,5 +148,9 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabaseBackup", _module)
+pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabaseCloneFromBackup", _module)
+pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabaseCloneFromDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/cloudVmCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/exadataInfrastructure", _module)
+pulumi.runtime.registerResourceModule("azure", "oracle/exascaleDatabaseStorageVault", _module)
+pulumi.runtime.registerResourceModule("azure", "oracle/resourceAnchor", _module)

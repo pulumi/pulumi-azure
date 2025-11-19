@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *         content: "spark.shuffle.spill                true\n",
  *         filename: "config.txt",
  *     },
- *     sparkVersion: "3.2",
+ *     sparkVersion: "3.5",
  *     tags: {
  *         ENV: "Production",
  *     },
@@ -150,7 +150,7 @@ export class SparkPool extends pulumi.CustomResource {
     declare public readonly sparkEventsFolder: pulumi.Output<string | undefined>;
     declare public readonly sparkLogFolder: pulumi.Output<string | undefined>;
     /**
-     * The Apache Spark version. Currently, the only possible value is `3.4`.
+     * The Apache Spark version. Possible values are `3.4` and `3.5`.
      */
     declare public readonly sparkVersion: pulumi.Output<string>;
     /**
@@ -275,7 +275,7 @@ export interface SparkPoolState {
     sparkEventsFolder?: pulumi.Input<string>;
     sparkLogFolder?: pulumi.Input<string>;
     /**
-     * The Apache Spark version. Currently, the only possible value is `3.4`.
+     * The Apache Spark version. Possible values are `3.4` and `3.5`.
      */
     sparkVersion?: pulumi.Input<string>;
     /**
@@ -330,7 +330,7 @@ export interface SparkPoolArgs {
     sparkEventsFolder?: pulumi.Input<string>;
     sparkLogFolder?: pulumi.Input<string>;
     /**
-     * The Apache Spark version. Currently, the only possible value is `3.4`.
+     * The Apache Spark version. Possible values are `3.4` and `3.5`.
      */
     sparkVersion: pulumi.Input<string>;
     /**

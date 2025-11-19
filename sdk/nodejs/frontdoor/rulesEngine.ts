@@ -147,6 +147,9 @@ export class RulesEngine extends pulumi.CustomResource {
      * The name of the Front Door instance. Changing this forces a new resource to be created.
      */
     declare public readonly frontdoorName: pulumi.Output<string>;
+    /**
+     * The location in which the Front Door Rules Engine exists.
+     */
     declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the Rules engine configuration. Changing this forces a new resource to be created.
@@ -212,6 +215,9 @@ export interface RulesEngineState {
      * The name of the Front Door instance. Changing this forces a new resource to be created.
      */
     frontdoorName?: pulumi.Input<string>;
+    /**
+     * The location in which the Front Door Rules Engine exists.
+     */
     location?: pulumi.Input<string>;
     /**
      * The name of the Rules engine configuration. Changing this forces a new resource to be created.

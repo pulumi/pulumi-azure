@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const server = new random.index.Id("server", {});
+ * const server = new random.RandomId("server", {});
  * const example = new azure.core.ResourceGroup("example", {});
  * const examplePlan = new azure.appservice.Plan("example", {});
  * const exampleAppService = new azure.appservice.AppService("example", {});

@@ -11,6 +11,109 @@ import * as utilities from "../utilities";
  *
  * > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const example = azure.core.getClientConfig({});
+ * const exampleGetClientConfig = azuread.getClientConfig({});
+ * const exampleApplication = new azuread.Application("example", {displayName: "example-aro"});
+ * const exampleServicePrincipal = new azuread.ServicePrincipal("example", {clientId: exampleApplication.clientId});
+ * const exampleServicePrincipalPassword = new azuread.ServicePrincipalPassword("example", {servicePrincipalId: exampleServicePrincipal.objectId});
+ * const redhatopenshift = azuread.getServicePrincipal({
+ *     clientId: "f1dd0a37-89c6-4e07-bcd1-ffd3d43d8875",
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West US",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.0.0.0/22"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const roleNetwork1 = new azure.authorization.Assignment("role_network1", {
+ *     scope: exampleVirtualNetwork.id,
+ *     roleDefinitionName: "Network Contributor",
+ *     principalId: exampleServicePrincipal.objectId,
+ * });
+ * const roleNetwork2 = new azure.authorization.Assignment("role_network2", {
+ *     scope: exampleVirtualNetwork.id,
+ *     roleDefinitionName: "Network Contributor",
+ *     principalId: redhatopenshift.then(redhatopenshift => redhatopenshift.objectId),
+ * });
+ * const mainSubnet = new azure.network.Subnet("main_subnet", {
+ *     name: "main-subnet",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.0/23"],
+ *     serviceEndpoints: [
+ *         "Microsoft.Storage",
+ *         "Microsoft.ContainerRegistry",
+ *     ],
+ * });
+ * const workerSubnet = new azure.network.Subnet("worker_subnet", {
+ *     name: "worker-subnet",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/23"],
+ *     serviceEndpoints: [
+ *         "Microsoft.Storage",
+ *         "Microsoft.ContainerRegistry",
+ *     ],
+ * });
+ * const exampleCluster = new azure.redhatopenshift.Cluster("example", {
+ *     name: "examplearo",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     clusterProfile: {
+ *         domain: "aro-example.com",
+ *         version: "4.13.23",
+ *     },
+ *     networkProfile: {
+ *         podCidr: "10.128.0.0/14",
+ *         serviceCidr: "172.30.0.0/16",
+ *     },
+ *     mainProfile: {
+ *         vmSize: "Standard_D8s_v3",
+ *         subnetId: mainSubnet.id,
+ *     },
+ *     apiServerProfile: {
+ *         visibility: "Public",
+ *     },
+ *     ingressProfile: {
+ *         visibility: "Public",
+ *     },
+ *     workerProfile: {
+ *         vmSize: "Standard_D4s_v3",
+ *         diskSizeGb: 128,
+ *         nodeCount: 3,
+ *         subnetId: workerSubnet.id,
+ *     },
+ *     servicePrincipal: {
+ *         clientId: exampleApplication.clientId,
+ *         clientSecret: exampleServicePrincipalPassword.value,
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         roleNetwork1,
+ *         roleNetwork2,
+ *     ],
+ * });
+ * export const consoleUrl = exampleCluster.consoleUrl;
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.RedHatOpenShift` - 2023-09-04
+ *
  * ## Import
  *
  * Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.

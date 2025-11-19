@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.batch.getPool({
- *     name: "testbatchpool",
- *     accountName: "testbatchaccount",
- *     resourceGroupName: "test",
+ *     name: "examplebatchpool",
+ *     accountName: "examplebatchaccount",
+ *     resourceGroupName: "example",
  * });
  * ```
  *
@@ -43,13 +43,16 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetPoolArgs {
     /**
-     * The Azure Storage Account name.
+     * The Batch Account name associated with the Batch pool.
      */
     accountName: string;
     /**
-     * The name of the user account.
+     * The name of the Batch pool.
      */
     name: string;
+    /**
+     * The name of the resource group in which the Batch pool exists.
+     */
     resourceGroupName: string;
 }
 
@@ -164,9 +167,9 @@ export interface GetPoolResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.batch.getPool({
- *     name: "testbatchpool",
- *     accountName: "testbatchaccount",
- *     resourceGroupName: "test",
+ *     name: "examplebatchpool",
+ *     accountName: "examplebatchaccount",
+ *     resourceGroupName: "example",
  * });
  * ```
  *
@@ -191,12 +194,15 @@ export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutpu
  */
 export interface GetPoolOutputArgs {
     /**
-     * The Azure Storage Account name.
+     * The Batch Account name associated with the Batch pool.
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the user account.
+     * The name of the Batch pool.
      */
     name: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which the Batch pool exists.
+     */
     resourceGroupName: pulumi.Input<string>;
 }

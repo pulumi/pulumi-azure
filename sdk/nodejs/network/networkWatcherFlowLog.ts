@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  *
  * ## Import
  *
@@ -147,7 +147,9 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * The ID of the Resource for which to enable flow logs for.
+     *
+     * > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      */
     declare public readonly targetResourceId: pulumi.Output<string>;
     /**
@@ -260,7 +262,9 @@ export interface NetworkWatcherFlowLogState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * The ID of the Resource for which to enable flow logs for.
+     *
+     * > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      */
     targetResourceId?: pulumi.Input<string>;
     /**
@@ -314,7 +318,9 @@ export interface NetworkWatcherFlowLogArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * The ID of the Resource for which to enable flow logs for.
+     *
+     * > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      */
     targetResourceId?: pulumi.Input<string>;
     /**
