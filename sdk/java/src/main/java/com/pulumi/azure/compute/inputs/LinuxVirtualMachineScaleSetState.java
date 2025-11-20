@@ -624,6 +624,44 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
     }
 
     /**
+     * Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+     * 
+     * &gt; **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     * 
+     */
+    @Import(name="resilientVmCreationEnabled")
+    private @Nullable Output<Boolean> resilientVmCreationEnabled;
+
+    /**
+     * @return Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+     * 
+     * &gt; **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     * 
+     */
+    public Optional<Output<Boolean>> resilientVmCreationEnabled() {
+        return Optional.ofNullable(this.resilientVmCreationEnabled);
+    }
+
+    /**
+     * Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+     * 
+     * &gt; **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     * 
+     */
+    @Import(name="resilientVmDeletionEnabled")
+    private @Nullable Output<Boolean> resilientVmDeletionEnabled;
+
+    /**
+     * @return Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+     * 
+     * &gt; **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+     * 
+     */
+    public Optional<Output<Boolean>> resilientVmDeletionEnabled() {
+        return Optional.ofNullable(this.resilientVmDeletionEnabled);
+    }
+
+    /**
      * The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      * 
      */
@@ -939,6 +977,8 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         this.priority = $.priority;
         this.provisionVmAgent = $.provisionVmAgent;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
+        this.resilientVmCreationEnabled = $.resilientVmCreationEnabled;
+        this.resilientVmDeletionEnabled = $.resilientVmDeletionEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.rollingUpgradePolicy = $.rollingUpgradePolicy;
         this.scaleIn = $.scaleIn;
@@ -1822,6 +1862,56 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
          */
         public Builder proximityPlacementGroupId(String proximityPlacementGroupId) {
             return proximityPlacementGroupId(Output.of(proximityPlacementGroupId));
+        }
+
+        /**
+         * @param resilientVmCreationEnabled Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+         * 
+         * &gt; **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resilientVmCreationEnabled(@Nullable Output<Boolean> resilientVmCreationEnabled) {
+            $.resilientVmCreationEnabled = resilientVmCreationEnabled;
+            return this;
+        }
+
+        /**
+         * @param resilientVmCreationEnabled Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
+         * 
+         * &gt; **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resilientVmCreationEnabled(Boolean resilientVmCreationEnabled) {
+            return resilientVmCreationEnabled(Output.of(resilientVmCreationEnabled));
+        }
+
+        /**
+         * @param resilientVmDeletionEnabled Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+         * 
+         * &gt; **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resilientVmDeletionEnabled(@Nullable Output<Boolean> resilientVmDeletionEnabled) {
+            $.resilientVmDeletionEnabled = resilientVmDeletionEnabled;
+            return this;
+        }
+
+        /**
+         * @param resilientVmDeletionEnabled Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
+         * 
+         * &gt; **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resilientVmDeletionEnabled(Boolean resilientVmDeletionEnabled) {
+            return resilientVmDeletionEnabled(Output.of(resilientVmDeletionEnabled));
         }
 
         /**

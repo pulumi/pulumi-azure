@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Redis Enterprise Database.
     /// 
+    /// &gt; **Note:** This resource has been deprecated in favor of azurerm_managed_redis.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -114,7 +116,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A list of database resources to link with this database with a maximum of 5.
         /// 
-        /// &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+        /// &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         /// </summary>
         [Output("linkedDatabaseIds")]
         public Output<ImmutableArray<string>> LinkedDatabaseIds { get; private set; } = null!;
@@ -238,7 +240,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A list of database resources to link with this database with a maximum of 5.
         /// 
-        /// &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+        /// &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         /// </summary>
         public InputList<string> LinkedDatabaseIds
         {
@@ -316,7 +318,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A list of database resources to link with this database with a maximum of 5.
         /// 
-        /// &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+        /// &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
         /// </summary>
         public InputList<string> LinkedDatabaseIds
         {

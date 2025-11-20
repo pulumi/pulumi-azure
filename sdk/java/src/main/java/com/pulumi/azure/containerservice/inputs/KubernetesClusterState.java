@@ -65,6 +65,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+     * 
+     */
+    @Import(name="aiToolchainOperatorEnabled")
+    private @Nullable Output<Boolean> aiToolchainOperatorEnabled;
+
+    /**
+     * @return Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> aiToolchainOperatorEnabled() {
+        return Optional.ofNullable(this.aiToolchainOperatorEnabled);
+    }
+
+    /**
      * An `apiServerAccessProfile` block as defined below.
      * 
      */
@@ -1283,6 +1298,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
 
     private KubernetesClusterState(KubernetesClusterState $) {
         this.aciConnectorLinux = $.aciConnectorLinux;
+        this.aiToolchainOperatorEnabled = $.aiToolchainOperatorEnabled;
         this.apiServerAccessProfile = $.apiServerAccessProfile;
         this.autoScalerProfile = $.autoScalerProfile;
         this.automaticUpgradeChannel = $.automaticUpgradeChannel;
@@ -1389,6 +1405,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder aciConnectorLinux(KubernetesClusterAciConnectorLinuxArgs aciConnectorLinux) {
             return aciConnectorLinux(Output.of(aciConnectorLinux));
+        }
+
+        /**
+         * @param aiToolchainOperatorEnabled Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aiToolchainOperatorEnabled(@Nullable Output<Boolean> aiToolchainOperatorEnabled) {
+            $.aiToolchainOperatorEnabled = aiToolchainOperatorEnabled;
+            return this;
+        }
+
+        /**
+         * @param aiToolchainOperatorEnabled Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aiToolchainOperatorEnabled(Boolean aiToolchainOperatorEnabled) {
+            return aiToolchainOperatorEnabled(Output.of(aiToolchainOperatorEnabled));
         }
 
         /**

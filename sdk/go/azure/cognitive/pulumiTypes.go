@@ -1169,7 +1169,7 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type AccountNetworkAcls struct {
 	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 	//
-	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
 	Bypass *string `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`
@@ -1193,7 +1193,7 @@ type AccountNetworkAclsInput interface {
 type AccountNetworkAclsArgs struct {
 	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 	//
-	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
@@ -1282,7 +1282,7 @@ func (o AccountNetworkAclsOutput) ToAccountNetworkAclsPtrOutputWithContext(ctx c
 
 // Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 //
-// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
 func (o AccountNetworkAclsOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountNetworkAcls) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
@@ -1328,7 +1328,7 @@ func (o AccountNetworkAclsPtrOutput) Elem() AccountNetworkAclsOutput {
 
 // Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 //
-// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
 func (o AccountNetworkAclsPtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountNetworkAcls) *string {
 		if v == nil {

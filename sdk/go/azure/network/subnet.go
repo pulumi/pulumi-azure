@@ -85,7 +85,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2024-05-01
+// * `Microsoft.Network` - 2025-01-01
 //
 // ## Import
 //
@@ -98,8 +98,6 @@ type Subnet struct {
 	pulumi.CustomResourceState
 
 	// The address prefixes to use for the subnet.
-	//
-	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 	//
 	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes pulumi.StringArrayOutput `pulumi:"addressPrefixes"`
@@ -181,8 +179,6 @@ func GetSubnet(ctx *pulumi.Context,
 type subnetState struct {
 	// The address prefixes to use for the subnet.
 	//
-	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-	//
 	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
@@ -227,8 +223,6 @@ type subnetState struct {
 
 type SubnetState struct {
 	// The address prefixes to use for the subnet.
-	//
-	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 	//
 	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes pulumi.StringArrayInput
@@ -279,8 +273,6 @@ func (SubnetState) ElementType() reflect.Type {
 type subnetArgs struct {
 	// The address prefixes to use for the subnet.
 	//
-	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-	//
 	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
@@ -326,8 +318,6 @@ type subnetArgs struct {
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
 	// The address prefixes to use for the subnet.
-	//
-	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 	//
 	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes pulumi.StringArrayInput
@@ -459,8 +449,6 @@ func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutpu
 }
 
 // The address prefixes to use for the subnet.
-//
-// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 //
 // > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 func (o SubnetOutput) AddressPrefixes() pulumi.StringArrayOutput {

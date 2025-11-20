@@ -90,7 +90,7 @@ def get_autonomous_database_backups(autonomous_database_id: Optional[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str autonomous_database_id: The azureId of the Autonomous Database for which the backups will be listed.
@@ -123,7 +123,7 @@ def get_autonomous_database_backups_output(autonomous_database_id: Optional[pulu
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str autonomous_database_id: The azureId of the Autonomous Database for which the backups will be listed.

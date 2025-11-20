@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database` - 2025-03-01
+ * * `Oracle.Database` - 2025-09-01
  */
 export function getExadataInfrastructure(args: GetExadataInfrastructureArgs, opts?: pulumi.InvokeOptions): Promise<GetExadataInfrastructureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -231,7 +231,7 @@ export interface GetExadataInfrastructureResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database` - 2025-03-01
+ * * `Oracle.Database` - 2025-09-01
  */
 export function getExadataInfrastructureOutput(args: GetExadataInfrastructureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExadataInfrastructureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

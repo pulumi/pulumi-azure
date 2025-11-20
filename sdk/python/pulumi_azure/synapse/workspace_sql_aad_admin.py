@@ -25,10 +25,10 @@ class WorkspaceSqlAadAdminArgs:
                  tenant_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceSqlAadAdmin resource.
-        :param pulumi.Input[_builtins.str] login: The login name of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
-        :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] login: The login name of the Azure AD SQL Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD SQL Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         pulumi.set(__self__, "login", login)
         pulumi.set(__self__, "object_id", object_id)
@@ -39,7 +39,7 @@ class WorkspaceSqlAadAdminArgs:
     @pulumi.getter
     def login(self) -> pulumi.Input[_builtins.str]:
         """
-        The login name of the Azure AD Administrator of this Synapse Workspace.
+        The login name of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "login")
 
@@ -51,7 +51,7 @@ class WorkspaceSqlAadAdminArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The object id of the Azure AD Administrator of this Synapse Workspace.
+        The object id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "object_id")
 
@@ -63,7 +63,7 @@ class WorkspaceSqlAadAdminArgs:
     @pulumi.getter(name="synapseWorkspaceId")
     def synapse_workspace_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+        The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
@@ -75,7 +75,7 @@ class WorkspaceSqlAadAdminArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -93,10 +93,10 @@ class _WorkspaceSqlAadAdminState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceSqlAadAdmin resources.
-        :param pulumi.Input[_builtins.str] login: The login name of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
-        :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] login: The login name of the Azure AD SQL Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD SQL Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         if login is not None:
             pulumi.set(__self__, "login", login)
@@ -111,7 +111,7 @@ class _WorkspaceSqlAadAdminState:
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The login name of the Azure AD Administrator of this Synapse Workspace.
+        The login name of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "login")
 
@@ -123,7 +123,7 @@ class _WorkspaceSqlAadAdminState:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The object id of the Azure AD Administrator of this Synapse Workspace.
+        The object id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "object_id")
 
@@ -135,7 +135,7 @@ class _WorkspaceSqlAadAdminState:
     @pulumi.getter(name="synapseWorkspaceId")
     def synapse_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+        The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
@@ -147,7 +147,7 @@ class _WorkspaceSqlAadAdminState:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -241,7 +241,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
 
         ## Import
 
-        Synapse Workspace Azure AD Administrator can be imported using the `resource id`, e.g.
+        Synapse Workspace Azure AD SQL Administrator can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlAdministrators/activeDirectory
@@ -249,10 +249,10 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] login: The login name of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
-        :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] login: The login name of the Azure AD SQL Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD SQL Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         ...
     @overload
@@ -334,7 +334,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
 
         ## Import
 
-        Synapse Workspace Azure AD Administrator can be imported using the `resource id`, e.g.
+        Synapse Workspace Azure AD SQL Administrator can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlAdministrators/activeDirectory
@@ -401,10 +401,10 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] login: The login name of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD Administrator of this Synapse Workspace.
-        :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
-        :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] login: The login name of the Azure AD SQL Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD SQL Administrator of this Synapse Workspace.
+        :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -420,7 +420,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
     @pulumi.getter
     def login(self) -> pulumi.Output[_builtins.str]:
         """
-        The login name of the Azure AD Administrator of this Synapse Workspace.
+        The login name of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "login")
 
@@ -428,7 +428,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The object id of the Azure AD Administrator of this Synapse Workspace.
+        The object id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "object_id")
 
@@ -436,7 +436,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
     @pulumi.getter(name="synapseWorkspaceId")
     def synapse_workspace_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+        The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
@@ -444,7 +444,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "tenant_id")
 

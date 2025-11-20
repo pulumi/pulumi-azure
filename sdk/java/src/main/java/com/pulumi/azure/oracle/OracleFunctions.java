@@ -13,6 +13,10 @@ import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsPlainArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupPlainArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabasePlainArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabasePlainArgs;
 import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
 import com.pulumi.azure.oracle.inputs.GetCloudVmClusterPlainArgs;
@@ -24,19 +28,27 @@ import com.pulumi.azure.oracle.inputs.GetDbSystemShapesArgs;
 import com.pulumi.azure.oracle.inputs.GetDbSystemShapesPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetExadataInfrastructureArgs;
 import com.pulumi.azure.oracle.inputs.GetExadataInfrastructurePlainArgs;
+import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
+import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetGiVersionsArgs;
 import com.pulumi.azure.oracle.inputs.GetGiVersionsPlainArgs;
+import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
+import com.pulumi.azure.oracle.inputs.GetResourceAnchorPlainArgs;
 import com.pulumi.azure.oracle.outputs.GetAdbsCharacterSetsResult;
 import com.pulumi.azure.oracle.outputs.GetAdbsNationalCharacterSetsResult;
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseBackupResult;
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseBackupsResult;
+import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseCloneFromBackupResult;
+import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseCloneFromDatabaseResult;
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseResult;
 import com.pulumi.azure.oracle.outputs.GetCloudVmClusterResult;
 import com.pulumi.azure.oracle.outputs.GetDbNodesResult;
 import com.pulumi.azure.oracle.outputs.GetDbServersResult;
 import com.pulumi.azure.oracle.outputs.GetDbSystemShapesResult;
 import com.pulumi.azure.oracle.outputs.GetExadataInfrastructureResult;
+import com.pulumi.azure.oracle.outputs.GetExascaleDatabaseStorageVaultResult;
 import com.pulumi.azure.oracle.outputs.GetGiVersionsResult;
+import com.pulumi.azure.oracle.outputs.GetResourceAnchorResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -87,7 +99,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args) {
@@ -135,7 +147,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAdbsCharacterSetsResult> getAdbsCharacterSetsPlain(GetAdbsCharacterSetsPlainArgs args) {
@@ -183,7 +195,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args, InvokeOptions options) {
@@ -231,7 +243,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args, InvokeOutputOptions options) {
@@ -279,7 +291,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAdbsCharacterSetsResult> getAdbsCharacterSetsPlain(GetAdbsCharacterSetsPlainArgs args, InvokeOptions options) {
@@ -327,7 +339,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args) {
@@ -375,7 +387,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSetsPlain(GetAdbsNationalCharacterSetsPlainArgs args) {
@@ -423,7 +435,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args, InvokeOptions options) {
@@ -471,7 +483,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args, InvokeOutputOptions options) {
@@ -519,7 +531,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSetsPlain(GetAdbsNationalCharacterSetsPlainArgs args, InvokeOptions options) {
@@ -568,7 +580,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args) {
@@ -617,7 +629,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAutonomousDatabaseResult> getAutonomousDatabasePlain(GetAutonomousDatabasePlainArgs args) {
@@ -666,7 +678,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOptions options) {
@@ -715,7 +727,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOutputOptions options) {
@@ -764,7 +776,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAutonomousDatabaseResult> getAutonomousDatabasePlain(GetAutonomousDatabasePlainArgs args, InvokeOptions options) {
@@ -811,7 +823,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs args) {
@@ -858,7 +870,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackupPlain(GetAutonomousDatabaseBackupPlainArgs args) {
@@ -905,7 +917,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs args, InvokeOptions options) {
@@ -952,7 +964,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs args, InvokeOutputOptions options) {
@@ -999,7 +1011,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackupPlain(GetAutonomousDatabaseBackupPlainArgs args, InvokeOptions options) {
@@ -1046,7 +1058,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs args) {
@@ -1093,7 +1105,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackupsPlain(GetAutonomousDatabaseBackupsPlainArgs args) {
@@ -1140,7 +1152,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs args, InvokeOptions options) {
@@ -1187,7 +1199,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs args, InvokeOutputOptions options) {
@@ -1234,11 +1246,501 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackupsPlain(GetAutonomousDatabaseBackupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getAutonomousDatabaseBackups:getAutonomousDatabaseBackups", TypeShape.of(GetAutonomousDatabaseBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from backup.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseCloneFromBackupResult> getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs args) {
+        return getAutonomousDatabaseCloneFromBackup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from backup.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseCloneFromBackupResult> getAutonomousDatabaseCloneFromBackupPlain(GetAutonomousDatabaseCloneFromBackupPlainArgs args) {
+        return getAutonomousDatabaseCloneFromBackupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from backup.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseCloneFromBackupResult> getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseCloneFromBackup:getAutonomousDatabaseCloneFromBackup", TypeShape.of(GetAutonomousDatabaseCloneFromBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from backup.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseCloneFromBackupResult> getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseCloneFromBackup:getAutonomousDatabaseCloneFromBackup", TypeShape.of(GetAutonomousDatabaseCloneFromBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from backup.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromBackup(GetAutonomousDatabaseCloneFromBackupArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseCloneFromBackupResult> getAutonomousDatabaseCloneFromBackupPlain(GetAutonomousDatabaseCloneFromBackupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:oracle/getAutonomousDatabaseCloneFromBackup:getAutonomousDatabaseCloneFromBackup", TypeShape.of(GetAutonomousDatabaseCloneFromBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseCloneFromDatabaseResult> getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs args) {
+        return getAutonomousDatabaseCloneFromDatabase(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseCloneFromDatabaseResult> getAutonomousDatabaseCloneFromDatabasePlain(GetAutonomousDatabaseCloneFromDatabasePlainArgs args) {
+        return getAutonomousDatabaseCloneFromDatabasePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseCloneFromDatabaseResult> getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseCloneFromDatabase:getAutonomousDatabaseCloneFromDatabase", TypeShape.of(GetAutonomousDatabaseCloneFromDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseCloneFromDatabaseResult> getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseCloneFromDatabase:getAutonomousDatabaseCloneFromDatabase", TypeShape.of(GetAutonomousDatabaseCloneFromDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing autonomous database clone from database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCloneFromDatabase(GetAutonomousDatabaseCloneFromDatabaseArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseCloneFromDatabaseResult> getAutonomousDatabaseCloneFromDatabasePlain(GetAutonomousDatabaseCloneFromDatabasePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:oracle/getAutonomousDatabaseCloneFromDatabase:getAutonomousDatabaseCloneFromDatabase", TypeShape.of(GetAutonomousDatabaseCloneFromDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Cloud VM Cluster.
@@ -1283,7 +1785,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args) {
@@ -1332,7 +1834,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args) {
@@ -1381,7 +1883,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args, InvokeOptions options) {
@@ -1430,7 +1932,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args, InvokeOutputOptions options) {
@@ -1479,7 +1981,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args, InvokeOptions options) {
@@ -1527,7 +2029,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args) {
@@ -1575,7 +2077,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetDbNodesResult> getDbNodesPlain(GetDbNodesPlainArgs args) {
@@ -1623,7 +2125,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOptions options) {
@@ -1671,7 +2173,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOutputOptions options) {
@@ -1719,7 +2221,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetDbNodesResult> getDbNodesPlain(GetDbNodesPlainArgs args, InvokeOptions options) {
@@ -1768,7 +2270,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args) {
@@ -1817,7 +2319,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetDbServersResult> getDbServersPlain(GetDbServersPlainArgs args) {
@@ -1866,7 +2368,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOptions options) {
@@ -1915,7 +2417,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOutputOptions options) {
@@ -1964,7 +2466,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetDbServersResult> getDbServersPlain(GetDbServersPlainArgs args, InvokeOptions options) {
@@ -2015,7 +2517,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args) {
@@ -2066,7 +2568,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain(GetDbSystemShapesPlainArgs args) {
@@ -2117,7 +2619,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args, InvokeOptions options) {
@@ -2168,7 +2670,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args, InvokeOutputOptions options) {
@@ -2219,7 +2721,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain(GetDbSystemShapesPlainArgs args, InvokeOptions options) {
@@ -2268,7 +2770,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args) {
@@ -2317,7 +2819,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetExadataInfrastructureResult> getExadataInfrastructurePlain(GetExadataInfrastructurePlainArgs args) {
@@ -2366,7 +2868,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args, InvokeOptions options) {
@@ -2415,7 +2917,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args, InvokeOutputOptions options) {
@@ -2464,11 +2966,256 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetExadataInfrastructureResult> getExadataInfrastructurePlain(GetExadataInfrastructurePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", TypeShape.of(GetExadataInfrastructureResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Exadata Database Storage Vault
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetExascaleDatabaseStorageVaultResult> getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs args) {
+        return getExascaleDatabaseStorageVault(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Exadata Database Storage Vault
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetExascaleDatabaseStorageVaultResult> getExascaleDatabaseStorageVaultPlain(GetExascaleDatabaseStorageVaultPlainArgs args) {
+        return getExascaleDatabaseStorageVaultPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Exadata Database Storage Vault
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetExascaleDatabaseStorageVaultResult> getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getExascaleDatabaseStorageVault:getExascaleDatabaseStorageVault", TypeShape.of(GetExascaleDatabaseStorageVaultResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Exadata Database Storage Vault
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetExascaleDatabaseStorageVaultResult> getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getExascaleDatabaseStorageVault:getExascaleDatabaseStorageVault", TypeShape.of(GetExascaleDatabaseStorageVaultResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Exadata Database Storage Vault
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getExascaleDatabaseStorageVault(GetExascaleDatabaseStorageVaultArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetExascaleDatabaseStorageVaultResult> getExascaleDatabaseStorageVaultPlain(GetExascaleDatabaseStorageVaultPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:oracle/getExascaleDatabaseStorageVault:getExascaleDatabaseStorageVault", TypeShape.of(GetExascaleDatabaseStorageVaultResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This data source provides the list of GI Versions in Oracle Cloud Infrastructure Database service.
@@ -2516,7 +3263,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args) {
@@ -2568,7 +3315,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain(GetGiVersionsPlainArgs args) {
@@ -2620,7 +3367,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOptions options) {
@@ -2672,7 +3419,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOutputOptions options) {
@@ -2724,10 +3471,255 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database` - 2025-03-01
+     * * `Oracle.Database` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain(GetGiVersionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getGiVersions:getGiVersions", TypeShape.of(GetGiVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Oracle Resource Anchor.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetResourceAnchorResult> getResourceAnchor(GetResourceAnchorArgs args) {
+        return getResourceAnchor(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Oracle Resource Anchor.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetResourceAnchorResult> getResourceAnchorPlain(GetResourceAnchorPlainArgs args) {
+        return getResourceAnchorPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Oracle Resource Anchor.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetResourceAnchorResult> getResourceAnchor(GetResourceAnchorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getResourceAnchor:getResourceAnchor", TypeShape.of(GetResourceAnchorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Oracle Resource Anchor.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetResourceAnchorResult> getResourceAnchor(GetResourceAnchorArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getResourceAnchor:getResourceAnchor", TypeShape.of(GetResourceAnchorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Oracle Resource Anchor.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getResourceAnchor(GetResourceAnchorArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetResourceAnchorResult> getResourceAnchorPlain(GetResourceAnchorPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:oracle/getResourceAnchor:getResourceAnchor", TypeShape.of(GetResourceAnchorResult.class), args, Utilities.withVersion(options));
     }
 }

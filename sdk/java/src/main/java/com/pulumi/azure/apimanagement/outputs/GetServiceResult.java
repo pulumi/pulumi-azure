@@ -62,10 +62,6 @@ public final class GetServiceResult {
      * 
      */
     private String managementApiUrl;
-    /**
-     * @return Specifies the plan&#39;s pricing tier.
-     * 
-     */
     private String name;
     /**
      * @return The email address from which the notification will be sent.
@@ -108,6 +104,10 @@ public final class GetServiceResult {
      * 
      */
     private String scmUrl;
+    /**
+     * @return The SKU of the API Management Service consisting of the name and capacity, separated by an underscore.
+     * 
+     */
     private String skuName;
     /**
      * @return A mapping of tags assigned to the resource.
@@ -184,10 +184,6 @@ public final class GetServiceResult {
     public String managementApiUrl() {
         return this.managementApiUrl;
     }
-    /**
-     * @return Specifies the plan&#39;s pricing tier.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -250,6 +246,10 @@ public final class GetServiceResult {
     public String scmUrl() {
         return this.scmUrl;
     }
+    /**
+     * @return The SKU of the API Management Service consisting of the name and capacity, separated by an underscore.
+     * 
+     */
     public String skuName() {
         return this.skuName;
     }

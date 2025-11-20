@@ -26,9 +26,9 @@ namespace Pulumi.Azure.Batch
         /// {
         ///     var example = Azure.Batch.GetPool.Invoke(new()
         ///     {
-        ///         Name = "testbatchpool",
-        ///         AccountName = "testbatchaccount",
-        ///         ResourceGroupName = "test",
+        ///         Name = "examplebatchpool",
+        ///         AccountName = "examplebatchaccount",
+        ///         ResourceGroupName = "example",
         ///     });
         /// 
         /// });
@@ -59,9 +59,9 @@ namespace Pulumi.Azure.Batch
         /// {
         ///     var example = Azure.Batch.GetPool.Invoke(new()
         ///     {
-        ///         Name = "testbatchpool",
-        ///         AccountName = "testbatchaccount",
-        ///         ResourceGroupName = "test",
+        ///         Name = "examplebatchpool",
+        ///         AccountName = "examplebatchaccount",
+        ///         ResourceGroupName = "example",
         ///     });
         /// 
         /// });
@@ -92,9 +92,9 @@ namespace Pulumi.Azure.Batch
         /// {
         ///     var example = Azure.Batch.GetPool.Invoke(new()
         ///     {
-        ///         Name = "testbatchpool",
-        ///         AccountName = "testbatchaccount",
-        ///         ResourceGroupName = "test",
+        ///         Name = "examplebatchpool",
+        ///         AccountName = "examplebatchaccount",
+        ///         ResourceGroupName = "example",
         ///     });
         /// 
         /// });
@@ -115,17 +115,20 @@ namespace Pulumi.Azure.Batch
     public sealed class GetPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Azure Storage Account name.
+        /// The Batch Account name associated with the Batch pool.
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user account.
+        /// The name of the Batch pool.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the resource group in which the Batch pool exists.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
@@ -138,17 +141,20 @@ namespace Pulumi.Azure.Batch
     public sealed class GetPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Azure Storage Account name.
+        /// The Batch Account name associated with the Batch pool.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user account.
+        /// The name of the Batch pool.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the resource group in which the Batch pool exists.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 

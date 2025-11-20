@@ -185,6 +185,8 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
      * * AJD - indicates an Autonomous JSON Database
      * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
      * 
+     * &gt; **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
+     * 
      */
     @Import(name="dbWorkload")
     private @Nullable Output<String> dbWorkload;
@@ -195,6 +197,8 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
      * * DW - indicates an Autonomous Data Warehouse database
      * * AJD - indicates an Autonomous JSON Database
      * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+     * 
+     * &gt; **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
      * 
      */
     public Optional<Output<String>> dbWorkload() {
@@ -640,6 +644,8 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
          * * AJD - indicates an Autonomous JSON Database
          * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
          * 
+         * &gt; **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -654,6 +660,8 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
          * * DW - indicates an Autonomous Data Warehouse database
          * * AJD - indicates an Autonomous JSON Database
          * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+         * 
+         * &gt; **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
          * 
          * @return builder
          * 

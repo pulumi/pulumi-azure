@@ -937,6 +937,63 @@ export namespace apimanagement {
         value: string;
     }
 
+    export interface BackendCircuitBreakerRule {
+        /**
+         * Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+         */
+        acceptRetryAfterEnabled?: boolean;
+        /**
+         * A `failureCondition` block as defined below.
+         */
+        failureCondition: outputs.apimanagement.BackendCircuitBreakerRuleFailureCondition;
+        /**
+         * The name of the circuit breaker rule.
+         */
+        name: string;
+        /**
+         * Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+         */
+        tripDuration: string;
+    }
+
+    export interface BackendCircuitBreakerRuleFailureCondition {
+        /**
+         * Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+         */
+        count?: number;
+        /**
+         * Specifies a list of error reasons to consider as failures.
+         */
+        errorReasons?: string[];
+        /**
+         * Specifies the time window over which failures are counted, in ISO 8601 format.
+         */
+        intervalDuration: string;
+        /**
+         * Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+         *
+         * > **Note:** Exactly one of `percentage` or `count` must be specified.
+         */
+        percentage?: number;
+        /**
+         * One or more `statusCodeRange` blocks as defined below.
+         *
+         * > **Note:** At least one of `statusCodeRange`, and `errorReasons` must be set.
+         */
+        statusCodeRanges?: outputs.apimanagement.BackendCircuitBreakerRuleFailureConditionStatusCodeRange[];
+    }
+
+    export interface BackendCircuitBreakerRuleFailureConditionStatusCodeRange {
+        /**
+         * Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+         */
+        max: number;
+        /**
+         * Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+         */
+        min: number;
+    }
+
     export interface BackendCredentials {
         /**
          * An `authorization` block as defined below.
@@ -1462,7 +1519,7 @@ export namespace apimanagement {
 
     export interface GetServiceAdditionalLocation {
         /**
-         * Specifies the number of units associated with this API Management service.
+         * The number of compute units in this region.
          */
         capacity: number;
         /**
@@ -22424,7 +22481,7 @@ export namespace batch {
          */
         autoUpgradeMinorVersion: boolean;
         /**
-         * The name of the user account.
+         * The name of the Batch pool.
          */
         name: string;
         /**
@@ -22493,7 +22550,7 @@ export namespace batch {
          */
         accountKey: string;
         /**
-         * The Azure Storage Account name.
+         * The Batch Account name associated with the Batch pool.
          */
         accountName: string;
         /**
@@ -22524,7 +22581,7 @@ export namespace batch {
          */
         accountKey: string;
         /**
-         * The Azure Storage Account name.
+         * The Batch Account name associated with the Batch pool.
          */
         accountName: string;
         /**
@@ -22613,7 +22670,7 @@ export namespace batch {
          */
         frontendPortRange: string;
         /**
-         * The name of the user account.
+         * The name of the Batch pool.
          */
         name: string;
         /**
@@ -22805,7 +22862,7 @@ export namespace batch {
          */
         linuxUserConfigurations: outputs.batch.GetPoolUserAccountLinuxUserConfiguration[];
         /**
-         * The name of the user account.
+         * The name of the Batch pool.
          */
         name: string;
         /**
@@ -25450,7 +25507,7 @@ export namespace cognitive {
         /**
          * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
          *
-         * > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+         * > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
          */
         bypass?: string;
         /**
@@ -32864,9 +32921,17 @@ export namespace containerservice {
          */
         maxSurge: string;
         /**
+         * The maximum number or percentage of nodes which can be unavailable during the upgrade.
+         */
+        maxUnavailable: string;
+        /**
          * The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
          */
         nodeSoakDurationInMinutes: number;
+        /**
+         * The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+         */
+        undrainableNodeBehavior: string;
     }
 
     export interface GetGroupIdentity {
@@ -32977,10 +33042,15 @@ export namespace containerservice {
          * The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
          */
         maxSurge: string;
+        maxUnavailable: string;
         /**
          * The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
          */
         nodeSoakDurationInMinutes: number;
+        /**
+         * The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+         */
+        undrainableNodeBehavior: string;
     }
 
     export interface GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
@@ -33967,7 +34037,7 @@ export namespace containerservice {
         /**
          * Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
          *
-         * > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+         * > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
          */
         hostEncryptionEnabled?: boolean;
         /**
@@ -34032,7 +34102,7 @@ export namespace containerservice {
          */
         osDiskType?: string;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
          */
         osSku: string;
         /**
@@ -34327,6 +34397,10 @@ export namespace containerservice {
          * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
          */
         nodeSoakDurationInMinutes?: number;
+        /**
+         * Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+         */
+        undrainableNodeBehavior?: string;
     }
 
     export interface KubernetesClusterExtensionAksAssignedIdentity {
@@ -35127,11 +35201,21 @@ export namespace containerservice {
         /**
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          */
-        maxSurge: string;
+        maxSurge?: string;
+        /**
+         * The maximum number or percentage of nodes which can be unavailable during the upgrade.
+         *
+         * > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+         */
+        maxUnavailable?: string;
         /**
          * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
          */
         nodeSoakDurationInMinutes?: number;
+        /**
+         * Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+         */
+        undrainableNodeBehavior?: string;
     }
 
     export interface KubernetesClusterNodePoolWindowsProfile {
@@ -39685,6 +39769,10 @@ export namespace dataprotection {
 
     export interface BackupVaultIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
          */
         principalId: string;
@@ -39693,12 +39781,16 @@ export namespace dataprotection {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: string;
     }
 
     export interface GetBackupVaultIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Backup Vault.
+         */
+        identityIds: string[];
         /**
          * The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
          */
@@ -40814,7 +40906,7 @@ export namespace dynatrace {
 
     export interface MonitorPlan {
         /**
-         * Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+         * Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
          */
         billingCycle?: string;
         /**
@@ -40835,7 +40927,7 @@ export namespace dynatrace {
         /**
          * Country of the user.
          */
-        country: string;
+        country?: string;
         /**
          * Email of the user used by Dynatrace for contacting them if needed.
          */
@@ -40851,14 +40943,14 @@ export namespace dynatrace {
         /**
          * phone number of the user by Dynatrace for contacting them if needed.
          */
-        phoneNumber: string;
+        phoneNumber?: string;
     }
 
     export interface TagRulesLogRule {
         /**
          * Filtering tag for the log rule. A `filteringTag` block as defined below.
          */
-        filteringTags: outputs.dynatrace.TagRulesLogRuleFilteringTag[];
+        filteringTags?: outputs.dynatrace.TagRulesLogRuleFilteringTag[];
         /**
          * Send Activity logs. The default value is `false`.
          */
@@ -40892,7 +40984,7 @@ export namespace dynatrace {
         /**
          * Filtering tag for the metric rule. A `filteringTag` block as defined below.
          */
-        filteringTags: outputs.dynatrace.TagRulesMetricRuleFilteringTag[];
+        filteringTags?: outputs.dynatrace.TagRulesMetricRuleFilteringTag[];
         /**
          * If sending metrics is enabled. The default value is `false`.
          */
@@ -50146,6 +50238,179 @@ export namespace managedlustre {
 
 }
 
+export namespace managedredis {
+    export interface GetCustomerManagedKey {
+        /**
+         * The ID of the key vault key used for encryption.
+         */
+        keyVaultKeyId: string;
+        /**
+         * The ID of the User Assigned Identity that has access to the Key Vault Key.
+         */
+        userAssignedIdentityId: string;
+    }
+
+    export interface GetDefaultDatabase {
+        /**
+         * Whether access key authentication is enabled for the database.
+         */
+        accessKeysAuthenticationEnabled: boolean;
+        /**
+         * The client protocol used by the database (either `Encrypted` or `Plaintext`).
+         */
+        clientProtocol: string;
+        /**
+         * The clustering policy used by the database.
+         */
+        clusteringPolicy: string;
+        /**
+         * The Redis eviction policy used by the database.
+         */
+        evictionPolicy: string;
+        /**
+         * The name of the geo-replication group.
+         */
+        geoReplicationGroupName: string;
+        /**
+         * A list of linked database IDs for geo-replication.
+         */
+        geoReplicationLinkedDatabaseIds: string[];
+        /**
+         * A list of `module` blocks as defined below.
+         */
+        modules: outputs.managedredis.GetDefaultDatabaseModule[];
+        /**
+         * The TCP port of the database endpoint.
+         */
+        port: number;
+        /**
+         * The Primary Access Key for the Managed Redis Database instance.
+         */
+        primaryAccessKey: string;
+        /**
+         * The Secondary Access Key for the Managed Redis Database instance.
+         */
+        secondaryAccessKey: string;
+    }
+
+    export interface GetDefaultDatabaseModule {
+        /**
+         * The configuration options for the module.
+         */
+        args: string;
+        /**
+         * The name of the Managed Redis instance.
+         */
+        name: string;
+        /**
+         * The version of the module.
+         */
+        version: string;
+    }
+
+    export interface GetIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs assigned to the Managed Redis instance.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on the Managed Redis instance.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on the Managed Redis instance.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity configured on the Managed Redis instance.
+         */
+        type: string;
+    }
+
+    export interface ManagedRedisCustomerManagedKey {
+        /**
+         * The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name/a1b2c3d4`.
+         */
+        keyVaultKeyId: string;
+        /**
+         * The ID of the User Assigned Identity that has access to the Key Vault Key.
+         */
+        userAssignedIdentityId: string;
+    }
+
+    export interface ManagedRedisDefaultDatabase {
+        /**
+         * Whether access key authentication is enabled for the database. Defaults to `false`.
+         */
+        accessKeysAuthenticationEnabled?: boolean;
+        /**
+         * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`.
+         */
+        clientProtocol?: string;
+        /**
+         * Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         */
+        clusteringPolicy?: string;
+        /**
+         * Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
+         */
+        evictionPolicy?: string;
+        /**
+         * The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         */
+        geoReplicationGroupName?: string;
+        /**
+         * A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
+         */
+        modules?: outputs.managedredis.ManagedRedisDefaultDatabaseModule[];
+        /**
+         * TCP port of the database endpoint.
+         */
+        port: number;
+        /**
+         * The Primary Access Key for the Managed Redis Database Instance. Only exported if `accessKeysAuthenticationEnabled` is set to `true`.
+         */
+        primaryAccessKey: string;
+        /**
+         * The Secondary Access Key for the Managed Redis Database Instance. Only exported if `accessKeysAuthenticationEnabled` is set to `true`.
+         */
+        secondaryAccessKey: string;
+    }
+
+    export interface ManagedRedisDefaultDatabaseModule {
+        /**
+         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         *
+         * > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
+         */
+        args?: string;
+        /**
+         * The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         */
+        name: string;
+        /**
+         * Version of the module to be used.
+         */
+        version: string;
+    }
+
+    export interface ManagedRedisIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Redis instance.
+         *
+         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Managed Redis instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+}
+
 export namespace management {
     export interface GroupPolicyAssignmentIdentity {
         /**
@@ -50961,6 +51226,24 @@ export namespace mobile {
          * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
          */
         sliceServiceType: number;
+    }
+
+}
+
+export namespace mongocluster {
+    export interface MongoClusterConnectionString {
+        /**
+         * The description of the connection string.
+         */
+        description: string;
+        /**
+         * The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
+         */
+        value: string;
     }
 
 }
@@ -54008,7 +54291,7 @@ export namespace mssql {
         /**
          * The ID of the job credential to use during execution of jobs.
          *
-         * > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+         * > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
          */
         jobCredentialId?: string;
         /**
@@ -55256,7 +55539,9 @@ export namespace netapp {
          *
          * A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
          *
-         * > **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+         * > **Note:** Each destination volume can have only one `dataProtectionReplication` block configured. However, a source volume can have up to 2 destination volumes replicating from it (fan-out deployment). For more information on fan-out replication topologies, see [Understand data protection in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/data-protection-disaster-recovery-options#supported-replication-topologies).
+         *
+         * > **Note:** For cross-zone replication (when `remoteVolumeLocation` is the same as the volume's `location`), both the source and destination volumes must have a `zone` assigned. For a complete example of cross-zone-region replication with fan-out deployment, see the `./examples/netapp/cross_zone_region_replication` directory within the GitHub Repository. For more information, see [Manage cross-zone-region replication for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/cross-zone-region-replication-configure).
          */
         replicationFrequency: string;
     }
@@ -55672,6 +55957,10 @@ export namespace network {
          * Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
          */
         cookieBasedAffinity: string;
+        /**
+         * Whether to use a dedicated backend connection. Defaults to `false`.
+         */
+        dedicatedBackendConnectionEnabled?: boolean;
         /**
          * Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
          */
@@ -57371,6 +57660,10 @@ export namespace network {
          * Is Cookie-Based Affinity enabled?
          */
         cookieBasedAffinity: string;
+        /**
+         * Whether a dedicated backend connection is used.
+         */
+        dedicatedBackendConnectionEnabled: boolean;
         /**
          * The Hostname which is used for this HTTP Listener.
          */
@@ -59432,6 +59725,28 @@ export namespace network {
          * Tenant ID.
          */
         tenantId: string;
+    }
+
+    export interface NetworkManagerRoutingRuleDestination {
+        /**
+         * The destination address.
+         */
+        address: string;
+        /**
+         * The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+         */
+        type: string;
+    }
+
+    export interface NetworkManagerRoutingRuleNextHop {
+        /**
+         * The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+         */
+        address?: string;
+        /**
+         * The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+         */
+        type: string;
     }
 
     export interface NetworkManagerScope {
@@ -61534,6 +61849,17 @@ export namespace oracle {
         weeksOfMonths: number[];
     }
 
+    export interface ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage {
+        /**
+         * Available size in gigabytes.
+         */
+        availableSizeInGb: number;
+        /**
+         * Total capacity in gigabytes. Changing this forces a new Exadata Database Storage Vault to be created.
+         */
+        totalSizeInGb: number;
+    }
+
     export interface GetAdbsCharacterSetsCharacterSet {
         /**
          * A valid Oracle character set.
@@ -61614,6 +61940,44 @@ export namespace oracle {
          * The type of backup.
          */
         type: string;
+    }
+
+    export interface GetAutonomousDatabaseCloneFromBackupLongTermBackupSchedule {
+        /**
+         * A boolean value that indicates if long-term backup is enabled/disabled.
+         */
+        enabled: boolean;
+        /**
+         * The frequency for automated long-term backups.
+         */
+        repeatCadence: string;
+        /**
+         * The retention period in days for Autonomous database backup.
+         */
+        retentionPeriodInDays: number;
+        /**
+         * The timestamp in which the backup would be made.
+         */
+        timeOfBackupInUtc: string;
+    }
+
+    export interface GetAutonomousDatabaseCloneFromDatabaseLongTermBackupSchedule {
+        /**
+         * A boolean value that indicates if long-term backup is enabled/disabled.
+         */
+        enabled: boolean;
+        /**
+         * The frequency for automated long-term backups.
+         */
+        repeatCadence: string;
+        /**
+         * The retention period in days for Autonomous database backup.
+         */
+        retentionPeriodInDays: number;
+        /**
+         * The timestamp in which the backup would be made.
+         */
+        timeOfBackupInUtc: string;
     }
 
     export interface GetAutonomousDatabaseLongTermBackupSchedule {
@@ -62027,6 +62391,17 @@ export namespace oracle {
          * Weeks during the month when maintenance should be performed.
          */
         weeksOfMonths: number[];
+    }
+
+    export interface GetExascaleDatabaseStorageVaultHighCapacityDatabaseStorage {
+        /**
+         * Available capacity in gigabytes.
+         */
+        availableSizeInGb: number;
+        /**
+         * Total capacity in gigabytes.
+         */
+        totalSizeInGb: number;
     }
 
 }
@@ -63518,6 +63893,17 @@ export namespace postgresql {
          * > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
          */
         startMinute?: number;
+    }
+
+    export interface GetFlexibleServerHighAvailability {
+        /**
+         * The high availability mode of the PostgreSQL Flexible Server.
+         */
+        mode: string;
+        /**
+         * The availability zone of the standby Flexible Server.
+         */
+        standbyAvailabilityZone: string;
     }
 
     export interface GetServerIdentity {
@@ -66395,7 +66781,7 @@ export namespace siterecovery {
          */
         targetDiskType: string;
         /**
-         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         targetReplicaDiskType: string;
         /**
@@ -67414,6 +67800,8 @@ export namespace storage {
         name: string;
         /**
          * Should the Custom Domain Name be validated by using indirect CNAME validation?
+         *
+         * > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
          */
         useSubdomain?: boolean;
     }
@@ -67494,8 +67882,6 @@ export namespace storage {
          * > **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
          *
          * > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
-         *
-         * > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
          */
         privateLinkAccesses?: outputs.storage.AccountNetworkRulesPrivateLinkAccess[];
         /**

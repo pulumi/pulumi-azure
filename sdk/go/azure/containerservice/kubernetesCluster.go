@@ -75,7 +75,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerService` - 2025-05-01
+// * `Microsoft.ContainerService` - 2025-07-01
 //
 // ## Import
 //
@@ -89,6 +89,8 @@ type KubernetesCluster struct {
 
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrOutput `pulumi:"aciConnectorLinux"`
+	// Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+	AiToolchainOperatorEnabled pulumi.BoolPtrOutput `pulumi:"aiToolchainOperatorEnabled"`
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrOutput `pulumi:"apiServerAccessProfile"`
 	// A `autoScalerProfile` block as defined below.
@@ -367,6 +369,8 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 type kubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
+	// Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+	AiToolchainOperatorEnabled *bool `pulumi:"aiToolchainOperatorEnabled"`
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile *KubernetesClusterApiServerAccessProfile `pulumi:"apiServerAccessProfile"`
 	// A `autoScalerProfile` block as defined below.
@@ -603,6 +607,8 @@ type kubernetesClusterState struct {
 type KubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
+	// Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+	AiToolchainOperatorEnabled pulumi.BoolPtrInput
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrInput
 	// A `autoScalerProfile` block as defined below.
@@ -843,6 +849,8 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 type kubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
+	// Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+	AiToolchainOperatorEnabled *bool `pulumi:"aiToolchainOperatorEnabled"`
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile *KubernetesClusterApiServerAccessProfile `pulumi:"apiServerAccessProfile"`
 	// A `autoScalerProfile` block as defined below.
@@ -1058,6 +1066,8 @@ type kubernetesClusterArgs struct {
 type KubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
+	// Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+	AiToolchainOperatorEnabled pulumi.BoolPtrInput
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrInput
 	// A `autoScalerProfile` block as defined below.
@@ -1359,6 +1369,11 @@ func (o KubernetesClusterOutput) ToKubernetesClusterOutputWithContext(ctx contex
 // A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 func (o KubernetesClusterOutput) AciConnectorLinux() KubernetesClusterAciConnectorLinuxPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterAciConnectorLinuxPtrOutput { return v.AciConnectorLinux }).(KubernetesClusterAciConnectorLinuxPtrOutput)
+}
+
+// Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+func (o KubernetesClusterOutput) AiToolchainOperatorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.AiToolchainOperatorEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An `apiServerAccessProfile` block as defined below.

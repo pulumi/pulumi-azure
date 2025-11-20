@@ -79,6 +79,21 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="replicationRegion")
+    private @Nullable Output<String> replicationRegion;
+
+    /**
+     * @return The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> replicationRegion() {
+        return Optional.ofNullable(this.replicationRegion);
+    }
+
+    /**
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -123,6 +138,21 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="zoneRedundancyEnabled")
+    private @Nullable Output<Boolean> zoneRedundancyEnabled;
+
+    /**
+     * @return Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> zoneRedundancyEnabled() {
+        return Optional.ofNullable(this.zoneRedundancyEnabled);
+    }
+
     private NamespaceArgs() {}
 
     private NamespaceArgs(NamespaceArgs $) {
@@ -130,9 +160,11 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.namespaceType = $.namespaceType;
+        this.replicationRegion = $.replicationRegion;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
         this.tags = $.tags;
+        this.zoneRedundancyEnabled = $.zoneRedundancyEnabled;
     }
 
     public static Builder builder() {
@@ -238,6 +270,27 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param replicationRegion The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationRegion(@Nullable Output<String> replicationRegion) {
+            $.replicationRegion = replicationRegion;
+            return this;
+        }
+
+        /**
+         * @param replicationRegion The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationRegion(String replicationRegion) {
+            return replicationRegion(Output.of(replicationRegion));
+        }
+
+        /**
          * @param resourceGroupName The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -298,6 +351,27 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param zoneRedundancyEnabled Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zoneRedundancyEnabled(@Nullable Output<Boolean> zoneRedundancyEnabled) {
+            $.zoneRedundancyEnabled = zoneRedundancyEnabled;
+            return this;
+        }
+
+        /**
+         * @param zoneRedundancyEnabled Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zoneRedundancyEnabled(Boolean zoneRedundancyEnabled) {
+            return zoneRedundancyEnabled(Output.of(zoneRedundancyEnabled));
         }
 
         public NamespaceArgs build() {

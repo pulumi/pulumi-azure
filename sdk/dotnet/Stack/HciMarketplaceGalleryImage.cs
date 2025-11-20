@@ -12,6 +12,70 @@ namespace Pulumi.Azure.Stack
     /// <summary>
     /// Manages an Azure Stack HCI Marketplace Gallery Image.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "examples",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     // service principal of 'Microsoft.AzureStackHCI Resource Provider'
+    ///     var hciRp = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         ClientId = "1412d89f-b8a8-4111-b4fd-e82905cbd85d",
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         Scope = exampleResourceGroup.Id,
+    ///         RoleDefinitionName = "Azure Connected Machine Resource Manager",
+    ///         PrincipalId = hciRp.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleHciMarketplaceGalleryImage = new Azure.Stack.HciMarketplaceGalleryImage("example", new()
+    ///     {
+    ///         Name = "example-mgi",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         CustomLocationId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+    ///         HypervGeneration = "V2",
+    ///         OsType = "Windows",
+    ///         Version = "20348.2655.240905",
+    ///         Identifier = new Azure.Stack.Inputs.HciMarketplaceGalleryImageIdentifierArgs
+    ///         {
+    ///             Publisher = "MicrosoftWindowsServer",
+    ///             Offer = "WindowsServer",
+    ///             Sku = "2022-datacenter-azure-edition-core",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///             { "env", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AzureStackHCI` - 2024-01-01
+    /// 
     /// ## Import
     /// 
     /// Azure Stack HCI Marketplace Gallery Images can be imported using the `resource id`, e.g.

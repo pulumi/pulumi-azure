@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceAdditionalLocation {
     /**
-     * @return Specifies the number of units associated with this API Management service.
+     * @return The number of compute units in this region.
      * 
      */
     private Integer capacity;
@@ -50,7 +50,7 @@ public final class GetServiceAdditionalLocation {
 
     private GetServiceAdditionalLocation() {}
     /**
-     * @return Specifies the number of units associated with this API Management service.
+     * @return The number of compute units in this region.
      * 
      */
     public Integer capacity() {

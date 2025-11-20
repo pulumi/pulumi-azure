@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database` - 2025-03-01
+ * * `Oracle.Database` - 2025-09-01
  */
 export function getCloudVmCluster(args: GetCloudVmClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudVmClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -288,7 +288,7 @@ export interface GetCloudVmClusterResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database` - 2025-03-01
+ * * `Oracle.Database` - 2025-09-01
  */
 export function getCloudVmClusterOutput(args: GetCloudVmClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudVmClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

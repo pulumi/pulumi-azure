@@ -29,7 +29,7 @@ public final class JobTargetGroupJobTarget {
     /**
      * @return The ID of the job credential to use during execution of jobs.
      * 
-     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
      * 
      */
     private @Nullable String jobCredentialId;
@@ -71,7 +71,7 @@ public final class JobTargetGroupJobTarget {
     /**
      * @return The ID of the job credential to use during execution of jobs.
      * 
-     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
      * 
      */
     public Optional<String> jobCredentialId() {

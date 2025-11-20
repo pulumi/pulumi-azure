@@ -115,9 +115,17 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.allowExtensionOperations);
     }
 
+    /**
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     * 
+     */
     @Import(name="automaticUpdatesEnabled")
     private @Nullable Output<Boolean> automaticUpdatesEnabled;
 
+    /**
+     * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> automaticUpdatesEnabled() {
         return Optional.ofNullable(this.automaticUpdatesEnabled);
     }
@@ -281,8 +289,6 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-     * 
      * @deprecated
      * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      * 
@@ -292,8 +298,6 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     private @Nullable Output<Boolean> enableAutomaticUpdates;
 
     /**
-     * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-     * 
      * @deprecated
      * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      * 
@@ -1202,11 +1206,23 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
             return allowExtensionOperations(Output.of(allowExtensionOperations));
         }
 
+        /**
+         * @param automaticUpdatesEnabled Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automaticUpdatesEnabled(@Nullable Output<Boolean> automaticUpdatesEnabled) {
             $.automaticUpdatesEnabled = automaticUpdatesEnabled;
             return this;
         }
 
+        /**
+         * @param automaticUpdatesEnabled Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automaticUpdatesEnabled(Boolean automaticUpdatesEnabled) {
             return automaticUpdatesEnabled(Output.of(automaticUpdatesEnabled));
         }
@@ -1430,8 +1446,6 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enableAutomaticUpdates Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -1445,8 +1459,6 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enableAutomaticUpdates Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-         * 
          * @return builder
          * 
          * @deprecated

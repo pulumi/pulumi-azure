@@ -63,7 +63,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args) {
@@ -111,7 +111,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args) {
@@ -159,7 +159,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args, InvokeOptions options) {
@@ -207,7 +207,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args, InvokeOutputOptions options) {
@@ -255,7 +255,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args, InvokeOptions options) {
@@ -303,7 +303,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      * * `Microsoft.OperationalInsights` - 2020-08-01
      * 
@@ -353,7 +353,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      * * `Microsoft.OperationalInsights` - 2020-08-01
      * 
@@ -403,7 +403,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      * * `Microsoft.OperationalInsights` - 2020-08-01
      * 
@@ -453,7 +453,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      * * `Microsoft.OperationalInsights` - 2020-08-01
      * 
@@ -503,7 +503,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      * * `Microsoft.OperationalInsights` - 2020-08-01
      * 
@@ -559,7 +559,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args) {
@@ -613,7 +613,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetEnvironmentCertificateResult> getEnvironmentCertificatePlain(GetEnvironmentCertificatePlainArgs args) {
@@ -667,7 +667,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args, InvokeOptions options) {
@@ -721,7 +721,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args, InvokeOutputOptions options) {
@@ -775,7 +775,7 @@ public final class ContainerappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.App` - 2025-01-01
+     * * `Microsoft.App` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetEnvironmentCertificateResult> getEnvironmentCertificatePlain(GetEnvironmentCertificatePlainArgs args, InvokeOptions options) {

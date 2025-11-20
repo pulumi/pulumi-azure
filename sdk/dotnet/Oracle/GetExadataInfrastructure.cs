@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database` - 2025-03-01
+        /// * `Oracle.Database` - 2025-09-01
         /// </summary>
         public static Task<GetExadataInfrastructureResult> InvokeAsync(GetExadataInfrastructureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExadataInfrastructureResult>("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args ?? new GetExadataInfrastructureArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database` - 2025-03-01
+        /// * `Oracle.Database` - 2025-09-01
         /// </summary>
         public static Output<GetExadataInfrastructureResult> Invoke(GetExadataInfrastructureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExadataInfrastructureResult>("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args ?? new GetExadataInfrastructureInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database` - 2025-03-01
+        /// * `Oracle.Database` - 2025-09-01
         /// </summary>
         public static Output<GetExadataInfrastructureResult> Invoke(GetExadataInfrastructureInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExadataInfrastructureResult>("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args ?? new GetExadataInfrastructureInvokeArgs(), options.WithDefaults());

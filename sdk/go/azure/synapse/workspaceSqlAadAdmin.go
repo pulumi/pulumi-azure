@@ -136,7 +136,7 @@ import (
 //
 // ## Import
 //
-// Synapse Workspace Azure AD Administrator can be imported using the `resource id`, e.g.
+// Synapse Workspace Azure AD SQL Administrator can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlAdministrators/activeDirectory
@@ -144,13 +144,13 @@ import (
 type WorkspaceSqlAadAdmin struct {
 	pulumi.CustomResourceState
 
-	// The login name of the Azure AD Administrator of this Synapse Workspace.
+	// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
 	Login pulumi.StringOutput `pulumi:"login"`
-	// The object id of the Azure AD Administrator of this Synapse Workspace.
+	// The object id of the Azure AD SQL Administrator of this Synapse Workspace.
 	ObjectId pulumi.StringOutput `pulumi:"objectId"`
-	// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+	// The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
 	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
-	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+	// The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -196,24 +196,24 @@ func GetWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceSqlAadAdmin resources.
 type workspaceSqlAadAdminState struct {
-	// The login name of the Azure AD Administrator of this Synapse Workspace.
+	// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
 	Login *string `pulumi:"login"`
-	// The object id of the Azure AD Administrator of this Synapse Workspace.
+	// The object id of the Azure AD SQL Administrator of this Synapse Workspace.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+	// The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
 	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
-	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+	// The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
 	TenantId *string `pulumi:"tenantId"`
 }
 
 type WorkspaceSqlAadAdminState struct {
-	// The login name of the Azure AD Administrator of this Synapse Workspace.
+	// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
 	Login pulumi.StringPtrInput
-	// The object id of the Azure AD Administrator of this Synapse Workspace.
+	// The object id of the Azure AD SQL Administrator of this Synapse Workspace.
 	ObjectId pulumi.StringPtrInput
-	// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+	// The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
 	SynapseWorkspaceId pulumi.StringPtrInput
-	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+	// The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -222,25 +222,25 @@ func (WorkspaceSqlAadAdminState) ElementType() reflect.Type {
 }
 
 type workspaceSqlAadAdminArgs struct {
-	// The login name of the Azure AD Administrator of this Synapse Workspace.
+	// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
 	Login string `pulumi:"login"`
-	// The object id of the Azure AD Administrator of this Synapse Workspace.
+	// The object id of the Azure AD SQL Administrator of this Synapse Workspace.
 	ObjectId string `pulumi:"objectId"`
-	// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+	// The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
 	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
-	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+	// The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
 	TenantId string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a WorkspaceSqlAadAdmin resource.
 type WorkspaceSqlAadAdminArgs struct {
-	// The login name of the Azure AD Administrator of this Synapse Workspace.
+	// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
 	Login pulumi.StringInput
-	// The object id of the Azure AD Administrator of this Synapse Workspace.
+	// The object id of the Azure AD SQL Administrator of this Synapse Workspace.
 	ObjectId pulumi.StringInput
-	// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+	// The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
 	SynapseWorkspaceId pulumi.StringInput
-	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+	// The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
 	TenantId pulumi.StringInput
 }
 
@@ -331,22 +331,22 @@ func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutputWithContext(ctx 
 	return o
 }
 
-// The login name of the Azure AD Administrator of this Synapse Workspace.
+// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
 func (o WorkspaceSqlAadAdminOutput) Login() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
 }
 
-// The object id of the Azure AD Administrator of this Synapse Workspace.
+// The object id of the Azure AD SQL Administrator of this Synapse Workspace.
 func (o WorkspaceSqlAadAdminOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringOutput { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+// The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
 func (o WorkspaceSqlAadAdminOutput) SynapseWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringOutput { return v.SynapseWorkspaceId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+// The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
 func (o WorkspaceSqlAadAdminOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

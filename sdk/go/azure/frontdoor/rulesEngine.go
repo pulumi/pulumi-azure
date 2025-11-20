@@ -164,7 +164,8 @@ type RulesEngine struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The name of the Front Door instance. Changing this forces a new resource to be created.
 	FrontdoorName pulumi.StringOutput `pulumi:"frontdoorName"`
-	Location      pulumi.StringOutput `pulumi:"location"`
+	// The location in which the Front Door Rules Engine exists.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Rules engine configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group. Changing this forces a new resource to be created.
@@ -213,7 +214,8 @@ type rulesEngineState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the Front Door instance. Changing this forces a new resource to be created.
 	FrontdoorName *string `pulumi:"frontdoorName"`
-	Location      *string `pulumi:"location"`
+	// The location in which the Front Door Rules Engine exists.
+	Location *string `pulumi:"location"`
 	// The name of the Rules engine configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group. Changing this forces a new resource to be created.
@@ -227,7 +229,8 @@ type RulesEngineState struct {
 	Enabled pulumi.BoolPtrInput
 	// The name of the Front Door instance. Changing this forces a new resource to be created.
 	FrontdoorName pulumi.StringPtrInput
-	Location      pulumi.StringPtrInput
+	// The location in which the Front Door Rules Engine exists.
+	Location pulumi.StringPtrInput
 	// The name of the Rules engine configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.
@@ -364,6 +367,7 @@ func (o RulesEngineOutput) FrontdoorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RulesEngine) pulumi.StringOutput { return v.FrontdoorName }).(pulumi.StringOutput)
 }
 
+// The location in which the Front Door Rules Engine exists.
 func (o RulesEngineOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *RulesEngine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

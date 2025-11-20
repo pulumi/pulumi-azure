@@ -9,6 +9,105 @@ import * as utilities from "../utilities";
  *
  * !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudCertificate` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const example = azuread.getServicePrincipal({
+ *     displayName: "Azure Spring Cloud Resource Provider",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "keyvaultcertexample",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     accessPolicies: [
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             secretPermissions: ["Set"],
+ *             certificatePermissions: [
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Update",
+ *             ],
+ *         },
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: example.then(example => example.objectId),
+ *             secretPermissions: [
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *             certificatePermissions: [
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "cert-example",
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificatePolicy: {
+ *         issuerParameters: {
+ *             name: "Self",
+ *         },
+ *         keyProperties: {
+ *             exportable: true,
+ *             keySize: 2048,
+ *             keyType: "RSA",
+ *             reuseKey: true,
+ *         },
+ *         lifetimeActions: [{
+ *             action: {
+ *                 actionType: "AutoRenew",
+ *             },
+ *             trigger: {
+ *                 daysBeforeExpiry: 30,
+ *             },
+ *         }],
+ *         secretProperties: {
+ *             contentType: "application/x-pkcs12",
+ *         },
+ *         x509CertificateProperties: {
+ *             keyUsages: [
+ *                 "cRLSign",
+ *                 "dataEncipherment",
+ *                 "digitalSignature",
+ *                 "keyAgreement",
+ *                 "keyCertSign",
+ *                 "keyEncipherment",
+ *             ],
+ *             subject: "CN=contoso.com",
+ *             validityInMonths: 12,
+ *         },
+ *     },
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example-springcloud",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleSpringCloudCertificate = new azure.appplatform.SpringCloudCertificate("example", {
+ *     name: "example-scc",
+ *     resourceGroupName: exampleSpringCloudService.resourceGroupName,
+ *     serviceName: exampleSpringCloudService.name,
+ *     keyVaultCertificateId: exampleCertificate.id,
+ *     excludePrivateKey: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Spring Cloud Certificate can be imported using the `resource id`, e.g.

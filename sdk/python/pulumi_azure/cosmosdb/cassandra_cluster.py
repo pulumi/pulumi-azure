@@ -513,6 +513,47 @@ class CassandraCluster(pulumi.CustomResource):
 
         > **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="accexample-rg",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        example = azuread.get_service_principal(display_name="Azure Cosmos DB")
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_virtual_network.id,
+            role_definition_name="Network Contributor",
+            principal_id=example.object_id)
+        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("example",
+            name="example-cluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            delegated_management_subnet_id=example_subnet.id,
+            default_admin_password="Password1234",
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2023-04-15
+
         ## Import
 
         Cassandra Clusters can be imported using the `resource id`, e.g.
@@ -550,6 +591,47 @@ class CassandraCluster(pulumi.CustomResource):
         Manages a Cassandra Cluster.
 
         > **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="accexample-rg",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        example = azuread.get_service_principal(display_name="Azure Cosmos DB")
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_virtual_network.id,
+            role_definition_name="Network Contributor",
+            principal_id=example.object_id)
+        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("example",
+            name="example-cluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            delegated_management_subnet_id=example_subnet.id,
+            default_admin_password="Password1234",
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2023-04-15
 
         ## Import
 

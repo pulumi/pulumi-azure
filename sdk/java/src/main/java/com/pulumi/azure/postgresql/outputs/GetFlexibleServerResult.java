@@ -3,11 +3,13 @@
 
 package com.pulumi.azure.postgresql.outputs;
 
+import com.pulumi.azure.postgresql.outputs.GetFlexibleServerHighAvailability;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -38,6 +40,11 @@ public final class GetFlexibleServerResult {
      * 
      */
     private String fqdn;
+    /**
+     * @return A `highAvailability` block for this PostgreSQL Flexible Server as defined below.
+     * 
+     */
+    private List<GetFlexibleServerHighAvailability> highAvailabilities;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -75,6 +82,11 @@ public final class GetFlexibleServerResult {
      * 
      */
     private String version;
+    /**
+     * @return The Availability Zones where this PostgreSQL Flexible Server is located.
+     * 
+     */
+    private String zone;
 
     private GetFlexibleServerResult() {}
     /**
@@ -111,6 +123,13 @@ public final class GetFlexibleServerResult {
      */
     public String fqdn() {
         return this.fqdn;
+    }
+    /**
+     * @return A `highAvailability` block for this PostgreSQL Flexible Server as defined below.
+     * 
+     */
+    public List<GetFlexibleServerHighAvailability> highAvailabilities() {
+        return this.highAvailabilities;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -167,6 +186,13 @@ public final class GetFlexibleServerResult {
     public String version() {
         return this.version;
     }
+    /**
+     * @return The Availability Zones where this PostgreSQL Flexible Server is located.
+     * 
+     */
+    public String zone() {
+        return this.zone;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -182,6 +208,7 @@ public final class GetFlexibleServerResult {
         private Integer backupRetentionDays;
         private String delegatedSubnetId;
         private String fqdn;
+        private List<GetFlexibleServerHighAvailability> highAvailabilities;
         private String id;
         private String location;
         private String name;
@@ -191,6 +218,7 @@ public final class GetFlexibleServerResult {
         private Integer storageMb;
         private Map<String,String> tags;
         private String version;
+        private String zone;
         public Builder() {}
         public Builder(GetFlexibleServerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -199,6 +227,7 @@ public final class GetFlexibleServerResult {
     	      this.backupRetentionDays = defaults.backupRetentionDays;
     	      this.delegatedSubnetId = defaults.delegatedSubnetId;
     	      this.fqdn = defaults.fqdn;
+    	      this.highAvailabilities = defaults.highAvailabilities;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
@@ -208,6 +237,7 @@ public final class GetFlexibleServerResult {
     	      this.storageMb = defaults.storageMb;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
+    	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
@@ -249,6 +279,17 @@ public final class GetFlexibleServerResult {
             }
             this.fqdn = fqdn;
             return this;
+        }
+        @CustomType.Setter
+        public Builder highAvailabilities(List<GetFlexibleServerHighAvailability> highAvailabilities) {
+            if (highAvailabilities == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "highAvailabilities");
+            }
+            this.highAvailabilities = highAvailabilities;
+            return this;
+        }
+        public Builder highAvailabilities(GetFlexibleServerHighAvailability... highAvailabilities) {
+            return highAvailabilities(List.of(highAvailabilities));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -322,6 +363,14 @@ public final class GetFlexibleServerResult {
             this.version = version;
             return this;
         }
+        @CustomType.Setter
+        public Builder zone(String zone) {
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "zone");
+            }
+            this.zone = zone;
+            return this;
+        }
         public GetFlexibleServerResult build() {
             final var _resultValue = new GetFlexibleServerResult();
             _resultValue.administratorLogin = administratorLogin;
@@ -329,6 +378,7 @@ public final class GetFlexibleServerResult {
             _resultValue.backupRetentionDays = backupRetentionDays;
             _resultValue.delegatedSubnetId = delegatedSubnetId;
             _resultValue.fqdn = fqdn;
+            _resultValue.highAvailabilities = highAvailabilities;
             _resultValue.id = id;
             _resultValue.location = location;
             _resultValue.name = name;
@@ -338,6 +388,7 @@ public final class GetFlexibleServerResult {
             _resultValue.storageMb = storageMb;
             _resultValue.tags = tags;
             _resultValue.version = version;
+            _resultValue.zone = zone;
             return _resultValue;
         }
     }

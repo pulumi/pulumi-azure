@@ -14,6 +14,10 @@ namespace Pulumi.Azure.DataProtection.Outputs
     public sealed class GetBackupVaultIdentityResult
     {
         /// <summary>
+        /// The list of User Assigned Managed Identity IDs assigned to this Backup Vault.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
         /// </summary>
         public readonly string PrincipalId;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.DataProtection.Outputs
 
         [OutputConstructor]
         private GetBackupVaultIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

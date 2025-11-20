@@ -77,6 +77,8 @@ type LookupFlexibleServerResult struct {
 	DelegatedSubnetId string `pulumi:"delegatedSubnetId"`
 	// The FQDN of the PostgreSQL Flexible Server.
 	Fqdn string `pulumi:"fqdn"`
+	// A `highAvailability` block for this PostgreSQL Flexible Server as defined below.
+	HighAvailabilities []GetFlexibleServerHighAvailability `pulumi:"highAvailabilities"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the PostgreSQL Flexible Server exists.
@@ -93,6 +95,8 @@ type LookupFlexibleServerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use.
 	Version string `pulumi:"version"`
+	// The Availability Zones where this PostgreSQL Flexible Server is located.
+	Zone string `pulumi:"zone"`
 }
 
 func LookupFlexibleServerOutput(ctx *pulumi.Context, args LookupFlexibleServerOutputArgs, opts ...pulumi.InvokeOption) LookupFlexibleServerResultOutput {
@@ -156,6 +160,11 @@ func (o LookupFlexibleServerResultOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
+// A `highAvailability` block for this PostgreSQL Flexible Server as defined below.
+func (o LookupFlexibleServerResultOutput) HighAvailabilities() GetFlexibleServerHighAvailabilityArrayOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) []GetFlexibleServerHighAvailability { return v.HighAvailabilities }).(GetFlexibleServerHighAvailabilityArrayOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupFlexibleServerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Id }).(pulumi.StringOutput)
@@ -197,6 +206,11 @@ func (o LookupFlexibleServerResultOutput) Tags() pulumi.StringMapOutput {
 // The version of PostgreSQL Flexible Server to use.
 func (o LookupFlexibleServerResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// The Availability Zones where this PostgreSQL Flexible Server is located.
+func (o LookupFlexibleServerResultOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Zone }).(pulumi.StringOutput)
 }
 
 func init() {

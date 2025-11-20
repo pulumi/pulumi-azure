@@ -87,8 +87,7 @@ type LookupServiceResult struct {
 	Location string `pulumi:"location"`
 	// The URL for the Management API.
 	ManagementApiUrl string `pulumi:"managementApiUrl"`
-	// Specifies the plan's pricing tier.
-	Name string `pulumi:"name"`
+	Name             string `pulumi:"name"`
 	// The email address from which the notification will be sent.
 	NotificationSenderEmail string `pulumi:"notificationSenderEmail"`
 	// The URL of the Publisher Portal.
@@ -105,7 +104,8 @@ type LookupServiceResult struct {
 	PublisherName     string `pulumi:"publisherName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SCM (Source Code Management) endpoint.
-	ScmUrl  string `pulumi:"scmUrl"`
+	ScmUrl string `pulumi:"scmUrl"`
+	// The SKU of the API Management Service consisting of the name and capacity, separated by an underscore.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -196,7 +196,6 @@ func (o LookupServiceResultOutput) ManagementApiUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.ManagementApiUrl }).(pulumi.StringOutput)
 }
 
-// Specifies the plan's pricing tier.
 func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -245,6 +244,7 @@ func (o LookupServiceResultOutput) ScmUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.ScmUrl }).(pulumi.StringOutput)
 }
 
+// The SKU of the API Management Service consisting of the name and capacity, separated by an underscore.
 func (o LookupServiceResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.SkuName }).(pulumi.StringOutput)
 }

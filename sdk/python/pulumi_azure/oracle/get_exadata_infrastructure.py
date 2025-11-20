@@ -534,7 +534,7 @@ def get_exadata_infrastructure(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str name: The name of this Cloud Exadata Infrastructure.
@@ -609,7 +609,7 @@ def get_exadata_infrastructure_output(name: Optional[pulumi.Input[_builtins.str]
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str name: The name of this Cloud Exadata Infrastructure.

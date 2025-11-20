@@ -216,6 +216,12 @@ export class WindowsWebApp extends pulumi.CustomResource {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     declare public readonly virtualNetworkBackupRestoreEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether traffic for the image pull should be routed over the virtual network.
+     *
+     * > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+     */
+    declare public readonly virtualNetworkImagePullEnabled: pulumi.Output<boolean>;
     declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
@@ -277,6 +283,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
             resourceInputs["storageAccounts"] = state?.storageAccounts;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["virtualNetworkBackupRestoreEnabled"] = state?.virtualNetworkBackupRestoreEnabled;
+            resourceInputs["virtualNetworkImagePullEnabled"] = state?.virtualNetworkImagePullEnabled;
             resourceInputs["virtualNetworkSubnetId"] = state?.virtualNetworkSubnetId;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state?.webdeployPublishBasicAuthenticationEnabled;
             resourceInputs["zipDeployFile"] = state?.zipDeployFile;
@@ -316,6 +323,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
             resourceInputs["storageAccounts"] = args?.storageAccounts;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualNetworkBackupRestoreEnabled"] = args?.virtualNetworkBackupRestoreEnabled;
+            resourceInputs["virtualNetworkImagePullEnabled"] = args?.virtualNetworkImagePullEnabled;
             resourceInputs["virtualNetworkSubnetId"] = args?.virtualNetworkSubnetId;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args?.webdeployPublishBasicAuthenticationEnabled;
             resourceInputs["zipDeployFile"] = args?.zipDeployFile;
@@ -478,6 +486,12 @@ export interface WindowsWebAppState {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether traffic for the image pull should be routed over the virtual network.
+     *
+     * > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+     */
+    virtualNetworkImagePullEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
@@ -599,6 +613,12 @@ export interface WindowsWebAppArgs {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether traffic for the image pull should be routed over the virtual network.
+     *
+     * > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
+     */
+    virtualNetworkImagePullEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorUser {
@@ -14,7 +16,7 @@ public final class MonitorUser {
      * @return Country of the user.
      * 
      */
-    private String country;
+    private @Nullable String country;
     /**
      * @return Email of the user used by Dynatrace for contacting them if needed.
      * 
@@ -34,15 +36,15 @@ public final class MonitorUser {
      * @return phone number of the user by Dynatrace for contacting them if needed.
      * 
      */
-    private String phoneNumber;
+    private @Nullable String phoneNumber;
 
     private MonitorUser() {}
     /**
      * @return Country of the user.
      * 
      */
-    public String country() {
-        return this.country;
+    public Optional<String> country() {
+        return Optional.ofNullable(this.country);
     }
     /**
      * @return Email of the user used by Dynatrace for contacting them if needed.
@@ -69,8 +71,8 @@ public final class MonitorUser {
      * @return phone number of the user by Dynatrace for contacting them if needed.
      * 
      */
-    public String phoneNumber() {
-        return this.phoneNumber;
+    public Optional<String> phoneNumber() {
+        return Optional.ofNullable(this.phoneNumber);
     }
 
     public static Builder builder() {
@@ -82,11 +84,11 @@ public final class MonitorUser {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String country;
+        private @Nullable String country;
         private String email;
         private String firstName;
         private String lastName;
-        private String phoneNumber;
+        private @Nullable String phoneNumber;
         public Builder() {}
         public Builder(MonitorUser defaults) {
     	      Objects.requireNonNull(defaults);
@@ -98,10 +100,8 @@ public final class MonitorUser {
         }
 
         @CustomType.Setter
-        public Builder country(String country) {
-            if (country == null) {
-              throw new MissingRequiredPropertyException("MonitorUser", "country");
-            }
+        public Builder country(@Nullable String country) {
+
             this.country = country;
             return this;
         }
@@ -130,10 +130,8 @@ public final class MonitorUser {
             return this;
         }
         @CustomType.Setter
-        public Builder phoneNumber(String phoneNumber) {
-            if (phoneNumber == null) {
-              throw new MissingRequiredPropertyException("MonitorUser", "phoneNumber");
-            }
+        public Builder phoneNumber(@Nullable String phoneNumber) {
+
             this.phoneNumber = phoneNumber;
             return this;
         }

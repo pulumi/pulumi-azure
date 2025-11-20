@@ -1341,6 +1341,8 @@ type AccountCustomDomain struct {
 	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 	Name string `pulumi:"name"`
 	// Should the Custom Domain Name be validated by using indirect CNAME validation?
+	//
+	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 	UseSubdomain *bool `pulumi:"useSubdomain"`
 }
 
@@ -1359,6 +1361,8 @@ type AccountCustomDomainArgs struct {
 	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Should the Custom Domain Name be validated by using indirect CNAME validation?
+	//
+	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 	UseSubdomain pulumi.BoolPtrInput `pulumi:"useSubdomain"`
 }
 
@@ -1445,6 +1449,8 @@ func (o AccountCustomDomainOutput) Name() pulumi.StringOutput {
 }
 
 // Should the Custom Domain Name be validated by using indirect CNAME validation?
+//
+// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 func (o AccountCustomDomainOutput) UseSubdomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountCustomDomain) *bool { return v.UseSubdomain }).(pulumi.BoolPtrOutput)
 }
@@ -1484,6 +1490,8 @@ func (o AccountCustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Should the Custom Domain Name be validated by using indirect CNAME validation?
+//
+// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 func (o AccountCustomDomainPtrOutput) UseSubdomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountCustomDomain) *bool {
 		if v == nil {
@@ -2075,8 +2083,6 @@ type AccountNetworkRulesType struct {
 	// > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
 	//
 	// > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
-	//
-	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 	PrivateLinkAccesses []AccountNetworkRulesPrivateLinkAccess `pulumi:"privateLinkAccesses"`
 	// A list of resource ids for subnets.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
@@ -2107,8 +2113,6 @@ type AccountNetworkRulesTypeArgs struct {
 	// > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
 	//
 	// > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
-	//
-	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 	PrivateLinkAccesses AccountNetworkRulesPrivateLinkAccessArrayInput `pulumi:"privateLinkAccesses"`
 	// A list of resource ids for subnets.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
@@ -2213,8 +2217,6 @@ func (o AccountNetworkRulesTypeOutput) IpRules() pulumi.StringArrayOutput {
 // > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
 //
 // > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
-//
-// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 func (o AccountNetworkRulesTypeOutput) PrivateLinkAccesses() AccountNetworkRulesPrivateLinkAccessArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []AccountNetworkRulesPrivateLinkAccess { return v.PrivateLinkAccesses }).(AccountNetworkRulesPrivateLinkAccessArrayOutput)
 }
@@ -2285,8 +2287,6 @@ func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
 // > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
 //
 // > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
-//
-// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 func (o AccountNetworkRulesTypePtrOutput) PrivateLinkAccesses() AccountNetworkRulesPrivateLinkAccessArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRulesType) []AccountNetworkRulesPrivateLinkAccess {
 		if v == nil {

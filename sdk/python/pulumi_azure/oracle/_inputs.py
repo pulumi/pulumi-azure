@@ -23,6 +23,8 @@ __all__ = [
     'CloudVmClusterFileSystemConfigurationArgsDict',
     'ExadataInfrastructureMaintenanceWindowArgs',
     'ExadataInfrastructureMaintenanceWindowArgsDict',
+    'ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs',
+    'ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgsDict',
 ]
 
 MYPY = False
@@ -359,5 +361,56 @@ class ExadataInfrastructureMaintenanceWindowArgs:
     @weeks_of_months.setter
     def weeks_of_months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "weeks_of_months", value)
+
+
+if not MYPY:
+    class ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgsDict(TypedDict):
+        total_size_in_gb: pulumi.Input[_builtins.int]
+        """
+        Total capacity in gigabytes. Changing this forces a new Exadata Database Storage Vault to be created.
+        """
+        available_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Available size in gigabytes.
+        """
+elif False:
+    ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs:
+    def __init__(__self__, *,
+                 total_size_in_gb: pulumi.Input[_builtins.int],
+                 available_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] total_size_in_gb: Total capacity in gigabytes. Changing this forces a new Exadata Database Storage Vault to be created.
+        :param pulumi.Input[_builtins.int] available_size_in_gb: Available size in gigabytes.
+        """
+        pulumi.set(__self__, "total_size_in_gb", total_size_in_gb)
+        if available_size_in_gb is not None:
+            pulumi.set(__self__, "available_size_in_gb", available_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="totalSizeInGb")
+    def total_size_in_gb(self) -> pulumi.Input[_builtins.int]:
+        """
+        Total capacity in gigabytes. Changing this forces a new Exadata Database Storage Vault to be created.
+        """
+        return pulumi.get(self, "total_size_in_gb")
+
+    @total_size_in_gb.setter
+    def total_size_in_gb(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "total_size_in_gb", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availableSizeInGb")
+    def available_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Available size in gigabytes.
+        """
+        return pulumi.get(self, "available_size_in_gb")
+
+    @available_size_in_gb.setter
+    def available_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "available_size_in_gb", value)
 
 

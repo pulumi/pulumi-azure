@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Dynatrace.Outputs
         /// <summary>
         /// Country of the user.
         /// </summary>
-        public readonly string Country;
+        public readonly string? Country;
         /// <summary>
         /// Email of the user used by Dynatrace for contacting them if needed.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.Azure.Dynatrace.Outputs
         /// <summary>
         /// phone number of the user by Dynatrace for contacting them if needed.
         /// </summary>
-        public readonly string PhoneNumber;
+        public readonly string? PhoneNumber;
 
         [OutputConstructor]
         private MonitorUser(
-            string country,
+            string? country,
 
             string email,
 
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Dynatrace.Outputs
 
             string lastName,
 
-            string phoneNumber)
+            string? phoneNumber)
         {
             Country = country;
             Email = email;

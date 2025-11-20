@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Synapse Workspace Azure AD Administrator can be imported using the `resource id`, e.g.
+ * Synapse Workspace Azure AD SQL Administrator can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlAdministrators/activeDirectory
@@ -149,56 +149,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin")
 public class WorkspaceSqlAadAdmin extends com.pulumi.resources.CustomResource {
     /**
-     * The login name of the Azure AD Administrator of this Synapse Workspace.
+     * The login name of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     @Export(name="login", refs={String.class}, tree="[0]")
     private Output<String> login;
 
     /**
-     * @return The login name of the Azure AD Administrator of this Synapse Workspace.
+     * @return The login name of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     public Output<String> login() {
         return this.login;
     }
     /**
-     * The object id of the Azure AD Administrator of this Synapse Workspace.
+     * The object id of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     @Export(name="objectId", refs={String.class}, tree="[0]")
     private Output<String> objectId;
 
     /**
-     * @return The object id of the Azure AD Administrator of this Synapse Workspace.
+     * @return The object id of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     public Output<String> objectId() {
         return this.objectId;
     }
     /**
-     * The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+     * The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
      * 
      */
     @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> synapseWorkspaceId;
 
     /**
-     * @return The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+     * @return The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
      * 
      */
     public Output<String> synapseWorkspaceId() {
         return this.synapseWorkspaceId;
     }
     /**
-     * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**
-     * @return The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * @return The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     public Output<String> tenantId() {

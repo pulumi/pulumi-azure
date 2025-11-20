@@ -1059,6 +1059,63 @@ export namespace apimanagement {
         value: pulumi.Input<string>;
     }
 
+    export interface BackendCircuitBreakerRule {
+        /**
+         * Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+         */
+        acceptRetryAfterEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `failureCondition` block as defined below.
+         */
+        failureCondition: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRuleFailureCondition>;
+        /**
+         * The name of the circuit breaker rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+         */
+        tripDuration: pulumi.Input<string>;
+    }
+
+    export interface BackendCircuitBreakerRuleFailureCondition {
+        /**
+         * Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+         */
+        count?: pulumi.Input<number>;
+        /**
+         * Specifies a list of error reasons to consider as failures.
+         */
+        errorReasons?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the time window over which failures are counted, in ISO 8601 format.
+         */
+        intervalDuration: pulumi.Input<string>;
+        /**
+         * Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+         *
+         * > **Note:** Exactly one of `percentage` or `count` must be specified.
+         */
+        percentage?: pulumi.Input<number>;
+        /**
+         * One or more `statusCodeRange` blocks as defined below.
+         *
+         * > **Note:** At least one of `statusCodeRange`, and `errorReasons` must be set.
+         */
+        statusCodeRanges?: pulumi.Input<pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRuleFailureConditionStatusCodeRange>[]>;
+    }
+
+    export interface BackendCircuitBreakerRuleFailureConditionStatusCodeRange {
+        /**
+         * Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+         */
+        max: pulumi.Input<number>;
+        /**
+         * Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+         */
+        min: pulumi.Input<number>;
+    }
+
     export interface BackendCredentials {
         /**
          * An `authorization` block as defined below.
@@ -19254,7 +19311,7 @@ export namespace cognitive {
         /**
          * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
          *
-         * > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
+         * > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
          */
         bypass?: pulumi.Input<string>;
         /**
@@ -25460,7 +25517,7 @@ export namespace containerservice {
         /**
          * Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
          *
-         * > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+         * > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
          */
         hostEncryptionEnabled?: pulumi.Input<boolean>;
         /**
@@ -25525,7 +25582,7 @@ export namespace containerservice {
          */
         osDiskType?: pulumi.Input<string>;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
          */
         osSku?: pulumi.Input<string>;
         /**
@@ -25820,6 +25877,10 @@ export namespace containerservice {
          * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
          */
         nodeSoakDurationInMinutes?: pulumi.Input<number>;
+        /**
+         * Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+         */
+        undrainableNodeBehavior?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterExtensionAksAssignedIdentity {
@@ -26620,11 +26681,21 @@ export namespace containerservice {
         /**
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          */
-        maxSurge: pulumi.Input<string>;
+        maxSurge?: pulumi.Input<string>;
+        /**
+         * The maximum number or percentage of nodes which can be unavailable during the upgrade.
+         *
+         * > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+         */
+        maxUnavailable?: pulumi.Input<string>;
         /**
          * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
          */
         nodeSoakDurationInMinutes?: pulumi.Input<number>;
+        /**
+         * Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+         */
+        undrainableNodeBehavior?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterNodePoolWindowsProfile {
@@ -30716,6 +30787,10 @@ export namespace dataprotection {
 
     export interface BackupVaultIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
          */
         principalId?: pulumi.Input<string>;
@@ -30724,7 +30799,7 @@ export namespace dataprotection {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -31409,7 +31484,7 @@ export namespace dynatrace {
 
     export interface MonitorPlan {
         /**
-         * Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+         * Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
          */
         billingCycle?: pulumi.Input<string>;
         /**
@@ -31430,7 +31505,7 @@ export namespace dynatrace {
         /**
          * Country of the user.
          */
-        country: pulumi.Input<string>;
+        country?: pulumi.Input<string>;
         /**
          * Email of the user used by Dynatrace for contacting them if needed.
          */
@@ -31446,14 +31521,14 @@ export namespace dynatrace {
         /**
          * phone number of the user by Dynatrace for contacting them if needed.
          */
-        phoneNumber: pulumi.Input<string>;
+        phoneNumber?: pulumi.Input<string>;
     }
 
     export interface TagRulesLogRule {
         /**
          * Filtering tag for the log rule. A `filteringTag` block as defined below.
          */
-        filteringTags: pulumi.Input<pulumi.Input<inputs.dynatrace.TagRulesLogRuleFilteringTag>[]>;
+        filteringTags?: pulumi.Input<pulumi.Input<inputs.dynatrace.TagRulesLogRuleFilteringTag>[]>;
         /**
          * Send Activity logs. The default value is `false`.
          */
@@ -31487,7 +31562,7 @@ export namespace dynatrace {
         /**
          * Filtering tag for the metric rule. A `filteringTag` block as defined below.
          */
-        filteringTags: pulumi.Input<pulumi.Input<inputs.dynatrace.TagRulesMetricRuleFilteringTag>[]>;
+        filteringTags?: pulumi.Input<pulumi.Input<inputs.dynatrace.TagRulesMetricRuleFilteringTag>[]>;
         /**
          * If sending metrics is enabled. The default value is `false`.
          */
@@ -39612,6 +39687,90 @@ export namespace managedlustre {
     }
 }
 
+export namespace managedredis {
+    export interface ManagedRedisCustomerManagedKey {
+        /**
+         * The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name/a1b2c3d4`.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+        /**
+         * The ID of the User Assigned Identity that has access to the Key Vault Key.
+         */
+        userAssignedIdentityId: pulumi.Input<string>;
+    }
+
+    export interface ManagedRedisDefaultDatabase {
+        /**
+         * Whether access key authentication is enabled for the database. Defaults to `false`.
+         */
+        accessKeysAuthenticationEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`.
+         */
+        clientProtocol?: pulumi.Input<string>;
+        /**
+         * Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         */
+        clusteringPolicy?: pulumi.Input<string>;
+        /**
+         * Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
+         */
+        evictionPolicy?: pulumi.Input<string>;
+        /**
+         * The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         */
+        geoReplicationGroupName?: pulumi.Input<string>;
+        /**
+         * A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
+         */
+        modules?: pulumi.Input<pulumi.Input<inputs.managedredis.ManagedRedisDefaultDatabaseModule>[]>;
+        /**
+         * TCP port of the database endpoint.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * The Primary Access Key for the Managed Redis Database Instance. Only exported if `accessKeysAuthenticationEnabled` is set to `true`.
+         */
+        primaryAccessKey?: pulumi.Input<string>;
+        /**
+         * The Secondary Access Key for the Managed Redis Database Instance. Only exported if `accessKeysAuthenticationEnabled` is set to `true`.
+         */
+        secondaryAccessKey?: pulumi.Input<string>;
+    }
+
+    export interface ManagedRedisDefaultDatabaseModule {
+        /**
+         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         *
+         * > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
+         */
+        args?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Version of the module to be used.
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    export interface ManagedRedisIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Redis instance.
+         *
+         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Managed Redis instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace management {
     export interface GroupPolicyAssignmentIdentity {
         /**
@@ -40105,6 +40264,23 @@ export namespace mobile {
          * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
          */
         sliceServiceType: pulumi.Input<number>;
+    }
+}
+
+export namespace mongocluster {
+    export interface MongoClusterConnectionString {
+        /**
+         * The description of the connection string.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
+         */
+        value?: pulumi.Input<string>;
     }
 }
 
@@ -42301,7 +42477,7 @@ export namespace mssql {
         /**
          * The ID of the job credential to use during execution of jobs.
          *
-         * > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+         * > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set or the target resource is configured to use a managed identity for authentication.
          */
         jobCredentialId?: pulumi.Input<string>;
         /**
@@ -43141,7 +43317,9 @@ export namespace netapp {
          *
          * A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
          *
-         * > **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+         * > **Note:** Each destination volume can have only one `dataProtectionReplication` block configured. However, a source volume can have up to 2 destination volumes replicating from it (fan-out deployment). For more information on fan-out replication topologies, see [Understand data protection in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/data-protection-disaster-recovery-options#supported-replication-topologies).
+         *
+         * > **Note:** For cross-zone replication (when `remoteVolumeLocation` is the same as the volume's `location`), both the source and destination volumes must have a `zone` assigned. For a complete example of cross-zone-region replication with fan-out deployment, see the `./examples/netapp/cross_zone_region_replication` directory within the GitHub Repository. For more information, see [Manage cross-zone-region replication for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/cross-zone-region-replication-configure).
          */
         replicationFrequency: pulumi.Input<string>;
     }
@@ -43556,6 +43734,10 @@ export namespace network {
          * Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
          */
         cookieBasedAffinity: pulumi.Input<string>;
+        /**
+         * Whether to use a dedicated backend connection. Defaults to `false`.
+         */
+        dedicatedBackendConnectionEnabled?: pulumi.Input<boolean>;
         /**
          * Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
          */
@@ -45506,6 +45688,28 @@ export namespace network {
         tenantId?: pulumi.Input<string>;
     }
 
+    export interface NetworkManagerRoutingRuleDestination {
+        /**
+         * The destination address.
+         */
+        address: pulumi.Input<string>;
+        /**
+         * The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface NetworkManagerRoutingRuleNextHop {
+        /**
+         * The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface NetworkManagerScope {
         /**
          * A list of management group IDs.
@@ -47419,6 +47623,17 @@ export namespace oracle {
          * Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
          */
         weeksOfMonths?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage {
+        /**
+         * Available size in gigabytes.
+         */
+        availableSizeInGb?: pulumi.Input<number>;
+        /**
+         * Total capacity in gigabytes. Changing this forces a new Exadata Database Storage Vault to be created.
+         */
+        totalSizeInGb: pulumi.Input<number>;
     }
 
 }
@@ -50816,7 +51031,7 @@ export namespace siterecovery {
          */
         targetDiskType: pulumi.Input<string>;
         /**
-         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         targetReplicaDiskType: pulumi.Input<string>;
         /**
@@ -51818,6 +52033,8 @@ export namespace storage {
         name: pulumi.Input<string>;
         /**
          * Should the Custom Domain Name be validated by using indirect CNAME validation?
+         *
+         * > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
          */
         useSubdomain?: pulumi.Input<boolean>;
     }
@@ -51898,8 +52115,6 @@ export namespace storage {
          * > **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
          *
          * > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
-         *
-         * > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
          */
         privateLinkAccesses?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccess>[]>;
         /**

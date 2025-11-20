@@ -561,8 +561,13 @@ class _MongoClusterState:
         pulumi.set(self, "version", value)
 
 
+warnings.warn("""azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster""", DeprecationWarning)
+
+
 @pulumi.type_token("azure:cosmosdb/mongoCluster:MongoCluster")
 class MongoCluster(pulumi.CustomResource):
+    warnings.warn("""azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -596,7 +601,7 @@ class MongoCluster(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-rg",
             location="East US")
-        example_mongo_cluster = azure.cosmosdb.MongoCluster("example",
+        example_mongo_cluster = azure.mongocluster.MongoCluster("example",
             name="example-mc",
             resource_group_name=example.name,
             location=example.location,
@@ -617,7 +622,7 @@ class MongoCluster(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-rg",
             location="East US")
-        example_mongo_cluster = azure.cosmosdb.MongoCluster("example",
+        example_mongo_cluster = azure.mongocluster.MongoCluster("example",
             name="example-mc",
             resource_group_name=example.name,
             location=example.location,
@@ -628,7 +633,7 @@ class MongoCluster(pulumi.CustomResource):
             high_availability_mode="ZoneRedundantPreferred",
             storage_size_in_gb=64,
             preview_features=["GeoReplicas"])
-        example_geo_replica = azure.cosmosdb.MongoCluster("example_geo_replica",
+        example_geo_replica = azure.mongocluster.MongoCluster("example_geo_replica",
             name="example-mc-geo",
             resource_group_name=example.name,
             location="Central US",
@@ -642,7 +647,7 @@ class MongoCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB` - 2024-07-01
+        * `Microsoft.DocumentDB` - 2025-09-01
 
         ## Import
 
@@ -689,7 +694,7 @@ class MongoCluster(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-rg",
             location="East US")
-        example_mongo_cluster = azure.cosmosdb.MongoCluster("example",
+        example_mongo_cluster = azure.mongocluster.MongoCluster("example",
             name="example-mc",
             resource_group_name=example.name,
             location=example.location,
@@ -710,7 +715,7 @@ class MongoCluster(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-rg",
             location="East US")
-        example_mongo_cluster = azure.cosmosdb.MongoCluster("example",
+        example_mongo_cluster = azure.mongocluster.MongoCluster("example",
             name="example-mc",
             resource_group_name=example.name,
             location=example.location,
@@ -721,7 +726,7 @@ class MongoCluster(pulumi.CustomResource):
             high_availability_mode="ZoneRedundantPreferred",
             storage_size_in_gb=64,
             preview_features=["GeoReplicas"])
-        example_geo_replica = azure.cosmosdb.MongoCluster("example_geo_replica",
+        example_geo_replica = azure.mongocluster.MongoCluster("example_geo_replica",
             name="example-mc-geo",
             resource_group_name=example.name,
             location="Central US",
@@ -735,7 +740,7 @@ class MongoCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB` - 2024-07-01
+        * `Microsoft.DocumentDB` - 2025-09-01
 
         ## Import
 
@@ -777,6 +782,7 @@ class MongoCluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
+        pulumi.log.warn("""MongoCluster is deprecated: azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -804,6 +810,8 @@ class MongoCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["connection_strings"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:cosmosdb/mongoCluster:MongoCluster")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorPassword", "connectionStrings"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MongoCluster, __self__).__init__(

@@ -14,14 +14,14 @@ public final class GetPoolPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPoolPlainArgs Empty = new GetPoolPlainArgs();
 
     /**
-     * The Azure Storage Account name.
+     * The Batch Account name associated with the Batch pool.
      * 
      */
     @Import(name="accountName", required=true)
     private String accountName;
 
     /**
-     * @return The Azure Storage Account name.
+     * @return The Batch Account name associated with the Batch pool.
      * 
      */
     public String accountName() {
@@ -29,23 +29,31 @@ public final class GetPoolPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the user account.
+     * The name of the Batch pool.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the user account.
+     * @return The name of the Batch pool.
      * 
      */
     public String name() {
         return this.name;
     }
 
+    /**
+     * The name of the resource group in which the Batch pool exists.
+     * 
+     */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
+    /**
+     * @return The name of the resource group in which the Batch pool exists.
+     * 
+     */
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -77,7 +85,7 @@ public final class GetPoolPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accountName The Azure Storage Account name.
+         * @param accountName The Batch Account name associated with the Batch pool.
          * 
          * @return builder
          * 
@@ -88,7 +96,7 @@ public final class GetPoolPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the user account.
+         * @param name The name of the Batch pool.
          * 
          * @return builder
          * 
@@ -98,6 +106,12 @@ public final class GetPoolPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        /**
+         * @param resourceGroupName The name of the resource group in which the Batch pool exists.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;

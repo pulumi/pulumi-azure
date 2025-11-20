@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getVirtualHubRouteTable(args: GetVirtualHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,7 +106,7 @@ export interface GetVirtualHubRouteTableResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getVirtualHubRouteTableOutput(args: GetVirtualHubRouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHubRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

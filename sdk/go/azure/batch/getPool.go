@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.LookupPool(ctx, &batch.LookupPoolArgs{
-//				Name:              "testbatchpool",
-//				AccountName:       "testbatchaccount",
-//				ResourceGroupName: "test",
+//				Name:              "examplebatchpool",
+//				AccountName:       "examplebatchaccount",
+//				ResourceGroupName: "example",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -59,10 +59,11 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getPool.
 type LookupPoolArgs struct {
-	// The Azure Storage Account name.
+	// The Batch Account name associated with the Batch pool.
 	AccountName string `pulumi:"accountName"`
-	// The name of the user account.
-	Name              string `pulumi:"name"`
+	// The name of the Batch pool.
+	Name string `pulumi:"name"`
+	// The name of the resource group in which the Batch pool exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -131,10 +132,11 @@ func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getPool.
 type LookupPoolOutputArgs struct {
-	// The Azure Storage Account name.
+	// The Batch Account name associated with the Batch pool.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The name of the user account.
-	Name              pulumi.StringInput `pulumi:"name"`
+	// The name of the Batch pool.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group in which the Batch pool exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 

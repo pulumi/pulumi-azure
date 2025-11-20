@@ -24,6 +24,7 @@ class KubernetesClusterArgs:
                  default_node_pool: pulumi.Input['KubernetesClusterDefaultNodePoolArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
+                 ai_toolchain_operator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
                  auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
@@ -83,6 +84,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        :param pulumi.Input[_builtins.bool] ai_toolchain_operator_enabled: Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
         :param pulumi.Input['KubernetesClusterApiServerAccessProfileArgs'] api_server_access_profile: An `api_server_access_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[_builtins.str] automatic_upgrade_channel: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -206,6 +208,8 @@ class KubernetesClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
+        if ai_toolchain_operator_enabled is not None:
+            pulumi.set(__self__, "ai_toolchain_operator_enabled", ai_toolchain_operator_enabled)
         if api_server_access_profile is not None:
             pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
         if auto_scaler_profile is not None:
@@ -350,6 +354,18 @@ class KubernetesClusterArgs:
     @aci_connector_linux.setter
     def aci_connector_linux(self, value: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]):
         pulumi.set(self, "aci_connector_linux", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aiToolchainOperatorEnabled")
+    def ai_toolchain_operator_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+        """
+        return pulumi.get(self, "ai_toolchain_operator_enabled")
+
+    @ai_toolchain_operator_enabled.setter
+    def ai_toolchain_operator_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "ai_toolchain_operator_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="apiServerAccessProfile")
@@ -1068,6 +1084,7 @@ class KubernetesClusterArgs:
 class _KubernetesClusterState:
     def __init__(__self__, *,
                  aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
+                 ai_toolchain_operator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
                  auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1138,6 +1155,7 @@ class _KubernetesClusterState:
         """
         Input properties used for looking up and filtering KubernetesCluster resources.
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        :param pulumi.Input[_builtins.bool] ai_toolchain_operator_enabled: Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
         :param pulumi.Input['KubernetesClusterApiServerAccessProfileArgs'] api_server_access_profile: An `api_server_access_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[_builtins.str] automatic_upgrade_channel: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -1272,6 +1290,8 @@ class _KubernetesClusterState:
         """
         if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
+        if ai_toolchain_operator_enabled is not None:
+            pulumi.set(__self__, "ai_toolchain_operator_enabled", ai_toolchain_operator_enabled)
         if api_server_access_profile is not None:
             pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
         if auto_scaler_profile is not None:
@@ -1418,6 +1438,18 @@ class _KubernetesClusterState:
     @aci_connector_linux.setter
     def aci_connector_linux(self, value: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]):
         pulumi.set(self, "aci_connector_linux", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aiToolchainOperatorEnabled")
+    def ai_toolchain_operator_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+        """
+        return pulumi.get(self, "ai_toolchain_operator_enabled")
+
+    @ai_toolchain_operator_enabled.setter
+    def ai_toolchain_operator_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "ai_toolchain_operator_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="apiServerAccessProfile")
@@ -2295,6 +2327,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aci_connector_linux: Optional[pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']]] = None,
+                 ai_toolchain_operator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  api_server_access_profile: Optional[pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2393,7 +2426,7 @@ class KubernetesCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerService` - 2025-05-01
+        * `Microsoft.ContainerService` - 2025-07-01
 
         ## Import
 
@@ -2406,6 +2439,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        :param pulumi.Input[_builtins.bool] ai_toolchain_operator_enabled: Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
         :param pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']] api_server_access_profile: An `api_server_access_profile` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[_builtins.str] automatic_upgrade_channel: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -2574,7 +2608,7 @@ class KubernetesCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerService` - 2025-05-01
+        * `Microsoft.ContainerService` - 2025-07-01
 
         ## Import
 
@@ -2600,6 +2634,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aci_connector_linux: Optional[pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']]] = None,
+                 ai_toolchain_operator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  api_server_access_profile: Optional[pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2666,6 +2701,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__ = KubernetesClusterArgs.__new__(KubernetesClusterArgs)
 
             __props__.__dict__["aci_connector_linux"] = aci_connector_linux
+            __props__.__dict__["ai_toolchain_operator_enabled"] = ai_toolchain_operator_enabled
             __props__.__dict__["api_server_access_profile"] = api_server_access_profile
             __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
             __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
@@ -2750,6 +2786,7 @@ class KubernetesCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aci_connector_linux: Optional[pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']]] = None,
+            ai_toolchain_operator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             api_server_access_profile: Optional[pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']]] = None,
             auto_scaler_profile: Optional[pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']]] = None,
             automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2825,6 +2862,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        :param pulumi.Input[_builtins.bool] ai_toolchain_operator_enabled: Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
         :param pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']] api_server_access_profile: An `api_server_access_profile` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[_builtins.str] automatic_upgrade_channel: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -2962,6 +3000,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__ = _KubernetesClusterState.__new__(_KubernetesClusterState)
 
         __props__.__dict__["aci_connector_linux"] = aci_connector_linux
+        __props__.__dict__["ai_toolchain_operator_enabled"] = ai_toolchain_operator_enabled
         __props__.__dict__["api_server_access_profile"] = api_server_access_profile
         __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
         __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
@@ -3038,6 +3077,14 @@ class KubernetesCluster(pulumi.CustomResource):
         A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         """
         return pulumi.get(self, "aci_connector_linux")
+
+    @_builtins.property
+    @pulumi.getter(name="aiToolchainOperatorEnabled")
+    def ai_toolchain_operator_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
+        """
+        return pulumi.get(self, "ai_toolchain_operator_enabled")
 
     @_builtins.property
     @pulumi.getter(name="apiServerAccessProfile")

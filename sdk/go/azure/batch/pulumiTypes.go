@@ -6723,7 +6723,7 @@ func (o GetPoolDiskEncryptionArrayOutput) Index(i pulumi.IntInput) GetPoolDiskEn
 type GetPoolExtension struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion bool `pulumi:"autoUpgradeMinorVersion"`
-	// The name of the user account.
+	// The name of the Batch pool.
 	Name string `pulumi:"name"`
 	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
 	ProtectedSettings string `pulumi:"protectedSettings"`
@@ -6753,7 +6753,7 @@ type GetPoolExtensionInput interface {
 type GetPoolExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolInput `pulumi:"autoUpgradeMinorVersion"`
-	// The name of the user account.
+	// The name of the Batch pool.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
 	ProtectedSettings pulumi.StringInput `pulumi:"protectedSettings"`
@@ -6825,7 +6825,7 @@ func (o GetPoolExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPoolExtension) bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolOutput)
 }
 
-// The name of the user account.
+// The name of the Batch pool.
 func (o GetPoolExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolExtension) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7122,7 +7122,7 @@ func (o GetPoolMountArrayOutput) Index(i pulumi.IntInput) GetPoolMountOutput {
 type GetPoolMountAzureBlobFileSystem struct {
 	// The Azure Storage Account key.
 	AccountKey string `pulumi:"accountKey"`
-	// The Azure Storage Account name.
+	// The Batch Account name associated with the Batch pool.
 	AccountName string `pulumi:"accountName"`
 	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 	BlobfuseOptions string `pulumi:"blobfuseOptions"`
@@ -7150,7 +7150,7 @@ type GetPoolMountAzureBlobFileSystemInput interface {
 type GetPoolMountAzureBlobFileSystemArgs struct {
 	// The Azure Storage Account key.
 	AccountKey pulumi.StringInput `pulumi:"accountKey"`
-	// The Azure Storage Account name.
+	// The Batch Account name associated with the Batch pool.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 	BlobfuseOptions pulumi.StringInput `pulumi:"blobfuseOptions"`
@@ -7220,7 +7220,7 @@ func (o GetPoolMountAzureBlobFileSystemOutput) AccountKey() pulumi.StringOutput 
 	return o.ApplyT(func(v GetPoolMountAzureBlobFileSystem) string { return v.AccountKey }).(pulumi.StringOutput)
 }
 
-// The Azure Storage Account name.
+// The Batch Account name associated with the Batch pool.
 func (o GetPoolMountAzureBlobFileSystemOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolMountAzureBlobFileSystem) string { return v.AccountName }).(pulumi.StringOutput)
 }
@@ -7273,7 +7273,7 @@ func (o GetPoolMountAzureBlobFileSystemArrayOutput) Index(i pulumi.IntInput) Get
 type GetPoolMountAzureFileShare struct {
 	// The Azure Storage Account key.
 	AccountKey string `pulumi:"accountKey"`
-	// The Azure Storage Account name.
+	// The Batch Account name associated with the Batch pool.
 	AccountName string `pulumi:"accountName"`
 	// The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
 	AzureFileUrl string `pulumi:"azureFileUrl"`
@@ -7297,7 +7297,7 @@ type GetPoolMountAzureFileShareInput interface {
 type GetPoolMountAzureFileShareArgs struct {
 	// The Azure Storage Account key.
 	AccountKey pulumi.StringInput `pulumi:"accountKey"`
-	// The Azure Storage Account name.
+	// The Batch Account name associated with the Batch pool.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
 	AzureFileUrl pulumi.StringInput `pulumi:"azureFileUrl"`
@@ -7363,7 +7363,7 @@ func (o GetPoolMountAzureFileShareOutput) AccountKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolMountAzureFileShare) string { return v.AccountKey }).(pulumi.StringOutput)
 }
 
-// The Azure Storage Account name.
+// The Batch Account name associated with the Batch pool.
 func (o GetPoolMountAzureFileShareOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolMountAzureFileShare) string { return v.AccountName }).(pulumi.StringOutput)
 }
@@ -7797,7 +7797,7 @@ type GetPoolNetworkConfigurationEndpointConfiguration struct {
 	BackendPort int `pulumi:"backendPort"`
 	// The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
 	FrontendPortRange string `pulumi:"frontendPortRange"`
-	// The name of the user account.
+	// The name of the Batch pool.
 	Name string `pulumi:"name"`
 	// The list of network security group rules that are applied to the endpoint.
 	NetworkSecurityGroupRules []GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule `pulumi:"networkSecurityGroupRules"`
@@ -7821,7 +7821,7 @@ type GetPoolNetworkConfigurationEndpointConfigurationArgs struct {
 	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
 	FrontendPortRange pulumi.StringInput `pulumi:"frontendPortRange"`
-	// The name of the user account.
+	// The name of the Batch pool.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The list of network security group rules that are applied to the endpoint.
 	NetworkSecurityGroupRules GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
@@ -7890,7 +7890,7 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) FrontendPortRang
 	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.FrontendPortRange }).(pulumi.StringOutput)
 }
 
-// The name of the user account.
+// The name of the Batch pool.
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9144,7 +9144,7 @@ type GetPoolUserAccount struct {
 	ElevationLevel string `pulumi:"elevationLevel"`
 	// The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
 	LinuxUserConfigurations []GetPoolUserAccountLinuxUserConfiguration `pulumi:"linuxUserConfigurations"`
-	// The name of the user account.
+	// The name of the Batch pool.
 	Name string `pulumi:"name"`
 	// The password for the user account.
 	Password string `pulumi:"password"`
@@ -9168,7 +9168,7 @@ type GetPoolUserAccountArgs struct {
 	ElevationLevel pulumi.StringInput `pulumi:"elevationLevel"`
 	// The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
 	LinuxUserConfigurations GetPoolUserAccountLinuxUserConfigurationArrayInput `pulumi:"linuxUserConfigurations"`
-	// The name of the user account.
+	// The name of the Batch pool.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The password for the user account.
 	Password pulumi.StringInput `pulumi:"password"`
@@ -9239,7 +9239,7 @@ func (o GetPoolUserAccountOutput) LinuxUserConfigurations() GetPoolUserAccountLi
 	}).(GetPoolUserAccountLinuxUserConfigurationArrayOutput)
 }
 
-// The name of the user account.
+// The name of the Batch pool.
 func (o GetPoolUserAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolUserAccount) string { return v.Name }).(pulumi.StringOutput)
 }

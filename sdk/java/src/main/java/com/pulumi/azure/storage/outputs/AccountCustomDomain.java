@@ -21,6 +21,8 @@ public final class AccountCustomDomain {
     /**
      * @return Should the Custom Domain Name be validated by using indirect CNAME validation?
      * 
+     * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+     * 
      */
     private @Nullable Boolean useSubdomain;
 
@@ -34,6 +36,8 @@ public final class AccountCustomDomain {
     }
     /**
      * @return Should the Custom Domain Name be validated by using indirect CNAME validation?
+     * 
+     * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
      * 
      */
     public Optional<Boolean> useSubdomain() {

@@ -3661,7 +3661,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param _builtins.str gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param _builtins.bool host_encryption_enabled: Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
                
-               > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+               > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
         :param _builtins.str host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param _builtins.str kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
@@ -3677,7 +3677,7 @@ class KubernetesClusterDefaultNodePool(dict):
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param _builtins.int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         :param _builtins.str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param _builtins.str os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        :param _builtins.str os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
         :param _builtins.str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
         :param _builtins.str proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param _builtins.str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
@@ -3829,7 +3829,7 @@ class KubernetesClusterDefaultNodePool(dict):
         """
         Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
 
-        > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+        > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
         """
         return pulumi.get(self, "host_encryption_enabled")
 
@@ -3958,7 +3958,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[_builtins.str]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
         """
         return pulumi.get(self, "os_sku")
 
@@ -4891,6 +4891,8 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
             suggest = "drain_timeout_in_minutes"
         elif key == "nodeSoakDurationInMinutes":
             suggest = "node_soak_duration_in_minutes"
+        elif key == "undrainableNodeBehavior":
+            suggest = "undrainable_node_behavior"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterDefaultNodePoolUpgradeSettings. Access the value via the '{suggest}' property getter instead.")
@@ -4906,19 +4908,23 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
     def __init__(__self__, *,
                  max_surge: _builtins.str,
                  drain_timeout_in_minutes: Optional[_builtins.int] = None,
-                 node_soak_duration_in_minutes: Optional[_builtins.int] = None):
+                 node_soak_duration_in_minutes: Optional[_builtins.int] = None,
+                 undrainable_node_behavior: Optional[_builtins.str] = None):
         """
         :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
                
                > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+        :param _builtins.str undrainable_node_behavior: Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
         """
         pulumi.set(__self__, "max_surge", max_surge)
         if drain_timeout_in_minutes is not None:
             pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
         if node_soak_duration_in_minutes is not None:
             pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
+        if undrainable_node_behavior is not None:
+            pulumi.set(__self__, "undrainable_node_behavior", undrainable_node_behavior)
 
     @_builtins.property
     @pulumi.getter(name="maxSurge")
@@ -4945,6 +4951,14 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
         The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
         """
         return pulumi.get(self, "node_soak_duration_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="undrainableNodeBehavior")
+    def undrainable_node_behavior(self) -> Optional[_builtins.str]:
+        """
+        Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+        """
+        return pulumi.get(self, "undrainable_node_behavior")
 
 
 @pulumi.output_type
@@ -7881,12 +7895,16 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maxSurge":
-            suggest = "max_surge"
-        elif key == "drainTimeoutInMinutes":
+        if key == "drainTimeoutInMinutes":
             suggest = "drain_timeout_in_minutes"
+        elif key == "maxSurge":
+            suggest = "max_surge"
+        elif key == "maxUnavailable":
+            suggest = "max_unavailable"
         elif key == "nodeSoakDurationInMinutes":
             suggest = "node_soak_duration_in_minutes"
+        elif key == "undrainableNodeBehavior":
+            suggest = "undrainable_node_behavior"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNodePoolUpgradeSettings. Access the value via the '{suggest}' property getter instead.")
@@ -7900,27 +7918,30 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 max_surge: _builtins.str,
                  drain_timeout_in_minutes: Optional[_builtins.int] = None,
-                 node_soak_duration_in_minutes: Optional[_builtins.int] = None):
+                 max_surge: Optional[_builtins.str] = None,
+                 max_unavailable: Optional[_builtins.str] = None,
+                 node_soak_duration_in_minutes: Optional[_builtins.int] = None,
+                 undrainable_node_behavior: Optional[_builtins.str] = None):
         """
-        :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        :param _builtins.str max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
+               
+               > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+        :param _builtins.str undrainable_node_behavior: Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
         """
-        pulumi.set(__self__, "max_surge", max_surge)
         if drain_timeout_in_minutes is not None:
             pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
+        if max_surge is not None:
+            pulumi.set(__self__, "max_surge", max_surge)
+        if max_unavailable is not None:
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
         if node_soak_duration_in_minutes is not None:
             pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
-
-    @_builtins.property
-    @pulumi.getter(name="maxSurge")
-    def max_surge(self) -> _builtins.str:
-        """
-        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
-        """
-        return pulumi.get(self, "max_surge")
+        if undrainable_node_behavior is not None:
+            pulumi.set(__self__, "undrainable_node_behavior", undrainable_node_behavior)
 
     @_builtins.property
     @pulumi.getter(name="drainTimeoutInMinutes")
@@ -7931,12 +7952,38 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
         return pulumi.get(self, "drain_timeout_in_minutes")
 
     @_builtins.property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> Optional[_builtins.str]:
+        """
+        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        return pulumi.get(self, "max_surge")
+
+    @_builtins.property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> Optional[_builtins.str]:
+        """
+        The maximum number or percentage of nodes which can be unavailable during the upgrade.
+
+        > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
+        """
+        return pulumi.get(self, "max_unavailable")
+
+    @_builtins.property
     @pulumi.getter(name="nodeSoakDurationInMinutes")
     def node_soak_duration_in_minutes(self) -> Optional[_builtins.int]:
         """
         The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
         """
         return pulumi.get(self, "node_soak_duration_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="undrainableNodeBehavior")
+    def undrainable_node_behavior(self) -> Optional[_builtins.str]:
+        """
+        Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+        """
+        return pulumi.get(self, "undrainable_node_behavior")
 
 
 @pulumi.output_type
@@ -10250,15 +10297,21 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
     def __init__(__self__, *,
                  drain_timeout_in_minutes: _builtins.int,
                  max_surge: _builtins.str,
-                 node_soak_duration_in_minutes: _builtins.int):
+                 max_unavailable: _builtins.str,
+                 node_soak_duration_in_minutes: _builtins.int,
+                 undrainable_node_behavior: _builtins.str):
         """
         :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        :param _builtins.str max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+        :param _builtins.str undrainable_node_behavior: The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
         """
         pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
         pulumi.set(__self__, "max_surge", max_surge)
+        pulumi.set(__self__, "max_unavailable", max_unavailable)
         pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
+        pulumi.set(__self__, "undrainable_node_behavior", undrainable_node_behavior)
 
     @_builtins.property
     @pulumi.getter(name="drainTimeoutInMinutes")
@@ -10277,12 +10330,28 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
         return pulumi.get(self, "max_surge")
 
     @_builtins.property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> _builtins.str:
+        """
+        The maximum number or percentage of nodes which can be unavailable during the upgrade.
+        """
+        return pulumi.get(self, "max_unavailable")
+
+    @_builtins.property
     @pulumi.getter(name="nodeSoakDurationInMinutes")
     def node_soak_duration_in_minutes(self) -> _builtins.int:
         """
         The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
         """
         return pulumi.get(self, "node_soak_duration_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="undrainableNodeBehavior")
+    def undrainable_node_behavior(self) -> _builtins.str:
+        """
+        The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+        """
+        return pulumi.get(self, "undrainable_node_behavior")
 
 
 @pulumi.output_type
@@ -10567,15 +10636,20 @@ class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
     def __init__(__self__, *,
                  drain_timeout_in_minutes: _builtins.int,
                  max_surge: _builtins.str,
-                 node_soak_duration_in_minutes: _builtins.int):
+                 max_unavailable: _builtins.str,
+                 node_soak_duration_in_minutes: _builtins.int,
+                 undrainable_node_behavior: _builtins.str):
         """
         :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         :param _builtins.str max_surge: The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
+        :param _builtins.str undrainable_node_behavior: The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
         """
         pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
         pulumi.set(__self__, "max_surge", max_surge)
+        pulumi.set(__self__, "max_unavailable", max_unavailable)
         pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
+        pulumi.set(__self__, "undrainable_node_behavior", undrainable_node_behavior)
 
     @_builtins.property
     @pulumi.getter(name="drainTimeoutInMinutes")
@@ -10594,12 +10668,25 @@ class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
         return pulumi.get(self, "max_surge")
 
     @_builtins.property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> _builtins.str:
+        return pulumi.get(self, "max_unavailable")
+
+    @_builtins.property
     @pulumi.getter(name="nodeSoakDurationInMinutes")
     def node_soak_duration_in_minutes(self) -> _builtins.int:
         """
         The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
         """
         return pulumi.get(self, "node_soak_duration_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="undrainableNodeBehavior")
+    def undrainable_node_behavior(self) -> _builtins.str:
+        """
+        The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+        """
+        return pulumi.get(self, "undrainable_node_behavior")
 
 
 @pulumi.output_type

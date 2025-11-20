@@ -90,6 +90,7 @@ class WindowsVirtualMachineArgs:
                
                > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] automatic_updates_enabled: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
@@ -104,7 +105,6 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[_builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[_builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
-        :param pulumi.Input[_builtins.bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
@@ -393,6 +393,9 @@ class WindowsVirtualMachineArgs:
     @_builtins.property
     @pulumi.getter(name="automaticUpdatesEnabled")
     def automatic_updates_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+        """
         return pulumi.get(self, "automatic_updates_enabled")
 
     @automatic_updates_enabled.setter
@@ -527,9 +530,6 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter(name="enableAutomaticUpdates")
     @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
     def enable_automatic_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-        """
         return pulumi.get(self, "enable_automatic_updates")
 
     @enable_automatic_updates.setter
@@ -1035,6 +1035,7 @@ class _WindowsVirtualMachineState:
                
                > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] automatic_updates_enabled: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
@@ -1049,7 +1050,6 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[_builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[_builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
-        :param pulumi.Input[_builtins.bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
@@ -1313,6 +1313,9 @@ class _WindowsVirtualMachineState:
     @_builtins.property
     @pulumi.getter(name="automaticUpdatesEnabled")
     def automatic_updates_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+        """
         return pulumi.get(self, "automatic_updates_enabled")
 
     @automatic_updates_enabled.setter
@@ -1447,9 +1450,6 @@ class _WindowsVirtualMachineState:
     @pulumi.getter(name="enableAutomaticUpdates")
     @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
     def enable_automatic_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-        """
         return pulumi.get(self, "enable_automatic_updates")
 
     @enable_automatic_updates.setter
@@ -2142,6 +2142,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                
                > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] automatic_updates_enabled: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
@@ -2156,7 +2157,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[_builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
-        :param pulumi.Input[_builtins.bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
@@ -2541,6 +2541,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                
                > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] automatic_updates_enabled: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
@@ -2555,7 +2556,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[_builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
-        :param pulumi.Input[_builtins.bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
@@ -2739,6 +2739,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="automaticUpdatesEnabled")
     def automatic_updates_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+        """
         return pulumi.get(self, "automatic_updates_enabled")
 
     @_builtins.property
@@ -2829,9 +2832,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="enableAutomaticUpdates")
     @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
     def enable_automatic_updates(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-        """
         return pulumi.get(self, "enable_automatic_updates")
 
     @_builtins.property

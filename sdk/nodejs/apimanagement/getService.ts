@@ -96,9 +96,6 @@ export interface GetServiceResult {
      * The URL for the Management API.
      */
     readonly managementApiUrl: string;
-    /**
-     * Specifies the plan's pricing tier.
-     */
     readonly name: string;
     /**
      * The email address from which the notification will be sent.
@@ -133,6 +130,9 @@ export interface GetServiceResult {
      * The SCM (Source Code Management) endpoint.
      */
     readonly scmUrl: string;
+    /**
+     * The SKU of the API Management Service consisting of the name and capacity, separated by an underscore.
+     */
     readonly skuName: string;
     /**
      * A mapping of tags assigned to the resource.

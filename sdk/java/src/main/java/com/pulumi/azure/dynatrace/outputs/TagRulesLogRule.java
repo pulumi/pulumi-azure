@@ -5,7 +5,6 @@ package com.pulumi.azure.dynatrace.outputs;
 
 import com.pulumi.azure.dynatrace.outputs.TagRulesLogRuleFilteringTag;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -18,7 +17,7 @@ public final class TagRulesLogRule {
      * @return Filtering tag for the log rule. A `filteringTag` block as defined below.
      * 
      */
-    private List<TagRulesLogRuleFilteringTag> filteringTags;
+    private @Nullable List<TagRulesLogRuleFilteringTag> filteringTags;
     /**
      * @return Send Activity logs. The default value is `false`.
      * 
@@ -41,7 +40,7 @@ public final class TagRulesLogRule {
      * 
      */
     public List<TagRulesLogRuleFilteringTag> filteringTags() {
-        return this.filteringTags;
+        return this.filteringTags == null ? List.of() : this.filteringTags;
     }
     /**
      * @return Send Activity logs. The default value is `false`.
@@ -74,7 +73,7 @@ public final class TagRulesLogRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<TagRulesLogRuleFilteringTag> filteringTags;
+        private @Nullable List<TagRulesLogRuleFilteringTag> filteringTags;
         private @Nullable Boolean sendActivityLogsEnabled;
         private @Nullable Boolean sendAzureActiveDirectoryLogsEnabled;
         private @Nullable Boolean sendSubscriptionLogsEnabled;
@@ -88,10 +87,8 @@ public final class TagRulesLogRule {
         }
 
         @CustomType.Setter
-        public Builder filteringTags(List<TagRulesLogRuleFilteringTag> filteringTags) {
-            if (filteringTags == null) {
-              throw new MissingRequiredPropertyException("TagRulesLogRule", "filteringTags");
-            }
+        public Builder filteringTags(@Nullable List<TagRulesLogRuleFilteringTag> filteringTags) {
+
             this.filteringTags = filteringTags;
             return this;
         }

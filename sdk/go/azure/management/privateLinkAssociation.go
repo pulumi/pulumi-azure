@@ -55,12 +55,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUuid, err := random.NewUuid(ctx, "example", nil)
+//			exampleRandomUuid, err := random.NewRandomUuid(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-//				Name:                            exampleUuid.Result,
+//				Name:                            exampleRandomUuid.Result,
 //				ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
 //				ResourceManagementPrivateLinkId: examplePrivateLink.ID(),
 //				PublicNetworkAccessEnabled:      pulumi.Bool(true),

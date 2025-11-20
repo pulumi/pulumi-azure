@@ -64,7 +64,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetEndpointConnectionResult> getEndpointConnection(GetEndpointConnectionArgs args) {
@@ -113,7 +113,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetEndpointConnectionResult> getEndpointConnectionPlain(GetEndpointConnectionPlainArgs args) {
@@ -162,7 +162,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetEndpointConnectionResult> getEndpointConnection(GetEndpointConnectionArgs args, InvokeOptions options) {
@@ -211,7 +211,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetEndpointConnectionResult> getEndpointConnection(GetEndpointConnectionArgs args, InvokeOutputOptions options) {
@@ -260,7 +260,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetEndpointConnectionResult> getEndpointConnectionPlain(GetEndpointConnectionPlainArgs args, InvokeOptions options) {
@@ -309,7 +309,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -358,7 +358,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -407,7 +407,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -456,7 +456,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
@@ -505,7 +505,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -554,7 +554,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetServiceEndpointConnectionsResult> getServiceEndpointConnections(GetServiceEndpointConnectionsArgs args) {
@@ -603,7 +603,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetServiceEndpointConnectionsResult> getServiceEndpointConnectionsPlain(GetServiceEndpointConnectionsPlainArgs args) {
@@ -652,7 +652,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetServiceEndpointConnectionsResult> getServiceEndpointConnections(GetServiceEndpointConnectionsArgs args, InvokeOptions options) {
@@ -701,7 +701,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetServiceEndpointConnectionsResult> getServiceEndpointConnections(GetServiceEndpointConnectionsArgs args, InvokeOutputOptions options) {
@@ -750,7 +750,7 @@ public final class PrivatelinkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-05-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetServiceEndpointConnectionsResult> getServiceEndpointConnectionsPlain(GetServiceEndpointConnectionsPlainArgs args, InvokeOptions options) {

@@ -235,7 +235,7 @@ def get_firewall(dns_proxy_enabled: Optional[_builtins.bool] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2024-05-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
@@ -288,7 +288,7 @@ def get_firewall_output(dns_proxy_enabled: Optional[pulumi.Input[Optional[_built
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2024-05-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.

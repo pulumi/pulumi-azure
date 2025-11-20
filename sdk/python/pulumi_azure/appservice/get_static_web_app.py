@@ -83,26 +83,41 @@ class GetStaticWebAppResult:
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> _builtins.str:
+        """
+        The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
+        """
         return pulumi.get(self, "api_key")
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Mapping[str, _builtins.str]:
+        """
+        The map of key-value pairs of App Settings for the Static Web App.
+        """
         return pulumi.get(self, "app_settings")
 
     @_builtins.property
     @pulumi.getter(name="basicAuths")
     def basic_auths(self) -> Sequence['outputs.GetStaticWebAppBasicAuthResult']:
+        """
+        A `basic_auth` block as defined below.
+        """
         return pulumi.get(self, "basic_auths")
 
     @_builtins.property
     @pulumi.getter(name="configurationFileChangesEnabled")
     def configuration_file_changes_enabled(self) -> _builtins.bool:
+        """
+        Are changes to the configuration file permitted.
+        """
         return pulumi.get(self, "configuration_file_changes_enabled")
 
     @_builtins.property
     @pulumi.getter(name="defaultHostName")
     def default_host_name(self) -> _builtins.str:
+        """
+        The default host name of the Static Web App.
+        """
         return pulumi.get(self, "default_host_name")
 
     @_builtins.property
@@ -116,11 +131,17 @@ class GetStaticWebAppResult:
     @_builtins.property
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetStaticWebAppIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
         return pulumi.get(self, "identities")
 
     @_builtins.property
     @pulumi.getter
     def location(self) -> _builtins.str:
+        """
+        The Azure region in which this Static Web App exists.
+        """
         return pulumi.get(self, "location")
 
     @_builtins.property
@@ -131,21 +152,33 @@ class GetStaticWebAppResult:
     @_builtins.property
     @pulumi.getter(name="previewEnvironmentsEnabled")
     def preview_environments_enabled(self) -> _builtins.bool:
+        """
+        Are Preview (Staging) environments enabled.
+        """
         return pulumi.get(self, "preview_environments_enabled")
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> _builtins.bool:
+        """
+        Should public network access be enabled for the Static Web App.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @_builtins.property
     @pulumi.getter(name="repositoryBranch")
     def repository_branch(self) -> _builtins.str:
+        """
+        Repository branch of the Static Web App.
+        """
         return pulumi.get(self, "repository_branch")
 
     @_builtins.property
     @pulumi.getter(name="repositoryUrl")
     def repository_url(self) -> _builtins.str:
+        """
+        Repository URL of the Static Web App.
+        """
         return pulumi.get(self, "repository_url")
 
     @_builtins.property
@@ -156,16 +189,25 @@ class GetStaticWebAppResult:
     @_builtins.property
     @pulumi.getter(name="skuSize")
     def sku_size(self) -> _builtins.str:
+        """
+        The SKU size of the Static Web App.
+        """
         return pulumi.get(self, "sku_size")
 
     @_builtins.property
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> _builtins.str:
+        """
+        The SKU tier of the Static Web App.
+        """
         return pulumi.get(self, "sku_tier")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        The mapping of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
 

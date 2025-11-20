@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const server = new random.index.Id("server", {
+ * const server = new random.RandomId("server", {
  *     keepers: {
- *         aziId: 1,
+ *         azi_id: "1",
  *     },
  *     byteLength: 8,
  * });

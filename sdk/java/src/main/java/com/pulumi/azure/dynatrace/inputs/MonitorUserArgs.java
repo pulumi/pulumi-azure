@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +20,15 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
      * Country of the user.
      * 
      */
-    @Import(name="country", required=true)
-    private Output<String> country;
+    @Import(name="country")
+    private @Nullable Output<String> country;
 
     /**
      * @return Country of the user.
      * 
      */
-    public Output<String> country() {
-        return this.country;
+    public Optional<Output<String>> country() {
+        return Optional.ofNullable(this.country);
     }
 
     /**
@@ -78,15 +80,15 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
      * phone number of the user by Dynatrace for contacting them if needed.
      * 
      */
-    @Import(name="phoneNumber", required=true)
-    private Output<String> phoneNumber;
+    @Import(name="phoneNumber")
+    private @Nullable Output<String> phoneNumber;
 
     /**
      * @return phone number of the user by Dynatrace for contacting them if needed.
      * 
      */
-    public Output<String> phoneNumber() {
-        return this.phoneNumber;
+    public Optional<Output<String>> phoneNumber() {
+        return Optional.ofNullable(this.phoneNumber);
     }
 
     private MonitorUserArgs() {}
@@ -123,7 +125,7 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder country(Output<String> country) {
+        public Builder country(@Nullable Output<String> country) {
             $.country = country;
             return this;
         }
@@ -207,7 +209,7 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder phoneNumber(Output<String> phoneNumber) {
+        public Builder phoneNumber(@Nullable Output<String> phoneNumber) {
             $.phoneNumber = phoneNumber;
             return this;
         }
@@ -223,9 +225,6 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MonitorUserArgs build() {
-            if ($.country == null) {
-                throw new MissingRequiredPropertyException("MonitorUserArgs", "country");
-            }
             if ($.email == null) {
                 throw new MissingRequiredPropertyException("MonitorUserArgs", "email");
             }
@@ -234,9 +233,6 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.lastName == null) {
                 throw new MissingRequiredPropertyException("MonitorUserArgs", "lastName");
-            }
-            if ($.phoneNumber == null) {
-                throw new MissingRequiredPropertyException("MonitorUserArgs", "phoneNumber");
             }
             return $;
         }

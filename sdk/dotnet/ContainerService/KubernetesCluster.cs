@@ -67,7 +67,7 @@ namespace Pulumi.Azure.ContainerService
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ContainerService` - 2025-05-01
+    /// * `Microsoft.ContainerService` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -85,6 +85,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("aciConnectorLinux")]
         public Output<Outputs.KubernetesClusterAciConnectorLinux?> AciConnectorLinux { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `False`.
+        /// </summary>
+        [Output("aiToolchainOperatorEnabled")]
+        public Output<bool?> AiToolchainOperatorEnabled { get; private set; } = null!;
 
         /// <summary>
         /// An `ApiServerAccessProfile` block as defined below.
@@ -637,6 +643,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterAciConnectorLinuxArgs>? AciConnectorLinux { get; set; }
 
         /// <summary>
+        /// Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `False`.
+        /// </summary>
+        [Input("aiToolchainOperatorEnabled")]
+        public Input<bool>? AiToolchainOperatorEnabled { get; set; }
+
+        /// <summary>
         /// An `ApiServerAccessProfile` block as defined below.
         /// </summary>
         [Input("apiServerAccessProfile")]
@@ -1086,6 +1098,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAciConnectorLinuxGetArgs>? AciConnectorLinux { get; set; }
+
+        /// <summary>
+        /// Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `False`.
+        /// </summary>
+        [Input("aiToolchainOperatorEnabled")]
+        public Input<bool>? AiToolchainOperatorEnabled { get; set; }
 
         /// <summary>
         /// An `ApiServerAccessProfile` block as defined below.

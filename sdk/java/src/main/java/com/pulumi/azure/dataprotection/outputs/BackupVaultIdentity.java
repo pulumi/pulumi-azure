@@ -6,12 +6,18 @@ package com.pulumi.azure.dataprotection.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class BackupVaultIdentity {
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+     * 
+     */
+    private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
      * 
@@ -23,12 +29,19 @@ public final class BackupVaultIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     private String type;
 
     private BackupVaultIdentity() {}
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+     * 
+     */
+    public List<String> identityIds() {
+        return this.identityIds == null ? List.of() : this.identityIds;
+    }
     /**
      * @return The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
      * 
@@ -44,7 +57,7 @@ public final class BackupVaultIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     public String type() {
@@ -60,17 +73,28 @@ public final class BackupVaultIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(BackupVaultIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(@Nullable List<String> identityIds) {
+
+            this.identityIds = identityIds;
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
 
@@ -93,6 +117,7 @@ public final class BackupVaultIdentity {
         }
         public BackupVaultIdentity build() {
             final var _resultValue = new BackupVaultIdentity();
+            _resultValue.identityIds = identityIds;
             _resultValue.principalId = principalId;
             _resultValue.tenantId = tenantId;
             _resultValue.type = type;

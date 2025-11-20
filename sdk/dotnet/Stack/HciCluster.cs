@@ -12,6 +12,55 @@ namespace Pulumi.Azure.Stack
     /// <summary>
     /// Manages an Azure Stack HCI Cluster.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = AzureAD.GetApplication.Invoke(new()
+    ///     {
+    ///         DisplayName = "Allowed resource types",
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleHciCluster = new Azure.Stack.HciCluster("example", new()
+    ///     {
+    ///         Name = "example-cluster",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClientId = example.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         Identity = new Azure.Stack.Inputs.HciClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AutoManage` - 2022-05-04
+    /// 
+    /// * `Microsoft.AzureStackHCI` - 2024-01-01, 2022-05-04
+    /// 
     /// ## Import
     /// 
     /// Azure Stack HCI Clusters can be imported using the `resource id`, e.g.

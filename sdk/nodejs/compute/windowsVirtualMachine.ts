@@ -143,6 +143,9 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     declare public readonly allowExtensionOperations: pulumi.Output<boolean>;
+    /**
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     */
     declare public readonly automaticUpdatesEnabled: pulumi.Output<boolean>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -189,8 +192,6 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-     *
      * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      */
     declare public readonly enableAutomaticUpdates: pulumi.Output<boolean>;
@@ -574,6 +575,9 @@ export interface WindowsVirtualMachineState {
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     allowExtensionOperations?: pulumi.Input<boolean>;
+    /**
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     */
     automaticUpdatesEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -620,8 +624,6 @@ export interface WindowsVirtualMachineState {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-     *
      * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      */
     enableAutomaticUpdates?: pulumi.Input<boolean>;
@@ -853,6 +855,9 @@ export interface WindowsVirtualMachineArgs {
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     allowExtensionOperations?: pulumi.Input<boolean>;
+    /**
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     */
     automaticUpdatesEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -899,8 +904,6 @@ export interface WindowsVirtualMachineArgs {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-     *
      * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      */
     enableAutomaticUpdates?: pulumi.Input<boolean>;

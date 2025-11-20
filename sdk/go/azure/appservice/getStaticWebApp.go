@@ -66,24 +66,38 @@ type LookupStaticWebAppArgs struct {
 
 // A collection of values returned by getStaticWebApp.
 type LookupStaticWebAppResult struct {
-	ApiKey                          string                     `pulumi:"apiKey"`
-	AppSettings                     map[string]string          `pulumi:"appSettings"`
-	BasicAuths                      []GetStaticWebAppBasicAuth `pulumi:"basicAuths"`
-	ConfigurationFileChangesEnabled bool                       `pulumi:"configurationFileChangesEnabled"`
-	DefaultHostName                 string                     `pulumi:"defaultHostName"`
+	// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
+	ApiKey string `pulumi:"apiKey"`
+	// The map of key-value pairs of App Settings for the Static Web App.
+	AppSettings map[string]string `pulumi:"appSettings"`
+	// A `basicAuth` block as defined below.
+	BasicAuths []GetStaticWebAppBasicAuth `pulumi:"basicAuths"`
+	// Are changes to the configuration file permitted.
+	ConfigurationFileChangesEnabled bool `pulumi:"configurationFileChangesEnabled"`
+	// The default host name of the Static Web App.
+	DefaultHostName string `pulumi:"defaultHostName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                         string                    `pulumi:"id"`
-	Identities                 []GetStaticWebAppIdentity `pulumi:"identities"`
-	Location                   string                    `pulumi:"location"`
-	Name                       string                    `pulumi:"name"`
-	PreviewEnvironmentsEnabled bool                      `pulumi:"previewEnvironmentsEnabled"`
-	PublicNetworkAccessEnabled bool                      `pulumi:"publicNetworkAccessEnabled"`
-	RepositoryBranch           string                    `pulumi:"repositoryBranch"`
-	RepositoryUrl              string                    `pulumi:"repositoryUrl"`
-	ResourceGroupName          string                    `pulumi:"resourceGroupName"`
-	SkuSize                    string                    `pulumi:"skuSize"`
-	SkuTier                    string                    `pulumi:"skuTier"`
-	Tags                       map[string]string         `pulumi:"tags"`
+	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
+	Identities []GetStaticWebAppIdentity `pulumi:"identities"`
+	// The Azure region in which this Static Web App exists.
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
+	// Are Preview (Staging) environments enabled.
+	PreviewEnvironmentsEnabled bool `pulumi:"previewEnvironmentsEnabled"`
+	// Should public network access be enabled for the Static Web App.
+	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
+	// Repository branch of the Static Web App.
+	RepositoryBranch string `pulumi:"repositoryBranch"`
+	// Repository URL of the Static Web App.
+	RepositoryUrl     string `pulumi:"repositoryUrl"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The SKU size of the Static Web App.
+	SkuSize string `pulumi:"skuSize"`
+	// The SKU tier of the Static Web App.
+	SkuTier string `pulumi:"skuTier"`
+	// The mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupStaticWebAppOutput(ctx *pulumi.Context, args LookupStaticWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupStaticWebAppResultOutput {
@@ -122,22 +136,27 @@ func (o LookupStaticWebAppResultOutput) ToLookupStaticWebAppResultOutputWithCont
 	return o
 }
 
+// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 func (o LookupStaticWebAppResultOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.ApiKey }).(pulumi.StringOutput)
 }
 
+// The map of key-value pairs of App Settings for the Static Web App.
 func (o LookupStaticWebAppResultOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) map[string]string { return v.AppSettings }).(pulumi.StringMapOutput)
 }
 
+// A `basicAuth` block as defined below.
 func (o LookupStaticWebAppResultOutput) BasicAuths() GetStaticWebAppBasicAuthArrayOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) []GetStaticWebAppBasicAuth { return v.BasicAuths }).(GetStaticWebAppBasicAuthArrayOutput)
 }
 
+// Are changes to the configuration file permitted.
 func (o LookupStaticWebAppResultOutput) ConfigurationFileChangesEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) bool { return v.ConfigurationFileChangesEnabled }).(pulumi.BoolOutput)
 }
 
+// The default host name of the Static Web App.
 func (o LookupStaticWebAppResultOutput) DefaultHostName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.DefaultHostName }).(pulumi.StringOutput)
 }
@@ -147,10 +166,12 @@ func (o LookupStaticWebAppResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// An `identity` block as defined below.
 func (o LookupStaticWebAppResultOutput) Identities() GetStaticWebAppIdentityArrayOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) []GetStaticWebAppIdentity { return v.Identities }).(GetStaticWebAppIdentityArrayOutput)
 }
 
+// The Azure region in which this Static Web App exists.
 func (o LookupStaticWebAppResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -159,18 +180,22 @@ func (o LookupStaticWebAppResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Are Preview (Staging) environments enabled.
 func (o LookupStaticWebAppResultOutput) PreviewEnvironmentsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) bool { return v.PreviewEnvironmentsEnabled }).(pulumi.BoolOutput)
 }
 
+// Should public network access be enabled for the Static Web App.
 func (o LookupStaticWebAppResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
+// Repository branch of the Static Web App.
 func (o LookupStaticWebAppResultOutput) RepositoryBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.RepositoryBranch }).(pulumi.StringOutput)
 }
 
+// Repository URL of the Static Web App.
 func (o LookupStaticWebAppResultOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
@@ -179,14 +204,17 @@ func (o LookupStaticWebAppResultOutput) ResourceGroupName() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The SKU size of the Static Web App.
 func (o LookupStaticWebAppResultOutput) SkuSize() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.SkuSize }).(pulumi.StringOutput)
 }
 
+// The SKU tier of the Static Web App.
 func (o LookupStaticWebAppResultOutput) SkuTier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.SkuTier }).(pulumi.StringOutput)
 }
 
+// The mapping of tags assigned to the resource.
 func (o LookupStaticWebAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -8,18 +8,26 @@ import typing
 # Export this package's modules as members:
 from .autonomous_database import *
 from .autonomous_database_backup import *
+from .autonomous_database_clone_from_backup import *
+from .autonomous_database_clone_from_database import *
 from .cloud_vm_cluster import *
 from .exadata_infrastructure import *
+from .exascale_database_storage_vault import *
 from .get_adbs_character_sets import *
 from .get_adbs_national_character_sets import *
 from .get_autonomous_database import *
 from .get_autonomous_database_backup import *
 from .get_autonomous_database_backups import *
+from .get_autonomous_database_clone_from_backup import *
+from .get_autonomous_database_clone_from_database import *
 from .get_cloud_vm_cluster import *
 from .get_db_nodes import *
 from .get_db_servers import *
 from .get_db_system_shapes import *
 from .get_exadata_infrastructure import *
+from .get_exascale_database_storage_vault import *
 from .get_gi_versions import *
+from .get_resource_anchor import *
+from .resource_anchor import *
 from ._inputs import *
 from . import outputs

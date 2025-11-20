@@ -32,11 +32,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			server, err := random.NewId(ctx, "server", &random.IdArgs{
-//				Keepers: map[string]interface{}{
-//					"aziId": 1,
+//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+//				Keepers: pulumi.StringMap{
+//					"azi_id": pulumi.String("1"),
 //				},
-//				ByteLength: 8,
+//				ByteLength: pulumi.Int(8),
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +49,9 @@ import (
 //				return err
 //			}
 //			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
-//				Name:              pulumi.Sprintf("redis%v", server.Hex),
+//				Name: server.Hex.ApplyT(func(hex string) (string, error) {
+//					return fmt.Sprintf("redis%v", hex), nil
+//				}).(pulumi.StringOutput),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Capacity:          pulumi.Int(1),

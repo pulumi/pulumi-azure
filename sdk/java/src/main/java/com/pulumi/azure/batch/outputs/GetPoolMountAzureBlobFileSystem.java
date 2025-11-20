@@ -16,7 +16,7 @@ public final class GetPoolMountAzureBlobFileSystem {
      */
     private String accountKey;
     /**
-     * @return The Azure Storage Account name.
+     * @return The Batch Account name associated with the Batch pool.
      * 
      */
     private String accountName;
@@ -55,7 +55,7 @@ public final class GetPoolMountAzureBlobFileSystem {
         return this.accountKey;
     }
     /**
-     * @return The Azure Storage Account name.
+     * @return The Batch Account name associated with the Batch pool.
      * 
      */
     public String accountName() {

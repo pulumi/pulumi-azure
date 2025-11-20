@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.App` - 2025-01-01
+ * * `Microsoft.App` - 2025-07-01
  *
  * * `Microsoft.OperationalInsights` - 2020-08-01
  *
@@ -151,6 +151,10 @@ export class Environment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly platformReservedDnsIpAddress: pulumi.Output<string>;
     /**
+     * The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+     */
+    declare public readonly publicNetworkAccess: pulumi.Output<string>;
+    /**
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
@@ -201,6 +205,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["platformReservedCidr"] = state?.platformReservedCidr;
             resourceInputs["platformReservedDnsIpAddress"] = state?.platformReservedDnsIpAddress;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["staticIpAddress"] = state?.staticIpAddress;
             resourceInputs["tags"] = state?.tags;
@@ -221,6 +226,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["logsDestination"] = args?.logsDestination;
             resourceInputs["mutualTlsEnabled"] = args?.mutualTlsEnabled;
             resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["workloadProfiles"] = args?.workloadProfiles;
@@ -314,6 +320,10 @@ export interface EnvironmentState {
      */
     platformReservedDnsIpAddress?: pulumi.Input<string>;
     /**
+     * The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -391,6 +401,10 @@ export interface EnvironmentArgs {
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      */

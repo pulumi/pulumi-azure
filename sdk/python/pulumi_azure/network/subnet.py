@@ -39,8 +39,6 @@ class SubnetArgs:
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: The address prefixes to use for the subnet.
                
-               > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-               
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.bool] default_outbound_access_enabled: Enable default outbound access to the internet for the subnet. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]] delegations: One or more `delegation` blocks as defined below.
@@ -120,8 +118,6 @@ class SubnetArgs:
     def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The address prefixes to use for the subnet.
-
-        > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 
         > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         """
@@ -275,8 +271,6 @@ class _SubnetState:
         Input properties used for looking up and filtering Subnet resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: The address prefixes to use for the subnet.
                
-               > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-               
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.bool] default_outbound_access_enabled: Enable default outbound access to the internet for the subnet. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]] delegations: One or more `delegation` blocks as defined below.
@@ -336,8 +330,6 @@ class _SubnetState:
     def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The address prefixes to use for the subnet.
-
-        > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 
         > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         """
@@ -558,7 +550,7 @@ class Subnet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2024-05-01
+        * `Microsoft.Network` - 2025-01-01
 
         ## Import
 
@@ -571,8 +563,6 @@ class Subnet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: The address prefixes to use for the subnet.
-               
-               > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.bool] default_outbound_access_enabled: Enable default outbound access to the internet for the subnet. Defaults to `true`.
@@ -652,7 +642,7 @@ class Subnet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2024-05-01
+        * `Microsoft.Network` - 2025-01-01
 
         ## Import
 
@@ -745,8 +735,6 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: The address prefixes to use for the subnet.
                
-               > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-               
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.bool] default_outbound_access_enabled: Enable default outbound access to the internet for the subnet. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]] delegations: One or more `delegation` blocks as defined below.
@@ -799,8 +787,6 @@ class Subnet(pulumi.CustomResource):
     def address_prefixes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         The address prefixes to use for the subnet.
-
-        > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
 
         > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         """

@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -257,7 +257,7 @@ export interface GetPublicIPResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getPublicIPOutput(args: GetPublicIPOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIPResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -161,6 +161,9 @@ namespace Pulumi.Azure.Compute
         [Output("allowExtensionOperations")]
         public Output<bool> AllowExtensionOperations { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `True`.
+        /// </summary>
         [Output("automaticUpdatesEnabled")]
         public Output<bool> AutomaticUpdatesEnabled { get; private set; } = null!;
 
@@ -228,9 +231,6 @@ namespace Pulumi.Azure.Compute
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `True`.
-        /// </summary>
         [Output("enableAutomaticUpdates")]
         public Output<bool> EnableAutomaticUpdates { get; private set; } = null!;
 
@@ -615,6 +615,9 @@ namespace Pulumi.Azure.Compute
         [Input("allowExtensionOperations")]
         public Input<bool>? AllowExtensionOperations { get; set; }
 
+        /// <summary>
+        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `True`.
+        /// </summary>
         [Input("automaticUpdatesEnabled")]
         public Input<bool>? AutomaticUpdatesEnabled { get; set; }
 
@@ -692,9 +695,6 @@ namespace Pulumi.Azure.Compute
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        /// <summary>
-        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `True`.
-        /// </summary>
         [Input("enableAutomaticUpdates")]
         public Input<bool>? EnableAutomaticUpdates { get; set; }
 
@@ -1036,6 +1036,9 @@ namespace Pulumi.Azure.Compute
         [Input("allowExtensionOperations")]
         public Input<bool>? AllowExtensionOperations { get; set; }
 
+        /// <summary>
+        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `True`.
+        /// </summary>
         [Input("automaticUpdatesEnabled")]
         public Input<bool>? AutomaticUpdatesEnabled { get; set; }
 
@@ -1113,9 +1116,6 @@ namespace Pulumi.Azure.Compute
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        /// <summary>
-        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `True`.
-        /// </summary>
         [Input("enableAutomaticUpdates")]
         public Input<bool>? EnableAutomaticUpdates { get; set; }
 

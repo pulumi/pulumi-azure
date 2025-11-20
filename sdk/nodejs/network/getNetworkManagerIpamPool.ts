@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getNetworkManagerIpamPool(args: GetNetworkManagerIpamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerIpamPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -145,7 +145,7 @@ export interface GetNetworkManagerIpamPoolResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getNetworkManagerIpamPoolOutput(args: GetNetworkManagerIpamPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkManagerIpamPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

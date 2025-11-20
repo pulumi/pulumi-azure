@@ -23,8 +23,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The address prefixes to use for the subnet.
      * 
-     * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-     * 
      * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      * 
      */
@@ -33,8 +31,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The address prefixes to use for the subnet.
-     * 
-     * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
      * 
      * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      * 
@@ -278,8 +274,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param addressPrefixes The address prefixes to use for the subnet.
          * 
-         * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-         * 
          * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
          * 
          * @return builder
@@ -293,8 +287,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param addressPrefixes The address prefixes to use for the subnet.
          * 
-         * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-         * 
          * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
          * 
          * @return builder
@@ -306,8 +298,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param addressPrefixes The address prefixes to use for the subnet.
-         * 
-         * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
          * 
          * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
          * 

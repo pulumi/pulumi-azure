@@ -24,7 +24,7 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
      */
     private String frontendPortRange;
     /**
-     * @return The name of the user account.
+     * @return The name of the Batch pool.
      * 
      */
     private String name;
@@ -55,7 +55,7 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
         return this.frontendPortRange;
     }
     /**
-     * @return The name of the user account.
+     * @return The name of the Batch pool.
      * 
      */
     public String name() {

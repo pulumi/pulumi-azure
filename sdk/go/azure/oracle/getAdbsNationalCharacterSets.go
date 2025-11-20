@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Oracle.Database` - 2025-03-01
+// * `Oracle.Database` - 2025-09-01
 func GetAdbsNationalCharacterSets(ctx *pulumi.Context, args *GetAdbsNationalCharacterSetsArgs, opts ...pulumi.InvokeOption) (*GetAdbsNationalCharacterSetsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAdbsNationalCharacterSetsResult

@@ -6149,6 +6149,537 @@ func (o AuthorizationServerTokenBodyParameterArrayOutput) Index(i pulumi.IntInpu
 	}).(AuthorizationServerTokenBodyParameterOutput)
 }
 
+type BackendCircuitBreakerRule struct {
+	// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+	AcceptRetryAfterEnabled *bool `pulumi:"acceptRetryAfterEnabled"`
+	// A `failureCondition` block as defined below.
+	FailureCondition BackendCircuitBreakerRuleFailureCondition `pulumi:"failureCondition"`
+	// The name of the circuit breaker rule.
+	Name string `pulumi:"name"`
+	// Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+	TripDuration string `pulumi:"tripDuration"`
+}
+
+// BackendCircuitBreakerRuleInput is an input type that accepts BackendCircuitBreakerRuleArgs and BackendCircuitBreakerRuleOutput values.
+// You can construct a concrete instance of `BackendCircuitBreakerRuleInput` via:
+//
+//	BackendCircuitBreakerRuleArgs{...}
+type BackendCircuitBreakerRuleInput interface {
+	pulumi.Input
+
+	ToBackendCircuitBreakerRuleOutput() BackendCircuitBreakerRuleOutput
+	ToBackendCircuitBreakerRuleOutputWithContext(context.Context) BackendCircuitBreakerRuleOutput
+}
+
+type BackendCircuitBreakerRuleArgs struct {
+	// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+	AcceptRetryAfterEnabled pulumi.BoolPtrInput `pulumi:"acceptRetryAfterEnabled"`
+	// A `failureCondition` block as defined below.
+	FailureCondition BackendCircuitBreakerRuleFailureConditionInput `pulumi:"failureCondition"`
+	// The name of the circuit breaker rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+	TripDuration pulumi.StringInput `pulumi:"tripDuration"`
+}
+
+func (BackendCircuitBreakerRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendCircuitBreakerRule)(nil)).Elem()
+}
+
+func (i BackendCircuitBreakerRuleArgs) ToBackendCircuitBreakerRuleOutput() BackendCircuitBreakerRuleOutput {
+	return i.ToBackendCircuitBreakerRuleOutputWithContext(context.Background())
+}
+
+func (i BackendCircuitBreakerRuleArgs) ToBackendCircuitBreakerRuleOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendCircuitBreakerRuleOutput)
+}
+
+func (i BackendCircuitBreakerRuleArgs) ToBackendCircuitBreakerRulePtrOutput() BackendCircuitBreakerRulePtrOutput {
+	return i.ToBackendCircuitBreakerRulePtrOutputWithContext(context.Background())
+}
+
+func (i BackendCircuitBreakerRuleArgs) ToBackendCircuitBreakerRulePtrOutputWithContext(ctx context.Context) BackendCircuitBreakerRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendCircuitBreakerRuleOutput).ToBackendCircuitBreakerRulePtrOutputWithContext(ctx)
+}
+
+// BackendCircuitBreakerRulePtrInput is an input type that accepts BackendCircuitBreakerRuleArgs, BackendCircuitBreakerRulePtr and BackendCircuitBreakerRulePtrOutput values.
+// You can construct a concrete instance of `BackendCircuitBreakerRulePtrInput` via:
+//
+//	        BackendCircuitBreakerRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackendCircuitBreakerRulePtrInput interface {
+	pulumi.Input
+
+	ToBackendCircuitBreakerRulePtrOutput() BackendCircuitBreakerRulePtrOutput
+	ToBackendCircuitBreakerRulePtrOutputWithContext(context.Context) BackendCircuitBreakerRulePtrOutput
+}
+
+type backendCircuitBreakerRulePtrType BackendCircuitBreakerRuleArgs
+
+func BackendCircuitBreakerRulePtr(v *BackendCircuitBreakerRuleArgs) BackendCircuitBreakerRulePtrInput {
+	return (*backendCircuitBreakerRulePtrType)(v)
+}
+
+func (*backendCircuitBreakerRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackendCircuitBreakerRule)(nil)).Elem()
+}
+
+func (i *backendCircuitBreakerRulePtrType) ToBackendCircuitBreakerRulePtrOutput() BackendCircuitBreakerRulePtrOutput {
+	return i.ToBackendCircuitBreakerRulePtrOutputWithContext(context.Background())
+}
+
+func (i *backendCircuitBreakerRulePtrType) ToBackendCircuitBreakerRulePtrOutputWithContext(ctx context.Context) BackendCircuitBreakerRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendCircuitBreakerRulePtrOutput)
+}
+
+type BackendCircuitBreakerRuleOutput struct{ *pulumi.OutputState }
+
+func (BackendCircuitBreakerRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendCircuitBreakerRule)(nil)).Elem()
+}
+
+func (o BackendCircuitBreakerRuleOutput) ToBackendCircuitBreakerRuleOutput() BackendCircuitBreakerRuleOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRuleOutput) ToBackendCircuitBreakerRuleOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRuleOutput) ToBackendCircuitBreakerRulePtrOutput() BackendCircuitBreakerRulePtrOutput {
+	return o.ToBackendCircuitBreakerRulePtrOutputWithContext(context.Background())
+}
+
+func (o BackendCircuitBreakerRuleOutput) ToBackendCircuitBreakerRulePtrOutputWithContext(ctx context.Context) BackendCircuitBreakerRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendCircuitBreakerRule) *BackendCircuitBreakerRule {
+		return &v
+	}).(BackendCircuitBreakerRulePtrOutput)
+}
+
+// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+func (o BackendCircuitBreakerRuleOutput) AcceptRetryAfterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRule) *bool { return v.AcceptRetryAfterEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `failureCondition` block as defined below.
+func (o BackendCircuitBreakerRuleOutput) FailureCondition() BackendCircuitBreakerRuleFailureConditionOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRule) BackendCircuitBreakerRuleFailureCondition { return v.FailureCondition }).(BackendCircuitBreakerRuleFailureConditionOutput)
+}
+
+// The name of the circuit breaker rule.
+func (o BackendCircuitBreakerRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+func (o BackendCircuitBreakerRuleOutput) TripDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRule) string { return v.TripDuration }).(pulumi.StringOutput)
+}
+
+type BackendCircuitBreakerRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackendCircuitBreakerRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackendCircuitBreakerRule)(nil)).Elem()
+}
+
+func (o BackendCircuitBreakerRulePtrOutput) ToBackendCircuitBreakerRulePtrOutput() BackendCircuitBreakerRulePtrOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRulePtrOutput) ToBackendCircuitBreakerRulePtrOutputWithContext(ctx context.Context) BackendCircuitBreakerRulePtrOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRulePtrOutput) Elem() BackendCircuitBreakerRuleOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRule) BackendCircuitBreakerRule {
+		if v != nil {
+			return *v
+		}
+		var ret BackendCircuitBreakerRule
+		return ret
+	}).(BackendCircuitBreakerRuleOutput)
+}
+
+// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+func (o BackendCircuitBreakerRulePtrOutput) AcceptRetryAfterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptRetryAfterEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `failureCondition` block as defined below.
+func (o BackendCircuitBreakerRulePtrOutput) FailureCondition() BackendCircuitBreakerRuleFailureConditionPtrOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRule) *BackendCircuitBreakerRuleFailureCondition {
+		if v == nil {
+			return nil
+		}
+		return &v.FailureCondition
+	}).(BackendCircuitBreakerRuleFailureConditionPtrOutput)
+}
+
+// The name of the circuit breaker rule.
+func (o BackendCircuitBreakerRulePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+func (o BackendCircuitBreakerRulePtrOutput) TripDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TripDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackendCircuitBreakerRuleFailureCondition struct {
+	// Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+	Count *int `pulumi:"count"`
+	// Specifies a list of error reasons to consider as failures.
+	ErrorReasons []string `pulumi:"errorReasons"`
+	// Specifies the time window over which failures are counted, in ISO 8601 format.
+	IntervalDuration string `pulumi:"intervalDuration"`
+	// Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+	//
+	// > **Note:** Exactly one of `percentage` or `count` must be specified.
+	Percentage *int `pulumi:"percentage"`
+	// One or more `statusCodeRange` blocks as defined below.
+	//
+	// > **Note:** At least one of `statusCodeRange`, and `errorReasons` must be set.
+	StatusCodeRanges []BackendCircuitBreakerRuleFailureConditionStatusCodeRange `pulumi:"statusCodeRanges"`
+}
+
+// BackendCircuitBreakerRuleFailureConditionInput is an input type that accepts BackendCircuitBreakerRuleFailureConditionArgs and BackendCircuitBreakerRuleFailureConditionOutput values.
+// You can construct a concrete instance of `BackendCircuitBreakerRuleFailureConditionInput` via:
+//
+//	BackendCircuitBreakerRuleFailureConditionArgs{...}
+type BackendCircuitBreakerRuleFailureConditionInput interface {
+	pulumi.Input
+
+	ToBackendCircuitBreakerRuleFailureConditionOutput() BackendCircuitBreakerRuleFailureConditionOutput
+	ToBackendCircuitBreakerRuleFailureConditionOutputWithContext(context.Context) BackendCircuitBreakerRuleFailureConditionOutput
+}
+
+type BackendCircuitBreakerRuleFailureConditionArgs struct {
+	// Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Specifies a list of error reasons to consider as failures.
+	ErrorReasons pulumi.StringArrayInput `pulumi:"errorReasons"`
+	// Specifies the time window over which failures are counted, in ISO 8601 format.
+	IntervalDuration pulumi.StringInput `pulumi:"intervalDuration"`
+	// Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+	//
+	// > **Note:** Exactly one of `percentage` or `count` must be specified.
+	Percentage pulumi.IntPtrInput `pulumi:"percentage"`
+	// One or more `statusCodeRange` blocks as defined below.
+	//
+	// > **Note:** At least one of `statusCodeRange`, and `errorReasons` must be set.
+	StatusCodeRanges BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayInput `pulumi:"statusCodeRanges"`
+}
+
+func (BackendCircuitBreakerRuleFailureConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendCircuitBreakerRuleFailureCondition)(nil)).Elem()
+}
+
+func (i BackendCircuitBreakerRuleFailureConditionArgs) ToBackendCircuitBreakerRuleFailureConditionOutput() BackendCircuitBreakerRuleFailureConditionOutput {
+	return i.ToBackendCircuitBreakerRuleFailureConditionOutputWithContext(context.Background())
+}
+
+func (i BackendCircuitBreakerRuleFailureConditionArgs) ToBackendCircuitBreakerRuleFailureConditionOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendCircuitBreakerRuleFailureConditionOutput)
+}
+
+func (i BackendCircuitBreakerRuleFailureConditionArgs) ToBackendCircuitBreakerRuleFailureConditionPtrOutput() BackendCircuitBreakerRuleFailureConditionPtrOutput {
+	return i.ToBackendCircuitBreakerRuleFailureConditionPtrOutputWithContext(context.Background())
+}
+
+func (i BackendCircuitBreakerRuleFailureConditionArgs) ToBackendCircuitBreakerRuleFailureConditionPtrOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendCircuitBreakerRuleFailureConditionOutput).ToBackendCircuitBreakerRuleFailureConditionPtrOutputWithContext(ctx)
+}
+
+// BackendCircuitBreakerRuleFailureConditionPtrInput is an input type that accepts BackendCircuitBreakerRuleFailureConditionArgs, BackendCircuitBreakerRuleFailureConditionPtr and BackendCircuitBreakerRuleFailureConditionPtrOutput values.
+// You can construct a concrete instance of `BackendCircuitBreakerRuleFailureConditionPtrInput` via:
+//
+//	        BackendCircuitBreakerRuleFailureConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackendCircuitBreakerRuleFailureConditionPtrInput interface {
+	pulumi.Input
+
+	ToBackendCircuitBreakerRuleFailureConditionPtrOutput() BackendCircuitBreakerRuleFailureConditionPtrOutput
+	ToBackendCircuitBreakerRuleFailureConditionPtrOutputWithContext(context.Context) BackendCircuitBreakerRuleFailureConditionPtrOutput
+}
+
+type backendCircuitBreakerRuleFailureConditionPtrType BackendCircuitBreakerRuleFailureConditionArgs
+
+func BackendCircuitBreakerRuleFailureConditionPtr(v *BackendCircuitBreakerRuleFailureConditionArgs) BackendCircuitBreakerRuleFailureConditionPtrInput {
+	return (*backendCircuitBreakerRuleFailureConditionPtrType)(v)
+}
+
+func (*backendCircuitBreakerRuleFailureConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackendCircuitBreakerRuleFailureCondition)(nil)).Elem()
+}
+
+func (i *backendCircuitBreakerRuleFailureConditionPtrType) ToBackendCircuitBreakerRuleFailureConditionPtrOutput() BackendCircuitBreakerRuleFailureConditionPtrOutput {
+	return i.ToBackendCircuitBreakerRuleFailureConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *backendCircuitBreakerRuleFailureConditionPtrType) ToBackendCircuitBreakerRuleFailureConditionPtrOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendCircuitBreakerRuleFailureConditionPtrOutput)
+}
+
+type BackendCircuitBreakerRuleFailureConditionOutput struct{ *pulumi.OutputState }
+
+func (BackendCircuitBreakerRuleFailureConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendCircuitBreakerRuleFailureCondition)(nil)).Elem()
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionOutput) ToBackendCircuitBreakerRuleFailureConditionOutput() BackendCircuitBreakerRuleFailureConditionOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionOutput) ToBackendCircuitBreakerRuleFailureConditionOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionOutput) ToBackendCircuitBreakerRuleFailureConditionPtrOutput() BackendCircuitBreakerRuleFailureConditionPtrOutput {
+	return o.ToBackendCircuitBreakerRuleFailureConditionPtrOutputWithContext(context.Background())
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionOutput) ToBackendCircuitBreakerRuleFailureConditionPtrOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendCircuitBreakerRuleFailureCondition) *BackendCircuitBreakerRuleFailureCondition {
+		return &v
+	}).(BackendCircuitBreakerRuleFailureConditionPtrOutput)
+}
+
+// Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+func (o BackendCircuitBreakerRuleFailureConditionOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRuleFailureCondition) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of error reasons to consider as failures.
+func (o BackendCircuitBreakerRuleFailureConditionOutput) ErrorReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRuleFailureCondition) []string { return v.ErrorReasons }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the time window over which failures are counted, in ISO 8601 format.
+func (o BackendCircuitBreakerRuleFailureConditionOutput) IntervalDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRuleFailureCondition) string { return v.IntervalDuration }).(pulumi.StringOutput)
+}
+
+// Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+//
+// > **Note:** Exactly one of `percentage` or `count` must be specified.
+func (o BackendCircuitBreakerRuleFailureConditionOutput) Percentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRuleFailureCondition) *int { return v.Percentage }).(pulumi.IntPtrOutput)
+}
+
+// One or more `statusCodeRange` blocks as defined below.
+//
+// > **Note:** At least one of `statusCodeRange`, and `errorReasons` must be set.
+func (o BackendCircuitBreakerRuleFailureConditionOutput) StatusCodeRanges() BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRuleFailureCondition) []BackendCircuitBreakerRuleFailureConditionStatusCodeRange {
+		return v.StatusCodeRanges
+	}).(BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput)
+}
+
+type BackendCircuitBreakerRuleFailureConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (BackendCircuitBreakerRuleFailureConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackendCircuitBreakerRuleFailureCondition)(nil)).Elem()
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionPtrOutput) ToBackendCircuitBreakerRuleFailureConditionPtrOutput() BackendCircuitBreakerRuleFailureConditionPtrOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionPtrOutput) ToBackendCircuitBreakerRuleFailureConditionPtrOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionPtrOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionPtrOutput) Elem() BackendCircuitBreakerRuleFailureConditionOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRuleFailureCondition) BackendCircuitBreakerRuleFailureCondition {
+		if v != nil {
+			return *v
+		}
+		var ret BackendCircuitBreakerRuleFailureCondition
+		return ret
+	}).(BackendCircuitBreakerRuleFailureConditionOutput)
+}
+
+// Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+func (o BackendCircuitBreakerRuleFailureConditionPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRuleFailureCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of error reasons to consider as failures.
+func (o BackendCircuitBreakerRuleFailureConditionPtrOutput) ErrorReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRuleFailureCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorReasons
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the time window over which failures are counted, in ISO 8601 format.
+func (o BackendCircuitBreakerRuleFailureConditionPtrOutput) IntervalDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRuleFailureCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IntervalDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+//
+// > **Note:** Exactly one of `percentage` or `count` must be specified.
+func (o BackendCircuitBreakerRuleFailureConditionPtrOutput) Percentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRuleFailureCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Percentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// One or more `statusCodeRange` blocks as defined below.
+//
+// > **Note:** At least one of `statusCodeRange`, and `errorReasons` must be set.
+func (o BackendCircuitBreakerRuleFailureConditionPtrOutput) StatusCodeRanges() BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput {
+	return o.ApplyT(func(v *BackendCircuitBreakerRuleFailureCondition) []BackendCircuitBreakerRuleFailureConditionStatusCodeRange {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCodeRanges
+	}).(BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput)
+}
+
+type BackendCircuitBreakerRuleFailureConditionStatusCodeRange struct {
+	// Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+	Max int `pulumi:"max"`
+	// Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+	Min int `pulumi:"min"`
+}
+
+// BackendCircuitBreakerRuleFailureConditionStatusCodeRangeInput is an input type that accepts BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs and BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput values.
+// You can construct a concrete instance of `BackendCircuitBreakerRuleFailureConditionStatusCodeRangeInput` via:
+//
+//	BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs{...}
+type BackendCircuitBreakerRuleFailureConditionStatusCodeRangeInput interface {
+	pulumi.Input
+
+	ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput() BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput
+	ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutputWithContext(context.Context) BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput
+}
+
+type BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs struct {
+	// Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+	Max pulumi.IntInput `pulumi:"max"`
+	// Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendCircuitBreakerRuleFailureConditionStatusCodeRange)(nil)).Elem()
+}
+
+func (i BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs) ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput() BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput {
+	return i.ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutputWithContext(context.Background())
+}
+
+func (i BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs) ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput)
+}
+
+// BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayInput is an input type that accepts BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArray and BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput values.
+// You can construct a concrete instance of `BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayInput` via:
+//
+//	BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArray{ BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs{...} }
+type BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayInput interface {
+	pulumi.Input
+
+	ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput() BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput
+	ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutputWithContext(context.Context) BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput
+}
+
+type BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArray []BackendCircuitBreakerRuleFailureConditionStatusCodeRangeInput
+
+func (BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackendCircuitBreakerRuleFailureConditionStatusCodeRange)(nil)).Elem()
+}
+
+func (i BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArray) ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput() BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput {
+	return i.ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutputWithContext(context.Background())
+}
+
+func (i BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArray) ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput)
+}
+
+type BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput struct{ *pulumi.OutputState }
+
+func (BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendCircuitBreakerRuleFailureConditionStatusCodeRange)(nil)).Elem()
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput) ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput() BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput) ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput {
+	return o
+}
+
+// Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+func (o BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRuleFailureConditionStatusCodeRange) int { return v.Max }).(pulumi.IntOutput)
+}
+
+// Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+func (o BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v BackendCircuitBreakerRuleFailureConditionStatusCodeRange) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackendCircuitBreakerRuleFailureConditionStatusCodeRange)(nil)).Elem()
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput) ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput() BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput) ToBackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutputWithContext(ctx context.Context) BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput {
+	return o
+}
+
+func (o BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput) Index(i pulumi.IntInput) BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackendCircuitBreakerRuleFailureConditionStatusCodeRange {
+		return vs[0].([]BackendCircuitBreakerRuleFailureConditionStatusCodeRange)[vs[1].(int)]
+	}).(BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput)
+}
+
 type BackendCredentials struct {
 	// An `authorization` block as defined below.
 	Authorization *BackendCredentialsAuthorization `pulumi:"authorization"`
@@ -15211,7 +15742,7 @@ func (o GetGatewayLocationDataArrayOutput) Index(i pulumi.IntInput) GetGatewayLo
 }
 
 type GetServiceAdditionalLocation struct {
-	// Specifies the number of units associated with this API Management service.
+	// The number of compute units in this region.
 	Capacity int `pulumi:"capacity"`
 	// Gateway URL of the API Management service in the Region.
 	GatewayRegionalUrl string `pulumi:"gatewayRegionalUrl"`
@@ -15239,7 +15770,7 @@ type GetServiceAdditionalLocationInput interface {
 }
 
 type GetServiceAdditionalLocationArgs struct {
-	// Specifies the number of units associated with this API Management service.
+	// The number of compute units in this region.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Gateway URL of the API Management service in the Region.
 	GatewayRegionalUrl pulumi.StringInput `pulumi:"gatewayRegionalUrl"`
@@ -15306,7 +15837,7 @@ func (o GetServiceAdditionalLocationOutput) ToGetServiceAdditionalLocationOutput
 	return o
 }
 
-// Specifies the number of units associated with this API Management service.
+// The number of compute units in this region.
 func (o GetServiceAdditionalLocationOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServiceAdditionalLocation) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -16445,6 +16976,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiSubscriptionKeyParameterNamesPtrInput)(nil)).Elem(), ApiSubscriptionKeyParameterNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationServerTokenBodyParameterInput)(nil)).Elem(), AuthorizationServerTokenBodyParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationServerTokenBodyParameterArrayInput)(nil)).Elem(), AuthorizationServerTokenBodyParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendCircuitBreakerRuleInput)(nil)).Elem(), BackendCircuitBreakerRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendCircuitBreakerRulePtrInput)(nil)).Elem(), BackendCircuitBreakerRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendCircuitBreakerRuleFailureConditionInput)(nil)).Elem(), BackendCircuitBreakerRuleFailureConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendCircuitBreakerRuleFailureConditionPtrInput)(nil)).Elem(), BackendCircuitBreakerRuleFailureConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendCircuitBreakerRuleFailureConditionStatusCodeRangeInput)(nil)).Elem(), BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayInput)(nil)).Elem(), BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendCredentialsInput)(nil)).Elem(), BackendCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendCredentialsPtrInput)(nil)).Elem(), BackendCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendCredentialsAuthorizationInput)(nil)).Elem(), BackendCredentialsAuthorizationArgs{})
@@ -16651,6 +17188,12 @@ func init() {
 	pulumi.RegisterOutputType(ApiSubscriptionKeyParameterNamesPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizationServerTokenBodyParameterOutput{})
 	pulumi.RegisterOutputType(AuthorizationServerTokenBodyParameterArrayOutput{})
+	pulumi.RegisterOutputType(BackendCircuitBreakerRuleOutput{})
+	pulumi.RegisterOutputType(BackendCircuitBreakerRulePtrOutput{})
+	pulumi.RegisterOutputType(BackendCircuitBreakerRuleFailureConditionOutput{})
+	pulumi.RegisterOutputType(BackendCircuitBreakerRuleFailureConditionPtrOutput{})
+	pulumi.RegisterOutputType(BackendCircuitBreakerRuleFailureConditionStatusCodeRangeOutput{})
+	pulumi.RegisterOutputType(BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArrayOutput{})
 	pulumi.RegisterOutputType(BackendCredentialsOutput{})
 	pulumi.RegisterOutputType(BackendCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(BackendCredentialsAuthorizationOutput{})

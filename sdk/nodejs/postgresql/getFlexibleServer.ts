@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,6 +76,10 @@ export interface GetFlexibleServerResult {
      */
     readonly fqdn: string;
     /**
+     * A `highAvailability` block for this PostgreSQL Flexible Server as defined below.
+     */
+    readonly highAvailabilities: outputs.postgresql.GetFlexibleServerHighAvailability[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -103,6 +109,10 @@ export interface GetFlexibleServerResult {
      * The version of PostgreSQL Flexible Server to use.
      */
     readonly version: string;
+    /**
+     * The Availability Zones where this PostgreSQL Flexible Server is located.
+     */
+    readonly zone: string;
 }
 /**
  * Use this data source to access information about an existing PostgreSQL Flexible Server.

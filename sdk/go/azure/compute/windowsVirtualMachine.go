@@ -149,7 +149,8 @@ type WindowsVirtualMachine struct {
 	AdminUsername pulumi.StringPtrOutput `pulumi:"adminUsername"`
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations pulumi.BoolOutput `pulumi:"allowExtensionOperations"`
-	AutomaticUpdatesEnabled  pulumi.BoolOutput `pulumi:"automaticUpdatesEnabled"`
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+	AutomaticUpdatesEnabled pulumi.BoolOutput `pulumi:"automaticUpdatesEnabled"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrOutput `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
@@ -174,8 +175,6 @@ type WindowsVirtualMachine struct {
 	DiskControllerType pulumi.StringOutput `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-	//
 	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
 	EnableAutomaticUpdates pulumi.BoolOutput `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -361,7 +360,8 @@ type windowsVirtualMachineState struct {
 	AdminUsername *string `pulumi:"adminUsername"`
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
-	AutomaticUpdatesEnabled  *bool `pulumi:"automaticUpdatesEnabled"`
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+	AutomaticUpdatesEnabled *bool `pulumi:"automaticUpdatesEnabled"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
@@ -386,8 +386,6 @@ type windowsVirtualMachineState struct {
 	DiskControllerType *string `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-	//
 	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -521,7 +519,8 @@ type WindowsVirtualMachineState struct {
 	AdminUsername pulumi.StringPtrInput
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations pulumi.BoolPtrInput
-	AutomaticUpdatesEnabled  pulumi.BoolPtrInput
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+	AutomaticUpdatesEnabled pulumi.BoolPtrInput
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
@@ -546,8 +545,6 @@ type WindowsVirtualMachineState struct {
 	DiskControllerType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-	//
 	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -685,7 +682,8 @@ type windowsVirtualMachineArgs struct {
 	AdminUsername *string `pulumi:"adminUsername"`
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
-	AutomaticUpdatesEnabled  *bool `pulumi:"automaticUpdatesEnabled"`
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+	AutomaticUpdatesEnabled *bool `pulumi:"automaticUpdatesEnabled"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
@@ -710,8 +708,6 @@ type windowsVirtualMachineArgs struct {
 	DiskControllerType *string `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-	//
 	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -836,7 +832,8 @@ type WindowsVirtualMachineArgs struct {
 	AdminUsername pulumi.StringPtrInput
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations pulumi.BoolPtrInput
-	AutomaticUpdatesEnabled  pulumi.BoolPtrInput
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+	AutomaticUpdatesEnabled pulumi.BoolPtrInput
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
@@ -861,8 +858,6 @@ type WindowsVirtualMachineArgs struct {
 	DiskControllerType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-	//
 	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -1091,6 +1086,7 @@ func (o WindowsVirtualMachineOutput) AllowExtensionOperations() pulumi.BoolOutpu
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolOutput { return v.AllowExtensionOperations }).(pulumi.BoolOutput)
 }
 
+// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
 func (o WindowsVirtualMachineOutput) AutomaticUpdatesEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolOutput { return v.AutomaticUpdatesEnabled }).(pulumi.BoolOutput)
 }
@@ -1151,8 +1147,6 @@ func (o WindowsVirtualMachineOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
-//
 // Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
 func (o WindowsVirtualMachineOutput) EnableAutomaticUpdates() pulumi.BoolOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolOutput { return v.EnableAutomaticUpdates }).(pulumi.BoolOutput)

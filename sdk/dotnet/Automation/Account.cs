@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Automation
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Automation` - 2023-11-01, 2019-06-01
+    /// * `Microsoft.Automation` - 2024-10-23, 2019-06-01
     /// 
     /// ## Import
     /// 

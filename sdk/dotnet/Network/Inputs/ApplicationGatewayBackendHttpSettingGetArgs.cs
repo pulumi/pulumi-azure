@@ -43,6 +43,12 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> CookieBasedAffinity { get; set; } = null!;
 
         /// <summary>
+        /// Whether to use a dedicated backend connection. Defaults to `False`.
+        /// </summary>
+        [Input("dedicatedBackendConnectionEnabled")]
+        public Input<bool>? DedicatedBackendConnectionEnabled { get; set; }
+
+        /// <summary>
         /// Host header to be sent to the backend servers. Cannot be set if `PickHostNameFromBackendAddress` is set to `True`.
         /// </summary>
         [Input("hostName")]

@@ -86,6 +86,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly namespaceType: pulumi.Output<string>;
     /**
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     */
+    declare public readonly replicationRegion: pulumi.Output<string | undefined>;
+    /**
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
@@ -101,6 +105,10 @@ export class Namespace extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    declare public readonly zoneRedundancyEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -119,10 +127,12 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
             resourceInputs["namespaceType"] = state?.namespaceType;
+            resourceInputs["replicationRegion"] = state?.replicationRegion;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["servicebusEndpoint"] = state?.servicebusEndpoint;
             resourceInputs["skuName"] = state?.skuName;
             resourceInputs["tags"] = state?.tags;
+            resourceInputs["zoneRedundancyEnabled"] = state?.zoneRedundancyEnabled;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
             if (args?.namespaceType === undefined && !opts.urn) {
@@ -138,9 +148,11 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["namespaceType"] = args?.namespaceType;
+            resourceInputs["replicationRegion"] = args?.replicationRegion;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["skuName"] = args?.skuName;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundancyEnabled"] = args?.zoneRedundancyEnabled;
             resourceInputs["servicebusEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -169,6 +181,10 @@ export interface NamespaceState {
      */
     namespaceType?: pulumi.Input<string>;
     /**
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     */
+    replicationRegion?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -184,6 +200,10 @@ export interface NamespaceState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    zoneRedundancyEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -207,6 +227,10 @@ export interface NamespaceArgs {
      */
     namespaceType: pulumi.Input<string>;
     /**
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     */
+    replicationRegion?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -218,4 +242,8 @@ export interface NamespaceArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    zoneRedundancyEnabled?: pulumi.Input<boolean>;
 }

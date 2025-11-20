@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  * 
  * ## Import
  * 
@@ -262,14 +262,18 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * The ID of the Resource for which to enable flow logs for.
+     * 
+     * &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      * 
      */
     @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
-     * @return The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * @return The ID of the Resource for which to enable flow logs for.
+     * 
+     * &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      * 
      */
     public Output<String> targetResourceId() {

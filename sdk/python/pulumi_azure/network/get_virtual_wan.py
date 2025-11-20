@@ -193,7 +193,7 @@ def get_virtual_wan(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2024-05-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.str name: The name of this Virtual Wan.
@@ -247,7 +247,7 @@ def get_virtual_wan_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2024-05-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.str name: The name of this Virtual Wan.

@@ -21,6 +21,7 @@ class ChannelTeamsArgs:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
                  deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -29,17 +30,22 @@ class ChannelTeamsArgs:
         The set of arguments for constructing a ChannelTeams resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] calling_enabled: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[_builtins.str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
         :param pulumi.Input[_builtins.str] deployment_environment: The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
-        :param pulumi.Input[_builtins.bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "bot_name", bot_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if calling_enabled is not None:
+            pulumi.set(__self__, "calling_enabled", calling_enabled)
         if calling_web_hook is not None:
             pulumi.set(__self__, "calling_web_hook", calling_web_hook)
         if deployment_environment is not None:
             pulumi.set(__self__, "deployment_environment", deployment_environment)
+        if enable_calling is not None:
+            warnings.warn("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_calling is deprecated: The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
         if enable_calling is not None:
             pulumi.set(__self__, "enable_calling", enable_calling)
         if location is not None:
@@ -70,6 +76,18 @@ class ChannelTeamsArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="callingEnabled")
+    def calling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+        """
+        return pulumi.get(self, "calling_enabled")
+
+    @calling_enabled.setter
+    def calling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "calling_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="callingWebHook")
     def calling_web_hook(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -95,10 +113,8 @@ class ChannelTeamsArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableCalling")
+    @_utilities.deprecated("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
     def enable_calling(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
-        """
         return pulumi.get(self, "enable_calling")
 
     @enable_calling.setter
@@ -122,6 +138,7 @@ class ChannelTeamsArgs:
 class _ChannelTeamsState:
     def __init__(__self__, *,
                  bot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
                  deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -130,18 +147,23 @@ class _ChannelTeamsState:
         """
         Input properties used for looking up and filtering ChannelTeams resources.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] calling_enabled: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[_builtins.str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
         :param pulumi.Input[_builtins.str] deployment_environment: The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
-        :param pulumi.Input[_builtins.bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
         if bot_name is not None:
             pulumi.set(__self__, "bot_name", bot_name)
+        if calling_enabled is not None:
+            pulumi.set(__self__, "calling_enabled", calling_enabled)
         if calling_web_hook is not None:
             pulumi.set(__self__, "calling_web_hook", calling_web_hook)
         if deployment_environment is not None:
             pulumi.set(__self__, "deployment_environment", deployment_environment)
+        if enable_calling is not None:
+            warnings.warn("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_calling is deprecated: The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
         if enable_calling is not None:
             pulumi.set(__self__, "enable_calling", enable_calling)
         if location is not None:
@@ -160,6 +182,18 @@ class _ChannelTeamsState:
     @bot_name.setter
     def bot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "bot_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="callingEnabled")
+    def calling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+        """
+        return pulumi.get(self, "calling_enabled")
+
+    @calling_enabled.setter
+    def calling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "calling_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="callingWebHook")
@@ -187,10 +221,8 @@ class _ChannelTeamsState:
 
     @_builtins.property
     @pulumi.getter(name="enableCalling")
+    @_utilities.deprecated("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
     def enable_calling(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
-        """
         return pulumi.get(self, "enable_calling")
 
     @enable_calling.setter
@@ -229,6 +261,7 @@ class ChannelTeams(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
                  deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -273,9 +306,9 @@ class ChannelTeams(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] calling_enabled: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[_builtins.str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
         :param pulumi.Input[_builtins.str] deployment_environment: The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
-        :param pulumi.Input[_builtins.bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
@@ -336,6 +369,7 @@ class ChannelTeams(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
                  deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -353,6 +387,7 @@ class ChannelTeams(pulumi.CustomResource):
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")
             __props__.__dict__["bot_name"] = bot_name
+            __props__.__dict__["calling_enabled"] = calling_enabled
             __props__.__dict__["calling_web_hook"] = calling_web_hook
             __props__.__dict__["deployment_environment"] = deployment_environment
             __props__.__dict__["enable_calling"] = enable_calling
@@ -371,6 +406,7 @@ class ChannelTeams(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bot_name: Optional[pulumi.Input[_builtins.str]] = None,
+            calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
             deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
             enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -384,9 +420,9 @@ class ChannelTeams(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] calling_enabled: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[_builtins.str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
         :param pulumi.Input[_builtins.str] deployment_environment: The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
-        :param pulumi.Input[_builtins.bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
@@ -395,6 +431,7 @@ class ChannelTeams(pulumi.CustomResource):
         __props__ = _ChannelTeamsState.__new__(_ChannelTeamsState)
 
         __props__.__dict__["bot_name"] = bot_name
+        __props__.__dict__["calling_enabled"] = calling_enabled
         __props__.__dict__["calling_web_hook"] = calling_web_hook
         __props__.__dict__["deployment_environment"] = deployment_environment
         __props__.__dict__["enable_calling"] = enable_calling
@@ -409,6 +446,14 @@ class ChannelTeams(pulumi.CustomResource):
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "bot_name")
+
+    @_builtins.property
+    @pulumi.getter(name="callingEnabled")
+    def calling_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+        """
+        return pulumi.get(self, "calling_enabled")
 
     @_builtins.property
     @pulumi.getter(name="callingWebHook")
@@ -428,10 +473,8 @@ class ChannelTeams(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="enableCalling")
-    def enable_calling(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
-        """
+    @_utilities.deprecated("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
+    def enable_calling(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "enable_calling")
 
     @_builtins.property

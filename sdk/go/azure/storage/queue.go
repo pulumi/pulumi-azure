@@ -97,6 +97,8 @@ type Queue struct {
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
 	//
+	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
+	//
 	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
 	// The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
@@ -147,6 +149,8 @@ type queueState struct {
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
 	//
+	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
+	//
 	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
@@ -167,6 +171,8 @@ type QueueState struct {
 	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrInput
 	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
 	//
 	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName pulumi.StringPtrInput
@@ -189,6 +195,8 @@ type queueArgs struct {
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
 	//
+	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
+	//
 	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
@@ -204,6 +212,8 @@ type QueueArgs struct {
 	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrInput
 	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
 	//
 	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName pulumi.StringPtrInput
@@ -321,6 +331,8 @@ func (o QueueOutput) StorageAccountId() pulumi.StringPtrOutput {
 }
 
 // The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+//
+// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
 //
 // Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 func (o QueueOutput) StorageAccountName() pulumi.StringPtrOutput {

@@ -175,7 +175,7 @@ def get_public_ip_prefix(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2024-05-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.str name: Specifies the name of the public IP prefix.
@@ -222,7 +222,7 @@ def get_public_ip_prefix_output(name: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2024-05-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.str name: Specifies the name of the public IP prefix.

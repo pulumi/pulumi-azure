@@ -30,6 +30,11 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettings {
      * 
      */
     private @Nullable Integer nodeSoakDurationInMinutes;
+    /**
+     * @return Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+     * 
+     */
+    private @Nullable String undrainableNodeBehavior;
 
     private KubernetesClusterDefaultNodePoolUpgradeSettings() {}
     /**
@@ -55,6 +60,13 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettings {
     public Optional<Integer> nodeSoakDurationInMinutes() {
         return Optional.ofNullable(this.nodeSoakDurationInMinutes);
     }
+    /**
+     * @return Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+     * 
+     */
+    public Optional<String> undrainableNodeBehavior() {
+        return Optional.ofNullable(this.undrainableNodeBehavior);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -68,12 +80,14 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettings {
         private @Nullable Integer drainTimeoutInMinutes;
         private String maxSurge;
         private @Nullable Integer nodeSoakDurationInMinutes;
+        private @Nullable String undrainableNodeBehavior;
         public Builder() {}
         public Builder(KubernetesClusterDefaultNodePoolUpgradeSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.drainTimeoutInMinutes = defaults.drainTimeoutInMinutes;
     	      this.maxSurge = defaults.maxSurge;
     	      this.nodeSoakDurationInMinutes = defaults.nodeSoakDurationInMinutes;
+    	      this.undrainableNodeBehavior = defaults.undrainableNodeBehavior;
         }
 
         @CustomType.Setter
@@ -96,11 +110,18 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettings {
             this.nodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
             return this;
         }
+        @CustomType.Setter
+        public Builder undrainableNodeBehavior(@Nullable String undrainableNodeBehavior) {
+
+            this.undrainableNodeBehavior = undrainableNodeBehavior;
+            return this;
+        }
         public KubernetesClusterDefaultNodePoolUpgradeSettings build() {
             final var _resultValue = new KubernetesClusterDefaultNodePoolUpgradeSettings();
             _resultValue.drainTimeoutInMinutes = drainTimeoutInMinutes;
             _resultValue.maxSurge = maxSurge;
             _resultValue.nodeSoakDurationInMinutes = nodeSoakDurationInMinutes;
+            _resultValue.undrainableNodeBehavior = undrainableNodeBehavior;
             return _resultValue;
         }
     }

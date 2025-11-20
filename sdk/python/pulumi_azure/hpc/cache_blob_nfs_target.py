@@ -348,6 +348,143 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
 
         > **Note:** This resource depends on the NFSv3 enabled Storage Account, which has some prerequisites need to meet. Please checkout: <https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support-how-to?tabs=azure-powershell>.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+        import pulumi_std as std
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="west europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            service_endpoints=["Microsoft.Storage"])
+        example = azuread.get_service_principal(display_name="HPC Cache Resource Provider")
+        example_account = azure.storage.Account("example",
+            name="examplestorageaccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_kind="StorageV2",
+            account_replication_type="LRS",
+            is_hns_enabled=True,
+            nfsv3_enabled=True,
+            enable_https_traffic_only=False,
+            network_rules={
+                "default_action": "Deny",
+                "virtual_network_subnet_ids": [example_subnet.id],
+            })
+        # Due to https://github.com/hashicorp/terraform-provider-azurerm/issues/2977 and the fact
+        # that the NFSv3 enabled storage account can't allow public network access - otherwise the NFSv3 protocol will fail,
+        # we have to use the ARM template to deploy the storage container as a workaround.
+        # Once the issue above got resolved, we can instead use the azurerm_storage_container resource.
+        storage_containers = azure.core.ResourceGroupTemplateDeployment("storage-containers",
+            name="example-deployment",
+            resource_group_name=example_account.resource_group_name,
+            deployment_mode="Incremental",
+            parameters_content=pulumi.Output.json_dumps({
+                "location": {
+                    "value": example_account.location,
+                },
+                "storageAccountName": {
+                    "value": example_account.name,
+                },
+                "containerName": {
+                    "value": "example-container",
+                },
+            }),
+            template_content=\"\"\"{
+          \\"$schema\\": \\"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#\\",
+          \\"contentVersion\\": \\"1.0.0.0\\",
+          \\"parameters\\": {
+            \\"storageAccountName\\": {
+              \\"type\\": \\"String\\"
+            },
+            \\"containerName\\": {
+              \\"type\\": \\"String\\"
+            },
+            \\"location\\": {
+              \\"type\\": \\"String\\"
+            }
+          },
+          \\"resources\\": [
+            {
+              \\"type\\": \\"Microsoft.Storage/storageAccounts\\",
+              \\"apiVersion\\": \\"2019-06-01\\",
+              \\"name\\": \\"[parameters('storageAccountName')]\\",
+              \\"location\\": \\"[parameters('location')]\\",
+              \\"sku\\": {
+                \\"name\\": \\"Standard_LRS\\",
+                \\"tier\\": \\"Standard\\"
+              },
+              \\"kind\\": \\"StorageV2\\",
+              \\"properties\\": {
+                \\"accessTier\\": \\"Hot\\"
+              },
+              \\"resources\\": [
+                {
+                  \\"type\\": \\"blobServices/containers\\",
+                  \\"apiVersion\\": \\"2019-06-01\\",
+                  \\"name\\": \\"[concat('default/', parameters('containerName'))]\\",
+                  \\"dependsOn\\": [
+                    \\"[parameters('storageAccountName')]\\"
+                  ]
+                }
+              ]
+            }
+          ],
+
+          \\"outputs\\": {
+            \\"id\\": {
+              \\"type\\": \\"String\\",
+              \\"value\\": \\"[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', parameters('storageAccountName'), 'default', parameters('containerName'))]\\"
+            }
+          }
+        }
+        \"\"\")
+        example_storage_account_contrib = azure.authorization.Assignment("example_storage_account_contrib",
+            scope=example_account.id,
+            role_definition_name="Storage Account Contributor",
+            principal_id=example.object_id)
+        example_storage_blob_data_contrib = azure.authorization.Assignment("example_storage_blob_data_contrib",
+            scope=example_account.id,
+            role_definition_name="Storage Blob Data Contributor",
+            principal_id=example.object_id)
+        example_cache = azure.hpc.Cache("example",
+            name="example-hpc-cache",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cache_size_in_gb=3072,
+            subnet_id=example_subnet.id,
+            sku_name="Standard_2G")
+        example_cache_blob_nfs_target = azure.hpc.CacheBlobNfsTarget("example",
+            name="example-hpc-target",
+            resource_group_name=example_resource_group.name,
+            cache_name=example_cache.name,
+            storage_container_id=std.jsondecode_output(input=storage_containers.output_content).apply(lambda invoke: invoke.result["id"]["value"]),
+            namespace_path="/p1",
+            usage_model="READ_HEAVY_INFREQ")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageCache` - 2023-05-01
+
         ## Import
 
         HPC Cache Blob NFS Targets can be imported using the `resource id`, e.g.
@@ -384,6 +521,143 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
         > **Note:** By request of the service team the provider no longer automatically registers the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
 
         > **Note:** This resource depends on the NFSv3 enabled Storage Account, which has some prerequisites need to meet. Please checkout: <https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support-how-to?tabs=azure-powershell>.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+        import pulumi_std as std
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="west europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            service_endpoints=["Microsoft.Storage"])
+        example = azuread.get_service_principal(display_name="HPC Cache Resource Provider")
+        example_account = azure.storage.Account("example",
+            name="examplestorageaccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_kind="StorageV2",
+            account_replication_type="LRS",
+            is_hns_enabled=True,
+            nfsv3_enabled=True,
+            enable_https_traffic_only=False,
+            network_rules={
+                "default_action": "Deny",
+                "virtual_network_subnet_ids": [example_subnet.id],
+            })
+        # Due to https://github.com/hashicorp/terraform-provider-azurerm/issues/2977 and the fact
+        # that the NFSv3 enabled storage account can't allow public network access - otherwise the NFSv3 protocol will fail,
+        # we have to use the ARM template to deploy the storage container as a workaround.
+        # Once the issue above got resolved, we can instead use the azurerm_storage_container resource.
+        storage_containers = azure.core.ResourceGroupTemplateDeployment("storage-containers",
+            name="example-deployment",
+            resource_group_name=example_account.resource_group_name,
+            deployment_mode="Incremental",
+            parameters_content=pulumi.Output.json_dumps({
+                "location": {
+                    "value": example_account.location,
+                },
+                "storageAccountName": {
+                    "value": example_account.name,
+                },
+                "containerName": {
+                    "value": "example-container",
+                },
+            }),
+            template_content=\"\"\"{
+          \\"$schema\\": \\"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#\\",
+          \\"contentVersion\\": \\"1.0.0.0\\",
+          \\"parameters\\": {
+            \\"storageAccountName\\": {
+              \\"type\\": \\"String\\"
+            },
+            \\"containerName\\": {
+              \\"type\\": \\"String\\"
+            },
+            \\"location\\": {
+              \\"type\\": \\"String\\"
+            }
+          },
+          \\"resources\\": [
+            {
+              \\"type\\": \\"Microsoft.Storage/storageAccounts\\",
+              \\"apiVersion\\": \\"2019-06-01\\",
+              \\"name\\": \\"[parameters('storageAccountName')]\\",
+              \\"location\\": \\"[parameters('location')]\\",
+              \\"sku\\": {
+                \\"name\\": \\"Standard_LRS\\",
+                \\"tier\\": \\"Standard\\"
+              },
+              \\"kind\\": \\"StorageV2\\",
+              \\"properties\\": {
+                \\"accessTier\\": \\"Hot\\"
+              },
+              \\"resources\\": [
+                {
+                  \\"type\\": \\"blobServices/containers\\",
+                  \\"apiVersion\\": \\"2019-06-01\\",
+                  \\"name\\": \\"[concat('default/', parameters('containerName'))]\\",
+                  \\"dependsOn\\": [
+                    \\"[parameters('storageAccountName')]\\"
+                  ]
+                }
+              ]
+            }
+          ],
+
+          \\"outputs\\": {
+            \\"id\\": {
+              \\"type\\": \\"String\\",
+              \\"value\\": \\"[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', parameters('storageAccountName'), 'default', parameters('containerName'))]\\"
+            }
+          }
+        }
+        \"\"\")
+        example_storage_account_contrib = azure.authorization.Assignment("example_storage_account_contrib",
+            scope=example_account.id,
+            role_definition_name="Storage Account Contributor",
+            principal_id=example.object_id)
+        example_storage_blob_data_contrib = azure.authorization.Assignment("example_storage_blob_data_contrib",
+            scope=example_account.id,
+            role_definition_name="Storage Blob Data Contributor",
+            principal_id=example.object_id)
+        example_cache = azure.hpc.Cache("example",
+            name="example-hpc-cache",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cache_size_in_gb=3072,
+            subnet_id=example_subnet.id,
+            sku_name="Standard_2G")
+        example_cache_blob_nfs_target = azure.hpc.CacheBlobNfsTarget("example",
+            name="example-hpc-target",
+            resource_group_name=example_resource_group.name,
+            cache_name=example_cache.name,
+            storage_container_id=std.jsondecode_output(input=storage_containers.output_content).apply(lambda invoke: invoke.result["id"]["value"]),
+            namespace_path="/p1",
+            usage_model="READ_HEAVY_INFREQ")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageCache` - 2023-05-01
 
         ## Import
 

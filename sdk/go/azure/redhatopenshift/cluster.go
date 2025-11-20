@@ -16,6 +16,173 @@ import (
 //
 // > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redhatopenshift"
+//	"github.com/pulumi/pulumi-azuread/sdk/v6/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuread.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleApplication, err := azuread.NewApplication(ctx, "example", &azuread.ApplicationArgs{
+//				DisplayName: pulumi.String("example-aro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipal, err := azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
+//				ClientId: exampleApplication.ClientId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipalPassword, err := azuread.NewServicePrincipalPassword(ctx, "example", &azuread.ServicePrincipalPasswordArgs{
+//				ServicePrincipalId: exampleServicePrincipal.ObjectId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			redhatopenshift, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//				ClientId: pulumi.StringRef("f1dd0a37-89c6-4e07-bcd1-ffd3d43d8875"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/22"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			roleNetwork1, err := authorization.NewAssignment(ctx, "role_network1", &authorization.AssignmentArgs{
+//				Scope:              exampleVirtualNetwork.ID(),
+//				RoleDefinitionName: pulumi.String("Network Contributor"),
+//				PrincipalId:        exampleServicePrincipal.ObjectId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			roleNetwork2, err := authorization.NewAssignment(ctx, "role_network2", &authorization.AssignmentArgs{
+//				Scope:              exampleVirtualNetwork.ID(),
+//				RoleDefinitionName: pulumi.String("Network Contributor"),
+//				PrincipalId:        pulumi.String(redhatopenshift.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainSubnet, err := network.NewSubnet(ctx, "main_subnet", &network.SubnetArgs{
+//				Name:               pulumi.String("main-subnet"),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/23"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Storage"),
+//					pulumi.String("Microsoft.ContainerRegistry"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			workerSubnet, err := network.NewSubnet(ctx, "worker_subnet", &network.SubnetArgs{
+//				Name:               pulumi.String("worker-subnet"),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/23"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Storage"),
+//					pulumi.String("Microsoft.ContainerRegistry"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := redhatopenshift.NewCluster(ctx, "example", &redhatopenshift.ClusterArgs{
+//				Name:              pulumi.String("examplearo"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ClusterProfile: &redhatopenshift.ClusterClusterProfileArgs{
+//					Domain:  pulumi.String("aro-example.com"),
+//					Version: pulumi.String("4.13.23"),
+//				},
+//				NetworkProfile: &redhatopenshift.ClusterNetworkProfileArgs{
+//					PodCidr:     pulumi.String("10.128.0.0/14"),
+//					ServiceCidr: pulumi.String("172.30.0.0/16"),
+//				},
+//				MainProfile: &redhatopenshift.ClusterMainProfileArgs{
+//					VmSize:   pulumi.String("Standard_D8s_v3"),
+//					SubnetId: mainSubnet.ID(),
+//				},
+//				ApiServerProfile: &redhatopenshift.ClusterApiServerProfileArgs{
+//					Visibility: pulumi.String("Public"),
+//				},
+//				IngressProfile: &redhatopenshift.ClusterIngressProfileArgs{
+//					Visibility: pulumi.String("Public"),
+//				},
+//				WorkerProfile: &redhatopenshift.ClusterWorkerProfileArgs{
+//					VmSize:     pulumi.String("Standard_D4s_v3"),
+//					DiskSizeGb: pulumi.Int(128),
+//					NodeCount:  pulumi.Int(3),
+//					SubnetId:   workerSubnet.ID(),
+//				},
+//				ServicePrincipal: &redhatopenshift.ClusterServicePrincipalArgs{
+//					ClientId:     exampleApplication.ClientId,
+//					ClientSecret: exampleServicePrincipalPassword.Value,
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				roleNetwork1,
+//				roleNetwork2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("consoleUrl", exampleCluster.ConsoleUrl)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.RedHatOpenShift` - 2023-09-04
+//
 // ## Import
 //
 // Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.

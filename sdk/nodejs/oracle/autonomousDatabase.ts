@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Oracle.Database` - 2025-03-01
+ * * `Oracle.Database` - 2025-09-01
  *
  * ## Import
  *
@@ -153,6 +153,8 @@ export class AutonomousDatabase extends pulumi.CustomResource {
      * * DW - indicates an Autonomous Data Warehouse database
      * * AJD - indicates an Autonomous JSON Database
      * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+     *
+     * > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
      */
     declare public readonly dbWorkload: pulumi.Output<string>;
     /**
@@ -361,6 +363,8 @@ export interface AutonomousDatabaseState {
      * * DW - indicates an Autonomous Data Warehouse database
      * * AJD - indicates an Autonomous JSON Database
      * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+     *
+     * > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
      */
     dbWorkload?: pulumi.Input<string>;
     /**
@@ -456,6 +460,8 @@ export interface AutonomousDatabaseArgs {
      * * DW - indicates an Autonomous Data Warehouse database
      * * AJD - indicates an Autonomous JSON Database
      * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+     *
+     * > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
      */
     dbWorkload: pulumi.Input<string>;
     /**

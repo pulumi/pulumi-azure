@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string AccountKey;
         /// <summary>
-        /// The Azure Storage Account name.
+        /// The Batch Account name associated with the Batch pool.
         /// </summary>
         public readonly string AccountName;
         /// <summary>

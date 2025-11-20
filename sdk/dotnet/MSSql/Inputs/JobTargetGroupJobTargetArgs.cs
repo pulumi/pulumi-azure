@@ -31,7 +31,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         /// <summary>
         /// The ID of the job credential to use during execution of jobs.
         /// 
-        /// &gt; **Note:** This is required when `MembershipType` is `Include`, unless `DatabaseName` is set.
+        /// &gt; **Note:** This is required when `MembershipType` is `Include`, unless `DatabaseName` is set or the target resource is configured to use a managed identity for authentication.
         /// </summary>
         [Input("jobCredentialId")]
         public Input<string>? JobCredentialId { get; set; }

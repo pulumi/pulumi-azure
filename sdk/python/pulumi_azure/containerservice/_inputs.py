@@ -4685,7 +4685,7 @@ if not MYPY:
         """
         Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
 
-        > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+        > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
         """
         host_group_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -4746,7 +4746,7 @@ if not MYPY:
         """
         os_sku: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
         """
         pod_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -4863,7 +4863,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[_builtins.str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] host_encryption_enabled: Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
                
-               > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+               > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
         :param pulumi.Input[_builtins.str] host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param pulumi.Input[_builtins.str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
@@ -4879,7 +4879,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param pulumi.Input[_builtins.int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         :param pulumi.Input[_builtins.str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
         :param pulumi.Input[_builtins.str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
@@ -5055,7 +5055,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         """
         Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
 
-        > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+        > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
         """
         return pulumi.get(self, "host_encryption_enabled")
 
@@ -5252,7 +5252,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
         """
         return pulumi.get(self, "os_sku")
 
@@ -6498,6 +6498,10 @@ if not MYPY:
         """
         The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
         """
+        undrainable_node_behavior: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+        """
 elif False:
     KubernetesClusterDefaultNodePoolUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6506,19 +6510,23 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
     def __init__(__self__, *,
                  max_surge: pulumi.Input[_builtins.str],
                  drain_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_soak_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 node_soak_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 undrainable_node_behavior: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
                
                > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         :param pulumi.Input[_builtins.int] drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         :param pulumi.Input[_builtins.int] node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+        :param pulumi.Input[_builtins.str] undrainable_node_behavior: Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
         """
         pulumi.set(__self__, "max_surge", max_surge)
         if drain_timeout_in_minutes is not None:
             pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
         if node_soak_duration_in_minutes is not None:
             pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
+        if undrainable_node_behavior is not None:
+            pulumi.set(__self__, "undrainable_node_behavior", undrainable_node_behavior)
 
     @_builtins.property
     @pulumi.getter(name="maxSurge")
@@ -6557,6 +6565,18 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
     @node_soak_duration_in_minutes.setter
     def node_soak_duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "node_soak_duration_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="undrainableNodeBehavior")
+    def undrainable_node_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+        """
+        return pulumi.get(self, "undrainable_node_behavior")
+
+    @undrainable_node_behavior.setter
+    def undrainable_node_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "undrainable_node_behavior", value)
 
 
 if not MYPY:
@@ -10306,17 +10326,27 @@ class KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs:
 
 if not MYPY:
     class KubernetesClusterNodePoolUpgradeSettingsArgsDict(TypedDict):
-        max_surge: pulumi.Input[_builtins.str]
-        """
-        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
-        """
         drain_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
         """
         The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         """
+        max_surge: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        max_unavailable: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The maximum number or percentage of nodes which can be unavailable during the upgrade.
+
+        > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
+        """
         node_soak_duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
         """
         The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+        """
+        undrainable_node_behavior: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
         """
 elif False:
     KubernetesClusterNodePoolUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -10324,31 +10354,30 @@ elif False:
 @pulumi.input_type
 class KubernetesClusterNodePoolUpgradeSettingsArgs:
     def __init__(__self__, *,
-                 max_surge: pulumi.Input[_builtins.str],
                  drain_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_soak_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_surge: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_unavailable: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_soak_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 undrainable_node_behavior: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         :param pulumi.Input[_builtins.int] drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param pulumi.Input[_builtins.str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        :param pulumi.Input[_builtins.str] max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
+               
+               > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
         :param pulumi.Input[_builtins.int] node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+        :param pulumi.Input[_builtins.str] undrainable_node_behavior: Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
         """
-        pulumi.set(__self__, "max_surge", max_surge)
         if drain_timeout_in_minutes is not None:
             pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
+        if max_surge is not None:
+            pulumi.set(__self__, "max_surge", max_surge)
+        if max_unavailable is not None:
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
         if node_soak_duration_in_minutes is not None:
             pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
-
-    @_builtins.property
-    @pulumi.getter(name="maxSurge")
-    def max_surge(self) -> pulumi.Input[_builtins.str]:
-        """
-        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
-        """
-        return pulumi.get(self, "max_surge")
-
-    @max_surge.setter
-    def max_surge(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "max_surge", value)
+        if undrainable_node_behavior is not None:
+            pulumi.set(__self__, "undrainable_node_behavior", undrainable_node_behavior)
 
     @_builtins.property
     @pulumi.getter(name="drainTimeoutInMinutes")
@@ -10363,6 +10392,32 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
         pulumi.set(self, "drain_timeout_in_minutes", value)
 
     @_builtins.property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        return pulumi.get(self, "max_surge")
+
+    @max_surge.setter
+    def max_surge(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "max_surge", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The maximum number or percentage of nodes which can be unavailable during the upgrade.
+
+        > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
+        """
+        return pulumi.get(self, "max_unavailable")
+
+    @max_unavailable.setter
+    def max_unavailable(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "max_unavailable", value)
+
+    @_builtins.property
     @pulumi.getter(name="nodeSoakDurationInMinutes")
     def node_soak_duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -10373,6 +10428,18 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
     @node_soak_duration_in_minutes.setter
     def node_soak_duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "node_soak_duration_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="undrainableNodeBehavior")
+    def undrainable_node_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+        """
+        return pulumi.get(self, "undrainable_node_behavior")
+
+    @undrainable_node_behavior.setter
+    def undrainable_node_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "undrainable_node_behavior", value)
 
 
 if not MYPY:

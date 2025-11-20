@@ -7435,7 +7435,7 @@ type KubernetesClusterDefaultNodePool struct {
 	GpuInstance *string `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
 	//
-	// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+	// > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
 	HostEncryptionEnabled *bool `pulumi:"hostEncryptionEnabled"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
@@ -7470,7 +7470,7 @@ type KubernetesClusterDefaultNodePool struct {
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
 	OsSku *string `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId *string `pulumi:"podSubnetId"`
@@ -7535,7 +7535,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	GpuInstance pulumi.StringPtrInput `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
 	//
-	// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+	// > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
 	HostEncryptionEnabled pulumi.BoolPtrInput `pulumi:"hostEncryptionEnabled"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput `pulumi:"hostGroupId"`
@@ -7570,7 +7570,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId pulumi.StringPtrInput `pulumi:"podSubnetId"`
@@ -7715,7 +7715,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) GpuInstance() pulumi.StringPtrOu
 
 // Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
 //
-// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+// > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
 func (o KubernetesClusterDefaultNodePoolOutput) HostEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.HostEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7810,7 +7810,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsSku }).(pulumi.StringPtrOutput)
 }
@@ -7969,7 +7969,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) GpuInstance() pulumi.StringPt
 
 // Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
 //
-// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+// > **Note:** This requires that the Feature `Microsoft.Compute/EncryptionAtHost` is enabled and the Resource Provider is registered.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) HostEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -8148,7 +8148,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -9821,6 +9821,8 @@ type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
 	MaxSurge string `pulumi:"maxSurge"`
 	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
 	NodeSoakDurationInMinutes *int `pulumi:"nodeSoakDurationInMinutes"`
+	// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+	UndrainableNodeBehavior *string `pulumi:"undrainableNodeBehavior"`
 }
 
 // KubernetesClusterDefaultNodePoolUpgradeSettingsInput is an input type that accepts KubernetesClusterDefaultNodePoolUpgradeSettingsArgs and KubernetesClusterDefaultNodePoolUpgradeSettingsOutput values.
@@ -9843,6 +9845,8 @@ type KubernetesClusterDefaultNodePoolUpgradeSettingsArgs struct {
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
 	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
 	NodeSoakDurationInMinutes pulumi.IntPtrInput `pulumi:"nodeSoakDurationInMinutes"`
+	// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+	UndrainableNodeBehavior pulumi.StringPtrInput `pulumi:"undrainableNodeBehavior"`
 }
 
 func (KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ElementType() reflect.Type {
@@ -9939,6 +9943,11 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) NodeSoakDurationI
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) *int { return v.NodeSoakDurationInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) UndrainableNodeBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) *string { return v.UndrainableNodeBehavior }).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) ElementType() reflect.Type {
@@ -9993,6 +10002,16 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) NodeSoakDurati
 		}
 		return v.NodeSoakDurationInMinutes
 	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) UndrainableNodeBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UndrainableNodeBehavior
+	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterExtensionAksAssignedIdentity struct {
@@ -16460,9 +16479,15 @@ type KubernetesClusterNodePoolUpgradeSettings struct {
 	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 	DrainTimeoutInMinutes *int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
-	MaxSurge string `pulumi:"maxSurge"`
+	MaxSurge *string `pulumi:"maxSurge"`
+	// The maximum number or percentage of nodes which can be unavailable during the upgrade.
+	//
+	// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+	MaxUnavailable *string `pulumi:"maxUnavailable"`
 	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
 	NodeSoakDurationInMinutes *int `pulumi:"nodeSoakDurationInMinutes"`
+	// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+	UndrainableNodeBehavior *string `pulumi:"undrainableNodeBehavior"`
 }
 
 // KubernetesClusterNodePoolUpgradeSettingsInput is an input type that accepts KubernetesClusterNodePoolUpgradeSettingsArgs and KubernetesClusterNodePoolUpgradeSettingsOutput values.
@@ -16480,9 +16505,15 @@ type KubernetesClusterNodePoolUpgradeSettingsArgs struct {
 	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 	DrainTimeoutInMinutes pulumi.IntPtrInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
-	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+	MaxSurge pulumi.StringPtrInput `pulumi:"maxSurge"`
+	// The maximum number or percentage of nodes which can be unavailable during the upgrade.
+	//
+	// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+	MaxUnavailable pulumi.StringPtrInput `pulumi:"maxUnavailable"`
 	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
 	NodeSoakDurationInMinutes pulumi.IntPtrInput `pulumi:"nodeSoakDurationInMinutes"`
+	// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+	UndrainableNodeBehavior pulumi.StringPtrInput `pulumi:"undrainableNodeBehavior"`
 }
 
 func (KubernetesClusterNodePoolUpgradeSettingsArgs) ElementType() reflect.Type {
@@ -16568,13 +16599,25 @@ func (o KubernetesClusterNodePoolUpgradeSettingsOutput) DrainTimeoutInMinutes() 
 }
 
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
-func (o KubernetesClusterNodePoolUpgradeSettingsOutput) MaxSurge() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) string { return v.MaxSurge }).(pulumi.StringOutput)
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) MaxSurge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *string { return v.MaxSurge }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number or percentage of nodes which can be unavailable during the upgrade.
+//
+// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) MaxUnavailable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *string { return v.MaxUnavailable }).(pulumi.StringPtrOutput)
 }
 
 // The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
 func (o KubernetesClusterNodePoolUpgradeSettingsOutput) NodeSoakDurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *int { return v.NodeSoakDurationInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) UndrainableNodeBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *string { return v.UndrainableNodeBehavior }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterNodePoolUpgradeSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -16617,7 +16660,19 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.Str
 		if v == nil {
 			return nil
 		}
-		return &v.MaxSurge
+		return v.MaxSurge
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum number or percentage of nodes which can be unavailable during the upgrade.
+//
+// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxUnavailable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnavailable
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16629,6 +16684,16 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) NodeSoakDurationInMin
 		}
 		return v.NodeSoakDurationInMinutes
 	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) UndrainableNodeBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UndrainableNodeBehavior
+	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterNodePoolWindowsProfile struct {
@@ -22809,8 +22874,12 @@ type GetClusterNodePoolUpgradeSetting struct {
 	DrainTimeoutInMinutes int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
+	// The maximum number or percentage of nodes which can be unavailable during the upgrade.
+	MaxUnavailable string `pulumi:"maxUnavailable"`
 	// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
 	NodeSoakDurationInMinutes int `pulumi:"nodeSoakDurationInMinutes"`
+	// The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+	UndrainableNodeBehavior string `pulumi:"undrainableNodeBehavior"`
 }
 
 // GetClusterNodePoolUpgradeSettingInput is an input type that accepts GetClusterNodePoolUpgradeSettingArgs and GetClusterNodePoolUpgradeSettingOutput values.
@@ -22829,8 +22898,12 @@ type GetClusterNodePoolUpgradeSettingArgs struct {
 	DrainTimeoutInMinutes pulumi.IntInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+	// The maximum number or percentage of nodes which can be unavailable during the upgrade.
+	MaxUnavailable pulumi.StringInput `pulumi:"maxUnavailable"`
 	// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
 	NodeSoakDurationInMinutes pulumi.IntInput `pulumi:"nodeSoakDurationInMinutes"`
+	// The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+	UndrainableNodeBehavior pulumi.StringInput `pulumi:"undrainableNodeBehavior"`
 }
 
 func (GetClusterNodePoolUpgradeSettingArgs) ElementType() reflect.Type {
@@ -22894,9 +22967,19 @@ func (o GetClusterNodePoolUpgradeSettingOutput) MaxSurge() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterNodePoolUpgradeSetting) string { return v.MaxSurge }).(pulumi.StringOutput)
 }
 
+// The maximum number or percentage of nodes which can be unavailable during the upgrade.
+func (o GetClusterNodePoolUpgradeSettingOutput) MaxUnavailable() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolUpgradeSetting) string { return v.MaxUnavailable }).(pulumi.StringOutput)
+}
+
 // The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
 func (o GetClusterNodePoolUpgradeSettingOutput) NodeSoakDurationInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterNodePoolUpgradeSetting) int { return v.NodeSoakDurationInMinutes }).(pulumi.IntOutput)
+}
+
+// The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+func (o GetClusterNodePoolUpgradeSettingOutput) UndrainableNodeBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolUpgradeSetting) string { return v.UndrainableNodeBehavior }).(pulumi.StringOutput)
 }
 
 type GetClusterNodePoolUpgradeSettingArrayOutput struct{ *pulumi.OutputState }
@@ -23399,9 +23482,12 @@ type GetKubernetesClusterAgentPoolProfileUpgradeSetting struct {
 	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
 	DrainTimeoutInMinutes int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
-	MaxSurge string `pulumi:"maxSurge"`
+	MaxSurge       string `pulumi:"maxSurge"`
+	MaxUnavailable string `pulumi:"maxUnavailable"`
 	// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
 	NodeSoakDurationInMinutes int `pulumi:"nodeSoakDurationInMinutes"`
+	// The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+	UndrainableNodeBehavior string `pulumi:"undrainableNodeBehavior"`
 }
 
 // GetKubernetesClusterAgentPoolProfileUpgradeSettingInput is an input type that accepts GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs and GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput values.
@@ -23419,9 +23505,12 @@ type GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs struct {
 	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
 	DrainTimeoutInMinutes pulumi.IntInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
-	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+	MaxSurge       pulumi.StringInput `pulumi:"maxSurge"`
+	MaxUnavailable pulumi.StringInput `pulumi:"maxUnavailable"`
 	// The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
 	NodeSoakDurationInMinutes pulumi.IntInput `pulumi:"nodeSoakDurationInMinutes"`
+	// The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+	UndrainableNodeBehavior pulumi.StringInput `pulumi:"undrainableNodeBehavior"`
 }
 
 func (GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs) ElementType() reflect.Type {
@@ -23485,9 +23574,18 @@ func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) MaxSurge() pul
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) string { return v.MaxSurge }).(pulumi.StringOutput)
 }
 
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) MaxUnavailable() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) string { return v.MaxUnavailable }).(pulumi.StringOutput)
+}
+
 // The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
 func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) NodeSoakDurationInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) int { return v.NodeSoakDurationInMinutes }).(pulumi.IntOutput)
+}
+
+// The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) UndrainableNodeBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) string { return v.UndrainableNodeBehavior }).(pulumi.StringOutput)
 }
 
 type GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput struct{ *pulumi.OutputState }

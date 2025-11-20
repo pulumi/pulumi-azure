@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MonitorPlan {
     /**
-     * @return Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+     * @return Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
      * 
      */
     private @Nullable String billingCycle;
@@ -35,7 +35,7 @@ public final class MonitorPlan {
 
     private MonitorPlan() {}
     /**
-     * @return Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+     * @return Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
      * 
      */
     public Optional<String> billingCycle() {

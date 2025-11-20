@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.App` - 2025-01-01
+ * * `Microsoft.App` - 2025-07-01
  *
  * * `Microsoft.OperationalInsights` - 2020-08-01
  */
@@ -95,6 +95,10 @@ export interface GetEnvironmentResult {
      * The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
      */
     readonly platformReservedDnsIpAddress: string;
+    /**
+     * The public network access setting for this Container App Environment.
+     */
+    readonly publicNetworkAccess: string;
     readonly resourceGroupName: string;
     /**
      * The Static IP address of the Environment.
@@ -125,7 +129,7 @@ export interface GetEnvironmentResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.App` - 2025-01-01
+ * * `Microsoft.App` - 2025-07-01
  *
  * * `Microsoft.OperationalInsights` - 2020-08-01
  */

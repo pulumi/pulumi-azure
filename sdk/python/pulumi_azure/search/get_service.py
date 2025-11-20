@@ -203,7 +203,7 @@ def get_service(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Search` - 2024-06-01-preview
+    * `Microsoft.Search` - 2025-05-01
 
 
     :param _builtins.str name: The Name of the Search Service.
@@ -252,7 +252,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Search` - 2024-06-01-preview
+    * `Microsoft.Search` - 2025-05-01
 
 
     :param _builtins.str name: The Name of the Search Service.

@@ -68,7 +68,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.App` - 2025-01-01
+// * `Microsoft.App` - 2025-07-01
 //
 // * `Microsoft.OperationalInsights` - 2020-08-01
 //
@@ -122,6 +122,8 @@ type Environment struct {
 	PlatformReservedCidr pulumi.StringOutput `pulumi:"platformReservedCidr"`
 	// The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
 	PlatformReservedDnsIpAddress pulumi.StringOutput `pulumi:"platformReservedDnsIpAddress"`
+	// The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Static IP address of the Environment.
@@ -216,6 +218,8 @@ type environmentState struct {
 	PlatformReservedCidr *string `pulumi:"platformReservedCidr"`
 	// The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
 	PlatformReservedDnsIpAddress *string `pulumi:"platformReservedDnsIpAddress"`
+	// The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Static IP address of the Environment.
@@ -271,6 +275,8 @@ type EnvironmentState struct {
 	PlatformReservedCidr pulumi.StringPtrInput
 	// The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
 	PlatformReservedDnsIpAddress pulumi.StringPtrInput
+	// The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Static IP address of the Environment.
@@ -320,6 +326,8 @@ type environmentArgs struct {
 	MutualTlsEnabled *bool `pulumi:"mutualTlsEnabled"`
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -364,6 +372,8 @@ type EnvironmentArgs struct {
 	MutualTlsEnabled pulumi.BoolPtrInput
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
@@ -546,6 +556,11 @@ func (o EnvironmentOutput) PlatformReservedCidr() pulumi.StringOutput {
 // The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
 func (o EnvironmentOutput) PlatformReservedDnsIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.PlatformReservedDnsIpAddress }).(pulumi.StringOutput)
+}
+
+// The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+func (o EnvironmentOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.PublicNetworkAccess }).(pulumi.StringOutput)
 }
 
 // The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.

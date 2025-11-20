@@ -32,6 +32,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("nodeSoakDurationInMinutes")]
         public Input<int>? NodeSoakDurationInMinutes { get; set; }
 
+        /// <summary>
+        /// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
+        /// </summary>
+        [Input("undrainableNodeBehavior")]
+        public Input<string>? UndrainableNodeBehavior { get; set; }
+
         public KubernetesClusterDefaultNodePoolUpgradeSettingsArgs()
         {
         }

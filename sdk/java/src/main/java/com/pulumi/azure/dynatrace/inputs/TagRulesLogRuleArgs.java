@@ -6,7 +6,6 @@ package com.pulumi.azure.dynatrace.inputs;
 import com.pulumi.azure.dynatrace.inputs.TagRulesLogRuleFilteringTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -22,15 +21,15 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
      * Filtering tag for the log rule. A `filteringTag` block as defined below.
      * 
      */
-    @Import(name="filteringTags", required=true)
-    private Output<List<TagRulesLogRuleFilteringTagArgs>> filteringTags;
+    @Import(name="filteringTags")
+    private @Nullable Output<List<TagRulesLogRuleFilteringTagArgs>> filteringTags;
 
     /**
      * @return Filtering tag for the log rule. A `filteringTag` block as defined below.
      * 
      */
-    public Output<List<TagRulesLogRuleFilteringTagArgs>> filteringTags() {
-        return this.filteringTags;
+    public Optional<Output<List<TagRulesLogRuleFilteringTagArgs>>> filteringTags() {
+        return Optional.ofNullable(this.filteringTags);
     }
 
     /**
@@ -111,7 +110,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder filteringTags(Output<List<TagRulesLogRuleFilteringTagArgs>> filteringTags) {
+        public Builder filteringTags(@Nullable Output<List<TagRulesLogRuleFilteringTagArgs>> filteringTags) {
             $.filteringTags = filteringTags;
             return this;
         }
@@ -200,9 +199,6 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public TagRulesLogRuleArgs build() {
-            if ($.filteringTags == null) {
-                throw new MissingRequiredPropertyException("TagRulesLogRuleArgs", "filteringTags");
-            }
             return $;
         }
     }

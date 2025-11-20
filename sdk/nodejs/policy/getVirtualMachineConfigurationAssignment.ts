@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Compute` - 2020-06-25
+ * * `Microsoft.Compute` - 2024-04-05
  */
 export function getVirtualMachineConfigurationAssignment(args: GetVirtualMachineConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineConfigurationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,7 +113,7 @@ export interface GetVirtualMachineConfigurationAssignmentResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Compute` - 2020-06-25
+ * * `Microsoft.Compute` - 2024-04-05
  */
 export function getVirtualMachineConfigurationAssignmentOutput(args: GetVirtualMachineConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineConfigurationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

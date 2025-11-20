@@ -153,25 +153,67 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class GetStaticWebAppResult
     {
+        /// <summary>
+        /// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
+        /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// The map of key-value pairs of App Settings for the Static Web App.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> AppSettings;
+        /// <summary>
+        /// A `BasicAuth` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetStaticWebAppBasicAuthResult> BasicAuths;
+        /// <summary>
+        /// Are changes to the configuration file permitted.
+        /// </summary>
         public readonly bool ConfigurationFileChangesEnabled;
+        /// <summary>
+        /// The default host name of the Static Web App.
+        /// </summary>
         public readonly string DefaultHostName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An `Identity` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetStaticWebAppIdentityResult> Identities;
+        /// <summary>
+        /// The Azure region in which this Static Web App exists.
+        /// </summary>
         public readonly string Location;
         public readonly string Name;
+        /// <summary>
+        /// Are Preview (Staging) environments enabled.
+        /// </summary>
         public readonly bool PreviewEnvironmentsEnabled;
+        /// <summary>
+        /// Should public network access be enabled for the Static Web App.
+        /// </summary>
         public readonly bool PublicNetworkAccessEnabled;
+        /// <summary>
+        /// Repository branch of the Static Web App.
+        /// </summary>
         public readonly string RepositoryBranch;
+        /// <summary>
+        /// Repository URL of the Static Web App.
+        /// </summary>
         public readonly string RepositoryUrl;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// The SKU size of the Static Web App.
+        /// </summary>
         public readonly string SkuSize;
+        /// <summary>
+        /// The SKU tier of the Static Web App.
+        /// </summary>
         public readonly string SkuTier;
+        /// <summary>
+        /// The mapping of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

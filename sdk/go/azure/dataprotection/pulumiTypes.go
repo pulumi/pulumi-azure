@@ -2688,11 +2688,13 @@ func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) WeeksOfMonths() pulum
 }
 
 type BackupVaultIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -2708,11 +2710,13 @@ type BackupVaultIdentityInput interface {
 }
 
 type BackupVaultIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2793,6 +2797,11 @@ func (o BackupVaultIdentityOutput) ToBackupVaultIdentityPtrOutputWithContext(ctx
 	}).(BackupVaultIdentityPtrOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+func (o BackupVaultIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupVaultIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
 func (o BackupVaultIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupVaultIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -2803,7 +2812,7 @@ func (o BackupVaultIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupVaultIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o BackupVaultIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupVaultIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2832,6 +2841,16 @@ func (o BackupVaultIdentityPtrOutput) Elem() BackupVaultIdentityOutput {
 	}).(BackupVaultIdentityOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Backup Vault.
+func (o BackupVaultIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupVaultIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
 func (o BackupVaultIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupVaultIdentity) *string {
@@ -2852,7 +2871,7 @@ func (o BackupVaultIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o BackupVaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupVaultIdentity) *string {
 		if v == nil {
@@ -2863,6 +2882,8 @@ func (o BackupVaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type GetBackupVaultIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Backup Vault.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
@@ -2883,6 +2904,8 @@ type GetBackupVaultIdentityInput interface {
 }
 
 type GetBackupVaultIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Backup Vault.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
@@ -2940,6 +2963,11 @@ func (o GetBackupVaultIdentityOutput) ToGetBackupVaultIdentityOutput() GetBackup
 
 func (o GetBackupVaultIdentityOutput) ToGetBackupVaultIdentityOutputWithContext(ctx context.Context) GetBackupVaultIdentityOutput {
 	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Backup Vault.
+func (o GetBackupVaultIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBackupVaultIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.

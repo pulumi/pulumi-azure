@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Dashboard` - 2023-09-01
+ * * `Microsoft.Dashboard` - 2025-08-01
  */
 export function getGrafana(args: GetGrafanaArgs, opts?: pulumi.InvokeOptions): Promise<GetGrafanaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -141,7 +141,7 @@ export interface GetGrafanaResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Dashboard` - 2023-09-01
+ * * `Microsoft.Dashboard` - 2025-08-01
  */
 export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGrafanaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

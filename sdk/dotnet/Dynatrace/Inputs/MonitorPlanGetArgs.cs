@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Dynatrace.Inputs
     public sealed class MonitorPlanGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+        /// Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
         /// </summary>
         [Input("billingCycle")]
         public Input<string>? BillingCycle { get; set; }

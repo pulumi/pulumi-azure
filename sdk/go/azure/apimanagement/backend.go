@@ -82,6 +82,8 @@ type Backend struct {
 
 	// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+	// A `circuitBreakerRule` block as documented below.
+	CircuitBreakerRule BackendCircuitBreakerRulePtrOutput `pulumi:"circuitBreakerRule"`
 	// A `credentials` block as documented below.
 	Credentials BackendCredentialsPtrOutput `pulumi:"credentials"`
 	// The description of the backend.
@@ -150,6 +152,8 @@ func GetBackend(ctx *pulumi.Context,
 type backendState struct {
 	// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
+	// A `circuitBreakerRule` block as documented below.
+	CircuitBreakerRule *BackendCircuitBreakerRule `pulumi:"circuitBreakerRule"`
 	// A `credentials` block as documented below.
 	Credentials *BackendCredentials `pulumi:"credentials"`
 	// The description of the backend.
@@ -177,6 +181,8 @@ type backendState struct {
 type BackendState struct {
 	// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
+	// A `circuitBreakerRule` block as documented below.
+	CircuitBreakerRule BackendCircuitBreakerRulePtrInput
 	// A `credentials` block as documented below.
 	Credentials BackendCredentialsPtrInput
 	// The description of the backend.
@@ -208,6 +214,8 @@ func (BackendState) ElementType() reflect.Type {
 type backendArgs struct {
 	// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
+	// A `circuitBreakerRule` block as documented below.
+	CircuitBreakerRule *BackendCircuitBreakerRule `pulumi:"circuitBreakerRule"`
 	// A `credentials` block as documented below.
 	Credentials *BackendCredentials `pulumi:"credentials"`
 	// The description of the backend.
@@ -236,6 +244,8 @@ type backendArgs struct {
 type BackendArgs struct {
 	// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
+	// A `circuitBreakerRule` block as documented below.
+	CircuitBreakerRule BackendCircuitBreakerRulePtrInput
 	// A `credentials` block as documented below.
 	Credentials BackendCredentialsPtrInput
 	// The description of the backend.
@@ -350,6 +360,11 @@ func (o BackendOutput) ToBackendOutputWithContext(ctx context.Context) BackendOu
 // The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
 func (o BackendOutput) ApiManagementName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backend) pulumi.StringOutput { return v.ApiManagementName }).(pulumi.StringOutput)
+}
+
+// A `circuitBreakerRule` block as documented below.
+func (o BackendOutput) CircuitBreakerRule() BackendCircuitBreakerRulePtrOutput {
+	return o.ApplyT(func(v *Backend) BackendCircuitBreakerRulePtrOutput { return v.CircuitBreakerRule }).(BackendCircuitBreakerRulePtrOutput)
 }
 
 // A `credentials` block as documented below.

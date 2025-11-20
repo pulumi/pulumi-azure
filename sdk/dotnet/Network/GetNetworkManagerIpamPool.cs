@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Task<GetNetworkManagerIpamPoolResult> InvokeAsync(GetNetworkManagerIpamPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerIpamPoolResult>("azure:network/getNetworkManagerIpamPool:getNetworkManagerIpamPool", args ?? new GetNetworkManagerIpamPoolArgs(), options.WithDefaults());
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetNetworkManagerIpamPoolResult> Invoke(GetNetworkManagerIpamPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerIpamPoolResult>("azure:network/getNetworkManagerIpamPool:getNetworkManagerIpamPool", args ?? new GetNetworkManagerIpamPoolInvokeArgs(), options.WithDefaults());
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2024-05-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetNetworkManagerIpamPoolResult> Invoke(GetNetworkManagerIpamPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerIpamPoolResult>("azure:network/getNetworkManagerIpamPool:getNetworkManagerIpamPool", args ?? new GetNetworkManagerIpamPoolInvokeArgs(), options.WithDefaults());

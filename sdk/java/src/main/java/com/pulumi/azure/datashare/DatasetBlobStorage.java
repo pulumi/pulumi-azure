@@ -18,6 +18,113 @@ import javax.annotation.Nullable;
 /**
  * Manages a Data Share Blob Storage Dataset.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.datashare.inputs.AccountIdentityArgs;
+ * import com.pulumi.azure.datashare.Share;
+ * import com.pulumi.azure.datashare.ShareArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.datashare.DatasetBlobStorage;
+ * import com.pulumi.azure.datashare.DatasetBlobStorageArgs;
+ * import com.pulumi.azure.datashare.inputs.DatasetBlobStorageStorageAccountArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleAccount = new com.pulumi.azure.datashare.Account("exampleAccount", com.pulumi.azure.datashare.AccountArgs.builder()
+ *             .name("example-dsa")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
+ *             .name("example_ds")
+ *             .accountId(exampleAccount.id())
+ *             .kind("CopyBased")
+ *             .build());
+ * 
+ *         var exampleAccount2 = new com.pulumi.azure.storage.Account("exampleAccount2", com.pulumi.azure.storage.AccountArgs.builder()
+ *             .name("examplestr")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier("Standard")
+ *             .accountReplicationType("RAGRS")
+ *             .build());
+ * 
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
+ *             .name("example-sc")
+ *             .storageAccountName(exampleAccount2.name())
+ *             .containerAccessType("container")
+ *             .build());
+ * 
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .displayName(exampleAccount.name())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *             .scope(exampleAccount2.id())
+ *             .roleDefinitionName("Storage Blob Data Reader")
+ *             .principalId(example.applyValue(_example -> _example.objectId()))
+ *             .build());
+ * 
+ *         var exampleDatasetBlobStorage = new DatasetBlobStorage("exampleDatasetBlobStorage", DatasetBlobStorageArgs.builder()
+ *             .name("example-dsbsds-file")
+ *             .dataShareId(exampleShare.id())
+ *             .containerName(exampleContainer.name())
+ *             .storageAccount(DatasetBlobStorageStorageAccountArgs.builder()
+ *                 .name(exampleAccount2.name())
+ *                 .resourceGroupName(exampleAccount2.resourceGroupName())
+ *                 .subscriptionId("00000000-0000-0000-0000-000000000000")
+ *                 .build())
+ *             .filePath("myfile.txt")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DataShare` - 2019-11-01
+ * 
  * ## Import
  * 
  * Data Share Blob Storage Datasets can be imported using the `resource id`, e.g.

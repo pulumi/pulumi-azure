@@ -171,6 +171,8 @@ if typing.TYPE_CHECKING:
     managedapplication = __managedapplication
     import pulumi_azure.managedlustre as __managedlustre
     managedlustre = __managedlustre
+    import pulumi_azure.managedredis as __managedredis
+    managedredis = __managedredis
     import pulumi_azure.management as __management
     management = __management
     import pulumi_azure.managementgroups as __managementgroups
@@ -181,10 +183,10 @@ if typing.TYPE_CHECKING:
     maps = __maps
     import pulumi_azure.marketplace as __marketplace
     marketplace = __marketplace
-    import pulumi_azure.mixedreality as __mixedreality
-    mixedreality = __mixedreality
     import pulumi_azure.mobile as __mobile
     mobile = __mobile
+    import pulumi_azure.mongocluster as __mongocluster
+    mongocluster = __mongocluster
     import pulumi_azure.monitoring as __monitoring
     monitoring = __monitoring
     import pulumi_azure.msi as __msi
@@ -362,13 +364,14 @@ else:
     maintenance = _utilities.lazy_import('pulumi_azure.maintenance')
     managedapplication = _utilities.lazy_import('pulumi_azure.managedapplication')
     managedlustre = _utilities.lazy_import('pulumi_azure.managedlustre')
+    managedredis = _utilities.lazy_import('pulumi_azure.managedredis')
     management = _utilities.lazy_import('pulumi_azure.management')
     managementgroups = _utilities.lazy_import('pulumi_azure.managementgroups')
     managementresource = _utilities.lazy_import('pulumi_azure.managementresource')
     maps = _utilities.lazy_import('pulumi_azure.maps')
     marketplace = _utilities.lazy_import('pulumi_azure.marketplace')
-    mixedreality = _utilities.lazy_import('pulumi_azure.mixedreality')
     mobile = _utilities.lazy_import('pulumi_azure.mobile')
+    mongocluster = _utilities.lazy_import('pulumi_azure.mongocluster')
     monitoring = _utilities.lazy_import('pulumi_azure.monitoring')
     msi = _utilities.lazy_import('pulumi_azure.msi')
     mssql = _utilities.lazy_import('pulumi_azure.mssql')
@@ -855,10 +858,34 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/workspaceApiVersionSet",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/workspaceApiVersionSet:WorkspaceApiVersionSet": "WorkspaceApiVersionSet"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "apimanagement/workspaceCertificate",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/workspaceCertificate:WorkspaceCertificate": "WorkspaceCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/workspacePolicy",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
    "azure:apimanagement/workspacePolicy:WorkspacePolicy": "WorkspacePolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "apimanagement/workspacePolicyFragment",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment": "WorkspacePolicyFragment"
   }
  },
  {
@@ -5759,6 +5786,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "managedredis/geoReplication",
+  "fqn": "pulumi_azure.managedredis",
+  "classes": {
+   "azure:managedredis/geoReplication:GeoReplication": "GeoReplication"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "managedredis/managedRedis",
+  "fqn": "pulumi_azure.managedredis",
+  "classes": {
+   "azure:managedredis/managedRedis:ManagedRedis": "ManagedRedis"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "management/group",
   "fqn": "pulumi_azure.management",
   "classes": {
@@ -5887,14 +5930,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "mixedreality/spatialAnchorsAccount",
-  "fqn": "pulumi_azure.mixedreality",
-  "classes": {
-   "azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount": "SpatialAnchorsAccount"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "mobile/network",
   "fqn": "pulumi_azure.mobile",
   "classes": {
@@ -5979,6 +6014,22 @@ _utilities.register(
   "fqn": "pulumi_azure.mobile",
   "classes": {
    "azure:mobile/networkSlice:NetworkSlice": "NetworkSlice"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mongocluster/firewallRule",
+  "fqn": "pulumi_azure.mongocluster",
+  "classes": {
+   "azure:mongocluster/firewallRule:FirewallRule": "FirewallRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mongocluster/mongoCluster",
+  "fqn": "pulumi_azure.mongocluster",
+  "classes": {
+   "azure:mongocluster/mongoCluster:MongoCluster": "MongoCluster"
   }
  },
  {
@@ -6855,6 +6906,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/networkManagerRoutingRule",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerRoutingRule:NetworkManagerRoutingRule": "NetworkManagerRoutingRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/networkManagerRoutingRuleCollection",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -7383,6 +7442,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "oracle/autonomousDatabaseCloneFromBackup",
+  "fqn": "pulumi_azure.oracle",
+  "classes": {
+   "azure:oracle/autonomousDatabaseCloneFromBackup:AutonomousDatabaseCloneFromBackup": "AutonomousDatabaseCloneFromBackup"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "oracle/autonomousDatabaseCloneFromDatabase",
+  "fqn": "pulumi_azure.oracle",
+  "classes": {
+   "azure:oracle/autonomousDatabaseCloneFromDatabase:AutonomousDatabaseCloneFromDatabase": "AutonomousDatabaseCloneFromDatabase"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "oracle/cloudVmCluster",
   "fqn": "pulumi_azure.oracle",
   "classes": {
@@ -7395,6 +7470,22 @@ _utilities.register(
   "fqn": "pulumi_azure.oracle",
   "classes": {
    "azure:oracle/exadataInfrastructure:ExadataInfrastructure": "ExadataInfrastructure"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "oracle/exascaleDatabaseStorageVault",
+  "fqn": "pulumi_azure.oracle",
+  "classes": {
+   "azure:oracle/exascaleDatabaseStorageVault:ExascaleDatabaseStorageVault": "ExascaleDatabaseStorageVault"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "oracle/resourceAnchor",
+  "fqn": "pulumi_azure.oracle",
+  "classes": {
+   "azure:oracle/resourceAnchor:ResourceAnchor": "ResourceAnchor"
   }
  },
  {

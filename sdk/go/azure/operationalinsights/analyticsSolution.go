@@ -39,17 +39,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			workspace, err := random.NewId(ctx, "workspace", &random.IdArgs{
-//				Keepers: map[string]interface{}{
-//					"groupName": example.Name,
+//			workspace, err := random.NewRandomId(ctx, "workspace", &random.RandomIdArgs{
+//				Keepers: pulumi.StringMap{
+//					"group_name": example.Name,
 //				},
-//				ByteLength: 8,
+//				ByteLength: pulumi.Int(8),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.Sprintf("k8s-workspace-%v", workspace.Hex),
+//				Name: workspace.Hex.ApplyT(func(hex string) (string, error) {
+//					return fmt.Sprintf("k8s-workspace-%v", hex), nil
+//				}).(pulumi.StringOutput),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),

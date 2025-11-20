@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database` - 2025-03-01
+ * * `Oracle.Database` - 2025-09-01
  */
 export function getDbSystemShapes(args: GetDbSystemShapesArgs, opts?: pulumi.InvokeOptions): Promise<GetDbSystemShapesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,7 +99,7 @@ export interface GetDbSystemShapesResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database` - 2025-03-01
+ * * `Oracle.Database` - 2025-09-01
  */
 export function getDbSystemShapesOutput(args: GetDbSystemShapesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbSystemShapesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

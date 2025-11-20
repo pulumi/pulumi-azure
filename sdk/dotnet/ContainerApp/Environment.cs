@@ -54,7 +54,7 @@ namespace Pulumi.Azure.ContainerApp
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.App` - 2025-01-01
+    /// * `Microsoft.App` - 2025-07-01
     /// 
     /// * `Microsoft.OperationalInsights` - 2020-08-01
     /// 
@@ -168,6 +168,12 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Output("platformReservedDnsIpAddress")]
         public Output<string> PlatformReservedDnsIpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
@@ -332,6 +338,12 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -486,6 +498,12 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("platformReservedDnsIpAddress")]
         public Input<string>? PlatformReservedDnsIpAddress { get; set; }
+
+        /// <summary>
+        /// The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.

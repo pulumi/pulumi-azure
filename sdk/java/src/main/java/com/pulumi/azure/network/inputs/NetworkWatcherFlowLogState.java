@@ -160,14 +160,18 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * The ID of the Resource for which to enable flow logs for.
+     * 
+     * &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      * 
      */
     @Import(name="targetResourceId")
     private @Nullable Output<String> targetResourceId;
 
     /**
-     * @return The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * @return The ID of the Resource for which to enable flow logs for.
+     * 
+     * &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      * 
      */
     public Optional<Output<String>> targetResourceId() {
@@ -433,7 +437,9 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetResourceId The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+         * @param targetResourceId The ID of the Resource for which to enable flow logs for.
+         * 
+         * &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
          * 
          * @return builder
          * 
@@ -444,7 +450,9 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetResourceId The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+         * @param targetResourceId The ID of the Resource for which to enable flow logs for.
+         * 
+         * &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
          * 
          * @return builder
          * 

@@ -32,6 +32,21 @@ public final class ChannelTeamsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * 
+     */
+    @Import(name="callingEnabled")
+    private @Nullable Output<Boolean> callingEnabled;
+
+    /**
+     * @return Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> callingEnabled() {
+        return Optional.ofNullable(this.callingEnabled);
+    }
+
+    /**
      * Specifies the webhook for Microsoft Teams channel calls.
      * 
      */
@@ -62,16 +77,20 @@ public final class ChannelTeamsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * @deprecated
+     * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
     @Import(name="enableCalling")
     private @Nullable Output<Boolean> enableCalling;
 
     /**
-     * @return Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+     * @deprecated
+     * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enableCalling() {
         return Optional.ofNullable(this.enableCalling);
     }
@@ -110,6 +129,7 @@ public final class ChannelTeamsState extends com.pulumi.resources.ResourceArgs {
 
     private ChannelTeamsState(ChannelTeamsState $) {
         this.botName = $.botName;
+        this.callingEnabled = $.callingEnabled;
         this.callingWebHook = $.callingWebHook;
         this.deploymentEnvironment = $.deploymentEnvironment;
         this.enableCalling = $.enableCalling;
@@ -157,6 +177,27 @@ public final class ChannelTeamsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param callingEnabled Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder callingEnabled(@Nullable Output<Boolean> callingEnabled) {
+            $.callingEnabled = callingEnabled;
+            return this;
+        }
+
+        /**
+         * @param callingEnabled Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder callingEnabled(Boolean callingEnabled) {
+            return callingEnabled(Output.of(callingEnabled));
+        }
+
+        /**
          * @param callingWebHook Specifies the webhook for Microsoft Teams channel calls.
          * 
          * @return builder
@@ -199,22 +240,26 @@ public final class ChannelTeamsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCalling Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
         public Builder enableCalling(@Nullable Output<Boolean> enableCalling) {
             $.enableCalling = enableCalling;
             return this;
         }
 
         /**
-         * @param enableCalling Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
         public Builder enableCalling(Boolean enableCalling) {
             return enableCalling(Output.of(enableCalling));
         }

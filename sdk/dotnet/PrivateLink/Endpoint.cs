@@ -272,13 +272,14 @@ namespace Pulumi.Azure.PrivateLink
     /// * How to connect a `Private Endpoint` to a Private Link Service
     /// * How to connect a `Private Endpoint` to a Private DNS Group
     /// * How to connect a `Private Endpoint` to a Databricks Workspace
+    /// * How to connect a `Private Endpoint` to a Managed Redis
     /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2024-05-01
+    /// * `Microsoft.Network` - 2025-01-01
     /// 
     /// ## Import
     /// 

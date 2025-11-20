@@ -38,6 +38,11 @@ public final class ApplicationGatewayBackendHttpSetting {
      */
     private String cookieBasedAffinity;
     /**
+     * @return Whether to use a dedicated backend connection. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean dedicatedBackendConnectionEnabled;
+    /**
      * @return Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
      * 
      */
@@ -121,6 +126,13 @@ public final class ApplicationGatewayBackendHttpSetting {
      */
     public String cookieBasedAffinity() {
         return this.cookieBasedAffinity;
+    }
+    /**
+     * @return Whether to use a dedicated backend connection. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> dedicatedBackendConnectionEnabled() {
+        return Optional.ofNullable(this.dedicatedBackendConnectionEnabled);
     }
     /**
      * @return Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
@@ -213,6 +225,7 @@ public final class ApplicationGatewayBackendHttpSetting {
         private @Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
         private @Nullable ApplicationGatewayBackendHttpSettingConnectionDraining connectionDraining;
         private String cookieBasedAffinity;
+        private @Nullable Boolean dedicatedBackendConnectionEnabled;
         private @Nullable String hostName;
         private @Nullable String id;
         private String name;
@@ -231,6 +244,7 @@ public final class ApplicationGatewayBackendHttpSetting {
     	      this.authenticationCertificates = defaults.authenticationCertificates;
     	      this.connectionDraining = defaults.connectionDraining;
     	      this.cookieBasedAffinity = defaults.cookieBasedAffinity;
+    	      this.dedicatedBackendConnectionEnabled = defaults.dedicatedBackendConnectionEnabled;
     	      this.hostName = defaults.hostName;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -271,6 +285,12 @@ public final class ApplicationGatewayBackendHttpSetting {
               throw new MissingRequiredPropertyException("ApplicationGatewayBackendHttpSetting", "cookieBasedAffinity");
             }
             this.cookieBasedAffinity = cookieBasedAffinity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dedicatedBackendConnectionEnabled(@Nullable Boolean dedicatedBackendConnectionEnabled) {
+
+            this.dedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
             return this;
         }
         @CustomType.Setter
@@ -354,6 +374,7 @@ public final class ApplicationGatewayBackendHttpSetting {
             _resultValue.authenticationCertificates = authenticationCertificates;
             _resultValue.connectionDraining = connectionDraining;
             _resultValue.cookieBasedAffinity = cookieBasedAffinity;
+            _resultValue.dedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
             _resultValue.hostName = hostName;
             _resultValue.id = id;
             _resultValue.name = name;

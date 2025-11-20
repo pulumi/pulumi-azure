@@ -17,14 +17,14 @@ public final class MonitorPlanArgs extends com.pulumi.resources.ResourceArgs {
     public static final MonitorPlanArgs Empty = new MonitorPlanArgs();
 
     /**
-     * Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+     * Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
      * 
      */
     @Import(name="billingCycle")
     private @Nullable Output<String> billingCycle;
 
     /**
-     * @return Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+     * @return Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
      * 
      */
     public Optional<Output<String>> billingCycle() {
@@ -104,7 +104,7 @@ public final class MonitorPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param billingCycle Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+         * @param billingCycle Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class MonitorPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param billingCycle Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+         * @param billingCycle Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
          * 
          * @return builder
          * 

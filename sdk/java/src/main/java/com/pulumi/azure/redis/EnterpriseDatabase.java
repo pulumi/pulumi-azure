@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Redis Enterprise Database.
  * 
+ * &gt; **Note:** This resource has been deprecated in favor of azurerm_managed_redis.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -176,7 +178,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
     /**
      * A list of database resources to link with this database with a maximum of 5.
      * 
-     * &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+     * &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
      * 
      */
     @Export(name="linkedDatabaseIds", refs={List.class,String.class}, tree="[0,1]")
@@ -185,7 +187,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of database resources to link with this database with a maximum of 5.
      * 
-     * &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+     * &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
      * 
      */
     public Output<Optional<List<String>>> linkedDatabaseIds() {

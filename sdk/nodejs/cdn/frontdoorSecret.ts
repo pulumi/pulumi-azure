@@ -25,6 +25,78 @@ import * as utilities from "../utilities";
  *
  * -> **Note:** You only need to add the `Access Policy` for your personal AAD Object ID if you are planning to view the `secrets` via the Azure Portal.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ * import * as std from "@pulumi/std";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const frontdoor = azuread.getServicePrincipal({
+ *     displayName: "Microsoft.AzurefrontDoor-Cdn",
+ * });
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-cdn-frontdoor",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example-keyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     softDeleteRetentionDays: 7,
+ *     networkAcls: {
+ *         defaultAction: "Deny",
+ *         bypass: "AzureServices",
+ *         ipRules: ["10.0.0.0/24"],
+ *     },
+ *     accessPolicies: [
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: frontdoor.then(frontdoor => frontdoor.objectId),
+ *             secretPermissions: ["Get"],
+ *         },
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             certificatePermissions: [
+ *                 "Get",
+ *                 "Import",
+ *                 "Delete",
+ *                 "Purge",
+ *             ],
+ *             secretPermissions: ["Get"],
+ *         },
+ *     ],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "example-cert",
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate: {
+ *         contents: std.filebase64({
+ *             input: "my-certificate.pfx",
+ *         }).then(invoke => invoke.result),
+ *     },
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ *     name: "example-cdn-profile",
+ *     resourceGroupName: example.name,
+ *     skuName: "Standard_AzureFrontDoor",
+ * });
+ * const exampleFrontdoorSecret = new azure.cdn.FrontdoorSecret("example", {
+ *     name: "example-customer-managed-secret",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     secret: {
+ *         customerCertificates: [{
+ *             keyVaultCertificateId: exampleCertificate.id,
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Front Door Secrets can be imported using the `resource id`, e.g.

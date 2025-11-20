@@ -24,6 +24,210 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** This resource depends on the NFSv3 enabled Storage Account, which has some prerequisites need to meet. Please checkout: &lt;https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support-how-to?tabs=azure-powershell&gt;.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.inputs.AccountNetworkRulesArgs;
+ * import com.pulumi.azure.core.ResourceGroupTemplateDeployment;
+ * import com.pulumi.azure.core.ResourceGroupTemplateDeploymentArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.hpc.Cache;
+ * import com.pulumi.azure.hpc.CacheArgs;
+ * import com.pulumi.azure.hpc.CacheBlobNfsTarget;
+ * import com.pulumi.azure.hpc.CacheBlobNfsTargetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JsondecodeArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("example-rg")
+ *             .location("west europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("example-subnet")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .serviceEndpoints("Microsoft.Storage")
+ *             .build());
+ * 
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .displayName("HPC Cache Resource Provider")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("examplestorageaccount")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier("Standard")
+ *             .accountKind("StorageV2")
+ *             .accountReplicationType("LRS")
+ *             .isHnsEnabled(true)
+ *             .nfsv3Enabled(true)
+ *             .enableHttpsTrafficOnly(false)
+ *             .networkRules(AccountNetworkRulesArgs.builder()
+ *                 .defaultAction("Deny")
+ *                 .virtualNetworkSubnetIds(exampleSubnet.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Due to https://github.com/hashicorp/terraform-provider-azurerm/issues/2977 and the fact
+ *         // that the NFSv3 enabled storage account can't allow public network access - otherwise the NFSv3 protocol will fail,
+ *         // we have to use the ARM template to deploy the storage container as a workaround.
+ *         // Once the issue above got resolved, we can instead use the azurerm_storage_container resource.
+ *         var storage_containers = new ResourceGroupTemplateDeployment("storage-containers", ResourceGroupTemplateDeploymentArgs.builder()
+ *             .name("example-deployment")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .deploymentMode("Incremental")
+ *             .parametersContent(Output.tuple(exampleAccount.location(), exampleAccount.name()).applyValue(values -> {
+ *                 var location = values.t1;
+ *                 var name = values.t2;
+ *                 return serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("location", jsonObject(
+ *                             jsonProperty("value", location)
+ *                         )),
+ *                         jsonProperty("storageAccountName", jsonObject(
+ *                             jsonProperty("value", name)
+ *                         )),
+ *                         jsonProperty("containerName", jsonObject(
+ *                             jsonProperty("value", "example-container")
+ *                         ))
+ *                     ));
+ *             }))
+ *             .templateContent("""
+ * {
+ *   \"$schema\": \"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#\",
+ *   \"contentVersion\": \"1.0.0.0\",
+ *   \"parameters\": {
+ *     \"storageAccountName\": {
+ *       \"type\": \"String\"
+ *     },
+ *     \"containerName\": {
+ *       \"type\": \"String\"
+ *     },
+ *     \"location\": {
+ *       \"type\": \"String\"
+ *     }
+ *   },
+ *   \"resources\": [
+ *     {
+ *       \"type\": \"Microsoft.Storage/storageAccounts\",
+ *       \"apiVersion\": \"2019-06-01\",
+ *       \"name\": \"[parameters('storageAccountName')]\",
+ *       \"location\": \"[parameters('location')]\",
+ *       \"sku\": {
+ *         \"name\": \"Standard_LRS\",
+ *         \"tier\": \"Standard\"
+ *       },
+ *       \"kind\": \"StorageV2\",
+ *       \"properties\": {
+ *         \"accessTier\": \"Hot\"
+ *       },
+ *       \"resources\": [
+ *         {
+ *           \"type\": \"blobServices/containers\",
+ *           \"apiVersion\": \"2019-06-01\",
+ *           \"name\": \"[concat('default/', parameters('containerName'))]\",
+ *           \"dependsOn\": [
+ *             \"[parameters('storageAccountName')]\"
+ *           ]
+ *         }
+ *       ]
+ *     }
+ *   ],
+ * 
+ *   \"outputs\": {
+ *     \"id\": {
+ *       \"type\": \"String\",
+ *       \"value\": \"[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', parameters('storageAccountName'), 'default', parameters('containerName'))]\"
+ *     }
+ *   }
+ * }
+ *             """)
+ *             .build());
+ * 
+ *         var exampleStorageAccountContrib = new Assignment("exampleStorageAccountContrib", AssignmentArgs.builder()
+ *             .scope(exampleAccount.id())
+ *             .roleDefinitionName("Storage Account Contributor")
+ *             .principalId(example.objectId())
+ *             .build());
+ * 
+ *         var exampleStorageBlobDataContrib = new Assignment("exampleStorageBlobDataContrib", AssignmentArgs.builder()
+ *             .scope(exampleAccount.id())
+ *             .roleDefinitionName("Storage Blob Data Contributor")
+ *             .principalId(example.objectId())
+ *             .build());
+ * 
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
+ *             .name("example-hpc-cache")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .cacheSizeInGb(3072)
+ *             .subnetId(exampleSubnet.id())
+ *             .skuName("Standard_2G")
+ *             .build());
+ * 
+ *         var exampleCacheBlobNfsTarget = new CacheBlobNfsTarget("exampleCacheBlobNfsTarget", CacheBlobNfsTargetArgs.builder()
+ *             .name("example-hpc-target")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .cacheName(exampleCache.name())
+ *             .storageContainerId(StdFunctions.jsondecode(JsondecodeArgs.builder()
+ *                 .input(storage_containers.outputContent())
+ *                 .build()).applyValue(_invoke -> _invoke.result().id().value()))
+ *             .namespacePath("/p1")
+ *             .usageModel("READ_HEAVY_INFREQ")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.StorageCache` - 2023-05-01
+ * 
  * ## Import
  * 
  * HPC Cache Blob NFS Targets can be imported using the `resource id`, e.g.

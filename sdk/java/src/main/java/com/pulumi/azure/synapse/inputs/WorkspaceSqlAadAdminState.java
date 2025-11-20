@@ -16,14 +16,14 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
     public static final WorkspaceSqlAadAdminState Empty = new WorkspaceSqlAadAdminState();
 
     /**
-     * The login name of the Azure AD Administrator of this Synapse Workspace.
+     * The login name of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     @Import(name="login")
     private @Nullable Output<String> login;
 
     /**
-     * @return The login name of the Azure AD Administrator of this Synapse Workspace.
+     * @return The login name of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     public Optional<Output<String>> login() {
@@ -31,14 +31,14 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The object id of the Azure AD Administrator of this Synapse Workspace.
+     * The object id of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     @Import(name="objectId")
     private @Nullable Output<String> objectId;
 
     /**
-     * @return The object id of the Azure AD Administrator of this Synapse Workspace.
+     * @return The object id of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     public Optional<Output<String>> objectId() {
@@ -46,14 +46,14 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+     * The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
      * 
      */
     @Import(name="synapseWorkspaceId")
     private @Nullable Output<String> synapseWorkspaceId;
 
     /**
-     * @return The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+     * @return The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
      * 
      */
     public Optional<Output<String>> synapseWorkspaceId() {
@@ -61,14 +61,14 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * @return The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -103,7 +103,7 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param login The login name of the Azure AD Administrator of this Synapse Workspace.
+         * @param login The login name of the Azure AD SQL Administrator of this Synapse Workspace.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param login The login name of the Azure AD Administrator of this Synapse Workspace.
+         * @param login The login name of the Azure AD SQL Administrator of this Synapse Workspace.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param objectId The object id of the Azure AD Administrator of this Synapse Workspace.
+         * @param objectId The object id of the Azure AD SQL Administrator of this Synapse Workspace.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param objectId The object id of the Azure AD Administrator of this Synapse Workspace.
+         * @param objectId The object id of the Azure AD SQL Administrator of this Synapse Workspace.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param synapseWorkspaceId The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+         * @param synapseWorkspaceId The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param synapseWorkspaceId The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+         * @param synapseWorkspaceId The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tenantId The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         * @param tenantId The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class WorkspaceSqlAadAdminState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tenantId The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         * @param tenantId The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
          * 
          * @return builder
          * 

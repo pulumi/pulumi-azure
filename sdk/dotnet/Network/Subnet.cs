@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2024-05-01
+    /// * `Microsoft.Network` - 2025-01-01
     /// 
     /// ## Import
     /// 
@@ -93,8 +93,6 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// The address prefixes to use for the subnet.
-        /// 
-        /// &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
         /// 
         /// &gt; **Note:** Exactly one of `AddressPrefixes` or `IpAddressPool` must be specified.
         /// </summary>
@@ -235,8 +233,6 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The address prefixes to use for the subnet.
         /// 
-        /// &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-        /// 
         /// &gt; **Note:** Exactly one of `AddressPrefixes` or `IpAddressPool` must be specified.
         /// </summary>
         public InputList<string> AddressPrefixes
@@ -358,8 +354,6 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The address prefixes to use for the subnet.
-        /// 
-        /// &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
         /// 
         /// &gt; **Note:** Exactly one of `AddressPrefixes` or `IpAddressPool` must be specified.
         /// </summary>

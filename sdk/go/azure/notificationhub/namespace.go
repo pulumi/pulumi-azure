@@ -77,6 +77,8 @@ type Namespace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType pulumi.StringOutput `pulumi:"namespaceType"`
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	ReplicationRegion pulumi.StringPtrOutput `pulumi:"replicationRegion"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ServiceBus Endpoint for this Notification Hub Namespace.
@@ -85,6 +87,8 @@ type Namespace struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneRedundancyEnabled pulumi.BoolPtrOutput `pulumi:"zoneRedundancyEnabled"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -134,6 +138,8 @@ type namespaceState struct {
 	Name *string `pulumi:"name"`
 	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType *string `pulumi:"namespaceType"`
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	ReplicationRegion *string `pulumi:"replicationRegion"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ServiceBus Endpoint for this Notification Hub Namespace.
@@ -142,6 +148,8 @@ type namespaceState struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
 type NamespaceState struct {
@@ -153,6 +161,8 @@ type NamespaceState struct {
 	Name pulumi.StringPtrInput
 	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType pulumi.StringPtrInput
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	ReplicationRegion pulumi.StringPtrInput
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ServiceBus Endpoint for this Notification Hub Namespace.
@@ -161,6 +171,8 @@ type NamespaceState struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -176,12 +188,16 @@ type namespaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType string `pulumi:"namespaceType"`
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	ReplicationRegion *string `pulumi:"replicationRegion"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
 // The set of arguments for constructing a Namespace resource.
@@ -194,12 +210,16 @@ type NamespaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType pulumi.StringInput
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	ReplicationRegion pulumi.StringPtrInput
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -309,6 +329,11 @@ func (o NamespaceOutput) NamespaceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.NamespaceType }).(pulumi.StringOutput)
 }
 
+// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+func (o NamespaceOutput) ReplicationRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.ReplicationRegion }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 func (o NamespaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
@@ -327,6 +352,11 @@ func (o NamespaceOutput) SkuName() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
+func (o NamespaceOutput) ZoneRedundancyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.ZoneRedundancyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type NamespaceArrayOutput struct{ *pulumi.OutputState }

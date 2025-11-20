@@ -6,10 +6,16 @@ package com.pulumi.azure.dataprotection.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetBackupVaultIdentity {
+    /**
+     * @return The list of User Assigned Managed Identity IDs assigned to this Backup Vault.
+     * 
+     */
+    private List<String> identityIds;
     /**
      * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
      * 
@@ -27,6 +33,13 @@ public final class GetBackupVaultIdentity {
     private String type;
 
     private GetBackupVaultIdentity() {}
+    /**
+     * @return The list of User Assigned Managed Identity IDs assigned to this Backup Vault.
+     * 
+     */
+    public List<String> identityIds() {
+        return this.identityIds;
+    }
     /**
      * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
      * 
@@ -58,17 +71,30 @@ public final class GetBackupVaultIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
         public Builder() {}
         public Builder(GetBackupVaultIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(List<String> identityIds) {
+            if (identityIds == null) {
+              throw new MissingRequiredPropertyException("GetBackupVaultIdentity", "identityIds");
+            }
+            this.identityIds = identityIds;
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(String principalId) {
             if (principalId == null) {
@@ -95,6 +121,7 @@ public final class GetBackupVaultIdentity {
         }
         public GetBackupVaultIdentity build() {
             final var _resultValue = new GetBackupVaultIdentity();
+            _resultValue.identityIds = identityIds;
             _resultValue.principalId = principalId;
             _resultValue.tenantId = tenantId;
             _resultValue.type = type;

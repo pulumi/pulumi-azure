@@ -36,6 +36,11 @@ public final class GetApplicationGatewayBackendHttpSetting {
      */
     private String cookieBasedAffinity;
     /**
+     * @return Whether a dedicated backend connection is used.
+     * 
+     */
+    private Boolean dedicatedBackendConnectionEnabled;
+    /**
      * @return The Hostname which is used for this HTTP Listener.
      * 
      */
@@ -119,6 +124,13 @@ public final class GetApplicationGatewayBackendHttpSetting {
      */
     public String cookieBasedAffinity() {
         return this.cookieBasedAffinity;
+    }
+    /**
+     * @return Whether a dedicated backend connection is used.
+     * 
+     */
+    public Boolean dedicatedBackendConnectionEnabled() {
+        return this.dedicatedBackendConnectionEnabled;
     }
     /**
      * @return The Hostname which is used for this HTTP Listener.
@@ -211,6 +223,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
         private List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
         private List<GetApplicationGatewayBackendHttpSettingConnectionDraining> connectionDrainings;
         private String cookieBasedAffinity;
+        private Boolean dedicatedBackendConnectionEnabled;
         private String hostName;
         private String id;
         private String name;
@@ -229,6 +242,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
     	      this.authenticationCertificates = defaults.authenticationCertificates;
     	      this.connectionDrainings = defaults.connectionDrainings;
     	      this.cookieBasedAffinity = defaults.cookieBasedAffinity;
+    	      this.dedicatedBackendConnectionEnabled = defaults.dedicatedBackendConnectionEnabled;
     	      this.hostName = defaults.hostName;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -278,6 +292,14 @@ public final class GetApplicationGatewayBackendHttpSetting {
               throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "cookieBasedAffinity");
             }
             this.cookieBasedAffinity = cookieBasedAffinity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dedicatedBackendConnectionEnabled(Boolean dedicatedBackendConnectionEnabled) {
+            if (dedicatedBackendConnectionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "dedicatedBackendConnectionEnabled");
+            }
+            this.dedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
             return this;
         }
         @CustomType.Setter
@@ -377,6 +399,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
             _resultValue.authenticationCertificates = authenticationCertificates;
             _resultValue.connectionDrainings = connectionDrainings;
             _resultValue.cookieBasedAffinity = cookieBasedAffinity;
+            _resultValue.dedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
             _resultValue.hostName = hostName;
             _resultValue.id = id;
             _resultValue.name = name;

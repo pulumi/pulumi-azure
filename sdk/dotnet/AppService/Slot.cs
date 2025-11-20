@@ -29,11 +29,11 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.Index.Id("server", new()
+    ///     var server = new Random.RandomId("server", new()
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "aziId", 1 },
+    ///             { "azi_id", "1" },
     ///         },
     ///         ByteLength = 8,
     ///     });
@@ -121,11 +121,11 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.Index.Id("server", new()
+    ///     var server = new Random.RandomId("server", new()
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "aziId", 1 },
+    ///             { "azi_id", "1" },
     ///         },
     ///         ByteLength = 8,
     ///     });

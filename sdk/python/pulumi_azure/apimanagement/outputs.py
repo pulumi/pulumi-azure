@@ -58,6 +58,9 @@ __all__ = [
     'ApiOperationTemplateParameterExample',
     'ApiSubscriptionKeyParameterNames',
     'AuthorizationServerTokenBodyParameter',
+    'BackendCircuitBreakerRule',
+    'BackendCircuitBreakerRuleFailureCondition',
+    'BackendCircuitBreakerRuleFailureConditionStatusCodeRange',
     'BackendCredentials',
     'BackendCredentialsAuthorization',
     'BackendProxy',
@@ -2944,6 +2947,203 @@ class AuthorizationServerTokenBodyParameter(dict):
         The Value of the Parameter.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BackendCircuitBreakerRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureCondition":
+            suggest = "failure_condition"
+        elif key == "tripDuration":
+            suggest = "trip_duration"
+        elif key == "acceptRetryAfterEnabled":
+            suggest = "accept_retry_after_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendCircuitBreakerRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendCircuitBreakerRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendCircuitBreakerRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_condition: 'outputs.BackendCircuitBreakerRuleFailureCondition',
+                 name: _builtins.str,
+                 trip_duration: _builtins.str,
+                 accept_retry_after_enabled: Optional[_builtins.bool] = None):
+        """
+        :param 'BackendCircuitBreakerRuleFailureConditionArgs' failure_condition: A `failure_condition` block as defined below.
+        :param _builtins.str name: The name of the circuit breaker rule.
+        :param _builtins.str trip_duration: Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+        :param _builtins.bool accept_retry_after_enabled: Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+        """
+        pulumi.set(__self__, "failure_condition", failure_condition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "trip_duration", trip_duration)
+        if accept_retry_after_enabled is not None:
+            pulumi.set(__self__, "accept_retry_after_enabled", accept_retry_after_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="failureCondition")
+    def failure_condition(self) -> 'outputs.BackendCircuitBreakerRuleFailureCondition':
+        """
+        A `failure_condition` block as defined below.
+        """
+        return pulumi.get(self, "failure_condition")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the circuit breaker rule.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="tripDuration")
+    def trip_duration(self) -> _builtins.str:
+        """
+        Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
+        """
+        return pulumi.get(self, "trip_duration")
+
+    @_builtins.property
+    @pulumi.getter(name="acceptRetryAfterEnabled")
+    def accept_retry_after_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+        """
+        return pulumi.get(self, "accept_retry_after_enabled")
+
+
+@pulumi.output_type
+class BackendCircuitBreakerRuleFailureCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalDuration":
+            suggest = "interval_duration"
+        elif key == "errorReasons":
+            suggest = "error_reasons"
+        elif key == "statusCodeRanges":
+            suggest = "status_code_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendCircuitBreakerRuleFailureCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendCircuitBreakerRuleFailureCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendCircuitBreakerRuleFailureCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval_duration: _builtins.str,
+                 count: Optional[_builtins.int] = None,
+                 error_reasons: Optional[Sequence[_builtins.str]] = None,
+                 percentage: Optional[_builtins.int] = None,
+                 status_code_ranges: Optional[Sequence['outputs.BackendCircuitBreakerRuleFailureConditionStatusCodeRange']] = None):
+        """
+        :param _builtins.str interval_duration: Specifies the time window over which failures are counted, in ISO 8601 format.
+        :param _builtins.int count: Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+        :param Sequence[_builtins.str] error_reasons: Specifies a list of error reasons to consider as failures.
+        :param _builtins.int percentage: Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+               
+               > **Note:** Exactly one of `percentage` or `count` must be specified.
+        :param Sequence['BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs'] status_code_ranges: One or more `status_code_range` blocks as defined below.
+               
+               > **Note:** At least one of `status_code_range`, and `error_reasons` must be set.
+        """
+        pulumi.set(__self__, "interval_duration", interval_duration)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if error_reasons is not None:
+            pulumi.set(__self__, "error_reasons", error_reasons)
+        if percentage is not None:
+            pulumi.set(__self__, "percentage", percentage)
+        if status_code_ranges is not None:
+            pulumi.set(__self__, "status_code_ranges", status_code_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="intervalDuration")
+    def interval_duration(self) -> _builtins.str:
+        """
+        Specifies the time window over which failures are counted, in ISO 8601 format.
+        """
+        return pulumi.get(self, "interval_duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[_builtins.int]:
+        """
+        Specifies the number of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `10000`.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter(name="errorReasons")
+    def error_reasons(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies a list of error reasons to consider as failures.
+        """
+        return pulumi.get(self, "error_reasons")
+
+    @_builtins.property
+    @pulumi.getter
+    def percentage(self) -> Optional[_builtins.int]:
+        """
+        Specifies the percentage of failures within the specified interval that will trigger the circuit breaker. Possible values are between `1` and `100`.
+
+        > **Note:** Exactly one of `percentage` or `count` must be specified.
+        """
+        return pulumi.get(self, "percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="statusCodeRanges")
+    def status_code_ranges(self) -> Optional[Sequence['outputs.BackendCircuitBreakerRuleFailureConditionStatusCodeRange']]:
+        """
+        One or more `status_code_range` blocks as defined below.
+
+        > **Note:** At least one of `status_code_range`, and `error_reasons` must be set.
+        """
+        return pulumi.get(self, "status_code_ranges")
+
+
+@pulumi.output_type
+class BackendCircuitBreakerRuleFailureConditionStatusCodeRange(dict):
+    def __init__(__self__, *,
+                 max: _builtins.int,
+                 min: _builtins.int):
+        """
+        :param _builtins.int max: Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        :param _builtins.int min: Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.int:
+        """
+        Specifies the maximum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.int:
+        """
+        Specifies the minimum HTTP status code to consider as a failure. Possible values are between `200` and `599`.
+        """
+        return pulumi.get(self, "min")
 
 
 @pulumi.output_type
@@ -7284,7 +7484,7 @@ class GetServiceAdditionalLocationResult(dict):
                  public_ip_addresses: Sequence[_builtins.str],
                  zones: Sequence[_builtins.str]):
         """
-        :param _builtins.int capacity: Specifies the number of units associated with this API Management service.
+        :param _builtins.int capacity: The number of compute units in this region.
         :param _builtins.str gateway_regional_url: Gateway URL of the API Management service in the Region.
         :param _builtins.str location: The location name of the additional region among Azure Data center regions.
         :param Sequence[_builtins.str] private_ip_addresses: Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
@@ -7304,7 +7504,7 @@ class GetServiceAdditionalLocationResult(dict):
     @pulumi.getter
     def capacity(self) -> _builtins.int:
         """
-        Specifies the number of units associated with this API Management service.
+        The number of compute units in this region.
         """
         return pulumi.get(self, "capacity")
 

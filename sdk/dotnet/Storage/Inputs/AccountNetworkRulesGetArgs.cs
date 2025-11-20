@@ -53,8 +53,6 @@ namespace Pulumi.Azure.Storage.Inputs
         /// &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `DefaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
         /// 
         /// &gt; **Note:** The prefix of `IpRules` must be between 0 and 30 and only supports public IP addresses.
-        /// 
-        /// &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         /// </summary>
         public InputList<Inputs.AccountNetworkRulesPrivateLinkAccessGetArgs> PrivateLinkAccesses
         {

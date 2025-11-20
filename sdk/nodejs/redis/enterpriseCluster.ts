@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Redis Enterprise Cluster.
  *
+ * > **Note:** This resource has been deprecated in favor of azurerm_managed_redis.
+ *
  * ## Example Usage
  *
  * ```typescript

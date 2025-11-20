@@ -102,7 +102,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-05-01
+ * * `Microsoft.ContainerService` - 2025-07-01
  *
  * * `Microsoft.MachineLearningServices` - 2025-06-01
  *

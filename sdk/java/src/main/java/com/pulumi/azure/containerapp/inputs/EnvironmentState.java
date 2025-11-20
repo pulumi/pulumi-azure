@@ -266,6 +266,21 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+     * 
+     */
+    @Import(name="publicNetworkAccess")
+    private @Nullable Output<String> publicNetworkAccess;
+
+    /**
+     * @return The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+     * 
+     */
+    public Optional<Output<String>> publicNetworkAccess() {
+        return Optional.ofNullable(this.publicNetworkAccess);
+    }
+
+    /**
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      * 
      */
@@ -362,6 +377,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.platformReservedCidr = $.platformReservedCidr;
         this.platformReservedDnsIpAddress = $.platformReservedDnsIpAddress;
+        this.publicNetworkAccess = $.publicNetworkAccess;
         this.resourceGroupName = $.resourceGroupName;
         this.staticIpAddress = $.staticIpAddress;
         this.tags = $.tags;
@@ -720,6 +736,27 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder platformReservedDnsIpAddress(String platformReservedDnsIpAddress) {
             return platformReservedDnsIpAddress(Output.of(platformReservedDnsIpAddress));
+        }
+
+        /**
+         * @param publicNetworkAccess The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(@Nullable Output<String> publicNetworkAccess) {
+            $.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccess The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            return publicNetworkAccess(Output.of(publicNetworkAccess));
         }
 
         /**

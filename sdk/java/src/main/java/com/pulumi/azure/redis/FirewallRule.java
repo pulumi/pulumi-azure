@@ -25,8 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.random.Id;
- * import com.pulumi.random.IdArgs;
+ * import com.pulumi.random.RandomId;
+ * import com.pulumi.random.RandomIdArgs;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.redis.Cache;
@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new Id("server", IdArgs.builder()
- *             .keepers(Map.of("aziId", 1))
+ *         var server = new RandomId("server", RandomIdArgs.builder()
+ *             .keepers(Map.of("azi_id", "1"))
  *             .byteLength(8)
  *             .build());
  * 
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
- *             .name(String.format("redis%s", server.hex()))
+ *             .name(server.hex().applyValue(_hex -> String.format("redis%s", _hex)))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .capacity(1)

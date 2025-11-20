@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Search
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Search` - 2024-06-01-preview
+    /// * `Microsoft.Search` - 2025-05-01
     /// 
     /// ## Import
     /// 

@@ -18,7 +18,7 @@ public final class GetPoolExtension {
      */
     private Boolean autoUpgradeMinorVersion;
     /**
-     * @return The name of the user account.
+     * @return The name of the Batch pool.
      * 
      */
     private String name;
@@ -62,7 +62,7 @@ public final class GetPoolExtension {
         return this.autoUpgradeMinorVersion;
     }
     /**
-     * @return The name of the user account.
+     * @return The name of the Batch pool.
      * 
      */
     public String name() {

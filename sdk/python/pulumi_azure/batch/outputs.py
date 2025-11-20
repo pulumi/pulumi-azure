@@ -3013,7 +3013,7 @@ class GetPoolExtensionResult(dict):
                  type_handler_version: _builtins.str):
         """
         :param _builtins.bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        :param _builtins.str name: The name of the user account.
+        :param _builtins.str name: The name of the Batch pool.
         :param _builtins.str protected_settings: The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
         :param Sequence[_builtins.str] provision_after_extensions: The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
         :param _builtins.str publisher: The name of the extension handler publisher.The name of the extension handler publisher.
@@ -3042,7 +3042,7 @@ class GetPoolExtensionResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the user account.
+        The name of the Batch pool.
         """
         return pulumi.get(self, "name")
 
@@ -3200,7 +3200,7 @@ class GetPoolMountAzureBlobFileSystemResult(dict):
                  sas_key: _builtins.str):
         """
         :param _builtins.str account_key: The Azure Storage Account key.
-        :param _builtins.str account_name: The Azure Storage Account name.
+        :param _builtins.str account_name: The Batch Account name associated with the Batch pool.
         :param _builtins.str blobfuse_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
         :param _builtins.str container_name: The Azure Blob Storage Container name.
         :param _builtins.str identity_id: The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
@@ -3227,7 +3227,7 @@ class GetPoolMountAzureBlobFileSystemResult(dict):
     @pulumi.getter(name="accountName")
     def account_name(self) -> _builtins.str:
         """
-        The Azure Storage Account name.
+        The Batch Account name associated with the Batch pool.
         """
         return pulumi.get(self, "account_name")
 
@@ -3282,7 +3282,7 @@ class GetPoolMountAzureFileShareResult(dict):
                  relative_mount_path: _builtins.str):
         """
         :param _builtins.str account_key: The Azure Storage Account key.
-        :param _builtins.str account_name: The Azure Storage Account name.
+        :param _builtins.str account_name: The Batch Account name associated with the Batch pool.
         :param _builtins.str azure_file_url: The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
         :param _builtins.str mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
         :param _builtins.str relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
@@ -3305,7 +3305,7 @@ class GetPoolMountAzureFileShareResult(dict):
     @pulumi.getter(name="accountName")
     def account_name(self) -> _builtins.str:
         """
-        The Azure Storage Account name.
+        The Batch Account name associated with the Batch pool.
         """
         return pulumi.get(self, "account_name")
 
@@ -3516,7 +3516,7 @@ class GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
         """
         :param _builtins.int backend_port: The port number on the compute node.
         :param _builtins.str frontend_port_range: The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
-        :param _builtins.str name: The name of the user account.
+        :param _builtins.str name: The name of the Batch pool.
         :param Sequence['GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs'] network_security_group_rules: The list of network security group rules that are applied to the endpoint.
         :param _builtins.str protocol: The protocol of the endpoint.
         """
@@ -3546,7 +3546,7 @@ class GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the user account.
+        The name of the Batch pool.
         """
         return pulumi.get(self, "name")
 
@@ -4044,7 +4044,7 @@ class GetPoolUserAccountResult(dict):
         """
         :param _builtins.str elevation_level: The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         :param Sequence['GetPoolUserAccountLinuxUserConfigurationArgs'] linux_user_configurations: The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
-        :param _builtins.str name: The name of the user account.
+        :param _builtins.str name: The name of the Batch pool.
         :param _builtins.str password: The password for the user account.
         :param Sequence['GetPoolUserAccountWindowsUserConfigurationArgs'] windows_user_configurations: The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
         """
@@ -4074,7 +4074,7 @@ class GetPoolUserAccountResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the user account.
+        The name of the Batch pool.
         """
         return pulumi.get(self, "name")
 

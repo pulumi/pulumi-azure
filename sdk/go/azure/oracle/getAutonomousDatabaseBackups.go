@@ -44,7 +44,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Oracle.Database` - 2025-03-01
+// * `Oracle.Database` - 2025-09-01
 func GetAutonomousDatabaseBackups(ctx *pulumi.Context, args *GetAutonomousDatabaseBackupsArgs, opts ...pulumi.InvokeOption) (*GetAutonomousDatabaseBackupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAutonomousDatabaseBackupsResult

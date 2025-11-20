@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getCircuitPeering(args: GetCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetCircuitPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -122,7 +122,7 @@ export interface GetCircuitPeeringResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2024-05-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getCircuitPeeringOutput(args: GetCircuitPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCircuitPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

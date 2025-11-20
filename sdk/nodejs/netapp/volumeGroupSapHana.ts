@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const example = new random.index.String("example", {
+ * const example = new random.RandomString("example", {
  *     length: 12,
  *     special: true,
  * });

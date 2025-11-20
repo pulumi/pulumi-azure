@@ -87,7 +87,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Synapse Workspace Azure AD Administrator can be imported using the `resource id`, e.g.
+ * Synapse Workspace Azure AD SQL Administrator can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlAdministrators/activeDirectory
@@ -122,19 +122,19 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
     }
 
     /**
-     * The login name of the Azure AD Administrator of this Synapse Workspace.
+     * The login name of the Azure AD SQL Administrator of this Synapse Workspace.
      */
     declare public readonly login: pulumi.Output<string>;
     /**
-     * The object id of the Azure AD Administrator of this Synapse Workspace.
+     * The object id of the Azure AD SQL Administrator of this Synapse Workspace.
      */
     declare public readonly objectId: pulumi.Output<string>;
     /**
-     * The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+     * The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
      */
     declare public readonly synapseWorkspaceId: pulumi.Output<string>;
     /**
-     * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
      */
     declare public readonly tenantId: pulumi.Output<string>;
 
@@ -184,19 +184,19 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
  */
 export interface WorkspaceSqlAadAdminState {
     /**
-     * The login name of the Azure AD Administrator of this Synapse Workspace.
+     * The login name of the Azure AD SQL Administrator of this Synapse Workspace.
      */
     login?: pulumi.Input<string>;
     /**
-     * The object id of the Azure AD Administrator of this Synapse Workspace.
+     * The object id of the Azure AD SQL Administrator of this Synapse Workspace.
      */
     objectId?: pulumi.Input<string>;
     /**
-     * The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+     * The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
      */
     synapseWorkspaceId?: pulumi.Input<string>;
     /**
-     * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -206,19 +206,19 @@ export interface WorkspaceSqlAadAdminState {
  */
 export interface WorkspaceSqlAadAdminArgs {
     /**
-     * The login name of the Azure AD Administrator of this Synapse Workspace.
+     * The login name of the Azure AD SQL Administrator of this Synapse Workspace.
      */
     login: pulumi.Input<string>;
     /**
-     * The object id of the Azure AD Administrator of this Synapse Workspace.
+     * The object id of the Azure AD SQL Administrator of this Synapse Workspace.
      */
     objectId: pulumi.Input<string>;
     /**
-     * The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
+     * The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
      */
     synapseWorkspaceId: pulumi.Input<string>;
     /**
-     * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
      */
     tenantId: pulumi.Input<string>;
 }

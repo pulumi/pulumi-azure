@@ -33,9 +33,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := random.NewString(ctx, "example", &random.StringArgs{
-//				Length:  12,
-//				Special: true,
+//			example, err := random.NewRandomString(ctx, "example", &random.RandomStringArgs{
+//				Length:  pulumi.Int(12),
+//				Special: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -132,7 +132,7 @@ import (
 //				Location:                      exampleResourceGroup.Location,
 //				Size:                          pulumi.String("Standard_M8ms"),
 //				AdminUsername:                 pulumi.String(adminUsername),
-//				AdminPassword:                 pulumi.Any(adminPassword),
+//				AdminPassword:                 pulumi.String(adminPassword),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
 //				ProximityPlacementGroupId:     examplePlacementGroup.ID(),
 //				AvailabilitySetId:             exampleAvailabilitySet.ID(),

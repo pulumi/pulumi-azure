@@ -104,7 +104,7 @@ def get_db_system_shapes(location: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str location: The Azure Region to query for the system shapes in.
@@ -145,7 +145,7 @@ def get_db_system_shapes_output(location: Optional[pulumi.Input[_builtins.str]] 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database` - 2025-03-01
+    * `Oracle.Database` - 2025-09-01
 
 
     :param _builtins.str location: The Azure Region to query for the system shapes in.
