@@ -11,22 +11,30 @@ on:
         description: "Enable the MacOS runner in addition to Linux and Windows. Defaults to 'false'."
         required: false
         type: boolean
+      skipGoSdk:
+        description: "Skip the Go SDK verification. Defaults to 'false'. Enable this when verifying a pre-release for which we don't publish the Go SDK (for PRs and the default branch)."
+        required: false
+        type: boolean
+        default: false
+      pythonVersion:
+        description: "Optional python SDK version to verify. Defaults to inputs.providerVersion."
+        type: string
+        required: false
   workflow_call:
     inputs:
       providerVersion:
         description: "The version of the provider to verify"
         required: true
         type: string
-      enableMacosRunner:
-        description: "Enable the macos-latest runner in addition to ubuntu-latest and windows-latest. Defaults to 'false'."
-        required: false
-        type: boolean
-        default: false
       skipGoSdk:
         description: "Skip the Go SDK verification. Defaults to 'false'. This is used when we're not publishing a Go SDK on the default branch build."
         required: false
         type: boolean
         default: false
+      pythonVersion:
+        description: "Optional python SDK version to verify. Defaults to inputs.providerVersion."
+        type: string
+        required: false
 
 env:
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
@@ -35,22 +43,25 @@ env:
   ARM_LOCATION: westus2
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_UPLOAD_ROLE_ARN: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  JAVA_SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
+  JAVA_SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
+  JAVA_SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
-  PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-  PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+  OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+  OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
   PULUMI_API: https://api.pulumi-staging.io
+  PULUMI_BOT_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  PULUMI_MISSING_DOCS_ERROR: true
-  PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-  PYPI_USERNAME: __token__
-  SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
-  SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
-  SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
+  PULUMI_MISSING_DOCS_ERROR: "true"
+  PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+  RELEASE_BOT_ENDPOINT: ${{ secrets.RELEASE_BOT_ENDPOINT }}
+  RELEASE_BOT_KEY: ${{ secrets.RELEASE_BOT_KEY }}
   TF_APPEND_USER_AGENT: pulumi
 
 jobs:
@@ -70,9 +81,53 @@ jobs:
         runner: ["ubuntu-latest"]
     runs-on: ${{ matrix.runner }}
     steps:
+      - name: Configure Git to checkout files with long names
+        run: git config --global core.longpaths true
       - name: Checkout Repo
-        uses: actions/checkout@v4
-      - name: Setup tools
-        uses: ./.github/actions/setup-tools
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
-          tools: pulumicli, go, node, dotnet, python, java
+          persist-credentials: false      
+      - id: esc-secrets
+        name: Map environment to ESC outputs
+        uses: ./.github/actions/esc-action
+      - name: Setup Python
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        with:
+          python-version: 3.11.8
+      - name: Setup Java
+        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        with:
+          cache: gradle
+          distribution: temurin
+          java-version: 11
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@4d9f0ba0025fe599b4ebab900eb7f3a1d93ef4c2 # v5.0.0
+        with:
+          gradle-version: 7.6
+      - name: Setup DotNet
+        uses: actions/setup-dotnet@d4c94342e560b34958eacfc5d055d21461ed1c5d # v5.0.0
+        with:
+          dotnet-version: 8.0.x
+      - name: Setup Node
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
+        with:
+          node-version: 20.x
+          registry-url: https://registry.npmjs.org
+      - name: Install Go
+        uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
+        with:
+          go-version: "1.21.x"
+          cache-dependency-path: |
+            provider/*.sum
+            upstream/*.sum
+            sdk/go/*.sum
+            sdk/*.sum
+            *.sum
+          cache: true
+      - name: Set Go Toolchain to auto explicitly
+        run: |
+          echo "GOTOOLCHAIN=auto" >> "$GITHUB_ENV"
+      - name: Install Pulumi CLI
+        uses: pulumi/actions@d7ceb0215da5a14ec84f50b703365ddf0194a9c8 # v6
+        with:
+          pulumi-version: "dev"
