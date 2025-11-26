@@ -6,6 +6,7 @@ generate-nightly-test-workflow: true
 providerVersion: github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion
 freeDiskSpaceBeforeTest: true
 freeDiskSpaceBeforeBuild: true
+freeDiskSpaceBeforeSdkBuild: true
 env:
     ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
     ARM_ENVIRONMENT: "public"
