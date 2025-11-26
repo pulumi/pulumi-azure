@@ -76,7 +76,7 @@ jobs:
       with:
         path: |
           .pulumi/examples-cache
-        key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
+        key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}-converter-1.0.16
     - name: Set Pulumi and Go versions from go.mod
       run: |
         source scripts/get-versions.sh

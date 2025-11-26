@@ -70,7 +70,7 @@ jobs:
         with:
           path: |
             .pulumi/examples-cache
-          key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
+          key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}-converter-1.0.16
       - name: Set Pulumi and Go versions from go.mod
         run: |
           source scripts/get-versions.sh
@@ -103,6 +103,12 @@ jobs:
         uses: ./.github/actions/download-prerequisites
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
+      - name: Verify converter version
+        run: |
+          which pulumi-converter-terraform || echo "converter not in PATH"
+          pulumi-converter-terraform --version 2>/dev/null || echo "converter version check failed"
+          echo "PULUMI_CONVERT=$PULUMI_CONVERT"
+          echo "PULUMI_VERSION_MISE=$PULUMI_VERSION_MISE"
       - name: Restore makefile progress
         run: make --touch provider schema
       - name: Build SDK
