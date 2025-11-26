@@ -158,6 +158,8 @@ build_nodejs: .make/build_nodejs
 .make/generate_nodejs: | mise_env
 	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) nodejs --out sdk/nodejs/
 	printf "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/nodejs/go.mod
+	# Update moduleResolution to node16 and add esModuleInterop to support Azure MSAL libraries
+	python3 -c "import json; f=open('sdk/nodejs/tsconfig.json','r'); d=json.load(f); f.close(); d['compilerOptions']['moduleResolution']='node16'; d['compilerOptions']['esModuleInterop']=True; f=open('sdk/nodejs/tsconfig.json','w'); json.dump(d,f,indent=4); f.close()"
 	@touch $@
 .make/build_nodejs: .make/generate_nodejs
 	cd sdk/nodejs/ && \
