@@ -1342,11 +1342,11 @@ class Account(pulumi.CustomResource):
         rg = azure.core.ResourceGroup("rg",
             name="sample-rg",
             location="westus")
-        ri = random.RandomInteger("ri",
+        ri = random.index.Integer("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
-            name=ri.result.apply(lambda result: f"tfex-cosmos-db-{result}"),
+            name=f"tfex-cosmos-db-{ri['result']}",
             location=example["location"],
             resource_group_name=example["name"],
             offer_type="Standard",
@@ -1463,11 +1463,11 @@ class Account(pulumi.CustomResource):
         rg = azure.core.ResourceGroup("rg",
             name="sample-rg",
             location="westus")
-        ri = random.RandomInteger("ri",
+        ri = random.index.Integer("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
-            name=ri.result.apply(lambda result: f"tfex-cosmos-db-{result}"),
+            name=f"tfex-cosmos-db-{ri['result']}",
             location=example["location"],
             resource_group_name=example["name"],
             offer_type="Standard",

@@ -29,7 +29,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         Location = "westus",
     ///     });
     /// 
-    ///     var ri = new Random.RandomInteger("ri", new()
+    ///     var ri = new Random.Index.Integer("ri", new()
     ///     {
     ///         Min = 10000,
     ///         Max = 99999,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var db = new Azure.CosmosDB.Account("db", new()
     ///     {
-    ///         Name = ri.Result.Apply(result =&gt; $"tfex-cosmos-db-{result}"),
+    ///         Name = $"tfex-cosmos-db-{ri.Result}",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",

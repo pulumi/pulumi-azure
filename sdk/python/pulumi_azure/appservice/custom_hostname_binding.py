@@ -242,9 +242,9 @@ class CustomHostnameBinding(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server",
+        server = random.index.Id("server",
             keepers={
-                "azi_id": "1",
+                aziId: 1,
             },
             byte_length=8)
         example = azure.core.ResourceGroup("example",
@@ -259,7 +259,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
                 "size": "S1",
             })
         example_app_service = azure.appservice.AppService("example",
-            name=server.hex,
+            name=server["hex"],
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id)
@@ -305,9 +305,9 @@ class CustomHostnameBinding(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server",
+        server = random.index.Id("server",
             keepers={
-                "azi_id": "1",
+                aziId: 1,
             },
             byte_length=8)
         example = azure.core.ResourceGroup("example",
@@ -322,7 +322,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
                 "size": "S1",
             })
         example_app_service = azure.appservice.AppService("example",
-            name=server.hex,
+            name=server["hex"],
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id)

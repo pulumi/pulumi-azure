@@ -254,55 +254,6 @@ class DatasetBlobStorage(pulumi.CustomResource):
         """
         Manages a Data Share Blob Storage Dataset.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.datashare.Account("example",
-            name="example-dsa",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity={
-                "type": "SystemAssigned",
-            })
-        example_share = azure.datashare.Share("example",
-            name="example_ds",
-            account_id=example_account.id,
-            kind="CopyBased")
-        example_account2 = azure.storage.Account("example",
-            name="examplestr",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="RAGRS")
-        example_container = azure.storage.Container("example",
-            name="example-sc",
-            storage_account_name=example_account2.name,
-            container_access_type="container")
-        example = azuread.get_service_principal_output(display_name=example_account.name)
-        example_assignment = azure.authorization.Assignment("example",
-            scope=example_account2.id,
-            role_definition_name="Storage Blob Data Reader",
-            principal_id=example.object_id)
-        example_dataset_blob_storage = azure.datashare.DatasetBlobStorage("example",
-            name="example-dsbsds-file",
-            data_share_id=example_share.id,
-            container_name=example_container.name,
-            storage_account={
-                "name": example_account2.name,
-                "resource_group_name": example_account2.resource_group_name,
-                "subscription_id": "00000000-0000-0000-0000-000000000000",
-            },
-            file_path="myfile.txt",
-            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
-
         ## Import
 
         Data Share Blob Storage Datasets can be imported using the `resource id`, e.g.
@@ -328,55 +279,6 @@ class DatasetBlobStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Share Blob Storage Dataset.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.datashare.Account("example",
-            name="example-dsa",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity={
-                "type": "SystemAssigned",
-            })
-        example_share = azure.datashare.Share("example",
-            name="example_ds",
-            account_id=example_account.id,
-            kind="CopyBased")
-        example_account2 = azure.storage.Account("example",
-            name="examplestr",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="RAGRS")
-        example_container = azure.storage.Container("example",
-            name="example-sc",
-            storage_account_name=example_account2.name,
-            container_access_type="container")
-        example = azuread.get_service_principal_output(display_name=example_account.name)
-        example_assignment = azure.authorization.Assignment("example",
-            scope=example_account2.id,
-            role_definition_name="Storage Blob Data Reader",
-            principal_id=example.object_id)
-        example_dataset_blob_storage = azure.datashare.DatasetBlobStorage("example",
-            name="example-dsbsds-file",
-            data_share_id=example_share.id,
-            container_name=example_container.name,
-            storage_account={
-                "name": example_account2.name,
-                "resource_group_name": example_account2.resource_group_name,
-                "subscription_id": "00000000-0000-0000-0000-000000000000",
-            },
-            file_path="myfile.txt",
-            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
 
         ## Import
 
