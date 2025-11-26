@@ -71,17 +71,17 @@ jobs:
       with:
         major-version: 5
         set-env: 'PROVIDER_VERSION'
+    - name: Set Pulumi and Go versions from go.mod
+      run: |
+        source scripts/get-versions.sh
+        echo "PULUMI_VERSION_MISE=$PULUMI_VERSION_MISE" >> $GITHUB_ENV
+        echo "GO_VERSION_MISE=$GO_VERSION_MISE" >> $GITHUB_ENV
     - name: Cache examples generation
       uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
       with:
         path: |
           .pulumi/examples-cache
         key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}-converter-1.0.16
-    - name: Set Pulumi and Go versions from go.mod
-      run: |
-        source scripts/get-versions.sh
-        echo "PULUMI_VERSION_MISE=$PULUMI_VERSION_MISE" >> $GITHUB_ENV
-        echo "GO_VERSION_MISE=$GO_VERSION_MISE" >> $GITHUB_ENV
     - name: Setup mise
       uses: jdx/mise-action@v3
       env:

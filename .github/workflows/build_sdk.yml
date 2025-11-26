@@ -65,17 +65,17 @@ jobs:
       - id: esc-secrets
         name: Map environment to ESC outputs
         uses: ./.github/actions/esc-action
+      - name: Set Pulumi and Go versions from go.mod
+        run: |
+          source scripts/get-versions.sh
+          echo "PULUMI_VERSION_MISE=$PULUMI_VERSION_MISE" >> $GITHUB_ENV
+          echo "GO_VERSION_MISE=$GO_VERSION_MISE" >> $GITHUB_ENV
       - name: Cache examples generation
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
             .pulumi/examples-cache
           key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}-converter-1.0.16
-      - name: Set Pulumi and Go versions from go.mod
-        run: |
-          source scripts/get-versions.sh
-          echo "PULUMI_VERSION_MISE=$PULUMI_VERSION_MISE" >> $GITHUB_ENV
-          echo "GO_VERSION_MISE=$GO_VERSION_MISE" >> $GITHUB_ENV
       - name: Setup mise
         uses: jdx/mise-action@v3
         env:
@@ -103,12 +103,6 @@ jobs:
         uses: ./.github/actions/download-prerequisites
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-      - name: Verify converter version
-        run: |
-          which pulumi-converter-terraform || echo "converter not in PATH"
-          pulumi-converter-terraform --version 2>/dev/null || echo "converter version check failed"
-          echo "PULUMI_CONVERT=$PULUMI_CONVERT"
-          echo "PULUMI_VERSION_MISE=$PULUMI_VERSION_MISE"
       - name: Restore makefile progress
         run: make --touch provider schema
       - name: Build SDK
