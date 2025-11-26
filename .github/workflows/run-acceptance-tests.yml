@@ -88,7 +88,7 @@ jobs:
     name: comment-notification
     permissions:
       pull-requests: write
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
@@ -121,7 +121,7 @@ jobs:
     - build_provider
     - license_check
     - lint
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - uses: guibranco/github-status-action-v2@631f55ea0251f0fb284525ad86c30e9f7a8dd284 # v1.1.14
       with:

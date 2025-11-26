@@ -7,6 +7,9 @@ providerVersion: github.com/hashicorp/terraform-provider-azurerm/version.Provide
 freeDiskSpaceBeforeTest: true
 freeDiskSpaceBeforeBuild: true
 freeDiskSpaceBeforeSdkBuild: true
+runner:
+  default: pulumi-ubuntu-8core
+  prerequisites: pulumi-ubuntu-8core
 env:
     ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
     ARM_ENVIRONMENT: "public"
