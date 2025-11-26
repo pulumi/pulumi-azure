@@ -140,9 +140,8 @@ build_go: .make/build_go
 generate_java: .make/generate_java
 build_java: .make/build_java
 .make/generate_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
-.make/generate_java: .make/mise_install bin/$(CODEGEN)
-.make/generate_java: | mise_env
-	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) java --out sdk/java/
+.make/generate_java: bin/pulumi-java-gen .make/schema
+	$(WORKING_DIR)/bin/pulumi-java-gen generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/java/go.mod
 	@touch $@
 .make/build_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
