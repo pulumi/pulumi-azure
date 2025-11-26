@@ -71,6 +71,11 @@ jobs:
           path: |
             .pulumi/examples-cache
           key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
+      - name: Set Pulumi and Go versions from go.mod
+        run: |
+          source scripts/get-versions.sh
+          echo "PULUMI_VERSION_MISE=$PULUMI_VERSION_MISE" >> $GITHUB_ENV
+          echo "GO_VERSION_MISE=$GO_VERSION_MISE" >> $GITHUB_ENV
       - name: Setup mise
         uses: jdx/mise-action@v3
         env:
