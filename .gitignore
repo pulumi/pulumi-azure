@@ -37,3 +37,10 @@ go.work
 go.work.sum
 .mono
 pulumi-azure.sln
+
+# Ignore local build tracking directory
+.make
+
+
+# Ignore local mise config
+mise.local.toml

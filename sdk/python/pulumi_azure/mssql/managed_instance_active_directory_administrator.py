@@ -237,19 +237,19 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             identity={
                 "type": "SystemAssigned",
             })
-        reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
-        example_directory_role_member = azuread.DirectoryRoleMember("example",
+        reader = azuread.index.DirectoryRole("reader", display_name=Directory Readers)
+        example_directory_role_member = azuread.index.DirectoryRoleMember("example",
             role_object_id=reader.object_id,
             member_object_id=example_managed_instance.identity.principal_id)
-        admin = azuread.User("admin",
-            user_principal_name="ms.admin@example.com",
-            display_name="Ms Admin",
-            mail_nickname="ms.admin",
-            password="SecretP@sswd99!")
+        admin = azuread.index.User("admin",
+            user_principal_name=ms.admin@example.com,
+            display_name=Ms Admin,
+            mail_nickname=ms.admin,
+            password=SecretP@sswd99!)
         example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_id=example_managed_instance.id,
             login_username="msadmin",
-            object_id=admin.object_id,
+            object_id=admin["objectId"],
             tenant_id=current.tenant_id)
         ```
 
@@ -313,19 +313,19 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             identity={
                 "type": "SystemAssigned",
             })
-        reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
-        example_directory_role_member = azuread.DirectoryRoleMember("example",
+        reader = azuread.index.DirectoryRole("reader", display_name=Directory Readers)
+        example_directory_role_member = azuread.index.DirectoryRoleMember("example",
             role_object_id=reader.object_id,
             member_object_id=example_managed_instance.identity.principal_id)
-        admin = azuread.User("admin",
-            user_principal_name="ms.admin@example.com",
-            display_name="Ms Admin",
-            mail_nickname="ms.admin",
-            password="SecretP@sswd99!")
+        admin = azuread.index.User("admin",
+            user_principal_name=ms.admin@example.com,
+            display_name=Ms Admin,
+            mail_nickname=ms.admin,
+            password=SecretP@sswd99!)
         example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_id=example_managed_instance.id,
             login_username="msadmin",
-            object_id=admin.object_id,
+            object_id=admin["objectId"],
             tenant_id=current.tenant_id)
         ```
 

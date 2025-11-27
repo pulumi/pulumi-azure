@@ -115,26 +115,26 @@ namespace Pulumi.Azure.DomainServices
     ///         NetworkSecurityGroupId = primaryNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var dcAdmins = new AzureAD.Group("dc_admins", new()
+    ///     var dcAdmins = new AzureAD.Index.Group("dc_admins", new()
     ///     {
     ///         DisplayName = "aad-dc-administrators",
     ///         SecurityEnabled = true,
     ///     });
     /// 
-    ///     var admin = new AzureAD.User("admin", new()
+    ///     var admin = new AzureAD.Index.User("admin", new()
     ///     {
     ///         UserPrincipalName = "dc-admin@hashicorp-example.net",
     ///         DisplayName = "DC Administrator",
     ///         Password = "Pa55w0Rd!!1",
     ///     });
     /// 
-    ///     var adminGroupMember = new AzureAD.GroupMember("admin", new()
+    ///     var adminGroupMember = new AzureAD.Index.GroupMember("admin", new()
     ///     {
     ///         GroupObjectId = dcAdmins.ObjectId,
     ///         MemberObjectId = admin.ObjectId,
     ///     });
     /// 
-    ///     var example = new AzureAD.ServicePrincipal("example", new()
+    ///     var example = new AzureAD.Index.ServicePrincipal("example", new()
     ///     {
     ///         ApplicationId = "2565bd9d-da50-47d4-8b85-4c97f669dc36",
     ///     });

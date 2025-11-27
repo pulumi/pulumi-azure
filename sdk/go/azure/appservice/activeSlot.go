@@ -34,7 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := random.NewRandomId(ctx, "server", nil)
+//			_, err := random.NewId(ctx, "server", nil)
 //			if err != nil {
 //				return err
 //			}

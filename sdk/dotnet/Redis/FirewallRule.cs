@@ -23,11 +23,11 @@ namespace Pulumi.Azure.Redis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.RandomId("server", new()
+    ///     var server = new Random.Index.Id("server", new()
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "azi_id", "1" },
+    ///             { "aziId", 1 },
     ///         },
     ///         ByteLength = 8,
     ///     });
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Redis
     /// 
     ///     var exampleCache = new Azure.Redis.Cache("example", new()
     ///     {
-    ///         Name = server.Hex.Apply(hex =&gt; $"redis{hex}"),
+    ///         Name = $"redis{server.Hex}",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Capacity = 1,

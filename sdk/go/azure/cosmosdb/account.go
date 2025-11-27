@@ -39,17 +39,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ri, err := random.NewRandomInteger(ctx, "ri", &random.RandomIntegerArgs{
-//				Min: pulumi.Int(10000),
-//				Max: pulumi.Int(99999),
+//			ri, err := random.NewInteger(ctx, "ri", &random.IntegerArgs{
+//				Min: 10000,
+//				Max: 99999,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cosmosdb.NewAccount(ctx, "db", &cosmosdb.AccountArgs{
-//				Name: ri.Result.ApplyT(func(result int) (string, error) {
-//					return fmt.Sprintf("tfex-cosmos-db-%v", result), nil
-//				}).(pulumi.StringOutput),
+//				Name:                     pulumi.Sprintf("tfex-cosmos-db-%v", ri.Result),
 //				Location:                 pulumi.Any(example.Location),
 //				ResourceGroupName:        pulumi.Any(example.Name),
 //				OfferType:                pulumi.String("Standard"),

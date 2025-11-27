@@ -196,14 +196,14 @@ class Account(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example = azuread.Application("example", display_name="example-app")
+        example = azuread.index.Application("example", display_name=example-app)
         example_resource_group = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
         example_account = azure.graph.Account("example",
             name="example",
             resource_group_name=example_resource_group.name,
-            application_id=example.application_id,
+            application_id=example["applicationId"],
             tags={
                 "environment": "Production",
             })
@@ -242,14 +242,14 @@ class Account(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example = azuread.Application("example", display_name="example-app")
+        example = azuread.index.Application("example", display_name=example-app)
         example_resource_group = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
         example_account = azure.graph.Account("example",
             name="example",
             resource_group_name=example_resource_group.name,
-            application_id=example.application_id,
+            application_id=example["applicationId"],
             tags={
                 "environment": "Production",
             })

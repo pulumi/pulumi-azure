@@ -245,59 +245,6 @@ class CacheBlobTarget(pulumi.CustomResource):
 
         > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="examplevn",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("example",
-            name="examplehpccache",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cache_size_in_gb=3072,
-            subnet_id=example_subnet.id,
-            sku_name="Standard_2G")
-        example_account = azure.storage.Account("example",
-            name="examplestorgaccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplestoragecontainer",
-            storage_account_name=example_account.name)
-        example = azuread.get_service_principal(display_name="HPC Cache Resource Provider")
-        example_storage_account_contrib = azure.authorization.Assignment("example_storage_account_contrib",
-            scope=example_account.id,
-            role_definition_name="Storage Account Contributor",
-            principal_id=example.object_id)
-        example_storage_blob_data_contrib = azure.authorization.Assignment("example_storage_blob_data_contrib",
-            scope=example_account.id,
-            role_definition_name="Storage Blob Data Contributor",
-            principal_id=example.object_id)
-        example_cache_blob_target = azure.hpc.CacheBlobTarget("example",
-            name="examplehpccblobtarget",
-            resource_group_name=example_resource_group.name,
-            cache_name=example_cache.name,
-            storage_container_id=example_container.resource_manager_id,
-            namespace_path="/blob_storage")
-        ```
-
         ## Import
 
         Blob Targets within an HPC Cache can be imported using the `resource id`, e.g.
@@ -327,59 +274,6 @@ class CacheBlobTarget(pulumi.CustomResource):
         Manages a Blob Target within a HPC Cache.
 
         > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="examplevn",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("example",
-            name="examplehpccache",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cache_size_in_gb=3072,
-            subnet_id=example_subnet.id,
-            sku_name="Standard_2G")
-        example_account = azure.storage.Account("example",
-            name="examplestorgaccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplestoragecontainer",
-            storage_account_name=example_account.name)
-        example = azuread.get_service_principal(display_name="HPC Cache Resource Provider")
-        example_storage_account_contrib = azure.authorization.Assignment("example_storage_account_contrib",
-            scope=example_account.id,
-            role_definition_name="Storage Account Contributor",
-            principal_id=example.object_id)
-        example_storage_blob_data_contrib = azure.authorization.Assignment("example_storage_blob_data_contrib",
-            scope=example_account.id,
-            role_definition_name="Storage Blob Data Contributor",
-            principal_id=example.object_id)
-        example_cache_blob_target = azure.hpc.CacheBlobTarget("example",
-            name="examplehpccblobtarget",
-            resource_group_name=example_resource_group.name,
-            cache_name=example_cache.name,
-            storage_container_id=example_container.resource_manager_id,
-            namespace_path="/blob_storage")
-        ```
 
         ## Import
 

@@ -83,25 +83,23 @@ import (
 //				return err
 //			}
 //			reader, err := azuread.NewDirectoryRole(ctx, "reader", &azuread.DirectoryRoleArgs{
-//				DisplayName: pulumi.String("Directory Readers"),
+//				DisplayName: "Directory Readers",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuread.NewDirectoryRoleMember(ctx, "example", &azuread.DirectoryRoleMemberArgs{
-//				RoleObjectId: reader.ObjectId,
-//				MemberObjectId: pulumi.String(exampleManagedInstance.Identity.ApplyT(func(identity mssql.ManagedInstanceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				RoleObjectId:   reader.ObjectId,
+//				MemberObjectId: exampleManagedInstance.Identity.PrincipalId,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
-//				UserPrincipalName: pulumi.String("ms.admin@example.com"),
-//				DisplayName:       pulumi.String("Ms Admin"),
-//				MailNickname:      pulumi.String("ms.admin"),
-//				Password:          pulumi.String("SecretP@sswd99!"),
+//				UserPrincipalName: "ms.admin@example.com",
+//				DisplayName:       "Ms Admin",
+//				MailNickname:      "ms.admin",
+//				Password:          "SecretP@sswd99!",
 //			})
 //			if err != nil {
 //				return err

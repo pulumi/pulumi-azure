@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.management.PrivateLink;
  * import com.pulumi.azure.management.PrivateLinkArgs;
- * import com.pulumi.random.RandomUuid;
+ * import com.pulumi.random.uuid;
  * import com.pulumi.azure.management.PrivateLinkAssociation;
  * import com.pulumi.azure.management.PrivateLinkAssociationArgs;
  * import java.util.List;
@@ -67,10 +67,10 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var exampleRandomUuid = new RandomUuid("exampleRandomUuid");
+ *         var exampleUuid = new Uuid("exampleUuid");
  * 
  *         var examplePrivateLinkAssociation = new PrivateLinkAssociation("examplePrivateLinkAssociation", PrivateLinkAssociationArgs.builder()
- *             .name(exampleRandomUuid.result())
+ *             .name(exampleUuid.result())
  *             .managementGroupId(exampleAzurermManagementGroup.id())
  *             .resourceManagementPrivateLinkId(examplePrivateLink.id())
  *             .publicNetworkAccessEnabled(true)

@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.random.RandomInteger;
- * import com.pulumi.random.RandomIntegerArgs;
+ * import com.pulumi.random.integer;
+ * import com.pulumi.random.IntegerArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
@@ -67,13 +67,13 @@ import javax.annotation.Nullable;
  *             .location("westus")
  *             .build());
  * 
- *         var ri = new RandomInteger("ri", RandomIntegerArgs.builder()
+ *         var ri = new Integer("ri", IntegerArgs.builder()
  *             .min(10000)
  *             .max(99999)
  *             .build());
  * 
  *         var db = new Account("db", AccountArgs.builder()
- *             .name(ri.result().applyValue(result -> String.format("tfex-cosmos-db-%s", result)))
+ *             .name(String.format("tfex-cosmos-db-%s", ri.result()))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .offerType("Standard")

@@ -38,11 +38,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.ManagedInstance;
  * import com.pulumi.azure.mssql.ManagedInstanceArgs;
  * import com.pulumi.azure.mssql.inputs.ManagedInstanceIdentityArgs;
- * import com.pulumi.azuread.DirectoryRole;
+ * import com.pulumi.azuread.directoryRole;
  * import com.pulumi.azuread.DirectoryRoleArgs;
- * import com.pulumi.azuread.DirectoryRoleMember;
+ * import com.pulumi.azuread.directoryRoleMember;
  * import com.pulumi.azuread.DirectoryRoleMemberArgs;
- * import com.pulumi.azuread.User;
+ * import com.pulumi.azuread.user;
  * import com.pulumi.azuread.UserArgs;
  * import com.pulumi.azure.mssql.ManagedInstanceActiveDirectoryAdministrator;
  * import com.pulumi.azure.mssql.ManagedInstanceActiveDirectoryAdministratorArgs;
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDirectoryRoleMember = new DirectoryRoleMember("exampleDirectoryRoleMember", DirectoryRoleMemberArgs.builder()
  *             .roleObjectId(reader.objectId())
- *             .memberObjectId(exampleManagedInstance.identity().applyValue(identity -> identity.principalId()))
+ *             .memberObjectId(exampleManagedInstance.identity().principalId())
  *             .build());
  * 
  *         var admin = new User("admin", UserArgs.builder()

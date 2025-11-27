@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Graph
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureAD.Application("example", new()
+    ///     var example = new AzureAD.Index.Application("example", new()
     ///     {
     ///         DisplayName = "example-app",
     ///     });

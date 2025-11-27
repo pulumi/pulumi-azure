@@ -40,7 +40,7 @@ import (
 // not desirable. Instead, we use `go:linkname` to make the private package-level variable
 // which controls this behaviour accessible to us.
 //
-// go:linkname is not widely used outside the standard library, but allows us to
+// The "go:linkname" directive is not widely used outside the standard library, but allows us to
 // effectively alias a particular symbol via an accessible name. Per Ian Lance Taylor's
 // post on golang-dev [1], "it means: every time you are about to write out X in the object
 // file, write out Y instead."
