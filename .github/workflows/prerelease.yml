@@ -15,6 +15,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      id-token: write
     uses: ./.github/workflows/prerequisites.yml
     secrets: inherit
     with:
@@ -23,6 +24,9 @@ jobs:
       is_automated: ${{ github.actor == 'dependabot[bot]' }}
 
   build_provider:
+    permissions:
+      contents: read
+      id-token: write
     uses: ./.github/workflows/build_provider.yml
     needs: prerequisites
     secrets: inherit
@@ -31,6 +35,9 @@ jobs:
 
   build_sdk:
     name: build_sdk
+    permissions:
+      contents: write
+      id-token: write
     needs: prerequisites
     uses: ./.github/workflows/build_sdk.yml
     secrets: inherit
