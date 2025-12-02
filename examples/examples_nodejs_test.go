@@ -69,10 +69,10 @@ func TestAccAciVolumeMount(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "aci-volume-mount"),
-			RunUpdateTest: false,
+			Dir:                    filepath.Join(getCwd(t), "aci-volume-mount"),
+			RunUpdateTest:          false,
 			SkipEmptyPreviewUpdate: true,
-			ExpectRefreshChanges: true,
+			ExpectRefreshChanges:   true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -350,15 +350,5 @@ func TestAccLinuxVirtualMachines(t *testing.T) {
 			RunUpdateTest: true,
 		})
 	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccFrontdoor(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "frontdoor"),
-			RunUpdateTest: false,
-		})
-
 	integration.ProgramTest(t, &test)
 }

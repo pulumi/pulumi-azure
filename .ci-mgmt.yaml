@@ -25,7 +25,6 @@ env:
     # Unfortunately this does not work yet because of e2e tests (example-based tests). Need to find a
     # way to scope this env var so that it does not configure tests.
     #
-    #     TestAccFrontdoor: no resource plugin 'pulumi-resource-random' found in the workspace at version v4.15.1 or on your $PATH
     #     Test_sql/e2e: Error: error resolving type of resource random: internal error loading package "random": no resource plugin
     #         'pulumi-resource-random' found in the workspace or on your $PATH
     #
