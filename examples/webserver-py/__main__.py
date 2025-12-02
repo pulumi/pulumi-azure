@@ -28,7 +28,7 @@ vm = compute.VirtualMachine(
     "webservervm",
     resource_group_name=resource_group.name,
     network_interface_ids=[network_interface.id],
-    vm_size="Standard_A0",
+    vm_size="Standard_B1ls",
     delete_data_disks_on_termination=True,
     delete_os_disk_on_termination=True,
     os_profile=compute.VirtualMachineOsProfileArgs(
