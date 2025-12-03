@@ -40,6 +40,7 @@ func TestAccEventhubPy(t *testing.T) {
 			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,
+			ExpectRefreshChanges:     true,
 		})
 
 	integration.ProgramTest(t, &test)

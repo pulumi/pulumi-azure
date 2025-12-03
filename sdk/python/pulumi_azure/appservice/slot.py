@@ -646,9 +646,9 @@ class Slot(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server",
+        server = random.index.Id("server",
             keepers={
-                "azi_id": "1",
+                aziId: 1,
             },
             byte_length=8)
         example = azure.core.ResourceGroup("example",
@@ -663,7 +663,7 @@ class Slot(pulumi.CustomResource):
                 "size": "S1",
             })
         example_app_service = azure.appservice.AppService("example",
-            name=server.hex,
+            name=server["hex"],
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -679,7 +679,7 @@ class Slot(pulumi.CustomResource):
                 "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
             }])
         example_slot = azure.appservice.Slot("example",
-            name=server.hex,
+            name=server["hex"],
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
@@ -704,9 +704,9 @@ class Slot(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server",
+        server = random.index.Id("server",
             keepers={
-                "azi_id": "1",
+                aziId: 1,
             },
             byte_length=8)
         example = azure.core.ResourceGroup("example",
@@ -721,7 +721,7 @@ class Slot(pulumi.CustomResource):
                 "size": "S1",
             })
         example_app_service = azure.appservice.AppService("example",
-            name=server.hex,
+            name=server["hex"],
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -731,7 +731,7 @@ class Slot(pulumi.CustomResource):
                 "java_container_version": "9.3",
             })
         example_slot = azure.appservice.Slot("example",
-            name=server.hex,
+            name=server["hex"],
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
@@ -793,9 +793,9 @@ class Slot(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server",
+        server = random.index.Id("server",
             keepers={
-                "azi_id": "1",
+                aziId: 1,
             },
             byte_length=8)
         example = azure.core.ResourceGroup("example",
@@ -810,7 +810,7 @@ class Slot(pulumi.CustomResource):
                 "size": "S1",
             })
         example_app_service = azure.appservice.AppService("example",
-            name=server.hex,
+            name=server["hex"],
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -826,7 +826,7 @@ class Slot(pulumi.CustomResource):
                 "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
             }])
         example_slot = azure.appservice.Slot("example",
-            name=server.hex,
+            name=server["hex"],
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
@@ -851,9 +851,9 @@ class Slot(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server",
+        server = random.index.Id("server",
             keepers={
-                "azi_id": "1",
+                aziId: 1,
             },
             byte_length=8)
         example = azure.core.ResourceGroup("example",
@@ -868,7 +868,7 @@ class Slot(pulumi.CustomResource):
                 "size": "S1",
             })
         example_app_service = azure.appservice.AppService("example",
-            name=server.hex,
+            name=server["hex"],
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -878,7 +878,7 @@ class Slot(pulumi.CustomResource):
                 "java_container_version": "9.3",
             })
         example_slot = azure.appservice.Slot("example",
-            name=server.hex,
+            name=server["hex"],
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,

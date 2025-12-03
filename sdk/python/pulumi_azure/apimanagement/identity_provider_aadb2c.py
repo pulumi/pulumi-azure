@@ -445,14 +445,14 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_application = azuread.Application("example", display_name="acctestam-example")
-        example_application_password = azuread.ApplicationPassword("example",
+        example_application = azuread.index.Application("example", display_name=acctestam-example)
+        example_application_password = azuread.index.ApplicationPassword("example",
             application_object_id=example_application.object_id,
-            end_date_relative="36h")
+            end_date_relative=36h)
         example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("example",
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            client_id=example_application.application_id,
+            client_id=example_application["applicationId"],
             client_secret="P@55w0rD!",
             allowed_tenant="myb2ctenant.onmicrosoft.com",
             signin_tenant="myb2ctenant.onmicrosoft.com",
@@ -511,14 +511,14 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_application = azuread.Application("example", display_name="acctestam-example")
-        example_application_password = azuread.ApplicationPassword("example",
+        example_application = azuread.index.Application("example", display_name=acctestam-example)
+        example_application_password = azuread.index.ApplicationPassword("example",
             application_object_id=example_application.object_id,
-            end_date_relative="36h")
+            end_date_relative=36h)
         example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("example",
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            client_id=example_application.application_id,
+            client_id=example_application["applicationId"],
             client_secret="P@55w0rD!",
             allowed_tenant="myb2ctenant.onmicrosoft.com",
             signin_tenant="myb2ctenant.onmicrosoft.com",

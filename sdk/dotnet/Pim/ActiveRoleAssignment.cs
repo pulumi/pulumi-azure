@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Time = Pulumiverse.Time;
+    /// using Time = Pulumi.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Pim
     ///         Name = "Reader",
     ///     });
     /// 
-    ///     var exampleStatic = new Time.Static("example");
+    ///     var exampleStatic = new Time.Index.Static("example");
     /// 
     ///     var exampleActiveRoleAssignment = new Azure.Pim.ActiveRoleAssignment("example", new()
     ///     {
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Time = Pulumiverse.Time;
+    /// using Time = Pulumi.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Pim
     ///         Name = "Example-Management-Group",
     ///     });
     /// 
-    ///     var exampleStatic = new Time.Static("example");
+    ///     var exampleStatic = new Time.Index.Static("example");
     /// 
     ///     var exampleActiveRoleAssignment = new Azure.Pim.ActiveRoleAssignment("example", new()
     ///     {

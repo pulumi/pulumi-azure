@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.random.RandomId;
- * import com.pulumi.random.RandomIdArgs;
+ * import com.pulumi.random.id;
+ * import com.pulumi.random.IdArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
@@ -56,13 +56,13 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         var workspace = new RandomId("workspace", RandomIdArgs.builder()
- *             .keepers(Map.of("group_name", example.name()))
+ *         var workspace = new Id("workspace", IdArgs.builder()
+ *             .keepers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .byteLength(8)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
- *             .name(workspace.hex().applyValue(hex -> String.format("k8s-workspace-%s", hex)))
+ *             .name(String.format("k8s-workspace-%s", workspace.hex()))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")

@@ -71,18 +71,18 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var reader = new AzureAD.DirectoryRole("reader", new()
+    ///     var reader = new AzureAD.Index.DirectoryRole("reader", new()
     ///     {
     ///         DisplayName = "Directory Readers",
     ///     });
     /// 
-    ///     var exampleDirectoryRoleMember = new AzureAD.DirectoryRoleMember("example", new()
+    ///     var exampleDirectoryRoleMember = new AzureAD.Index.DirectoryRoleMember("example", new()
     ///     {
     ///         RoleObjectId = reader.ObjectId,
-    ///         MemberObjectId = exampleManagedInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         MemberObjectId = exampleManagedInstance.Identity?.PrincipalId,
     ///     });
     /// 
-    ///     var admin = new AzureAD.User("admin", new()
+    ///     var admin = new AzureAD.Index.User("admin", new()
     ///     {
     ///         UserPrincipalName = "ms.admin@example.com",
     ///         DisplayName = "Ms Admin",

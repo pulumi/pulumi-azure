@@ -120,16 +120,16 @@ import (
 //				return err
 //			}
 //			dcAdmins, err := azuread.NewGroup(ctx, "dc_admins", &azuread.GroupArgs{
-//				DisplayName:     pulumi.String("AAD DC Administrators"),
-//				SecurityEnabled: pulumi.Bool(true),
+//				DisplayName:     "AAD DC Administrators",
+//				SecurityEnabled: true,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
-//				UserPrincipalName: pulumi.String("dc-admin@hashicorp-example.com"),
-//				DisplayName:       pulumi.String("DC Administrator"),
-//				Password:          pulumi.String("Pa55w0Rd!!1"),
+//				UserPrincipalName: "dc-admin@hashicorp-example.com",
+//				DisplayName:       "DC Administrator",
+//				Password:          "Pa55w0Rd!!1",
 //			})
 //			if err != nil {
 //				return err
@@ -142,7 +142,7 @@ import (
 //				return err
 //			}
 //			example, err := azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
-//				ApplicationId: pulumi.String("2565bd9d-da50-47d4-8b85-4c97f669dc36"),
+//				ApplicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36",
 //			})
 //			if err != nil {
 //				return err

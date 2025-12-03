@@ -11,48 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Azure permits a maximum of 1024 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- *     keyPermissions: ["Get"],
- *     secretPermissions: ["Get"],
- * });
- * const example = azuread.getServicePrincipal({
- *     displayName: "example-app",
- * });
- * const example_principal = new azure.keyvault.AccessPolicy("example-principal", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: example.then(example => example.objectId),
- *     keyPermissions: [
- *         "Get",
- *         "List",
- *         "Encrypt",
- *         "Decrypt",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Key Vault Access Policies can be imported using the Resource ID of the Key Vault, plus some additional metadata.

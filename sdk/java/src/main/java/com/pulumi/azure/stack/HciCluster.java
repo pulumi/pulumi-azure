@@ -19,65 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Stack HCI Cluster.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azuread.AzureadFunctions;
- * import com.pulumi.azuread.inputs.GetApplicationArgs;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.stack.HciCluster;
- * import com.pulumi.azure.stack.HciClusterArgs;
- * import com.pulumi.azure.stack.inputs.HciClusterIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = AzureadFunctions.getApplication(GetApplicationArgs.builder()
- *             .displayName("Allowed resource types")
- *             .build());
- * 
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleHciCluster = new HciCluster("exampleHciCluster", HciClusterArgs.builder()
- *             .name("example-cluster")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .clientId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .identity(HciClusterIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Azure Stack HCI Clusters can be imported using the `resource id`, e.g.
