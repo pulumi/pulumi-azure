@@ -174,7 +174,7 @@ jobs:
       working-directory: ${{ github.workspace }}/sdk/nodejs/bin
       run: npm publish --tag latest-v5
       env:
-        NODE_AUTH_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN
+        NODE_AUTH_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN }}
     - name: Publish Dotnet, Python, Java
       if: inputs.skipJavaSdk == false
       uses: pulumi/pulumi-package-publisher@c1672c7928591d563dccb12729e05e315c21f8c2 # v0.0.22
