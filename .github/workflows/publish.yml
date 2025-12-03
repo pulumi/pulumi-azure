@@ -161,11 +161,25 @@ jobs:
         # we don't set node-version because we install with mise.
         # this step is needed to setup npm auth
         registry-url: https://registry.npmjs.org
-    - name: Publish SDKs
+    # Use direct npm publish with explicit tag to avoid tagging as 'latest'
+    # which would incorrectly mark this backport as the default version.
+    - name: Download nodejs SDK
+      uses: actions/download-artifact@v4
+      with:
+        name: nodejs-sdk.tar.gz
+        path: ${{ github.workspace }}/sdk/
+    - name: Uncompress nodejs SDK
+      run: mkdir -p ${{ github.workspace }}/sdk/nodejs && tar -zxf ${{ github.workspace }}/sdk/nodejs.tar.gz -C ${{ github.workspace }}/sdk/nodejs
+    - name: Publish Node SDK via NPM
+      working-directory: ${{ github.workspace }}/sdk/nodejs/bin
+      run: npm publish --tag latest-v5
+      env:
+        NODE_AUTH_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN
+    - name: Publish Dotnet, Python, Java
       if: inputs.skipJavaSdk == false
       uses: pulumi/pulumi-package-publisher@c1672c7928591d563dccb12729e05e315c21f8c2 # v0.0.22
       with:
-        sdk: all
+        sdk: all,!nodejs
         version: ${{ inputs.version }}
       env:
         PYPI_USERNAME: __token__
@@ -177,11 +191,11 @@ jobs:
         PUBLISH_REPO_PASSWORD: ${{ steps.esc-secrets.outputs.OSSRH_PASSWORD }}
         PUBLISH_REPO_USERNAME: ${{ steps.esc-secrets.outputs.OSSRH_USERNAME }}
         NUGET_PUBLISH_KEY: ${{ steps.esc-secrets.outputs.NUGET_PUBLISH_KEY }}
-    - name: Publish SDKs (except Java)
+    - name: Publish Dotnet and Python (no Java)
       if: inputs.skipJavaSdk == true
       uses: pulumi/pulumi-package-publisher@c1672c7928591d563dccb12729e05e315c21f8c2 # v0.0.22
       with:
-        sdk: all,!java
+        sdk: all,!java,!nodejs
         version: ${{ inputs.version }}
       env:
         PYPI_USERNAME: __token__
