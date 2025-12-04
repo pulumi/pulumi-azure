@@ -22,9 +22,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const server = new random.RandomId("server", {
+ * const server = new random.index.Id("server", {
  *     keepers: {
- *         azi_id: "1",
+ *         aziId: 1,
  *     },
  *     byteLength: 8,
  * });
@@ -85,9 +85,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const server = new random.RandomId("server", {
+ * const server = new random.index.Id("server", {
  *     keepers: {
- *         azi_id: "1",
+ *         aziId: 1,
  *     },
  *     byteLength: 8,
  * });
