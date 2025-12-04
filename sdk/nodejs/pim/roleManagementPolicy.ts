@@ -11,62 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Resource Group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-rg",
- *     location: "East US",
- * });
- * const rgContributor = azure.authorization.getRoleDefinitionOutput({
- *     name: "Contributor",
- *     scope: example.id,
- * });
- * const approvers = azuread.getGroup({
- *     displayName: "Example Approver Group",
- * });
- * const exampleRoleManagementPolicy = new azure.pim.RoleManagementPolicy("example", {
- *     scope: test.id,
- *     roleDefinitionId: contributor.id,
- *     activeAssignmentRules: {
- *         expireAfter: "P365D",
- *     },
- *     eligibleAssignmentRules: {
- *         expirationRequired: false,
- *     },
- *     activationRules: {
- *         maximumDuration: "PT1H",
- *         requireApproval: true,
- *         approvalStage: {
- *             primaryApprovers: [{
- *                 objectId: approvers.then(approvers => approvers.objectId),
- *                 type: "Group",
- *             }],
- *         },
- *     },
- *     notificationRules: {
- *         eligibleAssignments: {
- *             approverNotifications: {
- *                 notificationLevel: "Critical",
- *                 defaultRecipients: false,
- *                 additionalRecipients: ["someone@example.com"],
- *             },
- *         },
- *         eligibleActivations: {
- *             assigneeNotifications: {
- *                 notificationLevel: "All",
- *                 defaultRecipients: true,
- *                 additionalRecipients: ["someone.else@example.com"],
- *             },
- *         },
- *     },
- * });
- * ```
- *
  * ### Management Group
  *
  * ```typescript

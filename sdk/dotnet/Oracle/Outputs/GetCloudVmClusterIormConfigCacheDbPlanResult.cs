@@ -11,7 +11,7 @@ namespace Pulumi.Azure.Oracle.Outputs
 {
 
     [OutputType]
-    public sealed class GetCloudVmClusterIormConfigCachDbPlanResult
+    public sealed class GetCloudVmClusterIormConfigCacheDbPlanResult
     {
         /// <summary>
         /// The database name. For the default `DbPlan`, the `dbName` is `Default`.
@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Oracle.Outputs
         public readonly int Share;
 
         [OutputConstructor]
-        private GetCloudVmClusterIormConfigCachDbPlanResult(
+        private GetCloudVmClusterIormConfigCacheDbPlanResult(
             string dbName,
 
             string flashCacheLimit,

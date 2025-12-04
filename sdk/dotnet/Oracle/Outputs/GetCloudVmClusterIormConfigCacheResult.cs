@@ -11,12 +11,12 @@ namespace Pulumi.Azure.Oracle.Outputs
 {
 
     [OutputType]
-    public sealed class GetCloudVmClusterIormConfigCachResult
+    public sealed class GetCloudVmClusterIormConfigCacheResult
     {
         /// <summary>
         /// A `DbPlans` block as defined above.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachDbPlanResult> DbPlans;
+        public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCacheDbPlanResult> DbPlans;
         /// <summary>
         /// Additional information about the current `lifecycleState`.
         /// </summary>
@@ -31,8 +31,8 @@ namespace Pulumi.Azure.Oracle.Outputs
         public readonly string Objective;
 
         [OutputConstructor]
-        private GetCloudVmClusterIormConfigCachResult(
-            ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachDbPlanResult> dbPlans,
+        private GetCloudVmClusterIormConfigCacheResult(
+            ImmutableArray<Outputs.GetCloudVmClusterIormConfigCacheDbPlanResult> dbPlans,
 
             string lifecycleDetails,
 
