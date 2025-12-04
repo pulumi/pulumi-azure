@@ -327,8 +327,6 @@ class ManagedStorageAccount(pulumi.CustomResource):
             regeneration_period="P1D")
         ```
 
-        ### Automatically Regenerate Storage Account Access Key)
-
         ## Import
 
         Key Vault Managed Storage Accounts can be imported using the `resource id`, e.g.
@@ -406,8 +404,6 @@ class ManagedStorageAccount(pulumi.CustomResource):
             regenerate_key_automatically=False,
             regeneration_period="P1D")
         ```
-
-        ### Automatically Regenerate Storage Account Access Key)
 
         ## Import
 
