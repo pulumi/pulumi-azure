@@ -143,6 +143,8 @@ build_java: .make/build_java
 .make/generate_java: bin/pulumi-java-gen .make/schema
 	$(WORKING_DIR)/bin/pulumi-java-gen generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/java/go.mod
+	# Update build.gradle to use new Sonatype Central URLs
+	python3 -c "import re; f=open('sdk/java/build.gradle','r'); content=f.read(); f.close(); content=re.sub(r'def publishRepoURL = System\.getenv\(\"PUBLISH_REPO_URL\"\) \?: \"https://s01\.oss\.sonatype\.org\"', 'def publishRepoURL = System.getenv(\"PUBLISH_REPO_URL\") ?: \"https://central.sonatype.com/repository/maven-snapshots/\"', content); content=re.sub(r'(def publishRepoPassword = System\.getenv\(\"PUBLISH_REPO_PASSWORD\"\))', r'\1\ndef publishStagingURL = System.getenv(\"PUBLISH_STAGING_URL\") ?: \"https://ossrh-staging-api.central.sonatype.com/service/local/\"', content); content=re.sub(r'nexusUrl\.set\(uri\(publishRepoURL \+ \"/service/local/\"\)\)', 'nexusUrl.set(uri(publishStagingURL))', content); content=re.sub(r'snapshotRepositoryUrl\.set\(uri\(publishRepoURL \+ \"/content/repositories/snapshots/\"\)\)', 'snapshotRepositoryUrl.set(uri(publishRepoURL))', content); f=open('sdk/java/build.gradle','w'); f.write(content); f.close()"
 	@touch $@
 .make/build_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
 .make/build_java: .make/generate_java
