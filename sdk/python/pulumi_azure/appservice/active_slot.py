@@ -149,7 +149,7 @@ class ActiveSlot(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server")
+        server = random.index.Id("server")
         example = azure.core.ResourceGroup("example")
         example_plan = azure.appservice.Plan("example")
         example_app_service = azure.appservice.AppService("example")
@@ -186,7 +186,7 @@ class ActiveSlot(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server")
+        server = random.index.Id("server")
         example = azure.core.ResourceGroup("example")
         example_plan = azure.appservice.Plan("example")
         example_app_service = azure.appservice.AppService("example")

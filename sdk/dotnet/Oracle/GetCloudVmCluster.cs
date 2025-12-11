@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Oracle
         /// <summary>
         /// A `IormConfigCache` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachResult> IormConfigCaches;
+        public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCacheResult> IormConfigCaches;
         /// <summary>
         /// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the last maintenance update history entry. This value is updated when a maintenance update starts.
         /// </summary>
@@ -419,7 +419,7 @@ namespace Pulumi.Azure.Oracle
 
             string id,
 
-            ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachResult> iormConfigCaches,
+            ImmutableArray<Outputs.GetCloudVmClusterIormConfigCacheResult> iormConfigCaches,
 
             string lastUpdateHistoryEntryId,
 

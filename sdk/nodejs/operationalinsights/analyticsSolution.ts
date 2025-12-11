@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  *     name: "k8s-log-analytics-test",
  *     location: "West Europe",
  * });
- * const workspace = new random.RandomId("workspace", {
+ * const workspace = new random.index.Id("workspace", {
  *     keepers: {
- *         group_name: example.name,
+ *         groupName: example.name,
  *     },
  *     byteLength: 8,
  * });
  * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     name: pulumi.interpolate`k8s-workspace-${workspace.hex}`,
+ *     name: `k8s-workspace-${workspace.hex}`,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",

@@ -368,49 +368,6 @@ class HciMarketplaceGalleryImage(pulumi.CustomResource):
         """
         Manages an Azure Stack HCI Marketplace Gallery Image.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="examples",
-            location="West Europe")
-        example = azure.core.get_client_config()
-        # service principal of 'Microsoft.AzureStackHCI Resource Provider'
-        hci_rp = azuread.get_service_principal(client_id="1412d89f-b8a8-4111-b4fd-e82905cbd85d")
-        example_assignment = azure.authorization.Assignment("example",
-            scope=example_resource_group.id,
-            role_definition_name="Azure Connected Machine Resource Manager",
-            principal_id=hci_rp.object_id)
-        example_hci_marketplace_gallery_image = azure.stack.HciMarketplaceGalleryImage("example",
-            name="example-mgi",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
-            hyperv_generation="V2",
-            os_type="Windows",
-            version="20348.2655.240905",
-            identifier={
-                "publisher": "MicrosoftWindowsServer",
-                "offer": "WindowsServer",
-                "sku": "2022-datacenter-azure-edition-core",
-            },
-            tags={
-                "foo": "bar",
-                "env": "example",
-            })
-        ```
-
-        ## API Providers
-
-        <!-- This section is generated, changes will be overwritten -->
-        This resource uses the following Azure API Providers:
-
-        * `Microsoft.AzureStackHCI` - 2024-01-01
-
         ## Import
 
         Azure Stack HCI Marketplace Gallery Images can be imported using the `resource id`, e.g.
@@ -440,49 +397,6 @@ class HciMarketplaceGalleryImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Stack HCI Marketplace Gallery Image.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="examples",
-            location="West Europe")
-        example = azure.core.get_client_config()
-        # service principal of 'Microsoft.AzureStackHCI Resource Provider'
-        hci_rp = azuread.get_service_principal(client_id="1412d89f-b8a8-4111-b4fd-e82905cbd85d")
-        example_assignment = azure.authorization.Assignment("example",
-            scope=example_resource_group.id,
-            role_definition_name="Azure Connected Machine Resource Manager",
-            principal_id=hci_rp.object_id)
-        example_hci_marketplace_gallery_image = azure.stack.HciMarketplaceGalleryImage("example",
-            name="example-mgi",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
-            hyperv_generation="V2",
-            os_type="Windows",
-            version="20348.2655.240905",
-            identifier={
-                "publisher": "MicrosoftWindowsServer",
-                "offer": "WindowsServer",
-                "sku": "2022-datacenter-azure-edition-core",
-            },
-            tags={
-                "foo": "bar",
-                "env": "example",
-            })
-        ```
-
-        ## API Providers
-
-        <!-- This section is generated, changes will be overwritten -->
-        This resource uses the following Azure API Providers:
-
-        * `Microsoft.AzureStackHCI` - 2024-01-01
 
         ## Import
 

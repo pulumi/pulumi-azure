@@ -274,56 +274,6 @@ class RoleManagementPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Resource Group
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="East US")
-        rg_contributor = azure.authorization.get_role_definition_output(name="Contributor",
-            scope=example.id)
-        approvers = azuread.get_group(display_name="Example Approver Group")
-        example_role_management_policy = azure.pim.RoleManagementPolicy("example",
-            scope=test["id"],
-            role_definition_id=contributor["id"],
-            active_assignment_rules={
-                "expire_after": "P365D",
-            },
-            eligible_assignment_rules={
-                "expiration_required": False,
-            },
-            activation_rules={
-                "maximum_duration": "PT1H",
-                "require_approval": True,
-                "approval_stage": {
-                    "primary_approvers": [{
-                        "object_id": approvers.object_id,
-                        "type": "Group",
-                    }],
-                },
-            },
-            notification_rules={
-                "eligible_assignments": {
-                    "approver_notifications": {
-                        "notification_level": "Critical",
-                        "default_recipients": False,
-                        "additional_recipients": ["someone@example.com"],
-                    },
-                },
-                "eligible_activations": {
-                    "assignee_notifications": {
-                        "notification_level": "All",
-                        "default_recipients": True,
-                        "additional_recipients": ["someone.else@example.com"],
-                    },
-                },
-            })
-        ```
-
         ### Management Group
 
         ```python
@@ -391,56 +341,6 @@ class RoleManagementPolicy(pulumi.CustomResource):
         Manage a role policy for an Azure Management Group, Subscription, Resource Group or resource.
 
         ## Example Usage
-
-        ### Resource Group
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="East US")
-        rg_contributor = azure.authorization.get_role_definition_output(name="Contributor",
-            scope=example.id)
-        approvers = azuread.get_group(display_name="Example Approver Group")
-        example_role_management_policy = azure.pim.RoleManagementPolicy("example",
-            scope=test["id"],
-            role_definition_id=contributor["id"],
-            active_assignment_rules={
-                "expire_after": "P365D",
-            },
-            eligible_assignment_rules={
-                "expiration_required": False,
-            },
-            activation_rules={
-                "maximum_duration": "PT1H",
-                "require_approval": True,
-                "approval_stage": {
-                    "primary_approvers": [{
-                        "object_id": approvers.object_id,
-                        "type": "Group",
-                    }],
-                },
-            },
-            notification_rules={
-                "eligible_assignments": {
-                    "approver_notifications": {
-                        "notification_level": "Critical",
-                        "default_recipients": False,
-                        "additional_recipients": ["someone@example.com"],
-                    },
-                },
-                "eligible_activations": {
-                    "assignee_notifications": {
-                        "notification_level": "All",
-                        "default_recipients": True,
-                        "additional_recipients": ["someone.else@example.com"],
-                    },
-                },
-            })
-        ```
 
         ### Management Group
 
