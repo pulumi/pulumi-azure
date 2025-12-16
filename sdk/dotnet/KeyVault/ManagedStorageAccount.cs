@@ -85,8 +85,6 @@ namespace Pulumi.Azure.KeyVault
     /// });
     /// ```
     /// 
-    /// ### Automatically Regenerate Storage Account Access Key)
-    /// 
     /// ## Import
     /// 
     /// Key Vault Managed Storage Accounts can be imported using the `resource id`, e.g.

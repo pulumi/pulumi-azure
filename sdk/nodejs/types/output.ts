@@ -62025,11 +62025,11 @@ export namespace oracle {
         sizeInGb: number;
     }
 
-    export interface GetCloudVmClusterIormConfigCach {
+    export interface GetCloudVmClusterIormConfigCache {
         /**
          * A `dbPlans` block as defined above.
          */
-        dbPlans: outputs.oracle.GetCloudVmClusterIormConfigCachDbPlan[];
+        dbPlans: outputs.oracle.GetCloudVmClusterIormConfigCacheDbPlan[];
         /**
          * Additional information about the current `lifecycleState`.
          */
@@ -62044,7 +62044,7 @@ export namespace oracle {
         objective: string;
     }
 
-    export interface GetCloudVmClusterIormConfigCachDbPlan {
+    export interface GetCloudVmClusterIormConfigCacheDbPlan {
         /**
          * The database name. For the default `DbPlan`, the `dbName` is `default`.
          */

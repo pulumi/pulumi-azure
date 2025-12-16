@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.random.RandomId;
- * import com.pulumi.random.RandomIdArgs;
+ * import com.pulumi.random.Id;
+ * import com.pulumi.random.IdArgs;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.TrafficManagerProfile;
@@ -54,8 +54,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var server = new RandomId("server", RandomIdArgs.builder()
- *             .keepers(Map.of("azi_id", "1"))
+ *         var server = new Id("server", IdArgs.builder()
+ *             .keepers(Map.of("aziId", 1))
  *             .byteLength(8)
  *             .build());
  * 
