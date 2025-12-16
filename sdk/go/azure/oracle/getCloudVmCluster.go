@@ -108,7 +108,7 @@ type LookupCloudVmClusterResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `iormConfigCache` block as defined below.
-	IormConfigCaches []GetCloudVmClusterIormConfigCach `pulumi:"iormConfigCaches"`
+	IormConfigCaches []GetCloudVmClusterIormConfigCache `pulumi:"iormConfigCaches"`
 	// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the last maintenance update history entry. This value is updated when a maintenance update starts.
 	LastUpdateHistoryEntryId string `pulumi:"lastUpdateHistoryEntryId"`
 	// The Oracle license model that applies to the Cloud VM Cluster.
@@ -317,8 +317,8 @@ func (o LookupCloudVmClusterResultOutput) Id() pulumi.StringOutput {
 }
 
 // A `iormConfigCache` block as defined below.
-func (o LookupCloudVmClusterResultOutput) IormConfigCaches() GetCloudVmClusterIormConfigCachArrayOutput {
-	return o.ApplyT(func(v LookupCloudVmClusterResult) []GetCloudVmClusterIormConfigCach { return v.IormConfigCaches }).(GetCloudVmClusterIormConfigCachArrayOutput)
+func (o LookupCloudVmClusterResultOutput) IormConfigCaches() GetCloudVmClusterIormConfigCacheArrayOutput {
+	return o.ApplyT(func(v LookupCloudVmClusterResult) []GetCloudVmClusterIormConfigCache { return v.IormConfigCaches }).(GetCloudVmClusterIormConfigCacheArrayOutput)
 }
 
 // The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the last maintenance update history entry. This value is updated when a maintenance update starts.

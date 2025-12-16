@@ -9,54 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Stack HCI Marketplace Gallery Image.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "examples",
- *     location: "West Europe",
- * });
- * const example = azure.core.getClientConfig({});
- * // service principal of 'Microsoft.AzureStackHCI Resource Provider'
- * const hciRp = azuread.getServicePrincipal({
- *     clientId: "1412d89f-b8a8-4111-b4fd-e82905cbd85d",
- * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     scope: exampleResourceGroup.id,
- *     roleDefinitionName: "Azure Connected Machine Resource Manager",
- *     principalId: hciRp.then(hciRp => hciRp.objectId),
- * });
- * const exampleHciMarketplaceGalleryImage = new azure.stack.HciMarketplaceGalleryImage("example", {
- *     name: "example-mgi",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     customLocationId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
- *     hypervGeneration: "V2",
- *     osType: "Windows",
- *     version: "20348.2655.240905",
- *     identifier: {
- *         publisher: "MicrosoftWindowsServer",
- *         offer: "WindowsServer",
- *         sku: "2022-datacenter-azure-edition-core",
- *     },
- *     tags: {
- *         foo: "bar",
- *         env: "example",
- *     },
- * });
- * ```
- *
- * ## API Providers
- *
- * <!-- This section is generated, changes will be overwritten -->
- * This resource uses the following Azure API Providers:
- *
- * * `Microsoft.AzureStackHCI` - 2024-01-01
- *
  * ## Import
  *
  * Azure Stack HCI Marketplace Gallery Images can be imported using the `resource id`, e.g.

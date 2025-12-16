@@ -1810,9 +1810,9 @@ func (o GetCloudVmClusterFileSystemConfigurationArrayOutput) Index(i pulumi.IntI
 	}).(GetCloudVmClusterFileSystemConfigurationOutput)
 }
 
-type GetCloudVmClusterIormConfigCach struct {
+type GetCloudVmClusterIormConfigCache struct {
 	// A `dbPlans` block as defined above.
-	DbPlans []GetCloudVmClusterIormConfigCachDbPlan `pulumi:"dbPlans"`
+	DbPlans []GetCloudVmClusterIormConfigCacheDbPlan `pulumi:"dbPlans"`
 	// Additional information about the current `lifecycleState`.
 	LifecycleDetails string `pulumi:"lifecycleDetails"`
 	// The current state of IORM configuration for the Exadata DB system.
@@ -1821,20 +1821,20 @@ type GetCloudVmClusterIormConfigCach struct {
 	Objective string `pulumi:"objective"`
 }
 
-// GetCloudVmClusterIormConfigCachInput is an input type that accepts GetCloudVmClusterIormConfigCachArgs and GetCloudVmClusterIormConfigCachOutput values.
-// You can construct a concrete instance of `GetCloudVmClusterIormConfigCachInput` via:
+// GetCloudVmClusterIormConfigCacheInput is an input type that accepts GetCloudVmClusterIormConfigCacheArgs and GetCloudVmClusterIormConfigCacheOutput values.
+// You can construct a concrete instance of `GetCloudVmClusterIormConfigCacheInput` via:
 //
-//	GetCloudVmClusterIormConfigCachArgs{...}
-type GetCloudVmClusterIormConfigCachInput interface {
+//	GetCloudVmClusterIormConfigCacheArgs{...}
+type GetCloudVmClusterIormConfigCacheInput interface {
 	pulumi.Input
 
-	ToGetCloudVmClusterIormConfigCachOutput() GetCloudVmClusterIormConfigCachOutput
-	ToGetCloudVmClusterIormConfigCachOutputWithContext(context.Context) GetCloudVmClusterIormConfigCachOutput
+	ToGetCloudVmClusterIormConfigCacheOutput() GetCloudVmClusterIormConfigCacheOutput
+	ToGetCloudVmClusterIormConfigCacheOutputWithContext(context.Context) GetCloudVmClusterIormConfigCacheOutput
 }
 
-type GetCloudVmClusterIormConfigCachArgs struct {
+type GetCloudVmClusterIormConfigCacheArgs struct {
 	// A `dbPlans` block as defined above.
-	DbPlans GetCloudVmClusterIormConfigCachDbPlanArrayInput `pulumi:"dbPlans"`
+	DbPlans GetCloudVmClusterIormConfigCacheDbPlanArrayInput `pulumi:"dbPlans"`
 	// Additional information about the current `lifecycleState`.
 	LifecycleDetails pulumi.StringInput `pulumi:"lifecycleDetails"`
 	// The current state of IORM configuration for the Exadata DB system.
@@ -1843,98 +1843,98 @@ type GetCloudVmClusterIormConfigCachArgs struct {
 	Objective pulumi.StringInput `pulumi:"objective"`
 }
 
-func (GetCloudVmClusterIormConfigCachArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCloudVmClusterIormConfigCach)(nil)).Elem()
+func (GetCloudVmClusterIormConfigCacheArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudVmClusterIormConfigCache)(nil)).Elem()
 }
 
-func (i GetCloudVmClusterIormConfigCachArgs) ToGetCloudVmClusterIormConfigCachOutput() GetCloudVmClusterIormConfigCachOutput {
-	return i.ToGetCloudVmClusterIormConfigCachOutputWithContext(context.Background())
+func (i GetCloudVmClusterIormConfigCacheArgs) ToGetCloudVmClusterIormConfigCacheOutput() GetCloudVmClusterIormConfigCacheOutput {
+	return i.ToGetCloudVmClusterIormConfigCacheOutputWithContext(context.Background())
 }
 
-func (i GetCloudVmClusterIormConfigCachArgs) ToGetCloudVmClusterIormConfigCachOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCachOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterIormConfigCachOutput)
+func (i GetCloudVmClusterIormConfigCacheArgs) ToGetCloudVmClusterIormConfigCacheOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterIormConfigCacheOutput)
 }
 
-// GetCloudVmClusterIormConfigCachArrayInput is an input type that accepts GetCloudVmClusterIormConfigCachArray and GetCloudVmClusterIormConfigCachArrayOutput values.
-// You can construct a concrete instance of `GetCloudVmClusterIormConfigCachArrayInput` via:
+// GetCloudVmClusterIormConfigCacheArrayInput is an input type that accepts GetCloudVmClusterIormConfigCacheArray and GetCloudVmClusterIormConfigCacheArrayOutput values.
+// You can construct a concrete instance of `GetCloudVmClusterIormConfigCacheArrayInput` via:
 //
-//	GetCloudVmClusterIormConfigCachArray{ GetCloudVmClusterIormConfigCachArgs{...} }
-type GetCloudVmClusterIormConfigCachArrayInput interface {
+//	GetCloudVmClusterIormConfigCacheArray{ GetCloudVmClusterIormConfigCacheArgs{...} }
+type GetCloudVmClusterIormConfigCacheArrayInput interface {
 	pulumi.Input
 
-	ToGetCloudVmClusterIormConfigCachArrayOutput() GetCloudVmClusterIormConfigCachArrayOutput
-	ToGetCloudVmClusterIormConfigCachArrayOutputWithContext(context.Context) GetCloudVmClusterIormConfigCachArrayOutput
+	ToGetCloudVmClusterIormConfigCacheArrayOutput() GetCloudVmClusterIormConfigCacheArrayOutput
+	ToGetCloudVmClusterIormConfigCacheArrayOutputWithContext(context.Context) GetCloudVmClusterIormConfigCacheArrayOutput
 }
 
-type GetCloudVmClusterIormConfigCachArray []GetCloudVmClusterIormConfigCachInput
+type GetCloudVmClusterIormConfigCacheArray []GetCloudVmClusterIormConfigCacheInput
 
-func (GetCloudVmClusterIormConfigCachArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCloudVmClusterIormConfigCach)(nil)).Elem()
+func (GetCloudVmClusterIormConfigCacheArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudVmClusterIormConfigCache)(nil)).Elem()
 }
 
-func (i GetCloudVmClusterIormConfigCachArray) ToGetCloudVmClusterIormConfigCachArrayOutput() GetCloudVmClusterIormConfigCachArrayOutput {
-	return i.ToGetCloudVmClusterIormConfigCachArrayOutputWithContext(context.Background())
+func (i GetCloudVmClusterIormConfigCacheArray) ToGetCloudVmClusterIormConfigCacheArrayOutput() GetCloudVmClusterIormConfigCacheArrayOutput {
+	return i.ToGetCloudVmClusterIormConfigCacheArrayOutputWithContext(context.Background())
 }
 
-func (i GetCloudVmClusterIormConfigCachArray) ToGetCloudVmClusterIormConfigCachArrayOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCachArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterIormConfigCachArrayOutput)
+func (i GetCloudVmClusterIormConfigCacheArray) ToGetCloudVmClusterIormConfigCacheArrayOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCacheArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterIormConfigCacheArrayOutput)
 }
 
-type GetCloudVmClusterIormConfigCachOutput struct{ *pulumi.OutputState }
+type GetCloudVmClusterIormConfigCacheOutput struct{ *pulumi.OutputState }
 
-func (GetCloudVmClusterIormConfigCachOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCloudVmClusterIormConfigCach)(nil)).Elem()
+func (GetCloudVmClusterIormConfigCacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudVmClusterIormConfigCache)(nil)).Elem()
 }
 
-func (o GetCloudVmClusterIormConfigCachOutput) ToGetCloudVmClusterIormConfigCachOutput() GetCloudVmClusterIormConfigCachOutput {
+func (o GetCloudVmClusterIormConfigCacheOutput) ToGetCloudVmClusterIormConfigCacheOutput() GetCloudVmClusterIormConfigCacheOutput {
 	return o
 }
 
-func (o GetCloudVmClusterIormConfigCachOutput) ToGetCloudVmClusterIormConfigCachOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCachOutput {
+func (o GetCloudVmClusterIormConfigCacheOutput) ToGetCloudVmClusterIormConfigCacheOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCacheOutput {
 	return o
 }
 
 // A `dbPlans` block as defined above.
-func (o GetCloudVmClusterIormConfigCachOutput) DbPlans() GetCloudVmClusterIormConfigCachDbPlanArrayOutput {
-	return o.ApplyT(func(v GetCloudVmClusterIormConfigCach) []GetCloudVmClusterIormConfigCachDbPlan { return v.DbPlans }).(GetCloudVmClusterIormConfigCachDbPlanArrayOutput)
+func (o GetCloudVmClusterIormConfigCacheOutput) DbPlans() GetCloudVmClusterIormConfigCacheDbPlanArrayOutput {
+	return o.ApplyT(func(v GetCloudVmClusterIormConfigCache) []GetCloudVmClusterIormConfigCacheDbPlan { return v.DbPlans }).(GetCloudVmClusterIormConfigCacheDbPlanArrayOutput)
 }
 
 // Additional information about the current `lifecycleState`.
-func (o GetCloudVmClusterIormConfigCachOutput) LifecycleDetails() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCloudVmClusterIormConfigCach) string { return v.LifecycleDetails }).(pulumi.StringOutput)
+func (o GetCloudVmClusterIormConfigCacheOutput) LifecycleDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClusterIormConfigCache) string { return v.LifecycleDetails }).(pulumi.StringOutput)
 }
 
 // The current state of IORM configuration for the Exadata DB system.
-func (o GetCloudVmClusterIormConfigCachOutput) LifecycleState() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCloudVmClusterIormConfigCach) string { return v.LifecycleState }).(pulumi.StringOutput)
+func (o GetCloudVmClusterIormConfigCacheOutput) LifecycleState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClusterIormConfigCache) string { return v.LifecycleState }).(pulumi.StringOutput)
 }
 
 // The current value for the IORM objective. The default is `AUTO`.
-func (o GetCloudVmClusterIormConfigCachOutput) Objective() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCloudVmClusterIormConfigCach) string { return v.Objective }).(pulumi.StringOutput)
+func (o GetCloudVmClusterIormConfigCacheOutput) Objective() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClusterIormConfigCache) string { return v.Objective }).(pulumi.StringOutput)
 }
 
-type GetCloudVmClusterIormConfigCachArrayOutput struct{ *pulumi.OutputState }
+type GetCloudVmClusterIormConfigCacheArrayOutput struct{ *pulumi.OutputState }
 
-func (GetCloudVmClusterIormConfigCachArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCloudVmClusterIormConfigCach)(nil)).Elem()
+func (GetCloudVmClusterIormConfigCacheArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudVmClusterIormConfigCache)(nil)).Elem()
 }
 
-func (o GetCloudVmClusterIormConfigCachArrayOutput) ToGetCloudVmClusterIormConfigCachArrayOutput() GetCloudVmClusterIormConfigCachArrayOutput {
+func (o GetCloudVmClusterIormConfigCacheArrayOutput) ToGetCloudVmClusterIormConfigCacheArrayOutput() GetCloudVmClusterIormConfigCacheArrayOutput {
 	return o
 }
 
-func (o GetCloudVmClusterIormConfigCachArrayOutput) ToGetCloudVmClusterIormConfigCachArrayOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCachArrayOutput {
+func (o GetCloudVmClusterIormConfigCacheArrayOutput) ToGetCloudVmClusterIormConfigCacheArrayOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCacheArrayOutput {
 	return o
 }
 
-func (o GetCloudVmClusterIormConfigCachArrayOutput) Index(i pulumi.IntInput) GetCloudVmClusterIormConfigCachOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudVmClusterIormConfigCach {
-		return vs[0].([]GetCloudVmClusterIormConfigCach)[vs[1].(int)]
-	}).(GetCloudVmClusterIormConfigCachOutput)
+func (o GetCloudVmClusterIormConfigCacheArrayOutput) Index(i pulumi.IntInput) GetCloudVmClusterIormConfigCacheOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudVmClusterIormConfigCache {
+		return vs[0].([]GetCloudVmClusterIormConfigCache)[vs[1].(int)]
+	}).(GetCloudVmClusterIormConfigCacheOutput)
 }
 
-type GetCloudVmClusterIormConfigCachDbPlan struct {
+type GetCloudVmClusterIormConfigCacheDbPlan struct {
 	// The database name. For the default `DbPlan`, the `dbName` is `default`.
 	DbName string `pulumi:"dbName"`
 	// The flash cache limit for this database. This value is internally configured based on the share value assigned to the database.
@@ -1943,18 +1943,18 @@ type GetCloudVmClusterIormConfigCachDbPlan struct {
 	Share int `pulumi:"share"`
 }
 
-// GetCloudVmClusterIormConfigCachDbPlanInput is an input type that accepts GetCloudVmClusterIormConfigCachDbPlanArgs and GetCloudVmClusterIormConfigCachDbPlanOutput values.
-// You can construct a concrete instance of `GetCloudVmClusterIormConfigCachDbPlanInput` via:
+// GetCloudVmClusterIormConfigCacheDbPlanInput is an input type that accepts GetCloudVmClusterIormConfigCacheDbPlanArgs and GetCloudVmClusterIormConfigCacheDbPlanOutput values.
+// You can construct a concrete instance of `GetCloudVmClusterIormConfigCacheDbPlanInput` via:
 //
-//	GetCloudVmClusterIormConfigCachDbPlanArgs{...}
-type GetCloudVmClusterIormConfigCachDbPlanInput interface {
+//	GetCloudVmClusterIormConfigCacheDbPlanArgs{...}
+type GetCloudVmClusterIormConfigCacheDbPlanInput interface {
 	pulumi.Input
 
-	ToGetCloudVmClusterIormConfigCachDbPlanOutput() GetCloudVmClusterIormConfigCachDbPlanOutput
-	ToGetCloudVmClusterIormConfigCachDbPlanOutputWithContext(context.Context) GetCloudVmClusterIormConfigCachDbPlanOutput
+	ToGetCloudVmClusterIormConfigCacheDbPlanOutput() GetCloudVmClusterIormConfigCacheDbPlanOutput
+	ToGetCloudVmClusterIormConfigCacheDbPlanOutputWithContext(context.Context) GetCloudVmClusterIormConfigCacheDbPlanOutput
 }
 
-type GetCloudVmClusterIormConfigCachDbPlanArgs struct {
+type GetCloudVmClusterIormConfigCacheDbPlanArgs struct {
 	// The database name. For the default `DbPlan`, the `dbName` is `default`.
 	DbName pulumi.StringInput `pulumi:"dbName"`
 	// The flash cache limit for this database. This value is internally configured based on the share value assigned to the database.
@@ -1963,90 +1963,90 @@ type GetCloudVmClusterIormConfigCachDbPlanArgs struct {
 	Share pulumi.IntInput `pulumi:"share"`
 }
 
-func (GetCloudVmClusterIormConfigCachDbPlanArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlan)(nil)).Elem()
+func (GetCloudVmClusterIormConfigCacheDbPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudVmClusterIormConfigCacheDbPlan)(nil)).Elem()
 }
 
-func (i GetCloudVmClusterIormConfigCachDbPlanArgs) ToGetCloudVmClusterIormConfigCachDbPlanOutput() GetCloudVmClusterIormConfigCachDbPlanOutput {
-	return i.ToGetCloudVmClusterIormConfigCachDbPlanOutputWithContext(context.Background())
+func (i GetCloudVmClusterIormConfigCacheDbPlanArgs) ToGetCloudVmClusterIormConfigCacheDbPlanOutput() GetCloudVmClusterIormConfigCacheDbPlanOutput {
+	return i.ToGetCloudVmClusterIormConfigCacheDbPlanOutputWithContext(context.Background())
 }
 
-func (i GetCloudVmClusterIormConfigCachDbPlanArgs) ToGetCloudVmClusterIormConfigCachDbPlanOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCachDbPlanOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterIormConfigCachDbPlanOutput)
+func (i GetCloudVmClusterIormConfigCacheDbPlanArgs) ToGetCloudVmClusterIormConfigCacheDbPlanOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCacheDbPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterIormConfigCacheDbPlanOutput)
 }
 
-// GetCloudVmClusterIormConfigCachDbPlanArrayInput is an input type that accepts GetCloudVmClusterIormConfigCachDbPlanArray and GetCloudVmClusterIormConfigCachDbPlanArrayOutput values.
-// You can construct a concrete instance of `GetCloudVmClusterIormConfigCachDbPlanArrayInput` via:
+// GetCloudVmClusterIormConfigCacheDbPlanArrayInput is an input type that accepts GetCloudVmClusterIormConfigCacheDbPlanArray and GetCloudVmClusterIormConfigCacheDbPlanArrayOutput values.
+// You can construct a concrete instance of `GetCloudVmClusterIormConfigCacheDbPlanArrayInput` via:
 //
-//	GetCloudVmClusterIormConfigCachDbPlanArray{ GetCloudVmClusterIormConfigCachDbPlanArgs{...} }
-type GetCloudVmClusterIormConfigCachDbPlanArrayInput interface {
+//	GetCloudVmClusterIormConfigCacheDbPlanArray{ GetCloudVmClusterIormConfigCacheDbPlanArgs{...} }
+type GetCloudVmClusterIormConfigCacheDbPlanArrayInput interface {
 	pulumi.Input
 
-	ToGetCloudVmClusterIormConfigCachDbPlanArrayOutput() GetCloudVmClusterIormConfigCachDbPlanArrayOutput
-	ToGetCloudVmClusterIormConfigCachDbPlanArrayOutputWithContext(context.Context) GetCloudVmClusterIormConfigCachDbPlanArrayOutput
+	ToGetCloudVmClusterIormConfigCacheDbPlanArrayOutput() GetCloudVmClusterIormConfigCacheDbPlanArrayOutput
+	ToGetCloudVmClusterIormConfigCacheDbPlanArrayOutputWithContext(context.Context) GetCloudVmClusterIormConfigCacheDbPlanArrayOutput
 }
 
-type GetCloudVmClusterIormConfigCachDbPlanArray []GetCloudVmClusterIormConfigCachDbPlanInput
+type GetCloudVmClusterIormConfigCacheDbPlanArray []GetCloudVmClusterIormConfigCacheDbPlanInput
 
-func (GetCloudVmClusterIormConfigCachDbPlanArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCloudVmClusterIormConfigCachDbPlan)(nil)).Elem()
+func (GetCloudVmClusterIormConfigCacheDbPlanArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudVmClusterIormConfigCacheDbPlan)(nil)).Elem()
 }
 
-func (i GetCloudVmClusterIormConfigCachDbPlanArray) ToGetCloudVmClusterIormConfigCachDbPlanArrayOutput() GetCloudVmClusterIormConfigCachDbPlanArrayOutput {
-	return i.ToGetCloudVmClusterIormConfigCachDbPlanArrayOutputWithContext(context.Background())
+func (i GetCloudVmClusterIormConfigCacheDbPlanArray) ToGetCloudVmClusterIormConfigCacheDbPlanArrayOutput() GetCloudVmClusterIormConfigCacheDbPlanArrayOutput {
+	return i.ToGetCloudVmClusterIormConfigCacheDbPlanArrayOutputWithContext(context.Background())
 }
 
-func (i GetCloudVmClusterIormConfigCachDbPlanArray) ToGetCloudVmClusterIormConfigCachDbPlanArrayOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCachDbPlanArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterIormConfigCachDbPlanArrayOutput)
+func (i GetCloudVmClusterIormConfigCacheDbPlanArray) ToGetCloudVmClusterIormConfigCacheDbPlanArrayOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCacheDbPlanArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterIormConfigCacheDbPlanArrayOutput)
 }
 
-type GetCloudVmClusterIormConfigCachDbPlanOutput struct{ *pulumi.OutputState }
+type GetCloudVmClusterIormConfigCacheDbPlanOutput struct{ *pulumi.OutputState }
 
-func (GetCloudVmClusterIormConfigCachDbPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlan)(nil)).Elem()
+func (GetCloudVmClusterIormConfigCacheDbPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudVmClusterIormConfigCacheDbPlan)(nil)).Elem()
 }
 
-func (o GetCloudVmClusterIormConfigCachDbPlanOutput) ToGetCloudVmClusterIormConfigCachDbPlanOutput() GetCloudVmClusterIormConfigCachDbPlanOutput {
+func (o GetCloudVmClusterIormConfigCacheDbPlanOutput) ToGetCloudVmClusterIormConfigCacheDbPlanOutput() GetCloudVmClusterIormConfigCacheDbPlanOutput {
 	return o
 }
 
-func (o GetCloudVmClusterIormConfigCachDbPlanOutput) ToGetCloudVmClusterIormConfigCachDbPlanOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCachDbPlanOutput {
+func (o GetCloudVmClusterIormConfigCacheDbPlanOutput) ToGetCloudVmClusterIormConfigCacheDbPlanOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCacheDbPlanOutput {
 	return o
 }
 
 // The database name. For the default `DbPlan`, the `dbName` is `default`.
-func (o GetCloudVmClusterIormConfigCachDbPlanOutput) DbName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCloudVmClusterIormConfigCachDbPlan) string { return v.DbName }).(pulumi.StringOutput)
+func (o GetCloudVmClusterIormConfigCacheDbPlanOutput) DbName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClusterIormConfigCacheDbPlan) string { return v.DbName }).(pulumi.StringOutput)
 }
 
 // The flash cache limit for this database. This value is internally configured based on the share value assigned to the database.
-func (o GetCloudVmClusterIormConfigCachDbPlanOutput) FlashCacheLimit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCloudVmClusterIormConfigCachDbPlan) string { return v.FlashCacheLimit }).(pulumi.StringOutput)
+func (o GetCloudVmClusterIormConfigCacheDbPlanOutput) FlashCacheLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClusterIormConfigCacheDbPlan) string { return v.FlashCacheLimit }).(pulumi.StringOutput)
 }
 
 // The relative priority of this database.
-func (o GetCloudVmClusterIormConfigCachDbPlanOutput) Share() pulumi.IntOutput {
-	return o.ApplyT(func(v GetCloudVmClusterIormConfigCachDbPlan) int { return v.Share }).(pulumi.IntOutput)
+func (o GetCloudVmClusterIormConfigCacheDbPlanOutput) Share() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCloudVmClusterIormConfigCacheDbPlan) int { return v.Share }).(pulumi.IntOutput)
 }
 
-type GetCloudVmClusterIormConfigCachDbPlanArrayOutput struct{ *pulumi.OutputState }
+type GetCloudVmClusterIormConfigCacheDbPlanArrayOutput struct{ *pulumi.OutputState }
 
-func (GetCloudVmClusterIormConfigCachDbPlanArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCloudVmClusterIormConfigCachDbPlan)(nil)).Elem()
+func (GetCloudVmClusterIormConfigCacheDbPlanArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudVmClusterIormConfigCacheDbPlan)(nil)).Elem()
 }
 
-func (o GetCloudVmClusterIormConfigCachDbPlanArrayOutput) ToGetCloudVmClusterIormConfigCachDbPlanArrayOutput() GetCloudVmClusterIormConfigCachDbPlanArrayOutput {
+func (o GetCloudVmClusterIormConfigCacheDbPlanArrayOutput) ToGetCloudVmClusterIormConfigCacheDbPlanArrayOutput() GetCloudVmClusterIormConfigCacheDbPlanArrayOutput {
 	return o
 }
 
-func (o GetCloudVmClusterIormConfigCachDbPlanArrayOutput) ToGetCloudVmClusterIormConfigCachDbPlanArrayOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCachDbPlanArrayOutput {
+func (o GetCloudVmClusterIormConfigCacheDbPlanArrayOutput) ToGetCloudVmClusterIormConfigCacheDbPlanArrayOutputWithContext(ctx context.Context) GetCloudVmClusterIormConfigCacheDbPlanArrayOutput {
 	return o
 }
 
-func (o GetCloudVmClusterIormConfigCachDbPlanArrayOutput) Index(i pulumi.IntInput) GetCloudVmClusterIormConfigCachDbPlanOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudVmClusterIormConfigCachDbPlan {
-		return vs[0].([]GetCloudVmClusterIormConfigCachDbPlan)[vs[1].(int)]
-	}).(GetCloudVmClusterIormConfigCachDbPlanOutput)
+func (o GetCloudVmClusterIormConfigCacheDbPlanArrayOutput) Index(i pulumi.IntInput) GetCloudVmClusterIormConfigCacheDbPlanOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudVmClusterIormConfigCacheDbPlan {
+		return vs[0].([]GetCloudVmClusterIormConfigCacheDbPlan)[vs[1].(int)]
+	}).(GetCloudVmClusterIormConfigCacheDbPlanOutput)
 }
 
 type GetDbNodesDbNode struct {
@@ -3438,10 +3438,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterDataCollectionOptionArrayInput)(nil)).Elem(), GetCloudVmClusterDataCollectionOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterFileSystemConfigurationInput)(nil)).Elem(), GetCloudVmClusterFileSystemConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterFileSystemConfigurationArrayInput)(nil)).Elem(), GetCloudVmClusterFileSystemConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlanInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachDbPlanArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlanArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachDbPlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCacheInput)(nil)).Elem(), GetCloudVmClusterIormConfigCacheArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCacheArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCacheArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCacheDbPlanInput)(nil)).Elem(), GetCloudVmClusterIormConfigCacheDbPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCacheDbPlanArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCacheDbPlanArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeInput)(nil)).Elem(), GetDbNodesDbNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeArrayInput)(nil)).Elem(), GetDbNodesDbNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServersDbServerInput)(nil)).Elem(), GetDbServersDbServerArgs{})
@@ -3482,10 +3482,10 @@ func init() {
 	pulumi.RegisterOutputType(GetCloudVmClusterDataCollectionOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterFileSystemConfigurationOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterFileSystemConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachOutput{})
-	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachArrayOutput{})
-	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachDbPlanOutput{})
-	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachDbPlanArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCacheOutput{})
+	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCacheArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCacheDbPlanOutput{})
+	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCacheDbPlanArrayOutput{})
 	pulumi.RegisterOutputType(GetDbNodesDbNodeOutput{})
 	pulumi.RegisterOutputType(GetDbNodesDbNodeArrayOutput{})
 	pulumi.RegisterOutputType(GetDbServersDbServerOutput{})

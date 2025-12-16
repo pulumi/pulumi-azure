@@ -138,7 +138,7 @@ export interface GetCloudVmClusterResult {
     /**
      * A `iormConfigCache` block as defined below.
      */
-    readonly iormConfigCaches: outputs.oracle.GetCloudVmClusterIormConfigCach[];
+    readonly iormConfigCaches: outputs.oracle.GetCloudVmClusterIormConfigCache[];
     /**
      * The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the last maintenance update history entry. This value is updated when a maintenance update starts.
      */

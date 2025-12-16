@@ -29,8 +29,8 @@ __all__ = [
     'GetAutonomousDatabaseLongTermBackupScheduleResult',
     'GetCloudVmClusterDataCollectionOptionResult',
     'GetCloudVmClusterFileSystemConfigurationResult',
-    'GetCloudVmClusterIormConfigCachResult',
-    'GetCloudVmClusterIormConfigCachDbPlanResult',
+    'GetCloudVmClusterIormConfigCacheResult',
+    'GetCloudVmClusterIormConfigCacheDbPlanResult',
     'GetDbNodesDbNodeResult',
     'GetDbServersDbServerResult',
     'GetDbSystemShapesDbSystemShapeResult',
@@ -822,14 +822,14 @@ class GetCloudVmClusterFileSystemConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetCloudVmClusterIormConfigCachResult(dict):
+class GetCloudVmClusterIormConfigCacheResult(dict):
     def __init__(__self__, *,
-                 db_plans: Sequence['outputs.GetCloudVmClusterIormConfigCachDbPlanResult'],
+                 db_plans: Sequence['outputs.GetCloudVmClusterIormConfigCacheDbPlanResult'],
                  lifecycle_details: _builtins.str,
                  lifecycle_state: _builtins.str,
                  objective: _builtins.str):
         """
-        :param Sequence['GetCloudVmClusterIormConfigCachDbPlanArgs'] db_plans: A `db_plans` block as defined above.
+        :param Sequence['GetCloudVmClusterIormConfigCacheDbPlanArgs'] db_plans: A `db_plans` block as defined above.
         :param _builtins.str lifecycle_details: Additional information about the current `lifecycleState`.
         :param _builtins.str lifecycle_state: The current state of IORM configuration for the Exadata DB system.
         :param _builtins.str objective: The current value for the IORM objective. The default is `AUTO`.
@@ -841,7 +841,7 @@ class GetCloudVmClusterIormConfigCachResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="dbPlans")
-    def db_plans(self) -> Sequence['outputs.GetCloudVmClusterIormConfigCachDbPlanResult']:
+    def db_plans(self) -> Sequence['outputs.GetCloudVmClusterIormConfigCacheDbPlanResult']:
         """
         A `db_plans` block as defined above.
         """
@@ -873,7 +873,7 @@ class GetCloudVmClusterIormConfigCachResult(dict):
 
 
 @pulumi.output_type
-class GetCloudVmClusterIormConfigCachDbPlanResult(dict):
+class GetCloudVmClusterIormConfigCacheDbPlanResult(dict):
     def __init__(__self__, *,
                  db_name: _builtins.str,
                  flash_cache_limit: _builtins.str,
