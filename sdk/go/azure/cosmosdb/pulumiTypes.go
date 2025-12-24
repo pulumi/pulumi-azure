@@ -3992,6 +3992,482 @@ func (o MongoClusterConnectionStringArrayOutput) Index(i pulumi.IntInput) MongoC
 	}).(MongoClusterConnectionStringOutput)
 }
 
+type MongoClusterCustomerManagedKey struct {
+	// The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+	// The ID of the User Assigned Identity that has access to the Key Vault Key.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// MongoClusterCustomerManagedKeyInput is an input type that accepts MongoClusterCustomerManagedKeyArgs and MongoClusterCustomerManagedKeyOutput values.
+// You can construct a concrete instance of `MongoClusterCustomerManagedKeyInput` via:
+//
+//	MongoClusterCustomerManagedKeyArgs{...}
+type MongoClusterCustomerManagedKeyInput interface {
+	pulumi.Input
+
+	ToMongoClusterCustomerManagedKeyOutput() MongoClusterCustomerManagedKeyOutput
+	ToMongoClusterCustomerManagedKeyOutputWithContext(context.Context) MongoClusterCustomerManagedKeyOutput
+}
+
+type MongoClusterCustomerManagedKeyArgs struct {
+	// The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	// The ID of the User Assigned Identity that has access to the Key Vault Key.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (MongoClusterCustomerManagedKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoClusterCustomerManagedKey)(nil)).Elem()
+}
+
+func (i MongoClusterCustomerManagedKeyArgs) ToMongoClusterCustomerManagedKeyOutput() MongoClusterCustomerManagedKeyOutput {
+	return i.ToMongoClusterCustomerManagedKeyOutputWithContext(context.Background())
+}
+
+func (i MongoClusterCustomerManagedKeyArgs) ToMongoClusterCustomerManagedKeyOutputWithContext(ctx context.Context) MongoClusterCustomerManagedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterCustomerManagedKeyOutput)
+}
+
+func (i MongoClusterCustomerManagedKeyArgs) ToMongoClusterCustomerManagedKeyPtrOutput() MongoClusterCustomerManagedKeyPtrOutput {
+	return i.ToMongoClusterCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i MongoClusterCustomerManagedKeyArgs) ToMongoClusterCustomerManagedKeyPtrOutputWithContext(ctx context.Context) MongoClusterCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterCustomerManagedKeyOutput).ToMongoClusterCustomerManagedKeyPtrOutputWithContext(ctx)
+}
+
+// MongoClusterCustomerManagedKeyPtrInput is an input type that accepts MongoClusterCustomerManagedKeyArgs, MongoClusterCustomerManagedKeyPtr and MongoClusterCustomerManagedKeyPtrOutput values.
+// You can construct a concrete instance of `MongoClusterCustomerManagedKeyPtrInput` via:
+//
+//	        MongoClusterCustomerManagedKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type MongoClusterCustomerManagedKeyPtrInput interface {
+	pulumi.Input
+
+	ToMongoClusterCustomerManagedKeyPtrOutput() MongoClusterCustomerManagedKeyPtrOutput
+	ToMongoClusterCustomerManagedKeyPtrOutputWithContext(context.Context) MongoClusterCustomerManagedKeyPtrOutput
+}
+
+type mongoClusterCustomerManagedKeyPtrType MongoClusterCustomerManagedKeyArgs
+
+func MongoClusterCustomerManagedKeyPtr(v *MongoClusterCustomerManagedKeyArgs) MongoClusterCustomerManagedKeyPtrInput {
+	return (*mongoClusterCustomerManagedKeyPtrType)(v)
+}
+
+func (*mongoClusterCustomerManagedKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoClusterCustomerManagedKey)(nil)).Elem()
+}
+
+func (i *mongoClusterCustomerManagedKeyPtrType) ToMongoClusterCustomerManagedKeyPtrOutput() MongoClusterCustomerManagedKeyPtrOutput {
+	return i.ToMongoClusterCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *mongoClusterCustomerManagedKeyPtrType) ToMongoClusterCustomerManagedKeyPtrOutputWithContext(ctx context.Context) MongoClusterCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterCustomerManagedKeyPtrOutput)
+}
+
+type MongoClusterCustomerManagedKeyOutput struct{ *pulumi.OutputState }
+
+func (MongoClusterCustomerManagedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoClusterCustomerManagedKey)(nil)).Elem()
+}
+
+func (o MongoClusterCustomerManagedKeyOutput) ToMongoClusterCustomerManagedKeyOutput() MongoClusterCustomerManagedKeyOutput {
+	return o
+}
+
+func (o MongoClusterCustomerManagedKeyOutput) ToMongoClusterCustomerManagedKeyOutputWithContext(ctx context.Context) MongoClusterCustomerManagedKeyOutput {
+	return o
+}
+
+func (o MongoClusterCustomerManagedKeyOutput) ToMongoClusterCustomerManagedKeyPtrOutput() MongoClusterCustomerManagedKeyPtrOutput {
+	return o.ToMongoClusterCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (o MongoClusterCustomerManagedKeyOutput) ToMongoClusterCustomerManagedKeyPtrOutputWithContext(ctx context.Context) MongoClusterCustomerManagedKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoClusterCustomerManagedKey) *MongoClusterCustomerManagedKey {
+		return &v
+	}).(MongoClusterCustomerManagedKeyPtrOutput)
+}
+
+// The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+func (o MongoClusterCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoClusterCustomerManagedKey) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// The ID of the User Assigned Identity that has access to the Key Vault Key.
+func (o MongoClusterCustomerManagedKeyOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoClusterCustomerManagedKey) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
+}
+
+type MongoClusterCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (MongoClusterCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoClusterCustomerManagedKey)(nil)).Elem()
+}
+
+func (o MongoClusterCustomerManagedKeyPtrOutput) ToMongoClusterCustomerManagedKeyPtrOutput() MongoClusterCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o MongoClusterCustomerManagedKeyPtrOutput) ToMongoClusterCustomerManagedKeyPtrOutputWithContext(ctx context.Context) MongoClusterCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o MongoClusterCustomerManagedKeyPtrOutput) Elem() MongoClusterCustomerManagedKeyOutput {
+	return o.ApplyT(func(v *MongoClusterCustomerManagedKey) MongoClusterCustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret MongoClusterCustomerManagedKey
+		return ret
+	}).(MongoClusterCustomerManagedKeyOutput)
+}
+
+// The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+func (o MongoClusterCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoClusterCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the User Assigned Identity that has access to the Key Vault Key.
+func (o MongoClusterCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoClusterCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+type MongoClusterIdentity struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign.
+	//
+	// > **Note:** Required when `type` is set to `UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The type of managed identity to assign. Possible value is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// MongoClusterIdentityInput is an input type that accepts MongoClusterIdentityArgs and MongoClusterIdentityOutput values.
+// You can construct a concrete instance of `MongoClusterIdentityInput` via:
+//
+//	MongoClusterIdentityArgs{...}
+type MongoClusterIdentityInput interface {
+	pulumi.Input
+
+	ToMongoClusterIdentityOutput() MongoClusterIdentityOutput
+	ToMongoClusterIdentityOutputWithContext(context.Context) MongoClusterIdentityOutput
+}
+
+type MongoClusterIdentityArgs struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign.
+	//
+	// > **Note:** Required when `type` is set to `UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The type of managed identity to assign. Possible value is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MongoClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoClusterIdentity)(nil)).Elem()
+}
+
+func (i MongoClusterIdentityArgs) ToMongoClusterIdentityOutput() MongoClusterIdentityOutput {
+	return i.ToMongoClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i MongoClusterIdentityArgs) ToMongoClusterIdentityOutputWithContext(ctx context.Context) MongoClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterIdentityOutput)
+}
+
+func (i MongoClusterIdentityArgs) ToMongoClusterIdentityPtrOutput() MongoClusterIdentityPtrOutput {
+	return i.ToMongoClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i MongoClusterIdentityArgs) ToMongoClusterIdentityPtrOutputWithContext(ctx context.Context) MongoClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterIdentityOutput).ToMongoClusterIdentityPtrOutputWithContext(ctx)
+}
+
+// MongoClusterIdentityPtrInput is an input type that accepts MongoClusterIdentityArgs, MongoClusterIdentityPtr and MongoClusterIdentityPtrOutput values.
+// You can construct a concrete instance of `MongoClusterIdentityPtrInput` via:
+//
+//	        MongoClusterIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type MongoClusterIdentityPtrInput interface {
+	pulumi.Input
+
+	ToMongoClusterIdentityPtrOutput() MongoClusterIdentityPtrOutput
+	ToMongoClusterIdentityPtrOutputWithContext(context.Context) MongoClusterIdentityPtrOutput
+}
+
+type mongoClusterIdentityPtrType MongoClusterIdentityArgs
+
+func MongoClusterIdentityPtr(v *MongoClusterIdentityArgs) MongoClusterIdentityPtrInput {
+	return (*mongoClusterIdentityPtrType)(v)
+}
+
+func (*mongoClusterIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoClusterIdentity)(nil)).Elem()
+}
+
+func (i *mongoClusterIdentityPtrType) ToMongoClusterIdentityPtrOutput() MongoClusterIdentityPtrOutput {
+	return i.ToMongoClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *mongoClusterIdentityPtrType) ToMongoClusterIdentityPtrOutputWithContext(ctx context.Context) MongoClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterIdentityPtrOutput)
+}
+
+type MongoClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (MongoClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoClusterIdentity)(nil)).Elem()
+}
+
+func (o MongoClusterIdentityOutput) ToMongoClusterIdentityOutput() MongoClusterIdentityOutput {
+	return o
+}
+
+func (o MongoClusterIdentityOutput) ToMongoClusterIdentityOutputWithContext(ctx context.Context) MongoClusterIdentityOutput {
+	return o
+}
+
+func (o MongoClusterIdentityOutput) ToMongoClusterIdentityPtrOutput() MongoClusterIdentityPtrOutput {
+	return o.ToMongoClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o MongoClusterIdentityOutput) ToMongoClusterIdentityPtrOutputWithContext(ctx context.Context) MongoClusterIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoClusterIdentity) *MongoClusterIdentity {
+		return &v
+	}).(MongoClusterIdentityPtrOutput)
+}
+
+// A list of one or more Resource IDs for User Assigned Managed identities to assign.
+//
+// > **Note:** Required when `type` is set to `UserAssigned`.
+func (o MongoClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MongoClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of managed identity to assign. Possible value is `UserAssigned`.
+func (o MongoClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type MongoClusterIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (MongoClusterIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoClusterIdentity)(nil)).Elem()
+}
+
+func (o MongoClusterIdentityPtrOutput) ToMongoClusterIdentityPtrOutput() MongoClusterIdentityPtrOutput {
+	return o
+}
+
+func (o MongoClusterIdentityPtrOutput) ToMongoClusterIdentityPtrOutputWithContext(ctx context.Context) MongoClusterIdentityPtrOutput {
+	return o
+}
+
+func (o MongoClusterIdentityPtrOutput) Elem() MongoClusterIdentityOutput {
+	return o.ApplyT(func(v *MongoClusterIdentity) MongoClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MongoClusterIdentity
+		return ret
+	}).(MongoClusterIdentityOutput)
+}
+
+// A list of one or more Resource IDs for User Assigned Managed identities to assign.
+//
+// > **Note:** Required when `type` is set to `UserAssigned`.
+func (o MongoClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MongoClusterIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of managed identity to assign. Possible value is `UserAssigned`.
+func (o MongoClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type MongoClusterRestore struct {
+	// The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+	PointInTimeUtc string `pulumi:"pointInTimeUtc"`
+	// The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+	SourceId string `pulumi:"sourceId"`
+}
+
+// MongoClusterRestoreInput is an input type that accepts MongoClusterRestoreArgs and MongoClusterRestoreOutput values.
+// You can construct a concrete instance of `MongoClusterRestoreInput` via:
+//
+//	MongoClusterRestoreArgs{...}
+type MongoClusterRestoreInput interface {
+	pulumi.Input
+
+	ToMongoClusterRestoreOutput() MongoClusterRestoreOutput
+	ToMongoClusterRestoreOutputWithContext(context.Context) MongoClusterRestoreOutput
+}
+
+type MongoClusterRestoreArgs struct {
+	// The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+	PointInTimeUtc pulumi.StringInput `pulumi:"pointInTimeUtc"`
+	// The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+	SourceId pulumi.StringInput `pulumi:"sourceId"`
+}
+
+func (MongoClusterRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoClusterRestore)(nil)).Elem()
+}
+
+func (i MongoClusterRestoreArgs) ToMongoClusterRestoreOutput() MongoClusterRestoreOutput {
+	return i.ToMongoClusterRestoreOutputWithContext(context.Background())
+}
+
+func (i MongoClusterRestoreArgs) ToMongoClusterRestoreOutputWithContext(ctx context.Context) MongoClusterRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterRestoreOutput)
+}
+
+func (i MongoClusterRestoreArgs) ToMongoClusterRestorePtrOutput() MongoClusterRestorePtrOutput {
+	return i.ToMongoClusterRestorePtrOutputWithContext(context.Background())
+}
+
+func (i MongoClusterRestoreArgs) ToMongoClusterRestorePtrOutputWithContext(ctx context.Context) MongoClusterRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterRestoreOutput).ToMongoClusterRestorePtrOutputWithContext(ctx)
+}
+
+// MongoClusterRestorePtrInput is an input type that accepts MongoClusterRestoreArgs, MongoClusterRestorePtr and MongoClusterRestorePtrOutput values.
+// You can construct a concrete instance of `MongoClusterRestorePtrInput` via:
+//
+//	        MongoClusterRestoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type MongoClusterRestorePtrInput interface {
+	pulumi.Input
+
+	ToMongoClusterRestorePtrOutput() MongoClusterRestorePtrOutput
+	ToMongoClusterRestorePtrOutputWithContext(context.Context) MongoClusterRestorePtrOutput
+}
+
+type mongoClusterRestorePtrType MongoClusterRestoreArgs
+
+func MongoClusterRestorePtr(v *MongoClusterRestoreArgs) MongoClusterRestorePtrInput {
+	return (*mongoClusterRestorePtrType)(v)
+}
+
+func (*mongoClusterRestorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoClusterRestore)(nil)).Elem()
+}
+
+func (i *mongoClusterRestorePtrType) ToMongoClusterRestorePtrOutput() MongoClusterRestorePtrOutput {
+	return i.ToMongoClusterRestorePtrOutputWithContext(context.Background())
+}
+
+func (i *mongoClusterRestorePtrType) ToMongoClusterRestorePtrOutputWithContext(ctx context.Context) MongoClusterRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterRestorePtrOutput)
+}
+
+type MongoClusterRestoreOutput struct{ *pulumi.OutputState }
+
+func (MongoClusterRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoClusterRestore)(nil)).Elem()
+}
+
+func (o MongoClusterRestoreOutput) ToMongoClusterRestoreOutput() MongoClusterRestoreOutput {
+	return o
+}
+
+func (o MongoClusterRestoreOutput) ToMongoClusterRestoreOutputWithContext(ctx context.Context) MongoClusterRestoreOutput {
+	return o
+}
+
+func (o MongoClusterRestoreOutput) ToMongoClusterRestorePtrOutput() MongoClusterRestorePtrOutput {
+	return o.ToMongoClusterRestorePtrOutputWithContext(context.Background())
+}
+
+func (o MongoClusterRestoreOutput) ToMongoClusterRestorePtrOutputWithContext(ctx context.Context) MongoClusterRestorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoClusterRestore) *MongoClusterRestore {
+		return &v
+	}).(MongoClusterRestorePtrOutput)
+}
+
+// The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+func (o MongoClusterRestoreOutput) PointInTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoClusterRestore) string { return v.PointInTimeUtc }).(pulumi.StringOutput)
+}
+
+// The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+func (o MongoClusterRestoreOutput) SourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoClusterRestore) string { return v.SourceId }).(pulumi.StringOutput)
+}
+
+type MongoClusterRestorePtrOutput struct{ *pulumi.OutputState }
+
+func (MongoClusterRestorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoClusterRestore)(nil)).Elem()
+}
+
+func (o MongoClusterRestorePtrOutput) ToMongoClusterRestorePtrOutput() MongoClusterRestorePtrOutput {
+	return o
+}
+
+func (o MongoClusterRestorePtrOutput) ToMongoClusterRestorePtrOutputWithContext(ctx context.Context) MongoClusterRestorePtrOutput {
+	return o
+}
+
+func (o MongoClusterRestorePtrOutput) Elem() MongoClusterRestoreOutput {
+	return o.ApplyT(func(v *MongoClusterRestore) MongoClusterRestore {
+		if v != nil {
+			return *v
+		}
+		var ret MongoClusterRestore
+		return ret
+	}).(MongoClusterRestoreOutput)
+}
+
+// The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+func (o MongoClusterRestorePtrOutput) PointInTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoClusterRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PointInTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+func (o MongoClusterRestorePtrOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoClusterRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type MongoCollectionAutoscaleSettings struct {
 	// The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
@@ -7365,6 +7841,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphUniqueKeyArrayInput)(nil)).Elem(), GremlinGraphUniqueKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterConnectionStringInput)(nil)).Elem(), MongoClusterConnectionStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterConnectionStringArrayInput)(nil)).Elem(), MongoClusterConnectionStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterCustomerManagedKeyInput)(nil)).Elem(), MongoClusterCustomerManagedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterCustomerManagedKeyPtrInput)(nil)).Elem(), MongoClusterCustomerManagedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterIdentityInput)(nil)).Elem(), MongoClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterIdentityPtrInput)(nil)).Elem(), MongoClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterRestoreInput)(nil)).Elem(), MongoClusterRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterRestorePtrInput)(nil)).Elem(), MongoClusterRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionAutoscaleSettingsInput)(nil)).Elem(), MongoCollectionAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionAutoscaleSettingsPtrInput)(nil)).Elem(), MongoCollectionAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionIndexInput)(nil)).Elem(), MongoCollectionIndexArgs{})
@@ -7476,6 +7958,12 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(MongoClusterConnectionStringOutput{})
 	pulumi.RegisterOutputType(MongoClusterConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(MongoClusterCustomerManagedKeyOutput{})
+	pulumi.RegisterOutputType(MongoClusterCustomerManagedKeyPtrOutput{})
+	pulumi.RegisterOutputType(MongoClusterIdentityOutput{})
+	pulumi.RegisterOutputType(MongoClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(MongoClusterRestoreOutput{})
+	pulumi.RegisterOutputType(MongoClusterRestorePtrOutput{})
 	pulumi.RegisterOutputType(MongoCollectionAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(MongoCollectionAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MongoCollectionIndexOutput{})

@@ -34,14 +34,14 @@ public final class DeploymentWebApplicationFirewallArgs extends com.pulumi.resou
     }
 
     /**
-     * A `web_application_firewall.status` block as defined below:
+     * A `status` block as defined below.
      * 
      */
     @Import(name="statuses")
     private @Nullable Output<List<DeploymentWebApplicationFirewallStatusArgs>> statuses;
 
     /**
-     * @return A `web_application_firewall.status` block as defined below:
+     * @return A `status` block as defined below.
      * 
      */
     public Optional<Output<List<DeploymentWebApplicationFirewallStatusArgs>>> statuses() {
@@ -95,7 +95,7 @@ public final class DeploymentWebApplicationFirewallArgs extends com.pulumi.resou
         }
 
         /**
-         * @param statuses A `web_application_firewall.status` block as defined below:
+         * @param statuses A `status` block as defined below.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class DeploymentWebApplicationFirewallArgs extends com.pulumi.resou
         }
 
         /**
-         * @param statuses A `web_application_firewall.status` block as defined below:
+         * @param statuses A `status` block as defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class DeploymentWebApplicationFirewallArgs extends com.pulumi.resou
         }
 
         /**
-         * @param statuses A `web_application_firewall.status` block as defined below:
+         * @param statuses A `status` block as defined below.
          * 
          * @return builder
          * 

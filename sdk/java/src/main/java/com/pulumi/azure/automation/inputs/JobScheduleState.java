@@ -32,14 +32,14 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The UUID identifying the Automation Job Schedule.
+     * The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="jobScheduleId")
     private @Nullable Output<String> jobScheduleId;
 
     /**
-     * @return The UUID identifying the Automation Job Schedule.
+     * @return The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> jobScheduleId() {
@@ -193,7 +193,7 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobScheduleId The UUID identifying the Automation Job Schedule.
+         * @param jobScheduleId The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobScheduleId The UUID identifying the Automation Job Schedule.
+         * @param jobScheduleId The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

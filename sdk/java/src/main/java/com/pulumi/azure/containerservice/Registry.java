@@ -228,7 +228,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+ * * `Microsoft.ContainerRegistry` - 2025-04-01
  * 
  * ## Import
  * 
@@ -510,14 +510,14 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+     * The number of days to retain and untagged manifest after which it gets purged.
      * 
      */
     @Export(name="retentionPolicyInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionPolicyInDays;
 
     /**
-     * @return The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+     * @return The number of days to retain and untagged manifest after which it gets purged.
      * 
      */
     public Output<Optional<Integer>> retentionPolicyInDays() {

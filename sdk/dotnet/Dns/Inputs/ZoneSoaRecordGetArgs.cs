@@ -24,11 +24,14 @@ namespace Pulumi.Azure.Dns.Inputs
         [Input("expireTime")]
         public Input<int>? ExpireTime { get; set; }
 
+        /// <summary>
+        /// The fully qualified domain name.
+        /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+        /// The domain name of the authoritative name server for the SOA record.
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }

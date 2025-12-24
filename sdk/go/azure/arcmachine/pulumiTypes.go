@@ -18,7 +18,7 @@ type ArcMachineIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+	// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -38,7 +38,7 @@ type ArcMachineIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+	// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -129,7 +129,7 @@ func (o ArcMachineIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArcMachineIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
 func (o ArcMachineIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ArcMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -178,7 +178,7 @@ func (o ArcMachineIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
 func (o ArcMachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArcMachineIdentity) *string {
 		if v == nil {

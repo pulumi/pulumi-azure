@@ -48,14 +48,14 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+     * The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managedResourceGroupName")
     private @Nullable Output<String> managedResourceGroupName;
 
     /**
-     * @return The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+     * @return The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> managedResourceGroupName() {
@@ -179,7 +179,7 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param managedResourceGroupName The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+         * @param managedResourceGroupName The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param managedResourceGroupName The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+         * @param managedResourceGroupName The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

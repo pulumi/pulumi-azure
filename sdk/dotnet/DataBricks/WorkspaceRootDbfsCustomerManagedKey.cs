@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataBricks
 {
     /// <summary>
-    /// Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
+    /// Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System (DBFS)
     /// 
     /// ## Example Usage
     /// 
@@ -28,19 +28,6 @@ namespace Pulumi.Azure.DataBricks
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("example", new()
-    ///     {
-    ///         Name = "databricks-test",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "premium",
-    ///         CustomerManagedKeyEnabled = true,
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
@@ -95,6 +82,15 @@ namespace Pulumi.Azure.DataBricks
     ///         {
     ///             terraform,
     ///         },
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("example", new()
+    ///     {
+    ///         Name = "example-workspace",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "premium",
+    ///         CustomerManagedKeyEnabled = true,
     ///     });
     /// 
     ///     var databricks = new Azure.KeyVault.AccessPolicy("databricks", new()
@@ -165,13 +161,13 @@ namespace Pulumi.Azure.DataBricks
         public Output<string?> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the Key Vault Key to be used.
+        /// The ID of the Key Vault Key to be used.
         /// </summary>
         [Output("keyVaultKeyId")]
         public Output<string> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the Databricks Workspace.
+        /// The Resource ID of the Databricks Workspace.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -230,13 +226,13 @@ namespace Pulumi.Azure.DataBricks
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// The resource ID of the Key Vault Key to be used.
+        /// The ID of the Key Vault Key to be used.
         /// </summary>
         [Input("keyVaultKeyId", required: true)]
         public Input<string> KeyVaultKeyId { get; set; } = null!;
 
         /// <summary>
-        /// The resource ID of the Databricks Workspace.
+        /// The Resource ID of the Databricks Workspace.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -253,13 +249,13 @@ namespace Pulumi.Azure.DataBricks
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// The resource ID of the Key Vault Key to be used.
+        /// The ID of the Key Vault Key to be used.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// The resource ID of the Databricks Workspace.
+        /// The Resource ID of the Databricks Workspace.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

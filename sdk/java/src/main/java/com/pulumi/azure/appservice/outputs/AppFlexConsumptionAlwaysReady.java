@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppFlexConsumptionAlwaysReady {
     /**
-     * @return The instance count of the `alwaysReady` of the  Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
+     * @return The instance count of the `alwaysReady` of the Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
      * 
      */
     private @Nullable Integer instanceCount;
@@ -26,7 +26,7 @@ public final class AppFlexConsumptionAlwaysReady {
 
     private AppFlexConsumptionAlwaysReady() {}
     /**
-     * @return The instance count of the `alwaysReady` of the  Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
+     * @return The instance count of the `alwaysReady` of the Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
      * 
      */
     public Optional<Integer> instanceCount() {

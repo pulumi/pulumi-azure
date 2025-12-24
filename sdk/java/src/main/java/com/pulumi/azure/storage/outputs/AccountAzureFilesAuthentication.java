@@ -19,7 +19,7 @@ public final class AccountAzureFilesAuthentication {
      */
     private @Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory;
     /**
-     * @return Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+     * @return Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
      * 
      */
     private @Nullable String defaultShareLevelPermission;
@@ -38,7 +38,7 @@ public final class AccountAzureFilesAuthentication {
         return Optional.ofNullable(this.activeDirectory);
     }
     /**
-     * @return Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+     * @return Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
      * 
      */
     public Optional<String> defaultShareLevelPermission() {

@@ -16,7 +16,6 @@ import javax.annotation.Nullable;
 public final class AIServicesNetworkAcls {
     /**
      * @return Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-     * *
      * 
      */
     private @Nullable String bypass;
@@ -39,7 +38,6 @@ public final class AIServicesNetworkAcls {
     private AIServicesNetworkAcls() {}
     /**
      * @return Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-     * *
      * 
      */
     public Optional<String> bypass() {

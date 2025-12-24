@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     public sealed class EnvironmentDaprComponentSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity to use for accessing key vault reference.
+        /// The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
         /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }
 
         /// <summary>
-        /// The Key Vault Secret ID. Could be either one of `Id` or `VersionlessId`.
+        /// The Key Vault Secret ID.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }

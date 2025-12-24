@@ -44,6 +44,9 @@ __all__ = [
     'GremlinGraphIndexPolicySpatialIndex',
     'GremlinGraphUniqueKey',
     'MongoClusterConnectionString',
+    'MongoClusterCustomerManagedKey',
+    'MongoClusterIdentity',
+    'MongoClusterRestore',
     'MongoCollectionAutoscaleSettings',
     'MongoCollectionIndex',
     'MongoCollectionSystemIndex',
@@ -1438,6 +1441,152 @@ class MongoClusterConnectionString(dict):
         The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MongoClusterCustomerManagedKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoClusterCustomerManagedKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoClusterCustomerManagedKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoClusterCustomerManagedKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_key_id: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
+        """
+        :param _builtins.str key_vault_key_id: The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+        :param _builtins.str user_assigned_identity_id: The ID of the User Assigned Identity that has access to the Key Vault Key.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> _builtins.str:
+        """
+        The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        """
+        The ID of the User Assigned Identity that has access to the Key Vault Key.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class MongoClusterIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoClusterIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoClusterIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoClusterIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_ids: Sequence[_builtins.str],
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign.
+               
+               > **Note:** Required when `type` is set to `UserAssigned`.
+        :param _builtins.str type: The type of managed identity to assign. Possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign.
+
+        > **Note:** Required when `type` is set to `UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of managed identity to assign. Possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MongoClusterRestore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pointInTimeUtc":
+            suggest = "point_in_time_utc"
+        elif key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoClusterRestore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoClusterRestore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoClusterRestore.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 point_in_time_utc: _builtins.str,
+                 source_id: _builtins.str):
+        """
+        :param _builtins.str point_in_time_utc: The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+        :param _builtins.str source_id: The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
+        pulumi.set(__self__, "source_id", source_id)
+
+    @_builtins.property
+    @pulumi.getter(name="pointInTimeUtc")
+    def point_in_time_utc(self) -> _builtins.str:
+        """
+        The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "point_in_time_utc")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> _builtins.str:
+        """
+        The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_id")
 
 
 @pulumi.output_type

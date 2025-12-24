@@ -183,14 +183,14 @@ public class ScaleSetStandbyPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+     * Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
      * 
      */
     @Export(name="virtualMachineState", refs={String.class}, tree="[0]")
     private Output<String> virtualMachineState;
 
     /**
-     * @return Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+     * @return Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
      * 
      */
     public Output<String> virtualMachineState() {

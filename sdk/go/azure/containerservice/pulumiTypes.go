@@ -7429,8 +7429,9 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
-	FipsEnabled *bool   `pulumi:"fipsEnabled"`
-	GpuDriver   *string `pulumi:"gpuDriver"`
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	// Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+	GpuDriver *string `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
@@ -7529,8 +7530,9 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
-	FipsEnabled pulumi.BoolPtrInput   `pulumi:"fipsEnabled"`
-	GpuDriver   pulumi.StringPtrInput `pulumi:"gpuDriver"`
+	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
+	// Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+	GpuDriver pulumi.StringPtrInput `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
@@ -7704,6 +7706,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) GpuDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.GpuDriver }).(pulumi.StringPtrOutput)
 }
@@ -7948,6 +7951,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) GpuDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -9819,7 +9823,9 @@ type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
 	//
 	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
-	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+	//
+	// > **Note:** The default value for `nodeSoakDurationInMinutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
 	NodeSoakDurationInMinutes *int `pulumi:"nodeSoakDurationInMinutes"`
 	// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
 	UndrainableNodeBehavior *string `pulumi:"undrainableNodeBehavior"`
@@ -9843,7 +9849,9 @@ type KubernetesClusterDefaultNodePoolUpgradeSettingsArgs struct {
 	//
 	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
-	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+	//
+	// > **Note:** The default value for `nodeSoakDurationInMinutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
 	NodeSoakDurationInMinutes pulumi.IntPtrInput `pulumi:"nodeSoakDurationInMinutes"`
 	// Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
 	UndrainableNodeBehavior pulumi.StringPtrInput `pulumi:"undrainableNodeBehavior"`
@@ -9938,7 +9946,9 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) MaxSurge() pulumi
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) string { return v.MaxSurge }).(pulumi.StringOutput)
 }
 
-// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+//
+// > **Note:** The default value for `nodeSoakDurationInMinutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) NodeSoakDurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) *int { return v.NodeSoakDurationInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -9994,7 +10004,9 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) MaxSurge() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+//
+// > **Note:** The default value for `nodeSoakDurationInMinutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) NodeSoakDurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) *int {
 		if v == nil {
@@ -16841,6 +16853,158 @@ func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) OutboundNatEnabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+type KubernetesClusterNodeProvisioningProfile struct {
+	// Specifies whether default node pools should be provisioned automatically. Possible values are `Auto` and `None`. Defaults to `Auto`. At least one of `mode` or `defaultNodePools` must be specified.
+	DefaultNodePools *string `pulumi:"defaultNodePools"`
+	Mode             *string `pulumi:"mode"`
+}
+
+// KubernetesClusterNodeProvisioningProfileInput is an input type that accepts KubernetesClusterNodeProvisioningProfileArgs and KubernetesClusterNodeProvisioningProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodeProvisioningProfileInput` via:
+//
+//	KubernetesClusterNodeProvisioningProfileArgs{...}
+type KubernetesClusterNodeProvisioningProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodeProvisioningProfileOutput() KubernetesClusterNodeProvisioningProfileOutput
+	ToKubernetesClusterNodeProvisioningProfileOutputWithContext(context.Context) KubernetesClusterNodeProvisioningProfileOutput
+}
+
+type KubernetesClusterNodeProvisioningProfileArgs struct {
+	// Specifies whether default node pools should be provisioned automatically. Possible values are `Auto` and `None`. Defaults to `Auto`. At least one of `mode` or `defaultNodePools` must be specified.
+	DefaultNodePools pulumi.StringPtrInput `pulumi:"defaultNodePools"`
+	Mode             pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (KubernetesClusterNodeProvisioningProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodeProvisioningProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodeProvisioningProfileArgs) ToKubernetesClusterNodeProvisioningProfileOutput() KubernetesClusterNodeProvisioningProfileOutput {
+	return i.ToKubernetesClusterNodeProvisioningProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodeProvisioningProfileArgs) ToKubernetesClusterNodeProvisioningProfileOutputWithContext(ctx context.Context) KubernetesClusterNodeProvisioningProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodeProvisioningProfileOutput)
+}
+
+func (i KubernetesClusterNodeProvisioningProfileArgs) ToKubernetesClusterNodeProvisioningProfilePtrOutput() KubernetesClusterNodeProvisioningProfilePtrOutput {
+	return i.ToKubernetesClusterNodeProvisioningProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodeProvisioningProfileArgs) ToKubernetesClusterNodeProvisioningProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodeProvisioningProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodeProvisioningProfileOutput).ToKubernetesClusterNodeProvisioningProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNodeProvisioningProfilePtrInput is an input type that accepts KubernetesClusterNodeProvisioningProfileArgs, KubernetesClusterNodeProvisioningProfilePtr and KubernetesClusterNodeProvisioningProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodeProvisioningProfilePtrInput` via:
+//
+//	        KubernetesClusterNodeProvisioningProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterNodeProvisioningProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodeProvisioningProfilePtrOutput() KubernetesClusterNodeProvisioningProfilePtrOutput
+	ToKubernetesClusterNodeProvisioningProfilePtrOutputWithContext(context.Context) KubernetesClusterNodeProvisioningProfilePtrOutput
+}
+
+type kubernetesClusterNodeProvisioningProfilePtrType KubernetesClusterNodeProvisioningProfileArgs
+
+func KubernetesClusterNodeProvisioningProfilePtr(v *KubernetesClusterNodeProvisioningProfileArgs) KubernetesClusterNodeProvisioningProfilePtrInput {
+	return (*kubernetesClusterNodeProvisioningProfilePtrType)(v)
+}
+
+func (*kubernetesClusterNodeProvisioningProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodeProvisioningProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNodeProvisioningProfilePtrType) ToKubernetesClusterNodeProvisioningProfilePtrOutput() KubernetesClusterNodeProvisioningProfilePtrOutput {
+	return i.ToKubernetesClusterNodeProvisioningProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNodeProvisioningProfilePtrType) ToKubernetesClusterNodeProvisioningProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodeProvisioningProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodeProvisioningProfilePtrOutput)
+}
+
+type KubernetesClusterNodeProvisioningProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodeProvisioningProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodeProvisioningProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodeProvisioningProfileOutput) ToKubernetesClusterNodeProvisioningProfileOutput() KubernetesClusterNodeProvisioningProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterNodeProvisioningProfileOutput) ToKubernetesClusterNodeProvisioningProfileOutputWithContext(ctx context.Context) KubernetesClusterNodeProvisioningProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterNodeProvisioningProfileOutput) ToKubernetesClusterNodeProvisioningProfilePtrOutput() KubernetesClusterNodeProvisioningProfilePtrOutput {
+	return o.ToKubernetesClusterNodeProvisioningProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNodeProvisioningProfileOutput) ToKubernetesClusterNodeProvisioningProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodeProvisioningProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodeProvisioningProfile) *KubernetesClusterNodeProvisioningProfile {
+		return &v
+	}).(KubernetesClusterNodeProvisioningProfilePtrOutput)
+}
+
+// Specifies whether default node pools should be provisioned automatically. Possible values are `Auto` and `None`. Defaults to `Auto`. At least one of `mode` or `defaultNodePools` must be specified.
+func (o KubernetesClusterNodeProvisioningProfileOutput) DefaultNodePools() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodeProvisioningProfile) *string { return v.DefaultNodePools }).(pulumi.StringPtrOutput)
+}
+
+func (o KubernetesClusterNodeProvisioningProfileOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodeProvisioningProfile) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterNodeProvisioningProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodeProvisioningProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodeProvisioningProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodeProvisioningProfilePtrOutput) ToKubernetesClusterNodeProvisioningProfilePtrOutput() KubernetesClusterNodeProvisioningProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodeProvisioningProfilePtrOutput) ToKubernetesClusterNodeProvisioningProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodeProvisioningProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodeProvisioningProfilePtrOutput) Elem() KubernetesClusterNodeProvisioningProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodeProvisioningProfile) KubernetesClusterNodeProvisioningProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNodeProvisioningProfile
+		return ret
+	}).(KubernetesClusterNodeProvisioningProfileOutput)
+}
+
+// Specifies whether default node pools should be provisioned automatically. Possible values are `Auto` and `None`. Defaults to `Auto`. At least one of `mode` or `defaultNodePools` must be specified.
+func (o KubernetesClusterNodeProvisioningProfilePtrOutput) DefaultNodePools() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodeProvisioningProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultNodePools
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KubernetesClusterNodeProvisioningProfilePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodeProvisioningProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterOmsAgent struct {
 	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
@@ -18108,7 +18272,7 @@ func (o KubernetesClusterUpgradeOverridePtrOutput) ForceUpgradeEnabled() pulumi.
 }
 
 type KubernetesClusterWebAppRouting struct {
-	// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+	// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
 	DefaultNginxController *string `pulumi:"defaultNginxController"`
 	// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
 	DnsZoneIds []string `pulumi:"dnsZoneIds"`
@@ -18128,7 +18292,7 @@ type KubernetesClusterWebAppRoutingInput interface {
 }
 
 type KubernetesClusterWebAppRoutingArgs struct {
-	// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+	// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
 	DefaultNginxController pulumi.StringPtrInput `pulumi:"defaultNginxController"`
 	// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
 	DnsZoneIds pulumi.StringArrayInput `pulumi:"dnsZoneIds"`
@@ -18213,7 +18377,7 @@ func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingPt
 	}).(KubernetesClusterWebAppRoutingPtrOutput)
 }
 
-// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
 func (o KubernetesClusterWebAppRoutingOutput) DefaultNginxController() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWebAppRouting) *string { return v.DefaultNginxController }).(pulumi.StringPtrOutput)
 }
@@ -18254,7 +18418,7 @@ func (o KubernetesClusterWebAppRoutingPtrOutput) Elem() KubernetesClusterWebAppR
 	}).(KubernetesClusterWebAppRoutingOutput)
 }
 
-// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
 func (o KubernetesClusterWebAppRoutingPtrOutput) DefaultNginxController() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWebAppRouting) *string {
 		if v == nil {
@@ -26285,6 +26449,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolWindowsProfileInput)(nil)).Elem(), KubernetesClusterNodePoolWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolWindowsProfilePtrInput)(nil)).Elem(), KubernetesClusterNodePoolWindowsProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodeProvisioningProfileInput)(nil)).Elem(), KubernetesClusterNodeProvisioningProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodeProvisioningProfilePtrInput)(nil)).Elem(), KubernetesClusterNodeProvisioningProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentInput)(nil)).Elem(), KubernetesClusterOmsAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentPtrInput)(nil)).Elem(), KubernetesClusterOmsAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentOmsAgentIdentityInput)(nil)).Elem(), KubernetesClusterOmsAgentOmsAgentIdentityArgs{})
@@ -26573,6 +26739,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolWindowsProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolWindowsProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodeProvisioningProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodeProvisioningProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOmsAgentIdentityOutput{})

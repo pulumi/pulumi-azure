@@ -56,7 +56,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.HealthBot` - 2022-08-08
+// * `Microsoft.HealthBot` - 2025-05-25
 //
 // ## Import
 //
@@ -76,7 +76,9 @@ type Healthbot struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+	//
+	// > **Note:** Downgrading to `F0` forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -126,7 +128,9 @@ type healthbotState struct {
 	Name *string `pulumi:"name"`
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+	//
+	// > **Note:** Downgrading to `F0` forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -141,7 +145,9 @@ type HealthbotState struct {
 	Name pulumi.StringPtrInput
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+	//
+	// > **Note:** Downgrading to `F0` forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapInput
@@ -158,7 +164,9 @@ type healthbotArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+	//
+	// > **Note:** Downgrading to `F0` forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -172,7 +180,9 @@ type HealthbotArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+	//
+	// > **Note:** Downgrading to `F0` forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapInput
@@ -285,7 +295,9 @@ func (o HealthbotOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Healthbot) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+// The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+//
+// > **Note:** Downgrading to `F0` forces a new resource to be created.
 func (o HealthbotOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Healthbot) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

@@ -211,10 +211,6 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     /**
      * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      * 
-     * `minimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-     * 
-     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-     * 
      */
     @Import(name="maintenanceConfigurationName")
     private @Nullable Output<String> maintenanceConfigurationName;
@@ -222,18 +218,26 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     /**
      * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      * 
-     * `minimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-     * 
-     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-     * 
      */
     public Optional<Output<String>> maintenanceConfigurationName() {
         return Optional.ofNullable(this.maintenanceConfigurationName);
     }
 
+    /**
+     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * 
+     */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
+    /**
+     * @return The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * 
+     */
     public Optional<Output<String>> minimumTlsVersion() {
         return Optional.ofNullable(this.minimumTlsVersion);
     }
@@ -746,10 +750,6 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         /**
          * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
          * 
-         * `minimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-         * 
-         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-         * 
          * @return builder
          * 
          */
@@ -761,10 +761,6 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         /**
          * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
          * 
-         * `minimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-         * 
-         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-         * 
          * @return builder
          * 
          */
@@ -772,11 +768,27 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
             return maintenanceConfigurationName(Output.of(maintenanceConfigurationName));
         }
 
+        /**
+         * @param minimumTlsVersion The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+         * 
+         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
             $.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
 
+        /**
+         * @param minimumTlsVersion The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+         * 
+         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             return minimumTlsVersion(Output.of(minimumTlsVersion));
         }

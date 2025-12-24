@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetSkuProfile
     {
         /// <summary>
-        /// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+        /// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
         /// </summary>
         public readonly string AllocationStrategy;
         /// <summary>

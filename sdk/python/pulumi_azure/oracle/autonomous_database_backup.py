@@ -28,7 +28,7 @@ class AutonomousDatabaseBackupArgs:
         :param pulumi.Input[_builtins.str] autonomous_database_id: The azureId of the Autonomous Database that this backup is for. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_period_in_days: (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
         :param pulumi.Input[_builtins.str] name: The display name of the Autonomous Database Backup. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] type: The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        :param pulumi.Input[_builtins.str] type: The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "autonomous_database_id", autonomous_database_id)
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
@@ -77,7 +77,7 @@ class AutonomousDatabaseBackupArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -98,7 +98,7 @@ class _AutonomousDatabaseBackupState:
         :param pulumi.Input[_builtins.str] autonomous_database_id: The azureId of the Autonomous Database that this backup is for. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The display name of the Autonomous Database Backup. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_period_in_days: (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
-        :param pulumi.Input[_builtins.str] type: The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        :param pulumi.Input[_builtins.str] type: The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         """
         if autonomous_database_id is not None:
             pulumi.set(__self__, "autonomous_database_id", autonomous_database_id)
@@ -149,7 +149,7 @@ class _AutonomousDatabaseBackupState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -212,7 +212,7 @@ class AutonomousDatabaseBackup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] autonomous_database_id: The azureId of the Autonomous Database that this backup is for. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The display name of the Autonomous Database Backup. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_period_in_days: (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
-        :param pulumi.Input[_builtins.str] type: The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        :param pulumi.Input[_builtins.str] type: The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -318,7 +318,7 @@ class AutonomousDatabaseBackup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] autonomous_database_id: The azureId of the Autonomous Database that this backup is for. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The display name of the Autonomous Database Backup. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_period_in_days: (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
-        :param pulumi.Input[_builtins.str] type: The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        :param pulumi.Input[_builtins.str] type: The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -358,7 +358,7 @@ class AutonomousDatabaseBackup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

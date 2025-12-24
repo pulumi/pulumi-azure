@@ -91,7 +91,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the EventHub Namespace.
         /// </summary>
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
         /// 
-        /// &gt; **Note:** `PartitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+        /// &gt; **Note:** When using a shared parent EventHub Namespace, `PartitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `PartitionCount` cannot be decreased.
         /// 
         /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `PartitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         /// </summary>
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the EventHub Namespace.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
         /// 
-        /// &gt; **Note:** `PartitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+        /// &gt; **Note:** When using a shared parent EventHub Namespace, `PartitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `PartitionCount` cannot be decreased.
         /// 
         /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `PartitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         /// </summary>
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the EventHub Namespace.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
         /// 
-        /// &gt; **Note:** `PartitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+        /// &gt; **Note:** When using a shared parent EventHub Namespace, `PartitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `PartitionCount` cannot be decreased.
         /// 
         /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `PartitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         /// </summary>

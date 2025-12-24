@@ -81,7 +81,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<Outputs.BackupVaultIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        /// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         /// </summary>
         [Output("immutability")]
         public Output<string?> Immutability { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<Inputs.BackupVaultIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        /// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         /// </summary>
         [Input("immutability")]
         public Input<string>? Immutability { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<Inputs.BackupVaultIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        /// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         /// </summary>
         [Input("immutability")]
         public Input<string>? Immutability { get; set; }

@@ -89,7 +89,7 @@ class FlexibleServerArgs:
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         :param pulumi.Input['FlexibleServerStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
-        :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login is not None:
@@ -427,7 +427,7 @@ class FlexibleServerArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         """
         return pulumi.get(self, "version")
 
@@ -521,7 +521,7 @@ class _FlexibleServerState:
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         :param pulumi.Input['FlexibleServerStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
-        :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         """
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -899,7 +899,7 @@ class _FlexibleServerState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         """
         return pulumi.get(self, "version")
 
@@ -1058,7 +1058,7 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
-        :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         """
         ...
     @overload
@@ -1299,7 +1299,7 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
-        :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1555,7 +1555,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
         """
-        The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         """
         return pulumi.get(self, "version")
 

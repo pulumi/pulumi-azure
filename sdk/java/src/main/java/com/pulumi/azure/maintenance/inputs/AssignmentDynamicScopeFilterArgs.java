@@ -33,14 +33,14 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies a list of allowed operating systems.
+     * Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
      * 
      */
     @Import(name="osTypes")
     private @Nullable Output<List<String>> osTypes;
 
     /**
-     * @return Specifies a list of allowed operating systems.
+     * @return Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
      * 
      */
     public Optional<Output<List<String>>> osTypes() {
@@ -63,14 +63,14 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies a list of allowed resources.
+     * Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
      * 
      */
     @Import(name="resourceTypes")
     private @Nullable Output<List<String>> resourceTypes;
 
     /**
-     * @return Specifies a list of allowed resources.
+     * @return Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
      * 
      */
     public Optional<Output<List<String>>> resourceTypes() {
@@ -93,14 +93,14 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
     }
 
     /**
-     * A mapping of tags for the VM
+     * One or more `tags` blocks as defined below.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<AssignmentDynamicScopeFilterTagArgs>> tags;
 
     /**
-     * @return A mapping of tags for the VM
+     * @return One or more `tags` blocks as defined below.
      * 
      */
     public Optional<Output<List<AssignmentDynamicScopeFilterTagArgs>>> tags() {
@@ -168,7 +168,7 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
         }
 
         /**
-         * @param osTypes Specifies a list of allowed operating systems.
+         * @param osTypes Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
         }
 
         /**
-         * @param osTypes Specifies a list of allowed operating systems.
+         * @param osTypes Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
         }
 
         /**
-         * @param osTypes Specifies a list of allowed operating systems.
+         * @param osTypes Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceTypes Specifies a list of allowed resources.
+         * @param resourceTypes Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceTypes Specifies a list of allowed resources.
+         * @param resourceTypes Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceTypes Specifies a list of allowed resources.
+         * @param resourceTypes Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tags A mapping of tags for the VM
+         * @param tags One or more `tags` blocks as defined below.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tags A mapping of tags for the VM
+         * @param tags One or more `tags` blocks as defined below.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class AssignmentDynamicScopeFilterArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tags A mapping of tags for the VM
+         * @param tags One or more `tags` blocks as defined below.
          * 
          * @return builder
          * 

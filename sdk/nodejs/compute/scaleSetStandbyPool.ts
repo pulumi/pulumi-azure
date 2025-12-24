@@ -111,7 +111,7 @@ export class ScaleSetStandbyPool extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+     * Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
      */
     declare public readonly virtualMachineState: pulumi.Output<string>;
 
@@ -191,7 +191,7 @@ export interface ScaleSetStandbyPoolState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+     * Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
      */
     virtualMachineState?: pulumi.Input<string>;
 }
@@ -225,7 +225,7 @@ export interface ScaleSetStandbyPoolArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+     * Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
      */
     virtualMachineState: pulumi.Input<string>;
 }

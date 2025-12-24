@@ -47,7 +47,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+        /// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
         /// </summary>
         public readonly string? NetworkFeatures;
         /// <summary>
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string VolumePath;
         /// <summary>
-        /// Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string VolumeSpecName;
         /// <summary>

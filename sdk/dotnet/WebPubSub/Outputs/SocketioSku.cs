@@ -20,7 +20,7 @@ namespace Pulumi.Azure.WebPubSub.Outputs
         /// </summary>
         public readonly int? Capacity;
         /// <summary>
-        /// The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+        /// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
         /// </summary>
         public readonly string Name;
 

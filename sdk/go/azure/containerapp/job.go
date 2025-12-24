@@ -137,13 +137,13 @@ type Job struct {
 	ContainerAppEnvironmentId pulumi.StringOutput `pulumi:"containerAppEnvironmentId"`
 	// The endpoint for the Container App Job event stream.
 	EventStreamEndpoint pulumi.StringOutput `pulumi:"eventStreamEndpoint"`
-	// A `eventTriggerConfig` block as defined below.
+	// A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	EventTriggerConfig JobEventTriggerConfigPtrOutput `pulumi:"eventTriggerConfig"`
 	// A `identity` block as defined below.
 	Identity JobIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// A `manualTriggerConfig` block as defined below.
+	// A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	ManualTriggerConfig JobManualTriggerConfigPtrOutput `pulumi:"manualTriggerConfig"`
 	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -157,7 +157,7 @@ type Job struct {
 	ReplicaTimeoutInSeconds pulumi.IntOutput `pulumi:"replicaTimeoutInSeconds"`
 	// The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `scheduleTriggerConfig` block as defined below.
+	// A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig JobScheduleTriggerConfigPtrOutput `pulumi:"scheduleTriggerConfig"`
@@ -224,13 +224,13 @@ type jobState struct {
 	ContainerAppEnvironmentId *string `pulumi:"containerAppEnvironmentId"`
 	// The endpoint for the Container App Job event stream.
 	EventStreamEndpoint *string `pulumi:"eventStreamEndpoint"`
-	// A `eventTriggerConfig` block as defined below.
+	// A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	EventTriggerConfig *JobEventTriggerConfig `pulumi:"eventTriggerConfig"`
 	// A `identity` block as defined below.
 	Identity *JobIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `manualTriggerConfig` block as defined below.
+	// A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	ManualTriggerConfig *JobManualTriggerConfig `pulumi:"manualTriggerConfig"`
 	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -244,7 +244,7 @@ type jobState struct {
 	ReplicaTimeoutInSeconds *int `pulumi:"replicaTimeoutInSeconds"`
 	// The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `scheduleTriggerConfig` block as defined below.
+	// A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig *JobScheduleTriggerConfig `pulumi:"scheduleTriggerConfig"`
@@ -263,13 +263,13 @@ type JobState struct {
 	ContainerAppEnvironmentId pulumi.StringPtrInput
 	// The endpoint for the Container App Job event stream.
 	EventStreamEndpoint pulumi.StringPtrInput
-	// A `eventTriggerConfig` block as defined below.
+	// A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	EventTriggerConfig JobEventTriggerConfigPtrInput
 	// A `identity` block as defined below.
 	Identity JobIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `manualTriggerConfig` block as defined below.
+	// A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	ManualTriggerConfig JobManualTriggerConfigPtrInput
 	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -283,7 +283,7 @@ type JobState struct {
 	ReplicaTimeoutInSeconds pulumi.IntPtrInput
 	// The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `scheduleTriggerConfig` block as defined below.
+	// A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig JobScheduleTriggerConfigPtrInput
@@ -304,13 +304,13 @@ func (JobState) ElementType() reflect.Type {
 type jobArgs struct {
 	// The ID of the Container App Environment in which to create the Container App Job. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId string `pulumi:"containerAppEnvironmentId"`
-	// A `eventTriggerConfig` block as defined below.
+	// A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	EventTriggerConfig *JobEventTriggerConfig `pulumi:"eventTriggerConfig"`
 	// A `identity` block as defined below.
 	Identity *JobIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `manualTriggerConfig` block as defined below.
+	// A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	ManualTriggerConfig *JobManualTriggerConfig `pulumi:"manualTriggerConfig"`
 	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -322,7 +322,7 @@ type jobArgs struct {
 	ReplicaTimeoutInSeconds int `pulumi:"replicaTimeoutInSeconds"`
 	// The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `scheduleTriggerConfig` block as defined below.
+	// A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig *JobScheduleTriggerConfig `pulumi:"scheduleTriggerConfig"`
@@ -340,13 +340,13 @@ type jobArgs struct {
 type JobArgs struct {
 	// The ID of the Container App Environment in which to create the Container App Job. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringInput
-	// A `eventTriggerConfig` block as defined below.
+	// A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	EventTriggerConfig JobEventTriggerConfigPtrInput
 	// A `identity` block as defined below.
 	Identity JobIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `manualTriggerConfig` block as defined below.
+	// A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	ManualTriggerConfig JobManualTriggerConfigPtrInput
 	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -358,7 +358,7 @@ type JobArgs struct {
 	ReplicaTimeoutInSeconds pulumi.IntInput
 	// The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `scheduleTriggerConfig` block as defined below.
+	// A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig JobScheduleTriggerConfigPtrInput
@@ -469,7 +469,7 @@ func (o JobOutput) EventStreamEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.EventStreamEndpoint }).(pulumi.StringOutput)
 }
 
-// A `eventTriggerConfig` block as defined below.
+// A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 func (o JobOutput) EventTriggerConfig() JobEventTriggerConfigPtrOutput {
 	return o.ApplyT(func(v *Job) JobEventTriggerConfigPtrOutput { return v.EventTriggerConfig }).(JobEventTriggerConfigPtrOutput)
 }
@@ -484,7 +484,7 @@ func (o JobOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// A `manualTriggerConfig` block as defined below.
+// A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 func (o JobOutput) ManualTriggerConfig() JobManualTriggerConfigPtrOutput {
 	return o.ApplyT(func(v *Job) JobManualTriggerConfigPtrOutput { return v.ManualTriggerConfig }).(JobManualTriggerConfigPtrOutput)
 }
@@ -519,7 +519,7 @@ func (o JobOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `scheduleTriggerConfig` block as defined below.
+// A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
 //
 // > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 func (o JobOutput) ScheduleTriggerConfig() JobScheduleTriggerConfigPtrOutput {

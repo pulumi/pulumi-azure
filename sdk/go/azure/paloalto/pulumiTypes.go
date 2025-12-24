@@ -2561,6 +2561,1109 @@ func (o NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput) Index(i pul
 	}).(NextGenerationFirewallVirtualHubPanoramaPanoramaOutput)
 }
 
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat struct {
+	// One or more `backendConfig` block as defined below.
+	BackendConfig *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig `pulumi:"backendConfig"`
+	// One or more `frontendConfig` block as defined below.
+	FrontendConfig *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig `pulumi:"frontendConfig"`
+	// The name which should be used for this Destination NAT rule.
+	Name string `pulumi:"name"`
+	// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+	Protocol string `pulumi:"protocol"`
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs and NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatInput` via:
+//
+//	NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs{...}
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs struct {
+	// One or more `backendConfig` block as defined below.
+	BackendConfig NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrInput `pulumi:"backendConfig"`
+	// One or more `frontendConfig` block as defined below.
+	FrontendConfig NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrInput `pulumi:"frontendConfig"`
+	// The name which should be used for this Destination NAT rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput)
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArray and NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayInput` via:
+//
+//	NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArray{ NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs{...} }
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArray []NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatInput
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArray) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArray) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput {
+	return o
+}
+
+// One or more `backendConfig` block as defined below.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput) BackendConfig() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat) *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig {
+		return v.BackendConfig
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput)
+}
+
+// One or more `frontendConfig` block as defined below.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput) FrontendConfig() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat) *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig {
+		return v.FrontendConfig
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput)
+}
+
+// The name which should be used for this Destination NAT rule.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat {
+		return vs[0].([]NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat)[vs[1].(int)]
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig struct {
+	// The port number to send traffic to.
+	Port int `pulumi:"port"`
+	// The public IP Address to send the traffic to.
+	PublicIpAddress string `pulumi:"publicIpAddress"`
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs and NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigInput` via:
+//
+//	NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs{...}
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs struct {
+	// The port number to send traffic to.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The public IP Address to send the traffic to.
+	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+}
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput)
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput).ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs, NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtr and NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrInput` via:
+//
+//	        NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput
+}
+
+type nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrType NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs
+
+func NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtr(v *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrInput {
+	return (*nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig) *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig {
+		return &v
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput)
+}
+
+// The port number to send traffic to.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+// The public IP Address to send the traffic to.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig) string {
+		return v.PublicIpAddress
+	}).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput) Elem() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig
+		return ret
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput)
+}
+
+// The port number to send traffic to.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The public IP Address to send the traffic to.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput) PublicIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig struct {
+	// The port on which traffic will be received.
+	Port int `pulumi:"port"`
+	// The ID of the Public IP Address resource the traffic will be received on.
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs and NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigInput` via:
+//
+//	NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs{...}
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs struct {
+	// The port on which traffic will be received.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The ID of the Public IP Address resource the traffic will be received on.
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+}
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput)
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput).ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs, NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtr and NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrInput` via:
+//
+//	        NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput
+}
+
+type nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrType NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs
+
+func NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtr(v *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrInput {
+	return (*nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o.ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig) *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig {
+		return &v
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput)
+}
+
+// The port on which traffic will be received.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+// The ID of the Public IP Address resource the traffic will be received on.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig) string {
+		return v.PublicIpAddressId
+	}).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput) Elem() NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig) NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig
+		return ret
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput)
+}
+
+// The port on which traffic will be received.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ID of the Public IP Address resource the traffic will be received on.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicIpAddressId
+	}).(pulumi.StringPtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings struct {
+	AzureDnsServers []string `pulumi:"azureDnsServers"`
+	// A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+	DnsServers []string `pulumi:"dnsServers"`
+	// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+	UseAzureDns *bool `pulumi:"useAzureDns"`
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs and NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsInput` via:
+//
+//	NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs{...}
+type NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs struct {
+	AzureDnsServers pulumi.StringArrayInput `pulumi:"azureDnsServers"`
+	// A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+	UseAzureDns pulumi.BoolPtrInput `pulumi:"useAzureDns"`
+}
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput)
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput).ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs, NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtr and NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrInput` via:
+//
+//	        NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput
+}
+
+type nextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrType NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs
+
+func NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtr(v *NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrInput {
+	return (*nextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput {
+	return o.ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings) *NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings {
+		return &v
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput) AzureDnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings) []string {
+		return v.AzureDnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput) UseAzureDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings) *bool { return v.UseAzureDns }).(pulumi.BoolPtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput) Elem() NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings) NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings
+		return ret
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput) AzureDnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureDnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput) UseAzureDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAzureDns
+	}).(pulumi.BoolPtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerIdentityInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs and NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerIdentityInput` via:
+//
+//	NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs{...}
+type NextGenerationFirewallVirtualHubStrataCloudManagerIdentityInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput() NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerIdentity)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput() NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput)
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput).ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs, NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtr and NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrInput` via:
+//
+//	        NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput
+}
+
+type nextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrType NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs
+
+func NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtr(v *NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs) NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrInput {
+	return (*nextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerIdentity)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerIdentity)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput() NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput {
+	return o.ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualHubStrataCloudManagerIdentity) *NextGenerationFirewallVirtualHubStrataCloudManagerIdentity {
+		return &v
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerIdentity)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput) Elem() NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerIdentity) NextGenerationFirewallVirtualHubStrataCloudManagerIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualHubStrataCloudManagerIdentity
+		return ret
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile struct {
+	// A list of Public IP IDs to use for Egress NAT.
+	EgressNatIpAddressIds []string `pulumi:"egressNatIpAddressIds"`
+	// A list of Egress NAT IP addresses.
+	EgressNatIpAddresses []string `pulumi:"egressNatIpAddresses"`
+	// The IP of trusted subnet for UDR.
+	IpOfTrustForUserDefinedRoutes *string `pulumi:"ipOfTrustForUserDefinedRoutes"`
+	// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+	NetworkVirtualApplianceId string `pulumi:"networkVirtualApplianceId"`
+	// A list of Public IP IDs to use for this Next Generation Firewall.
+	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
+	// A list of public IPs associated with this Next Generation Firewall.
+	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	// A list of trusted ranges to use for the Network.
+	TrustedAddressRanges []string `pulumi:"trustedAddressRanges"`
+	// The ID of trusted subnet.
+	TrustedSubnetId *string `pulumi:"trustedSubnetId"`
+	// The ID of untrusted subnet.
+	UntrustedSubnetId *string `pulumi:"untrustedSubnetId"`
+	// The ID of the Virtual Hub this Next Generation Firewall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+	VirtualHubId string `pulumi:"virtualHubId"`
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs and NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileInput` via:
+//
+//	NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs{...}
+type NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput() NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs struct {
+	// A list of Public IP IDs to use for Egress NAT.
+	EgressNatIpAddressIds pulumi.StringArrayInput `pulumi:"egressNatIpAddressIds"`
+	// A list of Egress NAT IP addresses.
+	EgressNatIpAddresses pulumi.StringArrayInput `pulumi:"egressNatIpAddresses"`
+	// The IP of trusted subnet for UDR.
+	IpOfTrustForUserDefinedRoutes pulumi.StringPtrInput `pulumi:"ipOfTrustForUserDefinedRoutes"`
+	// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+	NetworkVirtualApplianceId pulumi.StringInput `pulumi:"networkVirtualApplianceId"`
+	// A list of Public IP IDs to use for this Next Generation Firewall.
+	PublicIpAddressIds pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
+	// A list of public IPs associated with this Next Generation Firewall.
+	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// A list of trusted ranges to use for the Network.
+	TrustedAddressRanges pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
+	// The ID of trusted subnet.
+	TrustedSubnetId pulumi.StringPtrInput `pulumi:"trustedSubnetId"`
+	// The ID of untrusted subnet.
+	UntrustedSubnetId pulumi.StringPtrInput `pulumi:"untrustedSubnetId"`
+	// The ID of the Virtual Hub this Next Generation Firewall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+	VirtualHubId pulumi.StringInput `pulumi:"virtualHubId"`
+}
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput() NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput)
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput).ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrInput is an input type that accepts NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs, NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtr and NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrInput` via:
+//
+//	        NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput
+	ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutputWithContext(context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput
+}
+
+type nextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrType NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs
+
+func NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtr(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrInput {
+	return (*nextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput {
+	return i.ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrType) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput() NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput {
+	return o.ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile {
+		return &v
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput)
+}
+
+// A list of Public IP IDs to use for Egress NAT.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		return v.EgressNatIpAddressIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of Egress NAT IP addresses.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) EgressNatIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		return v.EgressNatIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// The IP of trusted subnet for UDR.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) IpOfTrustForUserDefinedRoutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) *string {
+		return v.IpOfTrustForUserDefinedRoutes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) NetworkVirtualApplianceId() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) string {
+		return v.NetworkVirtualApplianceId
+	}).(pulumi.StringOutput)
+}
+
+// A list of Public IP IDs to use for this Next Generation Firewall.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) PublicIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		return v.PublicIpAddressIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of public IPs associated with this Next Generation Firewall.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		return v.PublicIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of trusted ranges to use for the Network.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		return v.TrustedAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of trusted subnet.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) TrustedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) *string {
+		return v.TrustedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of untrusted subnet.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) UntrustedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) *string {
+		return v.UntrustedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Virtual Hub this Next Generation Firewall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput) VirtualHubId() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) string { return v.VirtualHubId }).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) ToNextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) Elem() NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile
+		return ret
+	}).(NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput)
+}
+
+// A list of Public IP IDs to use for Egress NAT.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EgressNatIpAddressIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of Egress NAT IP addresses.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) EgressNatIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EgressNatIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// The IP of trusted subnet for UDR.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) IpOfTrustForUserDefinedRoutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpOfTrustForUserDefinedRoutes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) NetworkVirtualApplianceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkVirtualApplianceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of Public IP IDs to use for this Next Generation Firewall.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) PublicIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpAddressIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of public IPs associated with this Next Generation Firewall.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of trusted ranges to use for the Network.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of trusted subnet.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) TrustedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of untrusted subnet.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) UntrustedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UntrustedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Virtual Hub this Next Generation Firewall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+func (o NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput) VirtualHubId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualHubId
+	}).(pulumi.StringPtrOutput)
+}
+
 type NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat struct {
 	// A `backendConfig` block as defined above.
 	BackendConfig *NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig `pulumi:"backendConfig"`
@@ -4832,6 +5935,1231 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput) Index(i
 	}).(NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput)
 }
 
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat struct {
+	// One or more `backendConfig` block as defined below.
+	BackendConfig *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig `pulumi:"backendConfig"`
+	// One or more `frontendConfig` block as defined below.
+	FrontendConfig *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig `pulumi:"frontendConfig"`
+	// The name which should be used for this NAT.
+	Name string `pulumi:"name"`
+	// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+	Protocol string `pulumi:"protocol"`
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs and NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatInput` via:
+//
+//	NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs{...}
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs struct {
+	// One or more `backendConfig` block as defined below.
+	BackendConfig NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrInput `pulumi:"backendConfig"`
+	// One or more `frontendConfig` block as defined below.
+	FrontendConfig NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrInput `pulumi:"frontendConfig"`
+	// The name which should be used for this NAT.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput)
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArray and NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayInput` via:
+//
+//	NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArray{ NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs{...} }
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArray []NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatInput
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArray) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArray) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput {
+	return o
+}
+
+// One or more `backendConfig` block as defined below.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput) BackendConfig() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat) *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig {
+		return v.BackendConfig
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput)
+}
+
+// One or more `frontendConfig` block as defined below.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput) FrontendConfig() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat) *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig {
+		return v.FrontendConfig
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput)
+}
+
+// The name which should be used for this NAT.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat {
+		return vs[0].([]NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat)[vs[1].(int)]
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig struct {
+	// The port number to send traffic to.
+	Port int `pulumi:"port"`
+	// The public IP Address to send the traffic to.
+	PublicIpAddress string `pulumi:"publicIpAddress"`
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs and NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigInput` via:
+//
+//	NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs{...}
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs struct {
+	// The port number to send traffic to.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The public IP Address to send the traffic to.
+	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+}
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput)
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput).ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs, NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtr and NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrInput` via:
+//
+//	        NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput
+}
+
+type nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrType NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs
+
+func NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtr(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrInput {
+	return (*nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig) *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig {
+		return &v
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput)
+}
+
+// The port number to send traffic to.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+// The public IP Address to send the traffic to.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig) string {
+		return v.PublicIpAddress
+	}).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput) Elem() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig
+		return ret
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput)
+}
+
+// The port number to send traffic to.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The public IP Address to send the traffic to.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput) PublicIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig struct {
+	// The port on which traffic will be received.
+	Port int `pulumi:"port"`
+	// The ID of the Public IP Address resource the traffic will be received on.
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs and NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigInput` via:
+//
+//	NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs{...}
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs struct {
+	// The port on which traffic will be received.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The ID of the Public IP Address resource the traffic will be received on.
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+}
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput)
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput).ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs, NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtr and NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrInput` via:
+//
+//	        NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput
+}
+
+type nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrType NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs
+
+func NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtr(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrInput {
+	return (*nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig) *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig {
+		return &v
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput)
+}
+
+// The port on which traffic will be received.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+// The ID of the Public IP Address resource the traffic will be received on.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig) string {
+		return v.PublicIpAddressId
+	}).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput) Elem() NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig) NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig
+		return ret
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput)
+}
+
+// The port on which traffic will be received.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ID of the Public IP Address resource the traffic will be received on.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicIpAddressId
+	}).(pulumi.StringPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings struct {
+	AzureDnsServers []string `pulumi:"azureDnsServers"`
+	// A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+	DnsServers []string `pulumi:"dnsServers"`
+	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+	UseAzureDns *bool `pulumi:"useAzureDns"`
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs and NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsInput` via:
+//
+//	NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs{...}
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs struct {
+	AzureDnsServers pulumi.StringArrayInput `pulumi:"azureDnsServers"`
+	// A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+	UseAzureDns pulumi.BoolPtrInput `pulumi:"useAzureDns"`
+}
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput)
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput).ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs, NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtr and NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrInput` via:
+//
+//	        NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput
+}
+
+type nextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrType NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs
+
+func NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtr(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrInput {
+	return (*nextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput {
+	return o.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings) *NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings {
+		return &v
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput) AzureDnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings) []string {
+		return v.AzureDnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings) []string {
+		return v.DnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput) UseAzureDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings) *bool { return v.UseAzureDns }).(pulumi.BoolPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput) Elem() NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings) NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings
+		return ret
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput) AzureDnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureDnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput) UseAzureDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAzureDns
+	}).(pulumi.BoolPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs and NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityInput` via:
+//
+//	NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs{...}
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput)
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput).ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs, NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtr and NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrInput` via:
+//
+//	        NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput
+}
+
+type nextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrType NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs
+
+func NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtr(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrInput {
+	return (*nextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput {
+	return o.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity) *NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity {
+		return &v
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput) Elem() NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity) NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity
+		return ret
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile struct {
+	// A list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+	EgressNatIpAddressIds []string `pulumi:"egressNatIpAddressIds"`
+	// A list of Egress NAT IP addresses.
+	EgressNatIpAddresses []string `pulumi:"egressNatIpAddresses"`
+	// A list of Azure Public IP Address IDs.
+	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
+	// A list of public IPs associated with this Next Generation Firewall.
+	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	// A list of trusted ranges to use for the Network.
+	TrustedAddressRanges []string `pulumi:"trustedAddressRanges"`
+	// A `vnetConfiguration` block as defined below.
+	VnetConfiguration NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration `pulumi:"vnetConfiguration"`
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs and NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileInput` via:
+//
+//	NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs{...}
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs struct {
+	// A list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+	EgressNatIpAddressIds pulumi.StringArrayInput `pulumi:"egressNatIpAddressIds"`
+	// A list of Egress NAT IP addresses.
+	EgressNatIpAddresses pulumi.StringArrayInput `pulumi:"egressNatIpAddresses"`
+	// A list of Azure Public IP Address IDs.
+	PublicIpAddressIds pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
+	// A list of public IPs associated with this Next Generation Firewall.
+	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// A list of trusted ranges to use for the Network.
+	TrustedAddressRanges pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
+	// A `vnetConfiguration` block as defined below.
+	VnetConfiguration NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationInput `pulumi:"vnetConfiguration"`
+}
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput)
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput).ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs, NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtr and NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrInput` via:
+//
+//	        NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput
+}
+
+type nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrType NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs
+
+func NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtr(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrInput {
+	return (*nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput {
+	return o.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile {
+		return &v
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput)
+}
+
+// A list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		return v.EgressNatIpAddressIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of Egress NAT IP addresses.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) EgressNatIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		return v.EgressNatIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of Azure Public IP Address IDs.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) PublicIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		return v.PublicIpAddressIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of public IPs associated with this Next Generation Firewall.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		return v.PublicIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of trusted ranges to use for the Network.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		return v.TrustedAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// A `vnetConfiguration` block as defined below.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput) VnetConfiguration() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration {
+		return v.VnetConfiguration
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) Elem() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile
+		return ret
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput)
+}
+
+// A list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EgressNatIpAddressIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of Egress NAT IP addresses.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) EgressNatIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EgressNatIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of Azure Public IP Address IDs.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) PublicIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpAddressIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of public IPs associated with this Next Generation Firewall.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of trusted ranges to use for the Network.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// A `vnetConfiguration` block as defined below.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput) VnetConfiguration() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile) *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.VnetConfiguration
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration struct {
+	// The IP of trusted subnet for UDR.
+	IpOfTrustForUserDefinedRoutes *string `pulumi:"ipOfTrustForUserDefinedRoutes"`
+	// The ID of the Trust subnet.
+	TrustedSubnetId *string `pulumi:"trustedSubnetId"`
+	// The ID of the UnTrust subnet.
+	UntrustedSubnetId *string `pulumi:"untrustedSubnetId"`
+	// The ID of the Virtual Network.
+	VirtualNetworkId string `pulumi:"virtualNetworkId"`
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs and NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationInput` via:
+//
+//	NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs{...}
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs struct {
+	// The IP of trusted subnet for UDR.
+	IpOfTrustForUserDefinedRoutes pulumi.StringPtrInput `pulumi:"ipOfTrustForUserDefinedRoutes"`
+	// The ID of the Trust subnet.
+	TrustedSubnetId pulumi.StringPtrInput `pulumi:"trustedSubnetId"`
+	// The ID of the UnTrust subnet.
+	UntrustedSubnetId pulumi.StringPtrInput `pulumi:"untrustedSubnetId"`
+	// The ID of the Virtual Network.
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+}
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration)(nil)).Elem()
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput)
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput).ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutputWithContext(ctx)
+}
+
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrInput is an input type that accepts NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs, NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtr and NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput values.
+// You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrInput` via:
+//
+//	        NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput
+	ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutputWithContext(context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput
+}
+
+type nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrType NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs
+
+func NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtr(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrInput {
+	return (*nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrType)(v)
+}
+
+func (*nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration)(nil)).Elem()
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput {
+	return i.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *nextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrType) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput {
+	return o.ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration {
+		return &v
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput)
+}
+
+// The IP of trusted subnet for UDR.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput) IpOfTrustForUserDefinedRoutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) *string {
+		return v.IpOfTrustForUserDefinedRoutes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Trust subnet.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput) TrustedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) *string {
+		return v.TrustedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the UnTrust subnet.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput) UntrustedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) *string {
+		return v.UntrustedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Virtual Network.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) string {
+		return v.VirtualNetworkId
+	}).(pulumi.StringOutput)
+}
+
+type NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration)(nil)).Elem()
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput) ToNextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput {
+	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput) Elem() NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration
+		return ret
+	}).(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput)
+}
+
+// The IP of trusted subnet for UDR.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput) IpOfTrustForUserDefinedRoutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpOfTrustForUserDefinedRoutes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Trust subnet.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput) TrustedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the UnTrust subnet.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput) UntrustedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UntrustedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Virtual Network.
+func (o NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualNetworkId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRulestackRuleCategoryInput)(nil)).Elem(), LocalRulestackRuleCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRulestackRuleCategoryPtrInput)(nil)).Elem(), LocalRulestackRuleCategoryArgs{})
@@ -4861,6 +7189,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrInput)(nil)).Elem(), NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubPanoramaPanoramaInput)(nil)).Elem(), NextGenerationFirewallVirtualHubPanoramaPanoramaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubPanoramaPanoramaArrayInput)(nil)).Elem(), NextGenerationFirewallVirtualHubPanoramaPanoramaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerIdentityInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrInput)(nil)).Elem(), NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs{})
@@ -4887,6 +7227,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkPanoramaPanoramaInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkPanoramaPanoramaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrInput)(nil)).Elem(), NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs{})
 	pulumi.RegisterOutputType(LocalRulestackRuleCategoryOutput{})
 	pulumi.RegisterOutputType(LocalRulestackRuleCategoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalRulestackRuleDestinationOutput{})
@@ -4915,6 +7269,18 @@ func init() {
 	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubPanoramaPanoramaOutput{})
 	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArrayOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigPtrOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigPtrOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerIdentityOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerIdentityPtrOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutput{})
 	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutput{})
 	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigOutput{})
@@ -4941,4 +7307,18 @@ func init() {
 	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput{})
 	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArrayOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigPtrOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigPtrOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityPtrOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationOutput{})
+	pulumi.RegisterOutputType(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationPtrOutput{})
 }

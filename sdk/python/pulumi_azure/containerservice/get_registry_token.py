@@ -124,7 +124,7 @@ def get_registry_token(container_registry_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+    * `Microsoft.ContainerRegistry` - 2025-04-01
 
 
     :param _builtins.str container_registry_name: The Name of the Container Registry where the token exists.
@@ -169,7 +169,7 @@ def get_registry_token_output(container_registry_name: Optional[pulumi.Input[_bu
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+    * `Microsoft.ContainerRegistry` - 2025-04-01
 
 
     :param _builtins.str container_registry_name: The Name of the Container Registry where the token exists.

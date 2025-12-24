@@ -225,7 +225,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      */
     declare public readonly version: pulumi.Output<string>;
     declare public readonly zone: pulumi.Output<string>;
@@ -432,7 +432,7 @@ export interface FlexibleServerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      */
     version?: pulumi.Input<string>;
     zone?: pulumi.Input<string>;
@@ -551,7 +551,7 @@ export interface FlexibleServerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      */
     version?: pulumi.Input<string>;
     zone?: pulumi.Input<string>;

@@ -221,7 +221,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `False`.
+        /// Should the Linux Web App Linux Function App use a 32-bit worker. Defaults to `False`.
         /// </summary>
         [Input("use32BitWorker")]
         public Input<bool>? Use32BitWorker { get; set; }

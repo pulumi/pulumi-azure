@@ -127,7 +127,7 @@ type SyncServerEndpoint struct {
 
 	// Is Cloud Tiering Enabled? Defaults to `false`.
 	CloudTieringEnabled pulumi.BoolPtrOutput `pulumi:"cloudTieringEnabled"`
-	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
 	InitialDownloadPolicy pulumi.StringPtrOutput `pulumi:"initialDownloadPolicy"`
 	// Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
 	LocalCacheMode pulumi.StringPtrOutput `pulumi:"localCacheMode"`
@@ -188,7 +188,7 @@ func GetSyncServerEndpoint(ctx *pulumi.Context,
 type syncServerEndpointState struct {
 	// Is Cloud Tiering Enabled? Defaults to `false`.
 	CloudTieringEnabled *bool `pulumi:"cloudTieringEnabled"`
-	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
 	// Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
 	LocalCacheMode *string `pulumi:"localCacheMode"`
@@ -211,7 +211,7 @@ type syncServerEndpointState struct {
 type SyncServerEndpointState struct {
 	// Is Cloud Tiering Enabled? Defaults to `false`.
 	CloudTieringEnabled pulumi.BoolPtrInput
-	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
 	InitialDownloadPolicy pulumi.StringPtrInput
 	// Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
 	LocalCacheMode pulumi.StringPtrInput
@@ -238,7 +238,7 @@ func (SyncServerEndpointState) ElementType() reflect.Type {
 type syncServerEndpointArgs struct {
 	// Is Cloud Tiering Enabled? Defaults to `false`.
 	CloudTieringEnabled *bool `pulumi:"cloudTieringEnabled"`
-	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
 	// Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
 	LocalCacheMode *string `pulumi:"localCacheMode"`
@@ -262,7 +262,7 @@ type syncServerEndpointArgs struct {
 type SyncServerEndpointArgs struct {
 	// Is Cloud Tiering Enabled? Defaults to `false`.
 	CloudTieringEnabled pulumi.BoolPtrInput
-	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+	// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
 	InitialDownloadPolicy pulumi.StringPtrInput
 	// Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
 	LocalCacheMode pulumi.StringPtrInput
@@ -374,7 +374,7 @@ func (o SyncServerEndpointOutput) CloudTieringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyncServerEndpoint) pulumi.BoolPtrOutput { return v.CloudTieringEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
 func (o SyncServerEndpointOutput) InitialDownloadPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyncServerEndpoint) pulumi.StringPtrOutput { return v.InitialDownloadPolicy }).(pulumi.StringPtrOutput)
 }

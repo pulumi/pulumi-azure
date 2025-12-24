@@ -134,14 +134,14 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
      * 
      */
     @Export(name="immutability", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> immutability;
 
     /**
-     * @return The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * @return The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
      * 
      */
     public Output<Optional<String>> immutability() {

@@ -24,9 +24,13 @@ public final class ZoneSoaRecord {
      * 
      */
     private @Nullable Integer expireTime;
+    /**
+     * @return The fully qualified domain name.
+     * 
+     */
     private @Nullable String fqdn;
     /**
-     * @return The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+     * @return The domain name of the authoritative name server for the SOA record.
      * 
      */
     private @Nullable String hostName;
@@ -76,11 +80,15 @@ public final class ZoneSoaRecord {
     public Optional<Integer> expireTime() {
         return Optional.ofNullable(this.expireTime);
     }
+    /**
+     * @return The fully qualified domain name.
+     * 
+     */
     public Optional<String> fqdn() {
         return Optional.ofNullable(this.fqdn);
     }
     /**
-     * @return The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+     * @return The domain name of the authoritative name server for the SOA record.
      * 
      */
     public Optional<String> hostName() {

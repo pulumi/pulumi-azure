@@ -238,6 +238,13 @@ class UserAssignedIdentity(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ManagedIdentity` - 2024-11-30
+
         ## Import
 
         An existing User Assigned Identity can be imported into Pulumi using the `resource id`, e.g.
@@ -284,6 +291,13 @@ class UserAssignedIdentity(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ManagedIdentity` - 2024-11-30
 
         ## Import
 

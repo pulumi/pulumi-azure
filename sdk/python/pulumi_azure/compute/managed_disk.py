@@ -97,7 +97,7 @@ class ManagedDiskArgs:
                
                > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         :param pulumi.Input[_builtins.bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
                
                > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
@@ -450,7 +450,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="networkAccessPolicy")
     def network_access_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         """
         return pulumi.get(self, "network_access_policy")
 
@@ -730,7 +730,7 @@ class _ManagedDiskState:
                
                > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         :param pulumi.Input[_builtins.bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
                
                > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
@@ -1064,7 +1064,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="networkAccessPolicy")
     def network_access_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         """
         return pulumi.get(self, "network_access_policy")
 
@@ -1447,7 +1447,7 @@ class ManagedDisk(pulumi.CustomResource):
                
                > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         :param pulumi.Input[_builtins.bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
                
                > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
@@ -1752,7 +1752,7 @@ class ManagedDisk(pulumi.CustomResource):
                
                > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         :param pulumi.Input[_builtins.bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
                
                > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
@@ -1988,7 +1988,7 @@ class ManagedDisk(pulumi.CustomResource):
     @pulumi.getter(name="networkAccessPolicy")
     def network_access_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         """
         return pulumi.get(self, "network_access_policy")
 

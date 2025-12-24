@@ -25,7 +25,9 @@ namespace Pulumi.Azure.ManagedRedis.Inputs
         public Input<string>? ClientProtocol { get; set; }
 
         /// <summary>
-        /// Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        /// Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+        /// 
+        /// !&gt; **Note:** Changing `ClusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         /// </summary>
         [Input("clusteringPolicy")]
         public Input<string>? ClusteringPolicy { get; set; }
@@ -37,10 +39,18 @@ namespace Pulumi.Azure.ManagedRedis.Inputs
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
-        /// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `AzurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        /// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `AzurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+        /// 
+        /// !&gt; **Note:** Changing `GeoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         /// </summary>
         [Input("geoReplicationGroupName")]
         public Input<string>? GeoReplicationGroupName { get; set; }
+
+        /// <summary>
+        /// The ID of the Managed Redis Database Instance.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         [Input("modules")]
         private InputList<Inputs.ManagedRedisDefaultDatabaseModuleArgs>? _modules;
@@ -53,6 +63,18 @@ namespace Pulumi.Azure.ManagedRedis.Inputs
             get => _modules ?? (_modules = new InputList<Inputs.ManagedRedisDefaultDatabaseModuleArgs>());
             set => _modules = value;
         }
+
+        /// <summary>
+        /// The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `PersistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `GeoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+        /// </summary>
+        [Input("persistenceAppendOnlyFileBackupFrequency")]
+        public Input<string>? PersistenceAppendOnlyFileBackupFrequency { get; set; }
+
+        /// <summary>
+        /// The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `PersistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `GeoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+        /// </summary>
+        [Input("persistenceRedisDatabaseBackupFrequency")]
+        public Input<string>? PersistenceRedisDatabaseBackupFrequency { get; set; }
 
         /// <summary>
         /// TCP port of the database endpoint.

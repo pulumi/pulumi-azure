@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EnvironmentDaprComponentSecret {
     /**
-     * @return The identity to use for accessing key vault reference.
+     * @return The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
      * 
      */
     private @Nullable String identity;
     /**
-     * @return The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+     * @return The Key Vault Secret ID.
      * 
      */
     private @Nullable String keyVaultSecretId;
@@ -35,14 +35,14 @@ public final class EnvironmentDaprComponentSecret {
 
     private EnvironmentDaprComponentSecret() {}
     /**
-     * @return The identity to use for accessing key vault reference.
+     * @return The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
      * 
      */
     public Optional<String> identity() {
         return Optional.ofNullable(this.identity);
     }
     /**
-     * @return The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+     * @return The Key Vault Secret ID.
      * 
      */
     public Optional<String> keyVaultSecretId() {

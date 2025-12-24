@@ -31,6 +31,25 @@ public final class NetworkManagerNetworkGroupState extends com.pulumi.resources.
     }
 
     /**
+     * The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+     * 
+     * &gt; **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+     * 
+     */
+    @Import(name="memberType")
+    private @Nullable Output<String> memberType;
+
+    /**
+     * @return The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+     * 
+     * &gt; **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+     * 
+     */
+    public Optional<Output<String>> memberType() {
+        return Optional.ofNullable(this.memberType);
+    }
+
+    /**
      * Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
      * 
      */
@@ -64,6 +83,7 @@ public final class NetworkManagerNetworkGroupState extends com.pulumi.resources.
 
     private NetworkManagerNetworkGroupState(NetworkManagerNetworkGroupState $) {
         this.description = $.description;
+        this.memberType = $.memberType;
         this.name = $.name;
         this.networkManagerId = $.networkManagerId;
     }
@@ -105,6 +125,31 @@ public final class NetworkManagerNetworkGroupState extends com.pulumi.resources.
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param memberType The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+         * 
+         * &gt; **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder memberType(@Nullable Output<String> memberType) {
+            $.memberType = memberType;
+            return this;
+        }
+
+        /**
+         * @param memberType The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+         * 
+         * &gt; **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder memberType(String memberType) {
+            return memberType(Output.of(memberType));
         }
 
         /**

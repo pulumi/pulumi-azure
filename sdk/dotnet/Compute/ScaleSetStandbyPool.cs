@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        /// Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         /// </summary>
         [Output("virtualMachineState")]
         public Output<string> VirtualMachineState { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        /// Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         /// </summary>
         [Input("virtualMachineState", required: true)]
         public Input<string> VirtualMachineState { get; set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        /// Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         /// </summary>
         [Input("virtualMachineState")]
         public Input<string>? VirtualMachineState { get; set; }

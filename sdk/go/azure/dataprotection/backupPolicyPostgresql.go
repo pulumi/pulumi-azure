@@ -14,6 +14,8 @@ import (
 
 // Manages a Backup Policy to back up PostgreSQL.
 //
+// > **Note:** The `dataprotection.BackupPolicyPostgresql` resource has been deprecated because Azure Database for PostgreSQL Single Server has been retired as of 2025-03-28 and will be removed in v5.0 of the AzureRM Provider.
+//
 // ## Example Usage
 //
 // ```go

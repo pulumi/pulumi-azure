@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventHubRetentionDescription {
     /**
-     * @return Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+     * @return Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
      * 
      */
     private String cleanupPolicy;
@@ -31,7 +31,7 @@ public final class EventHubRetentionDescription {
 
     private EventHubRetentionDescription() {}
     /**
-     * @return Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+     * @return Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
      * 
      */
     public String cleanupPolicy() {

@@ -210,6 +210,9 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      * A mapping of tags that should be assigned to the Linux Web App.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
     declare public readonly virtualNetworkBackupRestoreEnabled: pulumi.Output<boolean | undefined>;
     declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
@@ -465,6 +468,9 @@ export interface LinuxWebAppSlotState {
      * A mapping of tags that should be assigned to the Linux Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
@@ -578,6 +584,9 @@ export interface LinuxWebAppSlotArgs {
      * A mapping of tags that should be assigned to the Linux Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**

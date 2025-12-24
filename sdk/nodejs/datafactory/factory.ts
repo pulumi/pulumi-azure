@@ -74,7 +74,7 @@ export class Factory extends pulumi.CustomResource {
      */
     declare public readonly customerManagedKeyId: pulumi.Output<string>;
     /**
-     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
      */
     declare public readonly customerManagedKeyIdentityId: pulumi.Output<string>;
     /**
@@ -181,7 +181,7 @@ export interface FactoryState {
      */
     customerManagedKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
      */
     customerManagedKeyIdentityId?: pulumi.Input<string>;
     /**
@@ -239,7 +239,7 @@ export interface FactoryArgs {
      */
     customerManagedKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
      */
     customerManagedKeyIdentityId?: pulumi.Input<string>;
     /**

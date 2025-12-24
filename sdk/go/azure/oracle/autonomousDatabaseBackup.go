@@ -82,7 +82,7 @@ type AutonomousDatabaseBackup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
 	RetentionPeriodInDays pulumi.IntOutput `pulumi:"retentionPeriodInDays"`
-	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -128,7 +128,7 @@ type autonomousDatabaseBackupState struct {
 	Name *string `pulumi:"name"`
 	// (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
 	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
-	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 }
 
@@ -139,7 +139,7 @@ type AutonomousDatabaseBackupState struct {
 	Name pulumi.StringPtrInput
 	// (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
 	RetentionPeriodInDays pulumi.IntPtrInput
-	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
 }
 
@@ -154,7 +154,7 @@ type autonomousDatabaseBackupArgs struct {
 	Name *string `pulumi:"name"`
 	// (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
 	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
-	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 }
 
@@ -166,7 +166,7 @@ type AutonomousDatabaseBackupArgs struct {
 	Name pulumi.StringPtrInput
 	// (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
 	RetentionPeriodInDays pulumi.IntInput
-	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+	// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
 }
 
@@ -272,7 +272,7 @@ func (o AutonomousDatabaseBackupOutput) RetentionPeriodInDays() pulumi.IntOutput
 	return o.ApplyT(func(v *AutonomousDatabaseBackup) pulumi.IntOutput { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
 }
 
-// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
 func (o AutonomousDatabaseBackupOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutonomousDatabaseBackup) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

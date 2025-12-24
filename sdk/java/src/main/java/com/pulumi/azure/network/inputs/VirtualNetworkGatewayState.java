@@ -163,20 +163,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-     * An active-standby gateway requires exactly one `ipConfiguration` block,
-     * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-     * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+     * One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      * 
      */
     @Import(name="ipConfigurations")
     private @Nullable Output<List<VirtualNetworkGatewayIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-     * An active-standby gateway requires exactly one `ipConfiguration` block,
-     * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-     * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+     * @return One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayIpConfigurationArgs>>> ipConfigurations() {
@@ -289,7 +283,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+     * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
      * 
      * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
      * 
@@ -300,7 +294,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     private @Nullable Output<String> sku;
 
     /**
-     * @return Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+     * @return Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
      * 
      * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
      * 
@@ -626,10 +620,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ipConfigurations One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-         * An active-standby gateway requires exactly one `ipConfiguration` block,
-         * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-         * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+         * @param ipConfigurations One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
          * 
          * @return builder
          * 
@@ -640,10 +631,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ipConfigurations One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-         * An active-standby gateway requires exactly one `ipConfiguration` block,
-         * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-         * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+         * @param ipConfigurations One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
          * 
          * @return builder
          * 
@@ -653,10 +641,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ipConfigurations One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-         * An active-standby gateway requires exactly one `ipConfiguration` block,
-         * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-         * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+         * @param ipConfigurations One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
          * 
          * @return builder
          * 
@@ -823,7 +808,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+         * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
          * 
          * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
          * 
@@ -838,7 +823,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+         * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
          * 
          * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
          * 

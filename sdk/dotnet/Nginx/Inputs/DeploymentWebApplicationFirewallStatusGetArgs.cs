@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Nginx.Inputs
         private InputList<Inputs.DeploymentWebApplicationFirewallStatusAttackSignaturesPackageGetArgs>? _attackSignaturesPackages;
 
         /// <summary>
-        /// Indicates the version of the attack signatures package used by NGINX App Protect.
+        /// One or more `AttackSignaturesPackage` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentWebApplicationFirewallStatusAttackSignaturesPackageGetArgs> AttackSignaturesPackages
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Nginx.Inputs
         private InputList<Inputs.DeploymentWebApplicationFirewallStatusBotSignaturesPackageGetArgs>? _botSignaturesPackages;
 
         /// <summary>
-        /// Indicates the version of the bot signatures package used by NGINX App Protect.
+        /// One or more `BotSignaturesPackage` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentWebApplicationFirewallStatusBotSignaturesPackageGetArgs> BotSignaturesPackages
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Nginx.Inputs
         private InputList<Inputs.DeploymentWebApplicationFirewallStatusComponentVersionGetArgs>? _componentVersions;
 
         /// <summary>
-        /// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+        /// One or more `ComponentVersions` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentWebApplicationFirewallStatusComponentVersionGetArgs> ComponentVersions
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Nginx.Inputs
         private InputList<Inputs.DeploymentWebApplicationFirewallStatusThreatCampaignsPackageGetArgs>? _threatCampaignsPackages;
 
         /// <summary>
-        /// Indicates the version of the threat campaigns package used by NGINX App Protect.
+        /// One or more `ThreatCampaignsPackage` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentWebApplicationFirewallStatusThreatCampaignsPackageGetArgs> ThreatCampaignsPackages
         {

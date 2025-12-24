@@ -224,7 +224,7 @@ type LinuxVirtualMachine struct {
 	OsDisk LinuxVirtualMachineOsDiskOutput `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification LinuxVirtualMachineOsImageNotificationPtrOutput `pulumi:"osImageNotification"`
-	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId pulumi.StringOutput `pulumi:"osManagedDiskId"`
@@ -432,7 +432,7 @@ type linuxVirtualMachineState struct {
 	OsDisk *LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification *LinuxVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
-	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId *string `pulumi:"osManagedDiskId"`
@@ -588,7 +588,7 @@ type LinuxVirtualMachineState struct {
 	OsDisk LinuxVirtualMachineOsDiskPtrInput
 	// A `osImageNotification` block as defined below.
 	OsImageNotification LinuxVirtualMachineOsImageNotificationPtrInput
-	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId pulumi.StringPtrInput
@@ -748,7 +748,7 @@ type linuxVirtualMachineArgs struct {
 	OsDisk LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification *LinuxVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
-	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId *string `pulumi:"osManagedDiskId"`
@@ -895,7 +895,7 @@ type LinuxVirtualMachineArgs struct {
 	OsDisk LinuxVirtualMachineOsDiskInput
 	// A `osImageNotification` block as defined below.
 	OsImageNotification LinuxVirtualMachineOsImageNotificationPtrInput
-	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId pulumi.StringPtrInput
@@ -1219,7 +1219,7 @@ func (o LinuxVirtualMachineOutput) OsImageNotification() LinuxVirtualMachineOsIm
 	}).(LinuxVirtualMachineOsImageNotificationPtrOutput)
 }
 
-// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
 //
 // > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 func (o LinuxVirtualMachineOutput) OsManagedDiskId() pulumi.StringOutput {

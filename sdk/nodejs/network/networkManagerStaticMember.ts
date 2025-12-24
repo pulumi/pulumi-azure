@@ -105,7 +105,9 @@ export class NetworkManagerStaticMember extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly region: pulumi.Output<string>;
     /**
-     * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     *
+     * > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
      */
     declare public readonly targetVirtualNetworkId: pulumi.Output<string>;
 
@@ -161,7 +163,9 @@ export interface NetworkManagerStaticMemberState {
      */
     region?: pulumi.Input<string>;
     /**
-     * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     *
+     * > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
      */
     targetVirtualNetworkId?: pulumi.Input<string>;
 }
@@ -179,7 +183,9 @@ export interface NetworkManagerStaticMemberArgs {
      */
     networkGroupId: pulumi.Input<string>;
     /**
-     * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     *
+     * > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
      */
     targetVirtualNetworkId: pulumi.Input<string>;
 }

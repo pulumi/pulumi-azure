@@ -40,7 +40,7 @@ class SecretArgs:
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
                
-               * > **Note:** One of `value` or `value_wo` must be specified.
+               > **Note:** One of `value` or `value_wo` must be specified.
         :param pulumi.Input[_builtins.int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
@@ -154,7 +154,7 @@ class SecretArgs:
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 
-        * > **Note:** One of `value` or `value_wo` must be specified.
+        > **Note:** One of `value` or `value_wo` must be specified.
         """
         return pulumi.get(self, "value_wo")
 
@@ -207,7 +207,7 @@ class _SecretState:
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
                
-               * > **Note:** One of `value` or `value_wo` must be specified.
+               > **Note:** One of `value` or `value_wo` must be specified.
         :param pulumi.Input[_builtins.int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
@@ -356,7 +356,7 @@ class _SecretState:
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 
-        * > **Note:** One of `value` or `value_wo` must be specified.
+        > **Note:** One of `value` or `value_wo` must be specified.
         """
         return pulumi.get(self, "value_wo")
 
@@ -480,7 +480,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
                
-               * > **Note:** One of `value` or `value_wo` must be specified.
+               > **Note:** One of `value` or `value_wo` must be specified.
         :param pulumi.Input[_builtins.int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
@@ -632,7 +632,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
                
-               * > **Note:** One of `value` or `value_wo` must be specified.
+               > **Note:** One of `value` or `value_wo` must be specified.
         :param pulumi.Input[_builtins.int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
@@ -737,7 +737,7 @@ class Secret(pulumi.CustomResource):
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 
-        * > **Note:** One of `value` or `value_wo` must be specified.
+        > **Note:** One of `value` or `value_wo` must be specified.
         """
         return pulumi.get(self, "value_wo")
 

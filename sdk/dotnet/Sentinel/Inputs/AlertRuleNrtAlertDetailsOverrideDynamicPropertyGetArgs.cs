@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
     public sealed class AlertRuleNrtAlertDetailsOverrideDynamicPropertyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        /// The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

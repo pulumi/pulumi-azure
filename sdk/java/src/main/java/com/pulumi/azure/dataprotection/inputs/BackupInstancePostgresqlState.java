@@ -91,6 +91,21 @@ public final class BackupInstancePostgresqlState extends com.pulumi.resources.Re
     }
 
     /**
+     * The protection state of the Backup Instance PostgreSQL.
+     * 
+     */
+    @Import(name="protectionState")
+    private @Nullable Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance PostgreSQL.
+     * 
+     */
+    public Optional<Output<String>> protectionState() {
+        return Optional.ofNullable(this.protectionState);
+    }
+
+    /**
      * The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
      * 
      */
@@ -113,6 +128,7 @@ public final class BackupInstancePostgresqlState extends com.pulumi.resources.Re
         this.databaseId = $.databaseId;
         this.location = $.location;
         this.name = $.name;
+        this.protectionState = $.protectionState;
         this.vaultId = $.vaultId;
     }
 
@@ -237,6 +253,27 @@ public final class BackupInstancePostgresqlState extends com.pulumi.resources.Re
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance PostgreSQL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(@Nullable Output<String> protectionState) {
+            $.protectionState = protectionState;
+            return this;
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance PostgreSQL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(String protectionState) {
+            return protectionState(Output.of(protectionState));
         }
 
         /**

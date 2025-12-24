@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
     /**
-     * @return The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
+     * @return The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
      * 
      */
     private @Nullable String dotnetVersion;
     /**
-     * @return The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
+     * @return The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
      * 
      */
     private @Nullable String javaVersion;
@@ -45,14 +45,14 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
 
     private WindowsFunctionAppSlotSiteConfigApplicationStack() {}
     /**
-     * @return The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
+     * @return The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
      * 
      */
     public Optional<String> dotnetVersion() {
         return Optional.ofNullable(this.dotnetVersion);
     }
     /**
-     * @return The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
+     * @return The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
      * 
      */
     public Optional<String> javaVersion() {

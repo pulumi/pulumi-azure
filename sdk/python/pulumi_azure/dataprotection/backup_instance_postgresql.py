@@ -125,6 +125,7 @@ class _BackupInstancePostgresqlState:
                  database_id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupInstancePostgresql resources.
@@ -133,6 +134,7 @@ class _BackupInstancePostgresqlState:
         :param pulumi.Input[_builtins.str] database_id: The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] location: The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance PostgreSQL.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
         """
         if backup_policy_id is not None:
@@ -145,6 +147,8 @@ class _BackupInstancePostgresqlState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
         if vault_id is not None:
             pulumi.set(__self__, "vault_id", vault_id)
 
@@ -209,6 +213,18 @@ class _BackupInstancePostgresqlState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The protection state of the Backup Instance PostgreSQL.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "protection_state", value)
+
+    @_builtins.property
     @pulumi.getter(name="vaultId")
     def vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -236,6 +252,8 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                  __props__=None):
         """
         Manages a Backup Instance to back up PostgreSQL.
+
+        > **Note:** The `dataprotection.BackupInstancePostgresql` resource has been deprecated because Azure Database for PostgreSQL Single Server has been retired as of 2025-03-28 and will be removed in v5.0 of the AzureRM Provider.
 
         > **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from <https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore>.
 
@@ -382,6 +400,8 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Instance to back up PostgreSQL.
+
+        > **Note:** The `dataprotection.BackupInstancePostgresql` resource has been deprecated because Azure Database for PostgreSQL Single Server has been retired as of 2025-03-28 and will be removed in v5.0 of the AzureRM Provider.
 
         > **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from <https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore>.
 
@@ -553,6 +573,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             if vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_id'")
             __props__.__dict__["vault_id"] = vault_id
+            __props__.__dict__["protection_state"] = None
         super(BackupInstancePostgresql, __self__).__init__(
             'azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql',
             resource_name,
@@ -568,6 +589,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             database_id: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            protection_state: Optional[pulumi.Input[_builtins.str]] = None,
             vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupInstancePostgresql':
         """
         Get an existing BackupInstancePostgresql resource's state with the given name, id, and optional extra
@@ -581,6 +603,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] database_id: The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] location: The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance PostgreSQL.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -592,6 +615,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         __props__.__dict__["database_id"] = database_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["protection_state"] = protection_state
         __props__.__dict__["vault_id"] = vault_id
         return BackupInstancePostgresql(resource_name, opts=opts, __props__=__props__)
 
@@ -634,6 +658,14 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The protection state of the Backup Instance PostgreSQL.
+        """
+        return pulumi.get(self, "protection_state")
 
     @_builtins.property
     @pulumi.getter(name="vaultId")

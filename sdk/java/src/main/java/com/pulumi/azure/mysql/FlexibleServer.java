@@ -522,14 +522,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
-     * @return The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+     * @return The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      * 
      */
     public Output<String> version() {

@@ -69,7 +69,7 @@ export class Zone extends pulumi.CustomResource {
     }
 
     /**
-     * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+     * Maximum number of Records in the zone.
      */
     declare public /*out*/ readonly maxNumberOfRecordSets: pulumi.Output<number>;
     /**
@@ -77,11 +77,11 @@ export class Zone extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * (Optional) A list of values that make up the NS record for the zone.
+     * A list of values that make up the NS record for the zone.
      */
     declare public /*out*/ readonly nameServers: pulumi.Output<string[]>;
     /**
-     * (Optional) The number of records already in the zone.
+     * The number of records already in the zone.
      */
     declare public /*out*/ readonly numberOfRecordSets: pulumi.Output<number>;
     /**
@@ -89,7 +89,7 @@ export class Zone extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * An `soaRecord` block as defined below.
+     * A `soaRecord` block as defined below.
      */
     declare public readonly soaRecord: pulumi.Output<outputs.dns.ZoneSoaRecord>;
     /**
@@ -140,7 +140,7 @@ export class Zone extends pulumi.CustomResource {
  */
 export interface ZoneState {
     /**
-     * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+     * Maximum number of Records in the zone.
      */
     maxNumberOfRecordSets?: pulumi.Input<number>;
     /**
@@ -148,11 +148,11 @@ export interface ZoneState {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Optional) A list of values that make up the NS record for the zone.
+     * A list of values that make up the NS record for the zone.
      */
     nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Optional) The number of records already in the zone.
+     * The number of records already in the zone.
      */
     numberOfRecordSets?: pulumi.Input<number>;
     /**
@@ -160,7 +160,7 @@ export interface ZoneState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * An `soaRecord` block as defined below.
+     * A `soaRecord` block as defined below.
      */
     soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
     /**
@@ -182,7 +182,7 @@ export interface ZoneArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * An `soaRecord` block as defined below.
+     * A `soaRecord` block as defined below.
      */
     soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
     /**

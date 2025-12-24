@@ -1235,7 +1235,7 @@ if not MYPY:
     class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
         """
-        The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
         """
         value: pulumi.Input[_builtins.str]
         """
@@ -1250,7 +1250,7 @@ class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        :param pulumi.Input[_builtins.str] name: The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
         :param pulumi.Input[_builtins.str] value: The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         pulumi.set(__self__, "name", name)
@@ -1260,7 +1260,7 @@ class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
         """
         return pulumi.get(self, "name")
 
@@ -1761,7 +1761,7 @@ if not MYPY:
     class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
         """
-        The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
         """
         value: pulumi.Input[_builtins.str]
         """
@@ -1776,7 +1776,7 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        :param pulumi.Input[_builtins.str] name: The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
         :param pulumi.Input[_builtins.str] value: The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         pulumi.set(__self__, "name", name)
@@ -1786,7 +1786,7 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
         """
         return pulumi.get(self, "name")
 

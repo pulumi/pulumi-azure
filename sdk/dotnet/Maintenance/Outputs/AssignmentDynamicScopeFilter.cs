@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Maintenance.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Locations;
         /// <summary>
-        /// Specifies a list of allowed operating systems.
+        /// Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
         /// </summary>
         public readonly ImmutableArray<string> OsTypes;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Maintenance.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ResourceGroups;
         /// <summary>
-        /// Specifies a list of allowed resources.
+        /// Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
         /// </summary>
         public readonly ImmutableArray<string> ResourceTypes;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Maintenance.Outputs
         /// </summary>
         public readonly string? TagFilter;
         /// <summary>
-        /// A mapping of tags for the VM
+        /// One or more `Tags` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AssignmentDynamicScopeFilterTag> Tags;
 

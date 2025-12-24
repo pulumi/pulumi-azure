@@ -503,9 +503,17 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     * 
+     */
     @Import(name="virtualNetworkBackupRestoreEnabled")
     private @Nullable Output<Boolean> virtualNetworkBackupRestoreEnabled;
 
+    /**
+     * @return Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> virtualNetworkBackupRestoreEnabled() {
         return Optional.ofNullable(this.virtualNetworkBackupRestoreEnabled);
     }
@@ -1348,11 +1356,23 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param virtualNetworkBackupRestoreEnabled Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkBackupRestoreEnabled(@Nullable Output<Boolean> virtualNetworkBackupRestoreEnabled) {
             $.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
             return this;
         }
 
+        /**
+         * @param virtualNetworkBackupRestoreEnabled Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkBackupRestoreEnabled(Boolean virtualNetworkBackupRestoreEnabled) {
             return virtualNetworkBackupRestoreEnabled(Output.of(virtualNetworkBackupRestoreEnabled));
         }

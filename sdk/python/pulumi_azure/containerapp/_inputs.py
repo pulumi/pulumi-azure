@@ -77,6 +77,8 @@ __all__ = [
     'AppTemplateTcpScaleRuleAuthenticationArgsDict',
     'AppTemplateVolumeArgs',
     'AppTemplateVolumeArgsDict',
+    'EnvironmentCertificateCertificateKeyVaultArgs',
+    'EnvironmentCertificateCertificateKeyVaultArgsDict',
     'EnvironmentDaprComponentMetadataArgs',
     'EnvironmentDaprComponentMetadataArgsDict',
     'EnvironmentDaprComponentSecretArgs',
@@ -1148,6 +1150,10 @@ if not MYPY:
         """
         One or more `azure_queue_scale_rule` blocks as defined below.
         """
+        cooldown_period_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+        """
         custom_scale_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgsDict']]]]
         """
         One or more `custom_scale_rule` blocks as defined below.
@@ -1167,6 +1173,10 @@ if not MYPY:
         min_replicas: NotRequired[pulumi.Input[_builtins.int]]
         """
         The minimum number of replicas for this container.
+        """
+        polling_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The interval in seconds used for polling KEDA. Defaults to `30`.
         """
         revision_suffix: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1192,11 +1202,13 @@ class AppTemplateArgs:
     def __init__(__self__, *,
                  containers: pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArgs']]],
                  azure_queue_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]]] = None,
+                 cooldown_period_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgs']]]] = None,
                  http_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]]] = None,
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerArgs']]]] = None,
                  max_replicas: Optional[pulumi.Input[_builtins.int]] = None,
                  min_replicas: Optional[pulumi.Input[_builtins.int]] = None,
+                 polling_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  revision_suffix: Optional[pulumi.Input[_builtins.str]] = None,
                  tcp_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgs']]]] = None,
                  termination_grace_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1204,11 +1216,13 @@ class AppTemplateArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArgs']]] containers: One or more `container` blocks as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]] azure_queue_scale_rules: One or more `azure_queue_scale_rule` blocks as defined below.
+        :param pulumi.Input[_builtins.int] cooldown_period_in_seconds: The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgs']]] custom_scale_rules: One or more `custom_scale_rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]] http_scale_rules: One or more `http_scale_rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below.
         :param pulumi.Input[_builtins.int] max_replicas: The maximum number of replicas for this container.
         :param pulumi.Input[_builtins.int] min_replicas: The minimum number of replicas for this container.
+        :param pulumi.Input[_builtins.int] polling_interval_in_seconds: The interval in seconds used for polling KEDA. Defaults to `30`.
         :param pulumi.Input[_builtins.str] revision_suffix: The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgs']]] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
         :param pulumi.Input[_builtins.int] termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
@@ -1217,6 +1231,8 @@ class AppTemplateArgs:
         pulumi.set(__self__, "containers", containers)
         if azure_queue_scale_rules is not None:
             pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
+        if cooldown_period_in_seconds is not None:
+            pulumi.set(__self__, "cooldown_period_in_seconds", cooldown_period_in_seconds)
         if custom_scale_rules is not None:
             pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
         if http_scale_rules is not None:
@@ -1227,6 +1243,8 @@ class AppTemplateArgs:
             pulumi.set(__self__, "max_replicas", max_replicas)
         if min_replicas is not None:
             pulumi.set(__self__, "min_replicas", min_replicas)
+        if polling_interval_in_seconds is not None:
+            pulumi.set(__self__, "polling_interval_in_seconds", polling_interval_in_seconds)
         if revision_suffix is not None:
             pulumi.set(__self__, "revision_suffix", revision_suffix)
         if tcp_scale_rules is not None:
@@ -1259,6 +1277,18 @@ class AppTemplateArgs:
     @azure_queue_scale_rules.setter
     def azure_queue_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]]]):
         pulumi.set(self, "azure_queue_scale_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cooldownPeriodInSeconds")
+    def cooldown_period_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+        """
+        return pulumi.get(self, "cooldown_period_in_seconds")
+
+    @cooldown_period_in_seconds.setter
+    def cooldown_period_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "cooldown_period_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="customScaleRules")
@@ -1319,6 +1349,18 @@ class AppTemplateArgs:
     @min_replicas.setter
     def min_replicas(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "min_replicas", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pollingIntervalInSeconds")
+    def polling_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The interval in seconds used for polling KEDA. Defaults to `30`.
+        """
+        return pulumi.get(self, "polling_interval_in_seconds")
+
+    @polling_interval_in_seconds.setter
+    def polling_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "polling_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="revisionSuffix")
@@ -3452,7 +3494,7 @@ if not MYPY:
         """
         storage_type: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+        The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
 elif False:
     AppTemplateVolumeArgsDict: TypeAlias = Mapping[str, Any]
@@ -3468,7 +3510,7 @@ class AppTemplateVolumeArgs:
         :param pulumi.Input[_builtins.str] name: The name of the volume.
         :param pulumi.Input[_builtins.str] mount_options: Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
         :param pulumi.Input[_builtins.str] storage_name: The name of the `AzureFile` storage.
-        :param pulumi.Input[_builtins.str] storage_type: The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+        :param pulumi.Input[_builtins.str] storage_type: The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
         pulumi.set(__self__, "name", name)
         if mount_options is not None:
@@ -3518,13 +3560,70 @@ class AppTemplateVolumeArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+        The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
     def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
+
+
+if not MYPY:
+    class EnvironmentCertificateCertificateKeyVaultArgsDict(TypedDict):
+        key_vault_secret_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+        """
+        identity: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+
+        > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+        """
+elif False:
+    EnvironmentCertificateCertificateKeyVaultArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentCertificateCertificateKeyVaultArgs:
+    def __init__(__self__, *,
+                 key_vault_secret_id: pulumi.Input[_builtins.str],
+                 identity: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key_vault_secret_id: The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] identity: The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+               
+               > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+        """
+        pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @key_vault_secret_id.setter
+    def key_vault_secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_vault_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+
+        > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity", value)
 
 
 if not MYPY:
@@ -3606,11 +3705,11 @@ if not MYPY:
         """
         identity: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The identity to use for accessing key vault reference.
+        The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
         """
         key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        The Key Vault Secret ID.
         """
         value: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -3628,8 +3727,8 @@ class EnvironmentDaprComponentSecretArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Secret name.
-        :param pulumi.Input[_builtins.str] identity: The identity to use for accessing key vault reference.
-        :param pulumi.Input[_builtins.str] key_vault_secret_id: The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        :param pulumi.Input[_builtins.str] identity: The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
+        :param pulumi.Input[_builtins.str] key_vault_secret_id: The Key Vault Secret ID.
         :param pulumi.Input[_builtins.str] value: The value for this secret.
         """
         pulumi.set(__self__, "name", name)
@@ -3656,7 +3755,7 @@ class EnvironmentDaprComponentSecretArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The identity to use for accessing key vault reference.
+        The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
         """
         return pulumi.get(self, "identity")
 
@@ -3668,7 +3767,7 @@ class EnvironmentDaprComponentSecretArgs:
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        The Key Vault Secret ID.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -3774,7 +3873,7 @@ if not MYPY:
         """
         workload_profile_type: pulumi.Input[_builtins.str]
         """
-        Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
 
         > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
 
@@ -3800,7 +3899,7 @@ class EnvironmentWorkloadProfileArgs:
                  minimum_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the workload profile.
-        :param pulumi.Input[_builtins.str] workload_profile_type: Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        :param pulumi.Input[_builtins.str] workload_profile_type: Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
                
                > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
                
@@ -3831,7 +3930,7 @@ class EnvironmentWorkloadProfileArgs:
     @pulumi.getter(name="workloadProfileType")
     def workload_profile_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
 
         > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
 
@@ -4036,7 +4135,7 @@ if not MYPY:
     class JobEventTriggerConfigScaleRuleArgsDict(TypedDict):
         custom_rule_type: pulumi.Input[_builtins.str]
         """
-        Type of the scale rule.
+        Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
         """
         metadata: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
         """
@@ -4061,7 +4160,7 @@ class JobEventTriggerConfigScaleRuleArgs:
                  name: pulumi.Input[_builtins.str],
                  authentications: Optional[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] custom_rule_type: Type of the scale rule.
+        :param pulumi.Input[_builtins.str] custom_rule_type: Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata properties to describe the scale rule.
         :param pulumi.Input[_builtins.str] name: Name of the scale rule.
         :param pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]] authentications: A `authentication` block as defined below.
@@ -4076,7 +4175,7 @@ class JobEventTriggerConfigScaleRuleArgs:
     @pulumi.getter(name="customRuleType")
     def custom_rule_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of the scale rule.
+        Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
         """
         return pulumi.get(self, "custom_rule_type")
 
@@ -4175,7 +4274,7 @@ if not MYPY:
     class JobIdentityArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
         """
-        The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+        The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
         """
         identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -4200,7 +4299,7 @@ class JobIdentityArgs:
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] type: The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+        :param pulumi.Input[_builtins.str] type: The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of Managed Identity IDs to assign to the Container App Job.
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
@@ -4217,7 +4316,7 @@ class JobIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+        The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
         """
         return pulumi.get(self, "type")
 
@@ -6208,7 +6307,7 @@ if not MYPY:
         """
         storage_type: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+        The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
 elif False:
     JobTemplateVolumeArgsDict: TypeAlias = Mapping[str, Any]
@@ -6224,7 +6323,7 @@ class JobTemplateVolumeArgs:
         :param pulumi.Input[_builtins.str] name: The name of the volume.
         :param pulumi.Input[_builtins.str] mount_options: Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
         :param pulumi.Input[_builtins.str] storage_name: The name of the storage to use for the volume.
-        :param pulumi.Input[_builtins.str] storage_type: The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+        :param pulumi.Input[_builtins.str] storage_type: The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
         pulumi.set(__self__, "name", name)
         if mount_options is not None:
@@ -6274,7 +6373,7 @@ class JobTemplateVolumeArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+        The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
         return pulumi.get(self, "storage_type")
 

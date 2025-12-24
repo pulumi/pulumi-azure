@@ -63,14 +63,18 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+     * 
+     * &gt; **Note:** Downgrading to `F0` forces a new resource to be created.
      * 
      */
     @Import(name="skuName", required=true)
     private Output<String> skuName;
 
     /**
-     * @return The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+     * @return The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+     * 
+     * &gt; **Note:** Downgrading to `F0` forces a new resource to be created.
      * 
      */
     public Output<String> skuName() {
@@ -184,7 +188,9 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+         * @param skuName The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+         * 
+         * &gt; **Note:** Downgrading to `F0` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -195,7 +201,9 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+         * @param skuName The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+         * 
+         * &gt; **Note:** Downgrading to `F0` forces a new resource to be created.
          * 
          * @return builder
          * 

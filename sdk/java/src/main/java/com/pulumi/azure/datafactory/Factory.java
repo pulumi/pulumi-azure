@@ -99,14 +99,14 @@ public class Factory extends com.pulumi.resources.CustomResource {
         return this.customerManagedKeyId;
     }
     /**
-     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
      * 
      */
     @Export(name="customerManagedKeyIdentityId", refs={String.class}, tree="[0]")
     private Output<String> customerManagedKeyIdentityId;
 
     /**
-     * @return Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+     * @return Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
      * 
      */
     public Output<String> customerManagedKeyIdentityId() {

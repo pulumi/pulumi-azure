@@ -109,7 +109,7 @@ export class WorkspaceNetworkOutboundRuleServiceTag extends pulumi.CustomResourc
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+     * Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
      */
     declare public readonly portRanges: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export interface WorkspaceNetworkOutboundRuleServiceTagState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+     * Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
      */
     portRanges?: pulumi.Input<string>;
     /**
@@ -203,7 +203,7 @@ export interface WorkspaceNetworkOutboundRuleServiceTagArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+     * Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
      */
     portRanges: pulumi.Input<string>;
     /**

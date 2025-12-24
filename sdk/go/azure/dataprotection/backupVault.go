@@ -79,7 +79,7 @@ type BackupVault struct {
 	DatastoreType pulumi.StringOutput `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrOutput `pulumi:"identity"`
-	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
 	Immutability pulumi.StringPtrOutput `pulumi:"immutability"`
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -150,7 +150,7 @@ type backupVaultState struct {
 	DatastoreType *string `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
-	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
 	Immutability *string `pulumi:"immutability"`
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location *string `pulumi:"location"`
@@ -183,7 +183,7 @@ type BackupVaultState struct {
 	DatastoreType pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
-	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
 	Immutability pulumi.StringPtrInput
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location pulumi.StringPtrInput
@@ -220,7 +220,7 @@ type backupVaultArgs struct {
 	DatastoreType string `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
-	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
 	Immutability *string `pulumi:"immutability"`
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location *string `pulumi:"location"`
@@ -254,7 +254,7 @@ type BackupVaultArgs struct {
 	DatastoreType pulumi.StringInput
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
-	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
 	Immutability pulumi.StringPtrInput
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location pulumi.StringPtrInput
@@ -382,7 +382,7 @@ func (o BackupVaultOutput) Identity() BackupVaultIdentityPtrOutput {
 	return o.ApplyT(func(v *BackupVault) BackupVaultIdentityPtrOutput { return v.Identity }).(BackupVaultIdentityPtrOutput)
 }
 
-// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
 func (o BackupVaultOutput) Immutability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringPtrOutput { return v.Immutability }).(pulumi.StringPtrOutput)
 }

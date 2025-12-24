@@ -116,7 +116,7 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
      */
     declare public readonly clientCertificateExclusionPaths: pulumi.Output<string | undefined>;
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
      */
     declare public readonly clientCertificateMode: pulumi.Output<string | undefined>;
     /**
@@ -368,7 +368,7 @@ export interface WindowsWebAppSlotState {
      */
     clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
@@ -520,7 +520,7 @@ export interface WindowsWebAppSlotArgs {
      */
     clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**

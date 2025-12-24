@@ -168,7 +168,7 @@ import (
 type Volume struct {
 	pulumi.CustomResourceState
 
-	// A `createSource` block as defined below.
+	// A `createSource` block as defined below. Changing this forces a new resource to be created.
 	CreateSource VolumeCreateSourcePtrOutput `pulumi:"createSource"`
 	// Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -224,7 +224,7 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
-	// A `createSource` block as defined below.
+	// A `createSource` block as defined below. Changing this forces a new resource to be created.
 	CreateSource *VolumeCreateSource `pulumi:"createSource"`
 	// Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -245,7 +245,7 @@ type volumeState struct {
 }
 
 type VolumeState struct {
-	// A `createSource` block as defined below.
+	// A `createSource` block as defined below. Changing this forces a new resource to be created.
 	CreateSource VolumeCreateSourcePtrInput
 	// Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -270,7 +270,7 @@ func (VolumeState) ElementType() reflect.Type {
 }
 
 type volumeArgs struct {
-	// A `createSource` block as defined below.
+	// A `createSource` block as defined below. Changing this forces a new resource to be created.
 	CreateSource *VolumeCreateSource `pulumi:"createSource"`
 	// Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -284,7 +284,7 @@ type volumeArgs struct {
 
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
-	// A `createSource` block as defined below.
+	// A `createSource` block as defined below. Changing this forces a new resource to be created.
 	CreateSource VolumeCreateSourcePtrInput
 	// Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -383,7 +383,7 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
-// A `createSource` block as defined below.
+// A `createSource` block as defined below. Changing this forces a new resource to be created.
 func (o VolumeOutput) CreateSource() VolumeCreateSourcePtrOutput {
 	return o.ApplyT(func(v *Volume) VolumeCreateSourcePtrOutput { return v.CreateSource }).(VolumeCreateSourcePtrOutput)
 }

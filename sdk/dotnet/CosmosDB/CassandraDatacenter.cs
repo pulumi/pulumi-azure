@@ -98,7 +98,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<string>> SeedNodeIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the selected sku.
+        /// Determines the selected sku. Defaults to `Standard_E16s_v5`.
         /// 
         /// &gt; **Note:** In v4.0 of the provider the `SkuName` will have a default value of `Standard_E16s_v5`.
         /// </summary>
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? NodeCount { get; set; }
 
         /// <summary>
-        /// Determines the selected sku.
+        /// Determines the selected sku. Defaults to `Standard_E16s_v5`.
         /// 
         /// &gt; **Note:** In v4.0 of the provider the `SkuName` will have a default value of `Standard_E16s_v5`.
         /// </summary>
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// Determines the selected sku.
+        /// Determines the selected sku. Defaults to `Standard_E16s_v5`.
         /// 
         /// &gt; **Note:** In v4.0 of the provider the `SkuName` will have a default value of `Standard_E16s_v5`.
         /// </summary>

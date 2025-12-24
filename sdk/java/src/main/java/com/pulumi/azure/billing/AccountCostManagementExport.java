@@ -113,16 +113,12 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
     /**
      * Is the cost management export active? Default is `true`.
      * 
-     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
-     * 
      */
     @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
      * @return Is the cost management export active? Default is `true`.
-     * 
-     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      * 
      */
     public Output<Optional<Boolean>> active() {
@@ -170,9 +166,17 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
     public Output<AccountCostManagementExportExportDataStorageLocation> exportDataStorageLocation() {
         return this.exportDataStorageLocation;
     }
+    /**
+     * Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * 
+     */
     @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileFormat;
 
+    /**
+     * @return Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * 
+     */
     public Output<Optional<String>> fileFormat() {
         return Codegen.optional(this.fileFormat);
     }

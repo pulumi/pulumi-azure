@@ -413,14 +413,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
      * 
      */
     @Export(name="networkAccessPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkAccessPolicy;
 
     /**
-     * @return Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     * @return Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
      * 
      */
     public Output<Optional<String>> networkAccessPolicy() {

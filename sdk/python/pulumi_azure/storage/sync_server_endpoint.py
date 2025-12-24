@@ -36,7 +36,7 @@ class SyncServerEndpointArgs:
         :param pulumi.Input[_builtins.str] server_local_path: The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[_builtins.str] storage_sync_group_id: The ID of the Storage Sync Group where the Storage Sync Server Endpoint should exist. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[_builtins.bool] cloud_tiering_enabled: Is Cloud Tiering Enabled? Defaults to `false`.
-        :param pulumi.Input[_builtins.str] initial_download_policy: Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        :param pulumi.Input[_builtins.str] initial_download_policy: Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] local_cache_mode: Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[_builtins.int] tier_files_older_than_days: Files older than the specified age will be tiered to the cloud.
@@ -112,7 +112,7 @@ class SyncServerEndpointArgs:
     @pulumi.getter(name="initialDownloadPolicy")
     def initial_download_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "initial_download_policy")
 
@@ -184,7 +184,7 @@ class _SyncServerEndpointState:
         """
         Input properties used for looking up and filtering SyncServerEndpoint resources.
         :param pulumi.Input[_builtins.bool] cloud_tiering_enabled: Is Cloud Tiering Enabled? Defaults to `false`.
-        :param pulumi.Input[_builtins.str] initial_download_policy: Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        :param pulumi.Input[_builtins.str] initial_download_policy: Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] local_cache_mode: Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[_builtins.str] registered_server_id: The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
@@ -230,7 +230,7 @@ class _SyncServerEndpointState:
     @pulumi.getter(name="initialDownloadPolicy")
     def initial_download_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "initial_download_policy")
 
@@ -408,7 +408,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] cloud_tiering_enabled: Is Cloud Tiering Enabled? Defaults to `false`.
-        :param pulumi.Input[_builtins.str] initial_download_policy: Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        :param pulumi.Input[_builtins.str] initial_download_policy: Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] local_cache_mode: Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[_builtins.str] registered_server_id: The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
@@ -564,7 +564,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] cloud_tiering_enabled: Is Cloud Tiering Enabled? Defaults to `false`.
-        :param pulumi.Input[_builtins.str] initial_download_policy: Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        :param pulumi.Input[_builtins.str] initial_download_policy: Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] local_cache_mode: Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
         :param pulumi.Input[_builtins.str] registered_server_id: The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
@@ -602,7 +602,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="initialDownloadPolicy")
     def initial_download_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "initial_download_policy")
 

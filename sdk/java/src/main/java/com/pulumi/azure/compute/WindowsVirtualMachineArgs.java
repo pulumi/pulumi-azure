@@ -520,7 +520,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
      * 
@@ -529,7 +529,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     private @Nullable Output<String> osManagedDiskId;
 
     /**
-     * @return The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     * @return The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
      * 
@@ -1703,7 +1703,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+         * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
          * 
@@ -1716,7 +1716,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+         * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
          * 

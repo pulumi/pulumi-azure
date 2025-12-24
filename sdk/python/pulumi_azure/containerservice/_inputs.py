@@ -181,6 +181,8 @@ __all__ = [
     'KubernetesClusterNodePoolUpgradeSettingsArgsDict',
     'KubernetesClusterNodePoolWindowsProfileArgs',
     'KubernetesClusterNodePoolWindowsProfileArgsDict',
+    'KubernetesClusterNodeProvisioningProfileArgs',
+    'KubernetesClusterNodeProvisioningProfileArgsDict',
     'KubernetesClusterOmsAgentArgs',
     'KubernetesClusterOmsAgentArgsDict',
     'KubernetesClusterOmsAgentOmsAgentIdentityArgs',
@@ -4677,6 +4679,9 @@ if not MYPY:
         Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         """
         gpu_driver: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        """
         gpu_instance: NotRequired[pulumi.Input[_builtins.str]]
         """
         Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -4860,6 +4865,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
+        :param pulumi.Input[_builtins.str] gpu_driver: Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] host_encryption_enabled: Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
                
@@ -5031,6 +5037,9 @@ class KubernetesClusterDefaultNodePoolArgs:
     @_builtins.property
     @pulumi.getter(name="gpuDriver")
     def gpu_driver(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "gpu_driver")
 
     @gpu_driver.setter
@@ -6496,7 +6505,9 @@ if not MYPY:
         """
         node_soak_duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
         """
-        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+
+        > **Note:** The default value for `node_soak_duration_in_minutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
         """
         undrainable_node_behavior: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -6517,7 +6528,9 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
                
                > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         :param pulumi.Input[_builtins.int] drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
-        :param pulumi.Input[_builtins.int] node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+        :param pulumi.Input[_builtins.int] node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+               
+               > **Note:** The default value for `node_soak_duration_in_minutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
         :param pulumi.Input[_builtins.str] undrainable_node_behavior: Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
         """
         pulumi.set(__self__, "max_surge", max_surge)
@@ -6558,7 +6571,9 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
     @pulumi.getter(name="nodeSoakDurationInMinutes")
     def node_soak_duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+
+        > **Note:** The default value for `node_soak_duration_in_minutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
         """
         return pulumi.get(self, "node_soak_duration_in_minutes")
 
@@ -10481,6 +10496,51 @@ class KubernetesClusterNodePoolWindowsProfileArgs:
 
 
 if not MYPY:
+    class KubernetesClusterNodeProvisioningProfileArgsDict(TypedDict):
+        default_node_pools: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies whether default node pools should be provisioned automatically. Possible values are `Auto` and `None`. Defaults to `Auto`. At least one of `mode` or `default_node_pools` must be specified.
+        """
+        mode: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    KubernetesClusterNodeProvisioningProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KubernetesClusterNodeProvisioningProfileArgs:
+    def __init__(__self__, *,
+                 default_node_pools: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] default_node_pools: Specifies whether default node pools should be provisioned automatically. Possible values are `Auto` and `None`. Defaults to `Auto`. At least one of `mode` or `default_node_pools` must be specified.
+        """
+        if default_node_pools is not None:
+            pulumi.set(__self__, "default_node_pools", default_node_pools)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNodePools")
+    def default_node_pools(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether default node pools should be provisioned automatically. Possible values are `Auto` and `None`. Defaults to `Auto`. At least one of `mode` or `default_node_pools` must be specified.
+        """
+        return pulumi.get(self, "default_node_pools")
+
+    @default_node_pools.setter
+    def default_node_pools(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_node_pools", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mode", value)
+
+
+if not MYPY:
     class KubernetesClusterOmsAgentArgsDict(TypedDict):
         log_analytics_workspace_id: pulumi.Input[_builtins.str]
         """
@@ -11071,7 +11131,7 @@ if not MYPY:
         """
         default_nginx_controller: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+        Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
         """
         web_app_routing_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgsDict']]]]
         """
@@ -11088,7 +11148,7 @@ class KubernetesClusterWebAppRoutingArgs:
                  web_app_routing_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zone_ids: Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
-        :param pulumi.Input[_builtins.str] default_nginx_controller: Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+        :param pulumi.Input[_builtins.str] default_nginx_controller: Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "dns_zone_ids", dns_zone_ids)
@@ -11113,7 +11173,7 @@ class KubernetesClusterWebAppRoutingArgs:
     @pulumi.getter(name="defaultNginxController")
     def default_nginx_controller(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+        Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
         """
         return pulumi.get(self, "default_nginx_controller")
 

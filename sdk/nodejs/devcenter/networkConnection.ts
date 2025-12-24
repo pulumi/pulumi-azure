@@ -82,7 +82,7 @@ export class NetworkConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+     * The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
      */
     declare public readonly domainJoinType: pulumi.Output<string>;
     /**
@@ -179,7 +179,7 @@ export class NetworkConnection extends pulumi.CustomResource {
  */
 export interface NetworkConnectionState {
     /**
-     * The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+     * The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
      */
     domainJoinType?: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface NetworkConnectionState {
  */
 export interface NetworkConnectionArgs {
     /**
-     * The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+     * The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
      */
     domainJoinType: pulumi.Input<string>;
     /**

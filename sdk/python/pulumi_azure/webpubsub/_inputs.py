@@ -666,7 +666,7 @@ if not MYPY:
     class SocketioSkuArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
         """
-        The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+        The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
         """
         capacity: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -683,7 +683,7 @@ class SocketioSkuArgs:
                  name: pulumi.Input[_builtins.str],
                  capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+        :param pulumi.Input[_builtins.str] name: The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
         :param pulumi.Input[_builtins.int] capacity: The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
                
                > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
@@ -696,7 +696,7 @@ class SocketioSkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+        The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
         """
         return pulumi.get(self, "name")
 

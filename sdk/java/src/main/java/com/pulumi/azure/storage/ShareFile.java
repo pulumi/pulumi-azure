@@ -62,13 +62,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
  *             .name("sharename")
- *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountId(exampleAccount.id())
  *             .quota(50)
  *             .build());
  * 
  *         var exampleShareFile = new ShareFile("exampleShareFile", ShareFileArgs.builder()
  *             .name("my-awesome-content.zip")
- *             .storageShareId(exampleShare.id())
+ *             .storageShareUrl(exampleShare.url())
  *             .source("some-local-file.zip")
  *             .build());
  * 
@@ -211,18 +211,30 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.source);
     }
     /**
-     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * @deprecated
+     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
     @Export(name="storageShareId", refs={String.class}, tree="[0]")
     private Output<String> storageShareId;
 
-    /**
-     * @return The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> storageShareId() {
         return this.storageShareId;
+    }
+    /**
+     * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="storageShareUrl", refs={String.class}, tree="[0]")
+    private Output<String> storageShareUrl;
+
+    /**
+     * @return The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> storageShareUrl() {
+        return this.storageShareUrl;
     }
 
     /**
@@ -237,7 +249,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ShareFile(java.lang.String name, ShareFileArgs args) {
+    public ShareFile(java.lang.String name, @Nullable ShareFileArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,7 +258,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ShareFile(java.lang.String name, ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ShareFile(java.lang.String name, @Nullable ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/shareFile:ShareFile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -254,7 +266,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
         super("azure:storage/shareFile:ShareFile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ShareFileArgs makeArgs(ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ShareFileArgs makeArgs(@Nullable ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -161,7 +161,7 @@ public final class AppFlexConsumptionSiteConfig {
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
-     * @return Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
+     * @return Should the Linux Web App Linux Function App use a 32-bit worker. Defaults to `false`.
      * 
      */
     private @Nullable Boolean use32BitWorker;
@@ -381,7 +381,7 @@ public final class AppFlexConsumptionSiteConfig {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
     /**
-     * @return Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
+     * @return Should the Linux Web App Linux Function App use a 32-bit worker. Defaults to `false`.
      * 
      */
     public Optional<Boolean> use32BitWorker() {

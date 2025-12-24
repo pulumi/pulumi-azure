@@ -134,14 +134,14 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
      * 
      */
     @Import(name="clientCertificateMode")
     private @Nullable Output<String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
      * 
      */
     public Optional<Output<String>> clientCertificateMode() {
@@ -815,7 +815,7 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -826,7 +826,7 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 

@@ -108,14 +108,14 @@ public final class ScaleSetStandbyPoolState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+     * Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
      * 
      */
     @Import(name="virtualMachineState")
     private @Nullable Output<String> virtualMachineState;
 
     /**
-     * @return Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+     * @return Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
      * 
      */
     public Optional<Output<String>> virtualMachineState() {
@@ -279,7 +279,7 @@ public final class ScaleSetStandbyPoolState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param virtualMachineState Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+         * @param virtualMachineState Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ScaleSetStandbyPoolState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param virtualMachineState Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+         * @param virtualMachineState Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
          * 
          * @return builder
          * 

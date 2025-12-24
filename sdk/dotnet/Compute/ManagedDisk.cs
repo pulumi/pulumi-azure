@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        /// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         /// </summary>
         [Output("networkAccessPolicy")]
         public Output<string?> NetworkAccessPolicy { get; private set; } = null!;
@@ -522,7 +522,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        /// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         /// </summary>
         [Input("networkAccessPolicy")]
         public Input<string>? NetworkAccessPolicy { get; set; }
@@ -780,7 +780,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        /// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         /// </summary>
         [Input("networkAccessPolicy")]
         public Input<string>? NetworkAccessPolicy { get; set; }

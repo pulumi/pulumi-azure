@@ -464,10 +464,6 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      * 
-     * `minimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-     * 
-     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-     * 
      */
     @Export(name="maintenanceConfigurationName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maintenanceConfigurationName;
@@ -475,17 +471,25 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      * 
-     * `minimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-     * 
-     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-     * 
      */
     public Output<Optional<String>> maintenanceConfigurationName() {
         return Codegen.optional(this.maintenanceConfigurationName);
     }
+    /**
+     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * 
+     */
     @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minimumTlsVersion;
 
+    /**
+     * @return The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * 
+     */
     public Output<Optional<String>> minimumTlsVersion() {
         return Codegen.optional(this.minimumTlsVersion);
     }

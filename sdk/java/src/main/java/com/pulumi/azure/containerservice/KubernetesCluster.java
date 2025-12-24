@@ -28,6 +28,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterMaintenanceWin
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterMicrosoftDefender;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterMonitorMetrics;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfile;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodeProvisioningProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterOmsAgent;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterServiceMeshProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterServicePrincipal;
@@ -792,6 +793,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> nodeOsUpgradeChannel() {
         return Codegen.optional(this.nodeOsUpgradeChannel);
+    }
+    /**
+     * A `nodeProvisioningProfile` block as defined below.
+     * 
+     */
+    @Export(name="nodeProvisioningProfile", refs={KubernetesClusterNodeProvisioningProfile.class}, tree="[0]")
+    private Output<KubernetesClusterNodeProvisioningProfile> nodeProvisioningProfile;
+
+    /**
+     * @return A `nodeProvisioningProfile` block as defined below.
+     * 
+     */
+    public Output<KubernetesClusterNodeProvisioningProfile> nodeProvisioningProfile() {
+        return this.nodeProvisioningProfile;
     }
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.

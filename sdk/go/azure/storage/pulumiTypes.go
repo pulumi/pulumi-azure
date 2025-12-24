@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type AccountAzureFilesAuthentication struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
 	ActiveDirectory *AccountAzureFilesAuthenticationActiveDirectory `pulumi:"activeDirectory"`
-	// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+	// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
 	DefaultShareLevelPermission *string `pulumi:"defaultShareLevelPermission"`
 	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType string `pulumi:"directoryType"`
@@ -36,7 +36,7 @@ type AccountAzureFilesAuthenticationInput interface {
 type AccountAzureFilesAuthenticationArgs struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
 	ActiveDirectory AccountAzureFilesAuthenticationActiveDirectoryPtrInput `pulumi:"activeDirectory"`
-	// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+	// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
 	DefaultShareLevelPermission pulumi.StringPtrInput `pulumi:"defaultShareLevelPermission"`
 	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType pulumi.StringInput `pulumi:"directoryType"`
@@ -126,7 +126,7 @@ func (o AccountAzureFilesAuthenticationOutput) ActiveDirectory() AccountAzureFil
 	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
 }
 
-// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
 func (o AccountAzureFilesAuthenticationOutput) DefaultShareLevelPermission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountAzureFilesAuthentication) *string { return v.DefaultShareLevelPermission }).(pulumi.StringPtrOutput)
 }
@@ -170,7 +170,7 @@ func (o AccountAzureFilesAuthenticationPtrOutput) ActiveDirectory() AccountAzure
 	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
 }
 
-// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
 func (o AccountAzureFilesAuthenticationPtrOutput) DefaultShareLevelPermission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountAzureFilesAuthentication) *string {
 		if v == nil {
@@ -1899,7 +1899,7 @@ type AccountImmutabilityPolicy struct {
 	AllowProtectedAppendWrites bool `pulumi:"allowProtectedAppendWrites"`
 	// The immutability period for the blobs in the container since the policy creation, in days.
 	PeriodSinceCreationInDays int `pulumi:"periodSinceCreationInDays"`
-	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
+	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
 	State string `pulumi:"state"`
 }
 
@@ -1919,7 +1919,7 @@ type AccountImmutabilityPolicyArgs struct {
 	AllowProtectedAppendWrites pulumi.BoolInput `pulumi:"allowProtectedAppendWrites"`
 	// The immutability period for the blobs in the container since the policy creation, in days.
 	PeriodSinceCreationInDays pulumi.IntInput `pulumi:"periodSinceCreationInDays"`
-	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
+	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -2010,7 +2010,7 @@ func (o AccountImmutabilityPolicyOutput) PeriodSinceCreationInDays() pulumi.IntO
 	return o.ApplyT(func(v AccountImmutabilityPolicy) int { return v.PeriodSinceCreationInDays }).(pulumi.IntOutput)
 }
 
-// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
+// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
 func (o AccountImmutabilityPolicyOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountImmutabilityPolicy) string { return v.State }).(pulumi.StringOutput)
 }
@@ -2059,7 +2059,7 @@ func (o AccountImmutabilityPolicyPtrOutput) PeriodSinceCreationInDays() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
+// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
 func (o AccountImmutabilityPolicyPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountImmutabilityPolicy) *string {
 		if v == nil {
@@ -2715,8 +2715,7 @@ func (o AccountQueuePropertiesTypePtrOutput) MinuteMetrics() AccountQueuePropert
 type AccountQueuePropertiesCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
-	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -2740,8 +2739,7 @@ type AccountQueuePropertiesCorsRuleInput interface {
 type AccountQueuePropertiesCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
-	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -2807,8 +2805,7 @@ func (o AccountQueuePropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArra
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
-// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+// A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }

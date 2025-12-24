@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string> ServiceUrl { get; private set; } = null!;
 
         /// <summary>
-        /// A `Storage` block as defined below.
+        /// A `Storage` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storage")]
         public Output<Outputs.DicomServiceStorage> Storage { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// A `Storage` block as defined below.
+        /// A `Storage` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.DicomServiceStorageArgs>? Storage { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? ServiceUrl { get; set; }
 
         /// <summary>
-        /// A `Storage` block as defined below.
+        /// A `Storage` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.DicomServiceStorageGetArgs>? Storage { get; set; }

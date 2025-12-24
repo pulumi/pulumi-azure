@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterWebAppRouting {
     /**
-     * @return Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+     * @return Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
      * 
      */
     private @Nullable String defaultNginxController;
@@ -32,7 +32,7 @@ public final class KubernetesClusterWebAppRouting {
 
     private KubernetesClusterWebAppRouting() {}
     /**
-     * @return Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+     * @return Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
      * 
      */
     public Optional<String> defaultNginxController() {

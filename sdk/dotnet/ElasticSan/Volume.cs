@@ -147,7 +147,7 @@ namespace Pulumi.Azure.ElasticSan
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `CreateSource` block as defined below.
+        /// A `CreateSource` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("createSource")]
         public Output<Outputs.VolumeCreateSource?> CreateSource { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.ElasticSan
     public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `CreateSource` block as defined below.
+        /// A `CreateSource` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createSource")]
         public Input<Inputs.VolumeCreateSourceArgs>? CreateSource { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.ElasticSan
     public sealed class VolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `CreateSource` block as defined below.
+        /// A `CreateSource` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createSource")]
         public Input<Inputs.VolumeCreateSourceGetArgs>? CreateSource { get; set; }

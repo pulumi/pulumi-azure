@@ -29,7 +29,7 @@ public final class PolicyCustomRule {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+     * @return Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
      * 
      */
     private @Nullable String groupRateLimitBy;
@@ -82,7 +82,7 @@ public final class PolicyCustomRule {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+     * @return Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
      * 
      */
     public Optional<String> groupRateLimitBy() {

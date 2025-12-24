@@ -36,6 +36,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
             set => _containers = value;
         }
 
+        /// <summary>
+        /// The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+        /// </summary>
+        [Input("cooldownPeriodInSeconds")]
+        public Input<int>? CooldownPeriodInSeconds { get; set; }
+
         [Input("customScaleRules")]
         private InputList<Inputs.AppTemplateCustomScaleRuleGetArgs>? _customScaleRules;
 
@@ -83,6 +89,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// </summary>
         [Input("minReplicas")]
         public Input<int>? MinReplicas { get; set; }
+
+        /// <summary>
+        /// The interval in seconds used for polling KEDA. Defaults to `30`.
+        /// </summary>
+        [Input("pollingIntervalInSeconds")]
+        public Input<int>? PollingIntervalInSeconds { get; set; }
 
         /// <summary>
         /// The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.

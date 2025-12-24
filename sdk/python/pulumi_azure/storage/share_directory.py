@@ -19,32 +19,27 @@ __all__ = ['ShareDirectoryArgs', 'ShareDirectory']
 @pulumi.input_type
 class ShareDirectoryArgs:
     def __init__(__self__, *,
-                 storage_share_id: pulumi.Input[_builtins.str],
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ShareDirectory resource.
-        :param pulumi.Input[_builtins.str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "storage_share_id", storage_share_id)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="storageShareId")
-    def storage_share_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_share_id")
-
-    @storage_share_id.setter
-    def storage_share_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_share_id", value)
+        if storage_share_id is not None:
+            warnings.warn("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_share_id is deprecated: This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
+        if storage_share_id is not None:
+            pulumi.set(__self__, "storage_share_id", storage_share_id)
+        if storage_share_url is not None:
+            pulumi.set(__self__, "storage_share_url", storage_share_url)
 
     @_builtins.property
     @pulumi.getter
@@ -69,6 +64,28 @@ class ShareDirectoryArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageShareId")
+    @_utilities.deprecated("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
+    def storage_share_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "storage_share_id")
+
+    @storage_share_id.setter
+    def storage_share_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_share_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageShareUrl")
+    def storage_share_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_url")
+
+    @storage_share_url.setter
+    def storage_share_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_share_url", value)
 
 
 @pulumi.input_type
@@ -76,19 +93,25 @@ class _ShareDirectoryState:
     def __init__(__self__, *,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_share_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ShareDirectory resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if storage_share_id is not None:
+            warnings.warn("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_share_id is deprecated: This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
+        if storage_share_id is not None:
             pulumi.set(__self__, "storage_share_id", storage_share_id)
+        if storage_share_url is not None:
+            pulumi.set(__self__, "storage_share_url", storage_share_url)
 
     @_builtins.property
     @pulumi.getter
@@ -116,15 +139,25 @@ class _ShareDirectoryState:
 
     @_builtins.property
     @pulumi.getter(name="storageShareId")
+    @_utilities.deprecated("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
     def storage_share_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "storage_share_id")
 
     @storage_share_id.setter
     def storage_share_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_share_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageShareUrl")
+    def storage_share_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_url")
+
+    @storage_share_url.setter
+    def storage_share_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_share_url", value)
 
 
 @pulumi.type_token("azure:storage/shareDirectory:ShareDirectory")
@@ -136,6 +169,7 @@ class ShareDirectory(pulumi.CustomResource):
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -155,11 +189,11 @@ class ShareDirectory(pulumi.CustomResource):
             account_replication_type="LRS")
         example_share = azure.storage.Share("example",
             name="sharename",
-            storage_account_name=example_account.name,
+            storage_account_id=example_account.id,
             quota=50)
         example_share_directory = azure.storage.ShareDirectory("example",
             name="example",
-            storage_share_id=example_share.id)
+            storage_share_url=example_share.url)
         ```
 
         ## Import
@@ -174,13 +208,13 @@ class ShareDirectory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ShareDirectoryArgs,
+                 args: Optional[ShareDirectoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -200,11 +234,11 @@ class ShareDirectory(pulumi.CustomResource):
             account_replication_type="LRS")
         example_share = azure.storage.Share("example",
             name="sharename",
-            storage_account_name=example_account.name,
+            storage_account_id=example_account.id,
             quota=50)
         example_share_directory = azure.storage.ShareDirectory("example",
             name="example",
-            storage_share_id=example_share.id)
+            storage_share_url=example_share.url)
         ```
 
         ## Import
@@ -233,6 +267,7 @@ class ShareDirectory(pulumi.CustomResource):
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -244,9 +279,8 @@ class ShareDirectory(pulumi.CustomResource):
 
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
-            if storage_share_id is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_share_id'")
             __props__.__dict__["storage_share_id"] = storage_share_id
+            __props__.__dict__["storage_share_url"] = storage_share_url
         super(ShareDirectory, __self__).__init__(
             'azure:storage/shareDirectory:ShareDirectory',
             resource_name,
@@ -259,7 +293,8 @@ class ShareDirectory(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_share_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ShareDirectory':
+            storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+            storage_share_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'ShareDirectory':
         """
         Get an existing ShareDirectory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -269,7 +304,7 @@ class ShareDirectory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -278,6 +313,7 @@ class ShareDirectory(pulumi.CustomResource):
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
         __props__.__dict__["storage_share_id"] = storage_share_id
+        __props__.__dict__["storage_share_url"] = storage_share_url
         return ShareDirectory(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -298,9 +334,15 @@ class ShareDirectory(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="storageShareId")
+    @_utilities.deprecated("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
     def storage_share_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "storage_share_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageShareUrl")
+    def storage_share_url(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_url")
 

@@ -170,7 +170,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`. Defaults to `application-default`.
+        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`.
         /// 
         /// &gt; **Note:** In 4.0 or later versions, the default of `Protocol` will no longer be set by provider, exactly one of `Protocol` and `ProtocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `Protocol`.
         /// </summary>
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`. Defaults to `application-default`.
+        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`.
         /// 
         /// &gt; **Note:** In 4.0 or later versions, the default of `Protocol` will no longer be set by provider, exactly one of `Protocol` and `ProtocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `Protocol`.
         /// </summary>
@@ -484,7 +484,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`. Defaults to `application-default`.
+        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`.
         /// 
         /// &gt; **Note:** In 4.0 or later versions, the default of `Protocol` will no longer be set by provider, exactly one of `Protocol` and `ProtocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `Protocol`.
         /// </summary>

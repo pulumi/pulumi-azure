@@ -223,7 +223,7 @@ public class Share extends com.pulumi.resources.CustomResource {
         return this.resourceManagerId;
     }
     /**
-     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the share.
      * 
      * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
@@ -232,7 +232,7 @@ public class Share extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
-     * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+     * @return Specifies the storage account in which to create the share.
      * 
      * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
@@ -241,7 +241,7 @@ public class Share extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageAccountId);
     }
     /**
-     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     * Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
      * 
      * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
@@ -254,7 +254,7 @@ public class Share extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> storageAccountName;
 
     /**
-     * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     * @return Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
      * 
      * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 

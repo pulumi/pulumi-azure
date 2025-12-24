@@ -89,6 +89,10 @@ class ManagedRedisDefaultDatabase(dict):
             suggest = "eviction_policy"
         elif key == "geoReplicationGroupName":
             suggest = "geo_replication_group_name"
+        elif key == "persistenceAppendOnlyFileBackupFrequency":
+            suggest = "persistence_append_only_file_backup_frequency"
+        elif key == "persistenceRedisDatabaseBackupFrequency":
+            suggest = "persistence_redis_database_backup_frequency"
         elif key == "primaryAccessKey":
             suggest = "primary_access_key"
         elif key == "secondaryAccessKey":
@@ -111,17 +115,27 @@ class ManagedRedisDefaultDatabase(dict):
                  clustering_policy: Optional[_builtins.str] = None,
                  eviction_policy: Optional[_builtins.str] = None,
                  geo_replication_group_name: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
                  modules: Optional[Sequence['outputs.ManagedRedisDefaultDatabaseModule']] = None,
+                 persistence_append_only_file_backup_frequency: Optional[_builtins.str] = None,
+                 persistence_redis_database_backup_frequency: Optional[_builtins.str] = None,
                  port: Optional[_builtins.int] = None,
                  primary_access_key: Optional[_builtins.str] = None,
                  secondary_access_key: Optional[_builtins.str] = None):
         """
         :param _builtins.bool access_keys_authentication_enabled: Whether access key authentication is enabled for the database. Defaults to `false`.
         :param _builtins.str client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`.
-        :param _builtins.str clustering_policy: Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        :param _builtins.str clustering_policy: Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+               
+               !> **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         :param _builtins.str eviction_policy: Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
-        :param _builtins.str geo_replication_group_name: The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurerm_managed_redis_database_geo_replication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        :param _builtins.str geo_replication_group_name: The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurerm_managed_redis_database_geo_replication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+               
+               !> **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        :param _builtins.str id: The ID of the Managed Redis Database Instance.
         :param Sequence['ManagedRedisDefaultDatabaseModuleArgs'] modules: A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
+        :param _builtins.str persistence_append_only_file_backup_frequency: The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistence_redis_database_backup_frequency`, only one persistence method is allowed. Conflicts with `geo_replication_group_name`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+        :param _builtins.str persistence_redis_database_backup_frequency: The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistence_append_only_file_backup_frequency`, only one persistence method is allowed. Conflicts with `geo_replication_group_name`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
         :param _builtins.int port: TCP port of the database endpoint.
         :param _builtins.str primary_access_key: The Primary Access Key for the Managed Redis Database Instance. Only exported if `access_keys_authentication_enabled` is set to `true`.
         :param _builtins.str secondary_access_key: The Secondary Access Key for the Managed Redis Database Instance. Only exported if `access_keys_authentication_enabled` is set to `true`.
@@ -136,8 +150,14 @@ class ManagedRedisDefaultDatabase(dict):
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if geo_replication_group_name is not None:
             pulumi.set(__self__, "geo_replication_group_name", geo_replication_group_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if modules is not None:
             pulumi.set(__self__, "modules", modules)
+        if persistence_append_only_file_backup_frequency is not None:
+            pulumi.set(__self__, "persistence_append_only_file_backup_frequency", persistence_append_only_file_backup_frequency)
+        if persistence_redis_database_backup_frequency is not None:
+            pulumi.set(__self__, "persistence_redis_database_backup_frequency", persistence_redis_database_backup_frequency)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if primary_access_key is not None:
@@ -165,7 +185,9 @@ class ManagedRedisDefaultDatabase(dict):
     @pulumi.getter(name="clusteringPolicy")
     def clustering_policy(self) -> Optional[_builtins.str]:
         """
-        Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+
+        !> **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         """
         return pulumi.get(self, "clustering_policy")
 
@@ -181,9 +203,19 @@ class ManagedRedisDefaultDatabase(dict):
     @pulumi.getter(name="geoReplicationGroupName")
     def geo_replication_group_name(self) -> Optional[_builtins.str]:
         """
-        The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurerm_managed_redis_database_geo_replication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurerm_managed_redis_database_geo_replication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+
+        !> **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         """
         return pulumi.get(self, "geo_replication_group_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Managed Redis Database Instance.
+        """
+        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -192,6 +224,22 @@ class ManagedRedisDefaultDatabase(dict):
         A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
         """
         return pulumi.get(self, "modules")
+
+    @_builtins.property
+    @pulumi.getter(name="persistenceAppendOnlyFileBackupFrequency")
+    def persistence_append_only_file_backup_frequency(self) -> Optional[_builtins.str]:
+        """
+        The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistence_redis_database_backup_frequency`, only one persistence method is allowed. Conflicts with `geo_replication_group_name`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+        """
+        return pulumi.get(self, "persistence_append_only_file_backup_frequency")
+
+    @_builtins.property
+    @pulumi.getter(name="persistenceRedisDatabaseBackupFrequency")
+    def persistence_redis_database_backup_frequency(self) -> Optional[_builtins.str]:
+        """
+        The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistence_append_only_file_backup_frequency`, only one persistence method is allowed. Conflicts with `geo_replication_group_name`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+        """
+        return pulumi.get(self, "persistence_redis_database_backup_frequency")
 
     @_builtins.property
     @pulumi.getter
@@ -225,8 +273,12 @@ class ManagedRedisDefaultDatabaseModule(dict):
                  args: Optional[_builtins.str] = None,
                  version: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
-        :param _builtins.str args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        :param _builtins.str name: The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
+               
+               !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        :param _builtins.str args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+               
+               !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
                
                > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
         :param _builtins.str version: Version of the module to be used.
@@ -241,7 +293,9 @@ class ManagedRedisDefaultDatabaseModule(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
+
+        !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         """
         return pulumi.get(self, "name")
 
@@ -249,7 +303,9 @@ class ManagedRedisDefaultDatabaseModule(dict):
     @pulumi.getter
     def args(self) -> Optional[_builtins.str]:
         """
-        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+
+        !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 
         > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
         """
@@ -373,7 +429,10 @@ class GetDefaultDatabaseResult(dict):
                  eviction_policy: _builtins.str,
                  geo_replication_group_name: _builtins.str,
                  geo_replication_linked_database_ids: Sequence[_builtins.str],
+                 id: _builtins.str,
                  modules: Sequence['outputs.GetDefaultDatabaseModuleResult'],
+                 persistence_append_only_file_backup_frequency: _builtins.str,
+                 persistence_redis_database_backup_frequency: _builtins.str,
                  port: _builtins.int,
                  primary_access_key: _builtins.str,
                  secondary_access_key: _builtins.str):
@@ -384,7 +443,10 @@ class GetDefaultDatabaseResult(dict):
         :param _builtins.str eviction_policy: The Redis eviction policy used by the database.
         :param _builtins.str geo_replication_group_name: The name of the geo-replication group.
         :param Sequence[_builtins.str] geo_replication_linked_database_ids: A list of linked database IDs for geo-replication.
+        :param _builtins.str id: The ID of the Managed Redis Database Instance.
         :param Sequence['GetDefaultDatabaseModuleArgs'] modules: A list of `module` blocks as defined below.
+        :param _builtins.str persistence_append_only_file_backup_frequency: The frequency of Append Only File (AOF) backups.
+        :param _builtins.str persistence_redis_database_backup_frequency: The frequency of Redis Database (RDB) backups.
         :param _builtins.int port: The TCP port of the database endpoint.
         :param _builtins.str primary_access_key: The Primary Access Key for the Managed Redis Database instance.
         :param _builtins.str secondary_access_key: The Secondary Access Key for the Managed Redis Database instance.
@@ -395,7 +457,10 @@ class GetDefaultDatabaseResult(dict):
         pulumi.set(__self__, "eviction_policy", eviction_policy)
         pulumi.set(__self__, "geo_replication_group_name", geo_replication_group_name)
         pulumi.set(__self__, "geo_replication_linked_database_ids", geo_replication_linked_database_ids)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "modules", modules)
+        pulumi.set(__self__, "persistence_append_only_file_backup_frequency", persistence_append_only_file_backup_frequency)
+        pulumi.set(__self__, "persistence_redis_database_backup_frequency", persistence_redis_database_backup_frequency)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "primary_access_key", primary_access_key)
         pulumi.set(__self__, "secondary_access_key", secondary_access_key)
@@ -450,11 +515,35 @@ class GetDefaultDatabaseResult(dict):
 
     @_builtins.property
     @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Managed Redis Database Instance.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
     def modules(self) -> Sequence['outputs.GetDefaultDatabaseModuleResult']:
         """
         A list of `module` blocks as defined below.
         """
         return pulumi.get(self, "modules")
+
+    @_builtins.property
+    @pulumi.getter(name="persistenceAppendOnlyFileBackupFrequency")
+    def persistence_append_only_file_backup_frequency(self) -> _builtins.str:
+        """
+        The frequency of Append Only File (AOF) backups.
+        """
+        return pulumi.get(self, "persistence_append_only_file_backup_frequency")
+
+    @_builtins.property
+    @pulumi.getter(name="persistenceRedisDatabaseBackupFrequency")
+    def persistence_redis_database_backup_frequency(self) -> _builtins.str:
+        """
+        The frequency of Redis Database (RDB) backups.
+        """
+        return pulumi.get(self, "persistence_redis_database_backup_frequency")
 
     @_builtins.property
     @pulumi.getter

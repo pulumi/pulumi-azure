@@ -1336,7 +1336,7 @@ if not MYPY:
         """
         volume_spec_name: pulumi.Input[_builtins.str]
         """
-        Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         data_protection_replication: NotRequired[pulumi.Input['VolumeGroupOracleVolumeDataProtectionReplicationArgsDict']]
         """
@@ -1361,7 +1361,7 @@ if not MYPY:
         mount_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         network_features: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+        Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
         """
         proximity_placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1419,13 +1419,13 @@ class VolumeGroupOracleVolumeArgs:
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[_builtins.str] volume_spec_name: Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[_builtins.str] volume_spec_name: Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input['VolumeGroupOracleVolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[_builtins.str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] id: The ID of the Application Volume Group.
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
                
                > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
@@ -1603,7 +1603,7 @@ class VolumeGroupOracleVolumeArgs:
     @pulumi.getter(name="volumeSpecName")
     def volume_spec_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "volume_spec_name")
 
@@ -1684,7 +1684,7 @@ class VolumeGroupOracleVolumeArgs:
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+        Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
         """
         return pulumi.get(self, "network_features")
 
@@ -1735,7 +1735,7 @@ if not MYPY:
     class VolumeGroupOracleVolumeDataProtectionReplicationArgsDict(TypedDict):
         remote_volume_location: pulumi.Input[_builtins.str]
         """
-        Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Location of the primary volume.
         """
         remote_volume_resource_id: pulumi.Input[_builtins.str]
         """
@@ -1760,7 +1760,7 @@ class VolumeGroupOracleVolumeDataProtectionReplicationArgs:
                  replication_frequency: pulumi.Input[_builtins.str],
                  endpoint_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] remote_volume_location: Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[_builtins.str] remote_volume_location: Location of the primary volume.
         :param pulumi.Input[_builtins.str] remote_volume_resource_id: Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] replication_frequency: Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] endpoint_type: The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -1775,7 +1775,7 @@ class VolumeGroupOracleVolumeDataProtectionReplicationArgs:
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> pulumi.Input[_builtins.str]:
         """
-        Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Location of the primary volume.
         """
         return pulumi.get(self, "remote_volume_location")
 
@@ -2362,7 +2362,7 @@ if not MYPY:
     class VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict(TypedDict):
         remote_volume_location: pulumi.Input[_builtins.str]
         """
-        Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Location of the primary volume.
         """
         remote_volume_resource_id: pulumi.Input[_builtins.str]
         """
@@ -2387,7 +2387,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
                  replication_frequency: pulumi.Input[_builtins.str],
                  endpoint_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] remote_volume_location: Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[_builtins.str] remote_volume_location: Location of the primary volume.
         :param pulumi.Input[_builtins.str] remote_volume_resource_id: Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] replication_frequency: eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] endpoint_type: The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -2402,7 +2402,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> pulumi.Input[_builtins.str]:
         """
-        Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Location of the primary volume.
         """
         return pulumi.get(self, "remote_volume_location")
 

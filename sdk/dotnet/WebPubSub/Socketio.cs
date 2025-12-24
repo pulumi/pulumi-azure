@@ -180,7 +180,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<string?> ServiceMode { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+        /// One or more `Sku` blocks as defined below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SocketioSku> Sku { get; private set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string>? ServiceMode { get; set; }
 
         /// <summary>
-        /// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+        /// One or more `Sku` blocks as defined below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SocketioSkuArgs> Sku { get; set; } = null!;
@@ -523,7 +523,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string>? ServiceMode { get; set; }
 
         /// <summary>
-        /// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+        /// One or more `Sku` blocks as defined below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SocketioSkuGetArgs>? Sku { get; set; }

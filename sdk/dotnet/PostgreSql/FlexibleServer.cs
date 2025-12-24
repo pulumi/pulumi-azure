@@ -141,7 +141,7 @@ namespace Pulumi.Azure.PostgreSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DBforPostgreSQL` - 2024-08-01
+    /// * `Microsoft.DBforPostgreSQL` - 2025-08-01
     /// 
     /// ## Import
     /// 
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<int> StorageMb { get; private set; } = null!;
 
         /// <summary>
-        /// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `StorageMb` value. Please see the `StorageTier` defaults based on `StorageMb` table below.
+        /// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `StorageMb` value. Please see the `StorageTier` defaults based on `StorageMb` table below.
         /// 
         /// &gt; **Note:** The `StorageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         /// </summary>
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `CreateMode` is `Default`.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `CreateMode` is `Default`.
         /// 
         /// &gt; **Note:** Downgrading `Version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
         /// 
@@ -556,7 +556,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? StorageMb { get; set; }
 
         /// <summary>
-        /// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `StorageMb` value. Please see the `StorageTier` defaults based on `StorageMb` table below.
+        /// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `StorageMb` value. Please see the `StorageTier` defaults based on `StorageMb` table below.
         /// 
         /// &gt; **Note:** The `StorageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         /// </summary>
@@ -576,7 +576,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `CreateMode` is `Default`.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `CreateMode` is `Default`.
         /// 
         /// &gt; **Note:** Downgrading `Version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
         /// 
@@ -767,7 +767,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? StorageMb { get; set; }
 
         /// <summary>
-        /// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `StorageMb` value. Please see the `StorageTier` defaults based on `StorageMb` table below.
+        /// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `StorageMb` value. Please see the `StorageTier` defaults based on `StorageMb` table below.
         /// 
         /// &gt; **Note:** The `StorageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         /// </summary>
@@ -787,7 +787,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `CreateMode` is `Default`.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `CreateMode` is `Default`.
         /// 
         /// &gt; **Note:** Downgrading `Version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
         /// 

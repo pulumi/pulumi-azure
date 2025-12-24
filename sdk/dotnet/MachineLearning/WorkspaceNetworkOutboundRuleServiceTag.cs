@@ -111,7 +111,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+        /// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
         /// </summary>
         [Output("portRanges")]
         public Output<string> PortRanges { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+        /// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
         /// </summary>
         [Input("portRanges", required: true)]
         public Input<string> PortRanges { get; set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+        /// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
         /// </summary>
         [Input("portRanges")]
         public Input<string>? PortRanges { get; set; }

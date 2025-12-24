@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DBforPostgreSQL` - 2024-08-01
+ * * `Microsoft.DBforPostgreSQL` - 2025-08-01
  *
  * ## Import
  *
@@ -97,7 +97,7 @@ export class FlexibleServerVirtualEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the Virtual Endpoint
+     * The name of the Virtual Endpoint. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -107,11 +107,11 @@ export class FlexibleServerVirtualEndpoint extends pulumi.CustomResource {
      */
     declare public readonly replicaServerId: pulumi.Output<string>;
     /**
-     * The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+     * The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
      */
     declare public readonly sourceServerId: pulumi.Output<string>;
     /**
-     * The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+     * The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -158,7 +158,7 @@ export class FlexibleServerVirtualEndpoint extends pulumi.CustomResource {
  */
 export interface FlexibleServerVirtualEndpointState {
     /**
-     * The name of the Virtual Endpoint
+     * The name of the Virtual Endpoint. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -168,11 +168,11 @@ export interface FlexibleServerVirtualEndpointState {
      */
     replicaServerId?: pulumi.Input<string>;
     /**
-     * The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+     * The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
      */
     sourceServerId?: pulumi.Input<string>;
     /**
-     * The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+     * The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
 }
@@ -182,7 +182,7 @@ export interface FlexibleServerVirtualEndpointState {
  */
 export interface FlexibleServerVirtualEndpointArgs {
     /**
-     * The name of the Virtual Endpoint
+     * The name of the Virtual Endpoint. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -192,11 +192,11 @@ export interface FlexibleServerVirtualEndpointArgs {
      */
     replicaServerId: pulumi.Input<string>;
     /**
-     * The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+     * The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
      */
     sourceServerId: pulumi.Input<string>;
     /**
-     * The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+     * The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
      */
     type: pulumi.Input<string>;
 }

@@ -166,6 +166,20 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
         return this.name;
     }
     /**
+     * The protection state of the Backup Instance Blob Storage.
+     * 
+     */
+    @Export(name="protectionState", refs={String.class}, tree="[0]")
+    private Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance Blob Storage.
+     * 
+     */
+    public Output<String> protectionState() {
+        return this.protectionState;
+    }
+    /**
      * The list of the container names of the source Storage Account.
      * 
      * &gt; **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can&#39;t be removed once specified.

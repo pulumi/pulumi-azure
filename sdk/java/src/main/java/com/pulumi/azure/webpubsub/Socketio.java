@@ -369,14 +369,14 @@ public class Socketio extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceMode);
     }
     /**
-     * The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+     * One or more `sku` blocks as defined below.
      * 
      */
     @Export(name="sku", refs={SocketioSku.class}, tree="[0]")
     private Output<SocketioSku> sku;
 
     /**
-     * @return The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+     * @return One or more `sku` blocks as defined below.
      * 
      */
     public Output<SocketioSku> sku() {

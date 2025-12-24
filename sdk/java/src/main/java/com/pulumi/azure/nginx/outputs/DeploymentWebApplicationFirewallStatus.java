@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DeploymentWebApplicationFirewallStatus {
     /**
-     * @return Indicates the version of the attack signatures package used by NGINX App Protect.
+     * @return One or more `attackSignaturesPackage` blocks as defined below.
      * 
      */
     private @Nullable List<DeploymentWebApplicationFirewallStatusAttackSignaturesPackage> attackSignaturesPackages;
     /**
-     * @return Indicates the version of the bot signatures package used by NGINX App Protect.
+     * @return One or more `botSignaturesPackage` blocks as defined below.
      * 
      */
     private @Nullable List<DeploymentWebApplicationFirewallStatusBotSignaturesPackage> botSignaturesPackages;
     /**
-     * @return Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+     * @return One or more `componentVersions` blocks as defined below.
      * 
      */
     private @Nullable List<DeploymentWebApplicationFirewallStatusComponentVersion> componentVersions;
     /**
-     * @return Indicates the version of the threat campaigns package used by NGINX App Protect.
+     * @return One or more `threatCampaignsPackage` blocks as defined below.
      * 
      */
     private @Nullable List<DeploymentWebApplicationFirewallStatusThreatCampaignsPackage> threatCampaignsPackages;
 
     private DeploymentWebApplicationFirewallStatus() {}
     /**
-     * @return Indicates the version of the attack signatures package used by NGINX App Protect.
+     * @return One or more `attackSignaturesPackage` blocks as defined below.
      * 
      */
     public List<DeploymentWebApplicationFirewallStatusAttackSignaturesPackage> attackSignaturesPackages() {
         return this.attackSignaturesPackages == null ? List.of() : this.attackSignaturesPackages;
     }
     /**
-     * @return Indicates the version of the bot signatures package used by NGINX App Protect.
+     * @return One or more `botSignaturesPackage` blocks as defined below.
      * 
      */
     public List<DeploymentWebApplicationFirewallStatusBotSignaturesPackage> botSignaturesPackages() {
         return this.botSignaturesPackages == null ? List.of() : this.botSignaturesPackages;
     }
     /**
-     * @return Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+     * @return One or more `componentVersions` blocks as defined below.
      * 
      */
     public List<DeploymentWebApplicationFirewallStatusComponentVersion> componentVersions() {
         return this.componentVersions == null ? List.of() : this.componentVersions;
     }
     /**
-     * @return Indicates the version of the threat campaigns package used by NGINX App Protect.
+     * @return One or more `threatCampaignsPackage` blocks as defined below.
      * 
      */
     public List<DeploymentWebApplicationFirewallStatusThreatCampaignsPackage> threatCampaignsPackages() {

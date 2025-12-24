@@ -76,7 +76,7 @@ namespace Pulumi.Azure.PostgreSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DBforPostgreSQL` - 2024-08-01
+    /// * `Microsoft.DBforPostgreSQL` - 2025-08-01
     /// 
     /// ## Import
     /// 
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.PostgreSql
     public partial class FlexibleServerVirtualEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the Virtual Endpoint
+        /// The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> ReplicaServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+        /// The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceServerId")]
         public Output<string> SourceServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+        /// The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class FlexibleServerVirtualEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Virtual Endpoint
+        /// The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -176,13 +176,13 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string> ReplicaServerId { get; set; } = null!;
 
         /// <summary>
-        /// The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+        /// The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceServerId", required: true)]
         public Input<string> SourceServerId { get; set; } = null!;
 
         /// <summary>
-        /// The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+        /// The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class FlexibleServerVirtualEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Virtual Endpoint
+        /// The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -210,13 +210,13 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? ReplicaServerId { get; set; }
 
         /// <summary>
-        /// The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+        /// The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceServerId")]
         public Input<string>? SourceServerId { get; set; }
 
         /// <summary>
-        /// The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+        /// The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -97,8 +97,6 @@ type AccountCostManagementExport struct {
 	pulumi.CustomResourceState
 
 	// Is the cost management export active? Default is `true`.
-	//
-	// * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// The id of the billing account on which to create an export. Changing this forces a new resource to be created.
 	BillingAccountId pulumi.StringOutput `pulumi:"billingAccountId"`
@@ -106,7 +104,8 @@ type AccountCostManagementExport struct {
 	ExportDataOptions AccountCostManagementExportExportDataOptionsOutput `pulumi:"exportDataOptions"`
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation AccountCostManagementExportExportDataStorageLocationOutput `pulumi:"exportDataStorageLocation"`
-	FileFormat                pulumi.StringPtrOutput                                     `pulumi:"fileFormat"`
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The date the export will stop capturing information.
@@ -166,8 +165,6 @@ func GetAccountCostManagementExport(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AccountCostManagementExport resources.
 type accountCostManagementExportState struct {
 	// Is the cost management export active? Default is `true`.
-	//
-	// * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
 	Active *bool `pulumi:"active"`
 	// The id of the billing account on which to create an export. Changing this forces a new resource to be created.
 	BillingAccountId *string `pulumi:"billingAccountId"`
@@ -175,7 +172,8 @@ type accountCostManagementExportState struct {
 	ExportDataOptions *AccountCostManagementExportExportDataOptions `pulumi:"exportDataOptions"`
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation *AccountCostManagementExportExportDataStorageLocation `pulumi:"exportDataStorageLocation"`
-	FileFormat                *string                                               `pulumi:"fileFormat"`
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat *string `pulumi:"fileFormat"`
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The date the export will stop capturing information.
@@ -188,8 +186,6 @@ type accountCostManagementExportState struct {
 
 type AccountCostManagementExportState struct {
 	// Is the cost management export active? Default is `true`.
-	//
-	// * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
 	Active pulumi.BoolPtrInput
 	// The id of the billing account on which to create an export. Changing this forces a new resource to be created.
 	BillingAccountId pulumi.StringPtrInput
@@ -197,7 +193,8 @@ type AccountCostManagementExportState struct {
 	ExportDataOptions AccountCostManagementExportExportDataOptionsPtrInput
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation AccountCostManagementExportExportDataStorageLocationPtrInput
-	FileFormat                pulumi.StringPtrInput
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat pulumi.StringPtrInput
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The date the export will stop capturing information.
@@ -214,8 +211,6 @@ func (AccountCostManagementExportState) ElementType() reflect.Type {
 
 type accountCostManagementExportArgs struct {
 	// Is the cost management export active? Default is `true`.
-	//
-	// * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
 	Active *bool `pulumi:"active"`
 	// The id of the billing account on which to create an export. Changing this forces a new resource to be created.
 	BillingAccountId string `pulumi:"billingAccountId"`
@@ -223,7 +218,8 @@ type accountCostManagementExportArgs struct {
 	ExportDataOptions AccountCostManagementExportExportDataOptions `pulumi:"exportDataOptions"`
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation AccountCostManagementExportExportDataStorageLocation `pulumi:"exportDataStorageLocation"`
-	FileFormat                *string                                              `pulumi:"fileFormat"`
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat *string `pulumi:"fileFormat"`
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The date the export will stop capturing information.
@@ -237,8 +233,6 @@ type accountCostManagementExportArgs struct {
 // The set of arguments for constructing a AccountCostManagementExport resource.
 type AccountCostManagementExportArgs struct {
 	// Is the cost management export active? Default is `true`.
-	//
-	// * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
 	Active pulumi.BoolPtrInput
 	// The id of the billing account on which to create an export. Changing this forces a new resource to be created.
 	BillingAccountId pulumi.StringInput
@@ -246,7 +240,8 @@ type AccountCostManagementExportArgs struct {
 	ExportDataOptions AccountCostManagementExportExportDataOptionsInput
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation AccountCostManagementExportExportDataStorageLocationInput
-	FileFormat                pulumi.StringPtrInput
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat pulumi.StringPtrInput
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The date the export will stop capturing information.
@@ -345,8 +340,6 @@ func (o AccountCostManagementExportOutput) ToAccountCostManagementExportOutputWi
 }
 
 // Is the cost management export active? Default is `true`.
-//
-// * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
 func (o AccountCostManagementExportOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountCostManagementExport) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
 }
@@ -370,6 +363,7 @@ func (o AccountCostManagementExportOutput) ExportDataStorageLocation() AccountCo
 	}).(AccountCostManagementExportExportDataStorageLocationOutput)
 }
 
+// Format for export. Valid values are `Csv` only. Default is `Csv`.
 func (o AccountCostManagementExportOutput) FileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountCostManagementExport) pulumi.StringPtrOutput { return v.FileFormat }).(pulumi.StringPtrOutput)
 }

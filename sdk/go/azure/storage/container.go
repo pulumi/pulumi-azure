@@ -99,11 +99,11 @@ type Container struct {
 	//
 	// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+	// The name of the Storage Account where the Container should be created.
 	//
 	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
 	//
 	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
 	//
@@ -161,11 +161,11 @@ type containerState struct {
 	//
 	// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 	ResourceManagerId *string `pulumi:"resourceManagerId"`
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+	// The name of the Storage Account where the Container should be created.
 	//
 	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
 	//
 	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
 	//
@@ -194,11 +194,11 @@ type ContainerState struct {
 	//
 	// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 	ResourceManagerId pulumi.StringPtrInput
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+	// The name of the Storage Account where the Container should be created.
 	//
 	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrInput
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
 	//
 	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
 	//
@@ -223,11 +223,11 @@ type containerArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+	// The name of the Storage Account where the Container should be created.
 	//
 	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
 	//
 	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
 	//
@@ -249,11 +249,11 @@ type ContainerArgs struct {
 	Metadata pulumi.StringMapInput
 	// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+	// The name of the Storage Account where the Container should be created.
 	//
 	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrInput
-	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
 	//
 	// > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
 	//
@@ -392,14 +392,14 @@ func (o ContainerOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
-// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+// The name of the Storage Account where the Container should be created.
 //
 // > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 func (o ContainerOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
 //
 // > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
 //

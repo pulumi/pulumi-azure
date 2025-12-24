@@ -240,7 +240,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      * 
      * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
@@ -249,7 +249,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<VirtualNetworkIpAddressPool>> ipAddressPools;
 
     /**
-     * @return One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * @return One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      * 
      * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 

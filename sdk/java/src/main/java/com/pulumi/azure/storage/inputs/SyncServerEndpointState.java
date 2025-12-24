@@ -33,14 +33,14 @@ public final class SyncServerEndpointState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="initialDownloadPolicy")
     private @Nullable Output<String> initialDownloadPolicy;
 
     /**
-     * @return Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+     * @return Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> initialDownloadPolicy() {
@@ -210,7 +210,7 @@ public final class SyncServerEndpointState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param initialDownloadPolicy Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+         * @param initialDownloadPolicy Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class SyncServerEndpointState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param initialDownloadPolicy Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+         * @param initialDownloadPolicy Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

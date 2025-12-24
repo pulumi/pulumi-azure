@@ -124,7 +124,7 @@ class LinuxVirtualMachineArgs:
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[_builtins.str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
-        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
                
                > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -650,7 +650,7 @@ class LinuxVirtualMachineArgs:
     @pulumi.getter(name="osManagedDiskId")
     def os_managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
 
         > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         """
@@ -1017,7 +1017,7 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['LinuxVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
-        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
                
                > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -1540,7 +1540,7 @@ class _LinuxVirtualMachineState:
     @pulumi.getter(name="osManagedDiskId")
     def os_managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
 
         > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         """
@@ -2074,7 +2074,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[Union['LinuxVirtualMachineOsDiskArgs', 'LinuxVirtualMachineOsDiskArgsDict']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[Union['LinuxVirtualMachineOsImageNotificationArgs', 'LinuxVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
-        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
                
                > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -2467,7 +2467,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[Union['LinuxVirtualMachineOsDiskArgs', 'LinuxVirtualMachineOsDiskArgsDict']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[Union['LinuxVirtualMachineOsImageNotificationArgs', 'LinuxVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
-        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
                
                > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -2825,7 +2825,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="osManagedDiskId")
     def os_managed_disk_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
 
         > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         """

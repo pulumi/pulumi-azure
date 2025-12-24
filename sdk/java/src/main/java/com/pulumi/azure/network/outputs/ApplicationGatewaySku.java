@@ -19,7 +19,7 @@ public final class ApplicationGatewaySku {
      */
     private @Nullable Integer capacity;
     /**
-     * @return The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+     * @return The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
      * 
      */
     private String name;
@@ -38,7 +38,7 @@ public final class ApplicationGatewaySku {
         return Optional.ofNullable(this.capacity);
     }
     /**
-     * @return The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+     * @return The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
      * 
      */
     public String name() {

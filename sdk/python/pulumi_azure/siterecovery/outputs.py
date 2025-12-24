@@ -1708,7 +1708,7 @@ class VmwareReplicatedVmManagedDisk(dict):
                  target_disk_encryption_set_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str disk_id: The ID of the disk to be replicated.
-        :param _builtins.str target_disk_type: The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        :param _builtins.str target_disk_type: The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
         :param _builtins.str log_storage_account_id: The ID of the storage account that should be used for logging during replication.
         :param _builtins.str target_disk_encryption_set_id: The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
         """
@@ -1731,7 +1731,7 @@ class VmwareReplicatedVmManagedDisk(dict):
     @pulumi.getter(name="targetDiskType")
     def target_disk_type(self) -> _builtins.str:
         """
-        The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
         """
         return pulumi.get(self, "target_disk_type")
 

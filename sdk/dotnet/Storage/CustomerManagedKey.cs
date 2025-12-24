@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> KeyVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Key ID of a key in a managed HSM.  Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
+        /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
         /// </summary>
         [Output("managedHsmKeyId")]
         public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVersion { get; set; }
 
         /// <summary>
-        /// Key ID of a key in a managed HSM.  Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
+        /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVersion { get; set; }
 
         /// <summary>
-        /// Key ID of a key in a managed HSM.  Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
+        /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }

@@ -94,7 +94,7 @@ export class PublicIp extends pulumi.CustomResource {
      */
     declare public readonly domainNameLabel: pulumi.Output<string | undefined>;
     /**
-     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
      */
     declare public readonly domainNameLabelScope: pulumi.Output<string | undefined>;
     /**
@@ -260,7 +260,7 @@ export interface PublicIpState {
      */
     domainNameLabel?: pulumi.Input<string>;
     /**
-     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
      */
     domainNameLabelScope?: pulumi.Input<string>;
     /**
@@ -360,7 +360,7 @@ export interface PublicIpArgs {
      */
     domainNameLabel?: pulumi.Input<string>;
     /**
-     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
      */
     domainNameLabelScope?: pulumi.Input<string>;
     /**

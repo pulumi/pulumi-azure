@@ -1384,7 +1384,7 @@ if not MYPY:
     class EventHubRetentionDescriptionArgsDict(TypedDict):
         cleanup_policy: pulumi.Input[_builtins.str]
         """
-        Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+        Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
         """
         retention_time_in_hours: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -1404,7 +1404,7 @@ class EventHubRetentionDescriptionArgs:
                  retention_time_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
                  tombstone_retention_time_in_hours: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] cleanup_policy: Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+        :param pulumi.Input[_builtins.str] cleanup_policy: Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_time_in_hours: Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
         :param pulumi.Input[_builtins.int] tombstone_retention_time_in_hours: Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanup_policy` is `Compact`.
         """
@@ -1418,7 +1418,7 @@ class EventHubRetentionDescriptionArgs:
     @pulumi.getter(name="cleanupPolicy")
     def cleanup_policy(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+        Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cleanup_policy")
 

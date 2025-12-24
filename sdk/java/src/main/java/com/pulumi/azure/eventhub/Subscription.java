@@ -233,14 +233,14 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forwardTo);
     }
     /**
-     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
+     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `PT1M`.
      * 
      */
     @Export(name="lockDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lockDuration;
 
     /**
-     * @return The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
+     * @return The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `PT1M`.
      * 
      */
     public Output<Optional<String>> lockDuration() {

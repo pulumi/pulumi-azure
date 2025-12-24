@@ -12,50 +12,50 @@ import java.util.Objects;
 @CustomType
 public final class GetAccountIdentity {
     /**
-     * @return The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account.
      * 
      */
     private List<String> identityIds;
     /**
-     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
      * 
      */
     private String principalId;
     /**
-     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
      * 
      */
     private String tenantId;
     /**
-     * @return The type of Managed Service Identity that is configured on this Cognitive Account.
+     * @return The type of Managed Service Identity that is configured on this Cognitive Services Account.
      * 
      */
     private String type;
 
     private GetAccountIdentity() {}
     /**
-     * @return The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account.
      * 
      */
     public List<String> identityIds() {
         return this.identityIds;
     }
     /**
-     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
      * 
      */
     public String principalId() {
         return this.principalId;
     }
     /**
-     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
      * 
      */
     public String tenantId() {
         return this.tenantId;
     }
     /**
-     * @return The type of Managed Service Identity that is configured on this Cognitive Account.
+     * @return The type of Managed Service Identity that is configured on this Cognitive Services Account.
      * 
      */
     public String type() {

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? StorageName;
         /// <summary>
-        /// The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+        /// The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         /// </summary>
         public readonly string? StorageType;
 

@@ -32,9 +32,9 @@ type CustomLocation struct {
 	ClusterExtensionIds pulumi.StringArrayOutput `pulumi:"clusterExtensionIds"`
 	// Specifies the display name of the Custom Location.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Specifies the host resource ID.
+	// Specifies the host resource ID. Changing this forces a new resource to be created.
 	HostResourceId pulumi.StringOutput `pulumi:"hostResourceId"`
-	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
 	HostType pulumi.StringPtrOutput `pulumi:"hostType"`
 	// Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -94,9 +94,9 @@ type customLocationState struct {
 	ClusterExtensionIds []string `pulumi:"clusterExtensionIds"`
 	// Specifies the display name of the Custom Location.
 	DisplayName *string `pulumi:"displayName"`
-	// Specifies the host resource ID.
+	// Specifies the host resource ID. Changing this forces a new resource to be created.
 	HostResourceId *string `pulumi:"hostResourceId"`
-	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
 	HostType *string `pulumi:"hostType"`
 	// Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
 	Location *string `pulumi:"location"`
@@ -115,9 +115,9 @@ type CustomLocationState struct {
 	ClusterExtensionIds pulumi.StringArrayInput
 	// Specifies the display name of the Custom Location.
 	DisplayName pulumi.StringPtrInput
-	// Specifies the host resource ID.
+	// Specifies the host resource ID. Changing this forces a new resource to be created.
 	HostResourceId pulumi.StringPtrInput
-	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
 	HostType pulumi.StringPtrInput
 	// Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
 	Location pulumi.StringPtrInput
@@ -140,9 +140,9 @@ type customLocationArgs struct {
 	ClusterExtensionIds []string `pulumi:"clusterExtensionIds"`
 	// Specifies the display name of the Custom Location.
 	DisplayName *string `pulumi:"displayName"`
-	// Specifies the host resource ID.
+	// Specifies the host resource ID. Changing this forces a new resource to be created.
 	HostResourceId string `pulumi:"hostResourceId"`
-	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
 	HostType *string `pulumi:"hostType"`
 	// Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
 	Location *string `pulumi:"location"`
@@ -162,9 +162,9 @@ type CustomLocationArgs struct {
 	ClusterExtensionIds pulumi.StringArrayInput
 	// Specifies the display name of the Custom Location.
 	DisplayName pulumi.StringPtrInput
-	// Specifies the host resource ID.
+	// Specifies the host resource ID. Changing this forces a new resource to be created.
 	HostResourceId pulumi.StringInput
-	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+	// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
 	HostType pulumi.StringPtrInput
 	// Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
 	Location pulumi.StringPtrInput
@@ -278,12 +278,12 @@ func (o CustomLocationOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLocation) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the host resource ID.
+// Specifies the host resource ID. Changing this forces a new resource to be created.
 func (o CustomLocationOutput) HostResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomLocation) pulumi.StringOutput { return v.HostResourceId }).(pulumi.StringOutput)
 }
 
-// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
 func (o CustomLocationOutput) HostType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLocation) pulumi.StringPtrOutput { return v.HostType }).(pulumi.StringPtrOutput)
 }

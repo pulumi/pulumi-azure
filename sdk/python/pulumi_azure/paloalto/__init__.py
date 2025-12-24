@@ -16,8 +16,10 @@ from .local_rulestack_prefix_list import *
 from .local_rulestack_rule import *
 from .next_generation_firewall_virtual_hub_local_rulestack import *
 from .next_generation_firewall_virtual_hub_panorama import *
+from .next_generation_firewall_virtual_hub_strata_cloud_manager import *
 from .next_generation_firewall_virtual_network_local_rulestack import *
 from .next_generation_firewall_virtual_network_panorama import *
+from .next_generation_firewall_virtual_network_strata_cloud_manager import *
 from .virtual_network_appliance import *
 from ._inputs import *
 from . import outputs

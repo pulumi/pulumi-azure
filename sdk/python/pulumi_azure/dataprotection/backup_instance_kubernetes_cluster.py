@@ -34,7 +34,7 @@ class BackupInstanceKubernetesClusterArgs:
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] snapshot_resource_group_name: The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs'] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below.
+        :param pulumi.Input['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs'] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
         """
@@ -101,7 +101,7 @@ class BackupInstanceKubernetesClusterArgs:
     @pulumi.getter(name="backupDatasourceParameters")
     def backup_datasource_parameters(self) -> Optional[pulumi.Input['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs']]:
         """
-        A `backup_datasource_parameters` block as defined below.
+        A `backup_datasource_parameters` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backup_datasource_parameters")
 
@@ -142,15 +142,17 @@ class _BackupInstanceKubernetesClusterState:
                  kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
                  snapshot_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupInstanceKubernetesCluster resources.
-        :param pulumi.Input['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs'] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below.
+        :param pulumi.Input['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs'] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance Kubernetes Cluster.
         :param pulumi.Input[_builtins.str] snapshot_resource_group_name: The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -164,6 +166,8 @@ class _BackupInstanceKubernetesClusterState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
         if snapshot_resource_group_name is not None:
             pulumi.set(__self__, "snapshot_resource_group_name", snapshot_resource_group_name)
         if vault_id is not None:
@@ -173,7 +177,7 @@ class _BackupInstanceKubernetesClusterState:
     @pulumi.getter(name="backupDatasourceParameters")
     def backup_datasource_parameters(self) -> Optional[pulumi.Input['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs']]:
         """
-        A `backup_datasource_parameters` block as defined below.
+        A `backup_datasource_parameters` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backup_datasource_parameters")
 
@@ -228,6 +232,18 @@ class _BackupInstanceKubernetesClusterState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The protection state of the Backup Instance Kubernetes Cluster.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "protection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotResourceGroupName")
@@ -432,7 +448,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below.
+        :param pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -654,6 +670,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             if vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_id'")
             __props__.__dict__["vault_id"] = vault_id
+            __props__.__dict__["protection_state"] = None
         super(BackupInstanceKubernetesCluster, __self__).__init__(
             'azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster',
             resource_name,
@@ -669,6 +686,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            protection_state: Optional[pulumi.Input[_builtins.str]] = None,
             snapshot_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupInstanceKubernetesCluster':
         """
@@ -678,11 +696,12 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below.
+        :param pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance Kubernetes Cluster.
         :param pulumi.Input[_builtins.str] snapshot_resource_group_name: The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -695,6 +714,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["kubernetes_cluster_id"] = kubernetes_cluster_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["protection_state"] = protection_state
         __props__.__dict__["snapshot_resource_group_name"] = snapshot_resource_group_name
         __props__.__dict__["vault_id"] = vault_id
         return BackupInstanceKubernetesCluster(resource_name, opts=opts, __props__=__props__)
@@ -703,7 +723,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="backupDatasourceParameters")
     def backup_datasource_parameters(self) -> pulumi.Output[Optional['outputs.BackupInstanceKubernetesClusterBackupDatasourceParameters']]:
         """
-        A `backup_datasource_parameters` block as defined below.
+        A `backup_datasource_parameters` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backup_datasource_parameters")
 
@@ -738,6 +758,14 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
         The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The protection state of the Backup Instance Kubernetes Cluster.
+        """
+        return pulumi.get(self, "protection_state")
 
     @_builtins.property
     @pulumi.getter(name="snapshotResourceGroupName")

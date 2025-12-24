@@ -16,15 +16,15 @@ var _ = internal.GetEnvOrDefault
 type AssignmentDynamicScopeFilter struct {
 	// Specifies a list of locations to scope the query to.
 	Locations []string `pulumi:"locations"`
-	// Specifies a list of allowed operating systems.
+	// Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
 	OsTypes []string `pulumi:"osTypes"`
 	// Specifies a list of allowed resource groups.
 	ResourceGroups []string `pulumi:"resourceGroups"`
-	// Specifies a list of allowed resources.
+	// Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
 	TagFilter *string `pulumi:"tagFilter"`
-	// A mapping of tags for the VM
+	// One or more `tags` blocks as defined below.
 	Tags []AssignmentDynamicScopeFilterTag `pulumi:"tags"`
 }
 
@@ -42,15 +42,15 @@ type AssignmentDynamicScopeFilterInput interface {
 type AssignmentDynamicScopeFilterArgs struct {
 	// Specifies a list of locations to scope the query to.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// Specifies a list of allowed operating systems.
+	// Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
 	OsTypes pulumi.StringArrayInput `pulumi:"osTypes"`
 	// Specifies a list of allowed resource groups.
 	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
-	// Specifies a list of allowed resources.
+	// Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 	// Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
 	TagFilter pulumi.StringPtrInput `pulumi:"tagFilter"`
-	// A mapping of tags for the VM
+	// One or more `tags` blocks as defined below.
 	Tags AssignmentDynamicScopeFilterTagArrayInput `pulumi:"tags"`
 }
 
@@ -136,7 +136,7 @@ func (o AssignmentDynamicScopeFilterOutput) Locations() pulumi.StringArrayOutput
 	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of allowed operating systems.
+// Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
 func (o AssignmentDynamicScopeFilterOutput) OsTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []string { return v.OsTypes }).(pulumi.StringArrayOutput)
 }
@@ -146,7 +146,7 @@ func (o AssignmentDynamicScopeFilterOutput) ResourceGroups() pulumi.StringArrayO
 	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of allowed resources.
+// Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
 func (o AssignmentDynamicScopeFilterOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -156,7 +156,7 @@ func (o AssignmentDynamicScopeFilterOutput) TagFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssignmentDynamicScopeFilter) *string { return v.TagFilter }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags for the VM
+// One or more `tags` blocks as defined below.
 func (o AssignmentDynamicScopeFilterOutput) Tags() AssignmentDynamicScopeFilterTagArrayOutput {
 	return o.ApplyT(func(v AssignmentDynamicScopeFilter) []AssignmentDynamicScopeFilterTag { return v.Tags }).(AssignmentDynamicScopeFilterTagArrayOutput)
 }
@@ -195,7 +195,7 @@ func (o AssignmentDynamicScopeFilterPtrOutput) Locations() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of allowed operating systems.
+// Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
 func (o AssignmentDynamicScopeFilterPtrOutput) OsTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) []string {
 		if v == nil {
@@ -215,7 +215,7 @@ func (o AssignmentDynamicScopeFilterPtrOutput) ResourceGroups() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of allowed resources.
+// Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
 func (o AssignmentDynamicScopeFilterPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) []string {
 		if v == nil {
@@ -235,7 +235,7 @@ func (o AssignmentDynamicScopeFilterPtrOutput) TagFilter() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags for the VM
+// One or more `tags` blocks as defined below.
 func (o AssignmentDynamicScopeFilterPtrOutput) Tags() AssignmentDynamicScopeFilterTagArrayOutput {
 	return o.ApplyT(func(v *AssignmentDynamicScopeFilter) []AssignmentDynamicScopeFilterTag {
 		if v == nil {

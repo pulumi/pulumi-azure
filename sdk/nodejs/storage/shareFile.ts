@@ -24,12 +24,12 @@ import * as utilities from "../utilities";
  * });
  * const exampleShare = new azure.storage.Share("example", {
  *     name: "sharename",
- *     storageAccountName: exampleAccount.name,
+ *     storageAccountId: exampleAccount.id,
  *     quota: 50,
  * });
  * const exampleShareFile = new azure.storage.ShareFile("example", {
  *     name: "my-awesome-content.zip",
- *     storageShareId: exampleShare.id,
+ *     storageShareUrl: exampleShare.url,
  *     source: "some-local-file.zip",
  * });
  * ```
@@ -106,9 +106,13 @@ export class ShareFile extends pulumi.CustomResource {
      */
     declare public readonly source: pulumi.Output<string | undefined>;
     /**
-     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      */
     declare public readonly storageShareId: pulumi.Output<string>;
+    /**
+     * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+     */
+    declare public readonly storageShareUrl: pulumi.Output<string>;
 
     /**
      * Create a ShareFile resource with the given unique name, arguments, and options.
@@ -117,7 +121,7 @@ export class ShareFile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ShareFileArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ShareFileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareFileArgs | ShareFileState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -133,11 +137,9 @@ export class ShareFile extends pulumi.CustomResource {
             resourceInputs["path"] = state?.path;
             resourceInputs["source"] = state?.source;
             resourceInputs["storageShareId"] = state?.storageShareId;
+            resourceInputs["storageShareUrl"] = state?.storageShareUrl;
         } else {
             const args = argsOrState as ShareFileArgs | undefined;
-            if (args?.storageShareId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageShareId'");
-            }
             resourceInputs["contentDisposition"] = args?.contentDisposition;
             resourceInputs["contentEncoding"] = args?.contentEncoding;
             resourceInputs["contentMd5"] = args?.contentMd5;
@@ -147,6 +149,7 @@ export class ShareFile extends pulumi.CustomResource {
             resourceInputs["path"] = args?.path;
             resourceInputs["source"] = args?.source;
             resourceInputs["storageShareId"] = args?.storageShareId;
+            resourceInputs["storageShareUrl"] = args?.storageShareUrl;
             resourceInputs["contentLength"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -194,9 +197,13 @@ export interface ShareFileState {
      */
     source?: pulumi.Input<string>;
     /**
-     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      */
     storageShareId?: pulumi.Input<string>;
+    /**
+     * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+     */
+    storageShareUrl?: pulumi.Input<string>;
 }
 
 /**
@@ -235,7 +242,11 @@ export interface ShareFileArgs {
      */
     source?: pulumi.Input<string>;
     /**
-     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      */
-    storageShareId: pulumi.Input<string>;
+    storageShareId?: pulumi.Input<string>;
+    /**
+     * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+     */
+    storageShareUrl?: pulumi.Input<string>;
 }

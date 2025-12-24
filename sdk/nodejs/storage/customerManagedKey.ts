@@ -159,7 +159,7 @@ export class CustomerManagedKey extends pulumi.CustomResource {
      */
     declare public readonly keyVersion: pulumi.Output<string | undefined>;
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      */
     declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
     /**
@@ -236,7 +236,7 @@ export interface CustomerManagedKeyState {
      */
     keyVersion?: pulumi.Input<string>;
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      */
     managedHsmKeyId?: pulumi.Input<string>;
     /**
@@ -271,7 +271,7 @@ export interface CustomerManagedKeyArgs {
      */
     keyVersion?: pulumi.Input<string>;
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      */
     managedHsmKeyId?: pulumi.Input<string>;
     /**

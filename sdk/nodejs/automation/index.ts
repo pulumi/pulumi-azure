@@ -145,6 +145,11 @@ export type RunBook = import("./runBook").RunBook;
 export const RunBook: typeof import("./runBook").RunBook = null as any;
 utilities.lazyLoad(exports, ["RunBook"], () => require("./runBook"));
 
+export { RuntimeEnvironmentArgs, RuntimeEnvironmentState } from "./runtimeEnvironment";
+export type RuntimeEnvironment = import("./runtimeEnvironment").RuntimeEnvironment;
+export const RuntimeEnvironment: typeof import("./runtimeEnvironment").RuntimeEnvironment = null as any;
+utilities.lazyLoad(exports, ["RuntimeEnvironment"], () => require("./runtimeEnvironment"));
+
 export { ScheduleArgs, ScheduleState } from "./schedule";
 export type Schedule = import("./schedule").Schedule;
 export const Schedule: typeof import("./schedule").Schedule = null as any;
@@ -225,6 +230,8 @@ const _module = {
                 return new Python3Package(name, <any>undefined, { urn })
             case "azure:automation/runBook:RunBook":
                 return new RunBook(name, <any>undefined, { urn })
+            case "azure:automation/runtimeEnvironment:RuntimeEnvironment":
+                return new RuntimeEnvironment(name, <any>undefined, { urn })
             case "azure:automation/schedule:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
             case "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration":
@@ -264,6 +271,7 @@ pulumi.runtime.registerResourceModule("azure", "automation/module", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/powershell72Module", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/python3Package", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/runBook", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/runtimeEnvironment", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/schedule", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/softwareUpdateConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/sourceControl", _module)

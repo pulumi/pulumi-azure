@@ -124,7 +124,6 @@ namespace Pulumi.Azure.ContainerApp
 
         /// <summary>
         /// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-        /// *
         /// </summary>
         [Output("nfsServerUrl")]
         public Output<string?> NfsServerUrl { get; private set; } = null!;
@@ -227,7 +226,6 @@ namespace Pulumi.Azure.ContainerApp
 
         /// <summary>
         /// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-        /// *
         /// </summary>
         [Input("nfsServerUrl")]
         public Input<string>? NfsServerUrl { get; set; }
@@ -288,7 +286,6 @@ namespace Pulumi.Azure.ContainerApp
 
         /// <summary>
         /// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-        /// *
         /// </summary>
         [Input("nfsServerUrl")]
         public Input<string>? NfsServerUrl { get; set; }

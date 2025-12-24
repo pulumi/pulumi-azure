@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterIdentity {
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
@@ -31,7 +31,7 @@ public final class ClusterIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
@@ -40,7 +40,7 @@ public final class ClusterIdentity {
 
     private ClusterIdentity() {}
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
@@ -63,7 +63,7 @@ public final class ClusterIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 

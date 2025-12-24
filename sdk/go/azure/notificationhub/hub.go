@@ -82,7 +82,7 @@ type Hub struct {
 	//
 	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential HubApnsCredentialPtrOutput `pulumi:"apnsCredential"`
-	// A `browserCredential` block as defined below.
+	// A `browserCredential` block as defined below. Changing this forces a new resource to be created.
 	BrowserCredential HubBrowserCredentialPtrOutput `pulumi:"browserCredential"`
 	// A `gcmCredential` block as defined below.
 	//
@@ -140,7 +140,7 @@ type hubState struct {
 	//
 	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential *HubApnsCredential `pulumi:"apnsCredential"`
-	// A `browserCredential` block as defined below.
+	// A `browserCredential` block as defined below. Changing this forces a new resource to be created.
 	BrowserCredential *HubBrowserCredential `pulumi:"browserCredential"`
 	// A `gcmCredential` block as defined below.
 	//
@@ -163,7 +163,7 @@ type HubState struct {
 	//
 	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential HubApnsCredentialPtrInput
-	// A `browserCredential` block as defined below.
+	// A `browserCredential` block as defined below. Changing this forces a new resource to be created.
 	BrowserCredential HubBrowserCredentialPtrInput
 	// A `gcmCredential` block as defined below.
 	//
@@ -190,7 +190,7 @@ type hubArgs struct {
 	//
 	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential *HubApnsCredential `pulumi:"apnsCredential"`
-	// A `browserCredential` block as defined below.
+	// A `browserCredential` block as defined below. Changing this forces a new resource to be created.
 	BrowserCredential *HubBrowserCredential `pulumi:"browserCredential"`
 	// A `gcmCredential` block as defined below.
 	//
@@ -214,7 +214,7 @@ type HubArgs struct {
 	//
 	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential HubApnsCredentialPtrInput
-	// A `browserCredential` block as defined below.
+	// A `browserCredential` block as defined below. Changing this forces a new resource to be created.
 	BrowserCredential HubBrowserCredentialPtrInput
 	// A `gcmCredential` block as defined below.
 	//
@@ -326,7 +326,7 @@ func (o HubOutput) ApnsCredential() HubApnsCredentialPtrOutput {
 	return o.ApplyT(func(v *Hub) HubApnsCredentialPtrOutput { return v.ApnsCredential }).(HubApnsCredentialPtrOutput)
 }
 
-// A `browserCredential` block as defined below.
+// A `browserCredential` block as defined below. Changing this forces a new resource to be created.
 func (o HubOutput) BrowserCredential() HubBrowserCredentialPtrOutput {
 	return o.ApplyT(func(v *Hub) HubBrowserCredentialPtrOutput { return v.BrowserCredential }).(HubBrowserCredentialPtrOutput)
 }

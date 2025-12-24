@@ -113,7 +113,7 @@ type Secret struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	//
-	// * > **Note:** One of `value` or `valueWo` must be specified.
+	// > **Note:** One of `value` or `valueWo` must be specified.
 	ValueWo pulumi.StringPtrOutput `pulumi:"valueWo"`
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
@@ -190,7 +190,7 @@ type secretState struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	//
-	// * > **Note:** One of `value` or `valueWo` must be specified.
+	// > **Note:** One of `value` or `valueWo` must be specified.
 	ValueWo *string `pulumi:"valueWo"`
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
@@ -224,7 +224,7 @@ type SecretState struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	//
-	// * > **Note:** One of `value` or `valueWo` must be specified.
+	// > **Note:** One of `value` or `valueWo` must be specified.
 	ValueWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
@@ -258,7 +258,7 @@ type secretArgs struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	//
-	// * > **Note:** One of `value` or `valueWo` must be specified.
+	// > **Note:** One of `value` or `valueWo` must be specified.
 	ValueWo *string `pulumi:"valueWo"`
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
@@ -285,7 +285,7 @@ type SecretArgs struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 	//
-	// * > **Note:** One of `value` or `valueWo` must be specified.
+	// > **Note:** One of `value` or `valueWo` must be specified.
 	ValueWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
@@ -428,7 +428,7 @@ func (o SecretOutput) Value() pulumi.StringPtrOutput {
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 // Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 //
-// * > **Note:** One of `value` or `valueWo` must be specified.
+// > **Note:** One of `value` or `valueWo` must be specified.
 func (o SecretOutput) ValueWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.ValueWo }).(pulumi.StringPtrOutput)
 }

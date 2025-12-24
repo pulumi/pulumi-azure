@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsFunctionAppSlotSiteConfigApplicationStack
     {
         /// <summary>
-        /// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
+        /// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>
-        /// The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
+        /// The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>

@@ -25,7 +25,9 @@ class NetworkManagerStaticMemberArgs:
         """
         The set of arguments for constructing a NetworkManagerStaticMember resource.
         :param pulumi.Input[_builtins.str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
-        :param pulumi.Input[_builtins.str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        :param pulumi.Input[_builtins.str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+               
+               > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scope_accesses` and the Network Group has set `Subnet` as the `member_type` value.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         """
         pulumi.set(__self__, "network_group_id", network_group_id)
@@ -49,7 +51,9 @@ class NetworkManagerStaticMemberArgs:
     @pulumi.getter(name="targetVirtualNetworkId")
     def target_virtual_network_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+
+        > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scope_accesses` and the Network Group has set `Subnet` as the `member_type` value.
         """
         return pulumi.get(self, "target_virtual_network_id")
 
@@ -82,7 +86,9 @@ class _NetworkManagerStaticMemberState:
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[_builtins.str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[_builtins.str] region: The region of the Network Manager Static Member.
-        :param pulumi.Input[_builtins.str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        :param pulumi.Input[_builtins.str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+               
+               > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scope_accesses` and the Network Group has set `Subnet` as the `member_type` value.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -133,7 +139,9 @@ class _NetworkManagerStaticMemberState:
     @pulumi.getter(name="targetVirtualNetworkId")
     def target_virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+
+        > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scope_accesses` and the Network Group has set `Subnet` as the `member_type` value.
         """
         return pulumi.get(self, "target_virtual_network_id")
 
@@ -211,7 +219,9 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[_builtins.str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
-        :param pulumi.Input[_builtins.str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        :param pulumi.Input[_builtins.str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+               
+               > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scope_accesses` and the Network Group has set `Subnet` as the `member_type` value.
         """
         ...
     @overload
@@ -333,7 +343,9 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[_builtins.str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[_builtins.str] region: The region of the Network Manager Static Member.
-        :param pulumi.Input[_builtins.str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        :param pulumi.Input[_builtins.str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+               
+               > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scope_accesses` and the Network Group has set `Subnet` as the `member_type` value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -373,7 +385,9 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
     @pulumi.getter(name="targetVirtualNetworkId")
     def target_virtual_network_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+
+        > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scope_accesses` and the Network Group has set `Subnet` as the `member_type` value.
         """
         return pulumi.get(self, "target_virtual_network_id")
 

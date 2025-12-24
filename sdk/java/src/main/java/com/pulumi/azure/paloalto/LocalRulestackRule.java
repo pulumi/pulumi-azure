@@ -304,7 +304,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
         return this.priority;
     }
     /**
-     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
+     * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
      * 
      * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
      * 
@@ -313,7 +313,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> protocol;
 
     /**
-     * @return The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
+     * @return The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
      * 
      * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
      * 

@@ -134,7 +134,7 @@ type AttachedDatabaseConfiguration struct {
 
 	// The list of databases from the `clusterResourceId` which are currently attached to the cluster.
 	AttachedDatabaseNames pulumi.StringArrayOutput `pulumi:"attachedDatabaseNames"`
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	// The resource id of the cluster where the databases you would like to attach reside.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
@@ -195,7 +195,7 @@ func GetAttachedDatabaseConfiguration(ctx *pulumi.Context,
 type attachedDatabaseConfigurationState struct {
 	// The list of databases from the `clusterResourceId` which are currently attached to the cluster.
 	AttachedDatabaseNames []string `pulumi:"attachedDatabaseNames"`
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	// The resource id of the cluster where the databases you would like to attach reside.
 	ClusterId *string `pulumi:"clusterId"`
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName *string `pulumi:"clusterName"`
@@ -218,7 +218,7 @@ type attachedDatabaseConfigurationState struct {
 type AttachedDatabaseConfigurationState struct {
 	// The list of databases from the `clusterResourceId` which are currently attached to the cluster.
 	AttachedDatabaseNames pulumi.StringArrayInput
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	// The resource id of the cluster where the databases you would like to attach reside.
 	ClusterId pulumi.StringPtrInput
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringPtrInput
@@ -243,7 +243,7 @@ func (AttachedDatabaseConfigurationState) ElementType() reflect.Type {
 }
 
 type attachedDatabaseConfigurationArgs struct {
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	// The resource id of the cluster where the databases you would like to attach reside.
 	ClusterId *string `pulumi:"clusterId"`
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`
@@ -265,7 +265,7 @@ type attachedDatabaseConfigurationArgs struct {
 
 // The set of arguments for constructing a AttachedDatabaseConfiguration resource.
 type AttachedDatabaseConfigurationArgs struct {
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	// The resource id of the cluster where the databases you would like to attach reside.
 	ClusterId pulumi.StringPtrInput
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringInput
@@ -377,7 +377,7 @@ func (o AttachedDatabaseConfigurationOutput) AttachedDatabaseNames() pulumi.Stri
 	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringArrayOutput { return v.AttachedDatabaseNames }).(pulumi.StringArrayOutput)
 }
 
-// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+// The resource id of the cluster where the databases you would like to attach reside.
 func (o AttachedDatabaseConfigurationOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
 }

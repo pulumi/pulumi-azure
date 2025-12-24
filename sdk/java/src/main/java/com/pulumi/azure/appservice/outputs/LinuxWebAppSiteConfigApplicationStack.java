@@ -34,7 +34,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      */
     private @Nullable String dockerRegistryUsername;
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
      * 
      */
     private @Nullable String dotnetVersion;
@@ -121,7 +121,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.dockerRegistryUsername);
     }
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
      * 
      */
     public Optional<String> dotnetVersion() {

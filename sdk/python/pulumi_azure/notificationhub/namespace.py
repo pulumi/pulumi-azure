@@ -30,13 +30,13 @@ class NamespaceArgs:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Namespace resource.
-        :param pulumi.Input[_builtins.str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+        :param pulumi.Input[_builtins.str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
-        :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] replication_region: The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] replication_region: The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
         """
@@ -60,7 +60,7 @@ class NamespaceArgs:
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+        The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_type")
 
@@ -96,7 +96,7 @@ class NamespaceArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Is this Notification Hub Namespace enabled? Defaults to `true`.
+        Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enabled")
 
@@ -132,7 +132,7 @@ class NamespaceArgs:
     @pulumi.getter(name="replicationRegion")
     def replication_region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         """
         return pulumi.get(self, "replication_region")
 
@@ -180,11 +180,11 @@ class _NamespaceState:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
-        :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
-        :param pulumi.Input[_builtins.str] replication_region: The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] replication_region: The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] servicebus_endpoint: The ServiceBus Endpoint for this Notification Hub Namespace.
         :param pulumi.Input[_builtins.str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
@@ -216,7 +216,7 @@ class _NamespaceState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Is this Notification Hub Namespace enabled? Defaults to `true`.
+        Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enabled")
 
@@ -252,7 +252,7 @@ class _NamespaceState:
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+        The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_type")
 
@@ -264,7 +264,7 @@ class _NamespaceState:
     @pulumi.getter(name="replicationRegion")
     def replication_region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         """
         return pulumi.get(self, "replication_region")
 
@@ -386,11 +386,11 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
-        :param pulumi.Input[_builtins.str] replication_region: The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] replication_region: The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -513,11 +513,11 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
-        :param pulumi.Input[_builtins.str] replication_region: The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] replication_region: The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] servicebus_endpoint: The ServiceBus Endpoint for this Notification Hub Namespace.
         :param pulumi.Input[_builtins.str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
@@ -544,7 +544,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Is this Notification Hub Namespace enabled? Defaults to `true`.
+        Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enabled")
 
@@ -568,7 +568,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+        The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_type")
 
@@ -576,7 +576,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="replicationRegion")
     def replication_region(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         """
         return pulumi.get(self, "replication_region")
 

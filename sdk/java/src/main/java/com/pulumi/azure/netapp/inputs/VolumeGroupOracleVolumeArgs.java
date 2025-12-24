@@ -152,14 +152,14 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+     * Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
      * 
      */
     @Import(name="networkFeatures")
     private @Nullable Output<String> networkFeatures;
 
     /**
-     * @return Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+     * @return Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
      * 
      */
     public Optional<Output<String>> networkFeatures() {
@@ -325,14 +325,14 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="volumeSpecName", required=true)
     private Output<String> volumeSpecName;
 
     /**
-     * @return Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Output<String> volumeSpecName() {
@@ -591,7 +591,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param networkFeatures Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+         * @param networkFeatures Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
          * 
          * @return builder
          * 
@@ -602,7 +602,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param networkFeatures Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+         * @param networkFeatures Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
          * 
          * @return builder
          * 
@@ -830,7 +830,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param volumeSpecName Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param volumeSpecName Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -841,7 +841,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param volumeSpecName Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param volumeSpecName Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 

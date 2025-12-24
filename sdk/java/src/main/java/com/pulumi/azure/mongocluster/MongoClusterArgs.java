@@ -3,9 +3,13 @@
 
 package com.pulumi.azure.mongocluster;
 
+import com.pulumi.azure.mongocluster.inputs.MongoClusterCustomerManagedKeyArgs;
+import com.pulumi.azure.mongocluster.inputs.MongoClusterIdentityArgs;
+import com.pulumi.azure.mongocluster.inputs.MongoClusterRestoreArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -50,6 +54,21 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+     * 
+     */
+    @Import(name="authenticationMethods")
+    private @Nullable Output<List<String>> authenticationMethods;
+
+    /**
+     * @return A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+     * 
+     */
+    public Optional<Output<List<String>>> authenticationMethods() {
+        return Optional.ofNullable(this.authenticationMethods);
+    }
+
+    /**
      * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      * 
      */
@@ -65,18 +84,52 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+     * The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="createMode")
     private @Nullable Output<String> createMode;
 
     /**
-     * @return The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+     * @return The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> createMode() {
         return Optional.ofNullable(this.createMode);
+    }
+
+    /**
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="customerManagedKey")
+    private @Nullable Output<MongoClusterCustomerManagedKeyArgs> customerManagedKey;
+
+    /**
+     * @return A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<MongoClusterCustomerManagedKeyArgs>> customerManagedKey() {
+        return Optional.ofNullable(this.customerManagedKey);
+    }
+
+    /**
+     * Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+     * 
+     */
+    @Import(name="dataApiModeEnabled")
+    private @Nullable Output<Boolean> dataApiModeEnabled;
+
+    /**
+     * @return Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+     * 
+     */
+    public Optional<Output<Boolean>> dataApiModeEnabled() {
+        return Optional.ofNullable(this.dataApiModeEnabled);
     }
 
     /**
@@ -92,6 +145,25 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> highAvailabilityMode() {
         return Optional.ofNullable(this.highAvailabilityMode);
+    }
+
+    /**
+     * An `identity` block as detailed below.
+     * 
+     * &gt; **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<MongoClusterIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as detailed below.
+     * 
+     * &gt; **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+     * 
+     */
+    public Optional<Output<MongoClusterIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -169,6 +241,13 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
+    @Import(name="restore")
+    private @Nullable Output<MongoClusterRestoreArgs> restore;
+
+    public Optional<Output<MongoClusterRestoreArgs>> restore() {
+        return Optional.ofNullable(this.restore);
+    }
+
     /**
      * The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
      * 
@@ -230,6 +309,21 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="storageType")
+    private @Nullable Output<String> storageType;
+
+    /**
+     * @return The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> storageType() {
+        return Optional.ofNullable(this.storageType);
+    }
+
+    /**
      * A mapping of tags to assign to the MongoDB Cluster.
      * 
      */
@@ -264,18 +358,24 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
     private MongoClusterArgs(MongoClusterArgs $) {
         this.administratorPassword = $.administratorPassword;
         this.administratorUsername = $.administratorUsername;
+        this.authenticationMethods = $.authenticationMethods;
         this.computeTier = $.computeTier;
         this.createMode = $.createMode;
+        this.customerManagedKey = $.customerManagedKey;
+        this.dataApiModeEnabled = $.dataApiModeEnabled;
         this.highAvailabilityMode = $.highAvailabilityMode;
+        this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
         this.previewFeatures = $.previewFeatures;
         this.publicNetworkAccess = $.publicNetworkAccess;
         this.resourceGroupName = $.resourceGroupName;
+        this.restore = $.restore;
         this.shardCount = $.shardCount;
         this.sourceLocation = $.sourceLocation;
         this.sourceServerId = $.sourceServerId;
         this.storageSizeInGb = $.storageSizeInGb;
+        this.storageType = $.storageType;
         this.tags = $.tags;
         this.version = $.version;
     }
@@ -341,6 +441,37 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param authenticationMethods A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMethods(@Nullable Output<List<String>> authenticationMethods) {
+            $.authenticationMethods = authenticationMethods;
+            return this;
+        }
+
+        /**
+         * @param authenticationMethods A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMethods(List<String> authenticationMethods) {
+            return authenticationMethods(Output.of(authenticationMethods));
+        }
+
+        /**
+         * @param authenticationMethods A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMethods(String... authenticationMethods) {
+            return authenticationMethods(List.of(authenticationMethods));
+        }
+
+        /**
          * @param computeTier The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
          * 
          * @return builder
@@ -362,7 +493,7 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createMode The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+         * @param createMode The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -373,13 +504,59 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createMode The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+         * @param createMode The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
         public Builder createMode(String createMode) {
             return createMode(Output.of(createMode));
+        }
+
+        /**
+         * @param customerManagedKey A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKey(@Nullable Output<MongoClusterCustomerManagedKeyArgs> customerManagedKey) {
+            $.customerManagedKey = customerManagedKey;
+            return this;
+        }
+
+        /**
+         * @param customerManagedKey A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKey(MongoClusterCustomerManagedKeyArgs customerManagedKey) {
+            return customerManagedKey(Output.of(customerManagedKey));
+        }
+
+        /**
+         * @param dataApiModeEnabled Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataApiModeEnabled(@Nullable Output<Boolean> dataApiModeEnabled) {
+            $.dataApiModeEnabled = dataApiModeEnabled;
+            return this;
+        }
+
+        /**
+         * @param dataApiModeEnabled Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataApiModeEnabled(Boolean dataApiModeEnabled) {
+            return dataApiModeEnabled(Output.of(dataApiModeEnabled));
         }
 
         /**
@@ -401,6 +578,31 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder highAvailabilityMode(String highAvailabilityMode) {
             return highAvailabilityMode(Output.of(highAvailabilityMode));
+        }
+
+        /**
+         * @param identity An `identity` block as detailed below.
+         * 
+         * &gt; **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<MongoClusterIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as detailed below.
+         * 
+         * &gt; **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(MongoClusterIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**
@@ -518,6 +720,15 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        public Builder restore(@Nullable Output<MongoClusterRestoreArgs> restore) {
+            $.restore = restore;
+            return this;
+        }
+
+        public Builder restore(MongoClusterRestoreArgs restore) {
+            return restore(Output.of(restore));
+        }
+
         /**
          * @param shardCount The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
          * 
@@ -600,6 +811,27 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageSizeInGb(Integer storageSizeInGb) {
             return storageSizeInGb(Output.of(storageSizeInGb));
+        }
+
+        /**
+         * @param storageType The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(@Nullable Output<String> storageType) {
+            $.storageType = storageType;
+            return this;
+        }
+
+        /**
+         * @param storageType The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(String storageType) {
+            return storageType(Output.of(storageType));
         }
 
         /**

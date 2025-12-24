@@ -17,14 +17,14 @@ public final class NetworkConnectionState extends com.pulumi.resources.ResourceA
     public static final NetworkConnectionState Empty = new NetworkConnectionState();
 
     /**
-     * The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+     * The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="domainJoinType")
     private @Nullable Output<String> domainJoinType;
 
     /**
-     * @return The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+     * @return The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> domainJoinType() {
@@ -200,7 +200,7 @@ public final class NetworkConnectionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainJoinType The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+         * @param domainJoinType The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class NetworkConnectionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainJoinType The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+         * @param domainJoinType The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
