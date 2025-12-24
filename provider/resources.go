@@ -29,9 +29,9 @@ import (
 	_ "embed"
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/location"
 	"github.com/hashicorp/go-azure-sdk/sdk/auth"
 	"github.com/hashicorp/go-azure-sdk/sdk/environments"
-	"github.com/hashicorp/go-azure-helpers/resourcemanager/location"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-provider-azurerm/shim"
 
@@ -3314,7 +3314,6 @@ func Provider() tfbridge.ProviderInfo {
 
 			"azurerm_container_app_environment":             {Tok: azureDataSource(azureContainerApp, "getEnvironment")},
 			"azurerm_container_app_environment_certificate": {Tok: azureDataSource(azureContainerApp, "getEnvironmentCertificate")},
-
 
 			"azurerm_virtual_desktop_host_pool": {Tok: azureDataSource(azureDesktopVirtualization, "getHostPool")},
 
