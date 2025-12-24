@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class EventHubRetentionDescription
     {
         /// <summary>
-        /// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+        /// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string CleanupPolicy;
         /// <summary>

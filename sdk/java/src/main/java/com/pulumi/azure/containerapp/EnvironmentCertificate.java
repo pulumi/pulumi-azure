@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.containerapp.EnvironmentCertificateArgs;
 import com.pulumi.azure.containerapp.inputs.EnvironmentCertificateState;
+import com.pulumi.azure.containerapp.outputs.EnvironmentCertificateCertificateKeyVault;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -20,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a Container App Environment Certificate.
  * 
  * ## Example Usage
+ * 
+ * ### Certificate from .pfx file
  * 
  * <pre>
  * {@code
@@ -85,6 +88,135 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Certificate from Key Vault
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.containerapp.Environment;
+ * import com.pulumi.azure.containerapp.EnvironmentArgs;
+ * import com.pulumi.azure.containerapp.inputs.EnvironmentIdentityArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.keyvault.Certificate;
+ * import com.pulumi.azure.keyvault.CertificateArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
+ * import com.pulumi.azure.containerapp.EnvironmentCertificate;
+ * import com.pulumi.azure.containerapp.EnvironmentCertificateArgs;
+ * import com.pulumi.azure.containerapp.inputs.EnvironmentCertificateCertificateKeyVaultArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
+ *             .name("example-workspace")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("PerGB2018")
+ *             .retentionInDays(30)
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
+ *             .name("example-identity")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
+ *             .name("example-environment")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
+ *             .identity(EnvironmentIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
+ *             .name("example-keyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .tenantId(current.tenantId())
+ *             .skuName("standard")
+ *             .enableRbacAuthorization(true)
+ *             .build());
+ * 
+ *         var userKeyvaultAdmin = new Assignment("userKeyvaultAdmin", AssignmentArgs.builder()
+ *             .scope(exampleKeyVault.id())
+ *             .roleDefinitionName("Key Vault Administrator")
+ *             .principalId(current.objectId())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *             .scope(exampleKeyVault.id())
+ *             .roleDefinitionName("Key Vault Secrets User")
+ *             .principalId(exampleEnvironment.identity().applyValue(_identity -> _identity.principalId()))
+ *             .build());
+ * 
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
+ *             .name("example-certificate")
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .certificate(CertificateCertificateArgs.builder()
+ *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
+ *                     .input("path/to/certificate_file.pfx")
+ *                     .build()).result())
+ *                 .password("")
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     userKeyvaultAdmin,
+ *                     exampleAssignment)
+ *                 .build());
+ * 
+ *         var exampleEnvironmentCertificate = new EnvironmentCertificate("exampleEnvironmentCertificate", EnvironmentCertificateArgs.builder()
+ *             .name("example-certificate")
+ *             .containerAppEnvironmentId(exampleEnvironment.id())
+ *             .certificateKeyVault(EnvironmentCertificateCertificateKeyVaultArgs.builder()
+ *                 .identity(exampleUserAssignedIdentity.id())
+ *                 .keyVaultSecretId(exampleCertificate.versionlessSecretId())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -106,30 +238,56 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
     /**
      * The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
      */
     @Export(name="certificateBlobBase64", refs={String.class}, tree="[0]")
-    private Output<String> certificateBlobBase64;
+    private Output</* @Nullable */ String> certificateBlobBase64;
 
     /**
      * @return The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
      */
-    public Output<String> certificateBlobBase64() {
-        return this.certificateBlobBase64;
+    public Output<Optional<String>> certificateBlobBase64() {
+        return Codegen.optional(this.certificateBlobBase64);
+    }
+    /**
+     * A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
+     */
+    @Export(name="certificateKeyVault", refs={EnvironmentCertificateCertificateKeyVault.class}, tree="[0]")
+    private Output</* @Nullable */ EnvironmentCertificateCertificateKeyVault> certificateKeyVault;
+
+    /**
+     * @return A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
+     */
+    public Output<Optional<EnvironmentCertificateCertificateKeyVault>> certificateKeyVault() {
+        return Codegen.optional(this.certificateKeyVault);
     }
     /**
      * The password for the Certificate. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** required if `certificateBlobBase64` is specified.
+     * 
      */
     @Export(name="certificatePassword", refs={String.class}, tree="[0]")
-    private Output<String> certificatePassword;
+    private Output</* @Nullable */ String> certificatePassword;
 
     /**
      * @return The password for the Certificate. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** required if `certificateBlobBase64` is specified.
+     * 
      */
-    public Output<String> certificatePassword() {
-        return this.certificatePassword;
+    public Output<Optional<String>> certificatePassword() {
+        return Codegen.optional(this.certificatePassword);
     }
     /**
      * The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.

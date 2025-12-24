@@ -19,14 +19,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     public static final VolumeArgs Empty = new VolumeArgs();
 
     /**
-     * A `createSource` block as defined below.
+     * A `createSource` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="createSource")
     private @Nullable Output<VolumeCreateSourceArgs> createSource;
 
     /**
-     * @return A `createSource` block as defined below.
+     * @return A `createSource` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<VolumeCreateSourceArgs>> createSource() {
@@ -110,7 +110,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createSource A `createSource` block as defined below.
+         * @param createSource A `createSource` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createSource A `createSource` block as defined below.
+         * @param createSource A `createSource` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

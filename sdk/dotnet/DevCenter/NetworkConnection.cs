@@ -81,7 +81,7 @@ namespace Pulumi.Azure.DevCenter
     public partial class NetworkConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        /// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("domainJoinType")]
         public Output<string> DomainJoinType { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.DevCenter
     public sealed class NetworkConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        /// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("domainJoinType", required: true)]
         public Input<string> DomainJoinType { get; set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.DevCenter
     public sealed class NetworkConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        /// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("domainJoinType")]
         public Input<string>? DomainJoinType { get; set; }

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetSkuProfile {
     /**
-     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
      * 
      */
     private String allocationStrategy;
@@ -24,7 +24,7 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfile {
 
     private OrchestratedVirtualMachineScaleSetSkuProfile() {}
     /**
-     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
      * 
      */
     public String allocationStrategy() {

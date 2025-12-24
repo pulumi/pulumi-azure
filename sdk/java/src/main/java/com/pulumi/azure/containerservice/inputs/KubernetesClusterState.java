@@ -25,6 +25,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterMaintenanceWind
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterMicrosoftDefenderArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterMonitorMetricsArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodeProvisioningProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterOmsAgentArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterServiceMeshProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterServicePrincipalArgs;
@@ -758,6 +759,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A `nodeProvisioningProfile` block as defined below.
+     * 
+     */
+    @Import(name="nodeProvisioningProfile")
+    private @Nullable Output<KubernetesClusterNodeProvisioningProfileArgs> nodeProvisioningProfile;
+
+    /**
+     * @return A `nodeProvisioningProfile` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterNodeProvisioningProfileArgs>> nodeProvisioningProfile() {
+        return Optional.ofNullable(this.nodeProvisioningProfile);
+    }
+
+    /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -1341,6 +1357,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.name = $.name;
         this.networkProfile = $.networkProfile;
         this.nodeOsUpgradeChannel = $.nodeOsUpgradeChannel;
+        this.nodeProvisioningProfile = $.nodeProvisioningProfile;
         this.nodeResourceGroup = $.nodeResourceGroup;
         this.nodeResourceGroupId = $.nodeResourceGroupId;
         this.oidcIssuerEnabled = $.oidcIssuerEnabled;
@@ -2386,6 +2403,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder nodeOsUpgradeChannel(String nodeOsUpgradeChannel) {
             return nodeOsUpgradeChannel(Output.of(nodeOsUpgradeChannel));
+        }
+
+        /**
+         * @param nodeProvisioningProfile A `nodeProvisioningProfile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeProvisioningProfile(@Nullable Output<KubernetesClusterNodeProvisioningProfileArgs> nodeProvisioningProfile) {
+            $.nodeProvisioningProfile = nodeProvisioningProfile;
+            return this;
+        }
+
+        /**
+         * @param nodeProvisioningProfile A `nodeProvisioningProfile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeProvisioningProfile(KubernetesClusterNodeProvisioningProfileArgs nodeProvisioningProfile) {
+            return nodeProvisioningProfile(Output.of(nodeProvisioningProfile));
         }
 
         /**

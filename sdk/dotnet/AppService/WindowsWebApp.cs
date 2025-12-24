@@ -110,7 +110,7 @@ namespace Pulumi.Azure.AppService
         public Output<string?> ClientCertificateExclusionPaths { get; private set; } = null!;
 
         /// <summary>
-        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `ClientCertEnabled` is `False`. Defaults to `Required`.
+        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `ClientCertificateEnabled` is `False`. Defaults to `Required`.
         /// </summary>
         [Output("clientCertificateMode")]
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
@@ -400,7 +400,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ClientCertificateExclusionPaths { get; set; }
 
         /// <summary>
-        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `ClientCertEnabled` is `False`. Defaults to `Required`.
+        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `ClientCertificateEnabled` is `False`. Defaults to `Required`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
@@ -611,7 +611,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ClientCertificateExclusionPaths { get; set; }
 
         /// <summary>
-        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `ClientCertEnabled` is `False`. Defaults to `Required`.
+        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `ClientCertificateEnabled` is `False`. Defaults to `Required`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }

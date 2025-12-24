@@ -47,14 +47,14 @@ public final class ArcMachineIdentityArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+     * Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
      * 
      */
     public Output<String> type() {
@@ -130,7 +130,7 @@ public final class ArcMachineIdentityArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+         * @param type Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ArcMachineIdentityArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+         * @param type Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
          * 
          * @return builder
          * 

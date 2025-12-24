@@ -139,7 +139,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
-     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      *
      * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
@@ -268,7 +268,7 @@ export interface VirtualNetworkState {
      */
     guid?: pulumi.Input<string>;
     /**
-     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      *
      * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
@@ -340,7 +340,7 @@ export interface VirtualNetworkArgs {
      */
     flowTimeoutInMinutes?: pulumi.Input<number>;
     /**
-     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      *
      * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */

@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> CloudTieringEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        /// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("initialDownloadPolicy")]
         public Output<string?> InitialDownloadPolicy { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? CloudTieringEnabled { get; set; }
 
         /// <summary>
-        /// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        /// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("initialDownloadPolicy")]
         public Input<string>? InitialDownloadPolicy { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? CloudTieringEnabled { get; set; }
 
         /// <summary>
-        /// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+        /// Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("initialDownloadPolicy")]
         public Input<string>? InitialDownloadPolicy { get; set; }

@@ -127,7 +127,7 @@ export class Job extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly eventStreamEndpoint: pulumi.Output<string>;
     /**
-     * A `eventTriggerConfig` block as defined below.
+     * A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly eventTriggerConfig: pulumi.Output<outputs.containerapp.JobEventTriggerConfig | undefined>;
     /**
@@ -139,7 +139,7 @@ export class Job extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * A `manualTriggerConfig` block as defined below.
+     * A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly manualTriggerConfig: pulumi.Output<outputs.containerapp.JobManualTriggerConfig | undefined>;
     /**
@@ -167,7 +167,7 @@ export class Job extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * A `scheduleTriggerConfig` block as defined below.
+     * A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      */
@@ -271,7 +271,7 @@ export interface JobState {
      */
     eventStreamEndpoint?: pulumi.Input<string>;
     /**
-     * A `eventTriggerConfig` block as defined below.
+     * A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
     eventTriggerConfig?: pulumi.Input<inputs.containerapp.JobEventTriggerConfig>;
     /**
@@ -283,7 +283,7 @@ export interface JobState {
      */
     location?: pulumi.Input<string>;
     /**
-     * A `manualTriggerConfig` block as defined below.
+     * A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
     manualTriggerConfig?: pulumi.Input<inputs.containerapp.JobManualTriggerConfig>;
     /**
@@ -311,7 +311,7 @@ export interface JobState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `scheduleTriggerConfig` block as defined below.
+     * A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      */
@@ -343,7 +343,7 @@ export interface JobArgs {
      */
     containerAppEnvironmentId: pulumi.Input<string>;
     /**
-     * A `eventTriggerConfig` block as defined below.
+     * A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
     eventTriggerConfig?: pulumi.Input<inputs.containerapp.JobEventTriggerConfig>;
     /**
@@ -355,7 +355,7 @@ export interface JobArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * A `manualTriggerConfig` block as defined below.
+     * A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
     manualTriggerConfig?: pulumi.Input<inputs.containerapp.JobManualTriggerConfig>;
     /**
@@ -379,7 +379,7 @@ export interface JobArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `scheduleTriggerConfig` block as defined below.
+     * A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      */

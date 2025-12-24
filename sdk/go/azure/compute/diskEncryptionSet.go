@@ -312,7 +312,7 @@ type DiskEncryptionSet struct {
 	KeyVaultKeyUrl pulumi.StringOutput `pulumi:"keyVaultKeyUrl"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
 	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -376,7 +376,7 @@ type diskEncryptionSetState struct {
 	KeyVaultKeyUrl *string `pulumi:"keyVaultKeyUrl"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -405,7 +405,7 @@ type DiskEncryptionSetState struct {
 	KeyVaultKeyUrl pulumi.StringPtrInput
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -436,7 +436,7 @@ type diskEncryptionSetArgs struct {
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -464,7 +464,7 @@ type DiskEncryptionSetArgs struct {
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -600,7 +600,7 @@ func (o DiskEncryptionSetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
 func (o DiskEncryptionSetOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }

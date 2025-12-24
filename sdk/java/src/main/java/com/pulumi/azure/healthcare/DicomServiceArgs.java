@@ -127,14 +127,14 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storage` block as defined below.
+     * A `storage` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storage")
     private @Nullable Output<DicomServiceStorageArgs> storage;
 
     /**
-     * @return A `storage` block as defined below.
+     * @return A `storage` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<DicomServiceStorageArgs>> storage() {
@@ -352,7 +352,7 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storage A `storage` block as defined below.
+         * @param storage A `storage` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storage A `storage` block as defined below.
+         * @param storage A `storage` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

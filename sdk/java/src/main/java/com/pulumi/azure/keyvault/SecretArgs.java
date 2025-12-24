@@ -127,7 +127,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      * 
-     * * &gt; **Note:** One of `value` or `valueWo` must be specified.
+     * &gt; **Note:** One of `value` or `valueWo` must be specified.
      * 
      */
     @Import(name="valueWo")
@@ -137,7 +137,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      * 
-     * * &gt; **Note:** One of `value` or `valueWo` must be specified.
+     * &gt; **Note:** One of `value` or `valueWo` must be specified.
      * 
      */
     public Optional<Output<String>> valueWo() {
@@ -346,7 +346,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
          * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
          * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
          * 
-         * * &gt; **Note:** One of `value` or `valueWo` must be specified.
+         * &gt; **Note:** One of `value` or `valueWo` must be specified.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
          * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
          * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
          * 
-         * * &gt; **Note:** One of `value` or `valueWo` must be specified.
+         * &gt; **Note:** One of `value` or `valueWo` must be specified.
          * 
          * @return builder
          * 

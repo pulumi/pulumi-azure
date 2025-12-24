@@ -56,6 +56,21 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+     * 
+     */
+    @Import(name="cooldownPeriodInSeconds")
+    private @Nullable Output<Integer> cooldownPeriodInSeconds;
+
+    /**
+     * @return The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+     * 
+     */
+    public Optional<Output<Integer>> cooldownPeriodInSeconds() {
+        return Optional.ofNullable(this.cooldownPeriodInSeconds);
+    }
+
+    /**
      * One or more `customScaleRule` blocks as defined below.
      * 
      */
@@ -131,6 +146,21 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The interval in seconds used for polling KEDA. Defaults to `30`.
+     * 
+     */
+    @Import(name="pollingIntervalInSeconds")
+    private @Nullable Output<Integer> pollingIntervalInSeconds;
+
+    /**
+     * @return The interval in seconds used for polling KEDA. Defaults to `30`.
+     * 
+     */
+    public Optional<Output<Integer>> pollingIntervalInSeconds() {
+        return Optional.ofNullable(this.pollingIntervalInSeconds);
+    }
+
+    /**
      * The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
      * 
      */
@@ -195,11 +225,13 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     private AppTemplateArgs(AppTemplateArgs $) {
         this.azureQueueScaleRules = $.azureQueueScaleRules;
         this.containers = $.containers;
+        this.cooldownPeriodInSeconds = $.cooldownPeriodInSeconds;
         this.customScaleRules = $.customScaleRules;
         this.httpScaleRules = $.httpScaleRules;
         this.initContainers = $.initContainers;
         this.maxReplicas = $.maxReplicas;
         this.minReplicas = $.minReplicas;
+        this.pollingIntervalInSeconds = $.pollingIntervalInSeconds;
         this.revisionSuffix = $.revisionSuffix;
         this.tcpScaleRules = $.tcpScaleRules;
         this.terminationGracePeriodSeconds = $.terminationGracePeriodSeconds;
@@ -284,6 +316,27 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder containers(AppTemplateContainerArgs... containers) {
             return containers(List.of(containers));
+        }
+
+        /**
+         * @param cooldownPeriodInSeconds The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cooldownPeriodInSeconds(@Nullable Output<Integer> cooldownPeriodInSeconds) {
+            $.cooldownPeriodInSeconds = cooldownPeriodInSeconds;
+            return this;
+        }
+
+        /**
+         * @param cooldownPeriodInSeconds The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cooldownPeriodInSeconds(Integer cooldownPeriodInSeconds) {
+            return cooldownPeriodInSeconds(Output.of(cooldownPeriodInSeconds));
         }
 
         /**
@@ -419,6 +472,27 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder minReplicas(Integer minReplicas) {
             return minReplicas(Output.of(minReplicas));
+        }
+
+        /**
+         * @param pollingIntervalInSeconds The interval in seconds used for polling KEDA. Defaults to `30`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pollingIntervalInSeconds(@Nullable Output<Integer> pollingIntervalInSeconds) {
+            $.pollingIntervalInSeconds = pollingIntervalInSeconds;
+            return this;
+        }
+
+        /**
+         * @param pollingIntervalInSeconds The interval in seconds used for polling KEDA. Defaults to `30`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pollingIntervalInSeconds(Integer pollingIntervalInSeconds) {
+            return pollingIntervalInSeconds(Output.of(pollingIntervalInSeconds));
         }
 
         /**

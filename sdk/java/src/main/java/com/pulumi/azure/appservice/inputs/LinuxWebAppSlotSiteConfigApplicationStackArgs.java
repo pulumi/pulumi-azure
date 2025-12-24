@@ -80,14 +80,14 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     }
 
     /**
-     * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+     * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -144,7 +144,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     }
 
     /**
-     * The Version of Java to use. Possible values include `8`, `11`, and `17`.
+     * The Version of Java to use. Possible values are `8`, `11`, `17` and `21`.
      * 
      * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
@@ -153,7 +153,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
+     * @return The Version of Java to use. Possible values are `8`, `11`, `17` and `21`.
      * 
      * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
@@ -355,7 +355,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
+         * @param javaVersion The Version of Java to use. Possible values are `8`, `11`, `17` and `21`.
          * 
          * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          * 
@@ -456,7 +456,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
+         * @param javaVersion The Version of Java to use. Possible values are `8`, `11`, `17` and `21`.
          * 
          * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          * 

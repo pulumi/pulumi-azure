@@ -17,14 +17,14 @@ public final class BackupInstanceKubernetesClusterState extends com.pulumi.resou
     public static final BackupInstanceKubernetesClusterState Empty = new BackupInstanceKubernetesClusterState();
 
     /**
-     * A `backupDatasourceParameters` block as defined below.
+     * A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="backupDatasourceParameters")
     private @Nullable Output<BackupInstanceKubernetesClusterBackupDatasourceParametersArgs> backupDatasourceParameters;
 
     /**
-     * @return A `backupDatasourceParameters` block as defined below.
+     * @return A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<BackupInstanceKubernetesClusterBackupDatasourceParametersArgs>> backupDatasourceParameters() {
@@ -92,6 +92,21 @@ public final class BackupInstanceKubernetesClusterState extends com.pulumi.resou
     }
 
     /**
+     * The protection state of the Backup Instance Kubernetes Cluster.
+     * 
+     */
+    @Import(name="protectionState")
+    private @Nullable Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance Kubernetes Cluster.
+     * 
+     */
+    public Optional<Output<String>> protectionState() {
+        return Optional.ofNullable(this.protectionState);
+    }
+
+    /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
      * 
      */
@@ -129,6 +144,7 @@ public final class BackupInstanceKubernetesClusterState extends com.pulumi.resou
         this.kubernetesClusterId = $.kubernetesClusterId;
         this.location = $.location;
         this.name = $.name;
+        this.protectionState = $.protectionState;
         this.snapshotResourceGroupName = $.snapshotResourceGroupName;
         this.vaultId = $.vaultId;
     }
@@ -152,7 +168,7 @@ public final class BackupInstanceKubernetesClusterState extends com.pulumi.resou
         }
 
         /**
-         * @param backupDatasourceParameters A `backupDatasourceParameters` block as defined below.
+         * @param backupDatasourceParameters A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -163,7 +179,7 @@ public final class BackupInstanceKubernetesClusterState extends com.pulumi.resou
         }
 
         /**
-         * @param backupDatasourceParameters A `backupDatasourceParameters` block as defined below.
+         * @param backupDatasourceParameters A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -254,6 +270,27 @@ public final class BackupInstanceKubernetesClusterState extends com.pulumi.resou
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance Kubernetes Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(@Nullable Output<String> protectionState) {
+            $.protectionState = protectionState;
+            return this;
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance Kubernetes Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(String protectionState) {
+            return protectionState(Output.of(protectionState));
         }
 
         /**

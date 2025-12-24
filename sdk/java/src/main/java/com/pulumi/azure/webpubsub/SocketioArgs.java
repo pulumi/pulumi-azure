@@ -205,14 +205,14 @@ public final class SocketioArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+     * One or more `sku` blocks as defined below.
      * 
      */
     @Import(name="sku", required=true)
     private Output<SocketioSkuArgs> sku;
 
     /**
-     * @return The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+     * @return One or more `sku` blocks as defined below.
      * 
      */
     public Output<SocketioSkuArgs> sku() {
@@ -548,7 +548,7 @@ public final class SocketioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+         * @param sku One or more `sku` blocks as defined below.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class SocketioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+         * @param sku One or more `sku` blocks as defined below.
          * 
          * @return builder
          * 

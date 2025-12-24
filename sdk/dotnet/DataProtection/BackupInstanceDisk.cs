@@ -132,6 +132,12 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The protection state of the Backup Instance Disk.
+        /// </summary>
+        [Output("protectionState")]
+        public Output<string> ProtectionState { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
         /// </summary>
         [Output("snapshotResourceGroupName")]
@@ -268,6 +274,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The protection state of the Backup Instance Disk.
+        /// </summary>
+        [Input("protectionState")]
+        public Input<string>? ProtectionState { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.

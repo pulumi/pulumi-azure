@@ -18,7 +18,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplication {
      */
     private @Nullable String endpointType;
     /**
-     * @return Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Location of the primary volume.
      * 
      */
     private String remoteVolumeLocation;
@@ -42,7 +42,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplication {
         return Optional.ofNullable(this.endpointType);
     }
     /**
-     * @return Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Location of the primary volume.
      * 
      */
     public String remoteVolumeLocation() {

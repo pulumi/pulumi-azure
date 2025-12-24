@@ -18,7 +18,7 @@ public final class BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria {
      */
     private @Nullable String absoluteCriteria;
     /**
-     * @return Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+     * @return Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> daysOfWeeks;
@@ -49,7 +49,7 @@ public final class BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria {
         return Optional.ofNullable(this.absoluteCriteria);
     }
     /**
-     * @return Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+     * @return Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
      * 
      */
     public List<String> daysOfWeeks() {

@@ -86,8 +86,6 @@ namespace Pulumi.Azure.Billing
     {
         /// <summary>
         /// Is the cost management export active? Default is `True`.
-        /// 
-        /// * * `FileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
@@ -110,6 +108,9 @@ namespace Pulumi.Azure.Billing
         [Output("exportDataStorageLocation")]
         public Output<Outputs.AccountCostManagementExportExportDataStorageLocation> ExportDataStorageLocation { get; private set; } = null!;
 
+        /// <summary>
+        /// Format for export. Valid values are `Csv` only. Default is `Csv`.
+        /// </summary>
         [Output("fileFormat")]
         public Output<string?> FileFormat { get; private set; } = null!;
 
@@ -185,8 +186,6 @@ namespace Pulumi.Azure.Billing
     {
         /// <summary>
         /// Is the cost management export active? Default is `True`.
-        /// 
-        /// * * `FileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -209,6 +208,9 @@ namespace Pulumi.Azure.Billing
         [Input("exportDataStorageLocation", required: true)]
         public Input<Inputs.AccountCostManagementExportExportDataStorageLocationArgs> ExportDataStorageLocation { get; set; } = null!;
 
+        /// <summary>
+        /// Format for export. Valid values are `Csv` only. Default is `Csv`.
+        /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }
 
@@ -246,8 +248,6 @@ namespace Pulumi.Azure.Billing
     {
         /// <summary>
         /// Is the cost management export active? Default is `True`.
-        /// 
-        /// * * `FileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -270,6 +270,9 @@ namespace Pulumi.Azure.Billing
         [Input("exportDataStorageLocation")]
         public Input<Inputs.AccountCostManagementExportExportDataStorageLocationGetArgs>? ExportDataStorageLocation { get; set; }
 
+        /// <summary>
+        /// Format for export. Valid values are `Csv` only. Default is `Csv`.
+        /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }
 

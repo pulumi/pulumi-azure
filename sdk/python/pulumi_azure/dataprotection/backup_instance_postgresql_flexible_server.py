@@ -107,6 +107,7 @@ class _BackupInstancePostgresqlFlexibleServerState:
                  backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
                  server_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -114,6 +115,7 @@ class _BackupInstancePostgresqlFlexibleServerState:
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] location: The location of the source database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance PostgreSQL Flexible Server.
         :param pulumi.Input[_builtins.str] server_id: The ID of the source server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
         """
@@ -123,6 +125,8 @@ class _BackupInstancePostgresqlFlexibleServerState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
         if vault_id is not None:
@@ -163,6 +167,18 @@ class _BackupInstancePostgresqlFlexibleServerState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The protection state of the Backup Instance PostgreSQL Flexible Server.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "protection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
@@ -413,6 +429,7 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             if vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_id'")
             __props__.__dict__["vault_id"] = vault_id
+            __props__.__dict__["protection_state"] = None
         super(BackupInstancePostgresqlFlexibleServer, __self__).__init__(
             'azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer',
             resource_name,
@@ -426,6 +443,7 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            protection_state: Optional[pulumi.Input[_builtins.str]] = None,
             server_id: Optional[pulumi.Input[_builtins.str]] = None,
             vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupInstancePostgresqlFlexibleServer':
         """
@@ -438,6 +456,7 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] location: The location of the source database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance PostgreSQL Flexible Server.
         :param pulumi.Input[_builtins.str] server_id: The ID of the source server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
         """
@@ -448,6 +467,7 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
         __props__.__dict__["backup_policy_id"] = backup_policy_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["protection_state"] = protection_state
         __props__.__dict__["server_id"] = server_id
         __props__.__dict__["vault_id"] = vault_id
         return BackupInstancePostgresqlFlexibleServer(resource_name, opts=opts, __props__=__props__)
@@ -475,6 +495,14 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
         Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The protection state of the Backup Instance PostgreSQL Flexible Server.
+        """
+        return pulumi.get(self, "protection_state")
 
     @_builtins.property
     @pulumi.getter(name="serverId")

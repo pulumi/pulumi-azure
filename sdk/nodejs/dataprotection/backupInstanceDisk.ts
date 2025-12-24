@@ -121,6 +121,10 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The protection state of the Backup Instance Disk.
+     */
+    declare public /*out*/ readonly protectionState: pulumi.Output<string>;
+    /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
      */
     declare public readonly snapshotResourceGroupName: pulumi.Output<string>;
@@ -150,6 +154,7 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
             resourceInputs["diskId"] = state?.diskId;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
+            resourceInputs["protectionState"] = state?.protectionState;
             resourceInputs["snapshotResourceGroupName"] = state?.snapshotResourceGroupName;
             resourceInputs["snapshotSubscriptionId"] = state?.snapshotSubscriptionId;
             resourceInputs["vaultId"] = state?.vaultId;
@@ -174,6 +179,7 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
             resourceInputs["snapshotResourceGroupName"] = args?.snapshotResourceGroupName;
             resourceInputs["snapshotSubscriptionId"] = args?.snapshotSubscriptionId;
             resourceInputs["vaultId"] = args?.vaultId;
+            resourceInputs["protectionState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstanceDisk.__pulumiType, name, resourceInputs, opts);
@@ -200,6 +206,10 @@ export interface BackupInstanceDiskState {
      * The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The protection state of the Backup Instance Disk.
+     */
+    protectionState?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
      */

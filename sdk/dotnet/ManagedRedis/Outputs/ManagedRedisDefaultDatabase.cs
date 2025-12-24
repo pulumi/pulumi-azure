@@ -22,7 +22,9 @@ namespace Pulumi.Azure.ManagedRedis.Outputs
         /// </summary>
         public readonly string? ClientProtocol;
         /// <summary>
-        /// Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        /// Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+        /// 
+        /// !&gt; **Note:** Changing `ClusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         /// </summary>
         public readonly string? ClusteringPolicy;
         /// <summary>
@@ -30,13 +32,27 @@ namespace Pulumi.Azure.ManagedRedis.Outputs
         /// </summary>
         public readonly string? EvictionPolicy;
         /// <summary>
-        /// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `AzurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+        /// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `AzurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+        /// 
+        /// !&gt; **Note:** Changing `GeoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         /// </summary>
         public readonly string? GeoReplicationGroupName;
+        /// <summary>
+        /// The ID of the Managed Redis Database Instance.
+        /// </summary>
+        public readonly string? Id;
         /// <summary>
         /// A `Module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedRedisDefaultDatabaseModule> Modules;
+        /// <summary>
+        /// The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `PersistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `GeoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+        /// </summary>
+        public readonly string? PersistenceAppendOnlyFileBackupFrequency;
+        /// <summary>
+        /// The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `PersistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `GeoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+        /// </summary>
+        public readonly string? PersistenceRedisDatabaseBackupFrequency;
         /// <summary>
         /// TCP port of the database endpoint.
         /// </summary>
@@ -62,7 +78,13 @@ namespace Pulumi.Azure.ManagedRedis.Outputs
 
             string? geoReplicationGroupName,
 
+            string? id,
+
             ImmutableArray<Outputs.ManagedRedisDefaultDatabaseModule> modules,
+
+            string? persistenceAppendOnlyFileBackupFrequency,
+
+            string? persistenceRedisDatabaseBackupFrequency,
 
             int? port,
 
@@ -75,7 +97,10 @@ namespace Pulumi.Azure.ManagedRedis.Outputs
             ClusteringPolicy = clusteringPolicy;
             EvictionPolicy = evictionPolicy;
             GeoReplicationGroupName = geoReplicationGroupName;
+            Id = id;
             Modules = modules;
+            PersistenceAppendOnlyFileBackupFrequency = persistenceAppendOnlyFileBackupFrequency;
+            PersistenceRedisDatabaseBackupFrequency = persistenceRedisDatabaseBackupFrequency;
             Port = port;
             PrimaryAccessKey = primaryAccessKey;
             SecondaryAccessKey = secondaryAccessKey;

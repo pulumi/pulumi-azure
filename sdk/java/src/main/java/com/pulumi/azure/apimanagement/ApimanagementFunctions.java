@@ -22,6 +22,8 @@ import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
 import com.pulumi.azure.apimanagement.inputs.GetSubscriptionPlainArgs;
 import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
 import com.pulumi.azure.apimanagement.inputs.GetUserPlainArgs;
+import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
+import com.pulumi.azure.apimanagement.inputs.GetWorkspacePlainArgs;
 import com.pulumi.azure.apimanagement.outputs.GetApiResult;
 import com.pulumi.azure.apimanagement.outputs.GetApiVersionSetResult;
 import com.pulumi.azure.apimanagement.outputs.GetGatewayHostNameConfigurationResult;
@@ -31,6 +33,7 @@ import com.pulumi.azure.apimanagement.outputs.GetProductResult;
 import com.pulumi.azure.apimanagement.outputs.GetServiceResult;
 import com.pulumi.azure.apimanagement.outputs.GetSubscriptionResult;
 import com.pulumi.azure.apimanagement.outputs.GetUserResult;
+import com.pulumi.azure.apimanagement.outputs.GetWorkspaceResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -2363,5 +2366,340 @@ public final class ApimanagementFunctions {
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:apimanagement/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Management Workspace.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.apimanagement.Service;
+     * import com.pulumi.azure.apimanagement.ServiceArgs;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-resources")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+     *             .name("example-apimanagement")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .publisherName("pub1")
+     *             .publisherEmail("pub1}{@literal @}{@code email.com")
+     *             .skuName("Premium_1")
+     *             .build());
+     * 
+     *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *             .name("existing")
+     *             .apiManagementId(exampleService.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2024-05-01
+     * 
+     */
+    public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
+        return getWorkspace(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing API Management Workspace.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.apimanagement.Service;
+     * import com.pulumi.azure.apimanagement.ServiceArgs;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-resources")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+     *             .name("example-apimanagement")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .publisherName("pub1")
+     *             .publisherEmail("pub1}{@literal @}{@code email.com")
+     *             .skuName("Premium_1")
+     *             .build());
+     * 
+     *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *             .name("existing")
+     *             .apiManagementId(exampleService.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2024-05-01
+     * 
+     */
+    public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
+        return getWorkspacePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing API Management Workspace.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.apimanagement.Service;
+     * import com.pulumi.azure.apimanagement.ServiceArgs;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-resources")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+     *             .name("example-apimanagement")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .publisherName("pub1")
+     *             .publisherEmail("pub1}{@literal @}{@code email.com")
+     *             .skuName("Premium_1")
+     *             .build());
+     * 
+     *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *             .name("existing")
+     *             .apiManagementId(exampleService.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2024-05-01
+     * 
+     */
+    public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:apimanagement/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Management Workspace.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.apimanagement.Service;
+     * import com.pulumi.azure.apimanagement.ServiceArgs;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-resources")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+     *             .name("example-apimanagement")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .publisherName("pub1")
+     *             .publisherEmail("pub1}{@literal @}{@code email.com")
+     *             .skuName("Premium_1")
+     *             .build());
+     * 
+     *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *             .name("existing")
+     *             .apiManagementId(exampleService.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2024-05-01
+     * 
+     */
+    public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:apimanagement/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Management Workspace.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.apimanagement.Service;
+     * import com.pulumi.azure.apimanagement.ServiceArgs;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-resources")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+     *             .name("example-apimanagement")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .publisherName("pub1")
+     *             .publisherEmail("pub1}{@literal @}{@code email.com")
+     *             .skuName("Premium_1")
+     *             .build());
+     * 
+     *         final var example = ApimanagementFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *             .name("existing")
+     *             .apiManagementId(exampleService.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement` - 2024-05-01
+     * 
+     */
+    public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:apimanagement/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
     }
 }

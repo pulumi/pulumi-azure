@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Nginx.Inputs
 
     public sealed class DeploymentWebApplicationFirewallStatusBotSignaturesPackageGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The revision date and time of the threat campaigns package.
+        /// </summary>
         [Input("revisionDatetime")]
         public Input<string>? RevisionDatetime { get; set; }
 
+        /// <summary>
+        /// The version of the threat campaigns package.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

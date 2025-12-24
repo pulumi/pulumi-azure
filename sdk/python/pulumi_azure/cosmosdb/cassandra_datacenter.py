@@ -44,7 +44,7 @@ class CassandraDatacenterArgs:
         :param pulumi.Input[_builtins.str] managed_disk_customer_key_uri: The key URI of the customer key to use for the encryption of the Managed Disk.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
-        :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku.
+        :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
                
                > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
@@ -207,7 +207,7 @@ class CassandraDatacenterArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Determines the selected sku.
+        Determines the selected sku. Defaults to `Standard_E16s_v5`.
 
         > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
@@ -248,7 +248,7 @@ class _CassandraDatacenterState:
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
-        :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku.
+        :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
                
                > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
@@ -427,7 +427,7 @@ class _CassandraDatacenterState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Determines the selected sku.
+        Determines the selected sku. Defaults to `Standard_E16s_v5`.
 
         > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
@@ -483,7 +483,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] managed_disk_customer_key_uri: The key URI of the customer key to use for the encryption of the Managed Disk.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
-        :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku.
+        :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
                
                > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
@@ -601,7 +601,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
-        :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku.
+        :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
                
                > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
@@ -724,7 +724,7 @@ class CassandraDatacenter(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Determines the selected sku.
+        Determines the selected sku. Defaults to `Standard_E16s_v5`.
 
         > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """

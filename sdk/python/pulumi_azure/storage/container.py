@@ -35,10 +35,10 @@ class ContainerArgs:
         :param pulumi.Input[_builtins.bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[_builtins.str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Container should be created.
                
                > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
-        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
@@ -126,7 +126,7 @@ class ContainerArgs:
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        The name of the Storage Account where the Container should be created.
 
         > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         """
@@ -141,7 +141,7 @@ class ContainerArgs:
     @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
     def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
 
         > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
@@ -177,10 +177,10 @@ class _ContainerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[_builtins.str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this Storage Container.
-        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Container should be created.
                
                > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
-        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
@@ -314,7 +314,7 @@ class _ContainerState:
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        The name of the Storage Account where the Container should be created.
 
         > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         """
@@ -329,7 +329,7 @@ class _ContainerState:
     @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
     def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
 
         > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
@@ -405,10 +405,10 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[_builtins.str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Container should be created.
                
                > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
-        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
@@ -538,10 +538,10 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[_builtins.str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this Storage Container.
-        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Container should be created.
                
                > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
-        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
@@ -632,7 +632,7 @@ class Container(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        The name of the Storage Account where the Container should be created.
 
         > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         """
@@ -643,7 +643,7 @@ class Container(pulumi.CustomResource):
     @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
     def storage_account_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
 
         > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """

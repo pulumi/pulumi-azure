@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Nginx.Inputs
 
     public sealed class DeploymentWebApplicationFirewallStatusComponentVersionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The version of the WAF Engine.
+        /// </summary>
         [Input("wafEngineVersion")]
         public Input<string>? WafEngineVersion { get; set; }
 
+        /// <summary>
+        /// The version of the WAF Nginx module.
+        /// </summary>
         [Input("wafNginxVersion")]
         public Input<string>? WafNginxVersion { get; set; }
 

@@ -49,7 +49,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      */
     private @Nullable String dotnetCoreVersion;
     /**
-     * @return The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
+     * @return The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
      * 
      * &gt; **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
      * Portal Value | API value
@@ -60,6 +60,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      * .NET 7 (STS) | v7.0
      * .NET 8 (LTS) | v8.0
      * .NET 9 (STS) | v9.0
+     * .NET 10 (LTS) | v10.0
      * 
      */
     private @Nullable String dotnetVersion;
@@ -166,7 +167,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.dotnetCoreVersion);
     }
     /**
-     * @return The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
+     * @return The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
      * 
      * &gt; **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
      * Portal Value | API value
@@ -177,6 +178,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      * .NET 7 (STS) | v7.0
      * .NET 8 (LTS) | v8.0
      * .NET 9 (STS) | v9.0
+     * .NET 10 (LTS) | v10.0
      * 
      */
     public Optional<String> dotnetVersion() {

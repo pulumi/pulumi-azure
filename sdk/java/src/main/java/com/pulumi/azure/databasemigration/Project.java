@@ -168,14 +168,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.serviceName;
     }
     /**
-     * The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+     * The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourcePlatform", refs={String.class}, tree="[0]")
     private Output<String> sourcePlatform;
 
     /**
-     * @return The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+     * @return The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourcePlatform() {
@@ -196,14 +196,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+     * The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="targetPlatform", refs={String.class}, tree="[0]")
     private Output<String> targetPlatform;
 
     /**
-     * @return The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+     * @return The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetPlatform() {

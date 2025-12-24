@@ -32,14 +32,14 @@ public final class WorkspaceNetworkOutboundRuleServiceTagArgs extends com.pulumi
     }
 
     /**
-     * Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+     * Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
      * 
      */
     @Import(name="portRanges", required=true)
     private Output<String> portRanges;
 
     /**
-     * @return Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+     * @return Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
      * 
      */
     public Output<String> portRanges() {
@@ -141,7 +141,7 @@ public final class WorkspaceNetworkOutboundRuleServiceTagArgs extends com.pulumi
         }
 
         /**
-         * @param portRanges Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+         * @param portRanges Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class WorkspaceNetworkOutboundRuleServiceTagArgs extends com.pulumi
         }
 
         /**
-         * @param portRanges Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+         * @param portRanges Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
          * 
          * @return builder
          * 

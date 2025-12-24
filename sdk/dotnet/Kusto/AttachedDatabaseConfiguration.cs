@@ -133,7 +133,7 @@ namespace Pulumi.Azure.Kusto
         public Output<ImmutableArray<string>> AttachedDatabaseNames { get; private set; } = null!;
 
         /// <summary>
-        /// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        /// The resource id of the cluster where the databases you would like to attach reside.
         /// </summary>
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Kusto
     public sealed class AttachedDatabaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        /// The resource id of the cluster where the databases you would like to attach reside.
         /// </summary>
         [Input("clusterId")]
         public Input<string>? ClusterId { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Kusto
         }
 
         /// <summary>
-        /// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        /// The resource id of the cluster where the databases you would like to attach reside.
         /// </summary>
         [Input("clusterId")]
         public Input<string>? ClusterId { get; set; }

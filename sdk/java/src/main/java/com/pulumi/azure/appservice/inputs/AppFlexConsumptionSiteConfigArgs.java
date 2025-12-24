@@ -447,14 +447,14 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
+     * Should the Linux Web App Linux Function App use a 32-bit worker. Defaults to `false`.
      * 
      */
     @Import(name="use32BitWorker")
     private @Nullable Output<Boolean> use32BitWorker;
 
     /**
-     * @return Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
+     * @return Should the Linux Web App Linux Function App use a 32-bit worker. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorker() {
@@ -1184,7 +1184,7 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
+         * @param use32BitWorker Should the Linux Web App Linux Function App use a 32-bit worker. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1195,7 +1195,7 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
+         * @param use32BitWorker Should the Linux Web App Linux Function App use a 32-bit worker. Defaults to `false`.
          * 
          * @return builder
          * 

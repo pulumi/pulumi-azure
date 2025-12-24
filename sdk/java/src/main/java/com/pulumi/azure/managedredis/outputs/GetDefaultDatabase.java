@@ -45,10 +45,25 @@ public final class GetDefaultDatabase {
      */
     private List<String> geoReplicationLinkedDatabaseIds;
     /**
+     * @return The ID of the Managed Redis Database Instance.
+     * 
+     */
+    private String id;
+    /**
      * @return A list of `module` blocks as defined below.
      * 
      */
     private List<GetDefaultDatabaseModule> modules;
+    /**
+     * @return The frequency of Append Only File (AOF) backups.
+     * 
+     */
+    private String persistenceAppendOnlyFileBackupFrequency;
+    /**
+     * @return The frequency of Redis Database (RDB) backups.
+     * 
+     */
+    private String persistenceRedisDatabaseBackupFrequency;
     /**
      * @return The TCP port of the database endpoint.
      * 
@@ -109,11 +124,32 @@ public final class GetDefaultDatabase {
         return this.geoReplicationLinkedDatabaseIds;
     }
     /**
+     * @return The ID of the Managed Redis Database Instance.
+     * 
+     */
+    public String id() {
+        return this.id;
+    }
+    /**
      * @return A list of `module` blocks as defined below.
      * 
      */
     public List<GetDefaultDatabaseModule> modules() {
         return this.modules;
+    }
+    /**
+     * @return The frequency of Append Only File (AOF) backups.
+     * 
+     */
+    public String persistenceAppendOnlyFileBackupFrequency() {
+        return this.persistenceAppendOnlyFileBackupFrequency;
+    }
+    /**
+     * @return The frequency of Redis Database (RDB) backups.
+     * 
+     */
+    public String persistenceRedisDatabaseBackupFrequency() {
+        return this.persistenceRedisDatabaseBackupFrequency;
     }
     /**
      * @return The TCP port of the database endpoint.
@@ -152,7 +188,10 @@ public final class GetDefaultDatabase {
         private String evictionPolicy;
         private String geoReplicationGroupName;
         private List<String> geoReplicationLinkedDatabaseIds;
+        private String id;
         private List<GetDefaultDatabaseModule> modules;
+        private String persistenceAppendOnlyFileBackupFrequency;
+        private String persistenceRedisDatabaseBackupFrequency;
         private Integer port;
         private String primaryAccessKey;
         private String secondaryAccessKey;
@@ -165,7 +204,10 @@ public final class GetDefaultDatabase {
     	      this.evictionPolicy = defaults.evictionPolicy;
     	      this.geoReplicationGroupName = defaults.geoReplicationGroupName;
     	      this.geoReplicationLinkedDatabaseIds = defaults.geoReplicationLinkedDatabaseIds;
+    	      this.id = defaults.id;
     	      this.modules = defaults.modules;
+    	      this.persistenceAppendOnlyFileBackupFrequency = defaults.persistenceAppendOnlyFileBackupFrequency;
+    	      this.persistenceRedisDatabaseBackupFrequency = defaults.persistenceRedisDatabaseBackupFrequency;
     	      this.port = defaults.port;
     	      this.primaryAccessKey = defaults.primaryAccessKey;
     	      this.secondaryAccessKey = defaults.secondaryAccessKey;
@@ -223,6 +265,14 @@ public final class GetDefaultDatabase {
             return geoReplicationLinkedDatabaseIds(List.of(geoReplicationLinkedDatabaseIds));
         }
         @CustomType.Setter
+        public Builder id(String id) {
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDefaultDatabase", "id");
+            }
+            this.id = id;
+            return this;
+        }
+        @CustomType.Setter
         public Builder modules(List<GetDefaultDatabaseModule> modules) {
             if (modules == null) {
               throw new MissingRequiredPropertyException("GetDefaultDatabase", "modules");
@@ -232,6 +282,22 @@ public final class GetDefaultDatabase {
         }
         public Builder modules(GetDefaultDatabaseModule... modules) {
             return modules(List.of(modules));
+        }
+        @CustomType.Setter
+        public Builder persistenceAppendOnlyFileBackupFrequency(String persistenceAppendOnlyFileBackupFrequency) {
+            if (persistenceAppendOnlyFileBackupFrequency == null) {
+              throw new MissingRequiredPropertyException("GetDefaultDatabase", "persistenceAppendOnlyFileBackupFrequency");
+            }
+            this.persistenceAppendOnlyFileBackupFrequency = persistenceAppendOnlyFileBackupFrequency;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder persistenceRedisDatabaseBackupFrequency(String persistenceRedisDatabaseBackupFrequency) {
+            if (persistenceRedisDatabaseBackupFrequency == null) {
+              throw new MissingRequiredPropertyException("GetDefaultDatabase", "persistenceRedisDatabaseBackupFrequency");
+            }
+            this.persistenceRedisDatabaseBackupFrequency = persistenceRedisDatabaseBackupFrequency;
+            return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
@@ -265,7 +331,10 @@ public final class GetDefaultDatabase {
             _resultValue.evictionPolicy = evictionPolicy;
             _resultValue.geoReplicationGroupName = geoReplicationGroupName;
             _resultValue.geoReplicationLinkedDatabaseIds = geoReplicationLinkedDatabaseIds;
+            _resultValue.id = id;
             _resultValue.modules = modules;
+            _resultValue.persistenceAppendOnlyFileBackupFrequency = persistenceAppendOnlyFileBackupFrequency;
+            _resultValue.persistenceRedisDatabaseBackupFrequency = persistenceRedisDatabaseBackupFrequency;
             _resultValue.port = port;
             _resultValue.primaryAccessKey = primaryAccessKey;
             _resultValue.secondaryAccessKey = secondaryAccessKey;

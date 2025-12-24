@@ -26,8 +26,6 @@ namespace Pulumi.Azure.Pim.Inputs
 
         /// <summary>
         /// A `NotificationTarget` block as defined below to configure notification on eligible role assignments.
-        /// 
-        /// At least one `NotificationTarget` block must be provided.
         /// </summary>
         [Input("eligibleAssignments")]
         public Input<Inputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsGetArgs>? EligibleAssignments { get; set; }

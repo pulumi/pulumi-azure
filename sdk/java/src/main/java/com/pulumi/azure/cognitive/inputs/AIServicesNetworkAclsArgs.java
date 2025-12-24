@@ -20,7 +20,6 @@ public final class AIServicesNetworkAclsArgs extends com.pulumi.resources.Resour
 
     /**
      * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-     * *
      * 
      */
     @Import(name="bypass")
@@ -28,7 +27,6 @@ public final class AIServicesNetworkAclsArgs extends com.pulumi.resources.Resour
 
     /**
      * @return Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-     * *
      * 
      */
     public Optional<Output<String>> bypass() {
@@ -109,7 +107,6 @@ public final class AIServicesNetworkAclsArgs extends com.pulumi.resources.Resour
 
         /**
          * @param bypass Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-         * *
          * 
          * @return builder
          * 
@@ -121,7 +118,6 @@ public final class AIServicesNetworkAclsArgs extends com.pulumi.resources.Resour
 
         /**
          * @param bypass Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-         * *
          * 
          * @return builder
          * 

@@ -48,14 +48,14 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+     * Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="preconfiguredNetworkSecurityGroupEnabled")
     private @Nullable Output<Boolean> preconfiguredNetworkSecurityGroupEnabled;
 
     /**
-     * @return Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+     * @return Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> preconfiguredNetworkSecurityGroupEnabled() {
@@ -147,7 +147,7 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param preconfiguredNetworkSecurityGroupEnabled Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+         * @param preconfiguredNetworkSecurityGroupEnabled Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param preconfiguredNetworkSecurityGroupEnabled Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+         * @param preconfiguredNetworkSecurityGroupEnabled Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

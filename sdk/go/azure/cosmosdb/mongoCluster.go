@@ -135,14 +135,26 @@ type MongoCluster struct {
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername pulumi.StringPtrOutput `pulumi:"administratorUsername"`
+	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+	AuthenticationMethods pulumi.StringArrayOutput `pulumi:"authenticationMethods"`
 	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier pulumi.StringPtrOutput `pulumi:"computeTier"`
-	// The list of `connectionStrings` blocks as defined below.
+	// One or more `connectionStrings` blocks as defined below.
 	ConnectionStrings MongoClusterConnectionStringArrayOutput `pulumi:"connectionStrings"`
-	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+	// The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+	CustomerManagedKey MongoClusterCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
+	// Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+	//
+	// > **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+	DataApiModeEnabled pulumi.BoolPtrOutput `pulumi:"dataApiModeEnabled"`
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode pulumi.StringPtrOutput `pulumi:"highAvailabilityMode"`
+	// An `identity` block as detailed below.
+	//
+	// > **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+	Identity MongoClusterIdentityPtrOutput `pulumi:"identity"`
 	// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -152,7 +164,8 @@ type MongoCluster struct {
 	// The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	ResourceGroupName pulumi.StringOutput          `pulumi:"resourceGroupName"`
+	Restore           MongoClusterRestorePtrOutput `pulumi:"restore"`
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -161,6 +174,8 @@ type MongoCluster struct {
 	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
 	// The size of the data disk space for the MongoDB Cluster.
 	StorageSizeInGb pulumi.IntPtrOutput `pulumi:"storageSizeInGb"`
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
@@ -218,14 +233,26 @@ type mongoClusterState struct {
 	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername *string `pulumi:"administratorUsername"`
+	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+	AuthenticationMethods []string `pulumi:"authenticationMethods"`
 	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier *string `pulumi:"computeTier"`
-	// The list of `connectionStrings` blocks as defined below.
+	// One or more `connectionStrings` blocks as defined below.
 	ConnectionStrings []MongoClusterConnectionString `pulumi:"connectionStrings"`
-	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+	// The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+	CustomerManagedKey *MongoClusterCustomerManagedKey `pulumi:"customerManagedKey"`
+	// Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+	//
+	// > **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+	DataApiModeEnabled *bool `pulumi:"dataApiModeEnabled"`
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode *string `pulumi:"highAvailabilityMode"`
+	// An `identity` block as detailed below.
+	//
+	// > **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+	Identity *MongoClusterIdentity `pulumi:"identity"`
 	// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -235,7 +262,8 @@ type mongoClusterState struct {
 	// The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	ResourceGroupName *string              `pulumi:"resourceGroupName"`
+	Restore           *MongoClusterRestore `pulumi:"restore"`
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount *int `pulumi:"shardCount"`
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -244,6 +272,8 @@ type mongoClusterState struct {
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// The size of the data disk space for the MongoDB Cluster.
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
@@ -255,14 +285,26 @@ type MongoClusterState struct {
 	AdministratorPassword pulumi.StringPtrInput
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername pulumi.StringPtrInput
+	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+	AuthenticationMethods pulumi.StringArrayInput
 	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier pulumi.StringPtrInput
-	// The list of `connectionStrings` blocks as defined below.
+	// One or more `connectionStrings` blocks as defined below.
 	ConnectionStrings MongoClusterConnectionStringArrayInput
-	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+	// The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+	CustomerManagedKey MongoClusterCustomerManagedKeyPtrInput
+	// Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+	//
+	// > **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+	DataApiModeEnabled pulumi.BoolPtrInput
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode pulumi.StringPtrInput
+	// An `identity` block as detailed below.
+	//
+	// > **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+	Identity MongoClusterIdentityPtrInput
 	// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -273,6 +315,7 @@ type MongoClusterState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	Restore           MongoClusterRestorePtrInput
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount pulumi.IntPtrInput
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -281,6 +324,8 @@ type MongoClusterState struct {
 	SourceServerId pulumi.StringPtrInput
 	// The size of the data disk space for the MongoDB Cluster.
 	StorageSizeInGb pulumi.IntPtrInput
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapInput
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
@@ -296,12 +341,24 @@ type mongoClusterArgs struct {
 	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername *string `pulumi:"administratorUsername"`
+	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+	AuthenticationMethods []string `pulumi:"authenticationMethods"`
 	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier *string `pulumi:"computeTier"`
-	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+	// The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+	CustomerManagedKey *MongoClusterCustomerManagedKey `pulumi:"customerManagedKey"`
+	// Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+	//
+	// > **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+	DataApiModeEnabled *bool `pulumi:"dataApiModeEnabled"`
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode *string `pulumi:"highAvailabilityMode"`
+	// An `identity` block as detailed below.
+	//
+	// > **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+	Identity *MongoClusterIdentity `pulumi:"identity"`
 	// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -311,7 +368,8 @@ type mongoClusterArgs struct {
 	// The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName string               `pulumi:"resourceGroupName"`
+	Restore           *MongoClusterRestore `pulumi:"restore"`
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount *int `pulumi:"shardCount"`
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -320,6 +378,8 @@ type mongoClusterArgs struct {
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// The size of the data disk space for the MongoDB Cluster.
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
@@ -332,12 +392,24 @@ type MongoClusterArgs struct {
 	AdministratorPassword pulumi.StringPtrInput
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername pulumi.StringPtrInput
+	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+	AuthenticationMethods pulumi.StringArrayInput
 	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier pulumi.StringPtrInput
-	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+	// The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+	CustomerManagedKey MongoClusterCustomerManagedKeyPtrInput
+	// Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+	//
+	// > **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+	DataApiModeEnabled pulumi.BoolPtrInput
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode pulumi.StringPtrInput
+	// An `identity` block as detailed below.
+	//
+	// > **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+	Identity MongoClusterIdentityPtrInput
 	// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -348,6 +420,7 @@ type MongoClusterArgs struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	Restore           MongoClusterRestorePtrInput
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount pulumi.IntPtrInput
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -356,6 +429,8 @@ type MongoClusterArgs struct {
 	SourceServerId pulumi.StringPtrInput
 	// The size of the data disk space for the MongoDB Cluster.
 	StorageSizeInGb pulumi.IntPtrInput
+	// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapInput
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
@@ -459,24 +534,48 @@ func (o MongoClusterOutput) AdministratorUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.AdministratorUsername }).(pulumi.StringPtrOutput)
 }
 
+// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+func (o MongoClusterOutput) AuthenticationMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MongoCluster) pulumi.StringArrayOutput { return v.AuthenticationMethods }).(pulumi.StringArrayOutput)
+}
+
 // The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 func (o MongoClusterOutput) ComputeTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.ComputeTier }).(pulumi.StringPtrOutput)
 }
 
-// The list of `connectionStrings` blocks as defined below.
+// One or more `connectionStrings` blocks as defined below.
 func (o MongoClusterOutput) ConnectionStrings() MongoClusterConnectionStringArrayOutput {
 	return o.ApplyT(func(v *MongoCluster) MongoClusterConnectionStringArrayOutput { return v.ConnectionStrings }).(MongoClusterConnectionStringArrayOutput)
 }
 
-// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+// The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
 func (o MongoClusterOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+func (o MongoClusterOutput) CustomerManagedKey() MongoClusterCustomerManagedKeyPtrOutput {
+	return o.ApplyT(func(v *MongoCluster) MongoClusterCustomerManagedKeyPtrOutput { return v.CustomerManagedKey }).(MongoClusterCustomerManagedKeyPtrOutput)
+}
+
+// Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+//
+// > **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+func (o MongoClusterOutput) DataApiModeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MongoCluster) pulumi.BoolPtrOutput { return v.DataApiModeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 func (o MongoClusterOutput) HighAvailabilityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.HighAvailabilityMode }).(pulumi.StringPtrOutput)
+}
+
+// An `identity` block as detailed below.
+//
+// > **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+func (o MongoClusterOutput) Identity() MongoClusterIdentityPtrOutput {
+	return o.ApplyT(func(v *MongoCluster) MongoClusterIdentityPtrOutput { return v.Identity }).(MongoClusterIdentityPtrOutput)
 }
 
 // The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
@@ -504,6 +603,10 @@ func (o MongoClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+func (o MongoClusterOutput) Restore() MongoClusterRestorePtrOutput {
+	return o.ApplyT(func(v *MongoCluster) MongoClusterRestorePtrOutput { return v.Restore }).(MongoClusterRestorePtrOutput)
+}
+
 // The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 func (o MongoClusterOutput) ShardCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.IntPtrOutput { return v.ShardCount }).(pulumi.IntPtrOutput)
@@ -522,6 +625,11 @@ func (o MongoClusterOutput) SourceServerId() pulumi.StringPtrOutput {
 // The size of the data disk space for the MongoDB Cluster.
 func (o MongoClusterOutput) StorageSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.IntPtrOutput { return v.StorageSizeInGb }).(pulumi.IntPtrOutput)
+}
+
+// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+func (o MongoClusterOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags to assign to the MongoDB Cluster.

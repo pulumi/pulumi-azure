@@ -1418,6 +1418,9 @@ if not MYPY:
         The end time of the schedule.
         """
         expiry_time_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        The time offset in minutes for the expiry time.
+        """
         interval: NotRequired[pulumi.Input[_builtins.int]]
         """
         The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
@@ -1433,11 +1436,17 @@ if not MYPY:
         """
         next_run: NotRequired[pulumi.Input[_builtins.str]]
         next_run_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        The time offset in minutes for the next run time.
+        """
         start_time: NotRequired[pulumi.Input[_builtins.str]]
         """
         Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         """
         start_time_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        The time offset in minutes for the start time.
+        """
         time_zone: NotRequired[pulumi.Input[_builtins.str]]
         """
         The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
@@ -1470,10 +1479,13 @@ class SoftwareUpdateConfigurationScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] advanced_week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
         :param pulumi.Input[_builtins.str] description: A description for this Schedule.
         :param pulumi.Input[_builtins.str] expiry_time: The end time of the schedule.
+        :param pulumi.Input[_builtins.float] expiry_time_offset_minutes: The time offset in minutes for the expiry time.
         :param pulumi.Input[_builtins.int] interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the schedule is enabled. Defaults to `true`.
         :param pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrence: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+        :param pulumi.Input[_builtins.float] next_run_offset_minutes: The time offset in minutes for the next run time.
         :param pulumi.Input[_builtins.str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+        :param pulumi.Input[_builtins.float] start_time_offset_minutes: The time offset in minutes for the start time.
         :param pulumi.Input[_builtins.str] time_zone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         pulumi.set(__self__, "frequency", frequency)
@@ -1580,6 +1592,9 @@ class SoftwareUpdateConfigurationScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="expiryTimeOffsetMinutes")
     def expiry_time_offset_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The time offset in minutes for the expiry time.
+        """
         return pulumi.get(self, "expiry_time_offset_minutes")
 
     @expiry_time_offset_minutes.setter
@@ -1643,6 +1658,9 @@ class SoftwareUpdateConfigurationScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="nextRunOffsetMinutes")
     def next_run_offset_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The time offset in minutes for the next run time.
+        """
         return pulumi.get(self, "next_run_offset_minutes")
 
     @next_run_offset_minutes.setter
@@ -1664,6 +1682,9 @@ class SoftwareUpdateConfigurationScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="startTimeOffsetMinutes")
     def start_time_offset_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The time offset in minutes for the start time.
+        """
         return pulumi.get(self, "start_time_offset_minutes")
 
     @start_time_offset_minutes.setter

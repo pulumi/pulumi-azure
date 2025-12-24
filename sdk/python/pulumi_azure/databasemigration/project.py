@@ -30,8 +30,8 @@ class ProjectArgs:
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which to create the database migration project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_name: Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] source_platform: The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] target_platform: The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_platform: The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] target_platform: The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specify the name of the database migration project. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assigned to the resource.
@@ -75,7 +75,7 @@ class ProjectArgs:
     @pulumi.getter(name="sourcePlatform")
     def source_platform(self) -> pulumi.Input[_builtins.str]:
         """
-        The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+        The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_platform")
 
@@ -87,7 +87,7 @@ class ProjectArgs:
     @pulumi.getter(name="targetPlatform")
     def target_platform(self) -> pulumi.Input[_builtins.str]:
         """
-        The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+        The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_platform")
 
@@ -148,9 +148,9 @@ class _ProjectState:
         :param pulumi.Input[_builtins.str] name: Specify the name of the database migration project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which to create the database migration project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_name: Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] source_platform: The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_platform: The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assigned to the resource.
-        :param pulumi.Input[_builtins.str] target_platform: The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] target_platform: The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -219,7 +219,7 @@ class _ProjectState:
     @pulumi.getter(name="sourcePlatform")
     def source_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+        The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_platform")
 
@@ -243,7 +243,7 @@ class _ProjectState:
     @pulumi.getter(name="targetPlatform")
     def target_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+        The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_platform")
 
@@ -326,9 +326,9 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specify the name of the database migration project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which to create the database migration project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_name: Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] source_platform: The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_platform: The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assigned to the resource.
-        :param pulumi.Input[_builtins.str] target_platform: The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] target_platform: The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -464,9 +464,9 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specify the name of the database migration project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which to create the database migration project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_name: Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] source_platform: The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_platform: The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assigned to the resource.
-        :param pulumi.Input[_builtins.str] target_platform: The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] target_platform: The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -517,7 +517,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="sourcePlatform")
     def source_platform(self) -> pulumi.Output[_builtins.str]:
         """
-        The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+        The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_platform")
 
@@ -533,7 +533,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="targetPlatform")
     def target_platform(self) -> pulumi.Output[_builtins.str]:
         """
-        The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+        The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_platform")
 

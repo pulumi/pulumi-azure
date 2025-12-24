@@ -140,7 +140,7 @@ namespace Pulumi.Azure.KeyVault
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         /// 
-        /// * &gt; **Note:** One of `Value` or `ValueWo` must be specified.
+        /// &gt; **Note:** One of `Value` or `ValueWo` must be specified.
         /// </summary>
         [Output("valueWo")]
         public Output<string?> ValueWo { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.KeyVault
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         /// 
-        /// * &gt; **Note:** One of `Value` or `ValueWo` must be specified.
+        /// &gt; **Note:** One of `Value` or `ValueWo` must be specified.
         /// </summary>
         public Input<string>? ValueWo
         {
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.KeyVault
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         /// 
-        /// * &gt; **Note:** One of `Value` or `ValueWo` must be specified.
+        /// &gt; **Note:** One of `Value` or `ValueWo` must be specified.
         /// </summary>
         public Input<string>? ValueWo
         {

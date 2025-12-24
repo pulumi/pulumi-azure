@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Maintenance.Inputs
         private InputList<string>? _osTypes;
 
         /// <summary>
-        /// Specifies a list of allowed operating systems.
+        /// Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
         /// </summary>
         public InputList<string> OsTypes
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Maintenance.Inputs
         private InputList<string>? _resourceTypes;
 
         /// <summary>
-        /// Specifies a list of allowed resources.
+        /// Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
         /// </summary>
         public InputList<string> ResourceTypes
         {
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Maintenance.Inputs
         private InputList<Inputs.AssignmentDynamicScopeFilterTagArgs>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the VM
+        /// One or more `Tags` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AssignmentDynamicScopeFilterTagArgs> Tags
         {

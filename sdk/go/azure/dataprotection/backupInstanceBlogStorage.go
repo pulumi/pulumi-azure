@@ -120,6 +120,8 @@ type BackupInstanceBlogStorage struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The protection state of the Backup Instance Blob Storage.
+	ProtectionState pulumi.StringOutput `pulumi:"protectionState"`
 	// The list of the container names of the source Storage Account.
 	//
 	// > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
@@ -175,6 +177,8 @@ type backupInstanceBlogStorageState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name *string `pulumi:"name"`
+	// The protection state of the Backup Instance Blob Storage.
+	ProtectionState *string `pulumi:"protectionState"`
 	// The list of the container names of the source Storage Account.
 	//
 	// > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
@@ -192,6 +196,8 @@ type BackupInstanceBlogStorageState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name pulumi.StringPtrInput
+	// The protection state of the Backup Instance Blob Storage.
+	ProtectionState pulumi.StringPtrInput
 	// The list of the container names of the source Storage Account.
 	//
 	// > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
@@ -341,6 +347,11 @@ func (o BackupInstanceBlogStorageOutput) Location() pulumi.StringOutput {
 // The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 func (o BackupInstanceBlogStorageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstanceBlogStorage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protection state of the Backup Instance Blob Storage.
+func (o BackupInstanceBlogStorageOutput) ProtectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupInstanceBlogStorage) pulumi.StringOutput { return v.ProtectionState }).(pulumi.StringOutput)
 }
 
 // The list of the container names of the source Storage Account.

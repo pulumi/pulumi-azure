@@ -129,7 +129,7 @@ type VirtualNetwork struct {
 	FlowTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"flowTimeoutInMinutes"`
 	// The GUID of the Virtual Network.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	// One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	IpAddressPools VirtualNetworkIpAddressPoolArrayOutput `pulumi:"ipAddressPools"`
@@ -204,7 +204,7 @@ type virtualNetworkState struct {
 	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// The GUID of the Virtual Network.
 	Guid *string `pulumi:"guid"`
-	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	// One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	IpAddressPools []VirtualNetworkIpAddressPool `pulumi:"ipAddressPools"`
@@ -247,7 +247,7 @@ type VirtualNetworkState struct {
 	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// The GUID of the Virtual Network.
 	Guid pulumi.StringPtrInput
-	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	// One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	IpAddressPools VirtualNetworkIpAddressPoolArrayInput
@@ -292,7 +292,7 @@ type virtualNetworkArgs struct {
 	Encryption *VirtualNetworkEncryption `pulumi:"encryption"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
-	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	// One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	IpAddressPools []VirtualNetworkIpAddressPool `pulumi:"ipAddressPools"`
@@ -334,7 +334,7 @@ type VirtualNetworkArgs struct {
 	Encryption VirtualNetworkEncryptionPtrInput
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrInput
-	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	// One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
 	//
 	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	IpAddressPools VirtualNetworkIpAddressPoolArrayInput
@@ -487,7 +487,7 @@ func (o VirtualNetworkOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
-// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+// One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
 //
 // > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 func (o VirtualNetworkOutput) IpAddressPools() VirtualNetworkIpAddressPoolArrayOutput {

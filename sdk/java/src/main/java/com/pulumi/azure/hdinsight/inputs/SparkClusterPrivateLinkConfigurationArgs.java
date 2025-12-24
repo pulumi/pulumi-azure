@@ -30,9 +30,17 @@ public final class SparkClusterPrivateLinkConfigurationArgs extends com.pulumi.r
         return this.groupId;
     }
 
+    /**
+     * An `ipConfiguration` block as defined below.
+     * 
+     */
     @Import(name="ipConfiguration", required=true)
     private Output<SparkClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration;
 
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     public Output<SparkClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration() {
         return this.ipConfiguration;
     }
@@ -99,11 +107,23 @@ public final class SparkClusterPrivateLinkConfigurationArgs extends com.pulumi.r
             return groupId(Output.of(groupId));
         }
 
+        /**
+         * @param ipConfiguration An `ipConfiguration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfiguration(Output<SparkClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration) {
             $.ipConfiguration = ipConfiguration;
             return this;
         }
 
+        /**
+         * @param ipConfiguration An `ipConfiguration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfiguration(SparkClusterPrivateLinkConfigurationIpConfigurationArgs ipConfiguration) {
             return ipConfiguration(Output.of(ipConfiguration));
         }

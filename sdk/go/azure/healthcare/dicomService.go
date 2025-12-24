@@ -92,7 +92,7 @@ type DicomService struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
-	// A `storage` block as defined below.
+	// A `storage` block as defined below. Changing this forces a new resource to be created.
 	Storage DicomServiceStorageOutput `pulumi:"storage"`
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -152,7 +152,7 @@ type dicomServiceState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl *string `pulumi:"serviceUrl"`
-	// A `storage` block as defined below.
+	// A `storage` block as defined below. Changing this forces a new resource to be created.
 	Storage *DicomServiceStorage `pulumi:"storage"`
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags map[string]string `pulumi:"tags"`
@@ -180,7 +180,7 @@ type DicomServiceState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl pulumi.StringPtrInput
-	// A `storage` block as defined below.
+	// A `storage` block as defined below. Changing this forces a new resource to be created.
 	Storage DicomServiceStoragePtrInput
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags pulumi.StringMapInput
@@ -207,7 +207,7 @@ type dicomServiceArgs struct {
 	Name *string `pulumi:"name"`
 	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// A `storage` block as defined below.
+	// A `storage` block as defined below. Changing this forces a new resource to be created.
 	Storage *DicomServiceStorage `pulumi:"storage"`
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags map[string]string `pulumi:"tags"`
@@ -231,7 +231,7 @@ type DicomServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// A `storage` block as defined below.
+	// A `storage` block as defined below. Changing this forces a new resource to be created.
 	Storage DicomServiceStoragePtrInput
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags pulumi.StringMapInput
@@ -375,7 +375,7 @@ func (o DicomServiceOutput) ServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *DicomService) pulumi.StringOutput { return v.ServiceUrl }).(pulumi.StringOutput)
 }
 
-// A `storage` block as defined below.
+// A `storage` block as defined below. Changing this forces a new resource to be created.
 func (o DicomServiceOutput) Storage() DicomServiceStorageOutput {
 	return o.ApplyT(func(v *DicomService) DicomServiceStorageOutput { return v.Storage }).(DicomServiceStorageOutput)
 }

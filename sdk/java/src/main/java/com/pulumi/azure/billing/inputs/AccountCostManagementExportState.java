@@ -21,16 +21,12 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
     /**
      * Is the cost management export active? Default is `true`.
      * 
-     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
-     * 
      */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
     /**
      * @return Is the cost management export active? Default is `true`.
-     * 
-     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      * 
      */
     public Optional<Output<Boolean>> active() {
@@ -82,9 +78,17 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
         return Optional.ofNullable(this.exportDataStorageLocation);
     }
 
+    /**
+     * Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * 
+     */
     @Import(name="fileFormat")
     private @Nullable Output<String> fileFormat;
 
+    /**
+     * @return Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * 
+     */
     public Optional<Output<String>> fileFormat() {
         return Optional.ofNullable(this.fileFormat);
     }
@@ -184,8 +188,6 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
         /**
          * @param active Is the cost management export active? Default is `true`.
          * 
-         * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
-         * 
          * @return builder
          * 
          */
@@ -196,8 +198,6 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
 
         /**
          * @param active Is the cost management export active? Default is `true`.
-         * 
-         * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
          * 
          * @return builder
          * 
@@ -269,11 +269,23 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
             return exportDataStorageLocation(Output.of(exportDataStorageLocation));
         }
 
+        /**
+         * @param fileFormat Format for export. Valid values are `Csv` only. Default is `Csv`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileFormat(@Nullable Output<String> fileFormat) {
             $.fileFormat = fileFormat;
             return this;
         }
 
+        /**
+         * @param fileFormat Format for export. Valid values are `Csv` only. Default is `Csv`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileFormat(String fileFormat) {
             return fileFormat(Output.of(fileFormat));
         }

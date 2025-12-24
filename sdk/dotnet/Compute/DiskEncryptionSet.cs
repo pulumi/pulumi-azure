@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Key ID of a key in a managed HSM.  Exactly one of `ManagedHsmKeyId`, `KeyVaultKeyId` must be specified.
+        /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultKeyId` must be specified.
         /// </summary>
         [Output("managedHsmKeyId")]
         public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
@@ -412,7 +412,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Key ID of a key in a managed HSM.  Exactly one of `ManagedHsmKeyId`, `KeyVaultKeyId` must be specified.
+        /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultKeyId` must be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Key ID of a key in a managed HSM.  Exactly one of `ManagedHsmKeyId`, `KeyVaultKeyId` must be specified.
+        /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultKeyId` must be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }

@@ -33,14 +33,14 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
     }
 
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * The resource id of the cluster where the databases you would like to attach reside.
      * 
      */
     @Import(name="clusterId")
     private @Nullable Output<String> clusterId;
 
     /**
-     * @return The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * @return The resource id of the cluster where the databases you would like to attach reside.
      * 
      */
     public Optional<Output<String>> clusterId() {
@@ -236,7 +236,7 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         }
 
         /**
-         * @param clusterId The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+         * @param clusterId The resource id of the cluster where the databases you would like to attach reside.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         }
 
         /**
-         * @param clusterId The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+         * @param clusterId The resource id of the cluster where the databases you would like to attach reside.
          * 
          * @return builder
          * 

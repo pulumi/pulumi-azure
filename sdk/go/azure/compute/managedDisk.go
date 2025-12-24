@@ -184,7 +184,7 @@ type ManagedDisk struct {
 	MaxShares pulumi.IntOutput `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
 	NetworkAccessPolicy pulumi.StringPtrOutput `pulumi:"networkAccessPolicy"`
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	//
@@ -332,7 +332,7 @@ type managedDiskState struct {
 	MaxShares *int `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	//
@@ -442,7 +442,7 @@ type ManagedDiskState struct {
 	MaxShares pulumi.IntPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	//
@@ -556,7 +556,7 @@ type managedDiskArgs struct {
 	MaxShares *int `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	//
@@ -667,7 +667,7 @@ type ManagedDiskArgs struct {
 	MaxShares pulumi.IntPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	//
@@ -914,7 +914,7 @@ func (o ManagedDiskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
 func (o ManagedDiskOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.NetworkAccessPolicy }).(pulumi.StringPtrOutput)
 }

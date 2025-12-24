@@ -14,18 +14,24 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class HadoopClusterPrivateLinkConfigurationIpConfiguration
     {
         /// <summary>
-        /// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        /// The name of the IP configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// Indicates whether this IP configuration is primary.
         /// </summary>
         public readonly bool? Primary;
+        /// <summary>
+        /// The private IP address of the IP configuration.
+        /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>
-        /// The private IP allocation method. The only possible value now is `Dynamic`.
+        /// The private IP allocation method. Possible values are `Dynamic` and `Static`.
         /// </summary>
         public readonly string? PrivateIpAllocationMethod;
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

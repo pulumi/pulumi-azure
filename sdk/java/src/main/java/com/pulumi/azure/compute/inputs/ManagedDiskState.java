@@ -305,14 +305,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
      * 
      */
     @Import(name="networkAccessPolicy")
     private @Nullable Output<String> networkAccessPolicy;
 
     /**
-     * @return Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     * @return Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
      * 
      */
     public Optional<Output<String>> networkAccessPolicy() {
@@ -1048,7 +1048,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAccessPolicy Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+         * @param networkAccessPolicy Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
          * 
          * @return builder
          * 
@@ -1059,7 +1059,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAccessPolicy Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+         * @param networkAccessPolicy Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
          * 
          * @return builder
          * 

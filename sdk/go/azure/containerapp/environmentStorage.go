@@ -120,7 +120,6 @@ type EnvironmentStorage struct {
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-	// *
 	NfsServerUrl pulumi.StringPtrOutput `pulumi:"nfsServerUrl"`
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName pulumi.StringOutput `pulumi:"shareName"`
@@ -183,7 +182,6 @@ type environmentStorageState struct {
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-	// *
 	NfsServerUrl *string `pulumi:"nfsServerUrl"`
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName *string `pulumi:"shareName"`
@@ -201,7 +199,6 @@ type EnvironmentStorageState struct {
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-	// *
 	NfsServerUrl pulumi.StringPtrInput
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName pulumi.StringPtrInput
@@ -223,7 +220,6 @@ type environmentStorageArgs struct {
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-	// *
 	NfsServerUrl *string `pulumi:"nfsServerUrl"`
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName string `pulumi:"shareName"`
@@ -242,7 +238,6 @@ type EnvironmentStorageArgs struct {
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-	// *
 	NfsServerUrl pulumi.StringPtrInput
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName pulumi.StringInput
@@ -361,7 +356,6 @@ func (o EnvironmentStorageOutput) Name() pulumi.StringOutput {
 }
 
 // The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-// *
 func (o EnvironmentStorageOutput) NfsServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStorage) pulumi.StringPtrOutput { return v.NfsServerUrl }).(pulumi.StringPtrOutput)
 }

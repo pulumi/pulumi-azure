@@ -16,14 +16,14 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfileArgs extends com.
     public static final OrchestratedVirtualMachineScaleSetSkuProfileArgs Empty = new OrchestratedVirtualMachineScaleSetSkuProfileArgs();
 
     /**
-     * Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+     * Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
      * 
      */
     @Import(name="allocationStrategy", required=true)
     private Output<String> allocationStrategy;
 
     /**
-     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
      * 
      */
     public Output<String> allocationStrategy() {
@@ -71,7 +71,7 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfileArgs extends com.
         }
 
         /**
-         * @param allocationStrategy Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+         * @param allocationStrategy Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfileArgs extends com.
         }
 
         /**
-         * @param allocationStrategy Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+         * @param allocationStrategy Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
          * 
          * @return builder
          * 

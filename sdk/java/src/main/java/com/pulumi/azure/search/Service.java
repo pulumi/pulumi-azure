@@ -240,7 +240,7 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customerManagedKeyEnforcementEnabled);
     }
     /**
-     * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+     * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
      * 
      * &gt; **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
      * 
@@ -249,7 +249,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> hostingMode;
 
     /**
-     * @return Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+     * @return Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
      * 
      * &gt; **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
      * 

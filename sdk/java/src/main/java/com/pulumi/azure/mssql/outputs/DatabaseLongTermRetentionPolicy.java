@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DatabaseLongTermRetentionPolicy {
+    /**
+     * @return Specifies if the backups are immutable. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean immutableBackupsEnabled;
     /**
      * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -36,6 +40,10 @@ public final class DatabaseLongTermRetentionPolicy {
     private @Nullable String yearlyRetention;
 
     private DatabaseLongTermRetentionPolicy() {}
+    /**
+     * @return Specifies if the backups are immutable. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> immutableBackupsEnabled() {
         return Optional.ofNullable(this.immutableBackupsEnabled);
     }

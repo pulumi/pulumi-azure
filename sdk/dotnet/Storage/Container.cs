@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> ResourceManagerId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        /// The name of the Storage Account where the Container should be created.
         /// 
         /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `StorageAccountId`.
+        /// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `StorageAccountId`.
         /// 
         /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        /// The name of the Storage Account where the Container should be created.
         /// 
         /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `StorageAccountId`.
+        /// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `StorageAccountId`.
         /// 
         /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ResourceManagerId { get; set; }
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        /// The name of the Storage Account where the Container should be created.
         /// 
         /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `StorageAccountId`.
+        /// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `StorageAccountId`.
         /// 
         /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>

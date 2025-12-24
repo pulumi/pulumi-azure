@@ -92,7 +92,7 @@ import (
 type NetworkConnection struct {
 	pulumi.CustomResourceState
 
-	// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+	// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
 	DomainJoinType pulumi.StringOutput `pulumi:"domainJoinType"`
 	// The name of the Azure Active Directory domain.
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
@@ -160,7 +160,7 @@ func GetNetworkConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkConnection resources.
 type networkConnectionState struct {
-	// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+	// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
 	DomainJoinType *string `pulumi:"domainJoinType"`
 	// The name of the Azure Active Directory domain.
 	DomainName *string `pulumi:"domainName"`
@@ -183,7 +183,7 @@ type networkConnectionState struct {
 }
 
 type NetworkConnectionState struct {
-	// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+	// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
 	DomainJoinType pulumi.StringPtrInput
 	// The name of the Azure Active Directory domain.
 	DomainName pulumi.StringPtrInput
@@ -210,7 +210,7 @@ func (NetworkConnectionState) ElementType() reflect.Type {
 }
 
 type networkConnectionArgs struct {
-	// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+	// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
 	DomainJoinType string `pulumi:"domainJoinType"`
 	// The name of the Azure Active Directory domain.
 	DomainName *string `pulumi:"domainName"`
@@ -234,7 +234,7 @@ type networkConnectionArgs struct {
 
 // The set of arguments for constructing a NetworkConnection resource.
 type NetworkConnectionArgs struct {
-	// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+	// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
 	DomainJoinType pulumi.StringInput
 	// The name of the Azure Active Directory domain.
 	DomainName pulumi.StringPtrInput
@@ -343,7 +343,7 @@ func (o NetworkConnectionOutput) ToNetworkConnectionOutputWithContext(ctx contex
 	return o
 }
 
-// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
 func (o NetworkConnectionOutput) DomainJoinType() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkConnection) pulumi.StringOutput { return v.DomainJoinType }).(pulumi.StringOutput)
 }

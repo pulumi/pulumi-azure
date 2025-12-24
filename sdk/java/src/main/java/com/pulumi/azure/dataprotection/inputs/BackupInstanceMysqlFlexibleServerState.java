@@ -61,6 +61,21 @@ public final class BackupInstanceMysqlFlexibleServerState extends com.pulumi.res
     }
 
     /**
+     * The protection state of the Backup Instance MySQL Flexible Server.
+     * 
+     */
+    @Import(name="protectionState")
+    private @Nullable Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance MySQL Flexible Server.
+     * 
+     */
+    public Optional<Output<String>> protectionState() {
+        return Optional.ofNullable(this.protectionState);
+    }
+
+    /**
      * The ID of the source server. Changing this forces a new resource to be created.
      * 
      */
@@ -96,6 +111,7 @@ public final class BackupInstanceMysqlFlexibleServerState extends com.pulumi.res
         this.backupPolicyId = $.backupPolicyId;
         this.location = $.location;
         this.name = $.name;
+        this.protectionState = $.protectionState;
         this.serverId = $.serverId;
         this.vaultId = $.vaultId;
     }
@@ -179,6 +195,27 @@ public final class BackupInstanceMysqlFlexibleServerState extends com.pulumi.res
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance MySQL Flexible Server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(@Nullable Output<String> protectionState) {
+            $.protectionState = protectionState;
+            return this;
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance MySQL Flexible Server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(String protectionState) {
+            return protectionState(Output.of(protectionState));
         }
 
         /**

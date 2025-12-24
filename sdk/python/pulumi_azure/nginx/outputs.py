@@ -478,7 +478,7 @@ class DeploymentWebApplicationFirewall(dict):
                  statuses: Optional[Sequence['outputs.DeploymentWebApplicationFirewallStatus']] = None):
         """
         :param _builtins.bool activation_state_enabled: Whether WAF is enabled/disabled for this NGINX Deployment.
-        :param Sequence['DeploymentWebApplicationFirewallStatusArgs'] statuses: A `web_application_firewall.status` block as defined below:
+        :param Sequence['DeploymentWebApplicationFirewallStatusArgs'] statuses: A `status` block as defined below.
         """
         pulumi.set(__self__, "activation_state_enabled", activation_state_enabled)
         if statuses is not None:
@@ -496,7 +496,7 @@ class DeploymentWebApplicationFirewall(dict):
     @pulumi.getter
     def statuses(self) -> Optional[Sequence['outputs.DeploymentWebApplicationFirewallStatus']]:
         """
-        A `web_application_firewall.status` block as defined below:
+        A `status` block as defined below.
         """
         return pulumi.get(self, "statuses")
 
@@ -532,10 +532,10 @@ class DeploymentWebApplicationFirewallStatus(dict):
                  component_versions: Optional[Sequence['outputs.DeploymentWebApplicationFirewallStatusComponentVersion']] = None,
                  threat_campaigns_packages: Optional[Sequence['outputs.DeploymentWebApplicationFirewallStatusThreatCampaignsPackage']] = None):
         """
-        :param Sequence['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs'] attack_signatures_packages: Indicates the version of the attack signatures package used by NGINX App Protect.
-        :param Sequence['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs'] bot_signatures_packages: Indicates the version of the bot signatures package used by NGINX App Protect.
-        :param Sequence['DeploymentWebApplicationFirewallStatusComponentVersionArgs'] component_versions: Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
-        :param Sequence['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs'] threat_campaigns_packages: Indicates the version of the threat campaigns package used by NGINX App Protect.
+        :param Sequence['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs'] attack_signatures_packages: One or more `attack_signatures_package` blocks as defined below.
+        :param Sequence['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs'] bot_signatures_packages: One or more `bot_signatures_package` blocks as defined below.
+        :param Sequence['DeploymentWebApplicationFirewallStatusComponentVersionArgs'] component_versions: One or more `component_versions` blocks as defined below.
+        :param Sequence['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs'] threat_campaigns_packages: One or more `threat_campaigns_package` blocks as defined below.
         """
         if attack_signatures_packages is not None:
             pulumi.set(__self__, "attack_signatures_packages", attack_signatures_packages)
@@ -550,7 +550,7 @@ class DeploymentWebApplicationFirewallStatus(dict):
     @pulumi.getter(name="attackSignaturesPackages")
     def attack_signatures_packages(self) -> Optional[Sequence['outputs.DeploymentWebApplicationFirewallStatusAttackSignaturesPackage']]:
         """
-        Indicates the version of the attack signatures package used by NGINX App Protect.
+        One or more `attack_signatures_package` blocks as defined below.
         """
         return pulumi.get(self, "attack_signatures_packages")
 
@@ -558,7 +558,7 @@ class DeploymentWebApplicationFirewallStatus(dict):
     @pulumi.getter(name="botSignaturesPackages")
     def bot_signatures_packages(self) -> Optional[Sequence['outputs.DeploymentWebApplicationFirewallStatusBotSignaturesPackage']]:
         """
-        Indicates the version of the bot signatures package used by NGINX App Protect.
+        One or more `bot_signatures_package` blocks as defined below.
         """
         return pulumi.get(self, "bot_signatures_packages")
 
@@ -566,7 +566,7 @@ class DeploymentWebApplicationFirewallStatus(dict):
     @pulumi.getter(name="componentVersions")
     def component_versions(self) -> Optional[Sequence['outputs.DeploymentWebApplicationFirewallStatusComponentVersion']]:
         """
-        Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+        One or more `component_versions` blocks as defined below.
         """
         return pulumi.get(self, "component_versions")
 
@@ -574,7 +574,7 @@ class DeploymentWebApplicationFirewallStatus(dict):
     @pulumi.getter(name="threatCampaignsPackages")
     def threat_campaigns_packages(self) -> Optional[Sequence['outputs.DeploymentWebApplicationFirewallStatusThreatCampaignsPackage']]:
         """
-        Indicates the version of the threat campaigns package used by NGINX App Protect.
+        One or more `threat_campaigns_package` blocks as defined below.
         """
         return pulumi.get(self, "threat_campaigns_packages")
 
@@ -601,6 +601,10 @@ class DeploymentWebApplicationFirewallStatusAttackSignaturesPackage(dict):
     def __init__(__self__, *,
                  revision_datetime: Optional[_builtins.str] = None,
                  version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str revision_datetime: The revision date and time of the threat campaigns package.
+        :param _builtins.str version: The version of the threat campaigns package.
+        """
         if revision_datetime is not None:
             pulumi.set(__self__, "revision_datetime", revision_datetime)
         if version is not None:
@@ -609,11 +613,17 @@ class DeploymentWebApplicationFirewallStatusAttackSignaturesPackage(dict):
     @_builtins.property
     @pulumi.getter(name="revisionDatetime")
     def revision_datetime(self) -> Optional[_builtins.str]:
+        """
+        The revision date and time of the threat campaigns package.
+        """
         return pulumi.get(self, "revision_datetime")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
+        """
+        The version of the threat campaigns package.
+        """
         return pulumi.get(self, "version")
 
 
@@ -639,6 +649,10 @@ class DeploymentWebApplicationFirewallStatusBotSignaturesPackage(dict):
     def __init__(__self__, *,
                  revision_datetime: Optional[_builtins.str] = None,
                  version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str revision_datetime: The revision date and time of the threat campaigns package.
+        :param _builtins.str version: The version of the threat campaigns package.
+        """
         if revision_datetime is not None:
             pulumi.set(__self__, "revision_datetime", revision_datetime)
         if version is not None:
@@ -647,11 +661,17 @@ class DeploymentWebApplicationFirewallStatusBotSignaturesPackage(dict):
     @_builtins.property
     @pulumi.getter(name="revisionDatetime")
     def revision_datetime(self) -> Optional[_builtins.str]:
+        """
+        The revision date and time of the threat campaigns package.
+        """
         return pulumi.get(self, "revision_datetime")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
+        """
+        The version of the threat campaigns package.
+        """
         return pulumi.get(self, "version")
 
 
@@ -679,6 +699,10 @@ class DeploymentWebApplicationFirewallStatusComponentVersion(dict):
     def __init__(__self__, *,
                  waf_engine_version: Optional[_builtins.str] = None,
                  waf_nginx_version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str waf_engine_version: The version of the WAF Engine.
+        :param _builtins.str waf_nginx_version: The version of the WAF Nginx module.
+        """
         if waf_engine_version is not None:
             pulumi.set(__self__, "waf_engine_version", waf_engine_version)
         if waf_nginx_version is not None:
@@ -687,11 +711,17 @@ class DeploymentWebApplicationFirewallStatusComponentVersion(dict):
     @_builtins.property
     @pulumi.getter(name="wafEngineVersion")
     def waf_engine_version(self) -> Optional[_builtins.str]:
+        """
+        The version of the WAF Engine.
+        """
         return pulumi.get(self, "waf_engine_version")
 
     @_builtins.property
     @pulumi.getter(name="wafNginxVersion")
     def waf_nginx_version(self) -> Optional[_builtins.str]:
+        """
+        The version of the WAF Nginx module.
+        """
         return pulumi.get(self, "waf_nginx_version")
 
 
@@ -717,6 +747,10 @@ class DeploymentWebApplicationFirewallStatusThreatCampaignsPackage(dict):
     def __init__(__self__, *,
                  revision_datetime: Optional[_builtins.str] = None,
                  version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str revision_datetime: The revision date and time of the threat campaigns package.
+        :param _builtins.str version: The version of the threat campaigns package.
+        """
         if revision_datetime is not None:
             pulumi.set(__self__, "revision_datetime", revision_datetime)
         if version is not None:
@@ -725,11 +759,17 @@ class DeploymentWebApplicationFirewallStatusThreatCampaignsPackage(dict):
     @_builtins.property
     @pulumi.getter(name="revisionDatetime")
     def revision_datetime(self) -> Optional[_builtins.str]:
+        """
+        The revision date and time of the threat campaigns package.
+        """
         return pulumi.get(self, "revision_datetime")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
+        """
+        The version of the threat campaigns package.
+        """
         return pulumi.get(self, "version")
 
 

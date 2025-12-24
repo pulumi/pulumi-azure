@@ -43,7 +43,7 @@ class BackupVaultArgs:
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.float] retention_duration_in_days: The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
@@ -142,7 +142,7 @@ class BackupVaultArgs:
     @pulumi.getter
     def immutability(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "immutability")
 
@@ -238,7 +238,7 @@ class _BackupVaultState:
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
@@ -318,7 +318,7 @@ class _BackupVaultState:
     @pulumi.getter
     def immutability(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "immutability")
 
@@ -477,7 +477,7 @@ class BackupVault(pulumi.CustomResource):
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
@@ -618,7 +618,7 @@ class BackupVault(pulumi.CustomResource):
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
@@ -680,7 +680,7 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter
     def immutability(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "immutability")
 

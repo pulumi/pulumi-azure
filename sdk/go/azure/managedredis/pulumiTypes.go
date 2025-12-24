@@ -174,14 +174,24 @@ type ManagedRedisDefaultDatabase struct {
 	AccessKeysAuthenticationEnabled *bool `pulumi:"accessKeysAuthenticationEnabled"`
 	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`.
 	ClientProtocol *string `pulumi:"clientProtocol"`
-	// Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+	// Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+	//
+	// !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
 	// Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+	//
+	// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	GeoReplicationGroupName *string `pulumi:"geoReplicationGroupName"`
+	// The ID of the Managed Redis Database Instance.
+	Id *string `pulumi:"id"`
 	// A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
 	Modules []ManagedRedisDefaultDatabaseModule `pulumi:"modules"`
+	// The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+	PersistenceAppendOnlyFileBackupFrequency *string `pulumi:"persistenceAppendOnlyFileBackupFrequency"`
+	// The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+	PersistenceRedisDatabaseBackupFrequency *string `pulumi:"persistenceRedisDatabaseBackupFrequency"`
 	// TCP port of the database endpoint.
 	Port *int `pulumi:"port"`
 	// The Primary Access Key for the Managed Redis Database Instance. Only exported if `accessKeysAuthenticationEnabled` is set to `true`.
@@ -206,14 +216,24 @@ type ManagedRedisDefaultDatabaseArgs struct {
 	AccessKeysAuthenticationEnabled pulumi.BoolPtrInput `pulumi:"accessKeysAuthenticationEnabled"`
 	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`.
 	ClientProtocol pulumi.StringPtrInput `pulumi:"clientProtocol"`
-	// Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+	// Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+	//
+	// !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	ClusteringPolicy pulumi.StringPtrInput `pulumi:"clusteringPolicy"`
 	// Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
 	EvictionPolicy pulumi.StringPtrInput `pulumi:"evictionPolicy"`
-	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+	//
+	// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	GeoReplicationGroupName pulumi.StringPtrInput `pulumi:"geoReplicationGroupName"`
+	// The ID of the Managed Redis Database Instance.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
 	Modules ManagedRedisDefaultDatabaseModuleArrayInput `pulumi:"modules"`
+	// The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+	PersistenceAppendOnlyFileBackupFrequency pulumi.StringPtrInput `pulumi:"persistenceAppendOnlyFileBackupFrequency"`
+	// The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+	PersistenceRedisDatabaseBackupFrequency pulumi.StringPtrInput `pulumi:"persistenceRedisDatabaseBackupFrequency"`
 	// TCP port of the database endpoint.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// The Primary Access Key for the Managed Redis Database Instance. Only exported if `accessKeysAuthenticationEnabled` is set to `true`.
@@ -309,7 +329,9 @@ func (o ManagedRedisDefaultDatabaseOutput) ClientProtocol() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.ClientProtocol }).(pulumi.StringPtrOutput)
 }
 
-// Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+// Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+//
+// !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabaseOutput) ClusteringPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.ClusteringPolicy }).(pulumi.StringPtrOutput)
 }
@@ -319,14 +341,31 @@ func (o ManagedRedisDefaultDatabaseOutput) EvictionPolicy() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+//
+// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabaseOutput) GeoReplicationGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.GeoReplicationGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Managed Redis Database Instance.
+func (o ManagedRedisDefaultDatabaseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
 func (o ManagedRedisDefaultDatabaseOutput) Modules() ManagedRedisDefaultDatabaseModuleArrayOutput {
 	return o.ApplyT(func(v ManagedRedisDefaultDatabase) []ManagedRedisDefaultDatabaseModule { return v.Modules }).(ManagedRedisDefaultDatabaseModuleArrayOutput)
+}
+
+// The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+func (o ManagedRedisDefaultDatabaseOutput) PersistenceAppendOnlyFileBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.PersistenceAppendOnlyFileBackupFrequency }).(pulumi.StringPtrOutput)
+}
+
+// The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+func (o ManagedRedisDefaultDatabaseOutput) PersistenceRedisDatabaseBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.PersistenceRedisDatabaseBackupFrequency }).(pulumi.StringPtrOutput)
 }
 
 // TCP port of the database endpoint.
@@ -388,7 +427,9 @@ func (o ManagedRedisDefaultDatabasePtrOutput) ClientProtocol() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+// Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+//
+// !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabasePtrOutput) ClusteringPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedRedisDefaultDatabase) *string {
 		if v == nil {
@@ -408,13 +449,25 @@ func (o ManagedRedisDefaultDatabasePtrOutput) EvictionPolicy() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+//
+// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabasePtrOutput) GeoReplicationGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedRedisDefaultDatabase) *string {
 		if v == nil {
 			return nil
 		}
 		return v.GeoReplicationGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Managed Redis Database Instance.
+func (o ManagedRedisDefaultDatabasePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedRedisDefaultDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -426,6 +479,26 @@ func (o ManagedRedisDefaultDatabasePtrOutput) Modules() ManagedRedisDefaultDatab
 		}
 		return v.Modules
 	}).(ManagedRedisDefaultDatabaseModuleArrayOutput)
+}
+
+// The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+func (o ManagedRedisDefaultDatabasePtrOutput) PersistenceAppendOnlyFileBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedRedisDefaultDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PersistenceAppendOnlyFileBackupFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+func (o ManagedRedisDefaultDatabasePtrOutput) PersistenceRedisDatabaseBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedRedisDefaultDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PersistenceRedisDatabaseBackupFrequency
+	}).(pulumi.StringPtrOutput)
 }
 
 // TCP port of the database endpoint.
@@ -459,11 +532,15 @@ func (o ManagedRedisDefaultDatabasePtrOutput) SecondaryAccessKey() pulumi.String
 }
 
 type ManagedRedisDefaultDatabaseModule struct {
-	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+	//
+	// !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	//
 	// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
 	Args *string `pulumi:"args"`
-	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
+	//
+	// !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	Name string `pulumi:"name"`
 	// Version of the module to be used.
 	Version *string `pulumi:"version"`
@@ -481,11 +558,15 @@ type ManagedRedisDefaultDatabaseModuleInput interface {
 }
 
 type ManagedRedisDefaultDatabaseModuleArgs struct {
-	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+	//
+	// !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	//
 	// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
 	Args pulumi.StringPtrInput `pulumi:"args"`
-	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
+	//
+	// !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Version of the module to be used.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -542,14 +623,18 @@ func (o ManagedRedisDefaultDatabaseModuleOutput) ToManagedRedisDefaultDatabaseMo
 	return o
 }
 
-// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+//
+// !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 //
 // > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
 func (o ManagedRedisDefaultDatabaseModuleOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedRedisDefaultDatabaseModule) *string { return v.Args }).(pulumi.StringPtrOutput)
 }
 
-// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
+//
+// !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabaseModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedRedisDefaultDatabaseModule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -892,8 +977,14 @@ type GetDefaultDatabase struct {
 	GeoReplicationGroupName string `pulumi:"geoReplicationGroupName"`
 	// A list of linked database IDs for geo-replication.
 	GeoReplicationLinkedDatabaseIds []string `pulumi:"geoReplicationLinkedDatabaseIds"`
+	// The ID of the Managed Redis Database Instance.
+	Id string `pulumi:"id"`
 	// A list of `module` blocks as defined below.
 	Modules []GetDefaultDatabaseModule `pulumi:"modules"`
+	// The frequency of Append Only File (AOF) backups.
+	PersistenceAppendOnlyFileBackupFrequency string `pulumi:"persistenceAppendOnlyFileBackupFrequency"`
+	// The frequency of Redis Database (RDB) backups.
+	PersistenceRedisDatabaseBackupFrequency string `pulumi:"persistenceRedisDatabaseBackupFrequency"`
 	// The TCP port of the database endpoint.
 	Port int `pulumi:"port"`
 	// The Primary Access Key for the Managed Redis Database instance.
@@ -926,8 +1017,14 @@ type GetDefaultDatabaseArgs struct {
 	GeoReplicationGroupName pulumi.StringInput `pulumi:"geoReplicationGroupName"`
 	// A list of linked database IDs for geo-replication.
 	GeoReplicationLinkedDatabaseIds pulumi.StringArrayInput `pulumi:"geoReplicationLinkedDatabaseIds"`
+	// The ID of the Managed Redis Database Instance.
+	Id pulumi.StringInput `pulumi:"id"`
 	// A list of `module` blocks as defined below.
 	Modules GetDefaultDatabaseModuleArrayInput `pulumi:"modules"`
+	// The frequency of Append Only File (AOF) backups.
+	PersistenceAppendOnlyFileBackupFrequency pulumi.StringInput `pulumi:"persistenceAppendOnlyFileBackupFrequency"`
+	// The frequency of Redis Database (RDB) backups.
+	PersistenceRedisDatabaseBackupFrequency pulumi.StringInput `pulumi:"persistenceRedisDatabaseBackupFrequency"`
 	// The TCP port of the database endpoint.
 	Port pulumi.IntInput `pulumi:"port"`
 	// The Primary Access Key for the Managed Redis Database instance.
@@ -1017,9 +1114,24 @@ func (o GetDefaultDatabaseOutput) GeoReplicationLinkedDatabaseIds() pulumi.Strin
 	return o.ApplyT(func(v GetDefaultDatabase) []string { return v.GeoReplicationLinkedDatabaseIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the Managed Redis Database Instance.
+func (o GetDefaultDatabaseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultDatabase) string { return v.Id }).(pulumi.StringOutput)
+}
+
 // A list of `module` blocks as defined below.
 func (o GetDefaultDatabaseOutput) Modules() GetDefaultDatabaseModuleArrayOutput {
 	return o.ApplyT(func(v GetDefaultDatabase) []GetDefaultDatabaseModule { return v.Modules }).(GetDefaultDatabaseModuleArrayOutput)
+}
+
+// The frequency of Append Only File (AOF) backups.
+func (o GetDefaultDatabaseOutput) PersistenceAppendOnlyFileBackupFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultDatabase) string { return v.PersistenceAppendOnlyFileBackupFrequency }).(pulumi.StringOutput)
+}
+
+// The frequency of Redis Database (RDB) backups.
+func (o GetDefaultDatabaseOutput) PersistenceRedisDatabaseBackupFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultDatabase) string { return v.PersistenceRedisDatabaseBackupFrequency }).(pulumi.StringOutput)
 }
 
 // The TCP port of the database endpoint.

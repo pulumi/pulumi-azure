@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Instance to back up PostgreSQL.
     /// 
+    /// &gt; **Note:** The `azure.dataprotection.BackupInstancePostgresql` resource has been deprecated because Azure Database for PostgreSQL Single Server has been retired as of 2025-03-28 and will be removed in v5.0 of the AzureRM Provider.
+    /// 
     /// &gt; **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from &lt;https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore&gt;.
     /// 
     /// ## Example Usage
@@ -222,6 +224,12 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The protection state of the Backup Instance PostgreSQL.
+        /// </summary>
+        [Output("protectionState")]
+        public Output<string> ProtectionState { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
         /// </summary>
         [Output("vaultId")]
@@ -346,6 +354,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The protection state of the Backup Instance PostgreSQL.
+        /// </summary>
+        [Input("protectionState")]
+        public Input<string>? ProtectionState { get; set; }
 
         /// <summary>
         /// The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.

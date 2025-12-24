@@ -69,7 +69,7 @@ type Factory struct {
 
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId pulumi.StringOutput `pulumi:"customerManagedKeyId"`
-	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
 	CustomerManagedKeyIdentityId pulumi.StringOutput `pulumi:"customerManagedKeyIdentityId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrOutput `pulumi:"githubConfiguration"`
@@ -130,7 +130,7 @@ func GetFactory(ctx *pulumi.Context,
 type factoryState struct {
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId *string `pulumi:"customerManagedKeyId"`
-	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
 	CustomerManagedKeyIdentityId *string `pulumi:"customerManagedKeyIdentityId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration *FactoryGithubConfiguration `pulumi:"githubConfiguration"`
@@ -159,7 +159,7 @@ type factoryState struct {
 type FactoryState struct {
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId pulumi.StringPtrInput
-	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
 	CustomerManagedKeyIdentityId pulumi.StringPtrInput
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrInput
@@ -192,7 +192,7 @@ func (FactoryState) ElementType() reflect.Type {
 type factoryArgs struct {
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId *string `pulumi:"customerManagedKeyId"`
-	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
 	CustomerManagedKeyIdentityId *string `pulumi:"customerManagedKeyIdentityId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration *FactoryGithubConfiguration `pulumi:"githubConfiguration"`
@@ -222,7 +222,7 @@ type factoryArgs struct {
 type FactoryArgs struct {
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId pulumi.StringPtrInput
-	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
 	CustomerManagedKeyIdentityId pulumi.StringPtrInput
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrInput
@@ -340,7 +340,7 @@ func (o FactoryOutput) CustomerManagedKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.CustomerManagedKeyId }).(pulumi.StringOutput)
 }
 
-// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
 func (o FactoryOutput) CustomerManagedKeyIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.CustomerManagedKeyIdentityId }).(pulumi.StringOutput)
 }

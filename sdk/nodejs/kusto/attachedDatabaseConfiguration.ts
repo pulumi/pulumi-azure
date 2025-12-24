@@ -115,7 +115,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly attachedDatabaseNames: pulumi.Output<string[]>;
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * The resource id of the cluster where the databases you would like to attach reside.
      */
     declare public readonly clusterId: pulumi.Output<string>;
     /**
@@ -210,7 +210,7 @@ export interface AttachedDatabaseConfigurationState {
      */
     attachedDatabaseNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * The resource id of the cluster where the databases you would like to attach reside.
      */
     clusterId?: pulumi.Input<string>;
     /**
@@ -252,7 +252,7 @@ export interface AttachedDatabaseConfigurationState {
  */
 export interface AttachedDatabaseConfigurationArgs {
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * The resource id of the cluster where the databases you would like to attach reside.
      */
     clusterId?: pulumi.Input<string>;
     /**

@@ -477,14 +477,14 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tlsMinVersion);
     }
     /**
-     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     * @return A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<String>>> zones() {

@@ -128,7 +128,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
-        /// Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `False`.
+        /// Should the Linux Web App Linux Function App use a 32-bit worker. Defaults to `False`.
         /// </summary>
         public readonly bool? Use32BitWorker;
         /// <summary>

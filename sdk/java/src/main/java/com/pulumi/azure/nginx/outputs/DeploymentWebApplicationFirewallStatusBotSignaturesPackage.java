@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentWebApplicationFirewallStatusBotSignaturesPackage {
+    /**
+     * @return The revision date and time of the threat campaigns package.
+     * 
+     */
     private @Nullable String revisionDatetime;
+    /**
+     * @return The version of the threat campaigns package.
+     * 
+     */
     private @Nullable String version;
 
     private DeploymentWebApplicationFirewallStatusBotSignaturesPackage() {}
+    /**
+     * @return The revision date and time of the threat campaigns package.
+     * 
+     */
     public Optional<String> revisionDatetime() {
         return Optional.ofNullable(this.revisionDatetime);
     }
+    /**
+     * @return The version of the threat campaigns package.
+     * 
+     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

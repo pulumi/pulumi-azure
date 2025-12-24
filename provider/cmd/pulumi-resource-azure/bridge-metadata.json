@@ -2188,6 +2188,10 @@
                     }
                 }
             },
+            "azurerm_automation_runtime_environment": {
+                "current": "azure:automation/runtimeEnvironment:RuntimeEnvironment",
+                "majorVersion": 6
+            },
             "azurerm_automation_schedule": {
                 "current": "azure:automation/schedule:Schedule",
                 "majorVersion": 6,
@@ -3805,6 +3809,22 @@
                 "current": "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey",
                 "majorVersion": 6
             },
+            "azurerm_cognitive_account_project": {
+                "current": "azure:cognitive/accountProject:AccountProject",
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_cognitive_account_rai_blocklist": {
                 "current": "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist",
                 "majorVersion": 6
@@ -4206,7 +4226,12 @@
             },
             "azurerm_container_app_environment_certificate": {
                 "current": "azure:containerapp/environmentCertificate:EnvironmentCertificate",
-                "majorVersion": 6
+                "majorVersion": 6,
+                "fields": {
+                    "certificate_key_vault": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azurerm_container_app_environment_custom_domain": {
                 "current": "azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain",
@@ -11022,6 +11047,9 @@
                             }
                         }
                     },
+                    "node_provisioning_profile": {
+                        "maxItemsOne": true
+                    },
                     "oms_agent": {
                         "maxItemsOne": true,
                         "elem": {
@@ -13226,6 +13254,21 @@
                 "current": "azure:loganalytics/workspaceTable:WorkspaceTable",
                 "majorVersion": 6
             },
+            "azurerm_log_analytics_workspace_table_custom_log": {
+                "current": "azure:loganalytics/workspaceTableCustomLog:WorkspaceTableCustomLog",
+                "majorVersion": 6,
+                "fields": {
+                    "column": {
+                        "maxItemsOne": false
+                    },
+                    "solutions": {
+                        "maxItemsOne": false
+                    },
+                    "standard_column": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_logic_app_action_custom": {
                 "current": "azure:logicapps/actionCustom:ActionCustom",
                 "majorVersion": 6
@@ -14047,195 +14090,6 @@
                 "current": "azure:marketplace/roleAssignment:RoleAssignment",
                 "majorVersion": 6
             },
-            "azurerm_mobile_network": {
-                "current": "azure:mobile/network:Network",
-                "majorVersion": 6
-            },
-            "azurerm_mobile_network_attached_data_network": {
-                "current": "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork",
-                "majorVersion": 6,
-                "fields": {
-                    "dns_addresses": {
-                        "maxItemsOne": false
-                    },
-                    "network_address_port_translation": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "port_range": {
-                                    "maxItemsOne": true
-                                }
-                            }
-                        }
-                    },
-                    "user_equipment_address_pool_prefixes": {
-                        "maxItemsOne": false
-                    },
-                    "user_equipment_static_address_pool_prefixes": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azurerm_mobile_network_data_network": {
-                "current": "azure:mobile/networkDataNetwork:NetworkDataNetwork",
-                "majorVersion": 6
-            },
-            "azurerm_mobile_network_packet_core_control_plane": {
-                "current": "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane",
-                "majorVersion": 6,
-                "fields": {
-                    "identity": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "identity_ids": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    },
-                    "local_diagnostics_access": {
-                        "maxItemsOne": true
-                    },
-                    "platform": {
-                        "maxItemsOne": true
-                    },
-                    "site_ids": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azurerm_mobile_network_packet_core_data_plane": {
-                "current": "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane",
-                "majorVersion": 6
-            },
-            "azurerm_mobile_network_service": {
-                "current": "azure:mobile/networkService:NetworkService",
-                "majorVersion": 6,
-                "fields": {
-                    "pcc_rule": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "qos_policy": {
-                                    "maxItemsOne": true,
-                                    "elem": {
-                                        "fields": {
-                                            "guaranteed_bit_rate": {
-                                                "maxItemsOne": true
-                                            },
-                                            "maximum_bit_rate": {
-                                                "maxItemsOne": true
-                                            }
-                                        }
-                                    }
-                                },
-                                "service_data_flow_template": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "ports": {
-                                                "maxItemsOne": false
-                                            },
-                                            "protocol": {
-                                                "maxItemsOne": false
-                                            },
-                                            "remote_ip_list": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "service_qos_policy": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "maximum_bit_rate": {
-                                    "maxItemsOne": true
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "azurerm_mobile_network_sim": {
-                "current": "azure:mobile/networkSim:NetworkSim",
-                "majorVersion": 6,
-                "fields": {
-                    "static_ip_configuration": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azurerm_mobile_network_sim_group": {
-                "current": "azure:mobile/networkSimGroup:NetworkSimGroup",
-                "majorVersion": 6,
-                "fields": {
-                    "identity": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "identity_ids": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "azurerm_mobile_network_sim_policy": {
-                "current": "azure:mobile/networkSimPolicy:NetworkSimPolicy",
-                "majorVersion": 6,
-                "fields": {
-                    "slice": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "data_network": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "additional_allowed_session_types": {
-                                                "maxItemsOne": false
-                                            },
-                                            "allowed_services_ids": {
-                                                "maxItemsOne": false
-                                            },
-                                            "session_aggregate_maximum_bit_rate": {
-                                                "maxItemsOne": true
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "user_equipment_aggregate_maximum_bit_rate": {
-                        "maxItemsOne": true
-                    }
-                }
-            },
-            "azurerm_mobile_network_site": {
-                "current": "azure:mobile/networkSite:NetworkSite",
-                "majorVersion": 6,
-                "fields": {
-                    "network_function_ids": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azurerm_mobile_network_slice": {
-                "current": "azure:mobile/networkSlice:NetworkSlice",
-                "majorVersion": 6,
-                "fields": {
-                    "single_network_slice_selection_assistance_information": {
-                        "maxItemsOne": true
-                    }
-                }
-            },
             "azurerm_mongo_cluster": {
                 "current": "azure:mongocluster/mongoCluster:MongoCluster",
                 "past": [
@@ -14247,17 +14101,45 @@
                 ],
                 "majorVersion": 6,
                 "fields": {
+                    "authentication_methods": {
+                        "maxItemsOne": false
+                    },
                     "connection_strings": {
                         "maxItemsOne": false
                     },
+                    "customer_managed_key": {
+                        "maxItemsOne": true
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "preview_features": {
                         "maxItemsOne": false
+                    },
+                    "restore": {
+                        "maxItemsOne": true
                     }
                 }
             },
             "azurerm_mongo_cluster_firewall_rule": {
                 "current": "azure:mongocluster/firewallRule:FirewallRule",
                 "majorVersion": 6
+            },
+            "azurerm_mongo_cluster_user": {
+                "current": "azure:mongocluster/user:User",
+                "majorVersion": 6,
+                "fields": {
+                    "role": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_monitor_aad_diagnostic_setting": {
                 "current": "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting",
@@ -17021,6 +16903,70 @@
                     }
                 }
             },
+            "azurerm_palo_alto_next_generation_firewall_virtual_hub_strata_cloud_manager": {
+                "current": "azure:paloalto/nextGenerationFirewallVirtualHubStrataCloudManager:NextGenerationFirewallVirtualHubStrataCloudManager",
+                "majorVersion": 6,
+                "fields": {
+                    "destination_nat": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "backend_config": {
+                                    "maxItemsOne": true
+                                },
+                                "frontend_config": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "dns_settings": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "azure_dns_servers": {
+                                    "maxItemsOne": false
+                                },
+                                "dns_servers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_profile": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "egress_nat_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "egress_nat_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "trusted_address_ranges": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_palo_alto_next_generation_firewall_virtual_network_local_rulestack": {
                 "current": "azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack",
                 "majorVersion": 6,
@@ -17135,6 +17081,73 @@
                     },
                     "panorama": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_palo_alto_next_generation_firewall_virtual_network_strata_cloud_manager": {
+                "current": "azure:paloalto/nextGenerationFirewallVirtualNetworkStrataCloudManager:NextGenerationFirewallVirtualNetworkStrataCloudManager",
+                "majorVersion": 6,
+                "fields": {
+                    "destination_nat": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "backend_config": {
+                                    "maxItemsOne": true
+                                },
+                                "frontend_config": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "dns_settings": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "azure_dns_servers": {
+                                    "maxItemsOne": false
+                                },
+                                "dns_servers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_profile": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "egress_nat_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "egress_nat_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "trusted_address_ranges": {
+                                    "maxItemsOne": false
+                                },
+                                "vnet_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -24704,6 +24717,10 @@
                 "current": "azure:apimanagement/getUser:getUser",
                 "majorVersion": 6
             },
+            "azurerm_api_management_workspace": {
+                "current": "azure:apimanagement/getWorkspace:getWorkspace",
+                "majorVersion": 6
+            },
             "azurerm_app_configuration": {
                 "current": "azure:appconfiguration/getConfigurationStore:getConfigurationStore",
                 "majorVersion": 6,
@@ -25615,6 +25632,12 @@
                 "current": "azure:cognitive/getAccount:getAccount",
                 "majorVersion": 6,
                 "fields": {
+                    "customer_managed_key": {
+                        "maxItemsOne": false
+                    },
+                    "fqdns": {
+                        "maxItemsOne": false
+                    },
                     "identity": {
                         "maxItemsOne": false,
                         "elem": {
@@ -25624,6 +25647,25 @@
                                 }
                             }
                         }
+                    },
+                    "network_acls": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "ip_rules": {
+                                    "maxItemsOne": false
+                                },
+                                "virtual_network_rules": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_injection": {
+                        "maxItemsOne": false
+                    },
+                    "storage": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -28702,195 +28744,6 @@
             "azurerm_marketplace_agreement": {
                 "current": "azure:marketplace/getAgreement:getAgreement",
                 "majorVersion": 6
-            },
-            "azurerm_mobile_network": {
-                "current": "azure:mobile/getNetwork:getNetwork",
-                "majorVersion": 6
-            },
-            "azurerm_mobile_network_attached_data_network": {
-                "current": "azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork",
-                "majorVersion": 6,
-                "fields": {
-                    "dns_addresses": {
-                        "maxItemsOne": false
-                    },
-                    "network_address_port_translation": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "port_range": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    },
-                    "user_equipment_address_pool_prefixes": {
-                        "maxItemsOne": false
-                    },
-                    "user_equipment_static_address_pool_prefixes": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azurerm_mobile_network_data_network": {
-                "current": "azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork",
-                "majorVersion": 6
-            },
-            "azurerm_mobile_network_packet_core_control_plane": {
-                "current": "azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane",
-                "majorVersion": 6,
-                "fields": {
-                    "identity": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "identity_ids": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    },
-                    "local_diagnostics_access": {
-                        "maxItemsOne": false
-                    },
-                    "platform": {
-                        "maxItemsOne": false
-                    },
-                    "site_ids": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azurerm_mobile_network_packet_core_data_plane": {
-                "current": "azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane",
-                "majorVersion": 6
-            },
-            "azurerm_mobile_network_service": {
-                "current": "azure:mobile/getNetworkService:getNetworkService",
-                "majorVersion": 6,
-                "fields": {
-                    "pcc_rule": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "qos_policy": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "guaranteed_bit_rate": {
-                                                "maxItemsOne": false
-                                            },
-                                            "maximum_bit_rate": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                },
-                                "service_data_flow_template": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "ports": {
-                                                "maxItemsOne": false
-                                            },
-                                            "protocol": {
-                                                "maxItemsOne": false
-                                            },
-                                            "remote_ip_list": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "service_qos_policy": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "maximum_bit_rate": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "azurerm_mobile_network_sim": {
-                "current": "azure:mobile/getNetworkSim:getNetworkSim",
-                "majorVersion": 6,
-                "fields": {
-                    "static_ip_configuration": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azurerm_mobile_network_sim_group": {
-                "current": "azure:mobile/getNetworkSimGroup:getNetworkSimGroup",
-                "majorVersion": 6,
-                "fields": {
-                    "identity": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "identity_ids": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "azurerm_mobile_network_sim_policy": {
-                "current": "azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy",
-                "majorVersion": 6,
-                "fields": {
-                    "slice": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "data_network": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "additional_allowed_session_types": {
-                                                "maxItemsOne": false
-                                            },
-                                            "allowed_services_ids": {
-                                                "maxItemsOne": false
-                                            },
-                                            "session_aggregate_maximum_bit_rate": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "user_equipment_aggregate_maximum_bit_rate": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azurerm_mobile_network_site": {
-                "current": "azure:mobile/getNetworkSite:getNetworkSite",
-                "majorVersion": 6,
-                "fields": {
-                    "network_function_ids": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "azurerm_mobile_network_slice": {
-                "current": "azure:mobile/getNetworkSlice:getNetworkSlice",
-                "majorVersion": 6,
-                "fields": {
-                    "single_network_slice_selection_assistance_information": {
-                        "maxItemsOne": false
-                    }
-                }
             },
             "azurerm_monitor_action_group": {
                 "current": "azure:monitoring/getActionGroup:getActionGroup",
@@ -32440,11 +32293,6 @@
     },
     "auto-settings": {
         "resources": {
-            "azurerm_mobile_network_packet_core_control_plane": {
-                "maxItemsOneOverrides": {
-                    "site_ids": false
-                }
-            },
             "azurerm_mongo_cluster": {
                 "aliases": [
                     "azure:cosmosdb/mongoCluster:MongoCluster"

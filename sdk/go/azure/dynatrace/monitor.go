@@ -87,13 +87,13 @@ type Monitor struct {
 
 	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
 	EnvironmentProperties MonitorEnvironmentPropertyArrayOutput `pulumi:"environmentProperties"`
-	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+	// The kind of managed identity assigned to this resource. A `identity` block as defined below.
 	Identity MonitorIdentityOutput `pulumi:"identity"`
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
 	MarketplaceSubscription pulumi.StringOutput `pulumi:"marketplaceSubscription"`
-	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
 	MonitoringEnabled pulumi.BoolPtrOutput `pulumi:"monitoringEnabled"`
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -103,7 +103,7 @@ type Monitor struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+	// User's information. A `user` block as defined below. Changing this forces a new resource to be created.
 	User MonitorUserOutput `pulumi:"user"`
 }
 
@@ -154,13 +154,13 @@ func GetMonitor(ctx *pulumi.Context,
 type monitorState struct {
 	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
 	EnvironmentProperties []MonitorEnvironmentProperty `pulumi:"environmentProperties"`
-	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+	// The kind of managed identity assigned to this resource. A `identity` block as defined below.
 	Identity *MonitorIdentity `pulumi:"identity"`
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
 	MarketplaceSubscription *string `pulumi:"marketplaceSubscription"`
-	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
 	MonitoringEnabled *bool `pulumi:"monitoringEnabled"`
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -170,20 +170,20 @@ type monitorState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+	// User's information. A `user` block as defined below. Changing this forces a new resource to be created.
 	User *MonitorUser `pulumi:"user"`
 }
 
 type MonitorState struct {
 	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
 	EnvironmentProperties MonitorEnvironmentPropertyArrayInput
-	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+	// The kind of managed identity assigned to this resource. A `identity` block as defined below.
 	Identity MonitorIdentityPtrInput
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
 	MarketplaceSubscription pulumi.StringPtrInput
-	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
 	MonitoringEnabled pulumi.BoolPtrInput
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -193,7 +193,7 @@ type MonitorState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+	// User's information. A `user` block as defined below. Changing this forces a new resource to be created.
 	User MonitorUserPtrInput
 }
 
@@ -204,13 +204,13 @@ func (MonitorState) ElementType() reflect.Type {
 type monitorArgs struct {
 	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
 	EnvironmentProperties []MonitorEnvironmentProperty `pulumi:"environmentProperties"`
-	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+	// The kind of managed identity assigned to this resource. A `identity` block as defined below.
 	Identity MonitorIdentity `pulumi:"identity"`
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
 	MarketplaceSubscription string `pulumi:"marketplaceSubscription"`
-	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
 	MonitoringEnabled *bool `pulumi:"monitoringEnabled"`
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -220,7 +220,7 @@ type monitorArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+	// User's information. A `user` block as defined below. Changing this forces a new resource to be created.
 	User MonitorUser `pulumi:"user"`
 }
 
@@ -228,13 +228,13 @@ type monitorArgs struct {
 type MonitorArgs struct {
 	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
 	EnvironmentProperties MonitorEnvironmentPropertyArrayInput
-	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+	// The kind of managed identity assigned to this resource. A `identity` block as defined below.
 	Identity MonitorIdentityInput
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
 	MarketplaceSubscription pulumi.StringInput
-	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+	// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
 	MonitoringEnabled pulumi.BoolPtrInput
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -244,7 +244,7 @@ type MonitorArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+	// User's information. A `user` block as defined below. Changing this forces a new resource to be created.
 	User MonitorUserInput
 }
 
@@ -340,7 +340,7 @@ func (o MonitorOutput) EnvironmentProperties() MonitorEnvironmentPropertyArrayOu
 	return o.ApplyT(func(v *Monitor) MonitorEnvironmentPropertyArrayOutput { return v.EnvironmentProperties }).(MonitorEnvironmentPropertyArrayOutput)
 }
 
-// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+// The kind of managed identity assigned to this resource. A `identity` block as defined below.
 func (o MonitorOutput) Identity() MonitorIdentityOutput {
 	return o.ApplyT(func(v *Monitor) MonitorIdentityOutput { return v.Identity }).(MonitorIdentityOutput)
 }
@@ -350,12 +350,12 @@ func (o MonitorOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
 func (o MonitorOutput) MarketplaceSubscription() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.MarketplaceSubscription }).(pulumi.StringOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+// Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
 func (o MonitorOutput) MonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.MonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -380,7 +380,7 @@ func (o MonitorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+// User's information. A `user` block as defined below. Changing this forces a new resource to be created.
 func (o MonitorOutput) User() MonitorUserOutput {
 	return o.ApplyT(func(v *Monitor) MonitorUserOutput { return v.User }).(MonitorUserOutput)
 }

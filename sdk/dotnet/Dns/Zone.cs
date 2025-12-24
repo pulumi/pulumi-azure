@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Dns
     public partial class Zone : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+        /// Maximum number of Records in the zone.
         /// </summary>
         [Output("maxNumberOfRecordSets")]
         public Output<int> MaxNumberOfRecordSets { get; private set; } = null!;
@@ -68,13 +68,13 @@ namespace Pulumi.Azure.Dns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) A list of values that make up the NS record for the zone.
+        /// A list of values that make up the NS record for the zone.
         /// </summary>
         [Output("nameServers")]
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The number of records already in the zone.
+        /// The number of records already in the zone.
         /// </summary>
         [Output("numberOfRecordSets")]
         public Output<int> NumberOfRecordSets { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// An `SoaRecord` block as defined below.
+        /// A `SoaRecord` block as defined below.
         /// </summary>
         [Output("soaRecord")]
         public Output<Outputs.ZoneSoaRecord> SoaRecord { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Dns
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// An `SoaRecord` block as defined below.
+        /// A `SoaRecord` block as defined below.
         /// </summary>
         [Input("soaRecord")]
         public Input<Inputs.ZoneSoaRecordArgs>? SoaRecord { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Dns
     public sealed class ZoneState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+        /// Maximum number of Records in the zone.
         /// </summary>
         [Input("maxNumberOfRecordSets")]
         public Input<int>? MaxNumberOfRecordSets { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Dns
         private InputList<string>? _nameServers;
 
         /// <summary>
-        /// (Optional) A list of values that make up the NS record for the zone.
+        /// A list of values that make up the NS record for the zone.
         /// </summary>
         public InputList<string> NameServers
         {
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Dns
         }
 
         /// <summary>
-        /// (Optional) The number of records already in the zone.
+        /// The number of records already in the zone.
         /// </summary>
         [Input("numberOfRecordSets")]
         public Input<int>? NumberOfRecordSets { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Dns
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// An `SoaRecord` block as defined below.
+        /// A `SoaRecord` block as defined below.
         /// </summary>
         [Input("soaRecord")]
         public Input<Inputs.ZoneSoaRecordGetArgs>? SoaRecord { get; set; }

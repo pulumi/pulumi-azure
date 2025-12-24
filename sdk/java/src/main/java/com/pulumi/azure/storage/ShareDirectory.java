@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
  *             .name("sharename")
- *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountId(exampleAccount.id())
  *             .quota(50)
  *             .build());
  * 
  *         var exampleShareDirectory = new ShareDirectory("exampleShareDirectory", ShareDirectoryArgs.builder()
  *             .name("example")
- *             .storageShareId(exampleShare.id())
+ *             .storageShareUrl(exampleShare.url())
  *             .build());
  * 
  *     }
@@ -115,18 +115,30 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * @deprecated
+     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
     @Export(name="storageShareId", refs={String.class}, tree="[0]")
     private Output<String> storageShareId;
 
-    /**
-     * @return The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> storageShareId() {
         return this.storageShareId;
+    }
+    /**
+     * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="storageShareUrl", refs={String.class}, tree="[0]")
+    private Output<String> storageShareUrl;
+
+    /**
+     * @return The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> storageShareUrl() {
+        return this.storageShareUrl;
     }
 
     /**
@@ -141,7 +153,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ShareDirectory(java.lang.String name, ShareDirectoryArgs args) {
+    public ShareDirectory(java.lang.String name, @Nullable ShareDirectoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -150,7 +162,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ShareDirectory(java.lang.String name, ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ShareDirectory(java.lang.String name, @Nullable ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/shareDirectory:ShareDirectory", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -158,7 +170,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
         super("azure:storage/shareDirectory:ShareDirectory", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ShareDirectoryArgs makeArgs(ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ShareDirectoryArgs makeArgs(@Nullable ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:notificationhub/namespace:Namespace")
 public class Namespace extends com.pulumi.resources.CustomResource {
     /**
-     * Is this Notification Hub Namespace enabled? Defaults to `true`.
+     * Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is this Notification Hub Namespace enabled? Defaults to `true`.
+     * @return Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -124,28 +124,28 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="namespaceType", refs={String.class}, tree="[0]")
     private Output<String> namespaceType;
 
     /**
-     * @return The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+     * @return The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> namespaceType() {
         return this.namespaceType;
     }
     /**
-     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
      * 
      */
     @Export(name="replicationRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> replicationRegion;
 
     /**
-     * @return The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * @return The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
      * 
      */
     public Output<Optional<String>> replicationRegion() {

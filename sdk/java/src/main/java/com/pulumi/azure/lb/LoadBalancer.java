@@ -111,12 +111,16 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     /**
      * One or more `frontendIpConfiguration` blocks as documented below.
      * 
+     * &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
+     * 
      */
     @Export(name="frontendIpConfigurations", refs={List.class,LoadBalancerFrontendIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LoadBalancerFrontendIpConfiguration>> frontendIpConfigurations;
 
     /**
      * @return One or more `frontendIpConfiguration` blocks as documented below.
+     * 
+     * &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
      * 
      */
     public Output<Optional<List<LoadBalancerFrontendIpConfiguration>>> frontendIpConfigurations() {

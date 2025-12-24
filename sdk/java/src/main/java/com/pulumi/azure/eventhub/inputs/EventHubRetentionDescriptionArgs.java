@@ -18,14 +18,14 @@ public final class EventHubRetentionDescriptionArgs extends com.pulumi.resources
     public static final EventHubRetentionDescriptionArgs Empty = new EventHubRetentionDescriptionArgs();
 
     /**
-     * Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+     * Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="cleanupPolicy", required=true)
     private Output<String> cleanupPolicy;
 
     /**
-     * @return Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+     * @return Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> cleanupPolicy() {
@@ -89,7 +89,7 @@ public final class EventHubRetentionDescriptionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cleanupPolicy Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+         * @param cleanupPolicy Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class EventHubRetentionDescriptionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cleanupPolicy Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+         * @param cleanupPolicy Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -62,14 +62,14 @@ public final class JobTemplateVolumeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+     * The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+     * @return The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -167,7 +167,7 @@ public final class JobTemplateVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+         * @param storageType The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class JobTemplateVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+         * @param storageType The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
          * 
          * @return builder
          * 

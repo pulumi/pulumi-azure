@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StorageInsights{}
 	case "azure:loganalytics/workspaceTable:WorkspaceTable":
 		r = &WorkspaceTable{}
+	case "azure:loganalytics/workspaceTableCustomLog:WorkspaceTableCustomLog":
+		r = &WorkspaceTableCustomLog{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -109,6 +111,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"loganalytics/workspaceTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"loganalytics/workspaceTableCustomLog",
 		&module{version},
 	)
 }

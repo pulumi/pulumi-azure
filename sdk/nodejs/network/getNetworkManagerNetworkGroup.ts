@@ -82,6 +82,10 @@ export interface GetNetworkManagerNetworkGroupResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The member type of the Network Manager Network Group.
+     */
+    readonly memberType: string;
     readonly name: string;
     readonly networkManagerId: string;
 }

@@ -90,6 +90,10 @@ type NetworkManagerNetworkGroup struct {
 
 	// A description of the Network Manager Network Group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+	//
+	// > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+	MemberType pulumi.StringPtrOutput `pulumi:"memberType"`
 	// Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
@@ -131,6 +135,10 @@ func GetNetworkManagerNetworkGroup(ctx *pulumi.Context,
 type networkManagerNetworkGroupState struct {
 	// A description of the Network Manager Network Group.
 	Description *string `pulumi:"description"`
+	// The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+	//
+	// > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+	MemberType *string `pulumi:"memberType"`
 	// Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
@@ -140,6 +148,10 @@ type networkManagerNetworkGroupState struct {
 type NetworkManagerNetworkGroupState struct {
 	// A description of the Network Manager Network Group.
 	Description pulumi.StringPtrInput
+	// The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+	//
+	// > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+	MemberType pulumi.StringPtrInput
 	// Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
@@ -153,6 +165,10 @@ func (NetworkManagerNetworkGroupState) ElementType() reflect.Type {
 type networkManagerNetworkGroupArgs struct {
 	// A description of the Network Manager Network Group.
 	Description *string `pulumi:"description"`
+	// The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+	//
+	// > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+	MemberType *string `pulumi:"memberType"`
 	// Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
@@ -163,6 +179,10 @@ type networkManagerNetworkGroupArgs struct {
 type NetworkManagerNetworkGroupArgs struct {
 	// A description of the Network Manager Network Group.
 	Description pulumi.StringPtrInput
+	// The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+	//
+	// > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+	MemberType pulumi.StringPtrInput
 	// Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
@@ -259,6 +279,13 @@ func (o NetworkManagerNetworkGroupOutput) ToNetworkManagerNetworkGroupOutputWith
 // A description of the Network Manager Network Group.
 func (o NetworkManagerNetworkGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkManagerNetworkGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+//
+// > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+func (o NetworkManagerNetworkGroupOutput) MemberType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerNetworkGroup) pulumi.StringPtrOutput { return v.MemberType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.

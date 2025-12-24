@@ -59,7 +59,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
 
         /// <summary>
         /// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
-        /// *
+        /// 
         /// &gt; **Note:** When not using `AbsoluteCriteria`, you must use exactly one of `DaysOfMonth` or `DaysOfWeek`. Regarding the remaining two properties, `WeeksOfMonth` and `MonthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `RetentionRule` blocks.
         /// </summary>
         public InputList<string> WeeksOfMonths

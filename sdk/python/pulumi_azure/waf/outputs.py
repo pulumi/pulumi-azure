@@ -76,7 +76,7 @@ class PolicyCustomRule(dict):
         :param _builtins.int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param _builtins.str rule_type: Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
         :param _builtins.bool enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
-        :param _builtins.str group_rate_limit_by: Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+        :param _builtins.str group_rate_limit_by: Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
         :param _builtins.str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param _builtins.str rate_limit_duration: Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
         :param _builtins.int rate_limit_threshold: Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
@@ -142,7 +142,7 @@ class PolicyCustomRule(dict):
     @pulumi.getter(name="groupRateLimitBy")
     def group_rate_limit_by(self) -> Optional[_builtins.str]:
         """
-        Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+        Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
         """
         return pulumi.get(self, "group_rate_limit_by")
 

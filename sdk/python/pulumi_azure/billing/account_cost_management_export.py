@@ -39,8 +39,7 @@ class AccountCostManagementExportArgs:
         :param pulumi.Input[_builtins.str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[_builtins.str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
-               
-               * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+        :param pulumi.Input[_builtins.str] file_format: Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "billing_account_id", billing_account_id)
@@ -133,8 +132,6 @@ class AccountCostManagementExportArgs:
     def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Is the cost management export active? Default is `true`.
-
-        * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         """
         return pulumi.get(self, "active")
 
@@ -145,6 +142,9 @@ class AccountCostManagementExportArgs:
     @_builtins.property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Format for export. Valid values are `Csv` only. Default is `Csv`.
+        """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
@@ -179,11 +179,10 @@ class _AccountCostManagementExportState:
         """
         Input properties used for looking up and filtering AccountCostManagementExport resources.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
-               
-               * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[_builtins.str] file_format: Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[_builtins.str] recurrence_period_start_date: The date the export will start capturing information.
@@ -213,8 +212,6 @@ class _AccountCostManagementExportState:
     def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Is the cost management export active? Default is `true`.
-
-        * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         """
         return pulumi.get(self, "active")
 
@@ -261,6 +258,9 @@ class _AccountCostManagementExportState:
     @_builtins.property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Format for export. Valid values are `Csv` only. Default is `Csv`.
+        """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
@@ -388,11 +388,10 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
-               
-               * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[_builtins.str] file_format: Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[_builtins.str] recurrence_period_start_date: The date the export will start capturing information.
@@ -538,11 +537,10 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
-               
-               * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[_builtins.str] file_format: Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[_builtins.str] recurrence_period_start_date: The date the export will start capturing information.
@@ -568,8 +566,6 @@ class AccountCostManagementExport(pulumi.CustomResource):
     def active(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Is the cost management export active? Default is `true`.
-
-        * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         """
         return pulumi.get(self, "active")
 
@@ -600,6 +596,9 @@ class AccountCostManagementExport(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Format for export. Valid values are `Csv` only. Default is `Csv`.
+        """
         return pulumi.get(self, "file_format")
 
     @_builtins.property

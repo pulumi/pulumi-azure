@@ -15,6 +15,11 @@ export type MongoCluster = import("./mongoCluster").MongoCluster;
 export const MongoCluster: typeof import("./mongoCluster").MongoCluster = null as any;
 utilities.lazyLoad(exports, ["MongoCluster"], () => require("./mongoCluster"));
 
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +29,8 @@ const _module = {
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure:mongocluster/mongoCluster:MongoCluster":
                 return new MongoCluster(name, <any>undefined, { urn })
+            case "azure:mongocluster/user:User":
+                return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -31,3 +38,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "mongocluster/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mongocluster/mongoCluster", _module)
+pulumi.runtime.registerResourceModule("azure", "mongocluster/user", _module)

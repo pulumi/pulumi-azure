@@ -32,14 +32,14 @@ public final class ResourceAnchorState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Azure Region where the Oracle Resource Anchor  exists.
+     * The Azure Region where the Oracle Resource Anchor exists.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the Oracle Resource Anchor  exists.
+     * @return The Azure Region where the Oracle Resource Anchor exists.
      * 
      */
     public Optional<Output<String>> location() {
@@ -141,7 +141,7 @@ public final class ResourceAnchorState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param location The Azure Region where the Oracle Resource Anchor  exists.
+         * @param location The Azure Region where the Oracle Resource Anchor exists.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ResourceAnchorState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param location The Azure Region where the Oracle Resource Anchor  exists.
+         * @param location The Azure Region where the Oracle Resource Anchor exists.
          * 
          * @return builder
          * 

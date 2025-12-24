@@ -17,14 +17,14 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
     public static final EnvironmentDaprComponentSecretArgs Empty = new EnvironmentDaprComponentSecretArgs();
 
     /**
-     * The identity to use for accessing key vault reference.
+     * The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
      * 
      */
     @Import(name="identity")
     private @Nullable Output<String> identity;
 
     /**
-     * @return The identity to use for accessing key vault reference.
+     * @return The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
      * 
      */
     public Optional<Output<String>> identity() {
@@ -32,14 +32,14 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
     }
 
     /**
-     * The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+     * The Key Vault Secret ID.
      * 
      */
     @Import(name="keyVaultSecretId")
     private @Nullable Output<String> keyVaultSecretId;
 
     /**
-     * @return The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+     * @return The Key Vault Secret ID.
      * 
      */
     public Optional<Output<String>> keyVaultSecretId() {
@@ -104,7 +104,7 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param identity The identity to use for accessing key vault reference.
+         * @param identity The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param identity The identity to use for accessing key vault reference.
+         * @param identity The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+         * @param keyVaultSecretId The Key Vault Secret ID.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+         * @param keyVaultSecretId The Key Vault Secret ID.
          * 
          * @return builder
          * 

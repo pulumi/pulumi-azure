@@ -160,7 +160,7 @@ type VmwareReplicatedVm struct {
 	//
 	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId pulumi.StringPtrOutput `pulumi:"defaultLogStorageAccountId"`
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 	//
 	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
@@ -281,7 +281,7 @@ type vmwareReplicatedVmState struct {
 	//
 	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId *string `pulumi:"defaultLogStorageAccountId"`
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 	//
 	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
@@ -352,7 +352,7 @@ type VmwareReplicatedVmState struct {
 	//
 	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId pulumi.StringPtrInput
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 	//
 	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
@@ -427,7 +427,7 @@ type vmwareReplicatedVmArgs struct {
 	//
 	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId *string `pulumi:"defaultLogStorageAccountId"`
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 	//
 	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
@@ -499,7 +499,7 @@ type VmwareReplicatedVmArgs struct {
 	//
 	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId pulumi.StringPtrInput
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 	//
 	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
@@ -662,7 +662,7 @@ func (o VmwareReplicatedVmOutput) DefaultLogStorageAccountId() pulumi.StringPtrO
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringPtrOutput { return v.DefaultLogStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 //
 // > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 //

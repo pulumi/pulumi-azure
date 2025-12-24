@@ -36,6 +36,7 @@ from .get_product import *
 from .get_service import *
 from .get_subscription import *
 from .get_user import *
+from .get_workspace import *
 from .global_schema import *
 from .group import *
 from .group_user import *

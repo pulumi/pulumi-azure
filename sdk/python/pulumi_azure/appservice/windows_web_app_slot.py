@@ -59,7 +59,7 @@ class WindowsWebAppSlotArgs:
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+        :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
@@ -249,7 +249,7 @@ class WindowsWebAppSlotArgs:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -513,7 +513,7 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+        :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Windows Web App Slot.
@@ -721,7 +721,7 @@ class _WindowsWebAppSlotState:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -1145,7 +1145,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+        :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
@@ -1376,7 +1376,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+        :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Windows Web App Slot.
@@ -1521,7 +1521,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 

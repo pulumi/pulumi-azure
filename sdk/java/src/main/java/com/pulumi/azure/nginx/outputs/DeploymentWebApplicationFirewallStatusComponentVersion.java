@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentWebApplicationFirewallStatusComponentVersion {
+    /**
+     * @return The version of the WAF Engine.
+     * 
+     */
     private @Nullable String wafEngineVersion;
+    /**
+     * @return The version of the WAF Nginx module.
+     * 
+     */
     private @Nullable String wafNginxVersion;
 
     private DeploymentWebApplicationFirewallStatusComponentVersion() {}
+    /**
+     * @return The version of the WAF Engine.
+     * 
+     */
     public Optional<String> wafEngineVersion() {
         return Optional.ofNullable(this.wafEngineVersion);
     }
+    /**
+     * @return The version of the WAF Nginx module.
+     * 
+     */
     public Optional<String> wafNginxVersion() {
         return Optional.ofNullable(this.wafNginxVersion);
     }

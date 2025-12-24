@@ -13,56 +13,46 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['EnvironmentCertificateArgs', 'EnvironmentCertificate']
 
 @pulumi.input_type
 class EnvironmentCertificateArgs:
     def __init__(__self__, *,
-                 certificate_blob_base64: pulumi.Input[_builtins.str],
-                 certificate_password: pulumi.Input[_builtins.str],
                  container_app_environment_id: pulumi.Input[_builtins.str],
+                 certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_key_vault: Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']] = None,
+                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentCertificate resource.
-        :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] certificate_password: The password for the Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+               
+               > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
+        :param pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs'] certificate_key_vault: A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** one of `certificate_blob_base64` and `certificate_key_vault` must be set.
+        :param pulumi.Input[_builtins.str] certificate_password: The password for the Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** required if `certificate_blob_base64` is specified.
         :param pulumi.Input[_builtins.str] name: The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "certificate_blob_base64", certificate_blob_base64)
-        pulumi.set(__self__, "certificate_password", certificate_password)
         pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
+        if certificate_blob_base64 is not None:
+            pulumi.set(__self__, "certificate_blob_base64", certificate_blob_base64)
+        if certificate_key_vault is not None:
+            pulumi.set(__self__, "certificate_key_vault", certificate_key_vault)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateBlobBase64")
-    def certificate_blob_base64(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "certificate_blob_base64")
-
-    @certificate_blob_base64.setter
-    def certificate_blob_base64(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "certificate_blob_base64", value)
-
-    @_builtins.property
-    @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> pulumi.Input[_builtins.str]:
-        """
-        The password for the Certificate. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "certificate_password")
-
-    @certificate_password.setter
-    def certificate_password(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "certificate_password", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentId")
@@ -75,6 +65,48 @@ class EnvironmentCertificateArgs:
     @container_app_environment_id.setter
     def container_app_environment_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "container_app_environment_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateBlobBase64")
+    def certificate_blob_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+
+        > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
+        """
+        return pulumi.get(self, "certificate_blob_base64")
+
+    @certificate_blob_base64.setter
+    def certificate_blob_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "certificate_blob_base64", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateKeyVault")
+    def certificate_key_vault(self) -> Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']]:
+        """
+        A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** one of `certificate_blob_base64` and `certificate_key_vault` must be set.
+        """
+        return pulumi.get(self, "certificate_key_vault")
+
+    @certificate_key_vault.setter
+    def certificate_key_vault(self, value: Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']]):
+        pulumi.set(self, "certificate_key_vault", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The password for the Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** required if `certificate_blob_base64` is specified.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @certificate_password.setter
+    def certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "certificate_password", value)
 
     @_builtins.property
     @pulumi.getter
@@ -105,6 +137,7 @@ class EnvironmentCertificateArgs:
 class _EnvironmentCertificateState:
     def __init__(__self__, *,
                  certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_key_vault: Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']] = None,
                  certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
                  container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
@@ -117,7 +150,14 @@ class _EnvironmentCertificateState:
         """
         Input properties used for looking up and filtering EnvironmentCertificate resources.
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+               
+               > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
+        :param pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs'] certificate_key_vault: A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** one of `certificate_blob_base64` and `certificate_key_vault` must be set.
         :param pulumi.Input[_builtins.str] certificate_password: The password for the Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** required if `certificate_blob_base64` is specified.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] expiration_date: The expiration date for the Certificate.
         :param pulumi.Input[_builtins.str] issue_date: The date of issue for the Certificate.
@@ -129,6 +169,8 @@ class _EnvironmentCertificateState:
         """
         if certificate_blob_base64 is not None:
             pulumi.set(__self__, "certificate_blob_base64", certificate_blob_base64)
+        if certificate_key_vault is not None:
+            pulumi.set(__self__, "certificate_key_vault", certificate_key_vault)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
         if container_app_environment_id is not None:
@@ -153,6 +195,8 @@ class _EnvironmentCertificateState:
     def certificate_blob_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+
+        > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
         """
         return pulumi.get(self, "certificate_blob_base64")
 
@@ -161,10 +205,26 @@ class _EnvironmentCertificateState:
         pulumi.set(self, "certificate_blob_base64", value)
 
     @_builtins.property
+    @pulumi.getter(name="certificateKeyVault")
+    def certificate_key_vault(self) -> Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']]:
+        """
+        A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** one of `certificate_blob_base64` and `certificate_key_vault` must be set.
+        """
+        return pulumi.get(self, "certificate_key_vault")
+
+    @certificate_key_vault.setter
+    def certificate_key_vault(self, value: Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']]):
+        pulumi.set(self, "certificate_key_vault", value)
+
+    @_builtins.property
     @pulumi.getter(name="certificatePassword")
     def certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The password for the Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** required if `certificate_blob_base64` is specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -276,6 +336,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_key_vault: Optional[pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
                  certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
                  container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -285,6 +346,8 @@ class EnvironmentCertificate(pulumi.CustomResource):
         Manages a Container App Environment Certificate.
 
         ## Example Usage
+
+        ### Certificate from .pfx file
 
         ```python
         import pulumi
@@ -310,6 +373,72 @@ class EnvironmentCertificate(pulumi.CustomResource):
             container_app_environment_id=example_environment.id,
             certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx").result,
             certificate_password="$3cretSqu1rreL")
+        ```
+
+        ### Certificate from Key Vault
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-identity",
+            resource_group_name=example.name,
+            location=example.location)
+        example_environment = azure.containerapp.Environment("example",
+            name="example-environment",
+            location=example.location,
+            resource_group_name=example.name,
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            })
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example-keyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            enable_rbac_authorization=True)
+        user_keyvault_admin = azure.authorization.Assignment("user_keyvault_admin",
+            scope=example_key_vault.id,
+            role_definition_name="Key Vault Administrator",
+            principal_id=current.object_id)
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_key_vault.id,
+            role_definition_name="Key Vault Secrets User",
+            principal_id=example_environment.identity.principal_id)
+        example_certificate = azure.keyvault.Certificate("example",
+            name="example-certificate",
+            key_vault_id=example_key_vault.id,
+            certificate={
+                "contents": std.filebase64(input="path/to/certificate_file.pfx").result,
+                "password": "",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[
+                    user_keyvault_admin,
+                    example_assignment,
+                ]))
+        example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
+            name="example-certificate",
+            container_app_environment_id=example_environment.id,
+            certificate_key_vault={
+                "identity": example_user_assigned_identity.id,
+                "key_vault_secret_id": example_certificate.versionless_secret_id,
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## API Providers
@@ -330,7 +459,14 @@ class EnvironmentCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+               
+               > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
+        :param pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']] certificate_key_vault: A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** one of `certificate_blob_base64` and `certificate_key_vault` must be set.
         :param pulumi.Input[_builtins.str] certificate_password: The password for the Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** required if `certificate_blob_base64` is specified.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -345,6 +481,8 @@ class EnvironmentCertificate(pulumi.CustomResource):
         Manages a Container App Environment Certificate.
 
         ## Example Usage
+
+        ### Certificate from .pfx file
 
         ```python
         import pulumi
@@ -370,6 +508,72 @@ class EnvironmentCertificate(pulumi.CustomResource):
             container_app_environment_id=example_environment.id,
             certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx").result,
             certificate_password="$3cretSqu1rreL")
+        ```
+
+        ### Certificate from Key Vault
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-identity",
+            resource_group_name=example.name,
+            location=example.location)
+        example_environment = azure.containerapp.Environment("example",
+            name="example-environment",
+            location=example.location,
+            resource_group_name=example.name,
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            })
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example-keyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            enable_rbac_authorization=True)
+        user_keyvault_admin = azure.authorization.Assignment("user_keyvault_admin",
+            scope=example_key_vault.id,
+            role_definition_name="Key Vault Administrator",
+            principal_id=current.object_id)
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_key_vault.id,
+            role_definition_name="Key Vault Secrets User",
+            principal_id=example_environment.identity.principal_id)
+        example_certificate = azure.keyvault.Certificate("example",
+            name="example-certificate",
+            key_vault_id=example_key_vault.id,
+            certificate={
+                "contents": std.filebase64(input="path/to/certificate_file.pfx").result,
+                "password": "",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[
+                    user_keyvault_admin,
+                    example_assignment,
+                ]))
+        example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
+            name="example-certificate",
+            container_app_environment_id=example_environment.id,
+            certificate_key_vault={
+                "identity": example_user_assigned_identity.id,
+                "key_vault_secret_id": example_certificate.versionless_secret_id,
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## API Providers
@@ -403,6 +607,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_key_vault: Optional[pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
                  certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
                  container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -416,11 +621,8 @@ class EnvironmentCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnvironmentCertificateArgs.__new__(EnvironmentCertificateArgs)
 
-            if certificate_blob_base64 is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_blob_base64'")
             __props__.__dict__["certificate_blob_base64"] = certificate_blob_base64
-            if certificate_password is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_password'")
+            __props__.__dict__["certificate_key_vault"] = certificate_key_vault
             __props__.__dict__["certificate_password"] = None if certificate_password is None else pulumi.Output.secret(certificate_password)
             if container_app_environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_environment_id'")
@@ -445,6 +647,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
+            certificate_key_vault: Optional[pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
             certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
             container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
             expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
@@ -462,7 +665,14 @@ class EnvironmentCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+               
+               > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
+        :param pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']] certificate_key_vault: A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** one of `certificate_blob_base64` and `certificate_key_vault` must be set.
         :param pulumi.Input[_builtins.str] certificate_password: The password for the Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** required if `certificate_blob_base64` is specified.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] expiration_date: The expiration date for the Certificate.
         :param pulumi.Input[_builtins.str] issue_date: The date of issue for the Certificate.
@@ -477,6 +687,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
         __props__ = _EnvironmentCertificateState.__new__(_EnvironmentCertificateState)
 
         __props__.__dict__["certificate_blob_base64"] = certificate_blob_base64
+        __props__.__dict__["certificate_key_vault"] = certificate_key_vault
         __props__.__dict__["certificate_password"] = certificate_password
         __props__.__dict__["container_app_environment_id"] = container_app_environment_id
         __props__.__dict__["expiration_date"] = expiration_date
@@ -490,17 +701,31 @@ class EnvironmentCertificate(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="certificateBlobBase64")
-    def certificate_blob_base64(self) -> pulumi.Output[_builtins.str]:
+    def certificate_blob_base64(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+
+        > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
         """
         return pulumi.get(self, "certificate_blob_base64")
 
     @_builtins.property
+    @pulumi.getter(name="certificateKeyVault")
+    def certificate_key_vault(self) -> pulumi.Output[Optional['outputs.EnvironmentCertificateCertificateKeyVault']]:
+        """
+        A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** one of `certificate_blob_base64` and `certificate_key_vault` must be set.
+        """
+        return pulumi.get(self, "certificate_key_vault")
+
+    @_builtins.property
     @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> pulumi.Output[_builtins.str]:
+    def certificate_password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The password for the Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** required if `certificate_blob_base64` is specified.
         """
         return pulumi.get(self, "certificate_password")
 

@@ -263,6 +263,10 @@ namespace Pulumi.Azure.Network
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The member type of the Network Manager Network Group.
+        /// </summary>
+        public readonly string MemberType;
         public readonly string Name;
         public readonly string NetworkManagerId;
 
@@ -272,12 +276,15 @@ namespace Pulumi.Azure.Network
 
             string id,
 
+            string memberType,
+
             string name,
 
             string networkManagerId)
         {
             Description = description;
             Id = id;
+            MemberType = memberType;
             Name = name;
             NetworkManagerId = networkManagerId;
         }

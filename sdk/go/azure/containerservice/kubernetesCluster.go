@@ -199,6 +199,8 @@ type KubernetesCluster struct {
 	//
 	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
 	NodeOsUpgradeChannel pulumi.StringPtrOutput `pulumi:"nodeOsUpgradeChannel"`
+	// A `nodeProvisioningProfile` block as defined below.
+	NodeProvisioningProfile KubernetesClusterNodeProvisioningProfileOutput `pulumi:"nodeProvisioningProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -479,6 +481,8 @@ type kubernetesClusterState struct {
 	//
 	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
 	NodeOsUpgradeChannel *string `pulumi:"nodeOsUpgradeChannel"`
+	// A `nodeProvisioningProfile` block as defined below.
+	NodeProvisioningProfile *KubernetesClusterNodeProvisioningProfile `pulumi:"nodeProvisioningProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -717,6 +721,8 @@ type KubernetesClusterState struct {
 	//
 	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
 	NodeOsUpgradeChannel pulumi.StringPtrInput
+	// A `nodeProvisioningProfile` block as defined below.
+	NodeProvisioningProfile KubernetesClusterNodeProvisioningProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -945,6 +951,8 @@ type kubernetesClusterArgs struct {
 	//
 	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
 	NodeOsUpgradeChannel *string `pulumi:"nodeOsUpgradeChannel"`
+	// A `nodeProvisioningProfile` block as defined below.
+	NodeProvisioningProfile *KubernetesClusterNodeProvisioningProfile `pulumi:"nodeProvisioningProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -1162,6 +1170,8 @@ type KubernetesClusterArgs struct {
 	//
 	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
 	NodeOsUpgradeChannel pulumi.StringPtrInput
+	// A `nodeProvisioningProfile` block as defined below.
+	NodeProvisioningProfile KubernetesClusterNodeProvisioningProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -1624,6 +1634,13 @@ func (o KubernetesClusterOutput) NetworkProfile() KubernetesClusterNetworkProfil
 // > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
 func (o KubernetesClusterOutput) NodeOsUpgradeChannel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.NodeOsUpgradeChannel }).(pulumi.StringPtrOutput)
+}
+
+// A `nodeProvisioningProfile` block as defined below.
+func (o KubernetesClusterOutput) NodeProvisioningProfile() KubernetesClusterNodeProvisioningProfileOutput {
+	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterNodeProvisioningProfileOutput {
+		return v.NodeProvisioningProfile
+	}).(KubernetesClusterNodeProvisioningProfileOutput)
 }
 
 // The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.

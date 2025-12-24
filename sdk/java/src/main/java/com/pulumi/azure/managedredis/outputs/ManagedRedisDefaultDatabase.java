@@ -26,7 +26,9 @@ public final class ManagedRedisDefaultDatabase {
      */
     private @Nullable String clientProtocol;
     /**
-     * @return Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+     * @return Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+     * 
+     * !&gt; **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     private @Nullable String clusteringPolicy;
@@ -36,15 +38,32 @@ public final class ManagedRedisDefaultDatabase {
      */
     private @Nullable String evictionPolicy;
     /**
-     * @return The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+     * @return The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+     * 
+     * !&gt; **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     private @Nullable String geoReplicationGroupName;
+    /**
+     * @return The ID of the Managed Redis Database Instance.
+     * 
+     */
+    private @Nullable String id;
     /**
      * @return A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
      * 
      */
     private @Nullable List<ManagedRedisDefaultDatabaseModule> modules;
+    /**
+     * @return The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+     * 
+     */
+    private @Nullable String persistenceAppendOnlyFileBackupFrequency;
+    /**
+     * @return The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+     * 
+     */
+    private @Nullable String persistenceRedisDatabaseBackupFrequency;
     /**
      * @return TCP port of the database endpoint.
      * 
@@ -77,7 +96,9 @@ public final class ManagedRedisDefaultDatabase {
         return Optional.ofNullable(this.clientProtocol);
     }
     /**
-     * @return Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+     * @return Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+     * 
+     * !&gt; **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     public Optional<String> clusteringPolicy() {
@@ -91,11 +112,20 @@ public final class ManagedRedisDefaultDatabase {
         return Optional.ofNullable(this.evictionPolicy);
     }
     /**
-     * @return The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+     * @return The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+     * 
+     * !&gt; **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     public Optional<String> geoReplicationGroupName() {
         return Optional.ofNullable(this.geoReplicationGroupName);
+    }
+    /**
+     * @return The ID of the Managed Redis Database Instance.
+     * 
+     */
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
@@ -103,6 +133,20 @@ public final class ManagedRedisDefaultDatabase {
      */
     public List<ManagedRedisDefaultDatabaseModule> modules() {
         return this.modules == null ? List.of() : this.modules;
+    }
+    /**
+     * @return The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+     * 
+     */
+    public Optional<String> persistenceAppendOnlyFileBackupFrequency() {
+        return Optional.ofNullable(this.persistenceAppendOnlyFileBackupFrequency);
+    }
+    /**
+     * @return The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+     * 
+     */
+    public Optional<String> persistenceRedisDatabaseBackupFrequency() {
+        return Optional.ofNullable(this.persistenceRedisDatabaseBackupFrequency);
     }
     /**
      * @return TCP port of the database endpoint.
@@ -140,7 +184,10 @@ public final class ManagedRedisDefaultDatabase {
         private @Nullable String clusteringPolicy;
         private @Nullable String evictionPolicy;
         private @Nullable String geoReplicationGroupName;
+        private @Nullable String id;
         private @Nullable List<ManagedRedisDefaultDatabaseModule> modules;
+        private @Nullable String persistenceAppendOnlyFileBackupFrequency;
+        private @Nullable String persistenceRedisDatabaseBackupFrequency;
         private @Nullable Integer port;
         private @Nullable String primaryAccessKey;
         private @Nullable String secondaryAccessKey;
@@ -152,7 +199,10 @@ public final class ManagedRedisDefaultDatabase {
     	      this.clusteringPolicy = defaults.clusteringPolicy;
     	      this.evictionPolicy = defaults.evictionPolicy;
     	      this.geoReplicationGroupName = defaults.geoReplicationGroupName;
+    	      this.id = defaults.id;
     	      this.modules = defaults.modules;
+    	      this.persistenceAppendOnlyFileBackupFrequency = defaults.persistenceAppendOnlyFileBackupFrequency;
+    	      this.persistenceRedisDatabaseBackupFrequency = defaults.persistenceRedisDatabaseBackupFrequency;
     	      this.port = defaults.port;
     	      this.primaryAccessKey = defaults.primaryAccessKey;
     	      this.secondaryAccessKey = defaults.secondaryAccessKey;
@@ -189,6 +239,12 @@ public final class ManagedRedisDefaultDatabase {
             return this;
         }
         @CustomType.Setter
+        public Builder id(@Nullable String id) {
+
+            this.id = id;
+            return this;
+        }
+        @CustomType.Setter
         public Builder modules(@Nullable List<ManagedRedisDefaultDatabaseModule> modules) {
 
             this.modules = modules;
@@ -196,6 +252,18 @@ public final class ManagedRedisDefaultDatabase {
         }
         public Builder modules(ManagedRedisDefaultDatabaseModule... modules) {
             return modules(List.of(modules));
+        }
+        @CustomType.Setter
+        public Builder persistenceAppendOnlyFileBackupFrequency(@Nullable String persistenceAppendOnlyFileBackupFrequency) {
+
+            this.persistenceAppendOnlyFileBackupFrequency = persistenceAppendOnlyFileBackupFrequency;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder persistenceRedisDatabaseBackupFrequency(@Nullable String persistenceRedisDatabaseBackupFrequency) {
+
+            this.persistenceRedisDatabaseBackupFrequency = persistenceRedisDatabaseBackupFrequency;
+            return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
@@ -222,7 +290,10 @@ public final class ManagedRedisDefaultDatabase {
             _resultValue.clusteringPolicy = clusteringPolicy;
             _resultValue.evictionPolicy = evictionPolicy;
             _resultValue.geoReplicationGroupName = geoReplicationGroupName;
+            _resultValue.id = id;
             _resultValue.modules = modules;
+            _resultValue.persistenceAppendOnlyFileBackupFrequency = persistenceAppendOnlyFileBackupFrequency;
+            _resultValue.persistenceRedisDatabaseBackupFrequency = persistenceRedisDatabaseBackupFrequency;
             _resultValue.port = port;
             _resultValue.primaryAccessKey = primaryAccessKey;
             _resultValue.secondaryAccessKey = secondaryAccessKey;

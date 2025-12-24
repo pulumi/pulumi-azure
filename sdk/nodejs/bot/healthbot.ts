@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.HealthBot` - 2022-08-08
+ * * `Microsoft.HealthBot` - 2025-05-25
  *
  * ## Import
  *
@@ -85,7 +85,9 @@ export class Healthbot extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+     *
+     * > **Note:** Downgrading to `F0` forces a new resource to be created.
      */
     declare public readonly skuName: pulumi.Output<string>;
     /**
@@ -153,7 +155,9 @@ export interface HealthbotState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+     *
+     * > **Note:** Downgrading to `F0` forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -179,7 +183,9 @@ export interface HealthbotArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+     *
+     * > **Note:** Downgrading to `F0` forces a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**

@@ -150,7 +150,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? ManagedPipelineMode { get; set; }
 
         /// <summary>
-        /// The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        /// The configures the minimum version of TLS required for SSL requests. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        /// The configures the minimum version of TLS required for SSL requests to the SCM site Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         /// </summary>
         [Input("scmMinimumTlsVersion")]
         public Input<string>? ScmMinimumTlsVersion { get; set; }

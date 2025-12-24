@@ -122,28 +122,56 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string?> AdministratorUsername { get; private set; } = null!;
 
         /// <summary>
+        /// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+        /// </summary>
+        [Output("authenticationMethods")]
+        public Output<ImmutableArray<string>> AuthenticationMethods { get; private set; } = null!;
+
+        /// <summary>
         /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         /// </summary>
         [Output("computeTier")]
         public Output<string?> ComputeTier { get; private set; } = null!;
 
         /// <summary>
-        /// The list of `ConnectionStrings` blocks as defined below.
+        /// One or more `ConnectionStrings` blocks as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.MongoClusterConnectionString>> ConnectionStrings { get; private set; } = null!;
 
         /// <summary>
-        /// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+        /// The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
+
+        /// <summary>
+        /// A `CustomerManagedKey` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("customerManagedKey")]
+        public Output<Outputs.MongoClusterCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the Data API for the MongoDB Cluster enabled? Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `DataApiModeEnabled` can only be set when `CreateMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+        /// </summary>
+        [Output("dataApiModeEnabled")]
+        public Output<bool?> DataApiModeEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         /// </summary>
         [Output("highAvailabilityMode")]
         public Output<string?> HighAvailabilityMode { get; private set; } = null!;
+
+        /// <summary>
+        /// An `Identity` block as detailed below.
+        /// 
+        /// &gt; **Note:** When adding or removing `Identity`, a resource recreation will be triggered.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.MongoClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
@@ -175,6 +203,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("restore")]
+        public Output<Outputs.MongoClusterRestore?> Restore { get; private set; } = null!;
+
         /// <summary>
         /// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         /// </summary>
@@ -198,6 +229,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("storageSizeInGb")]
         public Output<int?> StorageSizeInGb { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("storageType")]
+        public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the MongoDB Cluster.
@@ -288,6 +325,18 @@ namespace Pulumi.Azure.CosmosDB
         [Input("administratorUsername")]
         public Input<string>? AdministratorUsername { get; set; }
 
+        [Input("authenticationMethods")]
+        private InputList<string>? _authenticationMethods;
+
+        /// <summary>
+        /// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+        /// </summary>
+        public InputList<string> AuthenticationMethods
+        {
+            get => _authenticationMethods ?? (_authenticationMethods = new InputList<string>());
+            set => _authenticationMethods = value;
+        }
+
         /// <summary>
         /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         /// </summary>
@@ -295,16 +344,38 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? ComputeTier { get; set; }
 
         /// <summary>
-        /// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+        /// The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
+
+        /// <summary>
+        /// A `CustomerManagedKey` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.MongoClusterCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
+        /// Is the Data API for the MongoDB Cluster enabled? Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `DataApiModeEnabled` can only be set when `CreateMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+        /// </summary>
+        [Input("dataApiModeEnabled")]
+        public Input<bool>? DataApiModeEnabled { get; set; }
 
         /// <summary>
         /// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         /// </summary>
         [Input("highAvailabilityMode")]
         public Input<string>? HighAvailabilityMode { get; set; }
+
+        /// <summary>
+        /// An `Identity` block as detailed below.
+        /// 
+        /// &gt; **Note:** When adding or removing `Identity`, a resource recreation will be triggered.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.MongoClusterIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
@@ -342,6 +413,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("restore")]
+        public Input<Inputs.MongoClusterRestoreArgs>? Restore { get; set; }
+
         /// <summary>
         /// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         /// </summary>
@@ -365,6 +439,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("storageSizeInGb")]
         public Input<int>? StorageSizeInGb { get; set; }
+
+        /// <summary>
+        /// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -414,6 +494,18 @@ namespace Pulumi.Azure.CosmosDB
         [Input("administratorUsername")]
         public Input<string>? AdministratorUsername { get; set; }
 
+        [Input("authenticationMethods")]
+        private InputList<string>? _authenticationMethods;
+
+        /// <summary>
+        /// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+        /// </summary>
+        public InputList<string> AuthenticationMethods
+        {
+            get => _authenticationMethods ?? (_authenticationMethods = new InputList<string>());
+            set => _authenticationMethods = value;
+        }
+
         /// <summary>
         /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         /// </summary>
@@ -424,7 +516,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.MongoClusterConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// The list of `ConnectionStrings` blocks as defined below.
+        /// One or more `ConnectionStrings` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MongoClusterConnectionStringGetArgs> ConnectionStrings
         {
@@ -437,16 +529,38 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+        /// The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
+
+        /// <summary>
+        /// A `CustomerManagedKey` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.MongoClusterCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
+        /// Is the Data API for the MongoDB Cluster enabled? Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `DataApiModeEnabled` can only be set when `CreateMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+        /// </summary>
+        [Input("dataApiModeEnabled")]
+        public Input<bool>? DataApiModeEnabled { get; set; }
 
         /// <summary>
         /// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         /// </summary>
         [Input("highAvailabilityMode")]
         public Input<string>? HighAvailabilityMode { get; set; }
+
+        /// <summary>
+        /// An `Identity` block as detailed below.
+        /// 
+        /// &gt; **Note:** When adding or removing `Identity`, a resource recreation will be triggered.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.MongoClusterIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
@@ -484,6 +598,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("restore")]
+        public Input<Inputs.MongoClusterRestoreGetArgs>? Restore { get; set; }
+
         /// <summary>
         /// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         /// </summary>
@@ -507,6 +624,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("storageSizeInGb")]
         public Input<int>? StorageSizeInGb { get; set; }
+
+        /// <summary>
+        /// The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

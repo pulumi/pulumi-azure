@@ -63,14 +63,14 @@ public final class AutonomousDatabaseBackupArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+     * @return The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> type() {
@@ -168,7 +168,7 @@ public final class AutonomousDatabaseBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+         * @param type The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AutonomousDatabaseBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+         * @param type The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

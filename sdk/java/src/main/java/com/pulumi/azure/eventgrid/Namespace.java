@@ -155,14 +155,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+     * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      * 
      */
     @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicNetworkAccess;
 
     /**
-     * @return Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+     * @return Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      * 
      */
     public Output<Optional<String>> publicNetworkAccess() {
@@ -211,14 +211,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `topicSpacesConfiguration` block as defined below.
+     * A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="topicSpacesConfigurations", refs={List.class,NamespaceTopicSpacesConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NamespaceTopicSpacesConfiguration>> topicSpacesConfigurations;
 
     /**
-     * @return A `topicSpacesConfiguration` block as defined below.
+     * @return A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<NamespaceTopicSpacesConfiguration>>> topicSpacesConfigurations() {

@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Search
         public Output<bool?> CustomerManagedKeyEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
+        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
         /// 
         /// &gt; **Note:** `HostingMode` can only be configured when `Sku` is set to `Standard3`.
         /// </summary>
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.Search
         public Input<bool>? CustomerManagedKeyEnforcementEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
+        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
         /// 
         /// &gt; **Note:** `HostingMode` can only be configured when `Sku` is set to `Standard3`.
         /// </summary>
@@ -470,7 +470,7 @@ namespace Pulumi.Azure.Search
         public Input<bool>? CustomerManagedKeyEnforcementEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
+        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
         /// 
         /// &gt; **Note:** `HostingMode` can only be configured when `Sku` is set to `Standard3`.
         /// </summary>

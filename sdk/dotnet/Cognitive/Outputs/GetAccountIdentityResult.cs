@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Cognitive.Outputs
     public sealed class GetAccountIdentityResult
     {
         /// <summary>
-        /// The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+        /// The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Cognitive Account.
+        /// The type of Managed Service Identity that is configured on this Cognitive Services Account.
         /// </summary>
         public readonly string Type;
 

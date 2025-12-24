@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Certificate from .pfx file
+//
 // ```go
 // package main
 //
@@ -78,6 +80,137 @@ import (
 //
 // ```
 //
+// ### Certificate from Key Vault
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-workspace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//				RetentionInDays:   pulumi.Int(30),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("example-identity"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEnvironment, err := containerapp.NewEnvironment(ctx, "example", &containerapp.EnvironmentArgs{
+//				Name:                    pulumi.String("example-environment"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				Identity: &containerapp.EnvironmentIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                    pulumi.String("example-keyvault"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
+//				TenantId:                pulumi.String(current.TenantId),
+//				SkuName:                 pulumi.String("standard"),
+//				EnableRbacAuthorization: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			userKeyvaultAdmin, err := authorization.NewAssignment(ctx, "user_keyvault_admin", &authorization.AssignmentArgs{
+//				Scope:              exampleKeyVault.ID(),
+//				RoleDefinitionName: pulumi.String("Key Vault Administrator"),
+//				PrincipalId:        pulumi.String(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				Scope:              exampleKeyVault.ID(),
+//				RoleDefinitionName: pulumi.String("Key Vault Secrets User"),
+//				PrincipalId: pulumi.String(exampleEnvironment.Identity.ApplyT(func(identity containerapp.EnvironmentIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "path/to/certificate_file.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
+//				Name:       pulumi.String("example-certificate"),
+//				KeyVaultId: exampleKeyVault.ID(),
+//				Certificate: &keyvault.CertificateCertificateArgs{
+//					Contents: pulumi.String(invokeFilebase64.Result),
+//					Password: pulumi.String(""),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				userKeyvaultAdmin,
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerapp.NewEnvironmentCertificate(ctx, "example", &containerapp.EnvironmentCertificateArgs{
+//				Name:                      pulumi.String("example-certificate"),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				CertificateKeyVault: &containerapp.EnvironmentCertificateCertificateKeyVaultArgs{
+//					Identity:         exampleUserAssignedIdentity.ID(),
+//					KeyVaultSecretId: exampleCertificate.VersionlessSecretId,
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->
@@ -96,9 +229,17 @@ type EnvironmentCertificate struct {
 	pulumi.CustomResourceState
 
 	// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
-	CertificateBlobBase64 pulumi.StringOutput `pulumi:"certificateBlobBase64"`
+	//
+	// > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+	CertificateBlobBase64 pulumi.StringPtrOutput `pulumi:"certificateBlobBase64"`
+	// A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+	CertificateKeyVault EnvironmentCertificateCertificateKeyVaultPtrOutput `pulumi:"certificateKeyVault"`
 	// The password for the Certificate. Changing this forces a new resource to be created.
-	CertificatePassword pulumi.StringOutput `pulumi:"certificatePassword"`
+	//
+	// > **Note:** required if `certificateBlobBase64` is specified.
+	CertificatePassword pulumi.StringPtrOutput `pulumi:"certificatePassword"`
 	// The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringOutput `pulumi:"containerAppEnvironmentId"`
 	// The expiration date for the Certificate.
@@ -124,17 +265,11 @@ func NewEnvironmentCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CertificateBlobBase64 == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateBlobBase64'")
-	}
-	if args.CertificatePassword == nil {
-		return nil, errors.New("invalid value for required argument 'CertificatePassword'")
-	}
 	if args.ContainerAppEnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerAppEnvironmentId'")
 	}
 	if args.CertificatePassword != nil {
-		args.CertificatePassword = pulumi.ToSecret(args.CertificatePassword).(pulumi.StringInput)
+		args.CertificatePassword = pulumi.ToSecret(args.CertificatePassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"certificatePassword",
@@ -164,8 +299,16 @@ func GetEnvironmentCertificate(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EnvironmentCertificate resources.
 type environmentCertificateState struct {
 	// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+	//
+	// > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
 	CertificateBlobBase64 *string `pulumi:"certificateBlobBase64"`
+	// A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+	CertificateKeyVault *EnvironmentCertificateCertificateKeyVault `pulumi:"certificateKeyVault"`
 	// The password for the Certificate. Changing this forces a new resource to be created.
+	//
+	// > **Note:** required if `certificateBlobBase64` is specified.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId *string `pulumi:"containerAppEnvironmentId"`
@@ -187,8 +330,16 @@ type environmentCertificateState struct {
 
 type EnvironmentCertificateState struct {
 	// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+	//
+	// > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
 	CertificateBlobBase64 pulumi.StringPtrInput
+	// A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+	CertificateKeyVault EnvironmentCertificateCertificateKeyVaultPtrInput
 	// The password for the Certificate. Changing this forces a new resource to be created.
+	//
+	// > **Note:** required if `certificateBlobBase64` is specified.
 	CertificatePassword pulumi.StringPtrInput
 	// The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringPtrInput
@@ -214,9 +365,17 @@ func (EnvironmentCertificateState) ElementType() reflect.Type {
 
 type environmentCertificateArgs struct {
 	// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
-	CertificateBlobBase64 string `pulumi:"certificateBlobBase64"`
+	//
+	// > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+	CertificateBlobBase64 *string `pulumi:"certificateBlobBase64"`
+	// A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+	CertificateKeyVault *EnvironmentCertificateCertificateKeyVault `pulumi:"certificateKeyVault"`
 	// The password for the Certificate. Changing this forces a new resource to be created.
-	CertificatePassword string `pulumi:"certificatePassword"`
+	//
+	// > **Note:** required if `certificateBlobBase64` is specified.
+	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId string `pulumi:"containerAppEnvironmentId"`
 	// The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
@@ -228,9 +387,17 @@ type environmentCertificateArgs struct {
 // The set of arguments for constructing a EnvironmentCertificate resource.
 type EnvironmentCertificateArgs struct {
 	// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
-	CertificateBlobBase64 pulumi.StringInput
+	//
+	// > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+	CertificateBlobBase64 pulumi.StringPtrInput
+	// A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+	CertificateKeyVault EnvironmentCertificateCertificateKeyVaultPtrInput
 	// The password for the Certificate. Changing this forces a new resource to be created.
-	CertificatePassword pulumi.StringInput
+	//
+	// > **Note:** required if `certificateBlobBase64` is specified.
+	CertificatePassword pulumi.StringPtrInput
 	// The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringInput
 	// The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
@@ -327,13 +494,26 @@ func (o EnvironmentCertificateOutput) ToEnvironmentCertificateOutputWithContext(
 }
 
 // The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
-func (o EnvironmentCertificateOutput) CertificateBlobBase64() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnvironmentCertificate) pulumi.StringOutput { return v.CertificateBlobBase64 }).(pulumi.StringOutput)
+//
+// > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+func (o EnvironmentCertificateOutput) CertificateBlobBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentCertificate) pulumi.StringPtrOutput { return v.CertificateBlobBase64 }).(pulumi.StringPtrOutput)
+}
+
+// A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+func (o EnvironmentCertificateOutput) CertificateKeyVault() EnvironmentCertificateCertificateKeyVaultPtrOutput {
+	return o.ApplyT(func(v *EnvironmentCertificate) EnvironmentCertificateCertificateKeyVaultPtrOutput {
+		return v.CertificateKeyVault
+	}).(EnvironmentCertificateCertificateKeyVaultPtrOutput)
 }
 
 // The password for the Certificate. Changing this forces a new resource to be created.
-func (o EnvironmentCertificateOutput) CertificatePassword() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnvironmentCertificate) pulumi.StringOutput { return v.CertificatePassword }).(pulumi.StringOutput)
+//
+// > **Note:** required if `certificateBlobBase64` is specified.
+func (o EnvironmentCertificateOutput) CertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentCertificate) pulumi.StringPtrOutput { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
 // The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.

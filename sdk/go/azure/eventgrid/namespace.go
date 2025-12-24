@@ -80,7 +80,7 @@ type Namespace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+	// Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -88,7 +88,7 @@ type Namespace struct {
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A `topicSpacesConfiguration` block as defined below.
+	// A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
 	TopicSpacesConfigurations NamespaceTopicSpacesConfigurationArrayOutput `pulumi:"topicSpacesConfigurations"`
 }
 
@@ -135,7 +135,7 @@ type namespaceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+	// Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -143,7 +143,7 @@ type namespaceState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `topicSpacesConfiguration` block as defined below.
+	// A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
 	TopicSpacesConfigurations []NamespaceTopicSpacesConfiguration `pulumi:"topicSpacesConfigurations"`
 }
 
@@ -158,7 +158,7 @@ type NamespaceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+	// Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -166,7 +166,7 @@ type NamespaceState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `topicSpacesConfiguration` block as defined below.
+	// A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
 	TopicSpacesConfigurations NamespaceTopicSpacesConfigurationArrayInput
 }
 
@@ -185,7 +185,7 @@ type namespaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+	// Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -193,7 +193,7 @@ type namespaceArgs struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `topicSpacesConfiguration` block as defined below.
+	// A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
 	TopicSpacesConfigurations []NamespaceTopicSpacesConfiguration `pulumi:"topicSpacesConfigurations"`
 }
 
@@ -209,7 +209,7 @@ type NamespaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+	// Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -217,7 +217,7 @@ type NamespaceArgs struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `topicSpacesConfiguration` block as defined below.
+	// A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
 	TopicSpacesConfigurations NamespaceTopicSpacesConfigurationArrayInput
 }
 
@@ -333,7 +333,7 @@ func (o NamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+// Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
 func (o NamespaceOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -353,7 +353,7 @@ func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `topicSpacesConfiguration` block as defined below.
+// A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
 func (o NamespaceOutput) TopicSpacesConfigurations() NamespaceTopicSpacesConfigurationArrayOutput {
 	return o.ApplyT(func(v *Namespace) NamespaceTopicSpacesConfigurationArrayOutput { return v.TopicSpacesConfigurations }).(NamespaceTopicSpacesConfigurationArrayOutput)
 }

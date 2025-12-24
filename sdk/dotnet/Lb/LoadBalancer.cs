@@ -80,6 +80,8 @@ namespace Pulumi.Azure.Lb
 
         /// <summary>
         /// One or more `FrontendIpConfiguration` blocks as documented below.
+        /// 
+        /// &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `FrontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
         /// </summary>
         [Output("frontendIpConfigurations")]
         public Output<ImmutableArray<Outputs.LoadBalancerFrontendIpConfiguration>> FrontendIpConfigurations { get; private set; } = null!;
@@ -203,6 +205,8 @@ namespace Pulumi.Azure.Lb
 
         /// <summary>
         /// One or more `FrontendIpConfiguration` blocks as documented below.
+        /// 
+        /// &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `FrontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
         /// </summary>
         public InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs> FrontendIpConfigurations
         {
@@ -285,6 +289,8 @@ namespace Pulumi.Azure.Lb
 
         /// <summary>
         /// One or more `FrontendIpConfiguration` blocks as documented below.
+        /// 
+        /// &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `FrontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
         /// </summary>
         public InputList<Inputs.LoadBalancerFrontendIpConfigurationGetArgs> FrontendIpConfigurations
         {

@@ -29,7 +29,7 @@ class ZoneArgs:
         The set of arguments for constructing a Zone resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
-        :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below.
+        :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: A `soa_record` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -68,7 +68,7 @@ class ZoneArgs:
     @pulumi.getter(name="soaRecord")
     def soa_record(self) -> Optional[pulumi.Input['ZoneSoaRecordArgs']]:
         """
-        An `soa_record` block as defined below.
+        A `soa_record` block as defined below.
         """
         return pulumi.get(self, "soa_record")
 
@@ -101,12 +101,12 @@ class _ZoneState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
-        :param pulumi.Input[_builtins.int] max_number_of_record_sets: (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+        :param pulumi.Input[_builtins.int] max_number_of_record_sets: Maximum number of Records in the zone.
         :param pulumi.Input[_builtins.str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: (Optional) A list of values that make up the NS record for the zone.
-        :param pulumi.Input[_builtins.int] number_of_record_sets: (Optional) The number of records already in the zone.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: A list of values that make up the NS record for the zone.
+        :param pulumi.Input[_builtins.int] number_of_record_sets: The number of records already in the zone.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below.
+        :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: A `soa_record` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         if max_number_of_record_sets is not None:
@@ -128,7 +128,7 @@ class _ZoneState:
     @pulumi.getter(name="maxNumberOfRecordSets")
     def max_number_of_record_sets(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+        Maximum number of Records in the zone.
         """
         return pulumi.get(self, "max_number_of_record_sets")
 
@@ -152,7 +152,7 @@ class _ZoneState:
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        (Optional) A list of values that make up the NS record for the zone.
+        A list of values that make up the NS record for the zone.
         """
         return pulumi.get(self, "name_servers")
 
@@ -164,7 +164,7 @@ class _ZoneState:
     @pulumi.getter(name="numberOfRecordSets")
     def number_of_record_sets(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        (Optional) The number of records already in the zone.
+        The number of records already in the zone.
         """
         return pulumi.get(self, "number_of_record_sets")
 
@@ -188,7 +188,7 @@ class _ZoneState:
     @pulumi.getter(name="soaRecord")
     def soa_record(self) -> Optional[pulumi.Input['ZoneSoaRecordArgs']]:
         """
-        An `soa_record` block as defined below.
+        A `soa_record` block as defined below.
         """
         return pulumi.get(self, "soa_record")
 
@@ -256,7 +256,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']] soa_record: An `soa_record` block as defined below.
+        :param pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']] soa_record: A `soa_record` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -358,12 +358,12 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] max_number_of_record_sets: (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+        :param pulumi.Input[_builtins.int] max_number_of_record_sets: Maximum number of Records in the zone.
         :param pulumi.Input[_builtins.str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: (Optional) A list of values that make up the NS record for the zone.
-        :param pulumi.Input[_builtins.int] number_of_record_sets: (Optional) The number of records already in the zone.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: A list of values that make up the NS record for the zone.
+        :param pulumi.Input[_builtins.int] number_of_record_sets: The number of records already in the zone.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']] soa_record: An `soa_record` block as defined below.
+        :param pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']] soa_record: A `soa_record` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -383,7 +383,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter(name="maxNumberOfRecordSets")
     def max_number_of_record_sets(self) -> pulumi.Output[_builtins.int]:
         """
-        (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+        Maximum number of Records in the zone.
         """
         return pulumi.get(self, "max_number_of_record_sets")
 
@@ -399,7 +399,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        (Optional) A list of values that make up the NS record for the zone.
+        A list of values that make up the NS record for the zone.
         """
         return pulumi.get(self, "name_servers")
 
@@ -407,7 +407,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter(name="numberOfRecordSets")
     def number_of_record_sets(self) -> pulumi.Output[_builtins.int]:
         """
-        (Optional) The number of records already in the zone.
+        The number of records already in the zone.
         """
         return pulumi.get(self, "number_of_record_sets")
 
@@ -423,7 +423,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter(name="soaRecord")
     def soa_record(self) -> pulumi.Output['outputs.ZoneSoaRecord']:
         """
-        An `soa_record` block as defined below.
+        A `soa_record` block as defined below.
         """
         return pulumi.get(self, "soa_record")
 

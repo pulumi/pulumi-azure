@@ -208,7 +208,7 @@ export class SparkCluster extends pulumi.CustomResource {
      */
     declare public readonly tlsMinVersion: pulumi.Output<string | undefined>;
     /**
-     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */
     declare public readonly zones: pulumi.Output<string[] | undefined>;
 
@@ -398,7 +398,7 @@ export interface SparkClusterState {
      */
     tlsMinVersion?: pulumi.Input<string>;
     /**
-     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -494,7 +494,7 @@ export interface SparkClusterArgs {
      */
     tlsMinVersion?: pulumi.Input<string>;
     /**
-     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

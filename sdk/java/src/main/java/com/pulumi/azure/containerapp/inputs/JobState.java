@@ -56,14 +56,14 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `eventTriggerConfig` block as defined below.
+     * A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="eventTriggerConfig")
     private @Nullable Output<JobEventTriggerConfigArgs> eventTriggerConfig;
 
     /**
-     * @return A `eventTriggerConfig` block as defined below.
+     * @return A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<JobEventTriggerConfigArgs>> eventTriggerConfig() {
@@ -101,14 +101,14 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `manualTriggerConfig` block as defined below.
+     * A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="manualTriggerConfig")
     private @Nullable Output<JobManualTriggerConfigArgs> manualTriggerConfig;
 
     /**
-     * @return A `manualTriggerConfig` block as defined below.
+     * @return A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<JobManualTriggerConfigArgs>> manualTriggerConfig() {
@@ -206,7 +206,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `scheduleTriggerConfig` block as defined below.
+     * A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      * 
@@ -215,7 +215,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<JobScheduleTriggerConfigArgs> scheduleTriggerConfig;
 
     /**
-     * @return A `scheduleTriggerConfig` block as defined below.
+     * @return A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      * 
@@ -367,7 +367,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventTriggerConfig A `eventTriggerConfig` block as defined below.
+         * @param eventTriggerConfig A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventTriggerConfig A `eventTriggerConfig` block as defined below.
+         * @param eventTriggerConfig A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manualTriggerConfig A `manualTriggerConfig` block as defined below.
+         * @param manualTriggerConfig A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manualTriggerConfig A `manualTriggerConfig` block as defined below.
+         * @param manualTriggerConfig A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -597,7 +597,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduleTriggerConfig A `scheduleTriggerConfig` block as defined below.
+         * @param scheduleTriggerConfig A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
          * 
@@ -610,7 +610,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduleTriggerConfig A `scheduleTriggerConfig` block as defined below.
+         * @param scheduleTriggerConfig A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
          * 

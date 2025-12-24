@@ -39,14 +39,14 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `browserCredential` block as defined below.
+     * A `browserCredential` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="browserCredential")
     private @Nullable Output<HubBrowserCredentialArgs> browserCredential;
 
     /**
-     * @return A `browserCredential` block as defined below.
+     * @return A `browserCredential` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<HubBrowserCredentialArgs>> browserCredential() {
@@ -204,7 +204,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param browserCredential A `browserCredential` block as defined below.
+         * @param browserCredential A `browserCredential` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param browserCredential A `browserCredential` block as defined below.
+         * @param browserCredential A `browserCredential` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

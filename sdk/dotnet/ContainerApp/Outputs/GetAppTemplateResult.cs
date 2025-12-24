@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// One or more `Container` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerResult> Containers;
+        /// <summary>
+        /// The number of seconds to wait before scaling down the number of instances again.
+        /// </summary>
+        public readonly int CooldownPeriodInSeconds;
         public readonly ImmutableArray<Outputs.GetAppTemplateCustomScaleRuleResult> CustomScaleRules;
         public readonly ImmutableArray<Outputs.GetAppTemplateHttpScaleRuleResult> HttpScaleRules;
         /// <summary>
@@ -32,6 +36,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// The minimum number of replicas for this container.
         /// </summary>
         public readonly int MinReplicas;
+        /// <summary>
+        /// The interval in seconds used for polling KEDA.
+        /// </summary>
+        public readonly int PollingIntervalInSeconds;
         /// <summary>
         /// The suffix string to which this `TrafficWeight` applies.
         /// </summary>
@@ -52,6 +60,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             ImmutableArray<Outputs.GetAppTemplateContainerResult> containers,
 
+            int cooldownPeriodInSeconds,
+
             ImmutableArray<Outputs.GetAppTemplateCustomScaleRuleResult> customScaleRules,
 
             ImmutableArray<Outputs.GetAppTemplateHttpScaleRuleResult> httpScaleRules,
@@ -61,6 +71,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             int maxReplicas,
 
             int minReplicas,
+
+            int pollingIntervalInSeconds,
 
             string revisionSuffix,
 
@@ -72,11 +84,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         {
             AzureQueueScaleRules = azureQueueScaleRules;
             Containers = containers;
+            CooldownPeriodInSeconds = cooldownPeriodInSeconds;
             CustomScaleRules = customScaleRules;
             HttpScaleRules = httpScaleRules;
             InitContainers = initContainers;
             MaxReplicas = maxReplicas;
             MinReplicas = minReplicas;
+            PollingIntervalInSeconds = pollingIntervalInSeconds;
             RevisionSuffix = revisionSuffix;
             TcpScaleRules = tcpScaleRules;
             TerminationGracePeriodSeconds = terminationGracePeriodSeconds;

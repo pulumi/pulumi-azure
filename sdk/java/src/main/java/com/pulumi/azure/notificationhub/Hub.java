@@ -111,14 +111,14 @@ public class Hub extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.apnsCredential);
     }
     /**
-     * A `browserCredential` block as defined below.
+     * A `browserCredential` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="browserCredential", refs={HubBrowserCredential.class}, tree="[0]")
     private Output</* @Nullable */ HubBrowserCredential> browserCredential;
 
     /**
-     * @return A `browserCredential` block as defined below.
+     * @return A `browserCredential` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<HubBrowserCredential>> browserCredential() {

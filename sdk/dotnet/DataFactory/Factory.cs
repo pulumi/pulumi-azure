@@ -63,7 +63,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> CustomerManagedKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `CustomerManagedKeyId` is set.
+        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `CustomerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
         /// </summary>
         [Output("customerManagedKeyIdentityId")]
         public Output<string> CustomerManagedKeyIdentityId { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? CustomerManagedKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `CustomerManagedKeyId` is set.
+        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `CustomerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
         /// </summary>
         [Input("customerManagedKeyIdentityId")]
         public Input<string>? CustomerManagedKeyIdentityId { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? CustomerManagedKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `CustomerManagedKeyId` is set.
+        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `CustomerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
         /// </summary>
         [Input("customerManagedKeyIdentityId")]
         public Input<string>? CustomerManagedKeyIdentityId { get; set; }

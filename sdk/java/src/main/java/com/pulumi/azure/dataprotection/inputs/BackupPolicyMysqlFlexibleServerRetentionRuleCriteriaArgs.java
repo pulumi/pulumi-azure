@@ -32,14 +32,14 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs exte
     }
 
     /**
-     * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+     * Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<String>> daysOfWeeks;
 
     /**
-     * @return Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+     * @return Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> daysOfWeeks() {
@@ -145,7 +145,7 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs exte
         }
 
         /**
-         * @param daysOfWeeks Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         * @param daysOfWeeks Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs exte
         }
 
         /**
-         * @param daysOfWeeks Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         * @param daysOfWeeks Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs exte
         }
 
         /**
-         * @param daysOfWeeks Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         * @param daysOfWeeks Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

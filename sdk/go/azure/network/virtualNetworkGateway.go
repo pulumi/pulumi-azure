@@ -172,10 +172,7 @@ type VirtualNetworkGateway struct {
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation pulumi.StringOutput `pulumi:"generation"`
-	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-	// An active-standby gateway requires exactly one `ipConfiguration` block,
-	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// Is IP Sec Replay Protection enabled? Defaults to `true`.
 	IpSecReplayProtectionEnabled pulumi.BoolPtrOutput `pulumi:"ipSecReplayProtectionEnabled"`
@@ -191,7 +188,7 @@ type VirtualNetworkGateway struct {
 	RemoteVnetTrafficEnabled pulumi.BoolPtrOutput `pulumi:"remoteVnetTrafficEnabled"`
 	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
 	//
 	// > **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
 	//
@@ -271,10 +268,7 @@ type virtualNetworkGatewayState struct {
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation *string `pulumi:"generation"`
-	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-	// An active-standby gateway requires exactly one `ipConfiguration` block,
-	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations []VirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`
 	// Is IP Sec Replay Protection enabled? Defaults to `true`.
 	IpSecReplayProtectionEnabled *bool `pulumi:"ipSecReplayProtectionEnabled"`
@@ -290,7 +284,7 @@ type virtualNetworkGatewayState struct {
 	RemoteVnetTrafficEnabled *bool `pulumi:"remoteVnetTrafficEnabled"`
 	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
 	//
 	// > **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
 	//
@@ -329,10 +323,7 @@ type VirtualNetworkGatewayState struct {
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation pulumi.StringPtrInput
-	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-	// An active-standby gateway requires exactly one `ipConfiguration` block,
-	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayInput
 	// Is IP Sec Replay Protection enabled? Defaults to `true`.
 	IpSecReplayProtectionEnabled pulumi.BoolPtrInput
@@ -348,7 +339,7 @@ type VirtualNetworkGatewayState struct {
 	RemoteVnetTrafficEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
 	//
 	// > **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
 	//
@@ -391,10 +382,7 @@ type virtualNetworkGatewayArgs struct {
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation *string `pulumi:"generation"`
-	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-	// An active-standby gateway requires exactly one `ipConfiguration` block,
-	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations []VirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`
 	// Is IP Sec Replay Protection enabled? Defaults to `true`.
 	IpSecReplayProtectionEnabled *bool `pulumi:"ipSecReplayProtectionEnabled"`
@@ -410,7 +398,7 @@ type virtualNetworkGatewayArgs struct {
 	RemoteVnetTrafficEnabled *bool `pulumi:"remoteVnetTrafficEnabled"`
 	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
 	//
 	// > **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
 	//
@@ -450,10 +438,7 @@ type VirtualNetworkGatewayArgs struct {
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation pulumi.StringPtrInput
-	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-	// An active-standby gateway requires exactly one `ipConfiguration` block,
-	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayInput
 	// Is IP Sec Replay Protection enabled? Defaults to `true`.
 	IpSecReplayProtectionEnabled pulumi.BoolPtrInput
@@ -469,7 +454,7 @@ type VirtualNetworkGatewayArgs struct {
 	RemoteVnetTrafficEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+	// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
 	//
 	// > **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
 	//
@@ -621,10 +606,7 @@ func (o VirtualNetworkGatewayOutput) Generation() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Generation }).(pulumi.StringOutput)
 }
 
-// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
-// An active-standby gateway requires exactly one `ipConfiguration` block,
-// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
-// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
+// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 func (o VirtualNetworkGatewayOutput) IpConfigurations() VirtualNetworkGatewayIpConfigurationArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGatewayIpConfigurationArrayOutput {
 		return v.IpConfigurations
@@ -666,7 +648,7 @@ func (o VirtualNetworkGatewayOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
 //
 // > **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
 //

@@ -197,7 +197,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
      */
     declare public readonly networkAccessPolicy: pulumi.Output<string | undefined>;
     /**
@@ -476,7 +476,7 @@ export interface ManagedDiskState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
      */
     networkAccessPolicy?: pulumi.Input<string>;
     /**
@@ -656,7 +656,7 @@ export interface ManagedDiskArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
      */
     networkAccessPolicy?: pulumi.Input<string>;
     /**

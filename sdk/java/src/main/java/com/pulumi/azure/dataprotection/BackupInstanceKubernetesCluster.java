@@ -264,14 +264,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster")
 public class BackupInstanceKubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
-     * A `backupDatasourceParameters` block as defined below.
+     * A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="backupDatasourceParameters", refs={BackupInstanceKubernetesClusterBackupDatasourceParameters.class}, tree="[0]")
     private Output</* @Nullable */ BackupInstanceKubernetesClusterBackupDatasourceParameters> backupDatasourceParameters;
 
     /**
-     * @return A `backupDatasourceParameters` block as defined below.
+     * @return A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<BackupInstanceKubernetesClusterBackupDatasourceParameters>> backupDatasourceParameters() {
@@ -332,6 +332,20 @@ public class BackupInstanceKubernetesCluster extends com.pulumi.resources.Custom
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The protection state of the Backup Instance Kubernetes Cluster.
+     * 
+     */
+    @Export(name="protectionState", refs={String.class}, tree="[0]")
+    private Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance Kubernetes Cluster.
+     * 
+     */
+    public Output<String> protectionState() {
+        return this.protectionState;
     }
     /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.

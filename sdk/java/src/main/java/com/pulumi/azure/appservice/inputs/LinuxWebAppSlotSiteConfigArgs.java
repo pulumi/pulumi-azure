@@ -334,14 +334,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+     * The configures the minimum version of TLS required for SSL requests. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+     * @return The configures the minimum version of TLS required for SSL requests. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -409,14 +409,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+     * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     @Import(name="scmMinimumTlsVersion")
     private @Nullable Output<String> scmMinimumTlsVersion;
 
     /**
-     * @return The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+     * @return The configures the minimum version of TLS required for SSL requests to the SCM site Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     public Optional<Output<String>> scmMinimumTlsVersion() {
@@ -1013,7 +1013,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param minimumTlsVersion The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * @param minimumTlsVersion The configures the minimum version of TLS required for SSL requests. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 
@@ -1024,7 +1024,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param minimumTlsVersion The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * @param minimumTlsVersion The configures the minimum version of TLS required for SSL requests. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 
@@ -1128,7 +1128,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scmMinimumTlsVersion The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * @param scmMinimumTlsVersion The configures the minimum version of TLS required for SSL requests to the SCM site Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 
@@ -1139,7 +1139,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scmMinimumTlsVersion The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * @param scmMinimumTlsVersion The configures the minimum version of TLS required for SSL requests to the SCM site Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 

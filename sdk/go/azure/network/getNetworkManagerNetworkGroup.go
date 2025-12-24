@@ -103,7 +103,9 @@ type LookupNetworkManagerNetworkGroupResult struct {
 	// A description of the Network Manager Network Group.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The member type of the Network Manager Network Group.
+	MemberType       string `pulumi:"memberType"`
 	Name             string `pulumi:"name"`
 	NetworkManagerId string `pulumi:"networkManagerId"`
 }
@@ -152,6 +154,11 @@ func (o LookupNetworkManagerNetworkGroupResultOutput) Description() pulumi.Strin
 // The provider-assigned unique ID for this managed resource.
 func (o LookupNetworkManagerNetworkGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkManagerNetworkGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The member type of the Network Manager Network Group.
+func (o LookupNetworkManagerNetworkGroupResultOutput) MemberType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkManagerNetworkGroupResult) string { return v.MemberType }).(pulumi.StringOutput)
 }
 
 func (o LookupNetworkManagerNetworkGroupResultOutput) Name() pulumi.StringOutput {

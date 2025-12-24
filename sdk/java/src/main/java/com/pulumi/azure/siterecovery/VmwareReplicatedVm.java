@@ -198,7 +198,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultLogStorageAccountId);
     }
     /**
-     * The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
      * 
      * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
      * 
@@ -211,7 +211,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> defaultRecoveryDiskType;
 
     /**
-     * @return The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * @return The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
      * 
      * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
      * 

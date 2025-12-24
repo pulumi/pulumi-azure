@@ -32,7 +32,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? DockerRegistryUsername;
         /// <summary>
-        /// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+        /// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>

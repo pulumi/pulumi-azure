@@ -108,7 +108,7 @@ export class Project extends pulumi.CustomResource {
      */
     declare public readonly serviceName: pulumi.Output<string>;
     /**
-     * The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+     * The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
      */
     declare public readonly sourcePlatform: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export class Project extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+     * The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
      */
     declare public readonly targetPlatform: pulumi.Output<string>;
 
@@ -188,7 +188,7 @@ export interface ProjectState {
      */
     serviceName?: pulumi.Input<string>;
     /**
-     * The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+     * The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
      */
     sourcePlatform?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface ProjectState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+     * The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
      */
     targetPlatform?: pulumi.Input<string>;
 }
@@ -222,7 +222,7 @@ export interface ProjectArgs {
      */
     serviceName: pulumi.Input<string>;
     /**
-     * The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+     * The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
      */
     sourcePlatform: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface ProjectArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+     * The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
      */
     targetPlatform: pulumi.Input<string>;
 }

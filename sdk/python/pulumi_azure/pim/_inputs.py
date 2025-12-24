@@ -439,7 +439,7 @@ if not MYPY:
         """
         maximum_duration: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+        The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
         """
         require_approval: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -476,7 +476,7 @@ class RoleManagementPolicyActivationRulesArgs:
                  required_conditional_access_authentication_context: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input['RoleManagementPolicyActivationRulesApprovalStageArgs'] approval_stage: An `approval_stage` block as defined below.
-        :param pulumi.Input[_builtins.str] maximum_duration: The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+        :param pulumi.Input[_builtins.str] maximum_duration: The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
         :param pulumi.Input[_builtins.bool] require_approval: Is approval required for activation. If `true` an `approval_stage` block must be provided.
         :param pulumi.Input[_builtins.bool] require_justification: Is a justification required during activation of the role.
         :param pulumi.Input[_builtins.bool] require_multifactor_authentication: Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
@@ -514,7 +514,7 @@ class RoleManagementPolicyActivationRulesArgs:
     @pulumi.getter(name="maximumDuration")
     def maximum_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+        The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
         """
         return pulumi.get(self, "maximum_duration")
 
@@ -587,7 +587,7 @@ if not MYPY:
     class RoleManagementPolicyActivationRulesApprovalStageArgsDict(TypedDict):
         primary_approvers: pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgsDict']]]
         """
-        The IDs of the users or groups who can approve the activation
+        One or more `primary_approver` blocks as defined below.
         """
 elif False:
     RoleManagementPolicyActivationRulesApprovalStageArgsDict: TypeAlias = Mapping[str, Any]
@@ -597,7 +597,7 @@ class RoleManagementPolicyActivationRulesApprovalStageArgs:
     def __init__(__self__, *,
                  primary_approvers: pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs']]] primary_approvers: The IDs of the users or groups who can approve the activation
+        :param pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs']]] primary_approvers: One or more `primary_approver` blocks as defined below.
         """
         pulumi.set(__self__, "primary_approvers", primary_approvers)
 
@@ -605,7 +605,7 @@ class RoleManagementPolicyActivationRulesApprovalStageArgs:
     @pulumi.getter(name="primaryApprovers")
     def primary_approvers(self) -> pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs']]]:
         """
-        The IDs of the users or groups who can approve the activation
+        One or more `primary_approver` blocks as defined below.
         """
         return pulumi.get(self, "primary_approvers")
 
@@ -853,8 +853,6 @@ if not MYPY:
         eligible_assignments: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgsDict']]
         """
         A `notification_target` block as defined below to configure notification on eligible role assignments.
-
-        At least one `notification_target` block must be provided.
         """
 elif False:
     RoleManagementPolicyNotificationRulesArgsDict: TypeAlias = Mapping[str, Any]
@@ -869,8 +867,6 @@ class RoleManagementPolicyNotificationRulesArgs:
         :param pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsArgs'] active_assignments: A `notification_target` block as defined below to configure notfications on active role assignments.
         :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsArgs'] eligible_activations: A `notification_target` block as defined below for configuring notifications on activation of eligible role.
         :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs'] eligible_assignments: A `notification_target` block as defined below to configure notification on eligible role assignments.
-               
-               At least one `notification_target` block must be provided.
         """
         if active_assignments is not None:
             pulumi.set(__self__, "active_assignments", active_assignments)
@@ -908,8 +904,6 @@ class RoleManagementPolicyNotificationRulesArgs:
     def eligible_assignments(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs']]:
         """
         A `notification_target` block as defined below to configure notification on eligible role assignments.
-
-        At least one `notification_target` block must be provided.
         """
         return pulumi.get(self, "eligible_assignments")
 

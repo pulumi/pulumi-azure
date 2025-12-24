@@ -19,7 +19,7 @@ public final class DeploymentWebApplicationFirewall {
      */
     private Boolean activationStateEnabled;
     /**
-     * @return A `web_application_firewall.status` block as defined below:
+     * @return A `status` block as defined below.
      * 
      */
     private @Nullable List<DeploymentWebApplicationFirewallStatus> statuses;
@@ -33,7 +33,7 @@ public final class DeploymentWebApplicationFirewall {
         return this.activationStateEnabled;
     }
     /**
-     * @return A `web_application_firewall.status` block as defined below:
+     * @return A `status` block as defined below.
      * 
      */
     public List<DeploymentWebApplicationFirewallStatus> statuses() {

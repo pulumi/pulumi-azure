@@ -51,7 +51,7 @@ class VirtualNetworkArgs:
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input['VirtualNetworkEncryptionArgs'] encryption: A `encryption` block as defined below.
         :param pulumi.Input[_builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]] ip_address_pools: One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]] ip_address_pools: One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -196,7 +196,7 @@ class VirtualNetworkArgs:
     @pulumi.getter(name="ipAddressPools")
     def ip_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]]]:
         """
-        One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
 
         > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         """
@@ -303,7 +303,7 @@ class _VirtualNetworkState:
         :param pulumi.Input['VirtualNetworkEncryptionArgs'] encryption: A `encryption` block as defined below.
         :param pulumi.Input[_builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[_builtins.str] guid: The GUID of the Virtual Network.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]] ip_address_pools: One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]] ip_address_pools: One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -452,7 +452,7 @@ class _VirtualNetworkState:
     @pulumi.getter(name="ipAddressPools")
     def ip_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]]]:
         """
-        One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
 
         > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         """
@@ -636,7 +636,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']] encryption: A `encryption` block as defined below.
         :param pulumi.Input[_builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]] ip_address_pools: One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]] ip_address_pools: One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -818,7 +818,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']] encryption: A `encryption` block as defined below.
         :param pulumi.Input[_builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[_builtins.str] guid: The GUID of the Virtual Network.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]] ip_address_pools: One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]] ip_address_pools: One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -925,7 +925,7 @@ class VirtualNetwork(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressPools")
     def ip_address_pools(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualNetworkIpAddressPool']]]:
         """
-        One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
 
         > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         """

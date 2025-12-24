@@ -19,7 +19,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// Location of the primary volume.
         /// </summary>
         [Input("remoteVolumeLocation", required: true)]
         public Input<string> RemoteVolumeLocation { get; set; } = null!;

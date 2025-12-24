@@ -431,14 +431,14 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+     * @return The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      * 
      */
     public Optional<Output<String>> version() {
@@ -1056,7 +1056,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param version The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+         * @param version The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
          * 
          * @return builder
          * 
@@ -1067,7 +1067,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param version The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+         * @param version The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
          * 
          * @return builder
          * 

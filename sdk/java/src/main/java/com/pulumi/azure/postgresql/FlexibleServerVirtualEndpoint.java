@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DBforPostgreSQL` - 2024-08-01
+ * * `Microsoft.DBforPostgreSQL` - 2025-08-01
  * 
  * ## Import
  * 
@@ -110,14 +110,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint")
 public class FlexibleServerVirtualEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the Virtual Endpoint
+     * The name of the Virtual Endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Virtual Endpoint
+     * @return The name of the Virtual Endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -142,28 +142,28 @@ public class FlexibleServerVirtualEndpoint extends com.pulumi.resources.CustomRe
         return this.replicaServerId;
     }
     /**
-     * The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+     * The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceServerId", refs={String.class}, tree="[0]")
     private Output<String> sourceServerId;
 
     /**
-     * @return The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+     * @return The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceServerId() {
         return this.sourceServerId;
     }
     /**
-     * The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+     * The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+     * @return The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {

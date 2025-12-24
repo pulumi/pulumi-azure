@@ -27,7 +27,9 @@ class HealthbotArgs:
         """
         The set of arguments for constructing a Healthbot resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        :param pulumi.Input[_builtins.str] sku_name: The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+               
+               > **Note:** Downgrading to `F0` forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the service.
@@ -57,7 +59,9 @@ class HealthbotArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+
+        > **Note:** Downgrading to `F0` forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -117,7 +121,9 @@ class _HealthbotState:
         :param pulumi.Input[_builtins.str] location: Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        :param pulumi.Input[_builtins.str] sku_name: The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+               
+               > **Note:** Downgrading to `F0` forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the service.
         """
         if bot_management_portal_url is not None:
@@ -185,7 +191,9 @@ class _HealthbotState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+
+        > **Note:** Downgrading to `F0` forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -242,7 +250,7 @@ class Healthbot(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.HealthBot` - 2022-08-08
+        * `Microsoft.HealthBot` - 2025-05-25
 
         ## Import
 
@@ -257,7 +265,9 @@ class Healthbot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        :param pulumi.Input[_builtins.str] sku_name: The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+               
+               > **Note:** Downgrading to `F0` forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the service.
         """
         ...
@@ -290,7 +300,7 @@ class Healthbot(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.HealthBot` - 2022-08-08
+        * `Microsoft.HealthBot` - 2025-05-25
 
         ## Import
 
@@ -366,7 +376,9 @@ class Healthbot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        :param pulumi.Input[_builtins.str] sku_name: The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+               
+               > **Note:** Downgrading to `F0` forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -417,7 +429,9 @@ class Healthbot(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+
+        > **Note:** Downgrading to `F0` forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 

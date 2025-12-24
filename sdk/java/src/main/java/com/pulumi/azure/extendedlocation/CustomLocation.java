@@ -75,28 +75,28 @@ public class CustomLocation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.displayName);
     }
     /**
-     * Specifies the host resource ID.
+     * Specifies the host resource ID. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="hostResourceId", refs={String.class}, tree="[0]")
     private Output<String> hostResourceId;
 
     /**
-     * @return Specifies the host resource ID.
+     * @return Specifies the host resource ID. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> hostResourceId() {
         return this.hostResourceId;
     }
     /**
-     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="hostType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostType;
 
     /**
-     * @return Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+     * @return Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> hostType() {

@@ -7437,7 +7437,7 @@ if not MYPY:
     class OrchestratedVirtualMachineScaleSetSkuProfileArgsDict(TypedDict):
         allocation_strategy: pulumi.Input[_builtins.str]
         """
-        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
         """
         vm_sizes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         """
@@ -7452,7 +7452,7 @@ class OrchestratedVirtualMachineScaleSetSkuProfileArgs:
                  allocation_strategy: pulumi.Input[_builtins.str],
                  vm_sizes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
-        :param pulumi.Input[_builtins.str] allocation_strategy: Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+        :param pulumi.Input[_builtins.str] allocation_strategy: Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vm_sizes: Specifies the VM sizes for the virtual machine scale set.
         """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -7462,7 +7462,7 @@ class OrchestratedVirtualMachineScaleSetSkuProfileArgs:
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
         """
         return pulumi.get(self, "allocation_strategy")
 

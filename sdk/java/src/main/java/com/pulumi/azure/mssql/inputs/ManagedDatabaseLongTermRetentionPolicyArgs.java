@@ -17,9 +17,17 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
 
     public static final ManagedDatabaseLongTermRetentionPolicyArgs Empty = new ManagedDatabaseLongTermRetentionPolicyArgs();
 
+    /**
+     * Specifies if the backups are immutable. Defaults to `false`.
+     * 
+     */
     @Import(name="immutableBackupsEnabled")
     private @Nullable Output<Boolean> immutableBackupsEnabled;
 
+    /**
+     * @return Specifies if the backups are immutable. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> immutableBackupsEnabled() {
         return Optional.ofNullable(this.immutableBackupsEnabled);
     }
@@ -112,11 +120,23 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
             $ = new ManagedDatabaseLongTermRetentionPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param immutableBackupsEnabled Specifies if the backups are immutable. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder immutableBackupsEnabled(@Nullable Output<Boolean> immutableBackupsEnabled) {
             $.immutableBackupsEnabled = immutableBackupsEnabled;
             return this;
         }
 
+        /**
+         * @param immutableBackupsEnabled Specifies if the backups are immutable. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder immutableBackupsEnabled(Boolean immutableBackupsEnabled) {
             return immutableBackupsEnabled(Output.of(immutableBackupsEnabled));
         }

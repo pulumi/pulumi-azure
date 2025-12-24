@@ -35,7 +35,7 @@ class AttachedDatabaseConfigurationArgs:
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[_builtins.str] default_principal_modification_kind: The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
@@ -100,7 +100,7 @@ class AttachedDatabaseConfigurationArgs:
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        The resource id of the cluster where the databases you would like to attach reside.
         """
         return pulumi.get(self, "cluster_id")
 
@@ -183,7 +183,7 @@ class _AttachedDatabaseConfigurationState:
         """
         Input properties used for looking up and filtering AttachedDatabaseConfiguration resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attached_database_names: The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
-        :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] default_principal_modification_kind: The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
@@ -232,7 +232,7 @@ class _AttachedDatabaseConfigurationState:
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        The resource id of the cluster where the databases you would like to attach reside.
         """
         return pulumi.get(self, "cluster_id")
 
@@ -423,7 +423,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] default_principal_modification_kind: The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
@@ -585,7 +585,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attached_database_names: The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
-        :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] default_principal_modification_kind: The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
@@ -622,7 +622,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        The resource id of the cluster where the databases you would like to attach reside.
         """
         return pulumi.get(self, "cluster_id")
 

@@ -16,6 +16,10 @@ public final class SparkClusterPrivateLinkConfiguration {
      * 
      */
     private String groupId;
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     private SparkClusterPrivateLinkConfigurationIpConfiguration ipConfiguration;
     /**
      * @return The name of the private link configuration.
@@ -31,6 +35,10 @@ public final class SparkClusterPrivateLinkConfiguration {
     public String groupId() {
         return this.groupId;
     }
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     public SparkClusterPrivateLinkConfigurationIpConfiguration ipConfiguration() {
         return this.ipConfiguration;
     }

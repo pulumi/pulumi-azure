@@ -101,7 +101,7 @@ type ScaleSetStandbyPool struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Standby Pool.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+	// Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
 	VirtualMachineState pulumi.StringOutput `pulumi:"virtualMachineState"`
 }
 
@@ -159,7 +159,7 @@ type scaleSetStandbyPoolState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Standby Pool.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+	// Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
 	VirtualMachineState *string `pulumi:"virtualMachineState"`
 }
 
@@ -176,7 +176,7 @@ type ScaleSetStandbyPoolState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Standby Pool.
 	Tags pulumi.StringMapInput
-	// Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+	// Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
 	VirtualMachineState pulumi.StringPtrInput
 }
 
@@ -197,7 +197,7 @@ type scaleSetStandbyPoolArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Standby Pool.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+	// Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
 	VirtualMachineState string `pulumi:"virtualMachineState"`
 }
 
@@ -215,7 +215,7 @@ type ScaleSetStandbyPoolArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Standby Pool.
 	Tags pulumi.StringMapInput
-	// Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+	// Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
 	VirtualMachineState pulumi.StringInput
 }
 
@@ -336,7 +336,7 @@ func (o ScaleSetStandbyPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScaleSetStandbyPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+// Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
 func (o ScaleSetStandbyPoolOutput) VirtualMachineState() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScaleSetStandbyPool) pulumi.StringOutput { return v.VirtualMachineState }).(pulumi.StringOutput)
 }

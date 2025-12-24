@@ -173,14 +173,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.eventStreamEndpoint;
     }
     /**
-     * A `eventTriggerConfig` block as defined below.
+     * A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="eventTriggerConfig", refs={JobEventTriggerConfig.class}, tree="[0]")
     private Output</* @Nullable */ JobEventTriggerConfig> eventTriggerConfig;
 
     /**
-     * @return A `eventTriggerConfig` block as defined below.
+     * @return A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<JobEventTriggerConfig>> eventTriggerConfig() {
@@ -215,14 +215,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `manualTriggerConfig` block as defined below.
+     * A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="manualTriggerConfig", refs={JobManualTriggerConfig.class}, tree="[0]")
     private Output</* @Nullable */ JobManualTriggerConfig> manualTriggerConfig;
 
     /**
-     * @return A `manualTriggerConfig` block as defined below.
+     * @return A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<JobManualTriggerConfig>> manualTriggerConfig() {
@@ -313,7 +313,7 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `scheduleTriggerConfig` block as defined below.
+     * A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      * 
@@ -322,7 +322,7 @@ public class Job extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ JobScheduleTriggerConfig> scheduleTriggerConfig;
 
     /**
-     * @return A `scheduleTriggerConfig` block as defined below.
+     * @return A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      * 

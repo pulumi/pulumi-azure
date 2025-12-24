@@ -33,7 +33,7 @@ public final class InferenceClusterSsl {
      */
     private @Nullable String leafDomainLabel;
     /**
-     * @return Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * @return Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
     private @Nullable Boolean overwriteExistingDomain;
@@ -68,7 +68,7 @@ public final class InferenceClusterSsl {
         return Optional.ofNullable(this.leafDomainLabel);
     }
     /**
-     * @return Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * @return Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
     public Optional<Boolean> overwriteExistingDomain() {

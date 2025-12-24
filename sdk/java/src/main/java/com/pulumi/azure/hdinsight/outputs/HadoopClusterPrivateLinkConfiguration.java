@@ -16,6 +16,10 @@ public final class HadoopClusterPrivateLinkConfiguration {
      * 
      */
     private String groupId;
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     private HadoopClusterPrivateLinkConfigurationIpConfiguration ipConfiguration;
     /**
      * @return The name of the private link configuration.
@@ -31,6 +35,10 @@ public final class HadoopClusterPrivateLinkConfiguration {
     public String groupId() {
         return this.groupId;
     }
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     public HadoopClusterPrivateLinkConfigurationIpConfiguration ipConfiguration() {
         return this.ipConfiguration;
     }

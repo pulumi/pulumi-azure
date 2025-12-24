@@ -112,6 +112,24 @@ public class NetworkManagerNetworkGroup extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.description);
     }
     /**
+     * The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+     * 
+     * &gt; **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+     * 
+     */
+    @Export(name="memberType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> memberType;
+
+    /**
+     * @return The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+     * 
+     * &gt; **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+     * 
+     */
+    public Output<Optional<String>> memberType() {
+        return Codegen.optional(this.memberType);
+    }
+    /**
      * Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
      * 
      */

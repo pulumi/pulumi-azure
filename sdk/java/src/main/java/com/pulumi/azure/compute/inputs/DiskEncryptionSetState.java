@@ -126,14 +126,14 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      */
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
-     * @return Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     * @return Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      */
     public Optional<Output<String>> managedHsmKeyId() {
@@ -365,7 +365,7 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+         * @param managedHsmKeyId Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+         * @param managedHsmKeyId Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
          * 
          * @return builder
          * 

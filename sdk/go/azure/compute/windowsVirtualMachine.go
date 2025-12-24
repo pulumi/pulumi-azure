@@ -211,7 +211,7 @@ type WindowsVirtualMachine struct {
 	OsDisk WindowsVirtualMachineOsDiskOutput `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification WindowsVirtualMachineOsImageNotificationPtrOutput `pulumi:"osImageNotification"`
-	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId pulumi.StringOutput `pulumi:"osManagedDiskId"`
@@ -422,7 +422,7 @@ type windowsVirtualMachineState struct {
 	OsDisk *WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification *WindowsVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
-	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId *string `pulumi:"osManagedDiskId"`
@@ -581,7 +581,7 @@ type WindowsVirtualMachineState struct {
 	OsDisk WindowsVirtualMachineOsDiskPtrInput
 	// A `osImageNotification` block as defined below.
 	OsImageNotification WindowsVirtualMachineOsImageNotificationPtrInput
-	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId pulumi.StringPtrInput
@@ -744,7 +744,7 @@ type windowsVirtualMachineArgs struct {
 	OsDisk WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification *WindowsVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
-	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId *string `pulumi:"osManagedDiskId"`
@@ -894,7 +894,7 @@ type WindowsVirtualMachineArgs struct {
 	OsDisk WindowsVirtualMachineOsDiskInput
 	// A `osImageNotification` block as defined below.
 	OsImageNotification WindowsVirtualMachineOsImageNotificationPtrInput
-	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+	// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 	OsManagedDiskId pulumi.StringPtrInput
@@ -1229,7 +1229,7 @@ func (o WindowsVirtualMachineOutput) OsImageNotification() WindowsVirtualMachine
 	}).(WindowsVirtualMachineOsImageNotificationPtrOutput)
 }
 
-// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
 //
 // > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
 func (o WindowsVirtualMachineOutput) OsManagedDiskId() pulumi.StringOutput {

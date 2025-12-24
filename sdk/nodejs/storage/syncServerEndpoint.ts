@@ -109,7 +109,7 @@ export class SyncServerEndpoint extends pulumi.CustomResource {
      */
     declare public readonly cloudTieringEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
      */
     declare public readonly initialDownloadPolicy: pulumi.Output<string | undefined>;
     /**
@@ -200,7 +200,7 @@ export interface SyncServerEndpointState {
      */
     cloudTieringEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
      */
     initialDownloadPolicy?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface SyncServerEndpointArgs {
      */
     cloudTieringEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
      */
     initialDownloadPolicy?: pulumi.Input<string>;
     /**

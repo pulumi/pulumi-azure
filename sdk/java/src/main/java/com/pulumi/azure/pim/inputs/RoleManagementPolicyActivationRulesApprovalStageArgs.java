@@ -16,14 +16,14 @@ public final class RoleManagementPolicyActivationRulesApprovalStageArgs extends 
     public static final RoleManagementPolicyActivationRulesApprovalStageArgs Empty = new RoleManagementPolicyActivationRulesApprovalStageArgs();
 
     /**
-     * The IDs of the users or groups who can approve the activation
+     * One or more `primaryApprover` blocks as defined below.
      * 
      */
     @Import(name="primaryApprovers", required=true)
     private Output<List<RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs>> primaryApprovers;
 
     /**
-     * @return The IDs of the users or groups who can approve the activation
+     * @return One or more `primaryApprover` blocks as defined below.
      * 
      */
     public Output<List<RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs>> primaryApprovers() {
@@ -55,7 +55,7 @@ public final class RoleManagementPolicyActivationRulesApprovalStageArgs extends 
         }
 
         /**
-         * @param primaryApprovers The IDs of the users or groups who can approve the activation
+         * @param primaryApprovers One or more `primaryApprover` blocks as defined below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RoleManagementPolicyActivationRulesApprovalStageArgs extends 
         }
 
         /**
-         * @param primaryApprovers The IDs of the users or groups who can approve the activation
+         * @param primaryApprovers One or more `primaryApprover` blocks as defined below.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class RoleManagementPolicyActivationRulesApprovalStageArgs extends 
         }
 
         /**
-         * @param primaryApprovers The IDs of the users or groups who can approve the activation
+         * @param primaryApprovers One or more `primaryApprover` blocks as defined below.
          * 
          * @return builder
          * 

@@ -18,11 +18,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxFunctionAppSlotSiteConfigApplicationStackDocker> Dockers;
         /// <summary>
-        /// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
+        /// The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>
-        /// The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
+        /// The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>

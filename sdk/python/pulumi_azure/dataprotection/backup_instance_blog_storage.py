@@ -127,6 +127,7 @@ class _BackupInstanceBlogStorageState:
                  backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
@@ -135,6 +136,7 @@ class _BackupInstanceBlogStorageState:
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance Blob Storage.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_account_container_names: The list of the container names of the source Storage Account.
                
                > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
@@ -147,6 +149,8 @@ class _BackupInstanceBlogStorageState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
         if storage_account_container_names is not None:
             pulumi.set(__self__, "storage_account_container_names", storage_account_container_names)
         if storage_account_id is not None:
@@ -189,6 +193,18 @@ class _BackupInstanceBlogStorageState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The protection state of the Backup Instance Blob Storage.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "protection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountContainerNames")
@@ -419,6 +435,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             if vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_id'")
             __props__.__dict__["vault_id"] = vault_id
+            __props__.__dict__["protection_state"] = None
         super(BackupInstanceBlogStorage, __self__).__init__(
             'azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage',
             resource_name,
@@ -432,6 +449,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            protection_state: Optional[pulumi.Input[_builtins.str]] = None,
             storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupInstanceBlogStorage':
@@ -445,6 +463,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance Blob Storage.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_account_container_names: The list of the container names of the source Storage Account.
                
                > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
@@ -458,6 +477,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         __props__.__dict__["backup_policy_id"] = backup_policy_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["protection_state"] = protection_state
         __props__.__dict__["storage_account_container_names"] = storage_account_container_names
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["vault_id"] = vault_id
@@ -486,6 +506,14 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The protection state of the Backup Instance Blob Storage.
+        """
+        return pulumi.get(self, "protection_state")
 
     @_builtins.property
     @pulumi.getter(name="storageAccountContainerNames")

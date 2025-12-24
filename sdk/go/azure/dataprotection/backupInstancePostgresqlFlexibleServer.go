@@ -148,6 +148,8 @@ type BackupInstancePostgresqlFlexibleServer struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The protection state of the Backup Instance PostgreSQL Flexible Server.
+	ProtectionState pulumi.StringOutput `pulumi:"protectionState"`
 	// The ID of the source server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
@@ -199,6 +201,8 @@ type backupInstancePostgresqlFlexibleServerState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The protection state of the Backup Instance PostgreSQL Flexible Server.
+	ProtectionState *string `pulumi:"protectionState"`
 	// The ID of the source server. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
 	// The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
@@ -212,6 +216,8 @@ type BackupInstancePostgresqlFlexibleServerState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The protection state of the Backup Instance PostgreSQL Flexible Server.
+	ProtectionState pulumi.StringPtrInput
 	// The ID of the source server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
@@ -349,6 +355,11 @@ func (o BackupInstancePostgresqlFlexibleServerOutput) Location() pulumi.StringOu
 // Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
 func (o BackupInstancePostgresqlFlexibleServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstancePostgresqlFlexibleServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protection state of the Backup Instance PostgreSQL Flexible Server.
+func (o BackupInstancePostgresqlFlexibleServerOutput) ProtectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupInstancePostgresqlFlexibleServer) pulumi.StringOutput { return v.ProtectionState }).(pulumi.StringOutput)
 }
 
 // The ID of the source server. Changing this forces a new resource to be created.

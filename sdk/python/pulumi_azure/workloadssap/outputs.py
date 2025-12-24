@@ -1866,7 +1866,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
                  volume_name: _builtins.str):
         """
         :param Sequence[_builtins.str] names: A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
-        :param _builtins.str volume_name: The name of the Volume. Changing this forces a new resource to be created.
+        :param _builtins.str volume_name: The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
                
                > **Note:** Possible value for Application Server and Central Server is `default`.
                
@@ -1887,7 +1887,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> _builtins.str:
         """
-        The name of the Volume. Changing this forces a new resource to be created.
+        The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 
         > **Note:** Possible value for Application Server and Central Server is `default`.
 
@@ -2152,7 +2152,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVi
                  volume_name: _builtins.str):
         """
         :param Sequence[_builtins.str] names: A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
-        :param _builtins.str volume_name: The name of the Volume. Changing this forces a new resource to be created.
+        :param _builtins.str volume_name: The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
                
                > **Note:** Possible value for Application Server and Central Server is `default`.
                
@@ -2173,7 +2173,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVi
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> _builtins.str:
         """
-        The name of the Volume. Changing this forces a new resource to be created.
+        The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 
         > **Note:** Possible value for Application Server and Central Server is `default`.
 
@@ -2438,7 +2438,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerV
                  volume_name: _builtins.str):
         """
         :param Sequence[_builtins.str] names: A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
-        :param _builtins.str volume_name: The name of the Volume. Changing this forces a new resource to be created.
+        :param _builtins.str volume_name: The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
                
                > **Note:** Possible value for Application Server and Central Server is `default`.
                
@@ -2459,7 +2459,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerV
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> _builtins.str:
         """
-        The name of the Volume. Changing this forces a new resource to be created.
+        The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 
         > **Note:** Possible value for Application Server and Central Server is `default`.
 

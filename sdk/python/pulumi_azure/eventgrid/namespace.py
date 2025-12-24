@@ -39,10 +39,10 @@ class NamespaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] sku: Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationArgs']]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationArgs']]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if capacity is not None:
@@ -140,7 +140,7 @@ class NamespaceArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -176,7 +176,7 @@ class NamespaceArgs:
     @pulumi.getter(name="topicSpacesConfigurations")
     def topic_spaces_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationArgs']]]]:
         """
-        A `topic_spaces_configuration` block as defined below.
+        A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "topic_spaces_configurations")
 
@@ -205,11 +205,11 @@ class _NamespaceState:
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationArgs']]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationArgs']]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -296,7 +296,7 @@ class _NamespaceState:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -344,7 +344,7 @@ class _NamespaceState:
     @pulumi.getter(name="topicSpacesConfigurations")
     def topic_spaces_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationArgs']]]]:
         """
-        A `topic_spaces_configuration` block as defined below.
+        A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "topic_spaces_configurations")
 
@@ -413,11 +413,11 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict']]]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict']]]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -539,11 +539,11 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict']]]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict']]]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -605,7 +605,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -637,7 +637,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="topicSpacesConfigurations")
     def topic_spaces_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.NamespaceTopicSpacesConfiguration']]]:
         """
-        A `topic_spaces_configuration` block as defined below.
+        A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "topic_spaces_configurations")
 

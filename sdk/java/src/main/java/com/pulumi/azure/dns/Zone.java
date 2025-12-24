@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:dns/zone:Zone")
 public class Zone extends com.pulumi.resources.CustomResource {
     /**
-     * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+     * Maximum number of Records in the zone.
      * 
      */
     @Export(name="maxNumberOfRecordSets", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxNumberOfRecordSets;
 
     /**
-     * @return (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+     * @return Maximum number of Records in the zone.
      * 
      */
     public Output<Integer> maxNumberOfRecordSets() {
@@ -109,28 +109,28 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * (Optional) A list of values that make up the NS record for the zone.
+     * A list of values that make up the NS record for the zone.
      * 
      */
     @Export(name="nameServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> nameServers;
 
     /**
-     * @return (Optional) A list of values that make up the NS record for the zone.
+     * @return A list of values that make up the NS record for the zone.
      * 
      */
     public Output<List<String>> nameServers() {
         return this.nameServers;
     }
     /**
-     * (Optional) The number of records already in the zone.
+     * The number of records already in the zone.
      * 
      */
     @Export(name="numberOfRecordSets", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfRecordSets;
 
     /**
-     * @return (Optional) The number of records already in the zone.
+     * @return The number of records already in the zone.
      * 
      */
     public Output<Integer> numberOfRecordSets() {
@@ -151,14 +151,14 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * An `soaRecord` block as defined below.
+     * A `soaRecord` block as defined below.
      * 
      */
     @Export(name="soaRecord", refs={ZoneSoaRecord.class}, tree="[0]")
     private Output<ZoneSoaRecord> soaRecord;
 
     /**
-     * @return An `soaRecord` block as defined below.
+     * @return A `soaRecord` block as defined below.
      * 
      */
     public Output<ZoneSoaRecord> soaRecord() {

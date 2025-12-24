@@ -183,6 +183,20 @@ public class BackupInstanceMysqlFlexibleServer extends com.pulumi.resources.Cust
         return this.name;
     }
     /**
+     * The protection state of the Backup Instance MySQL Flexible Server.
+     * 
+     */
+    @Export(name="protectionState", refs={String.class}, tree="[0]")
+    private Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance MySQL Flexible Server.
+     * 
+     */
+    public Output<String> protectionState() {
+        return this.protectionState;
+    }
+    /**
      * The ID of the source server. Changing this forces a new resource to be created.
      * 
      */

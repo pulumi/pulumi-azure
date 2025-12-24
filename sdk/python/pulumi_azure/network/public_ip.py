@@ -48,7 +48,7 @@ class PublicIpArgs:
                
                > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         :param pulumi.Input[_builtins.str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-        :param pulumi.Input[_builtins.str] domain_name_label_scope: Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        :param pulumi.Input[_builtins.str] domain_name_label_scope: Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_tags: A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
@@ -175,7 +175,7 @@ class PublicIpArgs:
     @pulumi.getter(name="domainNameLabelScope")
     def domain_name_label_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
         """
         return pulumi.get(self, "domain_name_label_scope")
 
@@ -371,7 +371,7 @@ class _PublicIpState:
                
                > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         :param pulumi.Input[_builtins.str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-        :param pulumi.Input[_builtins.str] domain_name_label_scope: Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        :param pulumi.Input[_builtins.str] domain_name_label_scope: Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -495,7 +495,7 @@ class _PublicIpState:
     @pulumi.getter(name="domainNameLabelScope")
     def domain_name_label_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
         """
         return pulumi.get(self, "domain_name_label_scope")
 
@@ -768,7 +768,7 @@ class PublicIp(pulumi.CustomResource):
                
                > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         :param pulumi.Input[_builtins.str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-        :param pulumi.Input[_builtins.str] domain_name_label_scope: Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        :param pulumi.Input[_builtins.str] domain_name_label_scope: Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_tags: A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
@@ -949,7 +949,7 @@ class PublicIp(pulumi.CustomResource):
                
                > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         :param pulumi.Input[_builtins.str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-        :param pulumi.Input[_builtins.str] domain_name_label_scope: Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        :param pulumi.Input[_builtins.str] domain_name_label_scope: Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -1042,7 +1042,7 @@ class PublicIp(pulumi.CustomResource):
     @pulumi.getter(name="domainNameLabelScope")
     def domain_name_label_scope(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
         """
         return pulumi.get(self, "domain_name_label_scope")
 

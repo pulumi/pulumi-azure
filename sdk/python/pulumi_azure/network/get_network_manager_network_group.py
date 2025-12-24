@@ -26,13 +26,16 @@ class GetNetworkManagerNetworkGroupResult:
     """
     A collection of values returned by getNetworkManagerNetworkGroup.
     """
-    def __init__(__self__, description=None, id=None, name=None, network_manager_id=None):
+    def __init__(__self__, description=None, id=None, member_type=None, name=None, network_manager_id=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if member_type and not isinstance(member_type, str):
+            raise TypeError("Expected argument 'member_type' to be a str")
+        pulumi.set(__self__, "member_type", member_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,6 +60,14 @@ class GetNetworkManagerNetworkGroupResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> _builtins.str:
+        """
+        The member type of the Network Manager Network Group.
+        """
+        return pulumi.get(self, "member_type")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
@@ -75,6 +86,7 @@ class AwaitableGetNetworkManagerNetworkGroupResult(GetNetworkManagerNetworkGroup
         return GetNetworkManagerNetworkGroupResult(
             description=self.description,
             id=self.id,
+            member_type=self.member_type,
             name=self.name,
             network_manager_id=self.network_manager_id)
 
@@ -134,6 +146,7 @@ def get_network_manager_network_group(name: Optional[_builtins.str] = None,
     return AwaitableGetNetworkManagerNetworkGroupResult(
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        member_type=pulumi.get(__ret__, 'member_type'),
         name=pulumi.get(__ret__, 'name'),
         network_manager_id=pulumi.get(__ret__, 'network_manager_id'))
 def get_network_manager_network_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -190,5 +203,6 @@ def get_network_manager_network_group_output(name: Optional[pulumi.Input[_builti
     return __ret__.apply(lambda __response__: GetNetworkManagerNetworkGroupResult(
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
+        member_type=pulumi.get(__response__, 'member_type'),
         name=pulumi.get(__response__, 'name'),
         network_manager_id=pulumi.get(__response__, 'network_manager_id')))

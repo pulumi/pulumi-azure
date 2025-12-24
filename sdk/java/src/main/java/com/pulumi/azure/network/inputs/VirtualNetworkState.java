@@ -155,7 +155,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      * 
      * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
@@ -164,7 +164,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<List<VirtualNetworkIpAddressPoolArgs>> ipAddressPools;
 
     /**
-     * @return One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * @return One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      * 
      * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
@@ -510,7 +510,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ipAddressPools One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+         * @param ipAddressPools One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
          * 
          * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
          * 
@@ -523,7 +523,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ipAddressPools One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+         * @param ipAddressPools One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
          * 
          * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
          * 
@@ -535,7 +535,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ipAddressPools One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+         * @param ipAddressPools One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
          * 
          * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
          * 

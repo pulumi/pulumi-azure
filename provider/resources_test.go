@@ -157,3 +157,59 @@ func TestFixMssqlManagedInstanceId(t *testing.T) {
 		assertNoID(t, properties)
 	})
 }
+
+func TestSubscriptionIDFromMeta(t *testing.T) {
+	t.Parallel()
+
+	type accountSubID struct {
+		SubscriptionId string
+	}
+	type accountSubIDUpper struct {
+		SubscriptionID string
+	}
+	type metaPtr struct {
+		Account *accountSubID
+	}
+	type metaValue struct {
+		Account accountSubIDUpper
+	}
+
+	t.Run("Nil meta", func(t *testing.T) {
+		t.Parallel()
+		assert.Equal(t, "", subscriptionIDFromMeta(nil))
+	})
+
+	t.Run("Non-struct meta", func(t *testing.T) {
+		t.Parallel()
+		assert.Equal(t, "", subscriptionIDFromMeta("not-a-struct"))
+	})
+
+	t.Run("Missing account", func(t *testing.T) {
+		t.Parallel()
+		type metaNoAccount struct {
+			Foo string
+		}
+		assert.Equal(t, "", subscriptionIDFromMeta(metaNoAccount{Foo: "bar"}))
+	})
+
+	t.Run("Nil account", func(t *testing.T) {
+		t.Parallel()
+		assert.Equal(t, "", subscriptionIDFromMeta(metaPtr{Account: nil}))
+	})
+
+	t.Run("SubscriptionId field", func(t *testing.T) {
+		t.Parallel()
+		expected := "11111111-2222-3333-4444-555555555555"
+		meta := metaPtr{Account: &accountSubID{SubscriptionId: expected}}
+		assert.Equal(t, expected, subscriptionIDFromMeta(meta))
+		assert.Equal(t, expected, subscriptionIDFromMeta(&meta))
+	})
+
+	t.Run("SubscriptionID field", func(t *testing.T) {
+		t.Parallel()
+		expected := "66666666-7777-8888-9999-000000000000"
+		meta := metaValue{Account: accountSubIDUpper{SubscriptionID: expected}}
+		assert.Equal(t, expected, subscriptionIDFromMeta(meta))
+		assert.Equal(t, expected, subscriptionIDFromMeta(&meta))
+	})
+}

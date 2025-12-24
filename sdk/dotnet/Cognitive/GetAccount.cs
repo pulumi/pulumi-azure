@@ -190,9 +190,29 @@ namespace Pulumi.Azure.Cognitive
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// The endpoint of the Cognitive Services Account
+        /// The ID of the search service.
+        /// </summary>
+        public readonly string CustomQuestionAnsweringSearchServiceId;
+        /// <summary>
+        /// The subdomain name used for Entra ID token-based authentication.
+        /// </summary>
+        public readonly string CustomSubdomainName;
+        /// <summary>
+        /// A `CustomerManagedKey` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountCustomerManagedKeyResult> CustomerManagedKeys;
+        /// <summary>
+        /// Whether dynamic throttling is enabled for this Cognitive Services Account.
+        /// </summary>
+        public readonly bool DynamicThrottlingEnabled;
+        /// <summary>
+        /// The endpoint of the Cognitive Services Account.
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// List of FQDNs allowed for the Cognitive Services Account.
+        /// </summary>
+        public readonly ImmutableArray<string> Fqdns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -202,35 +222,75 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountIdentityResult> Identities;
         /// <summary>
-        /// The kind of the Cognitive Services Account
+        /// The type of the Cognitive Services Account.
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Whether local authentication methods is enabled for the Cognitive Account.
+        /// Whether local authentication methods are enabled for the Cognitive Services Account.
         /// </summary>
         public readonly bool LocalAuthEnabled;
         /// <summary>
-        /// The Azure location where the Cognitive Services Account exists
+        /// The Azure location where the Cognitive Services Account exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The Microsoft Entra Application (client) ID.
+        /// </summary>
+        public readonly string MetricsAdvisorAadClientId;
+        /// <summary>
+        /// The Microsoft Entra Tenant ID.
+        /// </summary>
+        public readonly string MetricsAdvisorAadTenantId;
+        /// <summary>
+        /// The super user of Metrics Advisor.
+        /// </summary>
+        public readonly string MetricsAdvisorSuperUserName;
+        /// <summary>
+        /// The website name of Metrics Advisor.
+        /// </summary>
+        public readonly string MetricsAdvisorWebsiteName;
         public readonly string Name;
         /// <summary>
-        /// The primary access key of the Cognitive Services Account
+        /// A `NetworkAcls` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountNetworkAclResult> NetworkAcls;
+        /// <summary>
+        /// A `NetworkInjection` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountNetworkInjectionResult> NetworkInjections;
+        /// <summary>
+        /// Whether outbound network access is restricted for the Cognitive Services Account.
+        /// </summary>
+        public readonly bool OutboundNetworkAccessRestricted;
+        /// <summary>
+        /// The primary access key of the Cognitive Services Account.
         /// </summary>
         public readonly string PrimaryAccessKey;
         /// <summary>
-        /// If `Kind` is `QnAMaker` the link to the QNA runtime.
+        /// Whether project management is enabled.
+        /// </summary>
+        public readonly bool ProjectManagementEnabled;
+        /// <summary>
+        /// Whether public network access is allowed for the Cognitive Services Account.
+        /// </summary>
+        public readonly bool PublicNetworkAccessEnabled;
+        /// <summary>
+        /// The link to the QNA runtime.
         /// </summary>
         public readonly string QnaRuntimeEndpoint;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The secondary access key of the Cognitive Services Account
+        /// The secondary access key of the Cognitive Services Account.
         /// </summary>
         public readonly string SecondaryAccessKey;
         /// <summary>
-        /// The SKU name of the Cognitive Services Account
+        /// The SKU name of the Cognitive Services Account.
         /// </summary>
         public readonly string SkuName;
+        /// <summary>
+        /// A `Storage` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountStorageResult> Storages;
         /// <summary>
         /// A mapping of tags to assigned to the resource.
         /// </summary>
@@ -238,7 +298,17 @@ namespace Pulumi.Azure.Cognitive
 
         [OutputConstructor]
         private GetAccountResult(
+            string customQuestionAnsweringSearchServiceId,
+
+            string customSubdomainName,
+
+            ImmutableArray<Outputs.GetAccountCustomerManagedKeyResult> customerManagedKeys,
+
+            bool dynamicThrottlingEnabled,
+
             string endpoint,
+
+            ImmutableArray<string> fqdns,
 
             string id,
 
@@ -250,9 +320,27 @@ namespace Pulumi.Azure.Cognitive
 
             string location,
 
+            string metricsAdvisorAadClientId,
+
+            string metricsAdvisorAadTenantId,
+
+            string metricsAdvisorSuperUserName,
+
+            string metricsAdvisorWebsiteName,
+
             string name,
 
+            ImmutableArray<Outputs.GetAccountNetworkAclResult> networkAcls,
+
+            ImmutableArray<Outputs.GetAccountNetworkInjectionResult> networkInjections,
+
+            bool outboundNetworkAccessRestricted,
+
             string primaryAccessKey,
+
+            bool projectManagementEnabled,
+
+            bool publicNetworkAccessEnabled,
 
             string qnaRuntimeEndpoint,
 
@@ -262,20 +350,37 @@ namespace Pulumi.Azure.Cognitive
 
             string skuName,
 
+            ImmutableArray<Outputs.GetAccountStorageResult> storages,
+
             ImmutableDictionary<string, string>? tags)
         {
+            CustomQuestionAnsweringSearchServiceId = customQuestionAnsweringSearchServiceId;
+            CustomSubdomainName = customSubdomainName;
+            CustomerManagedKeys = customerManagedKeys;
+            DynamicThrottlingEnabled = dynamicThrottlingEnabled;
             Endpoint = endpoint;
+            Fqdns = fqdns;
             Id = id;
             Identities = identities;
             Kind = kind;
             LocalAuthEnabled = localAuthEnabled;
             Location = location;
+            MetricsAdvisorAadClientId = metricsAdvisorAadClientId;
+            MetricsAdvisorAadTenantId = metricsAdvisorAadTenantId;
+            MetricsAdvisorSuperUserName = metricsAdvisorSuperUserName;
+            MetricsAdvisorWebsiteName = metricsAdvisorWebsiteName;
             Name = name;
+            NetworkAcls = networkAcls;
+            NetworkInjections = networkInjections;
+            OutboundNetworkAccessRestricted = outboundNetworkAccessRestricted;
             PrimaryAccessKey = primaryAccessKey;
+            ProjectManagementEnabled = projectManagementEnabled;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             QnaRuntimeEndpoint = qnaRuntimeEndpoint;
             ResourceGroupName = resourceGroupName;
             SecondaryAccessKey = secondaryAccessKey;
             SkuName = skuName;
+            Storages = storages;
             Tags = tags;
         }
     }

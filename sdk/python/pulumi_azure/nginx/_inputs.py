@@ -497,7 +497,7 @@ if not MYPY:
         """
         statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgsDict']]]]
         """
-        A `web_application_firewall.status` block as defined below:
+        A `status` block as defined below.
         """
 elif False:
     DeploymentWebApplicationFirewallArgsDict: TypeAlias = Mapping[str, Any]
@@ -509,7 +509,7 @@ class DeploymentWebApplicationFirewallArgs:
                  statuses: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] activation_state_enabled: Whether WAF is enabled/disabled for this NGINX Deployment.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]] statuses: A `web_application_firewall.status` block as defined below:
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]] statuses: A `status` block as defined below.
         """
         pulumi.set(__self__, "activation_state_enabled", activation_state_enabled)
         if statuses is not None:
@@ -531,7 +531,7 @@ class DeploymentWebApplicationFirewallArgs:
     @pulumi.getter
     def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]]:
         """
-        A `web_application_firewall.status` block as defined below:
+        A `status` block as defined below.
         """
         return pulumi.get(self, "statuses")
 
@@ -544,19 +544,19 @@ if not MYPY:
     class DeploymentWebApplicationFirewallStatusArgsDict(TypedDict):
         attack_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict']]]]
         """
-        Indicates the version of the attack signatures package used by NGINX App Protect.
+        One or more `attack_signatures_package` blocks as defined below.
         """
         bot_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict']]]]
         """
-        Indicates the version of the bot signatures package used by NGINX App Protect.
+        One or more `bot_signatures_package` blocks as defined below.
         """
         component_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgsDict']]]]
         """
-        Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+        One or more `component_versions` blocks as defined below.
         """
         threat_campaigns_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict']]]]
         """
-        Indicates the version of the threat campaigns package used by NGINX App Protect.
+        One or more `threat_campaigns_package` blocks as defined below.
         """
 elif False:
     DeploymentWebApplicationFirewallStatusArgsDict: TypeAlias = Mapping[str, Any]
@@ -569,10 +569,10 @@ class DeploymentWebApplicationFirewallStatusArgs:
                  component_versions: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]] = None,
                  threat_campaigns_packages: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]] attack_signatures_packages: Indicates the version of the attack signatures package used by NGINX App Protect.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]] bot_signatures_packages: Indicates the version of the bot signatures package used by NGINX App Protect.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]] component_versions: Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]] threat_campaigns_packages: Indicates the version of the threat campaigns package used by NGINX App Protect.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]] attack_signatures_packages: One or more `attack_signatures_package` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]] bot_signatures_packages: One or more `bot_signatures_package` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]] component_versions: One or more `component_versions` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]] threat_campaigns_packages: One or more `threat_campaigns_package` blocks as defined below.
         """
         if attack_signatures_packages is not None:
             pulumi.set(__self__, "attack_signatures_packages", attack_signatures_packages)
@@ -587,7 +587,7 @@ class DeploymentWebApplicationFirewallStatusArgs:
     @pulumi.getter(name="attackSignaturesPackages")
     def attack_signatures_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]]:
         """
-        Indicates the version of the attack signatures package used by NGINX App Protect.
+        One or more `attack_signatures_package` blocks as defined below.
         """
         return pulumi.get(self, "attack_signatures_packages")
 
@@ -599,7 +599,7 @@ class DeploymentWebApplicationFirewallStatusArgs:
     @pulumi.getter(name="botSignaturesPackages")
     def bot_signatures_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]]:
         """
-        Indicates the version of the bot signatures package used by NGINX App Protect.
+        One or more `bot_signatures_package` blocks as defined below.
         """
         return pulumi.get(self, "bot_signatures_packages")
 
@@ -611,7 +611,7 @@ class DeploymentWebApplicationFirewallStatusArgs:
     @pulumi.getter(name="componentVersions")
     def component_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]]:
         """
-        Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+        One or more `component_versions` blocks as defined below.
         """
         return pulumi.get(self, "component_versions")
 
@@ -623,7 +623,7 @@ class DeploymentWebApplicationFirewallStatusArgs:
     @pulumi.getter(name="threatCampaignsPackages")
     def threat_campaigns_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]]:
         """
-        Indicates the version of the threat campaigns package used by NGINX App Protect.
+        One or more `threat_campaigns_package` blocks as defined below.
         """
         return pulumi.get(self, "threat_campaigns_packages")
 
@@ -635,7 +635,13 @@ class DeploymentWebApplicationFirewallStatusArgs:
 if not MYPY:
     class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict(TypedDict):
         revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The revision date and time of the threat campaigns package.
+        """
         version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The version of the threat campaigns package.
+        """
 elif False:
     DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -644,6 +650,10 @@ class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs:
     def __init__(__self__, *,
                  revision_datetime: Optional[pulumi.Input[_builtins.str]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] revision_datetime: The revision date and time of the threat campaigns package.
+        :param pulumi.Input[_builtins.str] version: The version of the threat campaigns package.
+        """
         if revision_datetime is not None:
             pulumi.set(__self__, "revision_datetime", revision_datetime)
         if version is not None:
@@ -652,6 +662,9 @@ class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs:
     @_builtins.property
     @pulumi.getter(name="revisionDatetime")
     def revision_datetime(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The revision date and time of the threat campaigns package.
+        """
         return pulumi.get(self, "revision_datetime")
 
     @revision_datetime.setter
@@ -661,6 +674,9 @@ class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of the threat campaigns package.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -671,7 +687,13 @@ class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs:
 if not MYPY:
     class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict(TypedDict):
         revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The revision date and time of the threat campaigns package.
+        """
         version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The version of the threat campaigns package.
+        """
 elif False:
     DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -680,6 +702,10 @@ class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs:
     def __init__(__self__, *,
                  revision_datetime: Optional[pulumi.Input[_builtins.str]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] revision_datetime: The revision date and time of the threat campaigns package.
+        :param pulumi.Input[_builtins.str] version: The version of the threat campaigns package.
+        """
         if revision_datetime is not None:
             pulumi.set(__self__, "revision_datetime", revision_datetime)
         if version is not None:
@@ -688,6 +714,9 @@ class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs:
     @_builtins.property
     @pulumi.getter(name="revisionDatetime")
     def revision_datetime(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The revision date and time of the threat campaigns package.
+        """
         return pulumi.get(self, "revision_datetime")
 
     @revision_datetime.setter
@@ -697,6 +726,9 @@ class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of the threat campaigns package.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -707,7 +739,13 @@ class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs:
 if not MYPY:
     class DeploymentWebApplicationFirewallStatusComponentVersionArgsDict(TypedDict):
         waf_engine_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The version of the WAF Engine.
+        """
         waf_nginx_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The version of the WAF Nginx module.
+        """
 elif False:
     DeploymentWebApplicationFirewallStatusComponentVersionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -716,6 +754,10 @@ class DeploymentWebApplicationFirewallStatusComponentVersionArgs:
     def __init__(__self__, *,
                  waf_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
                  waf_nginx_version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] waf_engine_version: The version of the WAF Engine.
+        :param pulumi.Input[_builtins.str] waf_nginx_version: The version of the WAF Nginx module.
+        """
         if waf_engine_version is not None:
             pulumi.set(__self__, "waf_engine_version", waf_engine_version)
         if waf_nginx_version is not None:
@@ -724,6 +766,9 @@ class DeploymentWebApplicationFirewallStatusComponentVersionArgs:
     @_builtins.property
     @pulumi.getter(name="wafEngineVersion")
     def waf_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of the WAF Engine.
+        """
         return pulumi.get(self, "waf_engine_version")
 
     @waf_engine_version.setter
@@ -733,6 +778,9 @@ class DeploymentWebApplicationFirewallStatusComponentVersionArgs:
     @_builtins.property
     @pulumi.getter(name="wafNginxVersion")
     def waf_nginx_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of the WAF Nginx module.
+        """
         return pulumi.get(self, "waf_nginx_version")
 
     @waf_nginx_version.setter
@@ -743,7 +791,13 @@ class DeploymentWebApplicationFirewallStatusComponentVersionArgs:
 if not MYPY:
     class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict(TypedDict):
         revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The revision date and time of the threat campaigns package.
+        """
         version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The version of the threat campaigns package.
+        """
 elif False:
     DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -752,6 +806,10 @@ class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs:
     def __init__(__self__, *,
                  revision_datetime: Optional[pulumi.Input[_builtins.str]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] revision_datetime: The revision date and time of the threat campaigns package.
+        :param pulumi.Input[_builtins.str] version: The version of the threat campaigns package.
+        """
         if revision_datetime is not None:
             pulumi.set(__self__, "revision_datetime", revision_datetime)
         if version is not None:
@@ -760,6 +818,9 @@ class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs:
     @_builtins.property
     @pulumi.getter(name="revisionDatetime")
     def revision_datetime(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The revision date and time of the threat campaigns package.
+        """
         return pulumi.get(self, "revision_datetime")
 
     @revision_datetime.setter
@@ -769,6 +830,9 @@ class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of the threat campaigns package.
+        """
         return pulumi.get(self, "version")
 
     @version.setter

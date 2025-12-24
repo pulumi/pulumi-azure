@@ -31,7 +31,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
     }
 
     /**
-     * The name of the Volume. Changing this forces a new resource to be created.
+     * The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Possible value for Application Server and Central Server is `default`.
      * 
@@ -42,7 +42,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
     private Output<String> volumeName;
 
     /**
-     * @return The name of the Volume. Changing this forces a new resource to be created.
+     * @return The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Possible value for Application Server and Central Server is `default`.
      * 
@@ -110,7 +110,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
         }
 
         /**
-         * @param volumeName The name of the Volume. Changing this forces a new resource to be created.
+         * @param volumeName The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Possible value for Application Server and Central Server is `default`.
          * 
@@ -125,7 +125,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
         }
 
         /**
-         * @param volumeName The name of the Volume. Changing this forces a new resource to be created.
+         * @param volumeName The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Possible value for Application Server and Central Server is `default`.
          * 

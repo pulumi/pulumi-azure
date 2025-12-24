@@ -86,7 +86,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+// * `Microsoft.ContainerRegistry` - 2025-04-01
 //
 // ## Import
 //

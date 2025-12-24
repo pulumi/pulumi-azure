@@ -93,7 +93,7 @@ type WindowsWebApp struct {
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings WindowsWebAppConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -222,7 +222,7 @@ type windowsWebAppState struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []WindowsWebAppConnectionString `pulumi:"connectionStrings"`
@@ -308,7 +308,7 @@ type WindowsWebAppState struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings WindowsWebAppConnectionStringArrayInput
@@ -398,7 +398,7 @@ type windowsWebAppArgs struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []WindowsWebAppConnectionString `pulumi:"connectionStrings"`
@@ -467,7 +467,7 @@ type WindowsWebAppArgs struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings WindowsWebAppConnectionStringArrayInput
@@ -642,7 +642,7 @@ func (o WindowsWebAppOutput) ClientCertificateExclusionPaths() pulumi.StringPtrO
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }
 
-// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
+// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 func (o WindowsWebAppOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }

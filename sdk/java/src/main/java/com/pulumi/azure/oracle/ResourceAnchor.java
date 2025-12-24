@@ -92,14 +92,14 @@ public class ResourceAnchor extends com.pulumi.resources.CustomResource {
         return this.linkedCompartmentId;
     }
     /**
-     * The Azure Region where the Oracle Resource Anchor  exists.
+     * The Azure Region where the Oracle Resource Anchor exists.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the Oracle Resource Anchor  exists.
+     * @return The Azure Region where the Oracle Resource Anchor exists.
      * 
      */
     public Output<String> location() {

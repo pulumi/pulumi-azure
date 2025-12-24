@@ -30,9 +30,17 @@ public final class InteractiveQueryClusterPrivateLinkConfigurationArgs extends c
         return this.groupId;
     }
 
+    /**
+     * An `ipConfiguration` block as defined below.
+     * 
+     */
     @Import(name="ipConfiguration", required=true)
     private Output<InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration;
 
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     public Output<InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration() {
         return this.ipConfiguration;
     }
@@ -99,11 +107,23 @@ public final class InteractiveQueryClusterPrivateLinkConfigurationArgs extends c
             return groupId(Output.of(groupId));
         }
 
+        /**
+         * @param ipConfiguration An `ipConfiguration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfiguration(Output<InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration) {
             $.ipConfiguration = ipConfiguration;
             return this;
         }
 
+        /**
+         * @param ipConfiguration An `ipConfiguration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfiguration(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs ipConfiguration) {
             return ipConfiguration(Output.of(ipConfiguration));
         }

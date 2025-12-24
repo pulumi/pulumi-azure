@@ -28,9 +28,9 @@ class FlexibleServerVirtualEndpointArgs:
         :param pulumi.Input[_builtins.str] replica_server_id: The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
                
                > **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
-        :param pulumi.Input[_builtins.str] source_server_id: The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
-        :param pulumi.Input[_builtins.str] type: The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
-        :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint
+        :param pulumi.Input[_builtins.str] source_server_id: The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] type: The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "replica_server_id", replica_server_id)
         pulumi.set(__self__, "source_server_id", source_server_id)
@@ -56,7 +56,7 @@ class FlexibleServerVirtualEndpointArgs:
     @pulumi.getter(name="sourceServerId")
     def source_server_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+        The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_server_id")
 
@@ -68,7 +68,7 @@ class FlexibleServerVirtualEndpointArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+        The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -80,7 +80,7 @@ class FlexibleServerVirtualEndpointArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Virtual Endpoint
+        The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -98,12 +98,12 @@ class _FlexibleServerVirtualEndpointState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerVirtualEndpoint resources.
-        :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint
+        :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] replica_server_id: The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
                
                > **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
-        :param pulumi.Input[_builtins.str] source_server_id: The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
-        :param pulumi.Input[_builtins.str] type: The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+        :param pulumi.Input[_builtins.str] source_server_id: The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] type: The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -118,7 +118,7 @@ class _FlexibleServerVirtualEndpointState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Virtual Endpoint
+        The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -144,7 +144,7 @@ class _FlexibleServerVirtualEndpointState:
     @pulumi.getter(name="sourceServerId")
     def source_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+        The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_server_id")
 
@@ -156,7 +156,7 @@ class _FlexibleServerVirtualEndpointState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+        The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -226,7 +226,7 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DBforPostgreSQL` - 2024-08-01
+        * `Microsoft.DBforPostgreSQL` - 2025-08-01
 
         ## Import
 
@@ -238,12 +238,12 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint
+        :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] replica_server_id: The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
                
                > **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
-        :param pulumi.Input[_builtins.str] source_server_id: The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
-        :param pulumi.Input[_builtins.str] type: The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+        :param pulumi.Input[_builtins.str] source_server_id: The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] type: The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -301,7 +301,7 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DBforPostgreSQL` - 2024-08-01
+        * `Microsoft.DBforPostgreSQL` - 2025-08-01
 
         ## Import
 
@@ -370,12 +370,12 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint
+        :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] replica_server_id: The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
                
                > **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
-        :param pulumi.Input[_builtins.str] source_server_id: The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
-        :param pulumi.Input[_builtins.str] type: The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+        :param pulumi.Input[_builtins.str] source_server_id: The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] type: The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -391,7 +391,7 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Virtual Endpoint
+        The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -409,7 +409,7 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="sourceServerId")
     def source_server_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
+        The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_server_id")
 
@@ -417,7 +417,7 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
+        The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

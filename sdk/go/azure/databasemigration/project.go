@@ -113,11 +113,11 @@ type Project struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
-	// The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
 	SourcePlatform pulumi.StringOutput `pulumi:"sourcePlatform"`
 	// A mapping of tags to assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
 	TargetPlatform pulumi.StringOutput `pulumi:"targetPlatform"`
 }
 
@@ -171,11 +171,11 @@ type projectState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
 	ServiceName *string `pulumi:"serviceName"`
-	// The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
 	SourcePlatform *string `pulumi:"sourcePlatform"`
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
 	TargetPlatform *string `pulumi:"targetPlatform"`
 }
 
@@ -188,11 +188,11 @@ type ProjectState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringPtrInput
-	// The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
 	SourcePlatform pulumi.StringPtrInput
 	// A mapping of tags to assigned to the resource.
 	Tags pulumi.StringMapInput
-	// The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
 	TargetPlatform pulumi.StringPtrInput
 }
 
@@ -209,11 +209,11 @@ type projectArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
 	ServiceName string `pulumi:"serviceName"`
-	// The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
 	SourcePlatform string `pulumi:"sourcePlatform"`
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
 	TargetPlatform string `pulumi:"targetPlatform"`
 }
 
@@ -227,11 +227,11 @@ type ProjectArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringInput
-	// The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
 	SourcePlatform pulumi.StringInput
 	// A mapping of tags to assigned to the resource.
 	Tags pulumi.StringMapInput
-	// The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+	// The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
 	TargetPlatform pulumi.StringInput
 }
 
@@ -342,7 +342,7 @@ func (o ProjectOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created.
+// The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
 func (o ProjectOutput) SourcePlatform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.SourcePlatform }).(pulumi.StringOutput)
 }
@@ -352,7 +352,7 @@ func (o ProjectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created.
+// The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
 func (o ProjectOutput) TargetPlatform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.TargetPlatform }).(pulumi.StringOutput)
 }

@@ -15,7 +15,6 @@ namespace Pulumi.Azure.Cognitive.Outputs
     {
         /// <summary>
         /// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        /// *
         /// </summary>
         public readonly string? Bypass;
         /// <summary>

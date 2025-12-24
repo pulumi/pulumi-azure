@@ -32,6 +32,11 @@ public final class AppTemplate {
      */
     private List<AppTemplateContainer> containers;
     /**
+     * @return The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+     * 
+     */
+    private @Nullable Integer cooldownPeriodInSeconds;
+    /**
      * @return One or more `customScaleRule` blocks as defined below.
      * 
      */
@@ -56,6 +61,11 @@ public final class AppTemplate {
      * 
      */
     private @Nullable Integer minReplicas;
+    /**
+     * @return The interval in seconds used for polling KEDA. Defaults to `30`.
+     * 
+     */
+    private @Nullable Integer pollingIntervalInSeconds;
     /**
      * @return The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
      * 
@@ -93,6 +103,13 @@ public final class AppTemplate {
         return this.containers;
     }
     /**
+     * @return The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+     * 
+     */
+    public Optional<Integer> cooldownPeriodInSeconds() {
+        return Optional.ofNullable(this.cooldownPeriodInSeconds);
+    }
+    /**
      * @return One or more `customScaleRule` blocks as defined below.
      * 
      */
@@ -126,6 +143,13 @@ public final class AppTemplate {
      */
     public Optional<Integer> minReplicas() {
         return Optional.ofNullable(this.minReplicas);
+    }
+    /**
+     * @return The interval in seconds used for polling KEDA. Defaults to `30`.
+     * 
+     */
+    public Optional<Integer> pollingIntervalInSeconds() {
+        return Optional.ofNullable(this.pollingIntervalInSeconds);
     }
     /**
      * @return The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
@@ -167,11 +191,13 @@ public final class AppTemplate {
     public static final class Builder {
         private @Nullable List<AppTemplateAzureQueueScaleRule> azureQueueScaleRules;
         private List<AppTemplateContainer> containers;
+        private @Nullable Integer cooldownPeriodInSeconds;
         private @Nullable List<AppTemplateCustomScaleRule> customScaleRules;
         private @Nullable List<AppTemplateHttpScaleRule> httpScaleRules;
         private @Nullable List<AppTemplateInitContainer> initContainers;
         private @Nullable Integer maxReplicas;
         private @Nullable Integer minReplicas;
+        private @Nullable Integer pollingIntervalInSeconds;
         private @Nullable String revisionSuffix;
         private @Nullable List<AppTemplateTcpScaleRule> tcpScaleRules;
         private @Nullable Integer terminationGracePeriodSeconds;
@@ -181,11 +207,13 @@ public final class AppTemplate {
     	      Objects.requireNonNull(defaults);
     	      this.azureQueueScaleRules = defaults.azureQueueScaleRules;
     	      this.containers = defaults.containers;
+    	      this.cooldownPeriodInSeconds = defaults.cooldownPeriodInSeconds;
     	      this.customScaleRules = defaults.customScaleRules;
     	      this.httpScaleRules = defaults.httpScaleRules;
     	      this.initContainers = defaults.initContainers;
     	      this.maxReplicas = defaults.maxReplicas;
     	      this.minReplicas = defaults.minReplicas;
+    	      this.pollingIntervalInSeconds = defaults.pollingIntervalInSeconds;
     	      this.revisionSuffix = defaults.revisionSuffix;
     	      this.tcpScaleRules = defaults.tcpScaleRules;
     	      this.terminationGracePeriodSeconds = defaults.terminationGracePeriodSeconds;
@@ -211,6 +239,12 @@ public final class AppTemplate {
         }
         public Builder containers(AppTemplateContainer... containers) {
             return containers(List.of(containers));
+        }
+        @CustomType.Setter
+        public Builder cooldownPeriodInSeconds(@Nullable Integer cooldownPeriodInSeconds) {
+
+            this.cooldownPeriodInSeconds = cooldownPeriodInSeconds;
+            return this;
         }
         @CustomType.Setter
         public Builder customScaleRules(@Nullable List<AppTemplateCustomScaleRule> customScaleRules) {
@@ -252,6 +286,12 @@ public final class AppTemplate {
             return this;
         }
         @CustomType.Setter
+        public Builder pollingIntervalInSeconds(@Nullable Integer pollingIntervalInSeconds) {
+
+            this.pollingIntervalInSeconds = pollingIntervalInSeconds;
+            return this;
+        }
+        @CustomType.Setter
         public Builder revisionSuffix(@Nullable String revisionSuffix) {
 
             this.revisionSuffix = revisionSuffix;
@@ -285,11 +325,13 @@ public final class AppTemplate {
             final var _resultValue = new AppTemplate();
             _resultValue.azureQueueScaleRules = azureQueueScaleRules;
             _resultValue.containers = containers;
+            _resultValue.cooldownPeriodInSeconds = cooldownPeriodInSeconds;
             _resultValue.customScaleRules = customScaleRules;
             _resultValue.httpScaleRules = httpScaleRules;
             _resultValue.initContainers = initContainers;
             _resultValue.maxReplicas = maxReplicas;
             _resultValue.minReplicas = minReplicas;
+            _resultValue.pollingIntervalInSeconds = pollingIntervalInSeconds;
             _resultValue.revisionSuffix = revisionSuffix;
             _resultValue.tcpScaleRules = tcpScaleRules;
             _resultValue.terminationGracePeriodSeconds = terminationGracePeriodSeconds;

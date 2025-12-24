@@ -33,14 +33,14 @@ class MonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
-        :param pulumi.Input['MonitorIdentityArgs'] identity: The kind of managed identity assigned to this resource.  A `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+        :param pulumi.Input['MonitorIdentityArgs'] identity: The kind of managed identity assigned to this resource. A `identity` block as defined below.
+        :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
         :param pulumi.Input['MonitorPlanArgs'] plan: Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['MonitorUserArgs'] user: User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        :param pulumi.Input['MonitorUserArgs'] user: User's information. A `user` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] monitoring_enabled: Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        :param pulumi.Input[_builtins.bool] monitoring_enabled: Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -64,7 +64,7 @@ class MonitorArgs:
     @pulumi.getter
     def identity(self) -> pulumi.Input['MonitorIdentityArgs']:
         """
-        The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        The kind of managed identity assigned to this resource. A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -76,7 +76,7 @@ class MonitorArgs:
     @pulumi.getter(name="marketplaceSubscription")
     def marketplace_subscription(self) -> pulumi.Input[_builtins.str]:
         """
-        Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+        Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "marketplace_subscription")
 
@@ -112,7 +112,7 @@ class MonitorArgs:
     @pulumi.getter
     def user(self) -> pulumi.Input['MonitorUserArgs']:
         """
-        User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        User's information. A `user` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user")
 
@@ -148,7 +148,7 @@ class MonitorArgs:
     @pulumi.getter(name="monitoringEnabled")
     def monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "monitoring_enabled")
 
@@ -197,15 +197,15 @@ class _MonitorState:
         """
         Input properties used for looking up and filtering Monitor resources.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
-        :param pulumi.Input['MonitorIdentityArgs'] identity: The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        :param pulumi.Input['MonitorIdentityArgs'] identity: The kind of managed identity assigned to this resource. A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
-        :param pulumi.Input[_builtins.bool] monitoring_enabled: Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] monitoring_enabled: Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         :param pulumi.Input['MonitorPlanArgs'] plan: Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['MonitorUserArgs'] user: User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        :param pulumi.Input['MonitorUserArgs'] user: User's information. A `user` block as defined below. Changing this forces a new resource to be created.
         """
         if environment_properties is not None:
             pulumi.set(__self__, "environment_properties", environment_properties)
@@ -244,7 +244,7 @@ class _MonitorState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['MonitorIdentityArgs']]:
         """
-        The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        The kind of managed identity assigned to this resource. A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -268,7 +268,7 @@ class _MonitorState:
     @pulumi.getter(name="marketplaceSubscription")
     def marketplace_subscription(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+        Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "marketplace_subscription")
 
@@ -280,7 +280,7 @@ class _MonitorState:
     @pulumi.getter(name="monitoringEnabled")
     def monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "monitoring_enabled")
 
@@ -340,7 +340,7 @@ class _MonitorState:
     @pulumi.getter
     def user(self) -> Optional[pulumi.Input['MonitorUserArgs']]:
         """
-        User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        User's information. A `user` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user")
 
@@ -420,15 +420,15 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
-        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: The kind of managed identity assigned to this resource. A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
-        :param pulumi.Input[_builtins.bool] monitoring_enabled: Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] monitoring_enabled: Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']] plan: Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: User's information. A `user` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -569,15 +569,15 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
-        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: The kind of managed identity assigned to this resource. A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
-        :param pulumi.Input[_builtins.bool] monitoring_enabled: Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] monitoring_enabled: Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']] plan: Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: User's information. A `user` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -607,7 +607,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.MonitorIdentity']:
         """
-        The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        The kind of managed identity assigned to this resource. A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -623,7 +623,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="marketplaceSubscription")
     def marketplace_subscription(self) -> pulumi.Output[_builtins.str]:
         """
-        Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+        Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "marketplace_subscription")
 
@@ -631,7 +631,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="monitoringEnabled")
     def monitoring_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+        Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "monitoring_enabled")
 
@@ -671,7 +671,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def user(self) -> pulumi.Output['outputs.MonitorUser']:
         """
-        User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        User's information. A `user` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user")
 

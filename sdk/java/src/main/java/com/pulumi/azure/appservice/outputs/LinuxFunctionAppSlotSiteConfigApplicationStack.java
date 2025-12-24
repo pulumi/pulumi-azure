@@ -20,12 +20,12 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
      */
     private @Nullable List<LinuxFunctionAppSlotSiteConfigApplicationStackDocker> dockers;
     /**
-     * @return The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
+     * @return The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
      * 
      */
     private @Nullable String dotnetVersion;
     /**
-     * @return The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
+     * @return The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
      * 
      */
     private @Nullable String javaVersion;
@@ -64,14 +64,14 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
         return this.dockers == null ? List.of() : this.dockers;
     }
     /**
-     * @return The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
+     * @return The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
      * 
      */
     public Optional<String> dotnetVersion() {
         return Optional.ofNullable(this.dotnetVersion);
     }
     /**
-     * @return The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
+     * @return The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
      * 
      */
     public Optional<String> javaVersion() {

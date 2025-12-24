@@ -44,7 +44,7 @@ class DiskEncryptionSetArgs:
                > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
         """
@@ -157,7 +157,7 @@ class DiskEncryptionSetArgs:
     @pulumi.getter(name="managedHsmKeyId")
     def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         """
         return pulumi.get(self, "managed_hsm_key_id")
 
@@ -217,7 +217,7 @@ class _DiskEncryptionSetState:
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[_builtins.str] key_vault_key_url: The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
@@ -335,7 +335,7 @@ class _DiskEncryptionSetState:
     @pulumi.getter(name="managedHsmKeyId")
     def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         """
         return pulumi.get(self, "managed_hsm_key_id")
 
@@ -584,7 +584,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
@@ -858,7 +858,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[_builtins.str] key_vault_key_url: The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
@@ -942,7 +942,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @pulumi.getter(name="managedHsmKeyId")
     def managed_hsm_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         """
         return pulumi.get(self, "managed_hsm_key_id")
 

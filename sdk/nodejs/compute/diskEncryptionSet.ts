@@ -256,7 +256,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      */
     declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
     /**
@@ -356,7 +356,7 @@ export interface DiskEncryptionSetState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      */
     managedHsmKeyId?: pulumi.Input<string>;
     /**
@@ -404,7 +404,7 @@ export interface DiskEncryptionSetArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      */
     managedHsmKeyId?: pulumi.Input<string>;
     /**

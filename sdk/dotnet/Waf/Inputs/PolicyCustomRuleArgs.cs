@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+        /// Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
         /// </summary>
         [Input("groupRateLimitBy")]
         public Input<string>? GroupRateLimitBy { get; set; }

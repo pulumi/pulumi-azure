@@ -133,7 +133,7 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
-     * A `createSource` block as defined below.
+     * A `createSource` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly createSource: pulumi.Output<outputs.elasticsan.VolumeCreateSource | undefined>;
     /**
@@ -215,7 +215,7 @@ export class Volume extends pulumi.CustomResource {
  */
 export interface VolumeState {
     /**
-     * A `createSource` block as defined below.
+     * A `createSource` block as defined below. Changing this forces a new resource to be created.
      */
     createSource?: pulumi.Input<inputs.elasticsan.VolumeCreateSource>;
     /**
@@ -255,7 +255,7 @@ export interface VolumeState {
  */
 export interface VolumeArgs {
     /**
-     * A `createSource` block as defined below.
+     * A `createSource` block as defined below. Changing this forces a new resource to be created.
      */
     createSource?: pulumi.Input<inputs.elasticsan.VolumeCreateSource>;
     /**

@@ -24,14 +24,14 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
     }
 
     /**
-     * The resource ID of the Key Vault Key to be used.
+     * The ID of the Key Vault Key to be used.
      * 
      */
     @Import(name="keyVaultKeyId", required=true)
     private Output<String> keyVaultKeyId;
 
     /**
-     * @return The resource ID of the Key Vault Key to be used.
+     * @return The ID of the Key Vault Key to be used.
      * 
      */
     public Output<String> keyVaultKeyId() {
@@ -39,14 +39,14 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
     }
 
     /**
-     * The resource ID of the Databricks Workspace.
+     * The Resource ID of the Databricks Workspace.
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return The resource ID of the Databricks Workspace.
+     * @return The Resource ID of the Databricks Workspace.
      * 
      */
     public Output<String> workspaceId() {
@@ -89,7 +89,7 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
         }
 
         /**
-         * @param keyVaultKeyId The resource ID of the Key Vault Key to be used.
+         * @param keyVaultKeyId The ID of the Key Vault Key to be used.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
         }
 
         /**
-         * @param keyVaultKeyId The resource ID of the Key Vault Key to be used.
+         * @param keyVaultKeyId The ID of the Key Vault Key to be used.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
         }
 
         /**
-         * @param workspaceId The resource ID of the Databricks Workspace.
+         * @param workspaceId The Resource ID of the Databricks Workspace.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
         }
 
         /**
-         * @param workspaceId The resource ID of the Databricks Workspace.
+         * @param workspaceId The Resource ID of the Databricks Workspace.
          * 
          * @return builder
          * 

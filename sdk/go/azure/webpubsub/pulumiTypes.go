@@ -1286,7 +1286,7 @@ type SocketioSku struct {
 	//
 	// > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
 	Capacity *int `pulumi:"capacity"`
-	// The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+	// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
 	Name string `pulumi:"name"`
 }
 
@@ -1306,7 +1306,7 @@ type SocketioSkuArgs struct {
 	//
 	// > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+	// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1394,7 +1394,7 @@ func (o SocketioSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SocketioSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
 func (o SocketioSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SocketioSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1435,7 +1435,7 @@ func (o SocketioSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
 func (o SocketioSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SocketioSku) *string {
 		if v == nil {

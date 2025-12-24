@@ -265,6 +265,9 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `False`.
+        /// </summary>
         [Output("virtualNetworkBackupRestoreEnabled")]
         public Output<bool?> VirtualNetworkBackupRestoreEnabled { get; private set; } = null!;
 
@@ -501,6 +504,9 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `False`.
+        /// </summary>
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 
@@ -792,6 +798,9 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `False`.
+        /// </summary>
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 

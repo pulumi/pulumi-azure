@@ -16,6 +16,8 @@ from .. import _utilities
 
 __all__ = [
     'ClusterIdentity',
+    'WorkspaceTableCustomLogColumn',
+    'WorkspaceTableCustomLogStandardColumn',
 ]
 
 @pulumi.output_type
@@ -47,10 +49,10 @@ class ClusterIdentity(dict):
                  principal_id: Optional[_builtins.str] = None,
                  tenant_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+        :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
                
                > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
-        :param Sequence[_builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+        :param Sequence[_builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
                
                > **Note:** This is required when `type` is set to `UserAssigned`.
         :param _builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
@@ -68,7 +70,7 @@ class ClusterIdentity(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+        Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
 
         > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
         """
@@ -78,7 +80,7 @@ class ClusterIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+        A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
 
         > **Note:** This is required when `type` is set to `UserAssigned`.
         """
@@ -99,5 +101,151 @@ class ClusterIdentity(dict):
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class WorkspaceTableCustomLogColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceTableCustomLogColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceTableCustomLogColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceTableCustomLogColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 display_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: Specifies the name of the column.
+        :param _builtins.str type: The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+        :param _builtins.str description: The description of the column.
+        :param _builtins.str display_name: The display name of the column.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Specifies the name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the column.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        The display name of the column.
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
+class WorkspaceTableCustomLogStandardColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceTableCustomLogStandardColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceTableCustomLogStandardColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceTableCustomLogStandardColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 display_name: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str description: The description of the table.
+        :param _builtins.str display_name: The display name of the table.
+        :param _builtins.str name: Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
+               
+               > **Note:** `name` must end with `_CL`.
+        :param _builtins.str type: The data type of the standard column.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the table.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        The display name of the table.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
+
+        > **Note:** `name` must end with `_CL`.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The data type of the standard column.
+        """
+        return pulumi.get(self, "type")
 
 

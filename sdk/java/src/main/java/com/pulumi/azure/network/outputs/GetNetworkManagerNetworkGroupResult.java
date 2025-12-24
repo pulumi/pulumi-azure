@@ -20,6 +20,11 @@ public final class GetNetworkManagerNetworkGroupResult {
      * 
      */
     private String id;
+    /**
+     * @return The member type of the Network Manager Network Group.
+     * 
+     */
+    private String memberType;
     private String name;
     private String networkManagerId;
 
@@ -37,6 +42,13 @@ public final class GetNetworkManagerNetworkGroupResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The member type of the Network Manager Network Group.
+     * 
+     */
+    public String memberType() {
+        return this.memberType;
     }
     public String name() {
         return this.name;
@@ -56,6 +68,7 @@ public final class GetNetworkManagerNetworkGroupResult {
     public static final class Builder {
         private String description;
         private String id;
+        private String memberType;
         private String name;
         private String networkManagerId;
         public Builder() {}
@@ -63,6 +76,7 @@ public final class GetNetworkManagerNetworkGroupResult {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.memberType = defaults.memberType;
     	      this.name = defaults.name;
     	      this.networkManagerId = defaults.networkManagerId;
         }
@@ -81,6 +95,14 @@ public final class GetNetworkManagerNetworkGroupResult {
               throw new MissingRequiredPropertyException("GetNetworkManagerNetworkGroupResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder memberType(String memberType) {
+            if (memberType == null) {
+              throw new MissingRequiredPropertyException("GetNetworkManagerNetworkGroupResult", "memberType");
+            }
+            this.memberType = memberType;
             return this;
         }
         @CustomType.Setter
@@ -103,6 +125,7 @@ public final class GetNetworkManagerNetworkGroupResult {
             final var _resultValue = new GetNetworkManagerNetworkGroupResult();
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.memberType = memberType;
             _resultValue.name = name;
             _resultValue.networkManagerId = networkManagerId;
             return _resultValue;

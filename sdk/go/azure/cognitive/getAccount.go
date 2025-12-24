@@ -69,28 +69,58 @@ type LookupAccountArgs struct {
 
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
-	// The endpoint of the Cognitive Services Account
+	// The ID of the search service.
+	CustomQuestionAnsweringSearchServiceId string `pulumi:"customQuestionAnsweringSearchServiceId"`
+	// The subdomain name used for Entra ID token-based authentication.
+	CustomSubdomainName string `pulumi:"customSubdomainName"`
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKeys []GetAccountCustomerManagedKeyType `pulumi:"customerManagedKeys"`
+	// Whether dynamic throttling is enabled for this Cognitive Services Account.
+	DynamicThrottlingEnabled bool `pulumi:"dynamicThrottlingEnabled"`
+	// The endpoint of the Cognitive Services Account.
 	Endpoint string `pulumi:"endpoint"`
+	// List of FQDNs allowed for the Cognitive Services Account.
+	Fqdns []string `pulumi:"fqdns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `identity` block as defined below.
 	Identities []GetAccountIdentity `pulumi:"identities"`
-	// The kind of the Cognitive Services Account
+	// The type of the Cognitive Services Account.
 	Kind string `pulumi:"kind"`
-	// Whether local authentication methods is enabled for the Cognitive Account.
+	// Whether local authentication methods are enabled for the Cognitive Services Account.
 	LocalAuthEnabled bool `pulumi:"localAuthEnabled"`
-	// The Azure location where the Cognitive Services Account exists
+	// The Azure location where the Cognitive Services Account exists.
 	Location string `pulumi:"location"`
-	Name     string `pulumi:"name"`
-	// The primary access key of the Cognitive Services Account
+	// The Microsoft Entra Application (client) ID.
+	MetricsAdvisorAadClientId string `pulumi:"metricsAdvisorAadClientId"`
+	// The Microsoft Entra Tenant ID.
+	MetricsAdvisorAadTenantId string `pulumi:"metricsAdvisorAadTenantId"`
+	// The super user of Metrics Advisor.
+	MetricsAdvisorSuperUserName string `pulumi:"metricsAdvisorSuperUserName"`
+	// The website name of Metrics Advisor.
+	MetricsAdvisorWebsiteName string `pulumi:"metricsAdvisorWebsiteName"`
+	Name                      string `pulumi:"name"`
+	// A `networkAcls` block as defined below.
+	NetworkAcls []GetAccountNetworkAcl `pulumi:"networkAcls"`
+	// A `networkInjection` block as defined below.
+	NetworkInjections []GetAccountNetworkInjection `pulumi:"networkInjections"`
+	// Whether outbound network access is restricted for the Cognitive Services Account.
+	OutboundNetworkAccessRestricted bool `pulumi:"outboundNetworkAccessRestricted"`
+	// The primary access key of the Cognitive Services Account.
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
-	// If `kind` is `QnAMaker` the link to the QNA runtime.
+	// Whether project management is enabled.
+	ProjectManagementEnabled bool `pulumi:"projectManagementEnabled"`
+	// Whether public network access is allowed for the Cognitive Services Account.
+	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
+	// The link to the QNA runtime.
 	QnaRuntimeEndpoint string `pulumi:"qnaRuntimeEndpoint"`
 	ResourceGroupName  string `pulumi:"resourceGroupName"`
-	// The secondary access key of the Cognitive Services Account
+	// The secondary access key of the Cognitive Services Account.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
-	// The SKU name of the Cognitive Services Account
+	// The SKU name of the Cognitive Services Account.
 	SkuName string `pulumi:"skuName"`
+	// A `storage` block as defined below.
+	Storages []GetAccountStorage `pulumi:"storages"`
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -133,9 +163,34 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 	return o
 }
 
-// The endpoint of the Cognitive Services Account
+// The ID of the search service.
+func (o LookupAccountResultOutput) CustomQuestionAnsweringSearchServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.CustomQuestionAnsweringSearchServiceId }).(pulumi.StringOutput)
+}
+
+// The subdomain name used for Entra ID token-based authentication.
+func (o LookupAccountResultOutput) CustomSubdomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.CustomSubdomainName }).(pulumi.StringOutput)
+}
+
+// A `customerManagedKey` block as defined below.
+func (o LookupAccountResultOutput) CustomerManagedKeys() GetAccountCustomerManagedKeyTypeArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountCustomerManagedKeyType { return v.CustomerManagedKeys }).(GetAccountCustomerManagedKeyTypeArrayOutput)
+}
+
+// Whether dynamic throttling is enabled for this Cognitive Services Account.
+func (o LookupAccountResultOutput) DynamicThrottlingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.DynamicThrottlingEnabled }).(pulumi.BoolOutput)
+}
+
+// The endpoint of the Cognitive Services Account.
 func (o LookupAccountResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// List of FQDNs allowed for the Cognitive Services Account.
+func (o LookupAccountResultOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -148,31 +203,76 @@ func (o LookupAccountResultOutput) Identities() GetAccountIdentityArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountIdentity { return v.Identities }).(GetAccountIdentityArrayOutput)
 }
 
-// The kind of the Cognitive Services Account
+// The type of the Cognitive Services Account.
 func (o LookupAccountResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Whether local authentication methods is enabled for the Cognitive Account.
+// Whether local authentication methods are enabled for the Cognitive Services Account.
 func (o LookupAccountResultOutput) LocalAuthEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.LocalAuthEnabled }).(pulumi.BoolOutput)
 }
 
-// The Azure location where the Cognitive Services Account exists
+// The Azure location where the Cognitive Services Account exists.
 func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The Microsoft Entra Application (client) ID.
+func (o LookupAccountResultOutput) MetricsAdvisorAadClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.MetricsAdvisorAadClientId }).(pulumi.StringOutput)
+}
+
+// The Microsoft Entra Tenant ID.
+func (o LookupAccountResultOutput) MetricsAdvisorAadTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.MetricsAdvisorAadTenantId }).(pulumi.StringOutput)
+}
+
+// The super user of Metrics Advisor.
+func (o LookupAccountResultOutput) MetricsAdvisorSuperUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.MetricsAdvisorSuperUserName }).(pulumi.StringOutput)
+}
+
+// The website name of Metrics Advisor.
+func (o LookupAccountResultOutput) MetricsAdvisorWebsiteName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.MetricsAdvisorWebsiteName }).(pulumi.StringOutput)
 }
 
 func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The primary access key of the Cognitive Services Account
+// A `networkAcls` block as defined below.
+func (o LookupAccountResultOutput) NetworkAcls() GetAccountNetworkAclArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountNetworkAcl { return v.NetworkAcls }).(GetAccountNetworkAclArrayOutput)
+}
+
+// A `networkInjection` block as defined below.
+func (o LookupAccountResultOutput) NetworkInjections() GetAccountNetworkInjectionArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountNetworkInjection { return v.NetworkInjections }).(GetAccountNetworkInjectionArrayOutput)
+}
+
+// Whether outbound network access is restricted for the Cognitive Services Account.
+func (o LookupAccountResultOutput) OutboundNetworkAccessRestricted() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.OutboundNetworkAccessRestricted }).(pulumi.BoolOutput)
+}
+
+// The primary access key of the Cognitive Services Account.
 func (o LookupAccountResultOutput) PrimaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
 }
 
-// If `kind` is `QnAMaker` the link to the QNA runtime.
+// Whether project management is enabled.
+func (o LookupAccountResultOutput) ProjectManagementEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.ProjectManagementEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether public network access is allowed for the Cognitive Services Account.
+func (o LookupAccountResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// The link to the QNA runtime.
 func (o LookupAccountResultOutput) QnaRuntimeEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.QnaRuntimeEndpoint }).(pulumi.StringOutput)
 }
@@ -181,14 +281,19 @@ func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The secondary access key of the Cognitive Services Account
+// The secondary access key of the Cognitive Services Account.
 func (o LookupAccountResultOutput) SecondaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
 }
 
-// The SKU name of the Cognitive Services Account
+// The SKU name of the Cognitive Services Account.
 func (o LookupAccountResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// A `storage` block as defined below.
+func (o LookupAccountResultOutput) Storages() GetAccountStorageArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountStorage { return v.Storages }).(GetAccountStorageArrayOutput)
 }
 
 // A mapping of tags to assigned to the resource.

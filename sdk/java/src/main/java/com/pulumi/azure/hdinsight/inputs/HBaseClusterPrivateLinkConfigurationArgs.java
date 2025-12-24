@@ -30,9 +30,17 @@ public final class HBaseClusterPrivateLinkConfigurationArgs extends com.pulumi.r
         return this.groupId;
     }
 
+    /**
+     * An `ipConfiguration` block as defined below.
+     * 
+     */
     @Import(name="ipConfiguration", required=true)
     private Output<HBaseClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration;
 
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     public Output<HBaseClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration() {
         return this.ipConfiguration;
     }
@@ -99,11 +107,23 @@ public final class HBaseClusterPrivateLinkConfigurationArgs extends com.pulumi.r
             return groupId(Output.of(groupId));
         }
 
+        /**
+         * @param ipConfiguration An `ipConfiguration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfiguration(Output<HBaseClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration) {
             $.ipConfiguration = ipConfiguration;
             return this;
         }
 
+        /**
+         * @param ipConfiguration An `ipConfiguration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfiguration(HBaseClusterPrivateLinkConfigurationIpConfigurationArgs ipConfiguration) {
             return ipConfiguration(Output.of(ipConfiguration));
         }

@@ -151,7 +151,8 @@ type LinuxWebAppSlot struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                               pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput   `pulumi:"virtualNetworkBackupRestoreEnabled"`
 	VirtualNetworkSubnetId             pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
@@ -273,9 +274,10 @@ type linuxWebAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                               map[string]string `pulumi:"tags"`
-	VirtualNetworkBackupRestoreEnabled *bool             `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             *string           `pulumi:"virtualNetworkSubnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -355,7 +357,8 @@ type LinuxWebAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                               pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
 	VirtualNetworkSubnetId             pulumi.StringPtrInput
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
@@ -421,9 +424,10 @@ type linuxWebAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                               map[string]string `pulumi:"tags"`
-	VirtualNetworkBackupRestoreEnabled *bool             `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             *string           `pulumi:"virtualNetworkSubnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -484,7 +488,8 @@ type LinuxWebAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                               pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
 	VirtualNetworkSubnetId             pulumi.StringPtrInput
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
@@ -749,6 +754,7 @@ func (o LinuxWebAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 func (o LinuxWebAppSlotOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
 }

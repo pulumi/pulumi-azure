@@ -62,6 +62,21 @@ public final class BackupInstanceBlogStorageState extends com.pulumi.resources.R
     }
 
     /**
+     * The protection state of the Backup Instance Blob Storage.
+     * 
+     */
+    @Import(name="protectionState")
+    private @Nullable Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance Blob Storage.
+     * 
+     */
+    public Optional<Output<String>> protectionState() {
+        return Optional.ofNullable(this.protectionState);
+    }
+
+    /**
      * The list of the container names of the source Storage Account.
      * 
      * &gt; **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can&#39;t be removed once specified.
@@ -116,6 +131,7 @@ public final class BackupInstanceBlogStorageState extends com.pulumi.resources.R
         this.backupPolicyId = $.backupPolicyId;
         this.location = $.location;
         this.name = $.name;
+        this.protectionState = $.protectionState;
         this.storageAccountContainerNames = $.storageAccountContainerNames;
         this.storageAccountId = $.storageAccountId;
         this.vaultId = $.vaultId;
@@ -200,6 +216,27 @@ public final class BackupInstanceBlogStorageState extends com.pulumi.resources.R
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance Blob Storage.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(@Nullable Output<String> protectionState) {
+            $.protectionState = protectionState;
+            return this;
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance Blob Storage.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(String protectionState) {
+            return protectionState(Output.of(protectionState));
         }
 
         /**

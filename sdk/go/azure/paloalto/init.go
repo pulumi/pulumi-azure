@@ -39,10 +39,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NextGenerationFirewallVirtualHubLocalRulestack{}
 	case "azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama":
 		r = &NextGenerationFirewallVirtualHubPanorama{}
+	case "azure:paloalto/nextGenerationFirewallVirtualHubStrataCloudManager:NextGenerationFirewallVirtualHubStrataCloudManager":
+		r = &NextGenerationFirewallVirtualHubStrataCloudManager{}
 	case "azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack":
 		r = &NextGenerationFirewallVirtualNetworkLocalRulestack{}
 	case "azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama":
 		r = &NextGenerationFirewallVirtualNetworkPanorama{}
+	case "azure:paloalto/nextGenerationFirewallVirtualNetworkStrataCloudManager:NextGenerationFirewallVirtualNetworkStrataCloudManager":
+		r = &NextGenerationFirewallVirtualNetworkStrataCloudManager{}
 	case "azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance":
 		r = &VirtualNetworkAppliance{}
 	default:
@@ -105,12 +109,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"paloalto/nextGenerationFirewallVirtualHubStrataCloudManager",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"paloalto/nextGenerationFirewallVirtualNetworkPanorama",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"paloalto/nextGenerationFirewallVirtualNetworkStrataCloudManager",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterWebAppRoutingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+        /// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
         /// </summary>
         [Input("defaultNginxController")]
         public Input<string>? DefaultNginxController { get; set; }

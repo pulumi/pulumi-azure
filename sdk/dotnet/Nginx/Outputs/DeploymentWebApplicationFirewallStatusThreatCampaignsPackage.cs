@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Nginx.Outputs
     [OutputType]
     public sealed class DeploymentWebApplicationFirewallStatusThreatCampaignsPackage
     {
+        /// <summary>
+        /// The revision date and time of the threat campaigns package.
+        /// </summary>
         public readonly string? RevisionDatetime;
+        /// <summary>
+        /// The version of the threat campaigns package.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

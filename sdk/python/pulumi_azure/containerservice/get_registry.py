@@ -197,7 +197,7 @@ def get_registry(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+    * `Microsoft.ContainerRegistry` - 2025-04-01
 
 
     :param _builtins.str name: The name of the Container Registry.
@@ -244,7 +244,7 @@ def get_registry_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+    * `Microsoft.ContainerRegistry` - 2025-04-01
 
 
     :param _builtins.str name: The name of the Container Registry.

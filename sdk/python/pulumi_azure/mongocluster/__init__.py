@@ -8,5 +8,6 @@ import typing
 # Export this package's modules as members:
 from .firewall_rule import *
 from .mongo_cluster import *
+from .user import *
 from ._inputs import *
 from . import outputs

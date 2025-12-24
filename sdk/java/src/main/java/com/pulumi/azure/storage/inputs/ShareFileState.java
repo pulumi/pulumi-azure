@@ -149,18 +149,37 @@ public final class ShareFileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * @deprecated
+     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
     @Import(name="storageShareId")
     private @Nullable Output<String> storageShareId;
 
     /**
-     * @return The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * @deprecated
+     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
     public Optional<Output<String>> storageShareId() {
         return Optional.ofNullable(this.storageShareId);
+    }
+
+    /**
+     * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="storageShareUrl")
+    private @Nullable Output<String> storageShareUrl;
+
+    /**
+     * @return The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> storageShareUrl() {
+        return Optional.ofNullable(this.storageShareUrl);
     }
 
     private ShareFileState() {}
@@ -176,6 +195,7 @@ public final class ShareFileState extends com.pulumi.resources.ResourceArgs {
         this.path = $.path;
         this.source = $.source;
         this.storageShareId = $.storageShareId;
+        this.storageShareUrl = $.storageShareUrl;
     }
 
     public static Builder builder() {
@@ -378,24 +398,49 @@ public final class ShareFileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageShareId The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+         * 
          */
+        @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
         public Builder storageShareId(@Nullable Output<String> storageShareId) {
             $.storageShareId = storageShareId;
             return this;
         }
 
         /**
-         * @param storageShareId The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+         * @return builder
+         * 
+         * @deprecated
+         * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+         * 
+         */
+        @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
+        public Builder storageShareId(String storageShareId) {
+            return storageShareId(Output.of(storageShareId));
+        }
+
+        /**
+         * @param storageShareUrl The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder storageShareId(String storageShareId) {
-            return storageShareId(Output.of(storageShareId));
+        public Builder storageShareUrl(@Nullable Output<String> storageShareUrl) {
+            $.storageShareUrl = storageShareUrl;
+            return this;
+        }
+
+        /**
+         * @param storageShareUrl The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageShareUrl(String storageShareUrl) {
+            return storageShareUrl(Output.of(storageShareUrl));
         }
 
         public ShareFileState build() {

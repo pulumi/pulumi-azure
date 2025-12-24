@@ -390,14 +390,14 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      */
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedHsmKeyId;
 
     /**
-     * @return Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     * @return Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      */
     public Output<Optional<String>> managedHsmKeyId() {

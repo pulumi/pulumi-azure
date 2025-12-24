@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterIdentity struct {
-	// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+	// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -22,7 +22,7 @@ type ClusterIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+	// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
 	Type string `pulumi:"type"`
@@ -40,7 +40,7 @@ type ClusterIdentityInput interface {
 }
 
 type ClusterIdentityArgs struct {
-	// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+	// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
@@ -48,7 +48,7 @@ type ClusterIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+	// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -131,7 +131,7 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context
 	}).(ClusterIdentityPtrOutput)
 }
 
-// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
 //
 // > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o ClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -148,7 +148,7 @@ func (o ClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
 //
 // > **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
 func (o ClusterIdentityOutput) Type() pulumi.StringOutput {
@@ -179,7 +179,7 @@ func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
 	}).(ClusterIdentityOutput)
 }
 
-// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
 //
 // > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o ClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -211,7 +211,7 @@ func (o ClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
 //
 // > **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
 func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
@@ -223,9 +223,271 @@ func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceTableCustomLogColumn struct {
+	// The description of the column.
+	Description *string `pulumi:"description"`
+	// The display name of the column.
+	DisplayName *string `pulumi:"displayName"`
+	// Specifies the name of the column.
+	Name string `pulumi:"name"`
+	// The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+	Type string `pulumi:"type"`
+}
+
+// WorkspaceTableCustomLogColumnInput is an input type that accepts WorkspaceTableCustomLogColumnArgs and WorkspaceTableCustomLogColumnOutput values.
+// You can construct a concrete instance of `WorkspaceTableCustomLogColumnInput` via:
+//
+//	WorkspaceTableCustomLogColumnArgs{...}
+type WorkspaceTableCustomLogColumnInput interface {
+	pulumi.Input
+
+	ToWorkspaceTableCustomLogColumnOutput() WorkspaceTableCustomLogColumnOutput
+	ToWorkspaceTableCustomLogColumnOutputWithContext(context.Context) WorkspaceTableCustomLogColumnOutput
+}
+
+type WorkspaceTableCustomLogColumnArgs struct {
+	// The description of the column.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The display name of the column.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Specifies the name of the column.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkspaceTableCustomLogColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTableCustomLogColumn)(nil)).Elem()
+}
+
+func (i WorkspaceTableCustomLogColumnArgs) ToWorkspaceTableCustomLogColumnOutput() WorkspaceTableCustomLogColumnOutput {
+	return i.ToWorkspaceTableCustomLogColumnOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTableCustomLogColumnArgs) ToWorkspaceTableCustomLogColumnOutputWithContext(ctx context.Context) WorkspaceTableCustomLogColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTableCustomLogColumnOutput)
+}
+
+// WorkspaceTableCustomLogColumnArrayInput is an input type that accepts WorkspaceTableCustomLogColumnArray and WorkspaceTableCustomLogColumnArrayOutput values.
+// You can construct a concrete instance of `WorkspaceTableCustomLogColumnArrayInput` via:
+//
+//	WorkspaceTableCustomLogColumnArray{ WorkspaceTableCustomLogColumnArgs{...} }
+type WorkspaceTableCustomLogColumnArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceTableCustomLogColumnArrayOutput() WorkspaceTableCustomLogColumnArrayOutput
+	ToWorkspaceTableCustomLogColumnArrayOutputWithContext(context.Context) WorkspaceTableCustomLogColumnArrayOutput
+}
+
+type WorkspaceTableCustomLogColumnArray []WorkspaceTableCustomLogColumnInput
+
+func (WorkspaceTableCustomLogColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTableCustomLogColumn)(nil)).Elem()
+}
+
+func (i WorkspaceTableCustomLogColumnArray) ToWorkspaceTableCustomLogColumnArrayOutput() WorkspaceTableCustomLogColumnArrayOutput {
+	return i.ToWorkspaceTableCustomLogColumnArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTableCustomLogColumnArray) ToWorkspaceTableCustomLogColumnArrayOutputWithContext(ctx context.Context) WorkspaceTableCustomLogColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTableCustomLogColumnArrayOutput)
+}
+
+type WorkspaceTableCustomLogColumnOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTableCustomLogColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTableCustomLogColumn)(nil)).Elem()
+}
+
+func (o WorkspaceTableCustomLogColumnOutput) ToWorkspaceTableCustomLogColumnOutput() WorkspaceTableCustomLogColumnOutput {
+	return o
+}
+
+func (o WorkspaceTableCustomLogColumnOutput) ToWorkspaceTableCustomLogColumnOutputWithContext(ctx context.Context) WorkspaceTableCustomLogColumnOutput {
+	return o
+}
+
+// The description of the column.
+func (o WorkspaceTableCustomLogColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableCustomLogColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the column.
+func (o WorkspaceTableCustomLogColumnOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableCustomLogColumn) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the column.
+func (o WorkspaceTableCustomLogColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceTableCustomLogColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+func (o WorkspaceTableCustomLogColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceTableCustomLogColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkspaceTableCustomLogColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTableCustomLogColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTableCustomLogColumn)(nil)).Elem()
+}
+
+func (o WorkspaceTableCustomLogColumnArrayOutput) ToWorkspaceTableCustomLogColumnArrayOutput() WorkspaceTableCustomLogColumnArrayOutput {
+	return o
+}
+
+func (o WorkspaceTableCustomLogColumnArrayOutput) ToWorkspaceTableCustomLogColumnArrayOutputWithContext(ctx context.Context) WorkspaceTableCustomLogColumnArrayOutput {
+	return o
+}
+
+func (o WorkspaceTableCustomLogColumnArrayOutput) Index(i pulumi.IntInput) WorkspaceTableCustomLogColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceTableCustomLogColumn {
+		return vs[0].([]WorkspaceTableCustomLogColumn)[vs[1].(int)]
+	}).(WorkspaceTableCustomLogColumnOutput)
+}
+
+type WorkspaceTableCustomLogStandardColumn struct {
+	// The description of the table.
+	Description *string `pulumi:"description"`
+	// The display name of the table.
+	DisplayName *string `pulumi:"displayName"`
+	// Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `name` must end with `_CL`.
+	Name *string `pulumi:"name"`
+	// The data type of the standard column.
+	Type *string `pulumi:"type"`
+}
+
+// WorkspaceTableCustomLogStandardColumnInput is an input type that accepts WorkspaceTableCustomLogStandardColumnArgs and WorkspaceTableCustomLogStandardColumnOutput values.
+// You can construct a concrete instance of `WorkspaceTableCustomLogStandardColumnInput` via:
+//
+//	WorkspaceTableCustomLogStandardColumnArgs{...}
+type WorkspaceTableCustomLogStandardColumnInput interface {
+	pulumi.Input
+
+	ToWorkspaceTableCustomLogStandardColumnOutput() WorkspaceTableCustomLogStandardColumnOutput
+	ToWorkspaceTableCustomLogStandardColumnOutputWithContext(context.Context) WorkspaceTableCustomLogStandardColumnOutput
+}
+
+type WorkspaceTableCustomLogStandardColumnArgs struct {
+	// The description of the table.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The display name of the table.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `name` must end with `_CL`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data type of the standard column.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkspaceTableCustomLogStandardColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTableCustomLogStandardColumn)(nil)).Elem()
+}
+
+func (i WorkspaceTableCustomLogStandardColumnArgs) ToWorkspaceTableCustomLogStandardColumnOutput() WorkspaceTableCustomLogStandardColumnOutput {
+	return i.ToWorkspaceTableCustomLogStandardColumnOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTableCustomLogStandardColumnArgs) ToWorkspaceTableCustomLogStandardColumnOutputWithContext(ctx context.Context) WorkspaceTableCustomLogStandardColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTableCustomLogStandardColumnOutput)
+}
+
+// WorkspaceTableCustomLogStandardColumnArrayInput is an input type that accepts WorkspaceTableCustomLogStandardColumnArray and WorkspaceTableCustomLogStandardColumnArrayOutput values.
+// You can construct a concrete instance of `WorkspaceTableCustomLogStandardColumnArrayInput` via:
+//
+//	WorkspaceTableCustomLogStandardColumnArray{ WorkspaceTableCustomLogStandardColumnArgs{...} }
+type WorkspaceTableCustomLogStandardColumnArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceTableCustomLogStandardColumnArrayOutput() WorkspaceTableCustomLogStandardColumnArrayOutput
+	ToWorkspaceTableCustomLogStandardColumnArrayOutputWithContext(context.Context) WorkspaceTableCustomLogStandardColumnArrayOutput
+}
+
+type WorkspaceTableCustomLogStandardColumnArray []WorkspaceTableCustomLogStandardColumnInput
+
+func (WorkspaceTableCustomLogStandardColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTableCustomLogStandardColumn)(nil)).Elem()
+}
+
+func (i WorkspaceTableCustomLogStandardColumnArray) ToWorkspaceTableCustomLogStandardColumnArrayOutput() WorkspaceTableCustomLogStandardColumnArrayOutput {
+	return i.ToWorkspaceTableCustomLogStandardColumnArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTableCustomLogStandardColumnArray) ToWorkspaceTableCustomLogStandardColumnArrayOutputWithContext(ctx context.Context) WorkspaceTableCustomLogStandardColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTableCustomLogStandardColumnArrayOutput)
+}
+
+type WorkspaceTableCustomLogStandardColumnOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTableCustomLogStandardColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTableCustomLogStandardColumn)(nil)).Elem()
+}
+
+func (o WorkspaceTableCustomLogStandardColumnOutput) ToWorkspaceTableCustomLogStandardColumnOutput() WorkspaceTableCustomLogStandardColumnOutput {
+	return o
+}
+
+func (o WorkspaceTableCustomLogStandardColumnOutput) ToWorkspaceTableCustomLogStandardColumnOutputWithContext(ctx context.Context) WorkspaceTableCustomLogStandardColumnOutput {
+	return o
+}
+
+// The description of the table.
+func (o WorkspaceTableCustomLogStandardColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableCustomLogStandardColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the table.
+func (o WorkspaceTableCustomLogStandardColumnOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableCustomLogStandardColumn) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
+//
+// > **Note:** `name` must end with `_CL`.
+func (o WorkspaceTableCustomLogStandardColumnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableCustomLogStandardColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The data type of the standard column.
+func (o WorkspaceTableCustomLogStandardColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableCustomLogStandardColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceTableCustomLogStandardColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTableCustomLogStandardColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTableCustomLogStandardColumn)(nil)).Elem()
+}
+
+func (o WorkspaceTableCustomLogStandardColumnArrayOutput) ToWorkspaceTableCustomLogStandardColumnArrayOutput() WorkspaceTableCustomLogStandardColumnArrayOutput {
+	return o
+}
+
+func (o WorkspaceTableCustomLogStandardColumnArrayOutput) ToWorkspaceTableCustomLogStandardColumnArrayOutputWithContext(ctx context.Context) WorkspaceTableCustomLogStandardColumnArrayOutput {
+	return o
+}
+
+func (o WorkspaceTableCustomLogStandardColumnArrayOutput) Index(i pulumi.IntInput) WorkspaceTableCustomLogStandardColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceTableCustomLogStandardColumn {
+		return vs[0].([]WorkspaceTableCustomLogStandardColumn)[vs[1].(int)]
+	}).(WorkspaceTableCustomLogStandardColumnOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityPtrInput)(nil)).Elem(), ClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableCustomLogColumnInput)(nil)).Elem(), WorkspaceTableCustomLogColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableCustomLogColumnArrayInput)(nil)).Elem(), WorkspaceTableCustomLogColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableCustomLogStandardColumnInput)(nil)).Elem(), WorkspaceTableCustomLogStandardColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableCustomLogStandardColumnArrayInput)(nil)).Elem(), WorkspaceTableCustomLogStandardColumnArray{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceTableCustomLogColumnOutput{})
+	pulumi.RegisterOutputType(WorkspaceTableCustomLogColumnArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceTableCustomLogStandardColumnOutput{})
+	pulumi.RegisterOutputType(WorkspaceTableCustomLogStandardColumnArrayOutput{})
 }

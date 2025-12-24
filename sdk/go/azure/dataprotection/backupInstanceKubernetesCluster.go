@@ -303,7 +303,7 @@ import (
 type BackupInstanceKubernetesCluster struct {
 	pulumi.CustomResourceState
 
-	// A `backupDatasourceParameters` block as defined below.
+	// A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
 	BackupDatasourceParameters BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput `pulumi:"backupDatasourceParameters"`
 	// The ID of the Backup Policy. Changing this forces a new resource to be created.
 	BackupPolicyId pulumi.StringOutput `pulumi:"backupPolicyId"`
@@ -313,6 +313,8 @@ type BackupInstanceKubernetesCluster struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The protection state of the Backup Instance Kubernetes Cluster.
+	ProtectionState pulumi.StringOutput `pulumi:"protectionState"`
 	// The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
 	SnapshotResourceGroupName pulumi.StringOutput `pulumi:"snapshotResourceGroupName"`
 	// The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -361,7 +363,7 @@ func GetBackupInstanceKubernetesCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupInstanceKubernetesCluster resources.
 type backupInstanceKubernetesClusterState struct {
-	// A `backupDatasourceParameters` block as defined below.
+	// A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
 	BackupDatasourceParameters *BackupInstanceKubernetesClusterBackupDatasourceParameters `pulumi:"backupDatasourceParameters"`
 	// The ID of the Backup Policy. Changing this forces a new resource to be created.
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
@@ -371,6 +373,8 @@ type backupInstanceKubernetesClusterState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The protection state of the Backup Instance Kubernetes Cluster.
+	ProtectionState *string `pulumi:"protectionState"`
 	// The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
 	SnapshotResourceGroupName *string `pulumi:"snapshotResourceGroupName"`
 	// The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -378,7 +382,7 @@ type backupInstanceKubernetesClusterState struct {
 }
 
 type BackupInstanceKubernetesClusterState struct {
-	// A `backupDatasourceParameters` block as defined below.
+	// A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
 	BackupDatasourceParameters BackupInstanceKubernetesClusterBackupDatasourceParametersPtrInput
 	// The ID of the Backup Policy. Changing this forces a new resource to be created.
 	BackupPolicyId pulumi.StringPtrInput
@@ -388,6 +392,8 @@ type BackupInstanceKubernetesClusterState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The protection state of the Backup Instance Kubernetes Cluster.
+	ProtectionState pulumi.StringPtrInput
 	// The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
 	SnapshotResourceGroupName pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -399,7 +405,7 @@ func (BackupInstanceKubernetesClusterState) ElementType() reflect.Type {
 }
 
 type backupInstanceKubernetesClusterArgs struct {
-	// A `backupDatasourceParameters` block as defined below.
+	// A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
 	BackupDatasourceParameters *BackupInstanceKubernetesClusterBackupDatasourceParameters `pulumi:"backupDatasourceParameters"`
 	// The ID of the Backup Policy. Changing this forces a new resource to be created.
 	BackupPolicyId string `pulumi:"backupPolicyId"`
@@ -417,7 +423,7 @@ type backupInstanceKubernetesClusterArgs struct {
 
 // The set of arguments for constructing a BackupInstanceKubernetesCluster resource.
 type BackupInstanceKubernetesClusterArgs struct {
-	// A `backupDatasourceParameters` block as defined below.
+	// A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
 	BackupDatasourceParameters BackupInstanceKubernetesClusterBackupDatasourceParametersPtrInput
 	// The ID of the Backup Policy. Changing this forces a new resource to be created.
 	BackupPolicyId pulumi.StringInput
@@ -520,7 +526,7 @@ func (o BackupInstanceKubernetesClusterOutput) ToBackupInstanceKubernetesCluster
 	return o
 }
 
-// A `backupDatasourceParameters` block as defined below.
+// A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
 func (o BackupInstanceKubernetesClusterOutput) BackupDatasourceParameters() BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
 	return o.ApplyT(func(v *BackupInstanceKubernetesCluster) BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
 		return v.BackupDatasourceParameters
@@ -545,6 +551,11 @@ func (o BackupInstanceKubernetesClusterOutput) Location() pulumi.StringOutput {
 // The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
 func (o BackupInstanceKubernetesClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstanceKubernetesCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protection state of the Backup Instance Kubernetes Cluster.
+func (o BackupInstanceKubernetesClusterOutput) ProtectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupInstanceKubernetesCluster) pulumi.StringOutput { return v.ProtectionState }).(pulumi.StringOutput)
 }
 
 // The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.

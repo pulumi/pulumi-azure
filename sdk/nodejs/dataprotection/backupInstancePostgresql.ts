@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Backup Instance to back up PostgreSQL.
  *
+ * > **Note:** The `azure.dataprotection.BackupInstancePostgresql` resource has been deprecated because Azure Database for PostgreSQL Single Server has been retired as of 2025-03-28 and will be removed in v5.0 of the AzureRM Provider.
+ *
  * > **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from <https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore>.
  *
  * ## Example Usage
@@ -189,6 +191,10 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The protection state of the Backup Instance PostgreSQL.
+     */
+    declare public /*out*/ readonly protectionState: pulumi.Output<string>;
+    /**
      * The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
      */
     declare public readonly vaultId: pulumi.Output<string>;
@@ -211,6 +217,7 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
             resourceInputs["databaseId"] = state?.databaseId;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
+            resourceInputs["protectionState"] = state?.protectionState;
             resourceInputs["vaultId"] = state?.vaultId;
         } else {
             const args = argsOrState as BackupInstancePostgresqlArgs | undefined;
@@ -229,6 +236,7 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["vaultId"] = args?.vaultId;
+            resourceInputs["protectionState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstancePostgresql.__pulumiType, name, resourceInputs, opts);
@@ -259,6 +267,10 @@ export interface BackupInstancePostgresqlState {
      * The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The protection state of the Backup Instance PostgreSQL.
+     */
+    protectionState?: pulumi.Input<string>;
     /**
      * The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
      */

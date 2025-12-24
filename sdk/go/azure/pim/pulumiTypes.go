@@ -1006,7 +1006,7 @@ func (o EligibleRoleAssignmentTicketPtrOutput) System() pulumi.StringPtrOutput {
 type RoleManagementPolicyActivationRules struct {
 	// An `approvalStage` block as defined below.
 	ApprovalStage *RoleManagementPolicyActivationRulesApprovalStage `pulumi:"approvalStage"`
-	// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+	// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
 	MaximumDuration *string `pulumi:"maximumDuration"`
 	// Is approval required for activation. If `true` an `approvalStage` block must be provided.
 	RequireApproval *bool `pulumi:"requireApproval"`
@@ -1034,7 +1034,7 @@ type RoleManagementPolicyActivationRulesInput interface {
 type RoleManagementPolicyActivationRulesArgs struct {
 	// An `approvalStage` block as defined below.
 	ApprovalStage RoleManagementPolicyActivationRulesApprovalStagePtrInput `pulumi:"approvalStage"`
-	// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+	// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
 	MaximumDuration pulumi.StringPtrInput `pulumi:"maximumDuration"`
 	// Is approval required for activation. If `true` an `approvalStage` block must be provided.
 	RequireApproval pulumi.BoolPtrInput `pulumi:"requireApproval"`
@@ -1132,7 +1132,7 @@ func (o RoleManagementPolicyActivationRulesOutput) ApprovalStage() RoleManagemen
 	}).(RoleManagementPolicyActivationRulesApprovalStagePtrOutput)
 }
 
-// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
 func (o RoleManagementPolicyActivationRulesOutput) MaximumDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *string { return v.MaximumDuration }).(pulumi.StringPtrOutput)
 }
@@ -1198,7 +1198,7 @@ func (o RoleManagementPolicyActivationRulesPtrOutput) ApprovalStage() RoleManage
 	}).(RoleManagementPolicyActivationRulesApprovalStagePtrOutput)
 }
 
-// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
 func (o RoleManagementPolicyActivationRulesPtrOutput) MaximumDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) *string {
 		if v == nil {
@@ -1259,7 +1259,7 @@ func (o RoleManagementPolicyActivationRulesPtrOutput) RequiredConditionalAccessA
 }
 
 type RoleManagementPolicyActivationRulesApprovalStage struct {
-	// The IDs of the users or groups who can approve the activation
+	// One or more `primaryApprover` blocks as defined below.
 	PrimaryApprovers []RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover `pulumi:"primaryApprovers"`
 }
 
@@ -1275,7 +1275,7 @@ type RoleManagementPolicyActivationRulesApprovalStageInput interface {
 }
 
 type RoleManagementPolicyActivationRulesApprovalStageArgs struct {
-	// The IDs of the users or groups who can approve the activation
+	// One or more `primaryApprover` blocks as defined below.
 	PrimaryApprovers RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayInput `pulumi:"primaryApprovers"`
 }
 
@@ -1356,7 +1356,7 @@ func (o RoleManagementPolicyActivationRulesApprovalStageOutput) ToRoleManagement
 	}).(RoleManagementPolicyActivationRulesApprovalStagePtrOutput)
 }
 
-// The IDs of the users or groups who can approve the activation
+// One or more `primaryApprover` blocks as defined below.
 func (o RoleManagementPolicyActivationRulesApprovalStageOutput) PrimaryApprovers() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput {
 	return o.ApplyT(func(v RoleManagementPolicyActivationRulesApprovalStage) []RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover {
 		return v.PrimaryApprovers
@@ -1387,7 +1387,7 @@ func (o RoleManagementPolicyActivationRulesApprovalStagePtrOutput) Elem() RoleMa
 	}).(RoleManagementPolicyActivationRulesApprovalStageOutput)
 }
 
-// The IDs of the users or groups who can approve the activation
+// One or more `primaryApprover` blocks as defined below.
 func (o RoleManagementPolicyActivationRulesApprovalStagePtrOutput) PrimaryApprovers() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyActivationRulesApprovalStage) []RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover {
 		if v == nil {
@@ -1894,8 +1894,6 @@ type RoleManagementPolicyNotificationRules struct {
 	// A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
 	EligibleActivations *RoleManagementPolicyNotificationRulesEligibleActivations `pulumi:"eligibleActivations"`
 	// A `notificationTarget` block as defined below to configure notification on eligible role assignments.
-	//
-	// At least one `notificationTarget` block must be provided.
 	EligibleAssignments *RoleManagementPolicyNotificationRulesEligibleAssignments `pulumi:"eligibleAssignments"`
 }
 
@@ -1916,8 +1914,6 @@ type RoleManagementPolicyNotificationRulesArgs struct {
 	// A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
 	EligibleActivations RoleManagementPolicyNotificationRulesEligibleActivationsPtrInput `pulumi:"eligibleActivations"`
 	// A `notificationTarget` block as defined below to configure notification on eligible role assignments.
-	//
-	// At least one `notificationTarget` block must be provided.
 	EligibleAssignments RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrInput `pulumi:"eligibleAssignments"`
 }
 
@@ -2013,8 +2009,6 @@ func (o RoleManagementPolicyNotificationRulesOutput) EligibleActivations() RoleM
 }
 
 // A `notificationTarget` block as defined below to configure notification on eligible role assignments.
-//
-// At least one `notificationTarget` block must be provided.
 func (o RoleManagementPolicyNotificationRulesOutput) EligibleAssignments() RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesEligibleAssignments {
 		return v.EligibleAssignments
@@ -2066,8 +2060,6 @@ func (o RoleManagementPolicyNotificationRulesPtrOutput) EligibleActivations() Ro
 }
 
 // A `notificationTarget` block as defined below to configure notification on eligible role assignments.
-//
-// At least one `notificationTarget` block must be provided.
 func (o RoleManagementPolicyNotificationRulesPtrOutput) EligibleAssignments() RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesEligibleAssignments {
 		if v == nil {

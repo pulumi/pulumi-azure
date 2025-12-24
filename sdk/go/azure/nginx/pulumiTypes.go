@@ -995,7 +995,7 @@ func (o DeploymentNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Deployme
 type DeploymentWebApplicationFirewall struct {
 	// Whether WAF is enabled/disabled for this NGINX Deployment.
 	ActivationStateEnabled bool `pulumi:"activationStateEnabled"`
-	// A `web_application_firewall.status` block as defined below:
+	// A `status` block as defined below.
 	Statuses []DeploymentWebApplicationFirewallStatus `pulumi:"statuses"`
 }
 
@@ -1013,7 +1013,7 @@ type DeploymentWebApplicationFirewallInput interface {
 type DeploymentWebApplicationFirewallArgs struct {
 	// Whether WAF is enabled/disabled for this NGINX Deployment.
 	ActivationStateEnabled pulumi.BoolInput `pulumi:"activationStateEnabled"`
-	// A `web_application_firewall.status` block as defined below:
+	// A `status` block as defined below.
 	Statuses DeploymentWebApplicationFirewallStatusArrayInput `pulumi:"statuses"`
 }
 
@@ -1099,7 +1099,7 @@ func (o DeploymentWebApplicationFirewallOutput) ActivationStateEnabled() pulumi.
 	return o.ApplyT(func(v DeploymentWebApplicationFirewall) bool { return v.ActivationStateEnabled }).(pulumi.BoolOutput)
 }
 
-// A `web_application_firewall.status` block as defined below:
+// A `status` block as defined below.
 func (o DeploymentWebApplicationFirewallOutput) Statuses() DeploymentWebApplicationFirewallStatusArrayOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewall) []DeploymentWebApplicationFirewallStatus { return v.Statuses }).(DeploymentWebApplicationFirewallStatusArrayOutput)
 }
@@ -1138,7 +1138,7 @@ func (o DeploymentWebApplicationFirewallPtrOutput) ActivationStateEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A `web_application_firewall.status` block as defined below:
+// A `status` block as defined below.
 func (o DeploymentWebApplicationFirewallPtrOutput) Statuses() DeploymentWebApplicationFirewallStatusArrayOutput {
 	return o.ApplyT(func(v *DeploymentWebApplicationFirewall) []DeploymentWebApplicationFirewallStatus {
 		if v == nil {
@@ -1149,13 +1149,13 @@ func (o DeploymentWebApplicationFirewallPtrOutput) Statuses() DeploymentWebAppli
 }
 
 type DeploymentWebApplicationFirewallStatus struct {
-	// Indicates the version of the attack signatures package used by NGINX App Protect.
+	// One or more `attackSignaturesPackage` blocks as defined below.
 	AttackSignaturesPackages []DeploymentWebApplicationFirewallStatusAttackSignaturesPackage `pulumi:"attackSignaturesPackages"`
-	// Indicates the version of the bot signatures package used by NGINX App Protect.
+	// One or more `botSignaturesPackage` blocks as defined below.
 	BotSignaturesPackages []DeploymentWebApplicationFirewallStatusBotSignaturesPackage `pulumi:"botSignaturesPackages"`
-	// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+	// One or more `componentVersions` blocks as defined below.
 	ComponentVersions []DeploymentWebApplicationFirewallStatusComponentVersion `pulumi:"componentVersions"`
-	// Indicates the version of the threat campaigns package used by NGINX App Protect.
+	// One or more `threatCampaignsPackage` blocks as defined below.
 	ThreatCampaignsPackages []DeploymentWebApplicationFirewallStatusThreatCampaignsPackage `pulumi:"threatCampaignsPackages"`
 }
 
@@ -1171,13 +1171,13 @@ type DeploymentWebApplicationFirewallStatusInput interface {
 }
 
 type DeploymentWebApplicationFirewallStatusArgs struct {
-	// Indicates the version of the attack signatures package used by NGINX App Protect.
+	// One or more `attackSignaturesPackage` blocks as defined below.
 	AttackSignaturesPackages DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput `pulumi:"attackSignaturesPackages"`
-	// Indicates the version of the bot signatures package used by NGINX App Protect.
+	// One or more `botSignaturesPackage` blocks as defined below.
 	BotSignaturesPackages DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput `pulumi:"botSignaturesPackages"`
-	// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+	// One or more `componentVersions` blocks as defined below.
 	ComponentVersions DeploymentWebApplicationFirewallStatusComponentVersionArrayInput `pulumi:"componentVersions"`
-	// Indicates the version of the threat campaigns package used by NGINX App Protect.
+	// One or more `threatCampaignsPackage` blocks as defined below.
 	ThreatCampaignsPackages DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput `pulumi:"threatCampaignsPackages"`
 }
 
@@ -1232,28 +1232,28 @@ func (o DeploymentWebApplicationFirewallStatusOutput) ToDeploymentWebApplication
 	return o
 }
 
-// Indicates the version of the attack signatures package used by NGINX App Protect.
+// One or more `attackSignaturesPackage` blocks as defined below.
 func (o DeploymentWebApplicationFirewallStatusOutput) AttackSignaturesPackages() DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatus) []DeploymentWebApplicationFirewallStatusAttackSignaturesPackage {
 		return v.AttackSignaturesPackages
 	}).(DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput)
 }
 
-// Indicates the version of the bot signatures package used by NGINX App Protect.
+// One or more `botSignaturesPackage` blocks as defined below.
 func (o DeploymentWebApplicationFirewallStatusOutput) BotSignaturesPackages() DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatus) []DeploymentWebApplicationFirewallStatusBotSignaturesPackage {
 		return v.BotSignaturesPackages
 	}).(DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput)
 }
 
-// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+// One or more `componentVersions` blocks as defined below.
 func (o DeploymentWebApplicationFirewallStatusOutput) ComponentVersions() DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatus) []DeploymentWebApplicationFirewallStatusComponentVersion {
 		return v.ComponentVersions
 	}).(DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput)
 }
 
-// Indicates the version of the threat campaigns package used by NGINX App Protect.
+// One or more `threatCampaignsPackage` blocks as defined below.
 func (o DeploymentWebApplicationFirewallStatusOutput) ThreatCampaignsPackages() DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatus) []DeploymentWebApplicationFirewallStatusThreatCampaignsPackage {
 		return v.ThreatCampaignsPackages
@@ -1281,8 +1281,10 @@ func (o DeploymentWebApplicationFirewallStatusArrayOutput) Index(i pulumi.IntInp
 }
 
 type DeploymentWebApplicationFirewallStatusAttackSignaturesPackage struct {
+	// The revision date and time of the threat campaigns package.
 	RevisionDatetime *string `pulumi:"revisionDatetime"`
-	Version          *string `pulumi:"version"`
+	// The version of the threat campaigns package.
+	Version *string `pulumi:"version"`
 }
 
 // DeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput is an input type that accepts DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs and DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput values.
@@ -1297,8 +1299,10 @@ type DeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput interfac
 }
 
 type DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs struct {
+	// The revision date and time of the threat campaigns package.
 	RevisionDatetime pulumi.StringPtrInput `pulumi:"revisionDatetime"`
-	Version          pulumi.StringPtrInput `pulumi:"version"`
+	// The version of the threat campaigns package.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs) ElementType() reflect.Type {
@@ -1352,12 +1356,14 @@ func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) ToD
 	return o
 }
 
+// The revision date and time of the threat campaigns package.
 func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) RevisionDatetime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusAttackSignaturesPackage) *string {
 		return v.RevisionDatetime
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the threat campaigns package.
 func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusAttackSignaturesPackage) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1383,8 +1389,10 @@ func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput
 }
 
 type DeploymentWebApplicationFirewallStatusBotSignaturesPackage struct {
+	// The revision date and time of the threat campaigns package.
 	RevisionDatetime *string `pulumi:"revisionDatetime"`
-	Version          *string `pulumi:"version"`
+	// The version of the threat campaigns package.
+	Version *string `pulumi:"version"`
 }
 
 // DeploymentWebApplicationFirewallStatusBotSignaturesPackageInput is an input type that accepts DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs and DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput values.
@@ -1399,8 +1407,10 @@ type DeploymentWebApplicationFirewallStatusBotSignaturesPackageInput interface {
 }
 
 type DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs struct {
+	// The revision date and time of the threat campaigns package.
 	RevisionDatetime pulumi.StringPtrInput `pulumi:"revisionDatetime"`
-	Version          pulumi.StringPtrInput `pulumi:"version"`
+	// The version of the threat campaigns package.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs) ElementType() reflect.Type {
@@ -1454,10 +1464,12 @@ func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) ToDepl
 	return o
 }
 
+// The revision date and time of the threat campaigns package.
 func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) RevisionDatetime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusBotSignaturesPackage) *string { return v.RevisionDatetime }).(pulumi.StringPtrOutput)
 }
 
+// The version of the threat campaigns package.
 func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusBotSignaturesPackage) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1483,8 +1495,10 @@ func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput) I
 }
 
 type DeploymentWebApplicationFirewallStatusComponentVersion struct {
+	// The version of the WAF Engine.
 	WafEngineVersion *string `pulumi:"wafEngineVersion"`
-	WafNginxVersion  *string `pulumi:"wafNginxVersion"`
+	// The version of the WAF Nginx module.
+	WafNginxVersion *string `pulumi:"wafNginxVersion"`
 }
 
 // DeploymentWebApplicationFirewallStatusComponentVersionInput is an input type that accepts DeploymentWebApplicationFirewallStatusComponentVersionArgs and DeploymentWebApplicationFirewallStatusComponentVersionOutput values.
@@ -1499,8 +1513,10 @@ type DeploymentWebApplicationFirewallStatusComponentVersionInput interface {
 }
 
 type DeploymentWebApplicationFirewallStatusComponentVersionArgs struct {
+	// The version of the WAF Engine.
 	WafEngineVersion pulumi.StringPtrInput `pulumi:"wafEngineVersion"`
-	WafNginxVersion  pulumi.StringPtrInput `pulumi:"wafNginxVersion"`
+	// The version of the WAF Nginx module.
+	WafNginxVersion pulumi.StringPtrInput `pulumi:"wafNginxVersion"`
 }
 
 func (DeploymentWebApplicationFirewallStatusComponentVersionArgs) ElementType() reflect.Type {
@@ -1554,10 +1570,12 @@ func (o DeploymentWebApplicationFirewallStatusComponentVersionOutput) ToDeployme
 	return o
 }
 
+// The version of the WAF Engine.
 func (o DeploymentWebApplicationFirewallStatusComponentVersionOutput) WafEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusComponentVersion) *string { return v.WafEngineVersion }).(pulumi.StringPtrOutput)
 }
 
+// The version of the WAF Nginx module.
 func (o DeploymentWebApplicationFirewallStatusComponentVersionOutput) WafNginxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusComponentVersion) *string { return v.WafNginxVersion }).(pulumi.StringPtrOutput)
 }
@@ -1583,8 +1601,10 @@ func (o DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput) Index
 }
 
 type DeploymentWebApplicationFirewallStatusThreatCampaignsPackage struct {
+	// The revision date and time of the threat campaigns package.
 	RevisionDatetime *string `pulumi:"revisionDatetime"`
-	Version          *string `pulumi:"version"`
+	// The version of the threat campaigns package.
+	Version *string `pulumi:"version"`
 }
 
 // DeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput is an input type that accepts DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs and DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput values.
@@ -1599,8 +1619,10 @@ type DeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput interface
 }
 
 type DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs struct {
+	// The revision date and time of the threat campaigns package.
 	RevisionDatetime pulumi.StringPtrInput `pulumi:"revisionDatetime"`
-	Version          pulumi.StringPtrInput `pulumi:"version"`
+	// The version of the threat campaigns package.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs) ElementType() reflect.Type {
@@ -1654,12 +1676,14 @@ func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) ToDe
 	return o
 }
 
+// The revision date and time of the threat campaigns package.
 func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) RevisionDatetime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusThreatCampaignsPackage) *string {
 		return v.RevisionDatetime
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the threat campaigns package.
 func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusThreatCampaignsPackage) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

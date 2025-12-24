@@ -100,14 +100,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:devcenter/networkConnection:NetworkConnection")
 public class NetworkConnection extends com.pulumi.resources.CustomResource {
     /**
-     * The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+     * The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="domainJoinType", refs={String.class}, tree="[0]")
     private Output<String> domainJoinType;
 
     /**
-     * @return The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+     * @return The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> domainJoinType() {

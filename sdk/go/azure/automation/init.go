@@ -61,6 +61,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Python3Package{}
 	case "azure:automation/runBook:RunBook":
 		r = &RunBook{}
+	case "azure:automation/runtimeEnvironment:RuntimeEnvironment":
+		r = &RuntimeEnvironment{}
 	case "azure:automation/schedule:Schedule":
 		r = &Schedule{}
 	case "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration":
@@ -186,6 +188,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"automation/runBook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"automation/runtimeEnvironment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

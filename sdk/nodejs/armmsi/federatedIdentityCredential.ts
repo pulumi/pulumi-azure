@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ManagedIdentity` - 2023-01-31
+ * * `Microsoft.ManagedIdentity` - 2024-11-30
  *
  * ## Import
  *

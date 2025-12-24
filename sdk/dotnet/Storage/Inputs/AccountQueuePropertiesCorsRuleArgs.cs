@@ -28,8 +28,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _allowedMethods;
 
         /// <summary>
-        /// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
-        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        /// A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         /// </summary>
         public InputList<string> AllowedMethods
         {

@@ -96,13 +96,13 @@ export class Queue extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceManagerId: pulumi.Output<string>;
     /**
-     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+     * The name of the Storage Account where the Storage Queue should be created.
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
     declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
-     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     * The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `storageAccountId`.
      *
      * > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      *
@@ -166,13 +166,13 @@ export interface QueueState {
      */
     resourceManagerId?: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+     * The name of the Storage Account where the Storage Queue should be created.
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
     storageAccountId?: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     * The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `storageAccountId`.
      *
      * > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      *
@@ -198,13 +198,13 @@ export interface QueueArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+     * The name of the Storage Account where the Storage Queue should be created.
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
     storageAccountId?: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     * The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `storageAccountId`.
      *
      * > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      *

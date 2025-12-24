@@ -288,6 +288,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     declare public readonly nodeOsUpgradeChannel: pulumi.Output<string | undefined>;
     /**
+     * A `nodeProvisioningProfile` block as defined below.
+     */
+    declare public readonly nodeProvisioningProfile: pulumi.Output<outputs.containerservice.KubernetesClusterNodeProvisioningProfile>;
+    /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -491,6 +495,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["networkProfile"] = state?.networkProfile;
             resourceInputs["nodeOsUpgradeChannel"] = state?.nodeOsUpgradeChannel;
+            resourceInputs["nodeProvisioningProfile"] = state?.nodeProvisioningProfile;
             resourceInputs["nodeResourceGroup"] = state?.nodeResourceGroup;
             resourceInputs["nodeResourceGroupId"] = state?.nodeResourceGroupId;
             resourceInputs["oidcIssuerEnabled"] = state?.oidcIssuerEnabled;
@@ -561,6 +566,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["networkProfile"] = args?.networkProfile;
             resourceInputs["nodeOsUpgradeChannel"] = args?.nodeOsUpgradeChannel;
+            resourceInputs["nodeProvisioningProfile"] = args?.nodeProvisioningProfile;
             resourceInputs["nodeResourceGroup"] = args?.nodeResourceGroup;
             resourceInputs["oidcIssuerEnabled"] = args?.oidcIssuerEnabled;
             resourceInputs["omsAgent"] = args?.omsAgent;
@@ -805,6 +811,10 @@ export interface KubernetesClusterState {
      * > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      */
     nodeOsUpgradeChannel?: pulumi.Input<string>;
+    /**
+     * A `nodeProvisioningProfile` block as defined below.
+     */
+    nodeProvisioningProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodeProvisioningProfile>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
@@ -1129,6 +1139,10 @@ export interface KubernetesClusterArgs {
      * > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      */
     nodeOsUpgradeChannel?: pulumi.Input<string>;
+    /**
+     * A `nodeProvisioningProfile` block as defined below.
+     */
+    nodeProvisioningProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodeProvisioningProfile>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *

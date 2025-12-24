@@ -86,7 +86,7 @@ export class AutonomousDatabaseBackup extends pulumi.CustomResource {
      */
     declare public readonly retentionPeriodInDays: pulumi.Output<number>;
     /**
-     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
      */
     declare public readonly type: pulumi.Output<string | undefined>;
 
@@ -142,7 +142,7 @@ export interface AutonomousDatabaseBackupState {
      */
     retentionPeriodInDays?: pulumi.Input<number>;
     /**
-     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
 }
@@ -164,7 +164,7 @@ export interface AutonomousDatabaseBackupArgs {
      */
     retentionPeriodInDays: pulumi.Input<number>;
     /**
-     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
 }

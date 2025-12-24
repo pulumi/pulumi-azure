@@ -215,7 +215,7 @@ export class BackupInstanceKubernetesCluster extends pulumi.CustomResource {
     }
 
     /**
-     * A `backupDatasourceParameters` block as defined below.
+     * A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly backupDatasourceParameters: pulumi.Output<outputs.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParameters | undefined>;
     /**
@@ -234,6 +234,10 @@ export class BackupInstanceKubernetesCluster extends pulumi.CustomResource {
      * The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The protection state of the Backup Instance Kubernetes Cluster.
+     */
+    declare public /*out*/ readonly protectionState: pulumi.Output<string>;
     /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
      */
@@ -261,6 +265,7 @@ export class BackupInstanceKubernetesCluster extends pulumi.CustomResource {
             resourceInputs["kubernetesClusterId"] = state?.kubernetesClusterId;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
+            resourceInputs["protectionState"] = state?.protectionState;
             resourceInputs["snapshotResourceGroupName"] = state?.snapshotResourceGroupName;
             resourceInputs["vaultId"] = state?.vaultId;
         } else {
@@ -284,6 +289,7 @@ export class BackupInstanceKubernetesCluster extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["snapshotResourceGroupName"] = args?.snapshotResourceGroupName;
             resourceInputs["vaultId"] = args?.vaultId;
+            resourceInputs["protectionState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstanceKubernetesCluster.__pulumiType, name, resourceInputs, opts);
@@ -295,7 +301,7 @@ export class BackupInstanceKubernetesCluster extends pulumi.CustomResource {
  */
 export interface BackupInstanceKubernetesClusterState {
     /**
-     * A `backupDatasourceParameters` block as defined below.
+     * A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
      */
     backupDatasourceParameters?: pulumi.Input<inputs.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParameters>;
     /**
@@ -315,6 +321,10 @@ export interface BackupInstanceKubernetesClusterState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The protection state of the Backup Instance Kubernetes Cluster.
+     */
+    protectionState?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
      */
     snapshotResourceGroupName?: pulumi.Input<string>;
@@ -329,7 +339,7 @@ export interface BackupInstanceKubernetesClusterState {
  */
 export interface BackupInstanceKubernetesClusterArgs {
     /**
-     * A `backupDatasourceParameters` block as defined below.
+     * A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
      */
     backupDatasourceParameters?: pulumi.Input<inputs.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParameters>;
     /**

@@ -16,6 +16,10 @@ public final class HBaseClusterPrivateLinkConfiguration {
      * 
      */
     private String groupId;
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     private HBaseClusterPrivateLinkConfigurationIpConfiguration ipConfiguration;
     /**
      * @return The name of the private link configuration.
@@ -31,6 +35,10 @@ public final class HBaseClusterPrivateLinkConfiguration {
     public String groupId() {
         return this.groupId;
     }
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     public HBaseClusterPrivateLinkConfigurationIpConfiguration ipConfiguration() {
         return this.ipConfiguration;
     }

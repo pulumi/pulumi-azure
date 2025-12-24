@@ -185,6 +185,20 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The protection state of the Backup Instance Disk.
+     * 
+     */
+    @Export(name="protectionState", refs={String.class}, tree="[0]")
+    private Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance Disk.
+     * 
+     */
+    public Output<String> protectionState() {
+        return this.protectionState;
+    }
+    /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
      * 
      */

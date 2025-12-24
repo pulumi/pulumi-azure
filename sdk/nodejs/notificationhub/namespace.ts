@@ -70,7 +70,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * Is this Notification Hub Namespace enabled? Defaults to `true`.
+     * Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
@@ -82,11 +82,11 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      */
     declare public readonly namespaceType: pulumi.Output<string>;
     /**
-     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
      */
     declare public readonly replicationRegion: pulumi.Output<string | undefined>;
     /**
@@ -165,7 +165,7 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceState {
     /**
-     * Is this Notification Hub Namespace enabled? Defaults to `true`.
+     * Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -177,11 +177,11 @@ export interface NamespaceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      */
     namespaceType?: pulumi.Input<string>;
     /**
-     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
      */
     replicationRegion?: pulumi.Input<string>;
     /**
@@ -211,7 +211,7 @@ export interface NamespaceState {
  */
 export interface NamespaceArgs {
     /**
-     * Is this Notification Hub Namespace enabled? Defaults to `true`.
+     * Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -223,11 +223,11 @@ export interface NamespaceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      */
     namespaceType: pulumi.Input<string>;
     /**
-     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
      */
     replicationRegion?: pulumi.Input<string>;
     /**

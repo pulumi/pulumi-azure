@@ -224,14 +224,14 @@ public class DicomService extends com.pulumi.resources.CustomResource {
         return this.serviceUrl;
     }
     /**
-     * A `storage` block as defined below.
+     * A `storage` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storage", refs={DicomServiceStorage.class}, tree="[0]")
     private Output<DicomServiceStorage> storage;
 
     /**
-     * @return A `storage` block as defined below.
+     * @return A `storage` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<DicomServiceStorage> storage() {

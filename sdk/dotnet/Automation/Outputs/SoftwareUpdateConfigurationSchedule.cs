@@ -30,6 +30,9 @@ namespace Pulumi.Azure.Automation.Outputs
         /// The end time of the schedule.
         /// </summary>
         public readonly string? ExpiryTime;
+        /// <summary>
+        /// The time offset in minutes for the expiry time.
+        /// </summary>
         public readonly double? ExpiryTimeOffsetMinutes;
         /// <summary>
         /// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
@@ -49,11 +52,17 @@ namespace Pulumi.Azure.Automation.Outputs
         /// </summary>
         public readonly Outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence? MonthlyOccurrence;
         public readonly string? NextRun;
+        /// <summary>
+        /// The time offset in minutes for the next run time.
+        /// </summary>
         public readonly double? NextRunOffsetMinutes;
         /// <summary>
         /// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         /// </summary>
         public readonly string? StartTime;
+        /// <summary>
+        /// The time offset in minutes for the start time.
+        /// </summary>
         public readonly double? StartTimeOffsetMinutes;
         /// <summary>
         /// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;

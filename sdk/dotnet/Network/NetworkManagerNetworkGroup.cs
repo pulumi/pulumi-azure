@@ -84,6 +84,14 @@ namespace Pulumi.Azure.Network
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+        /// 
+        /// &gt; **Note:** `MemberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `ScopeAccesses`.
+        /// </summary>
+        [Output("memberType")]
+        public Output<string?> MemberType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
         /// </summary>
         [Output("name")]
@@ -148,6 +156,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+        /// 
+        /// &gt; **Note:** `MemberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `ScopeAccesses`.
+        /// </summary>
+        [Input("memberType")]
+        public Input<string>? MemberType { get; set; }
+
+        /// <summary>
         /// Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
         /// </summary>
         [Input("name")]
@@ -172,6 +188,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+        /// 
+        /// &gt; **Note:** `MemberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `ScopeAccesses`.
+        /// </summary>
+        [Input("memberType")]
+        public Input<string>? MemberType { get; set; }
 
         /// <summary>
         /// Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.

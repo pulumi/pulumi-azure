@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Backup Instance to back up PostgreSQL.
  * 
+ * &gt; **Note:** The `azure.dataprotection.BackupInstancePostgresql` resource has been deprecated because Azure Database for PostgreSQL Single Server has been retired as of 2025-03-28 and will be removed in v5.0 of the AzureRM Provider.
+ * 
  * &gt; **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from &lt;https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore&gt;.
  * 
  * ## Example Usage
@@ -275,6 +277,20 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The protection state of the Backup Instance PostgreSQL.
+     * 
+     */
+    @Export(name="protectionState", refs={String.class}, tree="[0]")
+    private Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance PostgreSQL.
+     * 
+     */
+    public Output<String> protectionState() {
+        return this.protectionState;
     }
     /**
      * The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.

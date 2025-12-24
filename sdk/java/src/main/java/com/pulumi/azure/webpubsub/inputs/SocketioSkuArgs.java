@@ -37,14 +37,14 @@ public final class SocketioSkuArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+     * The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+     * @return The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
      * 
      */
     public Output<String> name() {
@@ -102,7 +102,7 @@ public final class SocketioSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+         * @param name The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class SocketioSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+         * @param name The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
          * 
          * @return builder
          * 

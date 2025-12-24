@@ -60,11 +60,11 @@ export class CustomLocation extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
-     * Specifies the host resource ID.
+     * Specifies the host resource ID. Changing this forces a new resource to be created.
      */
     declare public readonly hostResourceId: pulumi.Output<string>;
     /**
-     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
      */
     declare public readonly hostType: pulumi.Output<string | undefined>;
     /**
@@ -152,11 +152,11 @@ export interface CustomLocationState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Specifies the host resource ID.
+     * Specifies the host resource ID. Changing this forces a new resource to be created.
      */
     hostResourceId?: pulumi.Input<string>;
     /**
-     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
      */
     hostType?: pulumi.Input<string>;
     /**
@@ -194,11 +194,11 @@ export interface CustomLocationArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Specifies the host resource ID.
+     * Specifies the host resource ID. Changing this forces a new resource to be created.
      */
     hostResourceId: pulumi.Input<string>;
     /**
-     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
      */
     hostType?: pulumi.Input<string>;
     /**

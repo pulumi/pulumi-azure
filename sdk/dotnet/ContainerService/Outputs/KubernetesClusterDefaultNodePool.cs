@@ -29,6 +29,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `TemporaryNameForRotation` must be specified when changing this block.
         /// </summary>
         public readonly bool? FipsEnabled;
+        /// <summary>
+        /// Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? GpuDriver;
         /// <summary>
         /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.

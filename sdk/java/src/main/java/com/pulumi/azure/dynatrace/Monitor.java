@@ -120,14 +120,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.environmentProperties);
     }
     /**
-     * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+     * The kind of managed identity assigned to this resource. A `identity` block as defined below.
      * 
      */
     @Export(name="identity", refs={MonitorIdentity.class}, tree="[0]")
     private Output<MonitorIdentity> identity;
 
     /**
-     * @return The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+     * @return The kind of managed identity assigned to this resource. A `identity` block as defined below.
      * 
      */
     public Output<MonitorIdentity> identity() {
@@ -148,28 +148,28 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="marketplaceSubscription", refs={String.class}, tree="[0]")
     private Output<String> marketplaceSubscription;
 
     /**
-     * @return Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+     * @return Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> marketplaceSubscription() {
         return this.marketplaceSubscription;
     }
     /**
-     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="monitoringEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringEnabled;
 
     /**
-     * @return Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+     * @return Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> monitoringEnabled() {
@@ -232,14 +232,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * User&#39;s information. A `user` block as defined below. Chainging this forces a new resource to be created.
+     * User&#39;s information. A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="user", refs={MonitorUser.class}, tree="[0]")
     private Output<MonitorUser> user;
 
     /**
-     * @return User&#39;s information. A `user` block as defined below. Chainging this forces a new resource to be created.
+     * @return User&#39;s information. A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<MonitorUser> user() {

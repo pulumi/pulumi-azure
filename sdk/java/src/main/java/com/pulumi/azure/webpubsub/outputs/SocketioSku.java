@@ -21,7 +21,7 @@ public final class SocketioSku {
      */
     private @Nullable Integer capacity;
     /**
-     * @return The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+     * @return The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
      * 
      */
     private String name;
@@ -37,7 +37,7 @@ public final class SocketioSku {
         return Optional.ofNullable(this.capacity);
     }
     /**
-     * @return The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+     * @return The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
      * 
      */
     public String name() {

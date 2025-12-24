@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Nginx.Outputs
     [OutputType]
     public sealed class DeploymentWebApplicationFirewallStatusComponentVersion
     {
+        /// <summary>
+        /// The version of the WAF Engine.
+        /// </summary>
         public readonly string? WafEngineVersion;
+        /// <summary>
+        /// The version of the WAF Nginx module.
+        /// </summary>
         public readonly string? WafNginxVersion;
 
         [OutputConstructor]

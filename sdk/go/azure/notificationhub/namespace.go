@@ -69,15 +69,15 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// Is this Notification Hub Namespace enabled? Defaults to `true`.
+	// Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
 	NamespaceType pulumi.StringOutput `pulumi:"namespaceType"`
-	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
 	ReplicationRegion pulumi.StringPtrOutput `pulumi:"replicationRegion"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -130,15 +130,15 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// Is this Notification Hub Namespace enabled? Defaults to `true`.
+	// Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
 	Enabled *bool `pulumi:"enabled"`
 	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
 	NamespaceType *string `pulumi:"namespaceType"`
-	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
 	ReplicationRegion *string `pulumi:"replicationRegion"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -153,15 +153,15 @@ type namespaceState struct {
 }
 
 type NamespaceState struct {
-	// Is this Notification Hub Namespace enabled? Defaults to `true`.
+	// Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
 	Enabled pulumi.BoolPtrInput
 	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
 	NamespaceType pulumi.StringPtrInput
-	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
 	ReplicationRegion pulumi.StringPtrInput
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -180,15 +180,15 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Is this Notification Hub Namespace enabled? Defaults to `true`.
+	// Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
 	Enabled *bool `pulumi:"enabled"`
 	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
 	NamespaceType string `pulumi:"namespaceType"`
-	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
 	ReplicationRegion *string `pulumi:"replicationRegion"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -202,15 +202,15 @@ type namespaceArgs struct {
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Is this Notification Hub Namespace enabled? Defaults to `true`.
+	// Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
 	Enabled pulumi.BoolPtrInput
 	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
 	NamespaceType pulumi.StringInput
-	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+	// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
 	ReplicationRegion pulumi.StringPtrInput
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -309,7 +309,7 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
-// Is this Notification Hub Namespace enabled? Defaults to `true`.
+// Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
 func (o NamespaceOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -324,12 +324,12 @@ func (o NamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
 func (o NamespaceOutput) NamespaceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.NamespaceType }).(pulumi.StringOutput)
 }
 
-// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
 func (o NamespaceOutput) ReplicationRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.ReplicationRegion }).(pulumi.StringPtrOutput)
 }

@@ -63,11 +63,11 @@ class AssignmentDynamicScopeFilter(dict):
                  tags: Optional[Sequence['outputs.AssignmentDynamicScopeFilterTag']] = None):
         """
         :param Sequence[_builtins.str] locations: Specifies a list of locations to scope the query to.
-        :param Sequence[_builtins.str] os_types: Specifies a list of allowed operating systems.
+        :param Sequence[_builtins.str] os_types: Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
         :param Sequence[_builtins.str] resource_groups: Specifies a list of allowed resource groups.
-        :param Sequence[_builtins.str] resource_types: Specifies a list of allowed resources.
+        :param Sequence[_builtins.str] resource_types: Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
         :param _builtins.str tag_filter: Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
-        :param Sequence['AssignmentDynamicScopeFilterTagArgs'] tags: A mapping of tags for the VM
+        :param Sequence['AssignmentDynamicScopeFilterTagArgs'] tags: One or more `tags` blocks as defined below.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -94,7 +94,7 @@ class AssignmentDynamicScopeFilter(dict):
     @pulumi.getter(name="osTypes")
     def os_types(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Specifies a list of allowed operating systems.
+        Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
         """
         return pulumi.get(self, "os_types")
 
@@ -110,7 +110,7 @@ class AssignmentDynamicScopeFilter(dict):
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Specifies a list of allowed resources.
+        Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
         """
         return pulumi.get(self, "resource_types")
 
@@ -126,7 +126,7 @@ class AssignmentDynamicScopeFilter(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.AssignmentDynamicScopeFilterTag']]:
         """
-        A mapping of tags for the VM
+        One or more `tags` blocks as defined below.
         """
         return pulumi.get(self, "tags")
 

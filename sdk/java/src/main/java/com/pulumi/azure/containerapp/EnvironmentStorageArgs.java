@@ -93,7 +93,6 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
 
     /**
      * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-     * *
      * 
      */
     @Import(name="nfsServerUrl")
@@ -101,7 +100,6 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-     * *
      * 
      */
     public Optional<Output<String>> nfsServerUrl() {
@@ -260,7 +258,6 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param nfsServerUrl The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-         * *
          * 
          * @return builder
          * 
@@ -272,7 +269,6 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param nfsServerUrl The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-         * *
          * 
          * @return builder
          * 

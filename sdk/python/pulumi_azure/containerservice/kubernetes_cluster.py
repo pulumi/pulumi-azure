@@ -59,6 +59,7 @@ class KubernetesClusterArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_os_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_provisioning_profile: Optional[pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
@@ -143,6 +144,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[_builtins.str] node_os_upgrade_channel: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
                
                > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+        :param pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs'] node_provisioning_profile: A `node_provisioning_profile` block as defined below.
         :param pulumi.Input[_builtins.str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -278,6 +280,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "network_profile", network_profile)
         if node_os_upgrade_channel is not None:
             pulumi.set(__self__, "node_os_upgrade_channel", node_os_upgrade_channel)
+        if node_provisioning_profile is not None:
+            pulumi.set(__self__, "node_provisioning_profile", node_provisioning_profile)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
         if oidc_issuer_enabled is not None:
@@ -800,6 +804,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "node_os_upgrade_channel", value)
 
     @_builtins.property
+    @pulumi.getter(name="nodeProvisioningProfile")
+    def node_provisioning_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs']]:
+        """
+        A `node_provisioning_profile` block as defined below.
+        """
+        return pulumi.get(self, "node_provisioning_profile")
+
+    @node_provisioning_profile.setter
+    def node_provisioning_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs']]):
+        pulumi.set(self, "node_provisioning_profile", value)
+
+    @_builtins.property
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1127,6 +1143,7 @@ class _KubernetesClusterState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_os_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_provisioning_profile: Optional[pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  node_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1222,6 +1239,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[_builtins.str] node_os_upgrade_channel: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
                
                > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+        :param pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs'] node_provisioning_profile: A `node_provisioning_profile` block as defined below.
         :param pulumi.Input[_builtins.str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -1376,6 +1394,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "network_profile", network_profile)
         if node_os_upgrade_channel is not None:
             pulumi.set(__self__, "node_os_upgrade_channel", node_os_upgrade_channel)
+        if node_provisioning_profile is not None:
+            pulumi.set(__self__, "node_provisioning_profile", node_provisioning_profile)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
         if node_resource_group_id is not None:
@@ -1980,6 +2000,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "node_os_upgrade_channel", value)
 
     @_builtins.property
+    @pulumi.getter(name="nodeProvisioningProfile")
+    def node_provisioning_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs']]:
+        """
+        A `node_provisioning_profile` block as defined below.
+        """
+        return pulumi.get(self, "node_provisioning_profile")
+
+    @node_provisioning_profile.setter
+    def node_provisioning_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs']]):
+        pulumi.set(self, "node_provisioning_profile", value)
+
+    @_builtins.property
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -2363,6 +2395,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_profile: Optional[pulumi.Input[Union['KubernetesClusterNetworkProfileArgs', 'KubernetesClusterNetworkProfileArgsDict']]] = None,
                  node_os_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_provisioning_profile: Optional[pulumi.Input[Union['KubernetesClusterNodeProvisioningProfileArgs', 'KubernetesClusterNodeProvisioningProfileArgsDict']]] = None,
                  node_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  oms_agent: Optional[pulumi.Input[Union['KubernetesClusterOmsAgentArgs', 'KubernetesClusterOmsAgentArgsDict']]] = None,
@@ -2499,6 +2532,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] node_os_upgrade_channel: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
                
                > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+        :param pulumi.Input[Union['KubernetesClusterNodeProvisioningProfileArgs', 'KubernetesClusterNodeProvisioningProfileArgsDict']] node_provisioning_profile: A `node_provisioning_profile` block as defined below.
         :param pulumi.Input[_builtins.str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -2670,6 +2704,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_profile: Optional[pulumi.Input[Union['KubernetesClusterNetworkProfileArgs', 'KubernetesClusterNetworkProfileArgsDict']]] = None,
                  node_os_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_provisioning_profile: Optional[pulumi.Input[Union['KubernetesClusterNodeProvisioningProfileArgs', 'KubernetesClusterNodeProvisioningProfileArgsDict']]] = None,
                  node_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  oms_agent: Optional[pulumi.Input[Union['KubernetesClusterOmsAgentArgs', 'KubernetesClusterOmsAgentArgsDict']]] = None,
@@ -2739,6 +2774,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_os_upgrade_channel"] = node_os_upgrade_channel
+            __props__.__dict__["node_provisioning_profile"] = node_provisioning_profile
             __props__.__dict__["node_resource_group"] = node_resource_group
             __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
             __props__.__dict__["oms_agent"] = oms_agent
@@ -2829,6 +2865,7 @@ class KubernetesCluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             network_profile: Optional[pulumi.Input[Union['KubernetesClusterNetworkProfileArgs', 'KubernetesClusterNetworkProfileArgsDict']]] = None,
             node_os_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
+            node_provisioning_profile: Optional[pulumi.Input[Union['KubernetesClusterNodeProvisioningProfileArgs', 'KubernetesClusterNodeProvisioningProfileArgsDict']]] = None,
             node_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
             node_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
             oidc_issuer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2929,6 +2966,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] node_os_upgrade_channel: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
                
                > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+        :param pulumi.Input[Union['KubernetesClusterNodeProvisioningProfileArgs', 'KubernetesClusterNodeProvisioningProfileArgsDict']] node_provisioning_profile: A `node_provisioning_profile` block as defined below.
         :param pulumi.Input[_builtins.str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -3043,6 +3081,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["node_os_upgrade_channel"] = node_os_upgrade_channel
+        __props__.__dict__["node_provisioning_profile"] = node_provisioning_profile
         __props__.__dict__["node_resource_group"] = node_resource_group
         __props__.__dict__["node_resource_group_id"] = node_resource_group_id
         __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
@@ -3445,6 +3484,14 @@ class KubernetesCluster(pulumi.CustomResource):
         > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         """
         return pulumi.get(self, "node_os_upgrade_channel")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeProvisioningProfile")
+    def node_provisioning_profile(self) -> pulumi.Output['outputs.KubernetesClusterNodeProvisioningProfile']:
+        """
+        A `node_provisioning_profile` block as defined below.
+        """
+        return pulumi.get(self, "node_provisioning_profile")
 
     @_builtins.property
     @pulumi.getter(name="nodeResourceGroup")

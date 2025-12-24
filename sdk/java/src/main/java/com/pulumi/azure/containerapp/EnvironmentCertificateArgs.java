@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerapp;
 
+import com.pulumi.azure.containerapp.inputs.EnvironmentCertificateCertificateKeyVaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,31 +21,58 @@ public final class EnvironmentCertificateArgs extends com.pulumi.resources.Resou
     /**
      * The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
      */
-    @Import(name="certificateBlobBase64", required=true)
-    private Output<String> certificateBlobBase64;
+    @Import(name="certificateBlobBase64")
+    private @Nullable Output<String> certificateBlobBase64;
 
     /**
      * @return The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
      */
-    public Output<String> certificateBlobBase64() {
-        return this.certificateBlobBase64;
+    public Optional<Output<String>> certificateBlobBase64() {
+        return Optional.ofNullable(this.certificateBlobBase64);
+    }
+
+    /**
+     * A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
+     */
+    @Import(name="certificateKeyVault")
+    private @Nullable Output<EnvironmentCertificateCertificateKeyVaultArgs> certificateKeyVault;
+
+    /**
+     * @return A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
+     */
+    public Optional<Output<EnvironmentCertificateCertificateKeyVaultArgs>> certificateKeyVault() {
+        return Optional.ofNullable(this.certificateKeyVault);
     }
 
     /**
      * The password for the Certificate. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** required if `certificateBlobBase64` is specified.
+     * 
      */
-    @Import(name="certificatePassword", required=true)
-    private Output<String> certificatePassword;
+    @Import(name="certificatePassword")
+    private @Nullable Output<String> certificatePassword;
 
     /**
      * @return The password for the Certificate. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** required if `certificateBlobBase64` is specified.
+     * 
      */
-    public Output<String> certificatePassword() {
-        return this.certificatePassword;
+    public Optional<Output<String>> certificatePassword() {
+        return Optional.ofNullable(this.certificatePassword);
     }
 
     /**
@@ -96,6 +124,7 @@ public final class EnvironmentCertificateArgs extends com.pulumi.resources.Resou
 
     private EnvironmentCertificateArgs(EnvironmentCertificateArgs $) {
         this.certificateBlobBase64 = $.certificateBlobBase64;
+        this.certificateKeyVault = $.certificateKeyVault;
         this.certificatePassword = $.certificatePassword;
         this.containerAppEnvironmentId = $.containerAppEnvironmentId;
         this.name = $.name;
@@ -123,16 +152,20 @@ public final class EnvironmentCertificateArgs extends com.pulumi.resources.Resou
         /**
          * @param certificateBlobBase64 The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+         * 
          * @return builder
          * 
          */
-        public Builder certificateBlobBase64(Output<String> certificateBlobBase64) {
+        public Builder certificateBlobBase64(@Nullable Output<String> certificateBlobBase64) {
             $.certificateBlobBase64 = certificateBlobBase64;
             return this;
         }
 
         /**
          * @param certificateBlobBase64 The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
          * 
          * @return builder
          * 
@@ -142,18 +175,47 @@ public final class EnvironmentCertificateArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param certificatePassword The password for the Certificate. Changing this forces a new resource to be created.
+         * @param certificateKeyVault A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
          * 
          * @return builder
          * 
          */
-        public Builder certificatePassword(Output<String> certificatePassword) {
+        public Builder certificateKeyVault(@Nullable Output<EnvironmentCertificateCertificateKeyVaultArgs> certificateKeyVault) {
+            $.certificateKeyVault = certificateKeyVault;
+            return this;
+        }
+
+        /**
+         * @param certificateKeyVault A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateKeyVault(EnvironmentCertificateCertificateKeyVaultArgs certificateKeyVault) {
+            return certificateKeyVault(Output.of(certificateKeyVault));
+        }
+
+        /**
+         * @param certificatePassword The password for the Certificate. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** required if `certificateBlobBase64` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificatePassword(@Nullable Output<String> certificatePassword) {
             $.certificatePassword = certificatePassword;
             return this;
         }
 
         /**
          * @param certificatePassword The password for the Certificate. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** required if `certificateBlobBase64` is specified.
          * 
          * @return builder
          * 
@@ -226,12 +288,6 @@ public final class EnvironmentCertificateArgs extends com.pulumi.resources.Resou
         }
 
         public EnvironmentCertificateArgs build() {
-            if ($.certificateBlobBase64 == null) {
-                throw new MissingRequiredPropertyException("EnvironmentCertificateArgs", "certificateBlobBase64");
-            }
-            if ($.certificatePassword == null) {
-                throw new MissingRequiredPropertyException("EnvironmentCertificateArgs", "certificatePassword");
-            }
             if ($.containerAppEnvironmentId == null) {
                 throw new MissingRequiredPropertyException("EnvironmentCertificateArgs", "containerAppEnvironmentId");
             }

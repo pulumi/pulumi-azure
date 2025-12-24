@@ -50,14 +50,18 @@ public final class ManagedRedisDefaultDatabaseArgs extends com.pulumi.resources.
     }
 
     /**
-     * Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+     * Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+     * 
+     * !&gt; **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     @Import(name="clusteringPolicy")
     private @Nullable Output<String> clusteringPolicy;
 
     /**
-     * @return Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+     * @return Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+     * 
+     * !&gt; **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     public Optional<Output<String>> clusteringPolicy() {
@@ -80,18 +84,37 @@ public final class ManagedRedisDefaultDatabaseArgs extends com.pulumi.resources.
     }
 
     /**
-     * The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+     * The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+     * 
+     * !&gt; **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     @Import(name="geoReplicationGroupName")
     private @Nullable Output<String> geoReplicationGroupName;
 
     /**
-     * @return The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+     * @return The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+     * 
+     * !&gt; **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     public Optional<Output<String>> geoReplicationGroupName() {
         return Optional.ofNullable(this.geoReplicationGroupName);
+    }
+
+    /**
+     * The ID of the Managed Redis Database Instance.
+     * 
+     */
+    @Import(name="id")
+    private @Nullable Output<String> id;
+
+    /**
+     * @return The ID of the Managed Redis Database Instance.
+     * 
+     */
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
@@ -107,6 +130,36 @@ public final class ManagedRedisDefaultDatabaseArgs extends com.pulumi.resources.
      */
     public Optional<Output<List<ManagedRedisDefaultDatabaseModuleArgs>>> modules() {
         return Optional.ofNullable(this.modules);
+    }
+
+    /**
+     * The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+     * 
+     */
+    @Import(name="persistenceAppendOnlyFileBackupFrequency")
+    private @Nullable Output<String> persistenceAppendOnlyFileBackupFrequency;
+
+    /**
+     * @return The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+     * 
+     */
+    public Optional<Output<String>> persistenceAppendOnlyFileBackupFrequency() {
+        return Optional.ofNullable(this.persistenceAppendOnlyFileBackupFrequency);
+    }
+
+    /**
+     * The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+     * 
+     */
+    @Import(name="persistenceRedisDatabaseBackupFrequency")
+    private @Nullable Output<String> persistenceRedisDatabaseBackupFrequency;
+
+    /**
+     * @return The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+     * 
+     */
+    public Optional<Output<String>> persistenceRedisDatabaseBackupFrequency() {
+        return Optional.ofNullable(this.persistenceRedisDatabaseBackupFrequency);
     }
 
     /**
@@ -162,7 +215,10 @@ public final class ManagedRedisDefaultDatabaseArgs extends com.pulumi.resources.
         this.clusteringPolicy = $.clusteringPolicy;
         this.evictionPolicy = $.evictionPolicy;
         this.geoReplicationGroupName = $.geoReplicationGroupName;
+        this.id = $.id;
         this.modules = $.modules;
+        this.persistenceAppendOnlyFileBackupFrequency = $.persistenceAppendOnlyFileBackupFrequency;
+        this.persistenceRedisDatabaseBackupFrequency = $.persistenceRedisDatabaseBackupFrequency;
         this.port = $.port;
         this.primaryAccessKey = $.primaryAccessKey;
         this.secondaryAccessKey = $.secondaryAccessKey;
@@ -229,7 +285,9 @@ public final class ManagedRedisDefaultDatabaseArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param clusteringPolicy Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         * @param clusteringPolicy Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+         * 
+         * !&gt; **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          * 
          * @return builder
          * 
@@ -240,7 +298,9 @@ public final class ManagedRedisDefaultDatabaseArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param clusteringPolicy Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         * @param clusteringPolicy Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+         * 
+         * !&gt; **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          * 
          * @return builder
          * 
@@ -271,7 +331,9 @@ public final class ManagedRedisDefaultDatabaseArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param geoReplicationGroupName The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         * @param geoReplicationGroupName The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+         * 
+         * !&gt; **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          * 
          * @return builder
          * 
@@ -282,13 +344,36 @@ public final class ManagedRedisDefaultDatabaseArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param geoReplicationGroupName The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         * @param geoReplicationGroupName The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+         * 
+         * !&gt; **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          * 
          * @return builder
          * 
          */
         public Builder geoReplicationGroupName(String geoReplicationGroupName) {
             return geoReplicationGroupName(Output.of(geoReplicationGroupName));
+        }
+
+        /**
+         * @param id The ID of the Managed Redis Database Instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        /**
+         * @param id The ID of the Managed Redis Database Instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(String id) {
+            return id(Output.of(id));
         }
 
         /**
@@ -320,6 +405,48 @@ public final class ManagedRedisDefaultDatabaseArgs extends com.pulumi.resources.
          */
         public Builder modules(ManagedRedisDefaultDatabaseModuleArgs... modules) {
             return modules(List.of(modules));
+        }
+
+        /**
+         * @param persistenceAppendOnlyFileBackupFrequency The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistenceAppendOnlyFileBackupFrequency(@Nullable Output<String> persistenceAppendOnlyFileBackupFrequency) {
+            $.persistenceAppendOnlyFileBackupFrequency = persistenceAppendOnlyFileBackupFrequency;
+            return this;
+        }
+
+        /**
+         * @param persistenceAppendOnlyFileBackupFrequency The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistenceAppendOnlyFileBackupFrequency(String persistenceAppendOnlyFileBackupFrequency) {
+            return persistenceAppendOnlyFileBackupFrequency(Output.of(persistenceAppendOnlyFileBackupFrequency));
+        }
+
+        /**
+         * @param persistenceRedisDatabaseBackupFrequency The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistenceRedisDatabaseBackupFrequency(@Nullable Output<String> persistenceRedisDatabaseBackupFrequency) {
+            $.persistenceRedisDatabaseBackupFrequency = persistenceRedisDatabaseBackupFrequency;
+            return this;
+        }
+
+        /**
+         * @param persistenceRedisDatabaseBackupFrequency The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistenceRedisDatabaseBackupFrequency(String persistenceRedisDatabaseBackupFrequency) {
+            return persistenceRedisDatabaseBackupFrequency(Output.of(persistenceRedisDatabaseBackupFrequency));
         }
 
         /**

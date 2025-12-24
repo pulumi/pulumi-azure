@@ -569,7 +569,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args) {
@@ -622,7 +622,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      */
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args) {
@@ -675,7 +675,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions options) {
@@ -728,7 +728,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOutputOptions options) {
@@ -781,7 +781,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      */
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args, InvokeOptions options) {

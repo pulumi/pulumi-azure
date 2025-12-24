@@ -22,7 +22,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
         private InputList<string>? _daysOfWeeks;
 
         /// <summary>
-        /// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        /// Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> DaysOfWeeks
         {

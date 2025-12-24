@@ -3344,7 +3344,7 @@ export namespace appservice {
 
     export interface AppFlexConsumptionAlwaysReady {
         /**
-         * The instance count of the `alwaysReady` of the  Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
+         * The instance count of the `alwaysReady` of the Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
          */
         instanceCount?: pulumi.Input<number>;
         /**
@@ -4055,7 +4055,7 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: pulumi.Input<boolean>;
         /**
-         * Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
+         * Should the Linux Web App Linux Function App use a 32-bit worker. Defaults to `false`.
          */
         use32BitWorker?: pulumi.Input<boolean>;
         /**
@@ -6545,7 +6545,7 @@ export namespace appservice {
          */
         dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker>[]>;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
+         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -7551,11 +7551,11 @@ export namespace appservice {
          */
         dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStackDocker>[]>;
         /**
-         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
+         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
-         * The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
+         * The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
          */
         javaVersion?: pulumi.Input<string>;
         /**
@@ -8621,7 +8621,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigScmIpRestriction>[]>;
         /**
-         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: pulumi.Input<string>;
         scmType?: pulumi.Input<string>;
@@ -8667,7 +8667,7 @@ export namespace appservice {
          */
         dockerRegistryUsername?: pulumi.Input<string>;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0`and `10.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -9760,7 +9760,7 @@ export namespace appservice {
          */
         managedPipelineMode?: pulumi.Input<string>;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         minimumTlsVersion?: pulumi.Input<string>;
         /**
@@ -9780,7 +9780,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigScmIpRestriction>[]>;
         /**
-         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: pulumi.Input<string>;
         scmType?: pulumi.Input<string>;
@@ -9826,7 +9826,7 @@ export namespace appservice {
          */
         dockerRegistryUsername?: pulumi.Input<string>;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -9844,7 +9844,7 @@ export namespace appservice {
          */
         javaServerVersion?: pulumi.Input<string>;
         /**
-         * The Version of Java to use. Possible values include `8`, `11`, and `17`.
+         * The Version of Java to use. Possible values are `8`, `11`, `17` and `21`.
          *
          * > **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          */
@@ -11683,7 +11683,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteConfigApplicationStack {
         /**
-         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
+         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -12646,11 +12646,11 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
         /**
-         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
+         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
-         * The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
+         * The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
          */
         javaVersion?: pulumi.Input<string>;
         /**
@@ -13689,7 +13689,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigScmIpRestriction>[]>;
         /**
-         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: pulumi.Input<string>;
         scmType?: pulumi.Input<string>;
@@ -13752,7 +13752,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
          *
          * > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
          * Portal Value | API value
@@ -13763,6 +13763,7 @@ export namespace appservice {
          * .NET 7 (STS) | v7.0
          * .NET 8 (LTS) | v8.0
          * .NET 9 (STS) | v9.0
+         * .NET 10 (LTS) | v10.0
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -14920,7 +14921,7 @@ export namespace appservice {
          */
         managedPipelineMode?: pulumi.Input<string>;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values are `1.1`, `1.3`, `1.2` and `1.0`. Defaults to `1.2`.
          */
         minimumTlsVersion?: pulumi.Input<string>;
         /**
@@ -14940,7 +14941,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigScmIpRestriction>[]>;
         /**
-         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values are `1.1`, `1.3`, `1.2` and `1.0`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: pulumi.Input<string>;
         scmType?: pulumi.Input<string>;
@@ -15001,7 +15002,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -15688,7 +15689,7 @@ export namespace arcmachine {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+         * Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -16166,6 +16167,9 @@ export namespace automation {
          * The end time of the schedule.
          */
         expiryTime?: pulumi.Input<string>;
+        /**
+         * The time offset in minutes for the expiry time.
+         */
         expiryTimeOffsetMinutes?: pulumi.Input<number>;
         /**
          * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
@@ -16185,11 +16189,17 @@ export namespace automation {
          */
         monthlyOccurrence?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationScheduleMonthlyOccurrence>;
         nextRun?: pulumi.Input<string>;
+        /**
+         * The time offset in minutes for the next run time.
+         */
         nextRunOffsetMinutes?: pulumi.Input<number>;
         /**
          * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
          */
         startTime?: pulumi.Input<string>;
+        /**
+         * The time offset in minutes for the start time.
+         */
         startTimeOffsetMinutes?: pulumi.Input<number>;
         /**
          * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
@@ -18345,7 +18355,13 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRuleOverrideRule {
         /**
-         * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect`, or `JSChallenge`.
+         * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values are `Allow`, `CAPTCHA`, `Log`, `Block`, `Redirect`, `AnomalyScoring` and `JSChallenge`.
+         *
+         * > **Note:** Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`.
+         *
+         * > **Note:** Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`.
+         *
+         * > **Note:** Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect`, or `JSChallenge`.
          *
          * > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
          *
@@ -19234,7 +19250,6 @@ export namespace cognitive {
     export interface AIServicesNetworkAcls {
         /**
          * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-         * *
          */
         bypass?: pulumi.Input<string>;
         /**
@@ -19350,6 +19365,25 @@ export namespace cognitive {
          * > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
          */
         subnetId: pulumi.Input<string>;
+    }
+
+    export interface AccountProjectIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface AccountRaiPolicyContentFilter {
@@ -21091,7 +21125,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetSkuProfile {
         /**
-         * Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+         * Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
          */
         allocationStrategy: pulumi.Input<string>;
         /**
@@ -23481,6 +23515,10 @@ export namespace containerapp {
          */
         containers: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainer>[]>;
         /**
+         * The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+         */
+        cooldownPeriodInSeconds?: pulumi.Input<number>;
+        /**
          * One or more `customScaleRule` blocks as defined below.
          */
         customScaleRules?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateCustomScaleRule>[]>;
@@ -23500,6 +23538,10 @@ export namespace containerapp {
          * The minimum number of replicas for this container.
          */
         minReplicas?: pulumi.Input<number>;
+        /**
+         * The interval in seconds used for polling KEDA. Defaults to `30`.
+         */
+        pollingIntervalInSeconds?: pulumi.Input<number>;
         /**
          * The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
          */
@@ -23972,9 +24014,22 @@ export namespace containerapp {
          */
         storageName?: pulumi.Input<string>;
         /**
-         * The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+         * The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
          */
         storageType?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentCertificateCertificateKeyVault {
+        /**
+         * The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+         */
+        identity?: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+         */
+        keyVaultSecretId: pulumi.Input<string>;
     }
 
     export interface EnvironmentDaprComponentMetadata {
@@ -23994,11 +24049,11 @@ export namespace containerapp {
 
     export interface EnvironmentDaprComponentSecret {
         /**
-         * The identity to use for accessing key vault reference.
+         * The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
          */
         identity?: pulumi.Input<string>;
         /**
-         * The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+         * The Key Vault Secret ID.
          */
         keyVaultSecretId?: pulumi.Input<string>;
         /**
@@ -24038,7 +24093,7 @@ export namespace containerapp {
          */
         name: pulumi.Input<string>;
         /**
-         * Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+         * Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
          *
          * > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
          *
@@ -24087,7 +24142,7 @@ export namespace containerapp {
          */
         authentications?: pulumi.Input<pulumi.Input<inputs.containerapp.JobEventTriggerConfigScaleRuleAuthentication>[]>;
         /**
-         * Type of the scale rule.
+         * Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
          */
         customRuleType: pulumi.Input<string>;
         /**
@@ -24125,7 +24180,7 @@ export namespace containerapp {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+         * The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
          */
         type: pulumi.Input<string>;
     }
@@ -24553,7 +24608,7 @@ export namespace containerapp {
          */
         storageName?: pulumi.Input<string>;
         /**
-         * The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+         * The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
          */
         storageType?: pulumi.Input<string>;
     }
@@ -25509,6 +25564,9 @@ export namespace containerservice {
          * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
          */
         fipsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+         */
         gpuDriver?: pulumi.Input<string>;
         /**
          * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -25874,7 +25932,9 @@ export namespace containerservice {
          */
         maxSurge: pulumi.Input<string>;
         /**
-         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
+         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
+         *
+         * > **Note:** The default value for `nodeSoakDurationInMinutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
          */
         nodeSoakDurationInMinutes?: pulumi.Input<number>;
         /**
@@ -26707,6 +26767,14 @@ export namespace containerservice {
         outboundNatEnabled?: pulumi.Input<boolean>;
     }
 
+    export interface KubernetesClusterNodeProvisioningProfile {
+        /**
+         * Specifies whether default node pools should be provisioned automatically. Possible values are `Auto` and `None`. Defaults to `Auto`. At least one of `mode` or `defaultNodePools` must be specified.
+         */
+        defaultNodePools?: pulumi.Input<string>;
+        mode?: pulumi.Input<string>;
+    }
+
     export interface KubernetesClusterOmsAgent {
         /**
          * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
@@ -26836,7 +26904,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterWebAppRouting {
         /**
-         * Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+         * Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
          */
         defaultNginxController?: pulumi.Input<string>;
         /**
@@ -28179,6 +28247,41 @@ export namespace cosmosdb {
          * The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface MongoClusterCustomerManagedKey {
+        /**
+         * The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+        /**
+         * The ID of the User Assigned Identity that has access to the Key Vault Key.
+         */
+        userAssignedIdentityId: pulumi.Input<string>;
+    }
+
+    export interface MongoClusterIdentity {
+        /**
+         * A list of one or more Resource IDs for User Assigned Managed identities to assign.
+         *
+         * > **Note:** Required when `type` is set to `UserAssigned`.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of managed identity to assign. Possible value is `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface MongoClusterRestore {
+        /**
+         * The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+         */
+        pointInTimeUtc: pulumi.Input<string>;
+        /**
+         * The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+         */
+        sourceId: pulumi.Input<string>;
     }
 
     export interface MongoCollectionAutoscaleSettings {
@@ -30578,7 +30681,7 @@ export namespace dataprotection {
         scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
-         * *
+         *
          * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
@@ -30638,7 +30741,7 @@ export namespace dataprotection {
          */
         absoluteCriteria?: pulumi.Input<string>;
         /**
-         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         * Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
          */
         daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -30711,7 +30814,7 @@ export namespace dataprotection {
          */
         absoluteCriteria?: pulumi.Input<string>;
         /**
-         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         * Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
          */
         daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -31320,9 +31423,12 @@ export namespace dns {
          * The expire time for the SOA record. Defaults to `2419200`.
          */
         expireTime?: pulumi.Input<number>;
+        /**
+         * The fully qualified domain name.
+         */
         fqdn?: pulumi.Input<string>;
         /**
-         * The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+         * The domain name of the authoritative name server for the SOA record.
          */
         hostName?: pulumi.Input<string>;
         /**
@@ -33181,7 +33287,7 @@ export namespace eventhub {
 
     export interface EventHubRetentionDescription {
         /**
-         * Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+         * Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
          */
         cleanupPolicy: pulumi.Input<string>;
         /**
@@ -34510,6 +34616,9 @@ export namespace hdinsight {
          * The ID of the private link service group.
          */
         groupId: pulumi.Input<string>;
+        /**
+         * An `ipConfiguration` block as defined below.
+         */
         ipConfiguration: pulumi.Input<inputs.hdinsight.HBaseClusterPrivateLinkConfigurationIpConfiguration>;
         /**
          * The name of the private link configuration.
@@ -34519,7 +34628,7 @@ export namespace hdinsight {
 
     export interface HBaseClusterPrivateLinkConfigurationIpConfiguration {
         /**
-         * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+         * The name of the IP configuration.
          */
         name: pulumi.Input<string>;
         /**
@@ -34531,9 +34640,12 @@ export namespace hdinsight {
          */
         privateIpAddress?: pulumi.Input<string>;
         /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
+         * The private IP allocation method. Possible values are `Dynamic` and `Static`.
          */
         privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+         */
         subnetId?: pulumi.Input<string>;
     }
 
@@ -34984,6 +35096,9 @@ export namespace hdinsight {
          * The ID of the private link service group.
          */
         groupId: pulumi.Input<string>;
+        /**
+         * An `ipConfiguration` block as defined below.
+         */
         ipConfiguration: pulumi.Input<inputs.hdinsight.HadoopClusterPrivateLinkConfigurationIpConfiguration>;
         /**
          * The name of the private link configuration.
@@ -34993,18 +35108,24 @@ export namespace hdinsight {
 
     export interface HadoopClusterPrivateLinkConfigurationIpConfiguration {
         /**
-         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         * The name of the IP configuration.
          */
         name: pulumi.Input<string>;
         /**
          * Indicates whether this IP configuration is primary.
          */
         primary?: pulumi.Input<boolean>;
+        /**
+         * The private IP address of the IP configuration.
+         */
         privateIpAddress?: pulumi.Input<string>;
         /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
+         * The private IP allocation method. Possible values are `Dynamic` and `Static`.
          */
         privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+         */
         subnetId?: pulumi.Input<string>;
     }
 
@@ -35550,6 +35671,9 @@ export namespace hdinsight {
          * The ID of the private link service group.
          */
         groupId: pulumi.Input<string>;
+        /**
+         * An `ipConfiguration` block as defined below.
+         */
         ipConfiguration: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration>;
         /**
          * The name of the private link configuration.
@@ -35559,7 +35683,7 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration {
         /**
-         * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         * The name of the IP configuration.
          */
         name: pulumi.Input<string>;
         /**
@@ -35571,9 +35695,12 @@ export namespace hdinsight {
          */
         privateIpAddress?: pulumi.Input<string>;
         /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
+         * The private IP allocation method. Possible values are `Dynamic` and `Static`.
          */
         privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+         */
         subnetId?: pulumi.Input<string>;
     }
 
@@ -36026,6 +36153,9 @@ export namespace hdinsight {
          * The ID of the private link service group.
          */
         groupId: pulumi.Input<string>;
+        /**
+         * An `ipConfiguration` block as defined below.
+         */
         ipConfiguration: pulumi.Input<inputs.hdinsight.KafkaClusterPrivateLinkConfigurationIpConfiguration>;
         /**
          * The name of the private link configuration.
@@ -36035,7 +36165,7 @@ export namespace hdinsight {
 
     export interface KafkaClusterPrivateLinkConfigurationIpConfiguration {
         /**
-         * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         * The name of the IP configuration.
          */
         name: pulumi.Input<string>;
         /**
@@ -36047,9 +36177,12 @@ export namespace hdinsight {
          */
         privateIpAddress?: pulumi.Input<string>;
         /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
+         * The private IP allocation method. Possible values are `Dynamic` and `Static`.
          */
         privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+         */
         subnetId?: pulumi.Input<string>;
     }
 
@@ -36536,6 +36669,9 @@ export namespace hdinsight {
          * The ID of the private link service group.
          */
         groupId: pulumi.Input<string>;
+        /**
+         * An `ipConfiguration` block as defined below.
+         */
         ipConfiguration: pulumi.Input<inputs.hdinsight.SparkClusterPrivateLinkConfigurationIpConfiguration>;
         /**
          * The name of the private link configuration.
@@ -36545,7 +36681,7 @@ export namespace hdinsight {
 
     export interface SparkClusterPrivateLinkConfigurationIpConfiguration {
         /**
-         * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+         * The name of the IP configuration.
          */
         name: pulumi.Input<string>;
         /**
@@ -36557,9 +36693,12 @@ export namespace hdinsight {
          */
         privateIpAddress?: pulumi.Input<string>;
         /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
+         * The private IP allocation method. Possible values are `Dynamic` and `Static`.
          */
         privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+         */
         subnetId?: pulumi.Input<string>;
     }
 
@@ -38680,7 +38819,7 @@ export namespace loadtest {
 export namespace loganalytics {
     export interface ClusterIdentity {
         /**
-         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
          *
          * > **Note:** This is required when `type` is set to `UserAssigned`.
          */
@@ -38694,11 +38833,51 @@ export namespace loganalytics {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+         * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
          *
          * > **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface WorkspaceTableCustomLogColumn {
+        /**
+         * The description of the column.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The display name of the column.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the column.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WorkspaceTableCustomLogStandardColumn {
+        /**
+         * The description of the table.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The display name of the table.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
+         *
+         * > **Note:** `name` must end with `_CL`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The data type of the standard column.
+         */
+        type?: pulumi.Input<string>;
     }
 }
 
@@ -38926,7 +39105,7 @@ export namespace logicapps {
          */
         linuxFxVersion?: pulumi.Input<string>;
         /**
-         * The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+         * The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
          *
          * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
@@ -38950,7 +39129,7 @@ export namespace logicapps {
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardSiteConfigScmIpRestriction>[]>;
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
          *
          * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
@@ -39226,7 +39405,7 @@ export namespace logicapps {
 export namespace machinelearning {
     export interface ComputeClusterIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
          *
          * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
@@ -39240,7 +39419,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -39363,7 +39542,7 @@ export namespace machinelearning {
          */
         leafDomainLabel?: pulumi.Input<string>;
         /**
-         * Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         overwriteExistingDomain?: pulumi.Input<boolean>;
     }
@@ -39476,7 +39655,7 @@ export namespace maintenance {
          */
         locations?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of allowed operating systems.
+         * Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
          */
         osTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -39484,7 +39663,7 @@ export namespace maintenance {
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of allowed resources.
+         * Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
          */
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -39492,7 +39671,7 @@ export namespace maintenance {
          */
         tagFilter?: pulumi.Input<string>;
         /**
-         * A mapping of tags for the VM
+         * One or more `tags` blocks as defined below.
          */
         tags?: pulumi.Input<pulumi.Input<inputs.maintenance.AssignmentDynamicScopeFilterTag>[]>;
     }
@@ -39709,7 +39888,9 @@ export namespace managedredis {
          */
         clientProtocol?: pulumi.Input<string>;
         /**
-         * Clustering policy specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         * Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
+         *
+         * !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          */
         clusteringPolicy?: pulumi.Input<string>;
         /**
@@ -39717,13 +39898,27 @@ export namespace managedredis {
          */
         evictionPolicy?: pulumi.Input<string>;
         /**
-         * The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         * The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+         *
+         * !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          */
         geoReplicationGroupName?: pulumi.Input<string>;
+        /**
+         * The ID of the Managed Redis Database Instance.
+         */
+        id?: pulumi.Input<string>;
         /**
          * A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
          */
         modules?: pulumi.Input<pulumi.Input<inputs.managedredis.ManagedRedisDefaultDatabaseModule>[]>;
+        /**
+         * The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistenceRedisDatabaseBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+         */
+        persistenceAppendOnlyFileBackupFrequency?: pulumi.Input<string>;
+        /**
+         * The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistenceAppendOnlyFileBackupFrequency`, only one persistence method is allowed. Conflicts with `geoReplicationGroupName`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
+         */
+        persistenceRedisDatabaseBackupFrequency?: pulumi.Input<string>;
         /**
          * TCP port of the database endpoint.
          */
@@ -39740,13 +39935,17 @@ export namespace managedredis {
 
     export interface ManagedRedisDefaultDatabaseModule {
         /**
-         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+         *
+         * !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          *
          * > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
          */
         args?: pulumi.Input<string>;
         /**
-         * The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new database to be created, data will be lost and Managed Redis will be unavailable during the operation.
+         * The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
+         *
+         * !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          */
         name: pulumi.Input<string>;
         /**
@@ -39926,347 +40125,6 @@ export namespace maps {
     }
 }
 
-export namespace mobile {
-    export interface NetworkAttachedDataNetworkNetworkAddressPortTranslation {
-        /**
-         * Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
-         */
-        icmpPinholeTimeoutInSeconds?: pulumi.Input<number>;
-        /**
-         * Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
-         */
-        pinholeMaximumNumber?: pulumi.Input<number>;
-        /**
-         * A `portRange` block as defined below.
-         */
-        portRange?: pulumi.Input<inputs.mobile.NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange>;
-        /**
-         * Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
-         */
-        tcpPinholeTimeoutInSeconds?: pulumi.Input<number>;
-        /**
-         * Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
-         */
-        tcpPortReuseMinimumHoldTimeInSeconds?: pulumi.Input<number>;
-        /**
-         * Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
-         */
-        udpPinholeTimeoutInSeconds?: pulumi.Input<number>;
-        /**
-         * Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
-         */
-        udpPortReuseMinimumHoldTimeInSeconds?: pulumi.Input<number>;
-    }
-
-    export interface NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange {
-        /**
-         * Specifies the maximum port number.
-         */
-        maximum?: pulumi.Input<number>;
-        /**
-         * Specifies the minimum port number.
-         */
-        minimum?: pulumi.Input<number>;
-    }
-
-    export interface NetworkPacketCoreControlPlaneIdentity {
-        /**
-         * A list of the IDs for User Assigned Managed Identity resources to be assigned.
-         */
-        identityIds: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-         */
-        type: pulumi.Input<string>;
-    }
-
-    export interface NetworkPacketCoreControlPlaneLocalDiagnosticsAccess {
-        /**
-         * How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
-         */
-        authenticationType: pulumi.Input<string>;
-        /**
-         * The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
-         */
-        httpsServerCertificateUrl?: pulumi.Input<string>;
-    }
-
-    export interface NetworkPacketCoreControlPlanePlatform {
-        /**
-         * The ID of the Azure Arc connected cluster where the packet core is deployed.
-         */
-        arcKubernetesClusterId?: pulumi.Input<string>;
-        /**
-         * The ID of the Azure Arc custom location where the packet core is deployed.
-         *
-         * > **Note:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
-         */
-        customLocationId?: pulumi.Input<string>;
-        /**
-         * The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
-         */
-        edgeDeviceId?: pulumi.Input<string>;
-        /**
-         * The ID of the Azure Stack HCI cluster where the packet core is deployed.
-         */
-        stackHciClusterId?: pulumi.Input<string>;
-        /**
-         * Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
-         */
-        type: pulumi.Input<string>;
-    }
-
-    export interface NetworkServicePccRule {
-        /**
-         * Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network. Must be between `0` and `255`.
-         */
-        precedence: pulumi.Input<number>;
-        /**
-         * A `qosPolicy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
-         */
-        qosPolicy?: pulumi.Input<inputs.mobile.NetworkServicePccRuleQosPolicy>;
-        /**
-         * A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
-         */
-        serviceDataFlowTemplates: pulumi.Input<pulumi.Input<inputs.mobile.NetworkServicePccRuleServiceDataFlowTemplate>[]>;
-        /**
-         * Determines whether flows that match this data flow policy rule are permitted. Defaults to `true`.
-         */
-        trafficControlEnabled?: pulumi.Input<boolean>;
-    }
-
-    export interface NetworkServicePccRuleQosPolicy {
-        /**
-         * QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        allocationAndRetentionPriorityLevel?: pulumi.Input<number>;
-        /**
-         * A `guaranteedBitRate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
-         */
-        guaranteedBitRate?: pulumi.Input<inputs.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRate>;
-        /**
-         * A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
-         */
-        maximumBitRate: pulumi.Input<inputs.mobile.NetworkServicePccRuleQosPolicyMaximumBitRate>;
-        /**
-         * The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
-         */
-        preemptionCapability?: pulumi.Input<string>;
-        /**
-         * The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
-         */
-        preemptionVulnerability?: pulumi.Input<string>;
-        /**
-         * The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
-         */
-        qosIndicator: pulumi.Input<number>;
-    }
-
-    export interface NetworkServicePccRuleQosPolicyGuaranteedBitRate {
-        /**
-         * Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        downlink: pulumi.Input<string>;
-        /**
-         * Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        uplink: pulumi.Input<string>;
-    }
-
-    export interface NetworkServicePccRuleQosPolicyMaximumBitRate {
-        /**
-         * Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        downlink: pulumi.Input<string>;
-        /**
-         * Uplink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        uplink: pulumi.Input<string>;
-    }
-
-    export interface NetworkServicePccRuleServiceDataFlowTemplate {
-        /**
-         * Specifies the direction of this flow. Possible values are `Uplink`, `Downlink` and `Bidirectional`.
-         */
-        direction: pulumi.Input<string>;
-        /**
-         * Specifies the name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - `default`, `requested` or `service`.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than `ip` in the `protocol` field. If it is not specified then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: [`8080`, `8082-8085`].
-         */
-        ports?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * A list of the allowed protocol(s) for this flow. If you want this flow to be able to use any protocol within the internet protocol suite, use the value `ip`. If you only want to allow a selection of protocols, you must use the corresponding IANA Assigned Internet Protocol Number for each protocol, as described in https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml. For example, for UDP, you must use 17. If you use the value `ip` then you must leave the field `port` unspecified.
-         */
-        protocols: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Specifies the remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, `192.0.2.54/24`).
-         */
-        remoteIpLists: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface NetworkServiceServiceQosPolicy {
-        /**
-         * QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        allocationAndRetentionPriorityLevel?: pulumi.Input<number>;
-        /**
-         * A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
-         */
-        maximumBitRate: pulumi.Input<inputs.mobile.NetworkServiceServiceQosPolicyMaximumBitRate>;
-        /**
-         * The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`,.
-         */
-        preemptionCapability?: pulumi.Input<string>;
-        /**
-         * The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`.
-         */
-        preemptionVulnerability?: pulumi.Input<string>;
-        /**
-         * The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
-         */
-        qosIndicator?: pulumi.Input<number>;
-    }
-
-    export interface NetworkServiceServiceQosPolicyMaximumBitRate {
-        /**
-         * Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        downlink: pulumi.Input<string>;
-        /**
-         * Uplink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        uplink: pulumi.Input<string>;
-    }
-
-    export interface NetworkSimGroupIdentity {
-        /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
-         */
-        identityIds: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Specifies the type of Managed Service Identity. Possible value is `UserAssigned`.
-         */
-        type: pulumi.Input<string>;
-    }
-
-    export interface NetworkSimPolicySlice {
-        /**
-         * An array of `dataNetwork` block as defined below.
-         */
-        dataNetworks: pulumi.Input<pulumi.Input<inputs.mobile.NetworkSimPolicySliceDataNetwork>[]>;
-        /**
-         * The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
-         */
-        defaultDataNetworkId: pulumi.Input<string>;
-        /**
-         * The ID of the slice that these settings apply to.
-         */
-        sliceId: pulumi.Input<string>;
-    }
-
-    export interface NetworkSimPolicySliceDataNetwork {
-        /**
-         * Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
-         */
-        additionalAllowedSessionTypes?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        allocationAndRetentionPriorityLevel?: pulumi.Input<number>;
-        /**
-         * An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
-         */
-        allowedServicesIds: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of Mobile Network Data Network which these settings apply to.
-         */
-        dataNetworkId: pulumi.Input<string>;
-        /**
-         * The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
-         */
-        defaultSessionType?: pulumi.Input<string>;
-        /**
-         * The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to `10`, Must be at least `0`, See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
-         */
-        maxBufferedPackets?: pulumi.Input<number>;
-        /**
-         * The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
-         */
-        preemptionCapability?: pulumi.Input<string>;
-        /**
-         * The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `NotPreemptable`.
-         */
-        preemptionVulnerability?: pulumi.Input<string>;
-        /**
-         * The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
-         */
-        qosIndicator: pulumi.Input<number>;
-        /**
-         * A `sessionAggregateMaximumBitRate` block as defined below.
-         */
-        sessionAggregateMaximumBitRate: pulumi.Input<inputs.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate>;
-    }
-
-    export interface NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate {
-        /**
-         * Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        downlink: pulumi.Input<string>;
-        /**
-         * Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        uplink: pulumi.Input<string>;
-    }
-
-    export interface NetworkSimPolicyUserEquipmentAggregateMaximumBitRate {
-        /**
-         * Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        downlink: pulumi.Input<string>;
-        /**
-         * Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
-         */
-        uplink: pulumi.Input<string>;
-    }
-
-    export interface NetworkSimStaticIpConfiguration {
-        /**
-         * The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
-         */
-        attachedDataNetworkId: pulumi.Input<string>;
-        /**
-         * The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
-         */
-        sliceId: pulumi.Input<string>;
-        /**
-         * The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
-         */
-        staticIpv4Address?: pulumi.Input<string>;
-    }
-
-    export interface NetworkSliceSingleNetworkSliceSelectionAssistanceInformation {
-        /**
-         * Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-         *
-         * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
-         */
-        sliceDifferentiator?: pulumi.Input<string>;
-        /**
-         * Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-         *
-         * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
-         */
-        sliceServiceType: pulumi.Input<number>;
-    }
-}
-
 export namespace mongocluster {
     export interface MongoClusterConnectionString {
         /**
@@ -40281,6 +40139,52 @@ export namespace mongocluster {
          * The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface MongoClusterCustomerManagedKey {
+        /**
+         * The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+        /**
+         * The ID of the User Assigned Identity that has access to the Key Vault Key.
+         */
+        userAssignedIdentityId: pulumi.Input<string>;
+    }
+
+    export interface MongoClusterIdentity {
+        /**
+         * A list of one or more Resource IDs for User Assigned Managed identities to assign.
+         *
+         * > **Note:** Required when `type` is set to `UserAssigned`.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of managed identity to assign. Possible value is `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface MongoClusterRestore {
+        /**
+         * The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+         */
+        pointInTimeUtc: pulumi.Input<string>;
+        /**
+         * The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+         */
+        sourceId: pulumi.Input<string>;
+    }
+
+    export interface UserRole {
+        /**
+         * The name of the database to which the role will be applied. Changing this forces a new resource to be created.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The role name. The only possible value is `root`. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
     }
 }
 
@@ -42307,6 +42211,9 @@ export namespace mssql {
     }
 
     export interface DatabaseLongTermRetentionPolicy {
+        /**
+         * Specifies if the backups are immutable. Defaults to `false`.
+         */
         immutableBackupsEnabled?: pulumi.Input<boolean>;
         /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -42495,6 +42402,9 @@ export namespace mssql {
     }
 
     export interface ManagedDatabaseLongTermRetentionPolicy {
+        /**
+         * Specifies if the backups are immutable. Defaults to `false`.
+         */
         immutableBackupsEnabled?: pulumi.Input<boolean>;
         /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -43425,7 +43335,7 @@ export namespace netapp {
          */
         name: pulumi.Input<string>;
         /**
-         * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+         * Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
          */
         networkFeatures?: pulumi.Input<string>;
         /**
@@ -43473,7 +43383,7 @@ export namespace netapp {
          */
         volumePath: pulumi.Input<string>;
         /**
-         * Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         volumeSpecName: pulumi.Input<string>;
         /**
@@ -43488,7 +43398,7 @@ export namespace netapp {
          */
         endpointType?: pulumi.Input<string>;
         /**
-         * Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Location of the primary volume.
          */
         remoteVolumeLocation: pulumi.Input<string>;
         /**
@@ -43619,7 +43529,7 @@ export namespace netapp {
          */
         endpointType?: pulumi.Input<string>;
         /**
-         * Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Location of the primary volume.
          */
         remoteVolumeLocation: pulumi.Input<string>;
         /**
@@ -44324,7 +44234,7 @@ export namespace network {
          */
         capacity?: pulumi.Input<number>;
         /**
-         * The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+         * The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
          */
         name: pulumi.Input<string>;
         /**
@@ -47434,47 +47344,71 @@ export namespace nginx {
          */
         activationStateEnabled: pulumi.Input<boolean>;
         /**
-         * A `web_application_firewall.status` block as defined below:
+         * A `status` block as defined below.
          */
         statuses?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewallStatus>[]>;
     }
 
     export interface DeploymentWebApplicationFirewallStatus {
         /**
-         * Indicates the version of the attack signatures package used by NGINX App Protect.
+         * One or more `attackSignaturesPackage` blocks as defined below.
          */
         attackSignaturesPackages?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewallStatusAttackSignaturesPackage>[]>;
         /**
-         * Indicates the version of the bot signatures package used by NGINX App Protect.
+         * One or more `botSignaturesPackage` blocks as defined below.
          */
         botSignaturesPackages?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewallStatusBotSignaturesPackage>[]>;
         /**
-         * Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+         * One or more `componentVersions` blocks as defined below.
          */
         componentVersions?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewallStatusComponentVersion>[]>;
         /**
-         * Indicates the version of the threat campaigns package used by NGINX App Protect.
+         * One or more `threatCampaignsPackage` blocks as defined below.
          */
         threatCampaignsPackages?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewallStatusThreatCampaignsPackage>[]>;
     }
 
     export interface DeploymentWebApplicationFirewallStatusAttackSignaturesPackage {
+        /**
+         * The revision date and time of the threat campaigns package.
+         */
         revisionDatetime?: pulumi.Input<string>;
+        /**
+         * The version of the threat campaigns package.
+         */
         version?: pulumi.Input<string>;
     }
 
     export interface DeploymentWebApplicationFirewallStatusBotSignaturesPackage {
+        /**
+         * The revision date and time of the threat campaigns package.
+         */
         revisionDatetime?: pulumi.Input<string>;
+        /**
+         * The version of the threat campaigns package.
+         */
         version?: pulumi.Input<string>;
     }
 
     export interface DeploymentWebApplicationFirewallStatusComponentVersion {
+        /**
+         * The version of the WAF Engine.
+         */
         wafEngineVersion?: pulumi.Input<string>;
+        /**
+         * The version of the WAF Nginx module.
+         */
         wafNginxVersion?: pulumi.Input<string>;
     }
 
     export interface DeploymentWebApplicationFirewallStatusThreatCampaignsPackage {
+        /**
+         * The revision date and time of the threat campaigns package.
+         */
         revisionDatetime?: pulumi.Input<string>;
+        /**
+         * The version of the threat campaigns package.
+         */
         version?: pulumi.Input<string>;
     }
 
@@ -47965,6 +47899,113 @@ export namespace paloalto {
         virtualMachineSshKey?: pulumi.Input<string>;
     }
 
+    export interface NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat {
+        /**
+         * One or more `backendConfig` block as defined below.
+         */
+        backendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig>;
+        /**
+         * One or more `frontendConfig` block as defined below.
+         */
+        frontendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig>;
+        /**
+         * The name which should be used for this Destination NAT rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+         */
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig {
+        /**
+         * The port number to send traffic to.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The public IP Address to send the traffic to.
+         */
+        publicIpAddress: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig {
+        /**
+         * The port on which traffic will be received.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The ID of the Public IP Address resource the traffic will be received on.
+         */
+        publicIpAddressId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings {
+        azureDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+         */
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+         */
+        useAzureDns?: pulumi.Input<boolean>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubStrataCloudManagerIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile {
+        /**
+         * A list of Public IP IDs to use for Egress NAT.
+         */
+        egressNatIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Egress NAT IP addresses.
+         */
+        egressNatIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The IP of trusted subnet for UDR.
+         */
+        ipOfTrustForUserDefinedRoutes?: pulumi.Input<string>;
+        /**
+         * The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+         */
+        networkVirtualApplianceId: pulumi.Input<string>;
+        /**
+         * A list of Public IP IDs to use for this Next Generation Firewall.
+         */
+        publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of public IPs associated with this Next Generation Firewall.
+         */
+        publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of trusted ranges to use for the Network.
+         */
+        trustedAddressRanges?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of trusted subnet.
+         */
+        trustedSubnetId?: pulumi.Input<string>;
+        /**
+         * The ID of untrusted subnet.
+         */
+        untrustedSubnetId?: pulumi.Input<string>;
+        /**
+         * The ID of the Virtual Hub this Next Generation Firewall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+         */
+        virtualHubId: pulumi.Input<string>;
+    }
+
     export interface NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat {
         /**
          * A `backendConfig` block as defined above.
@@ -48179,6 +48220,116 @@ export namespace paloalto {
          */
         virtualMachineSshKey?: pulumi.Input<string>;
     }
+
+    export interface NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat {
+        /**
+         * One or more `backendConfig` block as defined below.
+         */
+        backendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig>;
+        /**
+         * One or more `frontendConfig` block as defined below.
+         */
+        frontendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig>;
+        /**
+         * The name which should be used for this NAT.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+         */
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig {
+        /**
+         * The port number to send traffic to.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The public IP Address to send the traffic to.
+         */
+        publicIpAddress: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig {
+        /**
+         * The port on which traffic will be received.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The ID of the Public IP Address resource the traffic will be received on.
+         */
+        publicIpAddressId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings {
+        azureDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+         */
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+         */
+        useAzureDns?: pulumi.Input<boolean>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile {
+        /**
+         * A list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+         */
+        egressNatIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Egress NAT IP addresses.
+         */
+        egressNatIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Azure Public IP Address IDs.
+         */
+        publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of public IPs associated with this Next Generation Firewall.
+         */
+        publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of trusted ranges to use for the Network.
+         */
+        trustedAddressRanges?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `vnetConfiguration` block as defined below.
+         */
+        vnetConfiguration: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration {
+        /**
+         * The IP of trusted subnet for UDR.
+         */
+        ipOfTrustForUserDefinedRoutes?: pulumi.Input<string>;
+        /**
+         * The ID of the Trust subnet.
+         */
+        trustedSubnetId?: pulumi.Input<string>;
+        /**
+         * The ID of the UnTrust subnet.
+         */
+        untrustedSubnetId?: pulumi.Input<string>;
+        /**
+         * The ID of the Virtual Network.
+         */
+        virtualNetworkId: pulumi.Input<string>;
+    }
 }
 
 export namespace pim {
@@ -48266,7 +48417,7 @@ export namespace pim {
          */
         approvalStage?: pulumi.Input<inputs.pim.RoleManagementPolicyActivationRulesApprovalStage>;
         /**
-         * The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+         * The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
          */
         maximumDuration?: pulumi.Input<string>;
         /**
@@ -48293,7 +48444,7 @@ export namespace pim {
 
     export interface RoleManagementPolicyActivationRulesApprovalStage {
         /**
-         * The IDs of the users or groups who can approve the activation
+         * One or more `primaryApprover` blocks as defined below.
          */
         primaryApprovers: pulumi.Input<pulumi.Input<inputs.pim.RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover>[]>;
     }
@@ -48358,8 +48509,6 @@ export namespace pim {
         eligibleActivations?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleActivations>;
         /**
          * A `notificationTarget` block as defined below to configure notification on eligible role assignments.
-         *
-         * At least one `notificationTarget` block must be provided.
          */
         eligibleAssignments?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignments>;
     }
@@ -49167,7 +49316,7 @@ export namespace redhatopenshift {
          */
         fipsEnabled?: pulumi.Input<boolean>;
         /**
-         * The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+         * The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
          */
         managedResourceGroupName?: pulumi.Input<string>;
         /**
@@ -49230,7 +49379,7 @@ export namespace redhatopenshift {
          */
         podCidr: pulumi.Input<string>;
         /**
-         * Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+         * Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
          */
         preconfiguredNetworkSecurityGroupEnabled?: pulumi.Input<boolean>;
         /**
@@ -49800,7 +49949,7 @@ export namespace sentinel {
 
     export interface AlertRuleNrtAlertDetailsOverrideDynamicProperty {
         /**
-         * The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+         * The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
          */
         name: pulumi.Input<string>;
         /**
@@ -49912,7 +50061,7 @@ export namespace sentinel {
 
     export interface AlertRuleScheduledAlertDetailsOverrideDynamicProperty {
         /**
-         * The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+         * The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
          */
         name: pulumi.Input<string>;
         /**
@@ -51455,7 +51604,7 @@ export namespace siterecovery {
          */
         targetDiskEncryptionSetId?: pulumi.Input<string>;
         /**
-         * The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         * The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
          */
         targetDiskType: pulumi.Input<string>;
     }
@@ -51888,7 +52037,7 @@ export namespace storage {
          */
         activeDirectory?: pulumi.Input<inputs.storage.AccountAzureFilesAuthenticationActiveDirectory>;
         /**
-         * Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+         * Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
          */
         defaultShareLevelPermission?: pulumi.Input<string>;
         /**
@@ -52089,7 +52238,7 @@ export namespace storage {
          */
         periodSinceCreationInDays: pulumi.Input<number>;
         /**
-         * Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
+         * Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
          */
         state: pulumi.Input<string>;
     }
@@ -52170,8 +52319,7 @@ export namespace storage {
          */
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of HTTP methods that are allowed to be executed by the origin. Valid options are
-         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+         * A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -53737,7 +53885,7 @@ export namespace waf {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+         * Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
          */
         groupRateLimitBy?: pulumi.Input<string>;
         /**
@@ -54107,7 +54255,7 @@ export namespace webpubsub {
          */
         capacity?: pulumi.Input<number>;
         /**
-         * The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+         * The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
          */
         name: pulumi.Input<string>;
     }
@@ -54591,7 +54739,7 @@ export namespace workloadssap {
          */
         names: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the Volume. Changing this forces a new resource to be created.
+         * The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
          *
          * > **Note:** Possible value for Application Server and Central Server is `default`.
          *
@@ -54663,7 +54811,7 @@ export namespace workloadssap {
          */
         names: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the Volume. Changing this forces a new resource to be created.
+         * The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
          *
          * > **Note:** Possible value for Application Server and Central Server is `default`.
          *
@@ -54735,7 +54883,7 @@ export namespace workloadssap {
          */
         names: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the Volume. Changing this forces a new resource to be created.
+         * The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
          *
          * > **Note:** Possible value for Application Server and Central Server is `default`.
          *

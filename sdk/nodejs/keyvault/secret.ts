@@ -124,7 +124,7 @@ export class Secret extends pulumi.CustomResource {
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      *
-     * * > **Note:** One of `value` or `valueWo` must be specified.
+     * > **Note:** One of `value` or `valueWo` must be specified.
      */
     declare public readonly valueWo: pulumi.Output<string | undefined>;
     /**
@@ -238,7 +238,7 @@ export interface SecretState {
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      *
-     * * > **Note:** One of `value` or `valueWo` must be specified.
+     * > **Note:** One of `value` or `valueWo` must be specified.
      */
     valueWo?: pulumi.Input<string>;
     /**
@@ -293,7 +293,7 @@ export interface SecretArgs {
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      *
-     * * > **Note:** One of `value` or `valueWo` must be specified.
+     * > **Note:** One of `value` or `valueWo` must be specified.
      */
     valueWo?: pulumi.Input<string>;
     /**

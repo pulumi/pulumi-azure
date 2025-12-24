@@ -157,14 +157,18 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
-     * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * 
+     * &gt; **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
      * 
      */
     @Export(name="targetVirtualNetworkId", refs={String.class}, tree="[0]")
     private Output<String> targetVirtualNetworkId;
 
     /**
-     * @return Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * @return Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * 
+     * &gt; **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
      * 
      */
     public Output<String> targetVirtualNetworkId() {

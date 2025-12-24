@@ -139,6 +139,7 @@ class _BackupInstanceDiskState:
                  disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
                  snapshot_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  snapshot_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
@@ -148,6 +149,7 @@ class _BackupInstanceDiskState:
         :param pulumi.Input[_builtins.str] disk_id: The ID of the source Disk. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance Disk.
         :param pulumi.Input[_builtins.str] snapshot_resource_group_name: The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] snapshot_subscription_id: The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
@@ -160,6 +162,8 @@ class _BackupInstanceDiskState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
         if snapshot_resource_group_name is not None:
             pulumi.set(__self__, "snapshot_resource_group_name", snapshot_resource_group_name)
         if snapshot_subscription_id is not None:
@@ -214,6 +218,18 @@ class _BackupInstanceDiskState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The protection state of the Backup Instance Disk.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "protection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotResourceGroupName")
@@ -458,6 +474,7 @@ class BackupInstanceDisk(pulumi.CustomResource):
             if vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_id'")
             __props__.__dict__["vault_id"] = vault_id
+            __props__.__dict__["protection_state"] = None
         super(BackupInstanceDisk, __self__).__init__(
             'azure:dataprotection/backupInstanceDisk:BackupInstanceDisk',
             resource_name,
@@ -472,6 +489,7 @@ class BackupInstanceDisk(pulumi.CustomResource):
             disk_id: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            protection_state: Optional[pulumi.Input[_builtins.str]] = None,
             snapshot_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             snapshot_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
             vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupInstanceDisk':
@@ -486,6 +504,7 @@ class BackupInstanceDisk(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] disk_id: The ID of the source Disk. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
+        :param pulumi.Input[_builtins.str] protection_state: The protection state of the Backup Instance Disk.
         :param pulumi.Input[_builtins.str] snapshot_resource_group_name: The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] snapshot_subscription_id: The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
@@ -498,6 +517,7 @@ class BackupInstanceDisk(pulumi.CustomResource):
         __props__.__dict__["disk_id"] = disk_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["protection_state"] = protection_state
         __props__.__dict__["snapshot_resource_group_name"] = snapshot_resource_group_name
         __props__.__dict__["snapshot_subscription_id"] = snapshot_subscription_id
         __props__.__dict__["vault_id"] = vault_id
@@ -534,6 +554,14 @@ class BackupInstanceDisk(pulumi.CustomResource):
         The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The protection state of the Backup Instance Disk.
+        """
+        return pulumi.get(self, "protection_state")
 
     @_builtins.property
     @pulumi.getter(name="snapshotResourceGroupName")

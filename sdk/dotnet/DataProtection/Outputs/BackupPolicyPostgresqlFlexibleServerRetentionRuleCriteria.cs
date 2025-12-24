@@ -18,7 +18,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
         /// </summary>
         public readonly string? AbsoluteCriteria;
         /// <summary>
-        /// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        /// Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> DaysOfWeeks;
         /// <summary>

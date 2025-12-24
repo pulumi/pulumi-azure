@@ -392,7 +392,6 @@ func (o AIServicesIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 
 type AIServicesNetworkAcls struct {
 	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-	// *
 	Bypass *string `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`
@@ -415,7 +414,6 @@ type AIServicesNetworkAclsInput interface {
 
 type AIServicesNetworkAclsArgs struct {
 	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-	// *
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
@@ -503,7 +501,6 @@ func (o AIServicesNetworkAclsOutput) ToAIServicesNetworkAclsPtrOutputWithContext
 }
 
 // Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-// *
 func (o AIServicesNetworkAclsOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AIServicesNetworkAcls) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
@@ -548,7 +545,6 @@ func (o AIServicesNetworkAclsPtrOutput) Elem() AIServicesNetworkAclsOutput {
 }
 
 // Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-// *
 func (o AIServicesNetworkAclsPtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AIServicesNetworkAcls) *string {
 		if v == nil {
@@ -1638,6 +1634,200 @@ func (o AccountNetworkInjectionPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AccountProjectIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	Type string `pulumi:"type"`
+}
+
+// AccountProjectIdentityInput is an input type that accepts AccountProjectIdentityArgs and AccountProjectIdentityOutput values.
+// You can construct a concrete instance of `AccountProjectIdentityInput` via:
+//
+//	AccountProjectIdentityArgs{...}
+type AccountProjectIdentityInput interface {
+	pulumi.Input
+
+	ToAccountProjectIdentityOutput() AccountProjectIdentityOutput
+	ToAccountProjectIdentityOutputWithContext(context.Context) AccountProjectIdentityOutput
+}
+
+type AccountProjectIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccountProjectIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountProjectIdentity)(nil)).Elem()
+}
+
+func (i AccountProjectIdentityArgs) ToAccountProjectIdentityOutput() AccountProjectIdentityOutput {
+	return i.ToAccountProjectIdentityOutputWithContext(context.Background())
+}
+
+func (i AccountProjectIdentityArgs) ToAccountProjectIdentityOutputWithContext(ctx context.Context) AccountProjectIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountProjectIdentityOutput)
+}
+
+func (i AccountProjectIdentityArgs) ToAccountProjectIdentityPtrOutput() AccountProjectIdentityPtrOutput {
+	return i.ToAccountProjectIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AccountProjectIdentityArgs) ToAccountProjectIdentityPtrOutputWithContext(ctx context.Context) AccountProjectIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountProjectIdentityOutput).ToAccountProjectIdentityPtrOutputWithContext(ctx)
+}
+
+// AccountProjectIdentityPtrInput is an input type that accepts AccountProjectIdentityArgs, AccountProjectIdentityPtr and AccountProjectIdentityPtrOutput values.
+// You can construct a concrete instance of `AccountProjectIdentityPtrInput` via:
+//
+//	        AccountProjectIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountProjectIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAccountProjectIdentityPtrOutput() AccountProjectIdentityPtrOutput
+	ToAccountProjectIdentityPtrOutputWithContext(context.Context) AccountProjectIdentityPtrOutput
+}
+
+type accountProjectIdentityPtrType AccountProjectIdentityArgs
+
+func AccountProjectIdentityPtr(v *AccountProjectIdentityArgs) AccountProjectIdentityPtrInput {
+	return (*accountProjectIdentityPtrType)(v)
+}
+
+func (*accountProjectIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountProjectIdentity)(nil)).Elem()
+}
+
+func (i *accountProjectIdentityPtrType) ToAccountProjectIdentityPtrOutput() AccountProjectIdentityPtrOutput {
+	return i.ToAccountProjectIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *accountProjectIdentityPtrType) ToAccountProjectIdentityPtrOutputWithContext(ctx context.Context) AccountProjectIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountProjectIdentityPtrOutput)
+}
+
+type AccountProjectIdentityOutput struct{ *pulumi.OutputState }
+
+func (AccountProjectIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountProjectIdentity)(nil)).Elem()
+}
+
+func (o AccountProjectIdentityOutput) ToAccountProjectIdentityOutput() AccountProjectIdentityOutput {
+	return o
+}
+
+func (o AccountProjectIdentityOutput) ToAccountProjectIdentityOutputWithContext(ctx context.Context) AccountProjectIdentityOutput {
+	return o
+}
+
+func (o AccountProjectIdentityOutput) ToAccountProjectIdentityPtrOutput() AccountProjectIdentityPtrOutput {
+	return o.ToAccountProjectIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AccountProjectIdentityOutput) ToAccountProjectIdentityPtrOutputWithContext(ctx context.Context) AccountProjectIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountProjectIdentity) *AccountProjectIdentity {
+		return &v
+	}).(AccountProjectIdentityPtrOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
+func (o AccountProjectIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountProjectIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o AccountProjectIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountProjectIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o AccountProjectIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountProjectIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+func (o AccountProjectIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountProjectIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccountProjectIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountProjectIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountProjectIdentity)(nil)).Elem()
+}
+
+func (o AccountProjectIdentityPtrOutput) ToAccountProjectIdentityPtrOutput() AccountProjectIdentityPtrOutput {
+	return o
+}
+
+func (o AccountProjectIdentityPtrOutput) ToAccountProjectIdentityPtrOutputWithContext(ctx context.Context) AccountProjectIdentityPtrOutput {
+	return o
+}
+
+func (o AccountProjectIdentityPtrOutput) Elem() AccountProjectIdentityOutput {
+	return o.ApplyT(func(v *AccountProjectIdentity) AccountProjectIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountProjectIdentity
+		return ret
+	}).(AccountProjectIdentityOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
+func (o AccountProjectIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountProjectIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o AccountProjectIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountProjectIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o AccountProjectIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountProjectIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+func (o AccountProjectIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountProjectIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountRaiPolicyContentFilter struct {
 	// Whether the filter should block content. Possible values are `true` or `false`.
 	BlockEnabled bool `pulumi:"blockEnabled"`
@@ -2275,14 +2465,120 @@ func (o DeploymentSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetAccountCustomerManagedKeyType struct {
+	// The client ID of the managed identity associated with the storage resource.
+	IdentityClientId string `pulumi:"identityClientId"`
+	// The ID of the Key Vault Key which is used to encrypt the data in this Cognitive Services Account.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+}
+
+// GetAccountCustomerManagedKeyTypeInput is an input type that accepts GetAccountCustomerManagedKeyTypeArgs and GetAccountCustomerManagedKeyTypeOutput values.
+// You can construct a concrete instance of `GetAccountCustomerManagedKeyTypeInput` via:
+//
+//	GetAccountCustomerManagedKeyTypeArgs{...}
+type GetAccountCustomerManagedKeyTypeInput interface {
+	pulumi.Input
+
+	ToGetAccountCustomerManagedKeyTypeOutput() GetAccountCustomerManagedKeyTypeOutput
+	ToGetAccountCustomerManagedKeyTypeOutputWithContext(context.Context) GetAccountCustomerManagedKeyTypeOutput
+}
+
+type GetAccountCustomerManagedKeyTypeArgs struct {
+	// The client ID of the managed identity associated with the storage resource.
+	IdentityClientId pulumi.StringInput `pulumi:"identityClientId"`
+	// The ID of the Key Vault Key which is used to encrypt the data in this Cognitive Services Account.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+}
+
+func (GetAccountCustomerManagedKeyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (i GetAccountCustomerManagedKeyTypeArgs) ToGetAccountCustomerManagedKeyTypeOutput() GetAccountCustomerManagedKeyTypeOutput {
+	return i.ToGetAccountCustomerManagedKeyTypeOutputWithContext(context.Background())
+}
+
+func (i GetAccountCustomerManagedKeyTypeArgs) ToGetAccountCustomerManagedKeyTypeOutputWithContext(ctx context.Context) GetAccountCustomerManagedKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountCustomerManagedKeyTypeOutput)
+}
+
+// GetAccountCustomerManagedKeyTypeArrayInput is an input type that accepts GetAccountCustomerManagedKeyTypeArray and GetAccountCustomerManagedKeyTypeArrayOutput values.
+// You can construct a concrete instance of `GetAccountCustomerManagedKeyTypeArrayInput` via:
+//
+//	GetAccountCustomerManagedKeyTypeArray{ GetAccountCustomerManagedKeyTypeArgs{...} }
+type GetAccountCustomerManagedKeyTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountCustomerManagedKeyTypeArrayOutput() GetAccountCustomerManagedKeyTypeArrayOutput
+	ToGetAccountCustomerManagedKeyTypeArrayOutputWithContext(context.Context) GetAccountCustomerManagedKeyTypeArrayOutput
+}
+
+type GetAccountCustomerManagedKeyTypeArray []GetAccountCustomerManagedKeyTypeInput
+
+func (GetAccountCustomerManagedKeyTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (i GetAccountCustomerManagedKeyTypeArray) ToGetAccountCustomerManagedKeyTypeArrayOutput() GetAccountCustomerManagedKeyTypeArrayOutput {
+	return i.ToGetAccountCustomerManagedKeyTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountCustomerManagedKeyTypeArray) ToGetAccountCustomerManagedKeyTypeArrayOutputWithContext(ctx context.Context) GetAccountCustomerManagedKeyTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountCustomerManagedKeyTypeArrayOutput)
+}
+
+type GetAccountCustomerManagedKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (GetAccountCustomerManagedKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (o GetAccountCustomerManagedKeyTypeOutput) ToGetAccountCustomerManagedKeyTypeOutput() GetAccountCustomerManagedKeyTypeOutput {
+	return o
+}
+
+func (o GetAccountCustomerManagedKeyTypeOutput) ToGetAccountCustomerManagedKeyTypeOutputWithContext(ctx context.Context) GetAccountCustomerManagedKeyTypeOutput {
+	return o
+}
+
+// The client ID of the managed identity associated with the storage resource.
+func (o GetAccountCustomerManagedKeyTypeOutput) IdentityClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountCustomerManagedKeyType) string { return v.IdentityClientId }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Key which is used to encrypt the data in this Cognitive Services Account.
+func (o GetAccountCustomerManagedKeyTypeOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountCustomerManagedKeyType) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+type GetAccountCustomerManagedKeyTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountCustomerManagedKeyTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (o GetAccountCustomerManagedKeyTypeArrayOutput) ToGetAccountCustomerManagedKeyTypeArrayOutput() GetAccountCustomerManagedKeyTypeArrayOutput {
+	return o
+}
+
+func (o GetAccountCustomerManagedKeyTypeArrayOutput) ToGetAccountCustomerManagedKeyTypeArrayOutputWithContext(ctx context.Context) GetAccountCustomerManagedKeyTypeArrayOutput {
+	return o
+}
+
+func (o GetAccountCustomerManagedKeyTypeArrayOutput) Index(i pulumi.IntInput) GetAccountCustomerManagedKeyTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountCustomerManagedKeyType {
+		return vs[0].([]GetAccountCustomerManagedKeyType)[vs[1].(int)]
+	}).(GetAccountCustomerManagedKeyTypeOutput)
+}
+
 type GetAccountIdentity struct {
-	// The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+	// The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
 	PrincipalId string `pulumi:"principalId"`
-	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
 	TenantId string `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Cognitive Account.
+	// The type of Managed Service Identity that is configured on this Cognitive Services Account.
 	Type string `pulumi:"type"`
 }
 
@@ -2298,13 +2594,13 @@ type GetAccountIdentityInput interface {
 }
 
 type GetAccountIdentityArgs struct {
-	// The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+	// The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Cognitive Account.
+	// The type of Managed Service Identity that is configured on this Cognitive Services Account.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2359,22 +2655,22 @@ func (o GetAccountIdentityOutput) ToGetAccountIdentityOutputWithContext(ctx cont
 	return o
 }
 
-// The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+// The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account.
 func (o GetAccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
 func (o GetAccountIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account.
 func (o GetAccountIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Cognitive Account.
+// The type of Managed Service Identity that is configured on this Cognitive Services Account.
 func (o GetAccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2399,6 +2695,448 @@ func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdenti
 	}).(GetAccountIdentityOutput)
 }
 
+type GetAccountNetworkAcl struct {
+	// Whether trusted Azure Services are allowed to access the service.
+	Bypass string `pulumi:"bypass"`
+	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`.
+	DefaultAction string `pulumi:"defaultAction"`
+	// One or more IP Addresses, or CIDR Blocks that are able to access the Cognitive Services Account.
+	IpRules []string `pulumi:"ipRules"`
+	// A `virtualNetworkRules` block as defined below.
+	VirtualNetworkRules []GetAccountNetworkAclVirtualNetworkRule `pulumi:"virtualNetworkRules"`
+}
+
+// GetAccountNetworkAclInput is an input type that accepts GetAccountNetworkAclArgs and GetAccountNetworkAclOutput values.
+// You can construct a concrete instance of `GetAccountNetworkAclInput` via:
+//
+//	GetAccountNetworkAclArgs{...}
+type GetAccountNetworkAclInput interface {
+	pulumi.Input
+
+	ToGetAccountNetworkAclOutput() GetAccountNetworkAclOutput
+	ToGetAccountNetworkAclOutputWithContext(context.Context) GetAccountNetworkAclOutput
+}
+
+type GetAccountNetworkAclArgs struct {
+	// Whether trusted Azure Services are allowed to access the service.
+	Bypass pulumi.StringInput `pulumi:"bypass"`
+	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`.
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	// One or more IP Addresses, or CIDR Blocks that are able to access the Cognitive Services Account.
+	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
+	// A `virtualNetworkRules` block as defined below.
+	VirtualNetworkRules GetAccountNetworkAclVirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
+}
+
+func (GetAccountNetworkAclArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountNetworkAcl)(nil)).Elem()
+}
+
+func (i GetAccountNetworkAclArgs) ToGetAccountNetworkAclOutput() GetAccountNetworkAclOutput {
+	return i.ToGetAccountNetworkAclOutputWithContext(context.Background())
+}
+
+func (i GetAccountNetworkAclArgs) ToGetAccountNetworkAclOutputWithContext(ctx context.Context) GetAccountNetworkAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountNetworkAclOutput)
+}
+
+// GetAccountNetworkAclArrayInput is an input type that accepts GetAccountNetworkAclArray and GetAccountNetworkAclArrayOutput values.
+// You can construct a concrete instance of `GetAccountNetworkAclArrayInput` via:
+//
+//	GetAccountNetworkAclArray{ GetAccountNetworkAclArgs{...} }
+type GetAccountNetworkAclArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountNetworkAclArrayOutput() GetAccountNetworkAclArrayOutput
+	ToGetAccountNetworkAclArrayOutputWithContext(context.Context) GetAccountNetworkAclArrayOutput
+}
+
+type GetAccountNetworkAclArray []GetAccountNetworkAclInput
+
+func (GetAccountNetworkAclArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountNetworkAcl)(nil)).Elem()
+}
+
+func (i GetAccountNetworkAclArray) ToGetAccountNetworkAclArrayOutput() GetAccountNetworkAclArrayOutput {
+	return i.ToGetAccountNetworkAclArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountNetworkAclArray) ToGetAccountNetworkAclArrayOutputWithContext(ctx context.Context) GetAccountNetworkAclArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountNetworkAclArrayOutput)
+}
+
+type GetAccountNetworkAclOutput struct{ *pulumi.OutputState }
+
+func (GetAccountNetworkAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountNetworkAcl)(nil)).Elem()
+}
+
+func (o GetAccountNetworkAclOutput) ToGetAccountNetworkAclOutput() GetAccountNetworkAclOutput {
+	return o
+}
+
+func (o GetAccountNetworkAclOutput) ToGetAccountNetworkAclOutputWithContext(ctx context.Context) GetAccountNetworkAclOutput {
+	return o
+}
+
+// Whether trusted Azure Services are allowed to access the service.
+func (o GetAccountNetworkAclOutput) Bypass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountNetworkAcl) string { return v.Bypass }).(pulumi.StringOutput)
+}
+
+// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`.
+func (o GetAccountNetworkAclOutput) DefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountNetworkAcl) string { return v.DefaultAction }).(pulumi.StringOutput)
+}
+
+// One or more IP Addresses, or CIDR Blocks that are able to access the Cognitive Services Account.
+func (o GetAccountNetworkAclOutput) IpRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccountNetworkAcl) []string { return v.IpRules }).(pulumi.StringArrayOutput)
+}
+
+// A `virtualNetworkRules` block as defined below.
+func (o GetAccountNetworkAclOutput) VirtualNetworkRules() GetAccountNetworkAclVirtualNetworkRuleArrayOutput {
+	return o.ApplyT(func(v GetAccountNetworkAcl) []GetAccountNetworkAclVirtualNetworkRule { return v.VirtualNetworkRules }).(GetAccountNetworkAclVirtualNetworkRuleArrayOutput)
+}
+
+type GetAccountNetworkAclArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountNetworkAclArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountNetworkAcl)(nil)).Elem()
+}
+
+func (o GetAccountNetworkAclArrayOutput) ToGetAccountNetworkAclArrayOutput() GetAccountNetworkAclArrayOutput {
+	return o
+}
+
+func (o GetAccountNetworkAclArrayOutput) ToGetAccountNetworkAclArrayOutputWithContext(ctx context.Context) GetAccountNetworkAclArrayOutput {
+	return o
+}
+
+func (o GetAccountNetworkAclArrayOutput) Index(i pulumi.IntInput) GetAccountNetworkAclOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountNetworkAcl {
+		return vs[0].([]GetAccountNetworkAcl)[vs[1].(int)]
+	}).(GetAccountNetworkAclOutput)
+}
+
+type GetAccountNetworkAclVirtualNetworkRule struct {
+	// Whether missing vnet service endpoint is ignored or not.
+	IgnoreMissingVnetServiceEndpoint bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// The ID of the subnet which is able to access this Cognitive Services Account.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetAccountNetworkAclVirtualNetworkRuleInput is an input type that accepts GetAccountNetworkAclVirtualNetworkRuleArgs and GetAccountNetworkAclVirtualNetworkRuleOutput values.
+// You can construct a concrete instance of `GetAccountNetworkAclVirtualNetworkRuleInput` via:
+//
+//	GetAccountNetworkAclVirtualNetworkRuleArgs{...}
+type GetAccountNetworkAclVirtualNetworkRuleInput interface {
+	pulumi.Input
+
+	ToGetAccountNetworkAclVirtualNetworkRuleOutput() GetAccountNetworkAclVirtualNetworkRuleOutput
+	ToGetAccountNetworkAclVirtualNetworkRuleOutputWithContext(context.Context) GetAccountNetworkAclVirtualNetworkRuleOutput
+}
+
+type GetAccountNetworkAclVirtualNetworkRuleArgs struct {
+	// Whether missing vnet service endpoint is ignored or not.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// The ID of the subnet which is able to access this Cognitive Services Account.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetAccountNetworkAclVirtualNetworkRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountNetworkAclVirtualNetworkRule)(nil)).Elem()
+}
+
+func (i GetAccountNetworkAclVirtualNetworkRuleArgs) ToGetAccountNetworkAclVirtualNetworkRuleOutput() GetAccountNetworkAclVirtualNetworkRuleOutput {
+	return i.ToGetAccountNetworkAclVirtualNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i GetAccountNetworkAclVirtualNetworkRuleArgs) ToGetAccountNetworkAclVirtualNetworkRuleOutputWithContext(ctx context.Context) GetAccountNetworkAclVirtualNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountNetworkAclVirtualNetworkRuleOutput)
+}
+
+// GetAccountNetworkAclVirtualNetworkRuleArrayInput is an input type that accepts GetAccountNetworkAclVirtualNetworkRuleArray and GetAccountNetworkAclVirtualNetworkRuleArrayOutput values.
+// You can construct a concrete instance of `GetAccountNetworkAclVirtualNetworkRuleArrayInput` via:
+//
+//	GetAccountNetworkAclVirtualNetworkRuleArray{ GetAccountNetworkAclVirtualNetworkRuleArgs{...} }
+type GetAccountNetworkAclVirtualNetworkRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountNetworkAclVirtualNetworkRuleArrayOutput() GetAccountNetworkAclVirtualNetworkRuleArrayOutput
+	ToGetAccountNetworkAclVirtualNetworkRuleArrayOutputWithContext(context.Context) GetAccountNetworkAclVirtualNetworkRuleArrayOutput
+}
+
+type GetAccountNetworkAclVirtualNetworkRuleArray []GetAccountNetworkAclVirtualNetworkRuleInput
+
+func (GetAccountNetworkAclVirtualNetworkRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountNetworkAclVirtualNetworkRule)(nil)).Elem()
+}
+
+func (i GetAccountNetworkAclVirtualNetworkRuleArray) ToGetAccountNetworkAclVirtualNetworkRuleArrayOutput() GetAccountNetworkAclVirtualNetworkRuleArrayOutput {
+	return i.ToGetAccountNetworkAclVirtualNetworkRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountNetworkAclVirtualNetworkRuleArray) ToGetAccountNetworkAclVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) GetAccountNetworkAclVirtualNetworkRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountNetworkAclVirtualNetworkRuleArrayOutput)
+}
+
+type GetAccountNetworkAclVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
+
+func (GetAccountNetworkAclVirtualNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountNetworkAclVirtualNetworkRule)(nil)).Elem()
+}
+
+func (o GetAccountNetworkAclVirtualNetworkRuleOutput) ToGetAccountNetworkAclVirtualNetworkRuleOutput() GetAccountNetworkAclVirtualNetworkRuleOutput {
+	return o
+}
+
+func (o GetAccountNetworkAclVirtualNetworkRuleOutput) ToGetAccountNetworkAclVirtualNetworkRuleOutputWithContext(ctx context.Context) GetAccountNetworkAclVirtualNetworkRuleOutput {
+	return o
+}
+
+// Whether missing vnet service endpoint is ignored or not.
+func (o GetAccountNetworkAclVirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAccountNetworkAclVirtualNetworkRule) bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolOutput)
+}
+
+// The ID of the subnet which is able to access this Cognitive Services Account.
+func (o GetAccountNetworkAclVirtualNetworkRuleOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountNetworkAclVirtualNetworkRule) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetAccountNetworkAclVirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountNetworkAclVirtualNetworkRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountNetworkAclVirtualNetworkRule)(nil)).Elem()
+}
+
+func (o GetAccountNetworkAclVirtualNetworkRuleArrayOutput) ToGetAccountNetworkAclVirtualNetworkRuleArrayOutput() GetAccountNetworkAclVirtualNetworkRuleArrayOutput {
+	return o
+}
+
+func (o GetAccountNetworkAclVirtualNetworkRuleArrayOutput) ToGetAccountNetworkAclVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) GetAccountNetworkAclVirtualNetworkRuleArrayOutput {
+	return o
+}
+
+func (o GetAccountNetworkAclVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) GetAccountNetworkAclVirtualNetworkRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountNetworkAclVirtualNetworkRule {
+		return vs[0].([]GetAccountNetworkAclVirtualNetworkRule)[vs[1].(int)]
+	}).(GetAccountNetworkAclVirtualNetworkRuleOutput)
+}
+
+type GetAccountNetworkInjection struct {
+	// The feature that network injection is applied to.
+	Scenario string `pulumi:"scenario"`
+	// The ID of the subnet which is able to access this Cognitive Services Account.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetAccountNetworkInjectionInput is an input type that accepts GetAccountNetworkInjectionArgs and GetAccountNetworkInjectionOutput values.
+// You can construct a concrete instance of `GetAccountNetworkInjectionInput` via:
+//
+//	GetAccountNetworkInjectionArgs{...}
+type GetAccountNetworkInjectionInput interface {
+	pulumi.Input
+
+	ToGetAccountNetworkInjectionOutput() GetAccountNetworkInjectionOutput
+	ToGetAccountNetworkInjectionOutputWithContext(context.Context) GetAccountNetworkInjectionOutput
+}
+
+type GetAccountNetworkInjectionArgs struct {
+	// The feature that network injection is applied to.
+	Scenario pulumi.StringInput `pulumi:"scenario"`
+	// The ID of the subnet which is able to access this Cognitive Services Account.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetAccountNetworkInjectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountNetworkInjection)(nil)).Elem()
+}
+
+func (i GetAccountNetworkInjectionArgs) ToGetAccountNetworkInjectionOutput() GetAccountNetworkInjectionOutput {
+	return i.ToGetAccountNetworkInjectionOutputWithContext(context.Background())
+}
+
+func (i GetAccountNetworkInjectionArgs) ToGetAccountNetworkInjectionOutputWithContext(ctx context.Context) GetAccountNetworkInjectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountNetworkInjectionOutput)
+}
+
+// GetAccountNetworkInjectionArrayInput is an input type that accepts GetAccountNetworkInjectionArray and GetAccountNetworkInjectionArrayOutput values.
+// You can construct a concrete instance of `GetAccountNetworkInjectionArrayInput` via:
+//
+//	GetAccountNetworkInjectionArray{ GetAccountNetworkInjectionArgs{...} }
+type GetAccountNetworkInjectionArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountNetworkInjectionArrayOutput() GetAccountNetworkInjectionArrayOutput
+	ToGetAccountNetworkInjectionArrayOutputWithContext(context.Context) GetAccountNetworkInjectionArrayOutput
+}
+
+type GetAccountNetworkInjectionArray []GetAccountNetworkInjectionInput
+
+func (GetAccountNetworkInjectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountNetworkInjection)(nil)).Elem()
+}
+
+func (i GetAccountNetworkInjectionArray) ToGetAccountNetworkInjectionArrayOutput() GetAccountNetworkInjectionArrayOutput {
+	return i.ToGetAccountNetworkInjectionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountNetworkInjectionArray) ToGetAccountNetworkInjectionArrayOutputWithContext(ctx context.Context) GetAccountNetworkInjectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountNetworkInjectionArrayOutput)
+}
+
+type GetAccountNetworkInjectionOutput struct{ *pulumi.OutputState }
+
+func (GetAccountNetworkInjectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountNetworkInjection)(nil)).Elem()
+}
+
+func (o GetAccountNetworkInjectionOutput) ToGetAccountNetworkInjectionOutput() GetAccountNetworkInjectionOutput {
+	return o
+}
+
+func (o GetAccountNetworkInjectionOutput) ToGetAccountNetworkInjectionOutputWithContext(ctx context.Context) GetAccountNetworkInjectionOutput {
+	return o
+}
+
+// The feature that network injection is applied to.
+func (o GetAccountNetworkInjectionOutput) Scenario() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountNetworkInjection) string { return v.Scenario }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet which is able to access this Cognitive Services Account.
+func (o GetAccountNetworkInjectionOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountNetworkInjection) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetAccountNetworkInjectionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountNetworkInjectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountNetworkInjection)(nil)).Elem()
+}
+
+func (o GetAccountNetworkInjectionArrayOutput) ToGetAccountNetworkInjectionArrayOutput() GetAccountNetworkInjectionArrayOutput {
+	return o
+}
+
+func (o GetAccountNetworkInjectionArrayOutput) ToGetAccountNetworkInjectionArrayOutputWithContext(ctx context.Context) GetAccountNetworkInjectionArrayOutput {
+	return o
+}
+
+func (o GetAccountNetworkInjectionArrayOutput) Index(i pulumi.IntInput) GetAccountNetworkInjectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountNetworkInjection {
+		return vs[0].([]GetAccountNetworkInjection)[vs[1].(int)]
+	}).(GetAccountNetworkInjectionOutput)
+}
+
+type GetAccountStorage struct {
+	// The client ID of the managed identity associated with the storage resource.
+	IdentityClientId string `pulumi:"identityClientId"`
+	// The ID of the Storage Account resource associated with this Cognitive Services Account.
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// GetAccountStorageInput is an input type that accepts GetAccountStorageArgs and GetAccountStorageOutput values.
+// You can construct a concrete instance of `GetAccountStorageInput` via:
+//
+//	GetAccountStorageArgs{...}
+type GetAccountStorageInput interface {
+	pulumi.Input
+
+	ToGetAccountStorageOutput() GetAccountStorageOutput
+	ToGetAccountStorageOutputWithContext(context.Context) GetAccountStorageOutput
+}
+
+type GetAccountStorageArgs struct {
+	// The client ID of the managed identity associated with the storage resource.
+	IdentityClientId pulumi.StringInput `pulumi:"identityClientId"`
+	// The ID of the Storage Account resource associated with this Cognitive Services Account.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (GetAccountStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountStorage)(nil)).Elem()
+}
+
+func (i GetAccountStorageArgs) ToGetAccountStorageOutput() GetAccountStorageOutput {
+	return i.ToGetAccountStorageOutputWithContext(context.Background())
+}
+
+func (i GetAccountStorageArgs) ToGetAccountStorageOutputWithContext(ctx context.Context) GetAccountStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountStorageOutput)
+}
+
+// GetAccountStorageArrayInput is an input type that accepts GetAccountStorageArray and GetAccountStorageArrayOutput values.
+// You can construct a concrete instance of `GetAccountStorageArrayInput` via:
+//
+//	GetAccountStorageArray{ GetAccountStorageArgs{...} }
+type GetAccountStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountStorageArrayOutput() GetAccountStorageArrayOutput
+	ToGetAccountStorageArrayOutputWithContext(context.Context) GetAccountStorageArrayOutput
+}
+
+type GetAccountStorageArray []GetAccountStorageInput
+
+func (GetAccountStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountStorage)(nil)).Elem()
+}
+
+func (i GetAccountStorageArray) ToGetAccountStorageArrayOutput() GetAccountStorageArrayOutput {
+	return i.ToGetAccountStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountStorageArray) ToGetAccountStorageArrayOutputWithContext(ctx context.Context) GetAccountStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountStorageArrayOutput)
+}
+
+type GetAccountStorageOutput struct{ *pulumi.OutputState }
+
+func (GetAccountStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountStorage)(nil)).Elem()
+}
+
+func (o GetAccountStorageOutput) ToGetAccountStorageOutput() GetAccountStorageOutput {
+	return o
+}
+
+func (o GetAccountStorageOutput) ToGetAccountStorageOutputWithContext(ctx context.Context) GetAccountStorageOutput {
+	return o
+}
+
+// The client ID of the managed identity associated with the storage resource.
+func (o GetAccountStorageOutput) IdentityClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountStorage) string { return v.IdentityClientId }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account resource associated with this Cognitive Services Account.
+func (o GetAccountStorageOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountStorage) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+type GetAccountStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountStorage)(nil)).Elem()
+}
+
+func (o GetAccountStorageArrayOutput) ToGetAccountStorageArrayOutput() GetAccountStorageArrayOutput {
+	return o
+}
+
+func (o GetAccountStorageArrayOutput) ToGetAccountStorageArrayOutputWithContext(ctx context.Context) GetAccountStorageArrayOutput {
+	return o
+}
+
+func (o GetAccountStorageArrayOutput) Index(i pulumi.IntInput) GetAccountStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountStorage {
+		return vs[0].([]GetAccountStorage)[vs[1].(int)]
+	}).(GetAccountStorageOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesCustomerManagedKeyInput)(nil)).Elem(), AIServicesCustomerManagedKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesCustomerManagedKeyPtrInput)(nil)).Elem(), AIServicesCustomerManagedKeyArgs{})
@@ -2420,6 +3158,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsVirtualNetworkRuleArrayInput)(nil)).Elem(), AccountNetworkAclsVirtualNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkInjectionInput)(nil)).Elem(), AccountNetworkInjectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkInjectionPtrInput)(nil)).Elem(), AccountNetworkInjectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountProjectIdentityInput)(nil)).Elem(), AccountProjectIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountProjectIdentityPtrInput)(nil)).Elem(), AccountProjectIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRaiPolicyContentFilterInput)(nil)).Elem(), AccountRaiPolicyContentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRaiPolicyContentFilterArrayInput)(nil)).Elem(), AccountRaiPolicyContentFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageInput)(nil)).Elem(), AccountStorageArgs{})
@@ -2428,8 +3168,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModelPtrInput)(nil)).Elem(), DeploymentModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentSkuInput)(nil)).Elem(), DeploymentSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentSkuPtrInput)(nil)).Elem(), DeploymentSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountCustomerManagedKeyTypeInput)(nil)).Elem(), GetAccountCustomerManagedKeyTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountCustomerManagedKeyTypeArrayInput)(nil)).Elem(), GetAccountCustomerManagedKeyTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityArrayInput)(nil)).Elem(), GetAccountIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountNetworkAclInput)(nil)).Elem(), GetAccountNetworkAclArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountNetworkAclArrayInput)(nil)).Elem(), GetAccountNetworkAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountNetworkAclVirtualNetworkRuleInput)(nil)).Elem(), GetAccountNetworkAclVirtualNetworkRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountNetworkAclVirtualNetworkRuleArrayInput)(nil)).Elem(), GetAccountNetworkAclVirtualNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountNetworkInjectionInput)(nil)).Elem(), GetAccountNetworkInjectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountNetworkInjectionArrayInput)(nil)).Elem(), GetAccountNetworkInjectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountStorageInput)(nil)).Elem(), GetAccountStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountStorageArrayInput)(nil)).Elem(), GetAccountStorageArray{})
 	pulumi.RegisterOutputType(AIServicesCustomerManagedKeyOutput{})
 	pulumi.RegisterOutputType(AIServicesCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(AIServicesIdentityOutput{})
@@ -2450,6 +3200,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountNetworkAclsVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(AccountNetworkInjectionOutput{})
 	pulumi.RegisterOutputType(AccountNetworkInjectionPtrOutput{})
+	pulumi.RegisterOutputType(AccountProjectIdentityOutput{})
+	pulumi.RegisterOutputType(AccountProjectIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountRaiPolicyContentFilterOutput{})
 	pulumi.RegisterOutputType(AccountRaiPolicyContentFilterArrayOutput{})
 	pulumi.RegisterOutputType(AccountStorageOutput{})
@@ -2458,6 +3210,16 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentModelPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentSkuOutput{})
 	pulumi.RegisterOutputType(DeploymentSkuPtrOutput{})
+	pulumi.RegisterOutputType(GetAccountCustomerManagedKeyTypeOutput{})
+	pulumi.RegisterOutputType(GetAccountCustomerManagedKeyTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountNetworkAclOutput{})
+	pulumi.RegisterOutputType(GetAccountNetworkAclArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountNetworkAclVirtualNetworkRuleOutput{})
+	pulumi.RegisterOutputType(GetAccountNetworkAclVirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountNetworkInjectionOutput{})
+	pulumi.RegisterOutputType(GetAccountNetworkInjectionArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountStorageOutput{})
+	pulumi.RegisterOutputType(GetAccountStorageArrayOutput{})
 }

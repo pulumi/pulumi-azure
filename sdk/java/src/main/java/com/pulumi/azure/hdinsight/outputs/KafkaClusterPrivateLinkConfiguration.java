@@ -16,6 +16,10 @@ public final class KafkaClusterPrivateLinkConfiguration {
      * 
      */
     private String groupId;
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     private KafkaClusterPrivateLinkConfigurationIpConfiguration ipConfiguration;
     /**
      * @return The name of the private link configuration.
@@ -31,6 +35,10 @@ public final class KafkaClusterPrivateLinkConfiguration {
     public String groupId() {
         return this.groupId;
     }
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     public KafkaClusterPrivateLinkConfigurationIpConfiguration ipConfiguration() {
         return this.ipConfiguration;
     }

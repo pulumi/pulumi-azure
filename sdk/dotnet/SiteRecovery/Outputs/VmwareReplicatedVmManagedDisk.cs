@@ -26,7 +26,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// </summary>
         public readonly string? TargetDiskEncryptionSetId;
         /// <summary>
-        /// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        /// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
         /// </summary>
         public readonly string TargetDiskType;
 

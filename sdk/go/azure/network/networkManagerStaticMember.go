@@ -114,7 +114,9 @@ type NetworkManagerStaticMember struct {
 	NetworkGroupId pulumi.StringOutput `pulumi:"networkGroupId"`
 	// The region of the Network Manager Static Member.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	// Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	//
+	// > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
 	TargetVirtualNetworkId pulumi.StringOutput `pulumi:"targetVirtualNetworkId"`
 }
 
@@ -160,7 +162,9 @@ type networkManagerStaticMemberState struct {
 	NetworkGroupId *string `pulumi:"networkGroupId"`
 	// The region of the Network Manager Static Member.
 	Region *string `pulumi:"region"`
-	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	// Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	//
+	// > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
 	TargetVirtualNetworkId *string `pulumi:"targetVirtualNetworkId"`
 }
 
@@ -171,7 +175,9 @@ type NetworkManagerStaticMemberState struct {
 	NetworkGroupId pulumi.StringPtrInput
 	// The region of the Network Manager Static Member.
 	Region pulumi.StringPtrInput
-	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	// Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	//
+	// > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
 	TargetVirtualNetworkId pulumi.StringPtrInput
 }
 
@@ -184,7 +190,9 @@ type networkManagerStaticMemberArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
 	NetworkGroupId string `pulumi:"networkGroupId"`
-	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	// Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	//
+	// > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
 	TargetVirtualNetworkId string `pulumi:"targetVirtualNetworkId"`
 }
 
@@ -194,7 +202,9 @@ type NetworkManagerStaticMemberArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
 	NetworkGroupId pulumi.StringInput
-	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	// Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+	//
+	// > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
 	TargetVirtualNetworkId pulumi.StringInput
 }
 
@@ -300,7 +310,9 @@ func (o NetworkManagerStaticMemberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerStaticMember) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+// Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+//
+// > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
 func (o NetworkManagerStaticMemberOutput) TargetVirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerStaticMember) pulumi.StringOutput { return v.TargetVirtualNetworkId }).(pulumi.StringOutput)
 }

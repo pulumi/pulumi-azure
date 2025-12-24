@@ -32,7 +32,7 @@ class JobScheduleArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] schedule_name: The name of the Schedule. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule.
+        :param pulumi.Input[_builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
                > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
@@ -101,7 +101,7 @@ class JobScheduleArgs:
     @pulumi.getter(name="jobScheduleId")
     def job_schedule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The UUID identifying the Automation Job Schedule.
+        The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "job_schedule_id")
 
@@ -150,7 +150,7 @@ class _JobScheduleState:
         """
         Input properties used for looking up and filtering JobSchedule resources.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule.
+        :param pulumi.Input[_builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
                > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
@@ -193,7 +193,7 @@ class _JobScheduleState:
     @pulumi.getter(name="jobScheduleId")
     def job_schedule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The UUID identifying the Automation Job Schedule.
+        The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "job_schedule_id")
 
@@ -332,7 +332,7 @@ class JobSchedule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule.
+        :param pulumi.Input[_builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
                > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
@@ -459,7 +459,7 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule.
+        :param pulumi.Input[_builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
                > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
@@ -495,7 +495,7 @@ class JobSchedule(pulumi.CustomResource):
     @pulumi.getter(name="jobScheduleId")
     def job_schedule_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The UUID identifying the Automation Job Schedule.
+        The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "job_schedule_id")
 

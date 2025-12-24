@@ -36,7 +36,7 @@ class HubArgs:
         :param pulumi.Input['HubApnsCredentialArgs'] apns_credential: A `apns_credential` block as defined below.
                
                > **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
-        :param pulumi.Input['HubBrowserCredentialArgs'] browser_credential: A `browser_credential` block as defined below.
+        :param pulumi.Input['HubBrowserCredentialArgs'] browser_credential: A `browser_credential` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['HubGcmCredentialArgs'] gcm_credential: A `gcm_credential` block as defined below.
                
                > **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -101,7 +101,7 @@ class HubArgs:
     @pulumi.getter(name="browserCredential")
     def browser_credential(self) -> Optional[pulumi.Input['HubBrowserCredentialArgs']]:
         """
-        A `browser_credential` block as defined below.
+        A `browser_credential` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "browser_credential")
 
@@ -176,7 +176,7 @@ class _HubState:
         :param pulumi.Input['HubApnsCredentialArgs'] apns_credential: A `apns_credential` block as defined below.
                
                > **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
-        :param pulumi.Input['HubBrowserCredentialArgs'] browser_credential: A `browser_credential` block as defined below.
+        :param pulumi.Input['HubBrowserCredentialArgs'] browser_credential: A `browser_credential` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['HubGcmCredentialArgs'] gcm_credential: A `gcm_credential` block as defined below.
                
                > **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -221,7 +221,7 @@ class _HubState:
     @pulumi.getter(name="browserCredential")
     def browser_credential(self) -> Optional[pulumi.Input['HubBrowserCredentialArgs']]:
         """
-        A `browser_credential` block as defined below.
+        A `browser_credential` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "browser_credential")
 
@@ -364,7 +364,7 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']] apns_credential: A `apns_credential` block as defined below.
                
                > **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
-        :param pulumi.Input[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict']] browser_credential: A `browser_credential` block as defined below.
+        :param pulumi.Input[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict']] browser_credential: A `browser_credential` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']] gcm_credential: A `gcm_credential` block as defined below.
                
                > **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -492,7 +492,7 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']] apns_credential: A `apns_credential` block as defined below.
                
                > **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
-        :param pulumi.Input[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict']] browser_credential: A `browser_credential` block as defined below.
+        :param pulumi.Input[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict']] browser_credential: A `browser_credential` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']] gcm_credential: A `gcm_credential` block as defined below.
                
                > **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -530,7 +530,7 @@ class Hub(pulumi.CustomResource):
     @pulumi.getter(name="browserCredential")
     def browser_credential(self) -> pulumi.Output[Optional['outputs.HubBrowserCredential']]:
         """
-        A `browser_credential` block as defined below.
+        A `browser_credential` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "browser_credential")
 

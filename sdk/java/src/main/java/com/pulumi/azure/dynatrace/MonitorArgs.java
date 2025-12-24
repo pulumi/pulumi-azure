@@ -39,14 +39,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+     * The kind of managed identity assigned to this resource. A `identity` block as defined below.
      * 
      */
     @Import(name="identity", required=true)
     private Output<MonitorIdentityArgs> identity;
 
     /**
-     * @return The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+     * @return The kind of managed identity assigned to this resource. A `identity` block as defined below.
      * 
      */
     public Output<MonitorIdentityArgs> identity() {
@@ -69,14 +69,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="marketplaceSubscription", required=true)
     private Output<String> marketplaceSubscription;
 
     /**
-     * @return Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+     * @return Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> marketplaceSubscription() {
@@ -84,14 +84,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="monitoringEnabled")
     private @Nullable Output<Boolean> monitoringEnabled;
 
     /**
-     * @return Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+     * @return Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> monitoringEnabled() {
@@ -159,14 +159,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User&#39;s information. A `user` block as defined below. Chainging this forces a new resource to be created.
+     * User&#39;s information. A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="user", required=true)
     private Output<MonitorUserArgs> user;
 
     /**
-     * @return User&#39;s information. A `user` block as defined below. Chainging this forces a new resource to be created.
+     * @return User&#39;s information. A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<MonitorUserArgs> user() {
@@ -238,7 +238,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+         * @param identity The kind of managed identity assigned to this resource. A `identity` block as defined below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+         * @param identity The kind of managed identity assigned to this resource. A `identity` block as defined below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param marketplaceSubscription Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+         * @param marketplaceSubscription Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param marketplaceSubscription Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+         * @param marketplaceSubscription Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringEnabled Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+         * @param monitoringEnabled Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringEnabled Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+         * @param monitoringEnabled Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param user User&#39;s information. A `user` block as defined below. Chainging this forces a new resource to be created.
+         * @param user User&#39;s information. A `user` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param user User&#39;s information. A `user` block as defined below. Chainging this forces a new resource to be created.
+         * @param user User&#39;s information. A `user` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

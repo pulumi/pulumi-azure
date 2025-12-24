@@ -93,7 +93,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+     * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
     declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
@@ -109,7 +109,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A `topicSpacesConfiguration` block as defined below.
+     * A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly topicSpacesConfigurations: pulumi.Output<outputs.eventgrid.NamespaceTopicSpacesConfiguration[] | undefined>;
 
@@ -182,7 +182,7 @@ export interface NamespaceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+     * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
     publicNetworkAccess?: pulumi.Input<string>;
     /**
@@ -198,7 +198,7 @@ export interface NamespaceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `topicSpacesConfiguration` block as defined below.
+     * A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     topicSpacesConfigurations?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceTopicSpacesConfiguration>[]>;
 }
@@ -228,7 +228,7 @@ export interface NamespaceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+     * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
     publicNetworkAccess?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface NamespaceArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `topicSpacesConfiguration` block as defined below.
+     * A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     topicSpacesConfigurations?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceTopicSpacesConfiguration>[]>;
 }

@@ -110,7 +110,7 @@ type Socketio struct {
 	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
 	// The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
 	ServiceMode pulumi.StringPtrOutput `pulumi:"serviceMode"`
-	// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+	// One or more `sku` blocks as defined below.
 	Sku SocketioSkuOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Web PubSub Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -205,7 +205,7 @@ type socketioState struct {
 	ServerPort *int `pulumi:"serverPort"`
 	// The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
 	ServiceMode *string `pulumi:"serviceMode"`
-	// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+	// One or more `sku` blocks as defined below.
 	Sku *SocketioSku `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Web PubSub Service.
 	Tags map[string]string `pulumi:"tags"`
@@ -258,7 +258,7 @@ type SocketioState struct {
 	ServerPort pulumi.IntPtrInput
 	// The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
 	ServiceMode pulumi.StringPtrInput
-	// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+	// One or more `sku` blocks as defined below.
 	Sku SocketioSkuPtrInput
 	// A mapping of tags which should be assigned to the Web PubSub Service.
 	Tags pulumi.StringMapInput
@@ -299,7 +299,7 @@ type socketioArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
 	ServiceMode *string `pulumi:"serviceMode"`
-	// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+	// One or more `sku` blocks as defined below.
 	Sku SocketioSku `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Web PubSub Service.
 	Tags map[string]string `pulumi:"tags"`
@@ -337,7 +337,7 @@ type SocketioArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
 	ServiceMode pulumi.StringPtrInput
-	// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+	// One or more `sku` blocks as defined below.
 	Sku SocketioSkuInput
 	// A mapping of tags which should be assigned to the Web PubSub Service.
 	Tags pulumi.StringMapInput
@@ -536,7 +536,7 @@ func (o SocketioOutput) ServiceMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Socketio) pulumi.StringPtrOutput { return v.ServiceMode }).(pulumi.StringPtrOutput)
 }
 
-// The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+// One or more `sku` blocks as defined below.
 func (o SocketioOutput) Sku() SocketioSkuOutput {
 	return o.ApplyT(func(v *Socketio) SocketioSkuOutput { return v.Sku }).(SocketioSkuOutput)
 }

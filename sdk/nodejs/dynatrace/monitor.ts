@@ -92,7 +92,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly environmentProperties: pulumi.Output<outputs.dynatrace.MonitorEnvironmentProperty[] | undefined>;
     /**
-     * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+     * The kind of managed identity assigned to this resource. A `identity` block as defined below.
      */
     declare public readonly identity: pulumi.Output<outputs.dynatrace.MonitorIdentity>;
     /**
@@ -100,11 +100,11 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
      */
     declare public readonly marketplaceSubscription: pulumi.Output<string>;
     /**
-     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
      */
     declare public readonly monitoringEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -124,7 +124,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+     * User's information. A `user` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly user: pulumi.Output<outputs.dynatrace.MonitorUser>;
 
@@ -193,7 +193,7 @@ export interface MonitorState {
      */
     environmentProperties?: pulumi.Input<pulumi.Input<inputs.dynatrace.MonitorEnvironmentProperty>[]>;
     /**
-     * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+     * The kind of managed identity assigned to this resource. A `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.dynatrace.MonitorIdentity>;
     /**
@@ -201,11 +201,11 @@ export interface MonitorState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
      */
     marketplaceSubscription?: pulumi.Input<string>;
     /**
-     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
      */
     monitoringEnabled?: pulumi.Input<boolean>;
     /**
@@ -225,7 +225,7 @@ export interface MonitorState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+     * User's information. A `user` block as defined below. Changing this forces a new resource to be created.
      */
     user?: pulumi.Input<inputs.dynatrace.MonitorUser>;
 }
@@ -239,7 +239,7 @@ export interface MonitorArgs {
      */
     environmentProperties?: pulumi.Input<pulumi.Input<inputs.dynatrace.MonitorEnvironmentProperty>[]>;
     /**
-     * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+     * The kind of managed identity assigned to this resource. A `identity` block as defined below.
      */
     identity: pulumi.Input<inputs.dynatrace.MonitorIdentity>;
     /**
@@ -247,11 +247,11 @@ export interface MonitorArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+     * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
      */
     marketplaceSubscription: pulumi.Input<string>;
     /**
-     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
+     * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
      */
     monitoringEnabled?: pulumi.Input<boolean>;
     /**
@@ -271,7 +271,7 @@ export interface MonitorArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+     * User's information. A `user` block as defined below. Changing this forces a new resource to be created.
      */
     user: pulumi.Input<inputs.dynatrace.MonitorUser>;
 }

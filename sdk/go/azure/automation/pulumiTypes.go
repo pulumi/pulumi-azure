@@ -3004,7 +3004,8 @@ type SoftwareUpdateConfigurationSchedule struct {
 	// A description for this Schedule.
 	Description *string `pulumi:"description"`
 	// The end time of the schedule.
-	ExpiryTime              *string  `pulumi:"expiryTime"`
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// The time offset in minutes for the expiry time.
 	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency string `pulumi:"frequency"`
@@ -3014,11 +3015,13 @@ type SoftwareUpdateConfigurationSchedule struct {
 	IsEnabled        *bool   `pulumi:"isEnabled"`
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
-	MonthlyOccurrence    *SoftwareUpdateConfigurationScheduleMonthlyOccurrence `pulumi:"monthlyOccurrence"`
-	NextRun              *string                                               `pulumi:"nextRun"`
-	NextRunOffsetMinutes *float64                                              `pulumi:"nextRunOffsetMinutes"`
+	MonthlyOccurrence *SoftwareUpdateConfigurationScheduleMonthlyOccurrence `pulumi:"monthlyOccurrence"`
+	NextRun           *string                                               `pulumi:"nextRun"`
+	// The time offset in minutes for the next run time.
+	NextRunOffsetMinutes *float64 `pulumi:"nextRunOffsetMinutes"`
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-	StartTime              *string  `pulumi:"startTime"`
+	StartTime *string `pulumi:"startTime"`
+	// The time offset in minutes for the start time.
 	StartTimeOffsetMinutes *float64 `pulumi:"startTimeOffsetMinutes"`
 	// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
 	TimeZone *string `pulumi:"timeZone"`
@@ -3044,7 +3047,8 @@ type SoftwareUpdateConfigurationScheduleArgs struct {
 	// A description for this Schedule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The end time of the schedule.
-	ExpiryTime              pulumi.StringPtrInput  `pulumi:"expiryTime"`
+	ExpiryTime pulumi.StringPtrInput `pulumi:"expiryTime"`
+	// The time offset in minutes for the expiry time.
 	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput `pulumi:"expiryTimeOffsetMinutes"`
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency pulumi.StringInput `pulumi:"frequency"`
@@ -3054,11 +3058,13 @@ type SoftwareUpdateConfigurationScheduleArgs struct {
 	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
 	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
 	// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
-	MonthlyOccurrence    SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrInput `pulumi:"monthlyOccurrence"`
-	NextRun              pulumi.StringPtrInput                                        `pulumi:"nextRun"`
-	NextRunOffsetMinutes pulumi.Float64PtrInput                                       `pulumi:"nextRunOffsetMinutes"`
+	MonthlyOccurrence SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrInput `pulumi:"monthlyOccurrence"`
+	NextRun           pulumi.StringPtrInput                                        `pulumi:"nextRun"`
+	// The time offset in minutes for the next run time.
+	NextRunOffsetMinutes pulumi.Float64PtrInput `pulumi:"nextRunOffsetMinutes"`
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-	StartTime              pulumi.StringPtrInput  `pulumi:"startTime"`
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The time offset in minutes for the start time.
 	StartTimeOffsetMinutes pulumi.Float64PtrInput `pulumi:"startTimeOffsetMinutes"`
 	// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
@@ -3165,6 +3171,7 @@ func (o SoftwareUpdateConfigurationScheduleOutput) ExpiryTime() pulumi.StringPtr
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
 }
 
+// The time offset in minutes for the expiry time.
 func (o SoftwareUpdateConfigurationScheduleOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *float64 { return v.ExpiryTimeOffsetMinutes }).(pulumi.Float64PtrOutput)
 }
@@ -3199,6 +3206,7 @@ func (o SoftwareUpdateConfigurationScheduleOutput) NextRun() pulumi.StringPtrOut
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *string { return v.NextRun }).(pulumi.StringPtrOutput)
 }
 
+// The time offset in minutes for the next run time.
 func (o SoftwareUpdateConfigurationScheduleOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *float64 { return v.NextRunOffsetMinutes }).(pulumi.Float64PtrOutput)
 }
@@ -3208,6 +3216,7 @@ func (o SoftwareUpdateConfigurationScheduleOutput) StartTime() pulumi.StringPtrO
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
+// The time offset in minutes for the start time.
 func (o SoftwareUpdateConfigurationScheduleOutput) StartTimeOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *float64 { return v.StartTimeOffsetMinutes }).(pulumi.Float64PtrOutput)
 }
@@ -3290,6 +3299,7 @@ func (o SoftwareUpdateConfigurationSchedulePtrOutput) ExpiryTime() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time offset in minutes for the expiry time.
 func (o SoftwareUpdateConfigurationSchedulePtrOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *float64 {
 		if v == nil {
@@ -3357,6 +3367,7 @@ func (o SoftwareUpdateConfigurationSchedulePtrOutput) NextRun() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time offset in minutes for the next run time.
 func (o SoftwareUpdateConfigurationSchedulePtrOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *float64 {
 		if v == nil {
@@ -3376,6 +3387,7 @@ func (o SoftwareUpdateConfigurationSchedulePtrOutput) StartTime() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time offset in minutes for the start time.
 func (o SoftwareUpdateConfigurationSchedulePtrOutput) StartTimeOffsetMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *float64 {
 		if v == nil {

@@ -30,9 +30,17 @@ public final class HadoopClusterPrivateLinkConfigurationArgs extends com.pulumi.
         return this.groupId;
     }
 
+    /**
+     * An `ipConfiguration` block as defined below.
+     * 
+     */
     @Import(name="ipConfiguration", required=true)
     private Output<HadoopClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration;
 
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     public Output<HadoopClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration() {
         return this.ipConfiguration;
     }
@@ -99,11 +107,23 @@ public final class HadoopClusterPrivateLinkConfigurationArgs extends com.pulumi.
             return groupId(Output.of(groupId));
         }
 
+        /**
+         * @param ipConfiguration An `ipConfiguration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfiguration(Output<HadoopClusterPrivateLinkConfigurationIpConfigurationArgs> ipConfiguration) {
             $.ipConfiguration = ipConfiguration;
             return this;
         }
 
+        /**
+         * @param ipConfiguration An `ipConfiguration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfiguration(HadoopClusterPrivateLinkConfigurationIpConfigurationArgs ipConfiguration) {
             return ipConfiguration(Output.of(ipConfiguration));
         }

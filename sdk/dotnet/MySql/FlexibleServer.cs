@@ -291,7 +291,7 @@ namespace Pulumi.Azure.MySql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        /// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -518,7 +518,7 @@ namespace Pulumi.Azure.MySql
         }
 
         /// <summary>
-        /// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        /// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -718,7 +718,7 @@ namespace Pulumi.Azure.MySql
         }
 
         /// <summary>
-        /// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+        /// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

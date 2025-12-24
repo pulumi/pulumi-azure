@@ -310,14 +310,14 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+     * The number of days to retain and untagged manifest after which it gets purged.
      * 
      */
     @Import(name="retentionPolicyInDays")
     private @Nullable Output<Integer> retentionPolicyInDays;
 
     /**
-     * @return The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+     * @return The number of days to retain and untagged manifest after which it gets purged.
      * 
      */
     public Optional<Output<Integer>> retentionPolicyInDays() {
@@ -851,7 +851,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPolicyInDays The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+         * @param retentionPolicyInDays The number of days to retain and untagged manifest after which it gets purged.
          * 
          * @return builder
          * 
@@ -862,7 +862,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPolicyInDays The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+         * @param retentionPolicyInDays The number of days to retain and untagged manifest after which it gets purged.
          * 
          * @return builder
          * 

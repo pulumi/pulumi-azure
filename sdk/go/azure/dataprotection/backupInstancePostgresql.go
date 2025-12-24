@@ -14,6 +14,8 @@ import (
 
 // Manages a Backup Instance to back up PostgreSQL.
 //
+// > **Note:** The `dataprotection.BackupInstancePostgresql` resource has been deprecated because Azure Database for PostgreSQL Single Server has been retired as of 2025-03-28 and will be removed in v5.0 of the AzureRM Provider.
+//
 // > **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from <https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore>.
 //
 // ## Example Usage
@@ -223,6 +225,8 @@ type BackupInstancePostgresql struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The protection state of the Backup Instance PostgreSQL.
+	ProtectionState pulumi.StringOutput `pulumi:"protectionState"`
 	// The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
 	VaultId pulumi.StringOutput `pulumi:"vaultId"`
 }
@@ -276,6 +280,8 @@ type backupInstancePostgresqlState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
 	Name *string `pulumi:"name"`
+	// The protection state of the Backup Instance PostgreSQL.
+	ProtectionState *string `pulumi:"protectionState"`
 	// The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
 	VaultId *string `pulumi:"vaultId"`
 }
@@ -291,6 +297,8 @@ type BackupInstancePostgresqlState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
 	Name pulumi.StringPtrInput
+	// The protection state of the Backup Instance PostgreSQL.
+	ProtectionState pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
 	VaultId pulumi.StringPtrInput
 }
@@ -440,6 +448,11 @@ func (o BackupInstancePostgresqlOutput) Location() pulumi.StringOutput {
 // The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
 func (o BackupInstancePostgresqlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstancePostgresql) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protection state of the Backup Instance PostgreSQL.
+func (o BackupInstancePostgresqlOutput) ProtectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupInstancePostgresql) pulumi.StringOutput { return v.ProtectionState }).(pulumi.StringOutput)
 }
 
 // The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.

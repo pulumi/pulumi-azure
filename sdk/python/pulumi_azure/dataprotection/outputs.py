@@ -662,7 +662,7 @@ class BackupPolicyKubernetesClusterRetentionRuleCriteria(dict):
         :param Sequence[_builtins.str] months_of_years: Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] weeks_of_months: Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
-               *
+               
                > **Note:** When not using `absolute_criteria`, you must use exactly one of `days_of_month` or `days_of_week`. Regarding the remaining two properties, `weeks_of_month` and `months_of_year`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retention_rule` blocks.
         """
         if absolute_criteria is not None:
@@ -713,7 +713,7 @@ class BackupPolicyKubernetesClusterRetentionRuleCriteria(dict):
     def weeks_of_months(self) -> Optional[Sequence[_builtins.str]]:
         """
         Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
-        *
+
         > **Note:** When not using `absolute_criteria`, you must use exactly one of `days_of_month` or `days_of_week`. Regarding the remaining two properties, `weeks_of_month` and `months_of_year`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retention_rule` blocks.
         """
         return pulumi.get(self, "weeks_of_months")
@@ -949,7 +949,7 @@ class BackupPolicyMysqlFlexibleServerRetentionRuleCriteria(dict):
                  weeks_of_months: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str absolute_criteria: Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
-        :param Sequence[_builtins.str] days_of_weeks: Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        :param Sequence[_builtins.str] days_of_weeks: Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] months_of_years: Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] weeks_of_months: Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
@@ -979,7 +979,7 @@ class BackupPolicyMysqlFlexibleServerRetentionRuleCriteria(dict):
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -1240,7 +1240,7 @@ class BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria(dict):
                  weeks_of_months: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str absolute_criteria: Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
-        :param Sequence[_builtins.str] days_of_weeks: Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        :param Sequence[_builtins.str] days_of_weeks: Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] months_of_years: Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] weeks_of_months: Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
@@ -1270,7 +1270,7 @@ class BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria(dict):
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "days_of_weeks")
 

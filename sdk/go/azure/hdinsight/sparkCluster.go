@@ -168,7 +168,7 @@ type SparkCluster struct {
 	//
 	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	TlsMinVersion pulumi.StringPtrOutput `pulumi:"tlsMinVersion"`
-	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -268,7 +268,7 @@ type sparkClusterState struct {
 	//
 	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
-	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -321,7 +321,7 @@ type SparkClusterState struct {
 	//
 	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	TlsMinVersion pulumi.StringPtrInput
-	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -374,7 +374,7 @@ type sparkClusterArgs struct {
 	//
 	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
-	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -424,7 +424,7 @@ type SparkClusterArgs struct {
 	//
 	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	TlsMinVersion pulumi.StringPtrInput
-	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -632,7 +632,7 @@ func (o SparkClusterOutput) TlsMinVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkCluster) pulumi.StringPtrOutput { return v.TlsMinVersion }).(pulumi.StringPtrOutput)
 }
 
-// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 func (o SparkClusterOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SparkCluster) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

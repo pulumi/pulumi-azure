@@ -153,7 +153,7 @@ export class Socketio extends pulumi.CustomResource {
      */
     declare public readonly serviceMode: pulumi.Output<string | undefined>;
     /**
-     * The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+     * One or more `sku` blocks as defined below.
      */
     declare public readonly sku: pulumi.Output<outputs.webpubsub.SocketioSku>;
     /**
@@ -329,7 +329,7 @@ export interface SocketioState {
      */
     serviceMode?: pulumi.Input<string>;
     /**
-     * The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+     * One or more `sku` blocks as defined below.
      */
     sku?: pulumi.Input<inputs.webpubsub.SocketioSku>;
     /**
@@ -399,7 +399,7 @@ export interface SocketioArgs {
      */
     serviceMode?: pulumi.Input<string>;
     /**
-     * The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+     * One or more `sku` blocks as defined below.
      */
     sku: pulumi.Input<inputs.webpubsub.SocketioSku>;
     /**

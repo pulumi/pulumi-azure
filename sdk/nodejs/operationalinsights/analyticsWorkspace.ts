@@ -142,7 +142,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly secondarySharedKey: pulumi.Output<string>;
     /**
-     * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+     * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerGB2018`, `PerNode`, `Premium`, `Standalone`, `Standard`, `CapacityReservation`, `LACluster` and `Unlimited`. Defaults to `PerGB2018`.
      *
      * > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
      *
@@ -301,7 +301,7 @@ export interface AnalyticsWorkspaceState {
      */
     secondarySharedKey?: pulumi.Input<string>;
     /**
-     * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+     * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerGB2018`, `PerNode`, `Premium`, `Standalone`, `Standard`, `CapacityReservation`, `LACluster` and `Unlimited`. Defaults to `PerGB2018`.
      *
      * > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
      *
@@ -387,7 +387,7 @@ export interface AnalyticsWorkspaceArgs {
      */
     retentionInDays?: pulumi.Input<number>;
     /**
-     * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+     * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerGB2018`, `PerNode`, `Premium`, `Standalone`, `Standard`, `CapacityReservation`, `LACluster` and `Unlimited`. Defaults to `PerGB2018`.
      *
      * > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
      *

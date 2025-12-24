@@ -17,6 +17,14 @@ from .. import _utilities
 __all__ = [
     'MongoClusterConnectionStringArgs',
     'MongoClusterConnectionStringArgsDict',
+    'MongoClusterCustomerManagedKeyArgs',
+    'MongoClusterCustomerManagedKeyArgsDict',
+    'MongoClusterIdentityArgs',
+    'MongoClusterIdentityArgsDict',
+    'MongoClusterRestoreArgs',
+    'MongoClusterRestoreArgsDict',
+    'UserRoleArgs',
+    'UserRoleArgsDict',
 ]
 
 MYPY = False
@@ -91,5 +99,211 @@ class MongoClusterConnectionStringArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class MongoClusterCustomerManagedKeyArgsDict(TypedDict):
+        key_vault_key_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+        """
+        user_assigned_identity_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the User Assigned Identity that has access to the Key Vault Key.
+        """
+elif False:
+    MongoClusterCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MongoClusterCustomerManagedKeyArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: pulumi.Input[_builtins.str],
+                 user_assigned_identity_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+        :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Identity that has access to the Key Vault Key.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the User Assigned Identity that has access to the Key Vault Key.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
+
+if not MYPY:
+    class MongoClusterIdentityArgsDict(TypedDict):
+        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign.
+
+        > **Note:** Required when `type` is set to `UserAssigned`.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        The type of managed identity to assign. Possible value is `UserAssigned`.
+        """
+elif False:
+    MongoClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MongoClusterIdentityArgs:
+    def __init__(__self__, *,
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign.
+               
+               > **Note:** Required when `type` is set to `UserAssigned`.
+        :param pulumi.Input[_builtins.str] type: The type of managed identity to assign. Possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign.
+
+        > **Note:** Required when `type` is set to `UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of managed identity to assign. Possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class MongoClusterRestoreArgsDict(TypedDict):
+        point_in_time_utc: pulumi.Input[_builtins.str]
+        """
+        The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+        """
+        source_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+        """
+elif False:
+    MongoClusterRestoreArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MongoClusterRestoreArgs:
+    def __init__(__self__, *,
+                 point_in_time_utc: pulumi.Input[_builtins.str],
+                 source_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] point_in_time_utc: The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_id: The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
+        pulumi.set(__self__, "source_id", source_id)
+
+    @_builtins.property
+    @pulumi.getter(name="pointInTimeUtc")
+    def point_in_time_utc(self) -> pulumi.Input[_builtins.str]:
+        """
+        The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "point_in_time_utc")
+
+    @point_in_time_utc.setter
+    def point_in_time_utc(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "point_in_time_utc", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source_id", value)
+
+
+if not MYPY:
+    class UserRoleArgsDict(TypedDict):
+        database: pulumi.Input[_builtins.str]
+        """
+        The name of the database to which the role will be applied. Changing this forces a new resource to be created.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        The role name. The only possible value is `root`. Changing this forces a new resource to be created.
+        """
+elif False:
+    UserRoleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserRoleArgs:
+    def __init__(__self__, *,
+                 database: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] database: The name of the database to which the role will be applied. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: The role name. The only possible value is `root`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the database to which the role will be applied. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The role name. The only possible value is `root`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
 

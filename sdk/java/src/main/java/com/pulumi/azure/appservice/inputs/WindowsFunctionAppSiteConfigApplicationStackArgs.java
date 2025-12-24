@@ -17,14 +17,14 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
     public static final WindowsFunctionAppSiteConfigApplicationStackArgs Empty = new WindowsFunctionAppSiteConfigApplicationStackArgs();
 
     /**
-     * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
+     * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
+     * @return The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -140,7 +140,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
          * 
          * @return builder
          * 

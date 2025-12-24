@@ -124,7 +124,7 @@ type WorkspaceNetworkOutboundRuleServiceTag struct {
 
 	// Specifies the name of the Machine Learning Workspace Network Outbound Rule Service Tag. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
 	PortRanges pulumi.StringOutput `pulumi:"portRanges"`
 	// Specifies the network protocol. Possible values are `*`, `TCP`, `UDP` and `ICMP`
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
@@ -178,7 +178,7 @@ func GetWorkspaceNetworkOutboundRuleServiceTag(ctx *pulumi.Context,
 type workspaceNetworkOutboundRuleServiceTagState struct {
 	// Specifies the name of the Machine Learning Workspace Network Outbound Rule Service Tag. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
 	PortRanges *string `pulumi:"portRanges"`
 	// Specifies the network protocol. Possible values are `*`, `TCP`, `UDP` and `ICMP`
 	Protocol *string `pulumi:"protocol"`
@@ -191,7 +191,7 @@ type workspaceNetworkOutboundRuleServiceTagState struct {
 type WorkspaceNetworkOutboundRuleServiceTagState struct {
 	// Specifies the name of the Machine Learning Workspace Network Outbound Rule Service Tag. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
 	PortRanges pulumi.StringPtrInput
 	// Specifies the network protocol. Possible values are `*`, `TCP`, `UDP` and `ICMP`
 	Protocol pulumi.StringPtrInput
@@ -208,7 +208,7 @@ func (WorkspaceNetworkOutboundRuleServiceTagState) ElementType() reflect.Type {
 type workspaceNetworkOutboundRuleServiceTagArgs struct {
 	// Specifies the name of the Machine Learning Workspace Network Outbound Rule Service Tag. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
 	PortRanges string `pulumi:"portRanges"`
 	// Specifies the network protocol. Possible values are `*`, `TCP`, `UDP` and `ICMP`
 	Protocol string `pulumi:"protocol"`
@@ -222,7 +222,7 @@ type workspaceNetworkOutboundRuleServiceTagArgs struct {
 type WorkspaceNetworkOutboundRuleServiceTagArgs struct {
 	// Specifies the name of the Machine Learning Workspace Network Outbound Rule Service Tag. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+	// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
 	PortRanges pulumi.StringInput
 	// Specifies the network protocol. Possible values are `*`, `TCP`, `UDP` and `ICMP`
 	Protocol pulumi.StringInput
@@ -324,7 +324,7 @@ func (o WorkspaceNetworkOutboundRuleServiceTagOutput) Name() pulumi.StringOutput
 	return o.ApplyT(func(v *WorkspaceNetworkOutboundRuleServiceTag) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
+// Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. `  80 `) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
 func (o WorkspaceNetworkOutboundRuleServiceTagOutput) PortRanges() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceNetworkOutboundRuleServiceTag) pulumi.StringOutput { return v.PortRanges }).(pulumi.StringOutput)
 }

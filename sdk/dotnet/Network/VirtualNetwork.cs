@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// One or two `IpAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        /// One or more `IpAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
         /// 
         /// &gt; **Note:** Exactly one of `AddressSpace` or `IpAddressPool` must be specified.
         /// </summary>
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkIpAddressPoolArgs>? _ipAddressPools;
 
         /// <summary>
-        /// One or two `IpAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        /// One or more `IpAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
         /// 
         /// &gt; **Note:** Exactly one of `AddressSpace` or `IpAddressPool` must be specified.
         /// </summary>
@@ -451,7 +451,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkIpAddressPoolGetArgs>? _ipAddressPools;
 
         /// <summary>
-        /// One or two `IpAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        /// One or more `IpAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
         /// 
         /// &gt; **Note:** Exactly one of `AddressSpace` or `IpAddressPool` must be specified.
         /// </summary>

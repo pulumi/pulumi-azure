@@ -88,9 +88,17 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         return Optional.ofNullable(this.expiryTime);
     }
 
+    /**
+     * The time offset in minutes for the expiry time.
+     * 
+     */
     @Import(name="expiryTimeOffsetMinutes")
     private @Nullable Output<Double> expiryTimeOffsetMinutes;
 
+    /**
+     * @return The time offset in minutes for the expiry time.
+     * 
+     */
     public Optional<Output<Double>> expiryTimeOffsetMinutes() {
         return Optional.ofNullable(this.expiryTimeOffsetMinutes);
     }
@@ -169,9 +177,17 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         return Optional.ofNullable(this.nextRun);
     }
 
+    /**
+     * The time offset in minutes for the next run time.
+     * 
+     */
     @Import(name="nextRunOffsetMinutes")
     private @Nullable Output<Double> nextRunOffsetMinutes;
 
+    /**
+     * @return The time offset in minutes for the next run time.
+     * 
+     */
     public Optional<Output<Double>> nextRunOffsetMinutes() {
         return Optional.ofNullable(this.nextRunOffsetMinutes);
     }
@@ -191,9 +207,17 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         return Optional.ofNullable(this.startTime);
     }
 
+    /**
+     * The time offset in minutes for the start time.
+     * 
+     */
     @Import(name="startTimeOffsetMinutes")
     private @Nullable Output<Double> startTimeOffsetMinutes;
 
+    /**
+     * @return The time offset in minutes for the start time.
+     * 
+     */
     public Optional<Output<Double>> startTimeOffsetMinutes() {
         return Optional.ofNullable(this.startTimeOffsetMinutes);
     }
@@ -365,11 +389,23 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
             return expiryTime(Output.of(expiryTime));
         }
 
+        /**
+         * @param expiryTimeOffsetMinutes The time offset in minutes for the expiry time.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expiryTimeOffsetMinutes(@Nullable Output<Double> expiryTimeOffsetMinutes) {
             $.expiryTimeOffsetMinutes = expiryTimeOffsetMinutes;
             return this;
         }
 
+        /**
+         * @param expiryTimeOffsetMinutes The time offset in minutes for the expiry time.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expiryTimeOffsetMinutes(Double expiryTimeOffsetMinutes) {
             return expiryTimeOffsetMinutes(Output.of(expiryTimeOffsetMinutes));
         }
@@ -476,11 +512,23 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
             return nextRun(Output.of(nextRun));
         }
 
+        /**
+         * @param nextRunOffsetMinutes The time offset in minutes for the next run time.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nextRunOffsetMinutes(@Nullable Output<Double> nextRunOffsetMinutes) {
             $.nextRunOffsetMinutes = nextRunOffsetMinutes;
             return this;
         }
 
+        /**
+         * @param nextRunOffsetMinutes The time offset in minutes for the next run time.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nextRunOffsetMinutes(Double nextRunOffsetMinutes) {
             return nextRunOffsetMinutes(Output.of(nextRunOffsetMinutes));
         }
@@ -506,11 +554,23 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
             return startTime(Output.of(startTime));
         }
 
+        /**
+         * @param startTimeOffsetMinutes The time offset in minutes for the start time.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startTimeOffsetMinutes(@Nullable Output<Double> startTimeOffsetMinutes) {
             $.startTimeOffsetMinutes = startTimeOffsetMinutes;
             return this;
         }
 
+        /**
+         * @param startTimeOffsetMinutes The time offset in minutes for the start time.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startTimeOffsetMinutes(Double startTimeOffsetMinutes) {
             return startTimeOffsetMinutes(Output.of(startTimeOffsetMinutes));
         }

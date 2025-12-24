@@ -287,7 +287,7 @@ namespace Pulumi.Azure.DataProtection
     public partial class BackupInstanceKubernetesCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `BackupDatasourceParameters` block as defined below.
+        /// A `BackupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("backupDatasourceParameters")]
         public Output<Outputs.BackupInstanceKubernetesClusterBackupDatasourceParameters?> BackupDatasourceParameters { get; private set; } = null!;
@@ -315,6 +315,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The protection state of the Backup Instance Kubernetes Cluster.
+        /// </summary>
+        [Output("protectionState")]
+        public Output<string> ProtectionState { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
@@ -375,7 +381,7 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupInstanceKubernetesClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `BackupDatasourceParameters` block as defined below.
+        /// A `BackupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("backupDatasourceParameters")]
         public Input<Inputs.BackupInstanceKubernetesClusterBackupDatasourceParametersArgs>? BackupDatasourceParameters { get; set; }
@@ -425,7 +431,7 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupInstanceKubernetesClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `BackupDatasourceParameters` block as defined below.
+        /// A `BackupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("backupDatasourceParameters")]
         public Input<Inputs.BackupInstanceKubernetesClusterBackupDatasourceParametersGetArgs>? BackupDatasourceParameters { get; set; }
@@ -453,6 +459,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The protection state of the Backup Instance Kubernetes Cluster.
+        /// </summary>
+        [Input("protectionState")]
+        public Input<string>? ProtectionState { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.

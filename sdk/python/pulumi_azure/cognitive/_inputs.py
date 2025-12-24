@@ -35,6 +35,8 @@ __all__ = [
     'AccountNetworkAclsVirtualNetworkRuleArgsDict',
     'AccountNetworkInjectionArgs',
     'AccountNetworkInjectionArgsDict',
+    'AccountProjectIdentityArgs',
+    'AccountProjectIdentityArgsDict',
     'AccountRaiPolicyContentFilterArgs',
     'AccountRaiPolicyContentFilterArgsDict',
     'AccountStorageArgs',
@@ -225,7 +227,6 @@ if not MYPY:
         bypass: NotRequired[pulumi.Input[_builtins.str]]
         """
         Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        *
         """
         ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -248,7 +249,6 @@ class AIServicesNetworkAclsArgs:
         """
         :param pulumi.Input[_builtins.str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[_builtins.str] bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-               *
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
         :param pulumi.Input[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgs']]] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
@@ -277,7 +277,6 @@ class AIServicesNetworkAclsArgs:
     def bypass(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        *
         """
         return pulumi.get(self, "bypass")
 
@@ -768,6 +767,97 @@ class AccountNetworkInjectionArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subnet_id", value)
+
+
+if not MYPY:
+    class AccountProjectIdentityArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
+        """
+        principal_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    AccountProjectIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccountProjectIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
+        :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 if not MYPY:

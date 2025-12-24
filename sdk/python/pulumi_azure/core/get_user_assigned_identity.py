@@ -155,7 +155,7 @@ def get_user_assigned_identity(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ManagedIdentity` - 2023-01-31
+    * `Microsoft.ManagedIdentity` - 2024-11-30
 
 
     :param _builtins.str name: The name of the User Assigned Identity.
@@ -203,7 +203,7 @@ def get_user_assigned_identity_output(name: Optional[pulumi.Input[_builtins.str]
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ManagedIdentity` - 2023-01-31
+    * `Microsoft.ManagedIdentity` - 2024-11-30
 
 
     :param _builtins.str name: The name of the User Assigned Identity.

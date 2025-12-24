@@ -120,7 +120,7 @@ type LocalRulestackRule struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
@@ -212,7 +212,7 @@ type localRulestackRuleState struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority *int `pulumi:"priority"`
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol *string `pulumi:"protocol"`
@@ -257,7 +257,7 @@ type LocalRulestackRuleState struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority pulumi.IntPtrInput
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol pulumi.StringPtrInput
@@ -306,7 +306,7 @@ type localRulestackRuleArgs struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority int `pulumi:"priority"`
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol *string `pulumi:"protocol"`
@@ -352,7 +352,7 @@ type LocalRulestackRuleArgs struct {
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority pulumi.IntInput
-	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
+	// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
 	//
 	// > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 	Protocol pulumi.StringPtrInput
@@ -525,7 +525,7 @@ func (o LocalRulestackRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *LocalRulestackRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
+// The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
 //
 // > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
 func (o LocalRulestackRuleOutput) Protocol() pulumi.StringPtrOutput {

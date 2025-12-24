@@ -62,14 +62,14 @@ public final class VmwareReplicatedVmManagedDiskArgs extends com.pulumi.resource
     }
 
     /**
-     * The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
      * 
      */
     @Import(name="targetDiskType", required=true)
     private Output<String> targetDiskType;
 
     /**
-     * @return The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * @return The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
      * 
      */
     public Output<String> targetDiskType() {
@@ -167,7 +167,7 @@ public final class VmwareReplicatedVmManagedDiskArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetDiskType The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         * @param targetDiskType The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class VmwareReplicatedVmManagedDiskArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetDiskType The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         * @param targetDiskType The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
          * 
          * @return builder
          * 

@@ -15,16 +15,32 @@ public final class DeploymentWebApplicationFirewallStatusComponentVersionArgs ex
 
     public static final DeploymentWebApplicationFirewallStatusComponentVersionArgs Empty = new DeploymentWebApplicationFirewallStatusComponentVersionArgs();
 
+    /**
+     * The version of the WAF Engine.
+     * 
+     */
     @Import(name="wafEngineVersion")
     private @Nullable Output<String> wafEngineVersion;
 
+    /**
+     * @return The version of the WAF Engine.
+     * 
+     */
     public Optional<Output<String>> wafEngineVersion() {
         return Optional.ofNullable(this.wafEngineVersion);
     }
 
+    /**
+     * The version of the WAF Nginx module.
+     * 
+     */
     @Import(name="wafNginxVersion")
     private @Nullable Output<String> wafNginxVersion;
 
+    /**
+     * @return The version of the WAF Nginx module.
+     * 
+     */
     public Optional<Output<String>> wafNginxVersion() {
         return Optional.ofNullable(this.wafNginxVersion);
     }
@@ -54,20 +70,44 @@ public final class DeploymentWebApplicationFirewallStatusComponentVersionArgs ex
             $ = new DeploymentWebApplicationFirewallStatusComponentVersionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param wafEngineVersion The version of the WAF Engine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wafEngineVersion(@Nullable Output<String> wafEngineVersion) {
             $.wafEngineVersion = wafEngineVersion;
             return this;
         }
 
+        /**
+         * @param wafEngineVersion The version of the WAF Engine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wafEngineVersion(String wafEngineVersion) {
             return wafEngineVersion(Output.of(wafEngineVersion));
         }
 
+        /**
+         * @param wafNginxVersion The version of the WAF Nginx module.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wafNginxVersion(@Nullable Output<String> wafNginxVersion) {
             $.wafNginxVersion = wafNginxVersion;
             return this;
         }
 
+        /**
+         * @param wafNginxVersion The version of the WAF Nginx module.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wafNginxVersion(String wafNginxVersion) {
             return wafNginxVersion(Output.of(wafNginxVersion));
         }

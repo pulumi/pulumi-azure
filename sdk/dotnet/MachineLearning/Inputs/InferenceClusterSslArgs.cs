@@ -37,7 +37,7 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public Input<string>? LeafDomainLabel { get; set; }
 
         /// <summary>
-        /// Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        /// Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("overwriteExistingDomain")]
         public Input<bool>? OverwriteExistingDomain { get; set; }

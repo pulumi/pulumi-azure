@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
+ * Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System (DBFS)
  * 
  * ## Example Usage
  * 
@@ -31,14 +31,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.databricks.Workspace;
- * import com.pulumi.azure.databricks.WorkspaceArgs;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
  * import com.pulumi.azure.keyvault.AccessPolicy;
  * import com.pulumi.azure.keyvault.AccessPolicyArgs;
  * import com.pulumi.azure.keyvault.Key;
  * import com.pulumi.azure.keyvault.KeyArgs;
+ * import com.pulumi.azure.databricks.Workspace;
+ * import com.pulumi.azure.databricks.WorkspaceArgs;
  * import com.pulumi.azure.databricks.WorkspaceRootDbfsCustomerManagedKey;
  * import com.pulumi.azure.databricks.WorkspaceRootDbfsCustomerManagedKeyArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -60,15 +60,6 @@ import javax.annotation.Nullable;
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
- *             .build());
- * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
- *             .name("databricks-test")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .sku("premium")
- *             .customerManagedKeyEnabled(true)
- *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
@@ -113,6 +104,14 @@ import javax.annotation.Nullable;
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(terraform)
  *                 .build());
+ * 
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .name("example-workspace")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("premium")
+ *             .customerManagedKeyEnabled(true)
+ *             .build());
  * 
  *         var databricks = new AccessPolicy("databricks", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
@@ -175,28 +174,28 @@ public class WorkspaceRootDbfsCustomerManagedKey extends com.pulumi.resources.Cu
         return Codegen.optional(this.keyVaultId);
     }
     /**
-     * The resource ID of the Key Vault Key to be used.
+     * The ID of the Key Vault Key to be used.
      * 
      */
     @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultKeyId;
 
     /**
-     * @return The resource ID of the Key Vault Key to be used.
+     * @return The ID of the Key Vault Key to be used.
      * 
      */
     public Output<String> keyVaultKeyId() {
         return this.keyVaultKeyId;
     }
     /**
-     * The resource ID of the Databricks Workspace.
+     * The Resource ID of the Databricks Workspace.
      * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**
-     * @return The resource ID of the Databricks Workspace.
+     * @return The Resource ID of the Databricks Workspace.
      * 
      */
     public Output<String> workspaceId() {

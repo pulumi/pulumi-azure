@@ -47,6 +47,7 @@ __all__ = [
     'AppTemplateTcpScaleRule',
     'AppTemplateTcpScaleRuleAuthentication',
     'AppTemplateVolume',
+    'EnvironmentCertificateCertificateKeyVault',
     'EnvironmentDaprComponentMetadata',
     'EnvironmentDaprComponentSecret',
     'EnvironmentIdentity',
@@ -903,6 +904,8 @@ class AppTemplate(dict):
         suggest = None
         if key == "azureQueueScaleRules":
             suggest = "azure_queue_scale_rules"
+        elif key == "cooldownPeriodInSeconds":
+            suggest = "cooldown_period_in_seconds"
         elif key == "customScaleRules":
             suggest = "custom_scale_rules"
         elif key == "httpScaleRules":
@@ -913,6 +916,8 @@ class AppTemplate(dict):
             suggest = "max_replicas"
         elif key == "minReplicas":
             suggest = "min_replicas"
+        elif key == "pollingIntervalInSeconds":
+            suggest = "polling_interval_in_seconds"
         elif key == "revisionSuffix":
             suggest = "revision_suffix"
         elif key == "tcpScaleRules":
@@ -934,11 +939,13 @@ class AppTemplate(dict):
     def __init__(__self__, *,
                  containers: Sequence['outputs.AppTemplateContainer'],
                  azure_queue_scale_rules: Optional[Sequence['outputs.AppTemplateAzureQueueScaleRule']] = None,
+                 cooldown_period_in_seconds: Optional[_builtins.int] = None,
                  custom_scale_rules: Optional[Sequence['outputs.AppTemplateCustomScaleRule']] = None,
                  http_scale_rules: Optional[Sequence['outputs.AppTemplateHttpScaleRule']] = None,
                  init_containers: Optional[Sequence['outputs.AppTemplateInitContainer']] = None,
                  max_replicas: Optional[_builtins.int] = None,
                  min_replicas: Optional[_builtins.int] = None,
+                 polling_interval_in_seconds: Optional[_builtins.int] = None,
                  revision_suffix: Optional[_builtins.str] = None,
                  tcp_scale_rules: Optional[Sequence['outputs.AppTemplateTcpScaleRule']] = None,
                  termination_grace_period_seconds: Optional[_builtins.int] = None,
@@ -946,11 +953,13 @@ class AppTemplate(dict):
         """
         :param Sequence['AppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
         :param Sequence['AppTemplateAzureQueueScaleRuleArgs'] azure_queue_scale_rules: One or more `azure_queue_scale_rule` blocks as defined below.
+        :param _builtins.int cooldown_period_in_seconds: The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
         :param Sequence['AppTemplateCustomScaleRuleArgs'] custom_scale_rules: One or more `custom_scale_rule` blocks as defined below.
         :param Sequence['AppTemplateHttpScaleRuleArgs'] http_scale_rules: One or more `http_scale_rule` blocks as defined below.
         :param Sequence['AppTemplateInitContainerArgs'] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below.
         :param _builtins.int max_replicas: The maximum number of replicas for this container.
         :param _builtins.int min_replicas: The minimum number of replicas for this container.
+        :param _builtins.int polling_interval_in_seconds: The interval in seconds used for polling KEDA. Defaults to `30`.
         :param _builtins.str revision_suffix: The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
         :param Sequence['AppTemplateTcpScaleRuleArgs'] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
         :param _builtins.int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
@@ -959,6 +968,8 @@ class AppTemplate(dict):
         pulumi.set(__self__, "containers", containers)
         if azure_queue_scale_rules is not None:
             pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
+        if cooldown_period_in_seconds is not None:
+            pulumi.set(__self__, "cooldown_period_in_seconds", cooldown_period_in_seconds)
         if custom_scale_rules is not None:
             pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
         if http_scale_rules is not None:
@@ -969,6 +980,8 @@ class AppTemplate(dict):
             pulumi.set(__self__, "max_replicas", max_replicas)
         if min_replicas is not None:
             pulumi.set(__self__, "min_replicas", min_replicas)
+        if polling_interval_in_seconds is not None:
+            pulumi.set(__self__, "polling_interval_in_seconds", polling_interval_in_seconds)
         if revision_suffix is not None:
             pulumi.set(__self__, "revision_suffix", revision_suffix)
         if tcp_scale_rules is not None:
@@ -993,6 +1006,14 @@ class AppTemplate(dict):
         One or more `azure_queue_scale_rule` blocks as defined below.
         """
         return pulumi.get(self, "azure_queue_scale_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="cooldownPeriodInSeconds")
+    def cooldown_period_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+        """
+        return pulumi.get(self, "cooldown_period_in_seconds")
 
     @_builtins.property
     @pulumi.getter(name="customScaleRules")
@@ -1033,6 +1054,14 @@ class AppTemplate(dict):
         The minimum number of replicas for this container.
         """
         return pulumi.get(self, "min_replicas")
+
+    @_builtins.property
+    @pulumi.getter(name="pollingIntervalInSeconds")
+    def polling_interval_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The interval in seconds used for polling KEDA. Defaults to `30`.
+        """
+        return pulumi.get(self, "polling_interval_in_seconds")
 
     @_builtins.property
     @pulumi.getter(name="revisionSuffix")
@@ -2649,7 +2678,7 @@ class AppTemplateVolume(dict):
         :param _builtins.str name: The name of the volume.
         :param _builtins.str mount_options: Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
         :param _builtins.str storage_name: The name of the `AzureFile` storage.
-        :param _builtins.str storage_type: The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+        :param _builtins.str storage_type: The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
         pulumi.set(__self__, "name", name)
         if mount_options is not None:
@@ -2687,9 +2716,60 @@ class AppTemplateVolume(dict):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[_builtins.str]:
         """
-        The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+        The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
         return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class EnvironmentCertificateCertificateKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentCertificateCertificateKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentCertificateCertificateKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentCertificateCertificateKeyVault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_secret_id: _builtins.str,
+                 identity: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key_vault_secret_id: The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+        :param _builtins.str identity: The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+               
+               > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+        """
+        pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> _builtins.str:
+        """
+        The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+
+        > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+        """
+        return pulumi.get(self, "identity")
 
 
 @pulumi.output_type
@@ -2777,8 +2857,8 @@ class EnvironmentDaprComponentSecret(dict):
                  value: Optional[_builtins.str] = None):
         """
         :param _builtins.str name: The Secret name.
-        :param _builtins.str identity: The identity to use for accessing key vault reference.
-        :param _builtins.str key_vault_secret_id: The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        :param _builtins.str identity: The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
+        :param _builtins.str key_vault_secret_id: The Key Vault Secret ID.
         :param _builtins.str value: The value for this secret.
         """
         pulumi.set(__self__, "name", name)
@@ -2801,7 +2881,7 @@ class EnvironmentDaprComponentSecret(dict):
     @pulumi.getter
     def identity(self) -> Optional[_builtins.str]:
         """
-        The identity to use for accessing key vault reference.
+        The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
         """
         return pulumi.get(self, "identity")
 
@@ -2809,7 +2889,7 @@ class EnvironmentDaprComponentSecret(dict):
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> Optional[_builtins.str]:
         """
-        The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        The Key Vault Secret ID.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -2919,7 +2999,7 @@ class EnvironmentWorkloadProfile(dict):
                  minimum_count: Optional[_builtins.int] = None):
         """
         :param _builtins.str name: The name of the workload profile.
-        :param _builtins.str workload_profile_type: Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        :param _builtins.str workload_profile_type: Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
                
                > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
                
@@ -2946,7 +3026,7 @@ class EnvironmentWorkloadProfile(dict):
     @pulumi.getter(name="workloadProfileType")
     def workload_profile_type(self) -> _builtins.str:
         """
-        Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
 
         > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
 
@@ -3132,7 +3212,7 @@ class JobEventTriggerConfigScaleRule(dict):
                  name: _builtins.str,
                  authentications: Optional[Sequence['outputs.JobEventTriggerConfigScaleRuleAuthentication']] = None):
         """
-        :param _builtins.str custom_rule_type: Type of the scale rule.
+        :param _builtins.str custom_rule_type: Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
         :param Mapping[str, _builtins.str] metadata: Metadata properties to describe the scale rule.
         :param _builtins.str name: Name of the scale rule.
         :param Sequence['JobEventTriggerConfigScaleRuleAuthenticationArgs'] authentications: A `authentication` block as defined below.
@@ -3147,7 +3227,7 @@ class JobEventTriggerConfigScaleRule(dict):
     @pulumi.getter(name="customRuleType")
     def custom_rule_type(self) -> _builtins.str:
         """
-        Type of the scale rule.
+        Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
         """
         return pulumi.get(self, "custom_rule_type")
 
@@ -3253,7 +3333,7 @@ class JobIdentity(dict):
                  principal_id: Optional[_builtins.str] = None,
                  tenant_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+        :param _builtins.str type: The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
         :param Sequence[_builtins.str] identity_ids: A list of Managed Identity IDs to assign to the Container App Job.
         :param _builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param _builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
@@ -3270,7 +3350,7 @@ class JobIdentity(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+        The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
         """
         return pulumi.get(self, "type")
 
@@ -4746,7 +4826,7 @@ class JobTemplateVolume(dict):
         :param _builtins.str name: The name of the volume.
         :param _builtins.str mount_options: Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
         :param _builtins.str storage_name: The name of the storage to use for the volume.
-        :param _builtins.str storage_type: The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+        :param _builtins.str storage_type: The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
         pulumi.set(__self__, "name", name)
         if mount_options is not None:
@@ -4784,7 +4864,7 @@ class JobTemplateVolume(dict):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[_builtins.str]:
         """
-        The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+        The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
         """
         return pulumi.get(self, "storage_type")
 
@@ -5322,10 +5402,12 @@ class GetAppTemplateResult(dict):
     def __init__(__self__, *,
                  azure_queue_scale_rules: Sequence['outputs.GetAppTemplateAzureQueueScaleRuleResult'],
                  containers: Sequence['outputs.GetAppTemplateContainerResult'],
+                 cooldown_period_in_seconds: _builtins.int,
                  http_scale_rules: Sequence['outputs.GetAppTemplateHttpScaleRuleResult'],
                  init_containers: Sequence['outputs.GetAppTemplateInitContainerResult'],
                  max_replicas: _builtins.int,
                  min_replicas: _builtins.int,
+                 polling_interval_in_seconds: _builtins.int,
                  revision_suffix: _builtins.str,
                  tcp_scale_rules: Sequence['outputs.GetAppTemplateTcpScaleRuleResult'],
                  termination_grace_period_seconds: _builtins.int,
@@ -5333,19 +5415,23 @@ class GetAppTemplateResult(dict):
                  custom_scale_rules: Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleResult']] = None):
         """
         :param Sequence['GetAppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
+        :param _builtins.int cooldown_period_in_seconds: The number of seconds to wait before scaling down the number of instances again.
         :param Sequence['GetAppTemplateInitContainerArgs'] init_containers: One or more `init_container` blocks as detailed below.
         :param _builtins.int max_replicas: The maximum number of replicas for this container.
         :param _builtins.int min_replicas: The minimum number of replicas for this container.
+        :param _builtins.int polling_interval_in_seconds: The interval in seconds used for polling KEDA.
         :param _builtins.str revision_suffix: The suffix string to which this `traffic_weight` applies.
         :param _builtins.int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param Sequence['GetAppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
         pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
         pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "cooldown_period_in_seconds", cooldown_period_in_seconds)
         pulumi.set(__self__, "http_scale_rules", http_scale_rules)
         pulumi.set(__self__, "init_containers", init_containers)
         pulumi.set(__self__, "max_replicas", max_replicas)
         pulumi.set(__self__, "min_replicas", min_replicas)
+        pulumi.set(__self__, "polling_interval_in_seconds", polling_interval_in_seconds)
         pulumi.set(__self__, "revision_suffix", revision_suffix)
         pulumi.set(__self__, "tcp_scale_rules", tcp_scale_rules)
         pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
@@ -5365,6 +5451,14 @@ class GetAppTemplateResult(dict):
         One or more `container` blocks as detailed below.
         """
         return pulumi.get(self, "containers")
+
+    @_builtins.property
+    @pulumi.getter(name="cooldownPeriodInSeconds")
+    def cooldown_period_in_seconds(self) -> _builtins.int:
+        """
+        The number of seconds to wait before scaling down the number of instances again.
+        """
+        return pulumi.get(self, "cooldown_period_in_seconds")
 
     @_builtins.property
     @pulumi.getter(name="httpScaleRules")
@@ -5394,6 +5488,14 @@ class GetAppTemplateResult(dict):
         The minimum number of replicas for this container.
         """
         return pulumi.get(self, "min_replicas")
+
+    @_builtins.property
+    @pulumi.getter(name="pollingIntervalInSeconds")
+    def polling_interval_in_seconds(self) -> _builtins.int:
+        """
+        The interval in seconds used for polling KEDA.
+        """
+        return pulumi.get(self, "polling_interval_in_seconds")
 
     @_builtins.property
     @pulumi.getter(name="revisionSuffix")

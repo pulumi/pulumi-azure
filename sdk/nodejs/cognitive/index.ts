@@ -15,6 +15,11 @@ export type AccountCustomerManagedKey = import("./accountCustomerManagedKey").Ac
 export const AccountCustomerManagedKey: typeof import("./accountCustomerManagedKey").AccountCustomerManagedKey = null as any;
 utilities.lazyLoad(exports, ["AccountCustomerManagedKey"], () => require("./accountCustomerManagedKey"));
 
+export { AccountProjectArgs, AccountProjectState } from "./accountProject";
+export type AccountProject = import("./accountProject").AccountProject;
+export const AccountProject: typeof import("./accountProject").AccountProject = null as any;
+utilities.lazyLoad(exports, ["AccountProject"], () => require("./accountProject"));
+
 export { AccountRaiBlocklistArgs, AccountRaiBlocklistState } from "./accountRaiBlocklist";
 export type AccountRaiBlocklist = import("./accountRaiBlocklist").AccountRaiBlocklist;
 export const AccountRaiBlocklist: typeof import("./accountRaiBlocklist").AccountRaiBlocklist = null as any;
@@ -51,6 +56,8 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey":
                 return new AccountCustomerManagedKey(name, <any>undefined, { urn })
+            case "azure:cognitive/accountProject:AccountProject":
+                return new AccountProject(name, <any>undefined, { urn })
             case "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist":
                 return new AccountRaiBlocklist(name, <any>undefined, { urn })
             case "azure:cognitive/accountRaiPolicy:AccountRaiPolicy":
@@ -65,6 +72,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "cognitive/aIServices", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/account", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountCustomerManagedKey", _module)
+pulumi.runtime.registerResourceModule("azure", "cognitive/accountProject", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountRaiBlocklist", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountRaiPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/deployment", _module)

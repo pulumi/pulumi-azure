@@ -18,5 +18,6 @@ from .query_pack import *
 from .saved_search import *
 from .storage_insights import *
 from .workspace_table import *
+from .workspace_table_custom_log import *
 from ._inputs import *
 from . import outputs

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+        /// The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

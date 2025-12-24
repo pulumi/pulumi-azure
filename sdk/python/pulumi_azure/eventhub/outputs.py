@@ -1127,7 +1127,7 @@ class EventHubRetentionDescription(dict):
                  retention_time_in_hours: Optional[_builtins.int] = None,
                  tombstone_retention_time_in_hours: Optional[_builtins.int] = None):
         """
-        :param _builtins.str cleanup_policy: Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+        :param _builtins.str cleanup_policy: Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
         :param _builtins.int retention_time_in_hours: Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
         :param _builtins.int tombstone_retention_time_in_hours: Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanup_policy` is `Compact`.
         """
@@ -1141,7 +1141,7 @@ class EventHubRetentionDescription(dict):
     @pulumi.getter(name="cleanupPolicy")
     def cleanup_policy(self) -> _builtins.str:
         """
-        Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+        Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cleanup_policy")
 

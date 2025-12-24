@@ -66,17 +66,17 @@ import (
 type Zone struct {
 	pulumi.CustomResourceState
 
-	// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+	// Maximum number of Records in the zone.
 	MaxNumberOfRecordSets pulumi.IntOutput `pulumi:"maxNumberOfRecordSets"`
 	// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (Optional) A list of values that make up the NS record for the zone.
+	// A list of values that make up the NS record for the zone.
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
-	// (Optional) The number of records already in the zone.
+	// The number of records already in the zone.
 	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// An `soaRecord` block as defined below.
+	// A `soaRecord` block as defined below.
 	SoaRecord ZoneSoaRecordOutput `pulumi:"soaRecord"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -115,34 +115,34 @@ func GetZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Zone resources.
 type zoneState struct {
-	// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+	// Maximum number of Records in the zone.
 	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
 	// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// (Optional) A list of values that make up the NS record for the zone.
+	// A list of values that make up the NS record for the zone.
 	NameServers []string `pulumi:"nameServers"`
-	// (Optional) The number of records already in the zone.
+	// The number of records already in the zone.
 	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// An `soaRecord` block as defined below.
+	// A `soaRecord` block as defined below.
 	SoaRecord *ZoneSoaRecord `pulumi:"soaRecord"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type ZoneState struct {
-	// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+	// Maximum number of Records in the zone.
 	MaxNumberOfRecordSets pulumi.IntPtrInput
 	// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// (Optional) A list of values that make up the NS record for the zone.
+	// A list of values that make up the NS record for the zone.
 	NameServers pulumi.StringArrayInput
-	// (Optional) The number of records already in the zone.
+	// The number of records already in the zone.
 	NumberOfRecordSets pulumi.IntPtrInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// An `soaRecord` block as defined below.
+	// A `soaRecord` block as defined below.
 	SoaRecord ZoneSoaRecordPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -157,7 +157,7 @@ type zoneArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// An `soaRecord` block as defined below.
+	// A `soaRecord` block as defined below.
 	SoaRecord *ZoneSoaRecord `pulumi:"soaRecord"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -169,7 +169,7 @@ type ZoneArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// An `soaRecord` block as defined below.
+	// A `soaRecord` block as defined below.
 	SoaRecord ZoneSoaRecordPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -262,7 +262,7 @@ func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return o
 }
 
-// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+// Maximum number of Records in the zone.
 func (o ZoneOutput) MaxNumberOfRecordSets() pulumi.IntOutput {
 	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.MaxNumberOfRecordSets }).(pulumi.IntOutput)
 }
@@ -272,12 +272,12 @@ func (o ZoneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Optional) A list of values that make up the NS record for the zone.
+// A list of values that make up the NS record for the zone.
 func (o ZoneOutput) NameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.NameServers }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) The number of records already in the zone.
+// The number of records already in the zone.
 func (o ZoneOutput) NumberOfRecordSets() pulumi.IntOutput {
 	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.NumberOfRecordSets }).(pulumi.IntOutput)
 }
@@ -287,7 +287,7 @@ func (o ZoneOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// An `soaRecord` block as defined below.
+// A `soaRecord` block as defined below.
 func (o ZoneOutput) SoaRecord() ZoneSoaRecordOutput {
 	return o.ApplyT(func(v *Zone) ZoneSoaRecordOutput { return v.SoaRecord }).(ZoneSoaRecordOutput)
 }

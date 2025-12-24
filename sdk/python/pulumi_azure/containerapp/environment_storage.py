@@ -35,7 +35,6 @@ class EnvironmentStorageArgs:
         :param pulumi.Input[_builtins.str] account_name: The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name for this Container App Environment Storage. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] nfs_server_url: The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-               *
         """
         pulumi.set(__self__, "access_mode", access_mode)
         pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
@@ -126,7 +125,6 @@ class EnvironmentStorageArgs:
     def nfs_server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-        *
         """
         return pulumi.get(self, "nfs_server_url")
 
@@ -153,7 +151,6 @@ class _EnvironmentStorageState:
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name for this Container App Environment Storage. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] nfs_server_url: The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-               *
         :param pulumi.Input[_builtins.str] share_name: The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
         """
         if access_key is not None:
@@ -236,7 +233,6 @@ class _EnvironmentStorageState:
     def nfs_server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-        *
         """
         return pulumi.get(self, "nfs_server_url")
 
@@ -336,7 +332,6 @@ class EnvironmentStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name for this Container App Environment Storage. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] nfs_server_url: The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-               *
         :param pulumi.Input[_builtins.str] share_name: The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
         """
         ...
@@ -478,7 +473,6 @@ class EnvironmentStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name for this Container App Environment Storage. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] nfs_server_url: The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-               *
         :param pulumi.Input[_builtins.str] share_name: The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -539,7 +533,6 @@ class EnvironmentStorage(pulumi.CustomResource):
     def nfs_server_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-        *
         """
         return pulumi.get(self, "nfs_server_url")
 

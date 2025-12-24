@@ -189,14 +189,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:elasticsan/volume:Volume")
 public class Volume extends com.pulumi.resources.CustomResource {
     /**
-     * A `createSource` block as defined below.
+     * A `createSource` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="createSource", refs={VolumeCreateSource.class}, tree="[0]")
     private Output</* @Nullable */ VolumeCreateSource> createSource;
 
     /**
-     * @return A `createSource` block as defined below.
+     * @return A `createSource` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<VolumeCreateSource>> createSource() {

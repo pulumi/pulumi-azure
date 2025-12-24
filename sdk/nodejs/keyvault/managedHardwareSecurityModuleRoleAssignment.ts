@@ -64,7 +64,6 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
 
     /**
      * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-     * *
      */
     declare public readonly managedHsmId: pulumi.Output<string>;
     /**
@@ -139,7 +138,6 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
 export interface ManagedHardwareSecurityModuleRoleAssignmentState {
     /**
      * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-     * *
      */
     managedHsmId?: pulumi.Input<string>;
     /**
@@ -170,7 +168,6 @@ export interface ManagedHardwareSecurityModuleRoleAssignmentState {
 export interface ManagedHardwareSecurityModuleRoleAssignmentArgs {
     /**
      * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-     * *
      */
     managedHsmId: pulumi.Input<string>;
     /**

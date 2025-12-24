@@ -17,7 +17,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
      */
     private List<String> names;
     /**
-     * @return The name of the Volume. Changing this forces a new resource to be created.
+     * @return The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Possible value for Application Server and Central Server is `default`.
      * 
@@ -35,7 +35,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
         return this.names;
     }
     /**
-     * @return The name of the Volume. Changing this forces a new resource to be created.
+     * @return The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Possible value for Application Server and Central Server is `default`.
      * 

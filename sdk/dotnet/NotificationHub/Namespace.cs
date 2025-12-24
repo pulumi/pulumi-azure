@@ -59,7 +59,7 @@ namespace Pulumi.Azure.NotificationHub
     public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is this Notification Hub Namespace enabled? Defaults to `True`.
+        /// Is this Notification Hub Namespace enabled? Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -77,13 +77,13 @@ namespace Pulumi.Azure.NotificationHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("namespaceType")]
         public Output<string> NamespaceType { get; private set; } = null!;
 
         /// <summary>
-        /// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        /// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         /// </summary>
         [Output("replicationRegion")]
         public Output<string?> ReplicationRegion { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.NotificationHub
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is this Notification Hub Namespace enabled? Defaults to `True`.
+        /// Is this Notification Hub Namespace enabled? Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -183,13 +183,13 @@ namespace Pulumi.Azure.NotificationHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceType", required: true)]
         public Input<string> NamespaceType { get; set; } = null!;
 
         /// <summary>
-        /// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        /// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         /// </summary>
         [Input("replicationRegion")]
         public Input<string>? ReplicationRegion { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.NotificationHub
     public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is this Notification Hub Namespace enabled? Defaults to `True`.
+        /// Is this Notification Hub Namespace enabled? Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -251,13 +251,13 @@ namespace Pulumi.Azure.NotificationHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceType")]
         public Input<string>? NamespaceType { get; set; }
 
         /// <summary>
-        /// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+        /// The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
         /// </summary>
         [Input("replicationRegion")]
         public Input<string>? ReplicationRegion { get; set; }

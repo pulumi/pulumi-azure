@@ -28,7 +28,7 @@ public final class VmwareReplicatedVmManagedDisk {
      */
     private @Nullable String targetDiskEncryptionSetId;
     /**
-     * @return The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * @return The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
      * 
      */
     private String targetDiskType;
@@ -56,7 +56,7 @@ public final class VmwareReplicatedVmManagedDisk {
         return Optional.ofNullable(this.targetDiskEncryptionSetId);
     }
     /**
-     * @return The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * @return The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
      * 
      */
     public String targetDiskType() {

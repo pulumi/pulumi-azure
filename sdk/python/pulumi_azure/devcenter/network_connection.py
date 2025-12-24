@@ -31,7 +31,7 @@ class NetworkConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkConnection resource.
-        :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Network Connection should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet that is used to attach Virtual Machines.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory domain.
@@ -64,7 +64,7 @@ class NetworkConnectionArgs:
     @pulumi.getter(name="domainJoinType")
     def domain_join_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "domain_join_type")
 
@@ -196,7 +196,7 @@ class _NetworkConnectionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkConnection resources.
-        :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory domain.
         :param pulumi.Input[_builtins.str] domain_password: The password for the account used to join domain.
         :param pulumi.Input[_builtins.str] domain_username: The username of the Azure Active Directory account (user or service account) that has permissions to create computer objects in Active Directory.
@@ -232,7 +232,7 @@ class _NetworkConnectionState:
     @pulumi.getter(name="domainJoinType")
     def domain_join_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "domain_join_type")
 
@@ -413,7 +413,7 @@ class NetworkConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory domain.
         :param pulumi.Input[_builtins.str] domain_password: The password for the account used to join domain.
         :param pulumi.Input[_builtins.str] domain_username: The username of the Azure Active Directory account (user or service account) that has permissions to create computer objects in Active Directory.
@@ -554,7 +554,7 @@ class NetworkConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory domain.
         :param pulumi.Input[_builtins.str] domain_password: The password for the account used to join domain.
         :param pulumi.Input[_builtins.str] domain_username: The username of the Azure Active Directory account (user or service account) that has permissions to create computer objects in Active Directory.
@@ -585,7 +585,7 @@ class NetworkConnection(pulumi.CustomResource):
     @pulumi.getter(name="domainJoinType")
     def domain_join_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
+        The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "domain_join_type")
 

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,17 +44,17 @@ import (
 //				return err
 //			}
 //			exampleShare, err := storage.NewShare(ctx, "example", &storage.ShareArgs{
-//				Name:               pulumi.String("sharename"),
-//				StorageAccountName: exampleAccount.Name,
-//				Quota:              pulumi.Int(50),
+//				Name:             pulumi.String("sharename"),
+//				StorageAccountId: exampleAccount.ID(),
+//				Quota:            pulumi.Int(50),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = storage.NewShareFile(ctx, "example", &storage.ShareFileArgs{
-//				Name:           pulumi.String("my-awesome-content.zip"),
-//				StorageShareId: exampleShare.ID(),
-//				Source:         pulumi.String("some-local-file.zip"),
+//				Name:            pulumi.String("my-awesome-content.zip"),
+//				StorageShareUrl: exampleShare.Url,
+//				Source:          pulumi.String("some-local-file.zip"),
 //			})
 //			if err != nil {
 //				return err
@@ -95,20 +94,19 @@ type ShareFile struct {
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
-	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
 	StorageShareId pulumi.StringOutput `pulumi:"storageShareId"`
+	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageShareUrl pulumi.StringOutput `pulumi:"storageShareUrl"`
 }
 
 // NewShareFile registers a new resource with the given unique name, arguments, and options.
 func NewShareFile(ctx *pulumi.Context,
 	name string, args *ShareFileArgs, opts ...pulumi.ResourceOption) (*ShareFile, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ShareFileArgs{}
 	}
 
-	if args.StorageShareId == nil {
-		return nil, errors.New("invalid value for required argument 'StorageShareId'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ShareFile
 	err := ctx.RegisterResource("azure:storage/shareFile:ShareFile", name, args, &resource, opts...)
@@ -151,8 +149,10 @@ type shareFileState struct {
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source *string `pulumi:"source"`
-	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
 	StorageShareId *string `pulumi:"storageShareId"`
+	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageShareUrl *string `pulumi:"storageShareUrl"`
 }
 
 type ShareFileState struct {
@@ -175,8 +175,10 @@ type ShareFileState struct {
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source pulumi.StringPtrInput
-	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
 	StorageShareId pulumi.StringPtrInput
+	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageShareUrl pulumi.StringPtrInput
 }
 
 func (ShareFileState) ElementType() reflect.Type {
@@ -201,8 +203,10 @@ type shareFileArgs struct {
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source *string `pulumi:"source"`
-	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-	StorageShareId string `pulumi:"storageShareId"`
+	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+	StorageShareId *string `pulumi:"storageShareId"`
+	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageShareUrl *string `pulumi:"storageShareUrl"`
 }
 
 // The set of arguments for constructing a ShareFile resource.
@@ -224,8 +228,10 @@ type ShareFileArgs struct {
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source pulumi.StringPtrInput
-	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-	StorageShareId pulumi.StringInput
+	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+	StorageShareId pulumi.StringPtrInput
+	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageShareUrl pulumi.StringPtrInput
 }
 
 func (ShareFileArgs) ElementType() reflect.Type {
@@ -361,9 +367,14 @@ func (o ShareFileOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
 func (o ShareFileOutput) StorageShareId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringOutput { return v.StorageShareId }).(pulumi.StringOutput)
+}
+
+// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+func (o ShareFileOutput) StorageShareUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareFile) pulumi.StringOutput { return v.StorageShareUrl }).(pulumi.StringOutput)
 }
 
 type ShareFileArrayOutput struct{ *pulumi.OutputState }

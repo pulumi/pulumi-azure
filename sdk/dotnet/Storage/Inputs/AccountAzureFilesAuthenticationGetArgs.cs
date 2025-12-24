@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<Inputs.AccountAzureFilesAuthenticationActiveDirectoryGetArgs>? ActiveDirectory { get; set; }
 
         /// <summary>
-        /// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+        /// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
         /// </summary>
         [Input("defaultShareLevelPermission")]
         public Input<string>? DefaultShareLevelPermission { get; set; }

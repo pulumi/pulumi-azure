@@ -12,6 +12,9 @@ namespace Pulumi.Azure.MSSql.Inputs
 
     public sealed class DatabaseLongTermRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if the backups are immutable. Defaults to `False`.
+        /// </summary>
         [Input("immutableBackupsEnabled")]
         public Input<bool>? ImmutableBackupsEnabled { get; set; }
 

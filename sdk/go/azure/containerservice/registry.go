@@ -202,7 +202,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+// * `Microsoft.ContainerRegistry` - 2025-04-01
 //
 // ## Import
 //
@@ -258,7 +258,7 @@ type Registry struct {
 	QuarantinePolicyEnabled pulumi.BoolPtrOutput `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	// The number of days to retain and untagged manifest after which it gets purged.
 	RetentionPolicyInDays pulumi.IntPtrOutput `pulumi:"retentionPolicyInDays"`
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
@@ -354,7 +354,7 @@ type registryState struct {
 	QuarantinePolicyEnabled *bool `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	// The number of days to retain and untagged manifest after which it gets purged.
 	RetentionPolicyInDays *int `pulumi:"retentionPolicyInDays"`
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku *string `pulumi:"sku"`
@@ -411,7 +411,7 @@ type RegistryState struct {
 	QuarantinePolicyEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	// The number of days to retain and untagged manifest after which it gets purged.
 	RetentionPolicyInDays pulumi.IntPtrInput
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringPtrInput
@@ -464,7 +464,7 @@ type registryArgs struct {
 	QuarantinePolicyEnabled *bool `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	// The number of days to retain and untagged manifest after which it gets purged.
 	RetentionPolicyInDays *int `pulumi:"retentionPolicyInDays"`
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku string `pulumi:"sku"`
@@ -514,7 +514,7 @@ type RegistryArgs struct {
 	QuarantinePolicyEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	// The number of days to retain and untagged manifest after which it gets purged.
 	RetentionPolicyInDays pulumi.IntPtrInput
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringInput
@@ -711,7 +711,7 @@ func (o RegistryOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+// The number of days to retain and untagged manifest after which it gets purged.
 func (o RegistryOutput) RetentionPolicyInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.IntPtrOutput { return v.RetentionPolicyInDays }).(pulumi.IntPtrOutput)
 }

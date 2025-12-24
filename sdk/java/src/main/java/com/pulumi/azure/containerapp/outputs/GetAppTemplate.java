@@ -26,6 +26,11 @@ public final class GetAppTemplate {
      * 
      */
     private List<GetAppTemplateContainer> containers;
+    /**
+     * @return The number of seconds to wait before scaling down the number of instances again.
+     * 
+     */
+    private Integer cooldownPeriodInSeconds;
     private @Nullable List<GetAppTemplateCustomScaleRule> customScaleRules;
     private List<GetAppTemplateHttpScaleRule> httpScaleRules;
     /**
@@ -43,6 +48,11 @@ public final class GetAppTemplate {
      * 
      */
     private Integer minReplicas;
+    /**
+     * @return The interval in seconds used for polling KEDA.
+     * 
+     */
+    private Integer pollingIntervalInSeconds;
     /**
      * @return The suffix string to which this `trafficWeight` applies.
      * 
@@ -71,6 +81,13 @@ public final class GetAppTemplate {
     public List<GetAppTemplateContainer> containers() {
         return this.containers;
     }
+    /**
+     * @return The number of seconds to wait before scaling down the number of instances again.
+     * 
+     */
+    public Integer cooldownPeriodInSeconds() {
+        return this.cooldownPeriodInSeconds;
+    }
     public List<GetAppTemplateCustomScaleRule> customScaleRules() {
         return this.customScaleRules == null ? List.of() : this.customScaleRules;
     }
@@ -97,6 +114,13 @@ public final class GetAppTemplate {
      */
     public Integer minReplicas() {
         return this.minReplicas;
+    }
+    /**
+     * @return The interval in seconds used for polling KEDA.
+     * 
+     */
+    public Integer pollingIntervalInSeconds() {
+        return this.pollingIntervalInSeconds;
     }
     /**
      * @return The suffix string to which this `trafficWeight` applies.
@@ -134,11 +158,13 @@ public final class GetAppTemplate {
     public static final class Builder {
         private List<GetAppTemplateAzureQueueScaleRule> azureQueueScaleRules;
         private List<GetAppTemplateContainer> containers;
+        private Integer cooldownPeriodInSeconds;
         private @Nullable List<GetAppTemplateCustomScaleRule> customScaleRules;
         private List<GetAppTemplateHttpScaleRule> httpScaleRules;
         private List<GetAppTemplateInitContainer> initContainers;
         private Integer maxReplicas;
         private Integer minReplicas;
+        private Integer pollingIntervalInSeconds;
         private String revisionSuffix;
         private List<GetAppTemplateTcpScaleRule> tcpScaleRules;
         private Integer terminationGracePeriodSeconds;
@@ -148,11 +174,13 @@ public final class GetAppTemplate {
     	      Objects.requireNonNull(defaults);
     	      this.azureQueueScaleRules = defaults.azureQueueScaleRules;
     	      this.containers = defaults.containers;
+    	      this.cooldownPeriodInSeconds = defaults.cooldownPeriodInSeconds;
     	      this.customScaleRules = defaults.customScaleRules;
     	      this.httpScaleRules = defaults.httpScaleRules;
     	      this.initContainers = defaults.initContainers;
     	      this.maxReplicas = defaults.maxReplicas;
     	      this.minReplicas = defaults.minReplicas;
+    	      this.pollingIntervalInSeconds = defaults.pollingIntervalInSeconds;
     	      this.revisionSuffix = defaults.revisionSuffix;
     	      this.tcpScaleRules = defaults.tcpScaleRules;
     	      this.terminationGracePeriodSeconds = defaults.terminationGracePeriodSeconds;
@@ -180,6 +208,14 @@ public final class GetAppTemplate {
         }
         public Builder containers(GetAppTemplateContainer... containers) {
             return containers(List.of(containers));
+        }
+        @CustomType.Setter
+        public Builder cooldownPeriodInSeconds(Integer cooldownPeriodInSeconds) {
+            if (cooldownPeriodInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "cooldownPeriodInSeconds");
+            }
+            this.cooldownPeriodInSeconds = cooldownPeriodInSeconds;
+            return this;
         }
         @CustomType.Setter
         public Builder customScaleRules(@Nullable List<GetAppTemplateCustomScaleRule> customScaleRules) {
@@ -229,6 +265,14 @@ public final class GetAppTemplate {
             return this;
         }
         @CustomType.Setter
+        public Builder pollingIntervalInSeconds(Integer pollingIntervalInSeconds) {
+            if (pollingIntervalInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "pollingIntervalInSeconds");
+            }
+            this.pollingIntervalInSeconds = pollingIntervalInSeconds;
+            return this;
+        }
+        @CustomType.Setter
         public Builder revisionSuffix(String revisionSuffix) {
             if (revisionSuffix == null) {
               throw new MissingRequiredPropertyException("GetAppTemplate", "revisionSuffix");
@@ -270,11 +314,13 @@ public final class GetAppTemplate {
             final var _resultValue = new GetAppTemplate();
             _resultValue.azureQueueScaleRules = azureQueueScaleRules;
             _resultValue.containers = containers;
+            _resultValue.cooldownPeriodInSeconds = cooldownPeriodInSeconds;
             _resultValue.customScaleRules = customScaleRules;
             _resultValue.httpScaleRules = httpScaleRules;
             _resultValue.initContainers = initContainers;
             _resultValue.maxReplicas = maxReplicas;
             _resultValue.minReplicas = minReplicas;
+            _resultValue.pollingIntervalInSeconds = pollingIntervalInSeconds;
             _resultValue.revisionSuffix = revisionSuffix;
             _resultValue.tcpScaleRules = tcpScaleRules;
             _resultValue.terminationGracePeriodSeconds = terminationGracePeriodSeconds;

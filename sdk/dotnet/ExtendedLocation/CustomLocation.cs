@@ -44,13 +44,13 @@ namespace Pulumi.Azure.ExtendedLocation
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the host resource ID.
+        /// Specifies the host resource ID. Changing this forces a new resource to be created.
         /// </summary>
         [Output("hostResourceId")]
         public Output<string> HostResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        /// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("hostType")]
         public Output<string?> HostType { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Azure.ExtendedLocation
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies the host resource ID.
+        /// Specifies the host resource ID. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hostResourceId", required: true)]
         public Input<string> HostResourceId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        /// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hostType")]
         public Input<string>? HostType { get; set; }
@@ -218,13 +218,13 @@ namespace Pulumi.Azure.ExtendedLocation
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies the host resource ID.
+        /// Specifies the host resource ID. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hostResourceId")]
         public Input<string>? HostResourceId { get; set; }
 
         /// <summary>
-        /// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        /// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hostType")]
         public Input<string>? HostType { get; set; }

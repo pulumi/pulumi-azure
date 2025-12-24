@@ -33,14 +33,14 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+     * Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
      * 
      */
     @Import(name="defaultShareLevelPermission")
     private @Nullable Output<String> defaultShareLevelPermission;
 
     /**
-     * @return Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+     * @return Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
      * 
      */
     public Optional<Output<String>> defaultShareLevelPermission() {
@@ -110,7 +110,7 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param defaultShareLevelPermission Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+         * @param defaultShareLevelPermission Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param defaultShareLevelPermission Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+         * @param defaultShareLevelPermission Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
          * 
          * @return builder
          * 

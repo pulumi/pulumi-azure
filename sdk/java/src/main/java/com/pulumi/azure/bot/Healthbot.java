@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.HealthBot` - 2022-08-08
+ * * `Microsoft.HealthBot` - 2025-05-25
  * 
  * ## Import
  * 
@@ -136,14 +136,18 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+     * 
+     * &gt; **Note:** Downgrading to `F0` forces a new resource to be created.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
-     * @return The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+     * @return The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+     * 
+     * &gt; **Note:** Downgrading to `F0` forces a new resource to be created.
      * 
      */
     public Output<String> skuName() {

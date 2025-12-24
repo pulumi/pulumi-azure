@@ -55,14 +55,14 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+     * Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
      * 
      */
     @Import(name="groupRateLimitBy")
     private @Nullable Output<String> groupRateLimitBy;
 
     /**
-     * @return Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+     * @return Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
      * 
      */
     public Optional<Output<String>> groupRateLimitBy() {
@@ -238,7 +238,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupRateLimitBy Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+         * @param groupRateLimitBy Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupRateLimitBy Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+         * @param groupRateLimitBy Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
          * 
          * @return builder
          * 

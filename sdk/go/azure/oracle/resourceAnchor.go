@@ -68,7 +68,7 @@ type ResourceAnchor struct {
 
 	// Oracle Cloud Infrastructure compartment [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) which was created or linked by customer with Resource Anchor.
 	LinkedCompartmentId pulumi.StringOutput `pulumi:"linkedCompartmentId"`
-	// The Azure Region where the Oracle Resource Anchor  exists.
+	// The Azure Region where the Oracle Resource Anchor exists.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Oracle Resource Anchor. Changing this forces a new Oracle Resource Anchor to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -113,7 +113,7 @@ func GetResourceAnchor(ctx *pulumi.Context,
 type resourceAnchorState struct {
 	// Oracle Cloud Infrastructure compartment [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) which was created or linked by customer with Resource Anchor.
 	LinkedCompartmentId *string `pulumi:"linkedCompartmentId"`
-	// The Azure Region where the Oracle Resource Anchor  exists.
+	// The Azure Region where the Oracle Resource Anchor exists.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Oracle Resource Anchor. Changing this forces a new Oracle Resource Anchor to be created.
 	Name *string `pulumi:"name"`
@@ -126,7 +126,7 @@ type resourceAnchorState struct {
 type ResourceAnchorState struct {
 	// Oracle Cloud Infrastructure compartment [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) which was created or linked by customer with Resource Anchor.
 	LinkedCompartmentId pulumi.StringPtrInput
-	// The Azure Region where the Oracle Resource Anchor  exists.
+	// The Azure Region where the Oracle Resource Anchor exists.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Oracle Resource Anchor. Changing this forces a new Oracle Resource Anchor to be created.
 	Name pulumi.StringPtrInput
@@ -251,7 +251,7 @@ func (o ResourceAnchorOutput) LinkedCompartmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAnchor) pulumi.StringOutput { return v.LinkedCompartmentId }).(pulumi.StringOutput)
 }
 
-// The Azure Region where the Oracle Resource Anchor  exists.
+// The Azure Region where the Oracle Resource Anchor exists.
 func (o ResourceAnchorOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAnchor) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

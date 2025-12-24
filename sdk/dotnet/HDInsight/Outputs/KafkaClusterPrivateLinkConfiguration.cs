@@ -17,6 +17,9 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// The ID of the private link service group.
         /// </summary>
         public readonly string GroupId;
+        /// <summary>
+        /// An `IpConfiguration` block as defined below.
+        /// </summary>
         public readonly Outputs.KafkaClusterPrivateLinkConfigurationIpConfiguration IpConfiguration;
         /// <summary>
         /// The name of the private link configuration.
