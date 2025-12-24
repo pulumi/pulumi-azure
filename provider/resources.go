@@ -20,6 +20,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"reflect"
 	"regexp"
 	"strings"
 	"time"
@@ -3678,7 +3679,14 @@ func defaultAzureLocation(ctx context.Context,
 		// it's possible (likely) during previews that the location will be unknown, so
 		// we special logic to propagate likewise unknown location values.
 		if rg, has := res.Properties["resourceGroupName"]; has {
-			if rg.IsComputed() || rg.IsOutput() {
+			if rg.IsOutput() {
+				output := rg.OutputValue()
+				if !output.Known {
+					return tfbridge.TerraformUnknownVariableValue, nil
+				}
+				rg = output.Element
+			}
+			if rg.IsComputed() {
 				return tfbridge.TerraformUnknownVariableValue, nil
 			}
 			if rg.IsString() {
@@ -3689,9 +3697,16 @@ func defaultAzureLocation(ctx context.Context,
 					contract.Assertf(ok, "missing resource azurerm_resource_group")
 					importer := rgRes.Importer()
 					contract.Assertf(importer != nil, "importer cannot be nil")
+					subscriptionID := subscriptionIDFromMeta(p.Meta(ctx))
+					if subscriptionID == "" {
+						subscriptionID = os.Getenv("ARM_SUBSCRIPTION_ID")
+					}
+					if subscriptionID == "" {
+						subscriptionID = "_"
+					}
+					rgID := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", subscriptionID, rgName)
 					states, err := importer("azurerm_resource_group",
-						fmt.Sprintf("/subscriptions/_/resourceGroups/%s",
-							rg.StringValue()), p.Meta(ctx))
+						rgID, p.Meta(ctx))
 					if err != nil {
 						return nil, err
 					}
@@ -3721,7 +3736,9 @@ func defaultAzureLocation(ctx context.Context,
 						return nil, fmt.Errorf("expected 0 or 1 states for resource group %s",
 							rg.StringValue())
 					}
-					rgRegionMap[rgName] = rgRegion // memoize the value.
+					if rgRegion != tfbridge.TerraformUnknownVariableValue {
+						rgRegionMap[rgName] = rgRegion // memoize the value.
+					}
 				}
 				return rgRegion, nil
 			}
@@ -3729,6 +3746,45 @@ func defaultAzureLocation(ctx context.Context,
 
 		return nil, nil
 	}
+}
+
+func subscriptionIDFromMeta(meta interface{}) string {
+	if meta == nil {
+		return ""
+	}
+	// Best-effort reflection to avoid depending on azurerm internals.
+	value := reflect.ValueOf(meta)
+	for value.Kind() == reflect.Pointer {
+		if value.IsNil() {
+			return ""
+		}
+		value = value.Elem()
+	}
+	if value.Kind() != reflect.Struct {
+		return ""
+	}
+	account := value.FieldByName("Account")
+	if !account.IsValid() {
+		return ""
+	}
+	for account.Kind() == reflect.Pointer {
+		if account.IsNil() {
+			return ""
+		}
+		account = account.Elem()
+	}
+	if account.Kind() != reflect.Struct {
+		return ""
+	}
+	for _, fieldName := range []string{"SubscriptionId", "SubscriptionID"} {
+		field := account.FieldByName(fieldName)
+		if field.IsValid() && field.Kind() == reflect.String {
+			if subscriptionID := field.String(); subscriptionID != "" {
+				return subscriptionID
+			}
+		}
+	}
+	return ""
 }
 
 // lowercaseLettersAndNumbers applies the "Lowercase letters and numbers" naming convention to the given name.
