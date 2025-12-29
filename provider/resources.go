@@ -20,7 +20,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"reflect"
 	"regexp"
 	"strings"
 	"time"
@@ -3697,13 +3696,13 @@ func defaultAzureLocation(ctx context.Context,
 					contract.Assertf(ok, "missing resource azurerm_resource_group")
 					importer := rgRes.Importer()
 					contract.Assertf(importer != nil, "importer cannot be nil")
+					// resource_group `Read` now pulls the subscription ID from the resource ID so we need a valid
+					// subscription ID
 					subscriptionID := subscriptionIDFromMeta(p.Meta(ctx))
 					if subscriptionID == "" {
 						subscriptionID = os.Getenv("ARM_SUBSCRIPTION_ID")
 					}
-					if subscriptionID == "" {
-						subscriptionID = "_"
-					}
+					contract.Assertf(subscriptionID != "", "could not find a valid subscription ID")
 					rgID := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", subscriptionID, rgName)
 					states, err := importer("azurerm_resource_group",
 						rgID, p.Meta(ctx))
@@ -3752,37 +3751,12 @@ func subscriptionIDFromMeta(meta interface{}) string {
 	if meta == nil {
 		return ""
 	}
-	// Best-effort reflection to avoid depending on azurerm internals.
-	value := reflect.ValueOf(meta)
-	for value.Kind() == reflect.Pointer {
-		if value.IsNil() {
-			return ""
-		}
-		value = value.Elem()
-	}
-	if value.Kind() != reflect.Struct {
+	client, ok := meta.(*shim.AzureClient)
+	if !ok {
 		return ""
 	}
-	account := value.FieldByName("Account")
-	if !account.IsValid() {
-		return ""
-	}
-	for account.Kind() == reflect.Pointer {
-		if account.IsNil() {
-			return ""
-		}
-		account = account.Elem()
-	}
-	if account.Kind() != reflect.Struct {
-		return ""
-	}
-	for _, fieldName := range []string{"SubscriptionId", "SubscriptionID"} {
-		field := account.FieldByName(fieldName)
-		if field.IsValid() && field.Kind() == reflect.String {
-			if subscriptionID := field.String(); subscriptionID != "" {
-				return subscriptionID
-			}
-		}
+	if client != nil && client.Account != nil {
+		return client.Account.SubscriptionId
 	}
 	return ""
 }
