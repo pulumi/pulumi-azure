@@ -148,14 +148,14 @@ public class SyncServerEndpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cloudTieringEnabled);
     }
     /**
-     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+     * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="initialDownloadPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> initialDownloadPolicy;
 
     /**
-     * @return Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
+     * @return Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> initialDownloadPolicy() {

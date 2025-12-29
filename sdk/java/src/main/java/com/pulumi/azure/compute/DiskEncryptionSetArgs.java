@@ -112,14 +112,14 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      */
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
-     * @return Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     * @return Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      */
     public Optional<Output<String>> managedHsmKeyId() {
@@ -329,7 +329,7 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+         * @param managedHsmKeyId Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+         * @param managedHsmKeyId Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
          * 
          * @return builder
          * 

@@ -50,16 +50,12 @@ public final class RoleManagementPolicyNotificationRulesArgs extends com.pulumi.
     /**
      * A `notificationTarget` block as defined below to configure notification on eligible role assignments.
      * 
-     * At least one `notificationTarget` block must be provided.
-     * 
      */
     @Import(name="eligibleAssignments")
     private @Nullable Output<RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs> eligibleAssignments;
 
     /**
      * @return A `notificationTarget` block as defined below to configure notification on eligible role assignments.
-     * 
-     * At least one `notificationTarget` block must be provided.
      * 
      */
     public Optional<Output<RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs>> eligibleAssignments() {
@@ -137,8 +133,6 @@ public final class RoleManagementPolicyNotificationRulesArgs extends com.pulumi.
         /**
          * @param eligibleAssignments A `notificationTarget` block as defined below to configure notification on eligible role assignments.
          * 
-         * At least one `notificationTarget` block must be provided.
-         * 
          * @return builder
          * 
          */
@@ -149,8 +143,6 @@ public final class RoleManagementPolicyNotificationRulesArgs extends com.pulumi.
 
         /**
          * @param eligibleAssignments A `notificationTarget` block as defined below to configure notification on eligible role assignments.
-         * 
-         * At least one `notificationTarget` block must be provided.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
     public static final HadoopClusterPrivateLinkConfigurationIpConfigurationArgs Empty = new HadoopClusterPrivateLinkConfigurationIpConfigurationArgs();
 
     /**
-     * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+     * The name of the IP configuration.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+     * @return The name of the IP configuration.
      * 
      */
     public Output<String> name() {
@@ -47,31 +47,47 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
         return Optional.ofNullable(this.primary);
     }
 
+    /**
+     * The private IP address of the IP configuration.
+     * 
+     */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
+    /**
+     * @return The private IP address of the IP configuration.
+     * 
+     */
     public Optional<Output<String>> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
 
     /**
-     * The private IP allocation method. The only possible value now is `Dynamic`.
+     * The private IP allocation method. Possible values are `Dynamic` and `Static`.
      * 
      */
     @Import(name="privateIpAllocationMethod")
     private @Nullable Output<String> privateIpAllocationMethod;
 
     /**
-     * @return The private IP allocation method. The only possible value now is `Dynamic`.
+     * @return The private IP allocation method. Possible values are `Dynamic` and `Static`.
      * 
      */
     public Optional<Output<String>> privateIpAllocationMethod() {
         return Optional.ofNullable(this.privateIpAllocationMethod);
     }
 
+    /**
+     * The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+     * 
+     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
+    /**
+     * @return The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+     * 
+     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -105,7 +121,7 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
         }
 
         /**
-         * @param name Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         * @param name The name of the IP configuration.
          * 
          * @return builder
          * 
@@ -116,7 +132,7 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
         }
 
         /**
-         * @param name Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         * @param name The name of the IP configuration.
          * 
          * @return builder
          * 
@@ -146,17 +162,29 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
             return primary(Output.of(primary));
         }
 
+        /**
+         * @param privateIpAddress The private IP address of the IP configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateIpAddress(@Nullable Output<String> privateIpAddress) {
             $.privateIpAddress = privateIpAddress;
             return this;
         }
 
+        /**
+         * @param privateIpAddress The private IP address of the IP configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateIpAddress(String privateIpAddress) {
             return privateIpAddress(Output.of(privateIpAddress));
         }
 
         /**
-         * @param privateIpAllocationMethod The private IP allocation method. The only possible value now is `Dynamic`.
+         * @param privateIpAllocationMethod The private IP allocation method. Possible values are `Dynamic` and `Static`.
          * 
          * @return builder
          * 
@@ -167,7 +195,7 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
         }
 
         /**
-         * @param privateIpAllocationMethod The private IP allocation method. The only possible value now is `Dynamic`.
+         * @param privateIpAllocationMethod The private IP allocation method. Possible values are `Dynamic` and `Static`.
          * 
          * @return builder
          * 
@@ -176,11 +204,23 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
             return privateIpAllocationMethod(Output.of(privateIpAllocationMethod));
         }
 
+        /**
+         * @param subnetId The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
+        /**
+         * @param subnetId The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

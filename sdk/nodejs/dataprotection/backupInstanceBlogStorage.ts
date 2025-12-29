@@ -111,6 +111,10 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The protection state of the Backup Instance Blob Storage.
+     */
+    declare public /*out*/ readonly protectionState: pulumi.Output<string>;
+    /**
      * The list of the container names of the source Storage Account.
      *
      * > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
@@ -141,6 +145,7 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
             resourceInputs["backupPolicyId"] = state?.backupPolicyId;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
+            resourceInputs["protectionState"] = state?.protectionState;
             resourceInputs["storageAccountContainerNames"] = state?.storageAccountContainerNames;
             resourceInputs["storageAccountId"] = state?.storageAccountId;
             resourceInputs["vaultId"] = state?.vaultId;
@@ -161,6 +166,7 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
             resourceInputs["storageAccountContainerNames"] = args?.storageAccountContainerNames;
             resourceInputs["storageAccountId"] = args?.storageAccountId;
             resourceInputs["vaultId"] = args?.vaultId;
+            resourceInputs["protectionState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstanceBlogStorage.__pulumiType, name, resourceInputs, opts);
@@ -183,6 +189,10 @@ export interface BackupInstanceBlogStorageState {
      * The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The protection state of the Backup Instance Blob Storage.
+     */
+    protectionState?: pulumi.Input<string>;
     /**
      * The list of the container names of the source Storage Account.
      *

@@ -352,14 +352,14 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     * @return A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -877,7 +877,7 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+         * @param zones A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -888,7 +888,7 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+         * @param zones A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -898,7 +898,7 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+         * @param zones A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

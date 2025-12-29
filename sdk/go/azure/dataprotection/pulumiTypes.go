@@ -1127,7 +1127,7 @@ type BackupPolicyKubernetesClusterRetentionRuleCriteria struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
 	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
-	// *
+	//
 	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
 }
@@ -1153,7 +1153,7 @@ type BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
 	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
-	// *
+	//
 	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
 }
@@ -1205,7 +1205,7 @@ func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) ScheduledBacku
 }
 
 // Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
-// *
+//
 // > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
@@ -1693,7 +1693,7 @@ func (o BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput) Index(i pulumi.
 type BackupPolicyMysqlFlexibleServerRetentionRuleCriteria struct {
 	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
 	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
-	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	// Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
 	MonthsOfYears []string `pulumi:"monthsOfYears"`
@@ -1719,7 +1719,7 @@ type BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaInput interface {
 type BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs struct {
 	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
 	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
-	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	// Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
 	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
 	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
 	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
@@ -1762,7 +1762,7 @@ func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) AbsoluteCrit
 	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
 }
 
-// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+// Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
 func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleCriteria) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }
@@ -2268,7 +2268,7 @@ func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleArrayOutput) Index(i pu
 type BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria struct {
 	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
 	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
-	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	// Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
 	MonthsOfYears []string `pulumi:"monthsOfYears"`
@@ -2294,7 +2294,7 @@ type BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaInput interface {
 type BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs struct {
 	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
 	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
-	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	// Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
 	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
 	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
 	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
@@ -2337,7 +2337,7 @@ func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) Absolut
 	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
 }
 
-// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+// Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
 func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }

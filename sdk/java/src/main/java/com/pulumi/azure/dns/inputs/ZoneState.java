@@ -20,14 +20,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     public static final ZoneState Empty = new ZoneState();
 
     /**
-     * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+     * Maximum number of Records in the zone.
      * 
      */
     @Import(name="maxNumberOfRecordSets")
     private @Nullable Output<Integer> maxNumberOfRecordSets;
 
     /**
-     * @return (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+     * @return Maximum number of Records in the zone.
      * 
      */
     public Optional<Output<Integer>> maxNumberOfRecordSets() {
@@ -50,14 +50,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) A list of values that make up the NS record for the zone.
+     * A list of values that make up the NS record for the zone.
      * 
      */
     @Import(name="nameServers")
     private @Nullable Output<List<String>> nameServers;
 
     /**
-     * @return (Optional) A list of values that make up the NS record for the zone.
+     * @return A list of values that make up the NS record for the zone.
      * 
      */
     public Optional<Output<List<String>>> nameServers() {
@@ -65,14 +65,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) The number of records already in the zone.
+     * The number of records already in the zone.
      * 
      */
     @Import(name="numberOfRecordSets")
     private @Nullable Output<Integer> numberOfRecordSets;
 
     /**
-     * @return (Optional) The number of records already in the zone.
+     * @return The number of records already in the zone.
      * 
      */
     public Optional<Output<Integer>> numberOfRecordSets() {
@@ -95,14 +95,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `soaRecord` block as defined below.
+     * A `soaRecord` block as defined below.
      * 
      */
     @Import(name="soaRecord")
     private @Nullable Output<ZoneSoaRecordArgs> soaRecord;
 
     /**
-     * @return An `soaRecord` block as defined below.
+     * @return A `soaRecord` block as defined below.
      * 
      */
     public Optional<Output<ZoneSoaRecordArgs>> soaRecord() {
@@ -155,7 +155,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxNumberOfRecordSets (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+         * @param maxNumberOfRecordSets Maximum number of Records in the zone.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxNumberOfRecordSets (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+         * @param maxNumberOfRecordSets Maximum number of Records in the zone.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers (Optional) A list of values that make up the NS record for the zone.
+         * @param nameServers A list of values that make up the NS record for the zone.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers (Optional) A list of values that make up the NS record for the zone.
+         * @param nameServers A list of values that make up the NS record for the zone.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers (Optional) A list of values that make up the NS record for the zone.
+         * @param nameServers A list of values that make up the NS record for the zone.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfRecordSets (Optional) The number of records already in the zone.
+         * @param numberOfRecordSets The number of records already in the zone.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfRecordSets (Optional) The number of records already in the zone.
+         * @param numberOfRecordSets The number of records already in the zone.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param soaRecord An `soaRecord` block as defined below.
+         * @param soaRecord A `soaRecord` block as defined below.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param soaRecord An `soaRecord` block as defined below.
+         * @param soaRecord A `soaRecord` block as defined below.
          * 
          * @return builder
          * 

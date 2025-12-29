@@ -40,6 +40,13 @@ namespace Pulumi.Azure.Msi
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ManagedIdentity` - 2024-11-30
+    /// 
     /// ## Import
     /// 
     /// An existing User Assigned Identity can be imported into Pulumi using the `resource id`, e.g.

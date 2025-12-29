@@ -73,7 +73,6 @@ import javax.annotation.Nullable;
 public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-     * *
      * 
      */
     @Export(name="managedHsmId", refs={String.class}, tree="[0]")
@@ -81,7 +80,6 @@ public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.reso
 
     /**
      * @return The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-     * *
      * 
      */
     public Output<String> managedHsmId() {

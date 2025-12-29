@@ -140,14 +140,14 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the EventHub Namespace.
      * 
      */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
     /**
-     * @return Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * @return Specifies the ID of the EventHub Namespace.
      * 
      */
     public Output<String> namespaceId() {
@@ -168,7 +168,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the current number of shards on the Event Hub.
      * 
-     * &gt; **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+     * &gt; **Note:** When using a shared parent EventHub Namespace, `partitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn&#39;t apply. In either case though, the `partitionCount` cannot be decreased.
      * 
      * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 
@@ -179,7 +179,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the current number of shards on the Event Hub.
      * 
-     * &gt; **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+     * &gt; **Note:** When using a shared parent EventHub Namespace, `partitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn&#39;t apply. In either case though, the `partitionCount` cannot be decreased.
      * 
      * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 

@@ -173,7 +173,7 @@ type CustomerManagedKey struct {
 	KeyVaultUri pulumi.StringOutput `pulumi:"keyVaultUri"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrOutput `pulumi:"keyVersion"`
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
@@ -226,7 +226,7 @@ type customerManagedKeyState struct {
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion *string `pulumi:"keyVersion"`
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -244,7 +244,7 @@ type CustomerManagedKeyState struct {
 	KeyVaultUri pulumi.StringPtrInput
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrInput
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
@@ -266,7 +266,7 @@ type customerManagedKeyArgs struct {
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion *string `pulumi:"keyVersion"`
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -285,7 +285,7 @@ type CustomerManagedKeyArgs struct {
 	KeyVaultUri pulumi.StringPtrInput
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrInput
-	// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
@@ -404,7 +404,7 @@ func (o CustomerManagedKeyOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
-// Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
 func (o CustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }

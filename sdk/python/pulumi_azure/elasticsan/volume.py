@@ -31,7 +31,7 @@ class VolumeArgs:
                
                > **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         :param pulumi.Input[_builtins.str] volume_group_id: Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['VolumeCreateSourceArgs'] create_source: A `create_source` block as defined below.
+        :param pulumi.Input['VolumeCreateSourceArgs'] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "size_in_gib", size_in_gib)
@@ -71,7 +71,7 @@ class VolumeArgs:
     @pulumi.getter(name="createSource")
     def create_source(self) -> Optional[pulumi.Input['VolumeCreateSourceArgs']]:
         """
-        A `create_source` block as defined below.
+        A `create_source` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_source")
 
@@ -105,7 +105,7 @@ class _VolumeState:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
-        :param pulumi.Input['VolumeCreateSourceArgs'] create_source: A `create_source` block as defined below.
+        :param pulumi.Input['VolumeCreateSourceArgs'] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
@@ -137,7 +137,7 @@ class _VolumeState:
     @pulumi.getter(name="createSource")
     def create_source(self) -> Optional[pulumi.Input['VolumeCreateSourceArgs']]:
         """
-        A `create_source` block as defined below.
+        A `create_source` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_source")
 
@@ -333,7 +333,7 @@ class Volume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']] create_source: A `create_source` block as defined below.
+        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
@@ -499,7 +499,7 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']] create_source: A `create_source` block as defined below.
+        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
@@ -528,7 +528,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="createSource")
     def create_source(self) -> pulumi.Output[Optional['outputs.VolumeCreateSource']]:
         """
-        A `create_source` block as defined below.
+        A `create_source` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_source")
 

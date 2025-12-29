@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Oracle
         public Output<int> RetentionPeriodInDays { get; private set; } = null!;
 
         /// <summary>
-        /// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        /// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Oracle
         public Input<int> RetentionPeriodInDays { get; set; } = null!;
 
         /// <summary>
-        /// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        /// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Oracle
         public Input<int>? RetentionPeriodInDays { get; set; }
 
         /// <summary>
-        /// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+        /// The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

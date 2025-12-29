@@ -84,14 +84,14 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
-     * @return Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     * @return Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     public Optional<Output<String>> managedHsmKeyId() {
@@ -253,7 +253,7 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+         * @param managedHsmKeyId Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+         * @param managedHsmKeyId Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
          * 
          * @return builder
          * 

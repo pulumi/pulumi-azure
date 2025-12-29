@@ -30,6 +30,12 @@ __all__ = [
     'NextGenerationFirewallVirtualHubPanoramaDnsSettings',
     'NextGenerationFirewallVirtualHubPanoramaNetworkProfile',
     'NextGenerationFirewallVirtualHubPanoramaPanorama',
+    'NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat',
+    'NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig',
+    'NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig',
+    'NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings',
+    'NextGenerationFirewallVirtualHubStrataCloudManagerIdentity',
+    'NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile',
     'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat',
     'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig',
     'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig',
@@ -43,6 +49,13 @@ __all__ = [
     'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile',
     'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration',
     'NextGenerationFirewallVirtualNetworkPanoramaPanorama',
+    'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat',
+    'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig',
+    'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig',
+    'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings',
+    'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity',
+    'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile',
+    'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration',
 ]
 
 @pulumi.output_type
@@ -1083,6 +1096,435 @@ class NextGenerationFirewallVirtualHubPanoramaPanorama(dict):
 
 
 @pulumi.output_type
+class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendConfig":
+            suggest = "backend_config"
+        elif key == "frontendConfig":
+            suggest = "frontend_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 protocol: _builtins.str,
+                 backend_config: Optional['outputs.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig'] = None,
+                 frontend_config: Optional['outputs.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig'] = None):
+        """
+        :param _builtins.str name: The name which should be used for this Destination NAT rule.
+        :param _builtins.str protocol: The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        :param 'NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs' backend_config: One or more `backend_config` block as defined below.
+        :param 'NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs' frontend_config: One or more `frontend_config` block as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocol", protocol)
+        if backend_config is not None:
+            pulumi.set(__self__, "backend_config", backend_config)
+        if frontend_config is not None:
+            pulumi.set(__self__, "frontend_config", frontend_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name which should be used for this Destination NAT rule.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> _builtins.str:
+        """
+        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="backendConfig")
+    def backend_config(self) -> Optional['outputs.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig']:
+        """
+        One or more `backend_config` block as defined below.
+        """
+        return pulumi.get(self, "backend_config")
+
+    @_builtins.property
+    @pulumi.getter(name="frontendConfig")
+    def frontend_config(self) -> Optional['outputs.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig']:
+        """
+        One or more `frontend_config` block as defined below.
+        """
+        return pulumi.get(self, "frontend_config")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: _builtins.int,
+                 public_ip_address: _builtins.str):
+        """
+        :param _builtins.int port: The port number to send traffic to.
+        :param _builtins.str public_ip_address: The public IP Address to send the traffic to.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        The port number to send traffic to.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> _builtins.str:
+        """
+        The public IP Address to send the traffic to.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpAddressId":
+            suggest = "public_ip_address_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: _builtins.int,
+                 public_ip_address_id: _builtins.str):
+        """
+        :param _builtins.int port: The port on which traffic will be received.
+        :param _builtins.str public_ip_address_id: The ID of the Public IP Address resource the traffic will be received on.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        The port on which traffic will be received.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> _builtins.str:
+        """
+        The ID of the Public IP Address resource the traffic will be received on.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureDnsServers":
+            suggest = "azure_dns_servers"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "useAzureDns":
+            suggest = "use_azure_dns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_dns_servers: Optional[Sequence[_builtins.str]] = None,
+                 dns_servers: Optional[Sequence[_builtins.str]] = None,
+                 use_azure_dns: Optional[_builtins.bool] = None):
+        """
+        :param Sequence[_builtins.str] dns_servers: A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+        :param _builtins.bool use_azure_dns: Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
+        if azure_dns_servers is not None:
+            pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if use_azure_dns is not None:
+            pulumi.set(__self__, "use_azure_dns", use_azure_dns)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDnsServers")
+    def azure_dns_servers(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "azure_dns_servers")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @_builtins.property
+    @pulumi.getter(name="useAzureDns")
+    def use_azure_dns(self) -> Optional[_builtins.bool]:
+        """
+        Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
+        return pulumi.get(self, "use_azure_dns")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualHubStrataCloudManagerIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualHubStrataCloudManagerIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_ids: Sequence[_builtins.str],
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+        :param _builtins.str type: The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkVirtualApplianceId":
+            suggest = "network_virtual_appliance_id"
+        elif key == "publicIpAddressIds":
+            suggest = "public_ip_address_ids"
+        elif key == "virtualHubId":
+            suggest = "virtual_hub_id"
+        elif key == "egressNatIpAddressIds":
+            suggest = "egress_nat_ip_address_ids"
+        elif key == "egressNatIpAddresses":
+            suggest = "egress_nat_ip_addresses"
+        elif key == "ipOfTrustForUserDefinedRoutes":
+            suggest = "ip_of_trust_for_user_defined_routes"
+        elif key == "publicIpAddresses":
+            suggest = "public_ip_addresses"
+        elif key == "trustedAddressRanges":
+            suggest = "trusted_address_ranges"
+        elif key == "trustedSubnetId":
+            suggest = "trusted_subnet_id"
+        elif key == "untrustedSubnetId":
+            suggest = "untrusted_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_virtual_appliance_id: _builtins.str,
+                 public_ip_address_ids: Sequence[_builtins.str],
+                 virtual_hub_id: _builtins.str,
+                 egress_nat_ip_address_ids: Optional[Sequence[_builtins.str]] = None,
+                 egress_nat_ip_addresses: Optional[Sequence[_builtins.str]] = None,
+                 ip_of_trust_for_user_defined_routes: Optional[_builtins.str] = None,
+                 public_ip_addresses: Optional[Sequence[_builtins.str]] = None,
+                 trusted_address_ranges: Optional[Sequence[_builtins.str]] = None,
+                 trusted_subnet_id: Optional[_builtins.str] = None,
+                 untrusted_subnet_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str network_virtual_appliance_id: The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+        :param Sequence[_builtins.str] public_ip_address_ids: A list of Public IP IDs to use for this Next Generation Firewall.
+        :param _builtins.str virtual_hub_id: The ID of the Virtual Hub this Next Generation Firewall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+        :param Sequence[_builtins.str] egress_nat_ip_address_ids: A list of Public IP IDs to use for Egress NAT.
+        :param Sequence[_builtins.str] egress_nat_ip_addresses: A list of Egress NAT IP addresses.
+        :param _builtins.str ip_of_trust_for_user_defined_routes: The IP of trusted subnet for UDR.
+        :param Sequence[_builtins.str] public_ip_addresses: A list of public IPs associated with this Next Generation Firewall.
+        :param Sequence[_builtins.str] trusted_address_ranges: A list of trusted ranges to use for the Network.
+        :param _builtins.str trusted_subnet_id: The ID of trusted subnet.
+        :param _builtins.str untrusted_subnet_id: The ID of untrusted subnet.
+        """
+        pulumi.set(__self__, "network_virtual_appliance_id", network_virtual_appliance_id)
+        pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
+        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        if egress_nat_ip_address_ids is not None:
+            pulumi.set(__self__, "egress_nat_ip_address_ids", egress_nat_ip_address_ids)
+        if egress_nat_ip_addresses is not None:
+            pulumi.set(__self__, "egress_nat_ip_addresses", egress_nat_ip_addresses)
+        if ip_of_trust_for_user_defined_routes is not None:
+            pulumi.set(__self__, "ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if trusted_address_ranges is not None:
+            pulumi.set(__self__, "trusted_address_ranges", trusted_address_ranges)
+        if trusted_subnet_id is not None:
+            pulumi.set(__self__, "trusted_subnet_id", trusted_subnet_id)
+        if untrusted_subnet_id is not None:
+            pulumi.set(__self__, "untrusted_subnet_id", untrusted_subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="networkVirtualApplianceId")
+    def network_virtual_appliance_id(self) -> _builtins.str:
+        """
+        The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+        """
+        return pulumi.get(self, "network_virtual_appliance_id")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddressIds")
+    def public_ip_address_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of Public IP IDs to use for this Next Generation Firewall.
+        """
+        return pulumi.get(self, "public_ip_address_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualHubId")
+    def virtual_hub_id(self) -> _builtins.str:
+        """
+        The ID of the Virtual Hub this Next Generation Firewall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+        """
+        return pulumi.get(self, "virtual_hub_id")
+
+    @_builtins.property
+    @pulumi.getter(name="egressNatIpAddressIds")
+    def egress_nat_ip_address_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of Public IP IDs to use for Egress NAT.
+        """
+        return pulumi.get(self, "egress_nat_ip_address_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="egressNatIpAddresses")
+    def egress_nat_ip_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of Egress NAT IP addresses.
+        """
+        return pulumi.get(self, "egress_nat_ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="ipOfTrustForUserDefinedRoutes")
+    def ip_of_trust_for_user_defined_routes(self) -> Optional[_builtins.str]:
+        """
+        The IP of trusted subnet for UDR.
+        """
+        return pulumi.get(self, "ip_of_trust_for_user_defined_routes")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of public IPs associated with this Next Generation Firewall.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedAddressRanges")
+    def trusted_address_ranges(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of trusted ranges to use for the Network.
+        """
+        return pulumi.get(self, "trusted_address_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedSubnetId")
+    def trusted_subnet_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of trusted subnet.
+        """
+        return pulumi.get(self, "trusted_subnet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="untrustedSubnetId")
+    def untrusted_subnet_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of untrusted subnet.
+        """
+        return pulumi.get(self, "untrusted_subnet_id")
+
+
+@pulumi.output_type
 class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1992,5 +2434,456 @@ class NextGenerationFirewallVirtualNetworkPanoramaPanorama(dict):
         The SSH Key to connect to the Firewall Resource.
         """
         return pulumi.get(self, "virtual_machine_ssh_key")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendConfig":
+            suggest = "backend_config"
+        elif key == "frontendConfig":
+            suggest = "frontend_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 protocol: _builtins.str,
+                 backend_config: Optional['outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig'] = None,
+                 frontend_config: Optional['outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig'] = None):
+        """
+        :param _builtins.str name: The name which should be used for this NAT.
+        :param _builtins.str protocol: The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        :param 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs' backend_config: One or more `backend_config` block as defined below.
+        :param 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs' frontend_config: One or more `frontend_config` block as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocol", protocol)
+        if backend_config is not None:
+            pulumi.set(__self__, "backend_config", backend_config)
+        if frontend_config is not None:
+            pulumi.set(__self__, "frontend_config", frontend_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name which should be used for this NAT.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> _builtins.str:
+        """
+        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="backendConfig")
+    def backend_config(self) -> Optional['outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig']:
+        """
+        One or more `backend_config` block as defined below.
+        """
+        return pulumi.get(self, "backend_config")
+
+    @_builtins.property
+    @pulumi.getter(name="frontendConfig")
+    def frontend_config(self) -> Optional['outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig']:
+        """
+        One or more `frontend_config` block as defined below.
+        """
+        return pulumi.get(self, "frontend_config")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: _builtins.int,
+                 public_ip_address: _builtins.str):
+        """
+        :param _builtins.int port: The port number to send traffic to.
+        :param _builtins.str public_ip_address: The public IP Address to send the traffic to.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        The port number to send traffic to.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> _builtins.str:
+        """
+        The public IP Address to send the traffic to.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpAddressId":
+            suggest = "public_ip_address_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: _builtins.int,
+                 public_ip_address_id: _builtins.str):
+        """
+        :param _builtins.int port: The port on which traffic will be received.
+        :param _builtins.str public_ip_address_id: The ID of the Public IP Address resource the traffic will be received on.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        The port on which traffic will be received.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> _builtins.str:
+        """
+        The ID of the Public IP Address resource the traffic will be received on.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureDnsServers":
+            suggest = "azure_dns_servers"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "useAzureDns":
+            suggest = "use_azure_dns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_dns_servers: Optional[Sequence[_builtins.str]] = None,
+                 dns_servers: Optional[Sequence[_builtins.str]] = None,
+                 use_azure_dns: Optional[_builtins.bool] = None):
+        """
+        :param Sequence[_builtins.str] dns_servers: A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+        :param _builtins.bool use_azure_dns: Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
+        if azure_dns_servers is not None:
+            pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if use_azure_dns is not None:
+            pulumi.set(__self__, "use_azure_dns", use_azure_dns)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDnsServers")
+    def azure_dns_servers(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "azure_dns_servers")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @_builtins.property
+    @pulumi.getter(name="useAzureDns")
+    def use_azure_dns(self) -> Optional[_builtins.bool]:
+        """
+        Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
+        return pulumi.get(self, "use_azure_dns")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_ids: Sequence[_builtins.str],
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+        :param _builtins.str type: The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpAddressIds":
+            suggest = "public_ip_address_ids"
+        elif key == "vnetConfiguration":
+            suggest = "vnet_configuration"
+        elif key == "egressNatIpAddressIds":
+            suggest = "egress_nat_ip_address_ids"
+        elif key == "egressNatIpAddresses":
+            suggest = "egress_nat_ip_addresses"
+        elif key == "publicIpAddresses":
+            suggest = "public_ip_addresses"
+        elif key == "trustedAddressRanges":
+            suggest = "trusted_address_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_ip_address_ids: Sequence[_builtins.str],
+                 vnet_configuration: 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration',
+                 egress_nat_ip_address_ids: Optional[Sequence[_builtins.str]] = None,
+                 egress_nat_ip_addresses: Optional[Sequence[_builtins.str]] = None,
+                 public_ip_addresses: Optional[Sequence[_builtins.str]] = None,
+                 trusted_address_ranges: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] public_ip_address_ids: A list of Azure Public IP Address IDs.
+        :param 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs' vnet_configuration: A `vnet_configuration` block as defined below.
+        :param Sequence[_builtins.str] egress_nat_ip_address_ids: A list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+        :param Sequence[_builtins.str] egress_nat_ip_addresses: A list of Egress NAT IP addresses.
+        :param Sequence[_builtins.str] public_ip_addresses: A list of public IPs associated with this Next Generation Firewall.
+        :param Sequence[_builtins.str] trusted_address_ranges: A list of trusted ranges to use for the Network.
+        """
+        pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
+        pulumi.set(__self__, "vnet_configuration", vnet_configuration)
+        if egress_nat_ip_address_ids is not None:
+            pulumi.set(__self__, "egress_nat_ip_address_ids", egress_nat_ip_address_ids)
+        if egress_nat_ip_addresses is not None:
+            pulumi.set(__self__, "egress_nat_ip_addresses", egress_nat_ip_addresses)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if trusted_address_ranges is not None:
+            pulumi.set(__self__, "trusted_address_ranges", trusted_address_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddressIds")
+    def public_ip_address_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of Azure Public IP Address IDs.
+        """
+        return pulumi.get(self, "public_ip_address_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vnetConfiguration")
+    def vnet_configuration(self) -> 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration':
+        """
+        A `vnet_configuration` block as defined below.
+        """
+        return pulumi.get(self, "vnet_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="egressNatIpAddressIds")
+    def egress_nat_ip_address_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+        """
+        return pulumi.get(self, "egress_nat_ip_address_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="egressNatIpAddresses")
+    def egress_nat_ip_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of Egress NAT IP addresses.
+        """
+        return pulumi.get(self, "egress_nat_ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of public IPs associated with this Next Generation Firewall.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedAddressRanges")
+    def trusted_address_ranges(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of trusted ranges to use for the Network.
+        """
+        return pulumi.get(self, "trusted_address_ranges")
+
+
+@pulumi.output_type
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+        elif key == "ipOfTrustForUserDefinedRoutes":
+            suggest = "ip_of_trust_for_user_defined_routes"
+        elif key == "trustedSubnetId":
+            suggest = "trusted_subnet_id"
+        elif key == "untrustedSubnetId":
+            suggest = "untrusted_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 virtual_network_id: _builtins.str,
+                 ip_of_trust_for_user_defined_routes: Optional[_builtins.str] = None,
+                 trusted_subnet_id: Optional[_builtins.str] = None,
+                 untrusted_subnet_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str virtual_network_id: The ID of the Virtual Network.
+        :param _builtins.str ip_of_trust_for_user_defined_routes: The IP of trusted subnet for UDR.
+        :param _builtins.str trusted_subnet_id: The ID of the Trust subnet.
+        :param _builtins.str untrusted_subnet_id: The ID of the UnTrust subnet.
+        """
+        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        if ip_of_trust_for_user_defined_routes is not None:
+            pulumi.set(__self__, "ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
+        if trusted_subnet_id is not None:
+            pulumi.set(__self__, "trusted_subnet_id", trusted_subnet_id)
+        if untrusted_subnet_id is not None:
+            pulumi.set(__self__, "untrusted_subnet_id", untrusted_subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> _builtins.str:
+        """
+        The ID of the Virtual Network.
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    @_builtins.property
+    @pulumi.getter(name="ipOfTrustForUserDefinedRoutes")
+    def ip_of_trust_for_user_defined_routes(self) -> Optional[_builtins.str]:
+        """
+        The IP of trusted subnet for UDR.
+        """
+        return pulumi.get(self, "ip_of_trust_for_user_defined_routes")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedSubnetId")
+    def trusted_subnet_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Trust subnet.
+        """
+        return pulumi.get(self, "trusted_subnet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="untrustedSubnetId")
+    def untrusted_subnet_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the UnTrust subnet.
+        """
+        return pulumi.get(self, "untrusted_subnet_id")
 
 

@@ -145,14 +145,14 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
         return this.attachedDatabaseNames;
     }
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * The resource id of the cluster where the databases you would like to attach reside.
      * 
      */
     @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
     /**
-     * @return The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * @return The resource id of the cluster where the databases you would like to attach reside.
      * 
      */
     public Output<String> clusterId() {

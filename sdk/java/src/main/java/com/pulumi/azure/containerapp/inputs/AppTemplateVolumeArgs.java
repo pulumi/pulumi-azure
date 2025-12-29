@@ -62,14 +62,14 @@ public final class AppTemplateVolumeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+     * The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+     * @return The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -167,7 +167,7 @@ public final class AppTemplateVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+         * @param storageType The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class AppTemplateVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+         * @param storageType The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
          * 
          * @return builder
          * 

@@ -38,14 +38,14 @@ namespace Pulumi.Azure.Storage
     ///     var exampleShare = new Azure.Storage.Share("example", new()
     ///     {
     ///         Name = "sharename",
-    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountId = exampleAccount.Id,
     ///         Quota = 50,
     ///     });
     /// 
     ///     var exampleShareFile = new Azure.Storage.ShareFile("example", new()
     ///     {
     ///         Name = "my-awesome-content.zip",
-    ///         StorageShareId = exampleShare.Id,
+    ///         StorageShareUrl = exampleShare.Url,
     ///         Source = "some-local-file.zip",
     ///     });
     /// 
@@ -116,11 +116,14 @@ namespace Pulumi.Azure.Storage
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
 
-        /// <summary>
-        /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("storageShareId")]
         public Output<string> StorageShareId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("storageShareUrl")]
+        public Output<string> StorageShareUrl { get; private set; } = null!;
 
 
         /// <summary>
@@ -130,7 +133,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ShareFile(string name, ShareFileArgs args, CustomResourceOptions? options = null)
+        public ShareFile(string name, ShareFileArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:storage/shareFile:ShareFile", name, args ?? new ShareFileArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -221,11 +224,14 @@ namespace Pulumi.Azure.Storage
         [Input("source")]
         public Input<string>? Source { get; set; }
 
+        [Input("storageShareId")]
+        public Input<string>? StorageShareId { get; set; }
+
         /// <summary>
-        /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        /// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageShareId", required: true)]
-        public Input<string> StorageShareId { get; set; } = null!;
+        [Input("storageShareUrl")]
+        public Input<string>? StorageShareUrl { get; set; }
 
         public ShareFileArgs()
         {
@@ -294,11 +300,14 @@ namespace Pulumi.Azure.Storage
         [Input("source")]
         public Input<string>? Source { get; set; }
 
-        /// <summary>
-        /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("storageShareId")]
         public Input<string>? StorageShareId { get; set; }
+
+        /// <summary>
+        /// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageShareUrl")]
+        public Input<string>? StorageShareUrl { get; set; }
 
         public ShareFileState()
         {

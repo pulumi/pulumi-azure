@@ -34,6 +34,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
+        /// <summary>
+        /// Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("gpuDriver")]
         public Input<string>? GpuDriver { get; set; }
 

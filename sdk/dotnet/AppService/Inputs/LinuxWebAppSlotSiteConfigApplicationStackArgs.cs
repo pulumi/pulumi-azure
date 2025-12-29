@@ -49,7 +49,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? DockerRegistryUsername { get; set; }
 
         /// <summary>
-        /// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
+        /// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? JavaServerVersion { get; set; }
 
         /// <summary>
-        /// The Version of Java to use. Possible values include `8`, `11`, and `17`.
+        /// The Version of Java to use. Possible values are `8`, `11`, `17` and `21`.
         /// 
         /// &gt; **Note:** The valid version combinations for `JavaVersion`, `JavaServer` and `JavaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
         /// </summary>

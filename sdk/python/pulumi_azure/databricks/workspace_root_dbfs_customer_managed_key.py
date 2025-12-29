@@ -24,8 +24,8 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
                  key_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceRootDbfsCustomerManagedKey resource.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: The resource ID of the Key Vault Key to be used.
-        :param pulumi.Input[_builtins.str] workspace_id: The resource ID of the Databricks Workspace.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to be used.
+        :param pulumi.Input[_builtins.str] workspace_id: The Resource ID of the Databricks Workspace.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -36,7 +36,7 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource ID of the Key Vault Key to be used.
+        The ID of the Key Vault Key to be used.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -48,7 +48,7 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource ID of the Databricks Workspace.
+        The Resource ID of the Databricks Workspace.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -74,8 +74,8 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceRootDbfsCustomerManagedKey resources.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: The resource ID of the Key Vault Key to be used.
-        :param pulumi.Input[_builtins.str] workspace_id: The resource ID of the Databricks Workspace.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to be used.
+        :param pulumi.Input[_builtins.str] workspace_id: The Resource ID of the Databricks Workspace.
         """
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -97,7 +97,7 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The resource ID of the Key Vault Key to be used.
+        The ID of the Key Vault Key to be used.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -109,7 +109,7 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The resource ID of the Databricks Workspace.
+        The Resource ID of the Databricks Workspace.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -129,7 +129,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
+        Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System (DBFS)
 
         ## Example Usage
 
@@ -141,15 +141,6 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_workspace = azure.databricks.Workspace("example",
-            name="databricks-test",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="premium",
-            customer_managed_key_enabled=True,
-            tags={
-                "Environment": "Production",
-            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekeyvault",
             location=example.location,
@@ -188,6 +179,12 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                 "wrapKey",
             ],
             opts = pulumi.ResourceOptions(depends_on=[terraform]))
+        example_workspace = azure.databricks.Workspace("example",
+            name="example-workspace",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="premium",
+            customer_managed_key_enabled=True)
         databricks = azure.keyvault.AccessPolicy("databricks",
             key_vault_id=example_key_vault.id,
             tenant_id=example_workspace.storage_account_identities[0].tenant_id,
@@ -233,8 +230,8 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: The resource ID of the Key Vault Key to be used.
-        :param pulumi.Input[_builtins.str] workspace_id: The resource ID of the Databricks Workspace.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to be used.
+        :param pulumi.Input[_builtins.str] workspace_id: The Resource ID of the Databricks Workspace.
         """
         ...
     @overload
@@ -243,7 +240,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                  args: WorkspaceRootDbfsCustomerManagedKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
+        Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System (DBFS)
 
         ## Example Usage
 
@@ -255,15 +252,6 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_workspace = azure.databricks.Workspace("example",
-            name="databricks-test",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="premium",
-            customer_managed_key_enabled=True,
-            tags={
-                "Environment": "Production",
-            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekeyvault",
             location=example.location,
@@ -302,6 +290,12 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                 "wrapKey",
             ],
             opts = pulumi.ResourceOptions(depends_on=[terraform]))
+        example_workspace = azure.databricks.Workspace("example",
+            name="example-workspace",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="premium",
+            customer_managed_key_enabled=True)
         databricks = azure.keyvault.AccessPolicy("databricks",
             key_vault_id=example_key_vault.id,
             tenant_id=example_workspace.storage_account_identities[0].tenant_id,
@@ -401,8 +395,8 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: The resource ID of the Key Vault Key to be used.
-        :param pulumi.Input[_builtins.str] workspace_id: The resource ID of the Databricks Workspace.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to be used.
+        :param pulumi.Input[_builtins.str] workspace_id: The Resource ID of the Databricks Workspace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -422,7 +416,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource ID of the Key Vault Key to be used.
+        The ID of the Key Vault Key to be used.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -430,7 +424,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource ID of the Databricks Workspace.
+        The Resource ID of the Databricks Workspace.
         """
         return pulumi.get(self, "workspace_id")
 

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Nginx.Inputs
         private InputList<Inputs.DeploymentWebApplicationFirewallStatusGetArgs>? _statuses;
 
         /// <summary>
-        /// A `web_application_firewall.status` block as defined below:
+        /// A `Status` block as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentWebApplicationFirewallStatusGetArgs> Statuses
         {

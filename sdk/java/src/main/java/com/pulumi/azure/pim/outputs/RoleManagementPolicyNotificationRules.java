@@ -26,8 +26,6 @@ public final class RoleManagementPolicyNotificationRules {
     /**
      * @return A `notificationTarget` block as defined below to configure notification on eligible role assignments.
      * 
-     * At least one `notificationTarget` block must be provided.
-     * 
      */
     private @Nullable RoleManagementPolicyNotificationRulesEligibleAssignments eligibleAssignments;
 
@@ -48,8 +46,6 @@ public final class RoleManagementPolicyNotificationRules {
     }
     /**
      * @return A `notificationTarget` block as defined below to configure notification on eligible role assignments.
-     * 
-     * At least one `notificationTarget` block must be provided.
      * 
      */
     public Optional<RoleManagementPolicyNotificationRulesEligibleAssignments> eligibleAssignments() {

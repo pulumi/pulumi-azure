@@ -117,7 +117,6 @@ export class EnvironmentStorage extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-     * *
      */
     declare public readonly nfsServerUrl: pulumi.Output<string | undefined>;
     /**
@@ -197,7 +196,6 @@ export interface EnvironmentStorageState {
     name?: pulumi.Input<string>;
     /**
      * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-     * *
      */
     nfsServerUrl?: pulumi.Input<string>;
     /**
@@ -232,7 +230,6 @@ export interface EnvironmentStorageArgs {
     name?: pulumi.Input<string>;
     /**
      * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
-     * *
      */
     nfsServerUrl?: pulumi.Input<string>;
     /**

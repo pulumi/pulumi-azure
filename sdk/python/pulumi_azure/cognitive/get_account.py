@@ -27,10 +27,25 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, endpoint=None, id=None, identities=None, kind=None, local_auth_enabled=None, location=None, name=None, primary_access_key=None, qna_runtime_endpoint=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None):
+    def __init__(__self__, custom_question_answering_search_service_id=None, custom_subdomain_name=None, customer_managed_keys=None, dynamic_throttling_enabled=None, endpoint=None, fqdns=None, id=None, identities=None, kind=None, local_auth_enabled=None, location=None, metrics_advisor_aad_client_id=None, metrics_advisor_aad_tenant_id=None, metrics_advisor_super_user_name=None, metrics_advisor_website_name=None, name=None, network_acls=None, network_injections=None, outbound_network_access_restricted=None, primary_access_key=None, project_management_enabled=None, public_network_access_enabled=None, qna_runtime_endpoint=None, resource_group_name=None, secondary_access_key=None, sku_name=None, storages=None, tags=None):
+        if custom_question_answering_search_service_id and not isinstance(custom_question_answering_search_service_id, str):
+            raise TypeError("Expected argument 'custom_question_answering_search_service_id' to be a str")
+        pulumi.set(__self__, "custom_question_answering_search_service_id", custom_question_answering_search_service_id)
+        if custom_subdomain_name and not isinstance(custom_subdomain_name, str):
+            raise TypeError("Expected argument 'custom_subdomain_name' to be a str")
+        pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
+        if customer_managed_keys and not isinstance(customer_managed_keys, list):
+            raise TypeError("Expected argument 'customer_managed_keys' to be a list")
+        pulumi.set(__self__, "customer_managed_keys", customer_managed_keys)
+        if dynamic_throttling_enabled and not isinstance(dynamic_throttling_enabled, bool):
+            raise TypeError("Expected argument 'dynamic_throttling_enabled' to be a bool")
+        pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if fqdns and not isinstance(fqdns, list):
+            raise TypeError("Expected argument 'fqdns' to be a list")
+        pulumi.set(__self__, "fqdns", fqdns)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,12 +61,39 @@ class GetAccountResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if metrics_advisor_aad_client_id and not isinstance(metrics_advisor_aad_client_id, str):
+            raise TypeError("Expected argument 'metrics_advisor_aad_client_id' to be a str")
+        pulumi.set(__self__, "metrics_advisor_aad_client_id", metrics_advisor_aad_client_id)
+        if metrics_advisor_aad_tenant_id and not isinstance(metrics_advisor_aad_tenant_id, str):
+            raise TypeError("Expected argument 'metrics_advisor_aad_tenant_id' to be a str")
+        pulumi.set(__self__, "metrics_advisor_aad_tenant_id", metrics_advisor_aad_tenant_id)
+        if metrics_advisor_super_user_name and not isinstance(metrics_advisor_super_user_name, str):
+            raise TypeError("Expected argument 'metrics_advisor_super_user_name' to be a str")
+        pulumi.set(__self__, "metrics_advisor_super_user_name", metrics_advisor_super_user_name)
+        if metrics_advisor_website_name and not isinstance(metrics_advisor_website_name, str):
+            raise TypeError("Expected argument 'metrics_advisor_website_name' to be a str")
+        pulumi.set(__self__, "metrics_advisor_website_name", metrics_advisor_website_name)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_acls and not isinstance(network_acls, list):
+            raise TypeError("Expected argument 'network_acls' to be a list")
+        pulumi.set(__self__, "network_acls", network_acls)
+        if network_injections and not isinstance(network_injections, list):
+            raise TypeError("Expected argument 'network_injections' to be a list")
+        pulumi.set(__self__, "network_injections", network_injections)
+        if outbound_network_access_restricted and not isinstance(outbound_network_access_restricted, bool):
+            raise TypeError("Expected argument 'outbound_network_access_restricted' to be a bool")
+        pulumi.set(__self__, "outbound_network_access_restricted", outbound_network_access_restricted)
         if primary_access_key and not isinstance(primary_access_key, str):
             raise TypeError("Expected argument 'primary_access_key' to be a str")
         pulumi.set(__self__, "primary_access_key", primary_access_key)
+        if project_management_enabled and not isinstance(project_management_enabled, bool):
+            raise TypeError("Expected argument 'project_management_enabled' to be a bool")
+        pulumi.set(__self__, "project_management_enabled", project_management_enabled)
+        if public_network_access_enabled and not isinstance(public_network_access_enabled, bool):
+            raise TypeError("Expected argument 'public_network_access_enabled' to be a bool")
+        pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if qna_runtime_endpoint and not isinstance(qna_runtime_endpoint, str):
             raise TypeError("Expected argument 'qna_runtime_endpoint' to be a str")
         pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
@@ -64,17 +106,60 @@ class GetAccountResult:
         if sku_name and not isinstance(sku_name, str):
             raise TypeError("Expected argument 'sku_name' to be a str")
         pulumi.set(__self__, "sku_name", sku_name)
+        if storages and not isinstance(storages, list):
+            raise TypeError("Expected argument 'storages' to be a list")
+        pulumi.set(__self__, "storages", storages)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter(name="customQuestionAnsweringSearchServiceId")
+    def custom_question_answering_search_service_id(self) -> _builtins.str:
+        """
+        The ID of the search service.
+        """
+        return pulumi.get(self, "custom_question_answering_search_service_id")
+
+    @_builtins.property
+    @pulumi.getter(name="customSubdomainName")
+    def custom_subdomain_name(self) -> _builtins.str:
+        """
+        The subdomain name used for Entra ID token-based authentication.
+        """
+        return pulumi.get(self, "custom_subdomain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="customerManagedKeys")
+    def customer_managed_keys(self) -> Sequence['outputs.GetAccountCustomerManagedKeyResult']:
+        """
+        A `customer_managed_key` block as defined below.
+        """
+        return pulumi.get(self, "customer_managed_keys")
+
+    @_builtins.property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> _builtins.bool:
+        """
+        Whether dynamic throttling is enabled for this Cognitive Services Account.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
         """
-        The endpoint of the Cognitive Services Account
+        The endpoint of the Cognitive Services Account.
         """
         return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def fqdns(self) -> Sequence[_builtins.str]:
+        """
+        List of FQDNs allowed for the Cognitive Services Account.
+        """
+        return pulumi.get(self, "fqdns")
 
     @_builtins.property
     @pulumi.getter
@@ -96,7 +181,7 @@ class GetAccountResult:
     @pulumi.getter
     def kind(self) -> _builtins.str:
         """
-        The kind of the Cognitive Services Account
+        The type of the Cognitive Services Account.
         """
         return pulumi.get(self, "kind")
 
@@ -104,7 +189,7 @@ class GetAccountResult:
     @pulumi.getter(name="localAuthEnabled")
     def local_auth_enabled(self) -> _builtins.bool:
         """
-        Whether local authentication methods is enabled for the Cognitive Account.
+        Whether local authentication methods are enabled for the Cognitive Services Account.
         """
         return pulumi.get(self, "local_auth_enabled")
 
@@ -112,9 +197,41 @@ class GetAccountResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        The Azure location where the Cognitive Services Account exists
+        The Azure location where the Cognitive Services Account exists.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsAdvisorAadClientId")
+    def metrics_advisor_aad_client_id(self) -> _builtins.str:
+        """
+        The Microsoft Entra Application (client) ID.
+        """
+        return pulumi.get(self, "metrics_advisor_aad_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsAdvisorAadTenantId")
+    def metrics_advisor_aad_tenant_id(self) -> _builtins.str:
+        """
+        The Microsoft Entra Tenant ID.
+        """
+        return pulumi.get(self, "metrics_advisor_aad_tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsAdvisorSuperUserName")
+    def metrics_advisor_super_user_name(self) -> _builtins.str:
+        """
+        The super user of Metrics Advisor.
+        """
+        return pulumi.get(self, "metrics_advisor_super_user_name")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsAdvisorWebsiteName")
+    def metrics_advisor_website_name(self) -> _builtins.str:
+        """
+        The website name of Metrics Advisor.
+        """
+        return pulumi.get(self, "metrics_advisor_website_name")
 
     @_builtins.property
     @pulumi.getter
@@ -122,18 +239,58 @@ class GetAccountResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Sequence['outputs.GetAccountNetworkAclResult']:
+        """
+        A `network_acls` block as defined below.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @_builtins.property
+    @pulumi.getter(name="networkInjections")
+    def network_injections(self) -> Sequence['outputs.GetAccountNetworkInjectionResult']:
+        """
+        A `network_injection` block as defined below.
+        """
+        return pulumi.get(self, "network_injections")
+
+    @_builtins.property
+    @pulumi.getter(name="outboundNetworkAccessRestricted")
+    def outbound_network_access_restricted(self) -> _builtins.bool:
+        """
+        Whether outbound network access is restricted for the Cognitive Services Account.
+        """
+        return pulumi.get(self, "outbound_network_access_restricted")
+
+    @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
     def primary_access_key(self) -> _builtins.str:
         """
-        The primary access key of the Cognitive Services Account
+        The primary access key of the Cognitive Services Account.
         """
         return pulumi.get(self, "primary_access_key")
+
+    @_builtins.property
+    @pulumi.getter(name="projectManagementEnabled")
+    def project_management_enabled(self) -> _builtins.bool:
+        """
+        Whether project management is enabled.
+        """
+        return pulumi.get(self, "project_management_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> _builtins.bool:
+        """
+        Whether public network access is allowed for the Cognitive Services Account.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @_builtins.property
     @pulumi.getter(name="qnaRuntimeEndpoint")
     def qna_runtime_endpoint(self) -> _builtins.str:
         """
-        If `kind` is `QnAMaker` the link to the QNA runtime.
+        The link to the QNA runtime.
         """
         return pulumi.get(self, "qna_runtime_endpoint")
 
@@ -146,7 +303,7 @@ class GetAccountResult:
     @pulumi.getter(name="secondaryAccessKey")
     def secondary_access_key(self) -> _builtins.str:
         """
-        The secondary access key of the Cognitive Services Account
+        The secondary access key of the Cognitive Services Account.
         """
         return pulumi.get(self, "secondary_access_key")
 
@@ -154,9 +311,17 @@ class GetAccountResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> _builtins.str:
         """
-        The SKU name of the Cognitive Services Account
+        The SKU name of the Cognitive Services Account.
         """
         return pulumi.get(self, "sku_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def storages(self) -> Sequence['outputs.GetAccountStorageResult']:
+        """
+        A `storage` block as defined below.
+        """
+        return pulumi.get(self, "storages")
 
     @_builtins.property
     @pulumi.getter
@@ -173,18 +338,33 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            custom_question_answering_search_service_id=self.custom_question_answering_search_service_id,
+            custom_subdomain_name=self.custom_subdomain_name,
+            customer_managed_keys=self.customer_managed_keys,
+            dynamic_throttling_enabled=self.dynamic_throttling_enabled,
             endpoint=self.endpoint,
+            fqdns=self.fqdns,
             id=self.id,
             identities=self.identities,
             kind=self.kind,
             local_auth_enabled=self.local_auth_enabled,
             location=self.location,
+            metrics_advisor_aad_client_id=self.metrics_advisor_aad_client_id,
+            metrics_advisor_aad_tenant_id=self.metrics_advisor_aad_tenant_id,
+            metrics_advisor_super_user_name=self.metrics_advisor_super_user_name,
+            metrics_advisor_website_name=self.metrics_advisor_website_name,
             name=self.name,
+            network_acls=self.network_acls,
+            network_injections=self.network_injections,
+            outbound_network_access_restricted=self.outbound_network_access_restricted,
             primary_access_key=self.primary_access_key,
+            project_management_enabled=self.project_management_enabled,
+            public_network_access_enabled=self.public_network_access_enabled,
             qna_runtime_endpoint=self.qna_runtime_endpoint,
             resource_group_name=self.resource_group_name,
             secondary_access_key=self.secondary_access_key,
             sku_name=self.sku_name,
+            storages=self.storages,
             tags=self.tags)
 
 
@@ -226,18 +406,33 @@ def get_account(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cognitive/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
+        custom_question_answering_search_service_id=pulumi.get(__ret__, 'custom_question_answering_search_service_id'),
+        custom_subdomain_name=pulumi.get(__ret__, 'custom_subdomain_name'),
+        customer_managed_keys=pulumi.get(__ret__, 'customer_managed_keys'),
+        dynamic_throttling_enabled=pulumi.get(__ret__, 'dynamic_throttling_enabled'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
+        fqdns=pulumi.get(__ret__, 'fqdns'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
         kind=pulumi.get(__ret__, 'kind'),
         local_auth_enabled=pulumi.get(__ret__, 'local_auth_enabled'),
         location=pulumi.get(__ret__, 'location'),
+        metrics_advisor_aad_client_id=pulumi.get(__ret__, 'metrics_advisor_aad_client_id'),
+        metrics_advisor_aad_tenant_id=pulumi.get(__ret__, 'metrics_advisor_aad_tenant_id'),
+        metrics_advisor_super_user_name=pulumi.get(__ret__, 'metrics_advisor_super_user_name'),
+        metrics_advisor_website_name=pulumi.get(__ret__, 'metrics_advisor_website_name'),
         name=pulumi.get(__ret__, 'name'),
+        network_acls=pulumi.get(__ret__, 'network_acls'),
+        network_injections=pulumi.get(__ret__, 'network_injections'),
+        outbound_network_access_restricted=pulumi.get(__ret__, 'outbound_network_access_restricted'),
         primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
+        project_management_enabled=pulumi.get(__ret__, 'project_management_enabled'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
         qna_runtime_endpoint=pulumi.get(__ret__, 'qna_runtime_endpoint'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
         sku_name=pulumi.get(__ret__, 'sku_name'),
+        storages=pulumi.get(__ret__, 'storages'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_account_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -276,16 +471,31 @@ def get_account_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:cognitive/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
+        custom_question_answering_search_service_id=pulumi.get(__response__, 'custom_question_answering_search_service_id'),
+        custom_subdomain_name=pulumi.get(__response__, 'custom_subdomain_name'),
+        customer_managed_keys=pulumi.get(__response__, 'customer_managed_keys'),
+        dynamic_throttling_enabled=pulumi.get(__response__, 'dynamic_throttling_enabled'),
         endpoint=pulumi.get(__response__, 'endpoint'),
+        fqdns=pulumi.get(__response__, 'fqdns'),
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),
         kind=pulumi.get(__response__, 'kind'),
         local_auth_enabled=pulumi.get(__response__, 'local_auth_enabled'),
         location=pulumi.get(__response__, 'location'),
+        metrics_advisor_aad_client_id=pulumi.get(__response__, 'metrics_advisor_aad_client_id'),
+        metrics_advisor_aad_tenant_id=pulumi.get(__response__, 'metrics_advisor_aad_tenant_id'),
+        metrics_advisor_super_user_name=pulumi.get(__response__, 'metrics_advisor_super_user_name'),
+        metrics_advisor_website_name=pulumi.get(__response__, 'metrics_advisor_website_name'),
         name=pulumi.get(__response__, 'name'),
+        network_acls=pulumi.get(__response__, 'network_acls'),
+        network_injections=pulumi.get(__response__, 'network_injections'),
+        outbound_network_access_restricted=pulumi.get(__response__, 'outbound_network_access_restricted'),
         primary_access_key=pulumi.get(__response__, 'primary_access_key'),
+        project_management_enabled=pulumi.get(__response__, 'project_management_enabled'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
         qna_runtime_endpoint=pulumi.get(__response__, 'qna_runtime_endpoint'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         secondary_access_key=pulumi.get(__response__, 'secondary_access_key'),
         sku_name=pulumi.get(__response__, 'sku_name'),
+        storages=pulumi.get(__response__, 'storages'),
         tags=pulumi.get(__response__, 'tags')))

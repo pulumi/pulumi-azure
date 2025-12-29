@@ -198,7 +198,7 @@ type FlexibleServer struct {
 	Storage FlexibleServerStorageOutput `pulumi:"storage"`
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version pulumi.StringOutput `pulumi:"version"`
 	Zone    pulumi.StringOutput `pulumi:"zone"`
 }
@@ -312,7 +312,7 @@ type flexibleServerState struct {
 	Storage *FlexibleServerStorage `pulumi:"storage"`
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version *string `pulumi:"version"`
 	Zone    *string `pulumi:"zone"`
 }
@@ -387,7 +387,7 @@ type FlexibleServerState struct {
 	Storage FlexibleServerStoragePtrInput
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version pulumi.StringPtrInput
 	Zone    pulumi.StringPtrInput
 }
@@ -461,7 +461,7 @@ type flexibleServerArgs struct {
 	Storage *FlexibleServerStorage `pulumi:"storage"`
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version *string `pulumi:"version"`
 	Zone    *string `pulumi:"zone"`
 }
@@ -532,7 +532,7 @@ type FlexibleServerArgs struct {
 	Storage FlexibleServerStoragePtrInput
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version pulumi.StringPtrInput
 	Zone    pulumi.StringPtrInput
 }
@@ -768,7 +768,7 @@ func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
+// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 func (o FlexibleServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

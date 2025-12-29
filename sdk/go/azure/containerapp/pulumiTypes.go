@@ -1613,6 +1613,8 @@ type AppTemplate struct {
 	AzureQueueScaleRules []AppTemplateAzureQueueScaleRule `pulumi:"azureQueueScaleRules"`
 	// One or more `container` blocks as detailed below.
 	Containers []AppTemplateContainer `pulumi:"containers"`
+	// The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+	CooldownPeriodInSeconds *int `pulumi:"cooldownPeriodInSeconds"`
 	// One or more `customScaleRule` blocks as defined below.
 	CustomScaleRules []AppTemplateCustomScaleRule `pulumi:"customScaleRules"`
 	// One or more `httpScaleRule` blocks as defined below.
@@ -1623,6 +1625,8 @@ type AppTemplate struct {
 	MaxReplicas *int `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
 	MinReplicas *int `pulumi:"minReplicas"`
+	// The interval in seconds used for polling KEDA. Defaults to `30`.
+	PollingIntervalInSeconds *int `pulumi:"pollingIntervalInSeconds"`
 	// The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 	RevisionSuffix *string `pulumi:"revisionSuffix"`
 	// One or more `tcpScaleRule` blocks as defined below.
@@ -1649,6 +1653,8 @@ type AppTemplateArgs struct {
 	AzureQueueScaleRules AppTemplateAzureQueueScaleRuleArrayInput `pulumi:"azureQueueScaleRules"`
 	// One or more `container` blocks as detailed below.
 	Containers AppTemplateContainerArrayInput `pulumi:"containers"`
+	// The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+	CooldownPeriodInSeconds pulumi.IntPtrInput `pulumi:"cooldownPeriodInSeconds"`
 	// One or more `customScaleRule` blocks as defined below.
 	CustomScaleRules AppTemplateCustomScaleRuleArrayInput `pulumi:"customScaleRules"`
 	// One or more `httpScaleRule` blocks as defined below.
@@ -1659,6 +1665,8 @@ type AppTemplateArgs struct {
 	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
 	MinReplicas pulumi.IntPtrInput `pulumi:"minReplicas"`
+	// The interval in seconds used for polling KEDA. Defaults to `30`.
+	PollingIntervalInSeconds pulumi.IntPtrInput `pulumi:"pollingIntervalInSeconds"`
 	// The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 	RevisionSuffix pulumi.StringPtrInput `pulumi:"revisionSuffix"`
 	// One or more `tcpScaleRule` blocks as defined below.
@@ -1756,6 +1764,11 @@ func (o AppTemplateOutput) Containers() AppTemplateContainerArrayOutput {
 	return o.ApplyT(func(v AppTemplate) []AppTemplateContainer { return v.Containers }).(AppTemplateContainerArrayOutput)
 }
 
+// The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+func (o AppTemplateOutput) CooldownPeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppTemplate) *int { return v.CooldownPeriodInSeconds }).(pulumi.IntPtrOutput)
+}
+
 // One or more `customScaleRule` blocks as defined below.
 func (o AppTemplateOutput) CustomScaleRules() AppTemplateCustomScaleRuleArrayOutput {
 	return o.ApplyT(func(v AppTemplate) []AppTemplateCustomScaleRule { return v.CustomScaleRules }).(AppTemplateCustomScaleRuleArrayOutput)
@@ -1779,6 +1792,11 @@ func (o AppTemplateOutput) MaxReplicas() pulumi.IntPtrOutput {
 // The minimum number of replicas for this container.
 func (o AppTemplateOutput) MinReplicas() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppTemplate) *int { return v.MinReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The interval in seconds used for polling KEDA. Defaults to `30`.
+func (o AppTemplateOutput) PollingIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppTemplate) *int { return v.PollingIntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
@@ -1845,6 +1863,16 @@ func (o AppTemplatePtrOutput) Containers() AppTemplateContainerArrayOutput {
 	}).(AppTemplateContainerArrayOutput)
 }
 
+// The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+func (o AppTemplatePtrOutput) CooldownPeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppTemplate) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CooldownPeriodInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // One or more `customScaleRule` blocks as defined below.
 func (o AppTemplatePtrOutput) CustomScaleRules() AppTemplateCustomScaleRuleArrayOutput {
 	return o.ApplyT(func(v *AppTemplate) []AppTemplateCustomScaleRule {
@@ -1892,6 +1920,16 @@ func (o AppTemplatePtrOutput) MinReplicas() pulumi.IntPtrOutput {
 			return nil
 		}
 		return v.MinReplicas
+	}).(pulumi.IntPtrOutput)
+}
+
+// The interval in seconds used for polling KEDA. Defaults to `30`.
+func (o AppTemplatePtrOutput) PollingIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppTemplate) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PollingIntervalInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -4575,7 +4613,7 @@ type AppTemplateVolume struct {
 	Name string `pulumi:"name"`
 	// The name of the `AzureFile` storage.
 	StorageName *string `pulumi:"storageName"`
-	// The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+	// The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
 	StorageType *string `pulumi:"storageType"`
 }
 
@@ -4597,7 +4635,7 @@ type AppTemplateVolumeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the `AzureFile` storage.
 	StorageName pulumi.StringPtrInput `pulumi:"storageName"`
-	// The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+	// The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 }
 
@@ -4667,7 +4705,7 @@ func (o AppTemplateVolumeOutput) StorageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateVolume) *string { return v.StorageName }).(pulumi.StringPtrOutput)
 }
 
-// The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
+// The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
 func (o AppTemplateVolumeOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateVolume) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
@@ -4690,6 +4728,170 @@ func (o AppTemplateVolumeArrayOutput) Index(i pulumi.IntInput) AppTemplateVolume
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateVolume {
 		return vs[0].([]AppTemplateVolume)[vs[1].(int)]
 	}).(AppTemplateVolumeOutput)
+}
+
+type EnvironmentCertificateCertificateKeyVault struct {
+	// The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+	Identity *string `pulumi:"identity"`
+	// The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
+}
+
+// EnvironmentCertificateCertificateKeyVaultInput is an input type that accepts EnvironmentCertificateCertificateKeyVaultArgs and EnvironmentCertificateCertificateKeyVaultOutput values.
+// You can construct a concrete instance of `EnvironmentCertificateCertificateKeyVaultInput` via:
+//
+//	EnvironmentCertificateCertificateKeyVaultArgs{...}
+type EnvironmentCertificateCertificateKeyVaultInput interface {
+	pulumi.Input
+
+	ToEnvironmentCertificateCertificateKeyVaultOutput() EnvironmentCertificateCertificateKeyVaultOutput
+	ToEnvironmentCertificateCertificateKeyVaultOutputWithContext(context.Context) EnvironmentCertificateCertificateKeyVaultOutput
+}
+
+type EnvironmentCertificateCertificateKeyVaultArgs struct {
+	// The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
+}
+
+func (EnvironmentCertificateCertificateKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentCertificateCertificateKeyVault)(nil)).Elem()
+}
+
+func (i EnvironmentCertificateCertificateKeyVaultArgs) ToEnvironmentCertificateCertificateKeyVaultOutput() EnvironmentCertificateCertificateKeyVaultOutput {
+	return i.ToEnvironmentCertificateCertificateKeyVaultOutputWithContext(context.Background())
+}
+
+func (i EnvironmentCertificateCertificateKeyVaultArgs) ToEnvironmentCertificateCertificateKeyVaultOutputWithContext(ctx context.Context) EnvironmentCertificateCertificateKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentCertificateCertificateKeyVaultOutput)
+}
+
+func (i EnvironmentCertificateCertificateKeyVaultArgs) ToEnvironmentCertificateCertificateKeyVaultPtrOutput() EnvironmentCertificateCertificateKeyVaultPtrOutput {
+	return i.ToEnvironmentCertificateCertificateKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i EnvironmentCertificateCertificateKeyVaultArgs) ToEnvironmentCertificateCertificateKeyVaultPtrOutputWithContext(ctx context.Context) EnvironmentCertificateCertificateKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentCertificateCertificateKeyVaultOutput).ToEnvironmentCertificateCertificateKeyVaultPtrOutputWithContext(ctx)
+}
+
+// EnvironmentCertificateCertificateKeyVaultPtrInput is an input type that accepts EnvironmentCertificateCertificateKeyVaultArgs, EnvironmentCertificateCertificateKeyVaultPtr and EnvironmentCertificateCertificateKeyVaultPtrOutput values.
+// You can construct a concrete instance of `EnvironmentCertificateCertificateKeyVaultPtrInput` via:
+//
+//	        EnvironmentCertificateCertificateKeyVaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnvironmentCertificateCertificateKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentCertificateCertificateKeyVaultPtrOutput() EnvironmentCertificateCertificateKeyVaultPtrOutput
+	ToEnvironmentCertificateCertificateKeyVaultPtrOutputWithContext(context.Context) EnvironmentCertificateCertificateKeyVaultPtrOutput
+}
+
+type environmentCertificateCertificateKeyVaultPtrType EnvironmentCertificateCertificateKeyVaultArgs
+
+func EnvironmentCertificateCertificateKeyVaultPtr(v *EnvironmentCertificateCertificateKeyVaultArgs) EnvironmentCertificateCertificateKeyVaultPtrInput {
+	return (*environmentCertificateCertificateKeyVaultPtrType)(v)
+}
+
+func (*environmentCertificateCertificateKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentCertificateCertificateKeyVault)(nil)).Elem()
+}
+
+func (i *environmentCertificateCertificateKeyVaultPtrType) ToEnvironmentCertificateCertificateKeyVaultPtrOutput() EnvironmentCertificateCertificateKeyVaultPtrOutput {
+	return i.ToEnvironmentCertificateCertificateKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *environmentCertificateCertificateKeyVaultPtrType) ToEnvironmentCertificateCertificateKeyVaultPtrOutputWithContext(ctx context.Context) EnvironmentCertificateCertificateKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentCertificateCertificateKeyVaultPtrOutput)
+}
+
+type EnvironmentCertificateCertificateKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentCertificateCertificateKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentCertificateCertificateKeyVault)(nil)).Elem()
+}
+
+func (o EnvironmentCertificateCertificateKeyVaultOutput) ToEnvironmentCertificateCertificateKeyVaultOutput() EnvironmentCertificateCertificateKeyVaultOutput {
+	return o
+}
+
+func (o EnvironmentCertificateCertificateKeyVaultOutput) ToEnvironmentCertificateCertificateKeyVaultOutputWithContext(ctx context.Context) EnvironmentCertificateCertificateKeyVaultOutput {
+	return o
+}
+
+func (o EnvironmentCertificateCertificateKeyVaultOutput) ToEnvironmentCertificateCertificateKeyVaultPtrOutput() EnvironmentCertificateCertificateKeyVaultPtrOutput {
+	return o.ToEnvironmentCertificateCertificateKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentCertificateCertificateKeyVaultOutput) ToEnvironmentCertificateCertificateKeyVaultPtrOutputWithContext(ctx context.Context) EnvironmentCertificateCertificateKeyVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentCertificateCertificateKeyVault) *EnvironmentCertificateCertificateKeyVault {
+		return &v
+	}).(EnvironmentCertificateCertificateKeyVaultPtrOutput)
+}
+
+// The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+//
+// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+func (o EnvironmentCertificateCertificateKeyVaultOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentCertificateCertificateKeyVault) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+func (o EnvironmentCertificateCertificateKeyVaultOutput) KeyVaultSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentCertificateCertificateKeyVault) string { return v.KeyVaultSecretId }).(pulumi.StringOutput)
+}
+
+type EnvironmentCertificateCertificateKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentCertificateCertificateKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentCertificateCertificateKeyVault)(nil)).Elem()
+}
+
+func (o EnvironmentCertificateCertificateKeyVaultPtrOutput) ToEnvironmentCertificateCertificateKeyVaultPtrOutput() EnvironmentCertificateCertificateKeyVaultPtrOutput {
+	return o
+}
+
+func (o EnvironmentCertificateCertificateKeyVaultPtrOutput) ToEnvironmentCertificateCertificateKeyVaultPtrOutputWithContext(ctx context.Context) EnvironmentCertificateCertificateKeyVaultPtrOutput {
+	return o
+}
+
+func (o EnvironmentCertificateCertificateKeyVaultPtrOutput) Elem() EnvironmentCertificateCertificateKeyVaultOutput {
+	return o.ApplyT(func(v *EnvironmentCertificateCertificateKeyVault) EnvironmentCertificateCertificateKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentCertificateCertificateKeyVault
+		return ret
+	}).(EnvironmentCertificateCertificateKeyVaultOutput)
+}
+
+// The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+//
+// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+func (o EnvironmentCertificateCertificateKeyVaultPtrOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentCertificateCertificateKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+func (o EnvironmentCertificateCertificateKeyVaultPtrOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentCertificateCertificateKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultSecretId
+	}).(pulumi.StringPtrOutput)
 }
 
 type EnvironmentDaprComponentMetadata struct {
@@ -4808,9 +5010,9 @@ func (o EnvironmentDaprComponentMetadataArrayOutput) Index(i pulumi.IntInput) En
 }
 
 type EnvironmentDaprComponentSecret struct {
-	// The identity to use for accessing key vault reference.
+	// The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
 	Identity *string `pulumi:"identity"`
-	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+	// The Key Vault Secret ID.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The Secret name.
 	Name string `pulumi:"name"`
@@ -4830,9 +5032,9 @@ type EnvironmentDaprComponentSecretInput interface {
 }
 
 type EnvironmentDaprComponentSecretArgs struct {
-	// The identity to use for accessing key vault reference.
+	// The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
-	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+	// The Key Vault Secret ID.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The Secret name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4891,12 +5093,12 @@ func (o EnvironmentDaprComponentSecretOutput) ToEnvironmentDaprComponentSecretOu
 	return o
 }
 
-// The identity to use for accessing key vault reference.
+// The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
 func (o EnvironmentDaprComponentSecretOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentDaprComponentSecret) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
 
-// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+// The Key Vault Secret ID.
 func (o EnvironmentDaprComponentSecretOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentDaprComponentSecret) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -5124,7 +5326,7 @@ type EnvironmentWorkloadProfile struct {
 	MinimumCount *int `pulumi:"minimumCount"`
 	// The name of the workload profile.
 	Name string `pulumi:"name"`
-	// Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+	// Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
 	//
 	// > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
 	//
@@ -5150,7 +5352,7 @@ type EnvironmentWorkloadProfileArgs struct {
 	MinimumCount pulumi.IntPtrInput `pulumi:"minimumCount"`
 	// The name of the workload profile.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+	// Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
 	//
 	// > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
 	//
@@ -5224,7 +5426,7 @@ func (o EnvironmentWorkloadProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentWorkloadProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+// Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
 //
 // > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
 //
@@ -5555,7 +5757,7 @@ func (o JobEventTriggerConfigScaleArrayOutput) Index(i pulumi.IntInput) JobEvent
 type JobEventTriggerConfigScaleRule struct {
 	// A `authentication` block as defined below.
 	Authentications []JobEventTriggerConfigScaleRuleAuthentication `pulumi:"authentications"`
-	// Type of the scale rule.
+	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
 	CustomRuleType string `pulumi:"customRuleType"`
 	// Metadata properties to describe the scale rule.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -5577,7 +5779,7 @@ type JobEventTriggerConfigScaleRuleInput interface {
 type JobEventTriggerConfigScaleRuleArgs struct {
 	// A `authentication` block as defined below.
 	Authentications JobEventTriggerConfigScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
-	// Type of the scale rule.
+	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
 	CustomRuleType pulumi.StringInput `pulumi:"customRuleType"`
 	// Metadata properties to describe the scale rule.
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
@@ -5643,7 +5845,7 @@ func (o JobEventTriggerConfigScaleRuleOutput) Authentications() JobEventTriggerC
 	}).(JobEventTriggerConfigScaleRuleAuthenticationArrayOutput)
 }
 
-// Type of the scale rule.
+// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
 func (o JobEventTriggerConfigScaleRuleOutput) CustomRuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
 }
@@ -5791,7 +5993,7 @@ type JobIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+	// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
 	Type string `pulumi:"type"`
 }
 
@@ -5813,7 +6015,7 @@ type JobIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+	// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5909,7 +6111,7 @@ func (o JobIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
 func (o JobIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JobIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5968,7 +6170,7 @@ func (o JobIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
 func (o JobIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
 		if v == nil {
@@ -8472,7 +8674,7 @@ type JobTemplateVolume struct {
 	Name string `pulumi:"name"`
 	// The name of the storage to use for the volume.
 	StorageName *string `pulumi:"storageName"`
-	// The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+	// The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
 	StorageType *string `pulumi:"storageType"`
 }
 
@@ -8494,7 +8696,7 @@ type JobTemplateVolumeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the storage to use for the volume.
 	StorageName pulumi.StringPtrInput `pulumi:"storageName"`
-	// The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+	// The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 }
 
@@ -8564,7 +8766,7 @@ func (o JobTemplateVolumeOutput) StorageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateVolume) *string { return v.StorageName }).(pulumi.StringPtrOutput)
 }
 
-// The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+// The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
 func (o JobTemplateVolumeOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateVolume) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
@@ -9765,15 +9967,19 @@ func (o GetAppSecretArrayOutput) Index(i pulumi.IntInput) GetAppSecretOutput {
 type GetAppTemplate struct {
 	AzureQueueScaleRules []GetAppTemplateAzureQueueScaleRule `pulumi:"azureQueueScaleRules"`
 	// One or more `container` blocks as detailed below.
-	Containers       []GetAppTemplateContainer       `pulumi:"containers"`
-	CustomScaleRules []GetAppTemplateCustomScaleRule `pulumi:"customScaleRules"`
-	HttpScaleRules   []GetAppTemplateHttpScaleRule   `pulumi:"httpScaleRules"`
+	Containers []GetAppTemplateContainer `pulumi:"containers"`
+	// The number of seconds to wait before scaling down the number of instances again.
+	CooldownPeriodInSeconds int                             `pulumi:"cooldownPeriodInSeconds"`
+	CustomScaleRules        []GetAppTemplateCustomScaleRule `pulumi:"customScaleRules"`
+	HttpScaleRules          []GetAppTemplateHttpScaleRule   `pulumi:"httpScaleRules"`
 	// One or more `initContainer` blocks as detailed below.
 	InitContainers []GetAppTemplateInitContainer `pulumi:"initContainers"`
 	// The maximum number of replicas for this container.
 	MaxReplicas int `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
 	MinReplicas int `pulumi:"minReplicas"`
+	// The interval in seconds used for polling KEDA.
+	PollingIntervalInSeconds int `pulumi:"pollingIntervalInSeconds"`
 	// The suffix string to which this `trafficWeight` applies.
 	RevisionSuffix string                       `pulumi:"revisionSuffix"`
 	TcpScaleRules  []GetAppTemplateTcpScaleRule `pulumi:"tcpScaleRules"`
@@ -9797,15 +10003,19 @@ type GetAppTemplateInput interface {
 type GetAppTemplateArgs struct {
 	AzureQueueScaleRules GetAppTemplateAzureQueueScaleRuleArrayInput `pulumi:"azureQueueScaleRules"`
 	// One or more `container` blocks as detailed below.
-	Containers       GetAppTemplateContainerArrayInput       `pulumi:"containers"`
-	CustomScaleRules GetAppTemplateCustomScaleRuleArrayInput `pulumi:"customScaleRules"`
-	HttpScaleRules   GetAppTemplateHttpScaleRuleArrayInput   `pulumi:"httpScaleRules"`
+	Containers GetAppTemplateContainerArrayInput `pulumi:"containers"`
+	// The number of seconds to wait before scaling down the number of instances again.
+	CooldownPeriodInSeconds pulumi.IntInput                         `pulumi:"cooldownPeriodInSeconds"`
+	CustomScaleRules        GetAppTemplateCustomScaleRuleArrayInput `pulumi:"customScaleRules"`
+	HttpScaleRules          GetAppTemplateHttpScaleRuleArrayInput   `pulumi:"httpScaleRules"`
 	// One or more `initContainer` blocks as detailed below.
 	InitContainers GetAppTemplateInitContainerArrayInput `pulumi:"initContainers"`
 	// The maximum number of replicas for this container.
 	MaxReplicas pulumi.IntInput `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
 	MinReplicas pulumi.IntInput `pulumi:"minReplicas"`
+	// The interval in seconds used for polling KEDA.
+	PollingIntervalInSeconds pulumi.IntInput `pulumi:"pollingIntervalInSeconds"`
 	// The suffix string to which this `trafficWeight` applies.
 	RevisionSuffix pulumi.StringInput                   `pulumi:"revisionSuffix"`
 	TcpScaleRules  GetAppTemplateTcpScaleRuleArrayInput `pulumi:"tcpScaleRules"`
@@ -9875,6 +10085,11 @@ func (o GetAppTemplateOutput) Containers() GetAppTemplateContainerArrayOutput {
 	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateContainer { return v.Containers }).(GetAppTemplateContainerArrayOutput)
 }
 
+// The number of seconds to wait before scaling down the number of instances again.
+func (o GetAppTemplateOutput) CooldownPeriodInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplate) int { return v.CooldownPeriodInSeconds }).(pulumi.IntOutput)
+}
+
 func (o GetAppTemplateOutput) CustomScaleRules() GetAppTemplateCustomScaleRuleArrayOutput {
 	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateCustomScaleRule { return v.CustomScaleRules }).(GetAppTemplateCustomScaleRuleArrayOutput)
 }
@@ -9896,6 +10111,11 @@ func (o GetAppTemplateOutput) MaxReplicas() pulumi.IntOutput {
 // The minimum number of replicas for this container.
 func (o GetAppTemplateOutput) MinReplicas() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplate) int { return v.MinReplicas }).(pulumi.IntOutput)
+}
+
+// The interval in seconds used for polling KEDA.
+func (o GetAppTemplateOutput) PollingIntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplate) int { return v.PollingIntervalInSeconds }).(pulumi.IntOutput)
 }
 
 // The suffix string to which this `trafficWeight` applies.
@@ -12675,6 +12895,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateTcpScaleRuleAuthenticationArrayInput)(nil)).Elem(), AppTemplateTcpScaleRuleAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateVolumeInput)(nil)).Elem(), AppTemplateVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateVolumeArrayInput)(nil)).Elem(), AppTemplateVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentCertificateCertificateKeyVaultInput)(nil)).Elem(), EnvironmentCertificateCertificateKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentCertificateCertificateKeyVaultPtrInput)(nil)).Elem(), EnvironmentCertificateCertificateKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentMetadataInput)(nil)).Elem(), EnvironmentDaprComponentMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentMetadataArrayInput)(nil)).Elem(), EnvironmentDaprComponentMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentSecretInput)(nil)).Elem(), EnvironmentDaprComponentSecretArgs{})
@@ -12853,6 +13075,8 @@ func init() {
 	pulumi.RegisterOutputType(AppTemplateTcpScaleRuleAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateVolumeOutput{})
 	pulumi.RegisterOutputType(AppTemplateVolumeArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentCertificateCertificateKeyVaultOutput{})
+	pulumi.RegisterOutputType(EnvironmentCertificateCertificateKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentMetadataOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentMetadataArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentSecretOutput{})

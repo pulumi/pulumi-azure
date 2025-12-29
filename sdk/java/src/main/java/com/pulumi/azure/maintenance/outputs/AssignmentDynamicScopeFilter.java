@@ -19,7 +19,7 @@ public final class AssignmentDynamicScopeFilter {
      */
     private @Nullable List<String> locations;
     /**
-     * @return Specifies a list of allowed operating systems.
+     * @return Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
      * 
      */
     private @Nullable List<String> osTypes;
@@ -29,7 +29,7 @@ public final class AssignmentDynamicScopeFilter {
      */
     private @Nullable List<String> resourceGroups;
     /**
-     * @return Specifies a list of allowed resources.
+     * @return Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
      * 
      */
     private @Nullable List<String> resourceTypes;
@@ -39,7 +39,7 @@ public final class AssignmentDynamicScopeFilter {
      */
     private @Nullable String tagFilter;
     /**
-     * @return A mapping of tags for the VM
+     * @return One or more `tags` blocks as defined below.
      * 
      */
     private @Nullable List<AssignmentDynamicScopeFilterTag> tags;
@@ -53,7 +53,7 @@ public final class AssignmentDynamicScopeFilter {
         return this.locations == null ? List.of() : this.locations;
     }
     /**
-     * @return Specifies a list of allowed operating systems.
+     * @return Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
      * 
      */
     public List<String> osTypes() {
@@ -67,7 +67,7 @@ public final class AssignmentDynamicScopeFilter {
         return this.resourceGroups == null ? List.of() : this.resourceGroups;
     }
     /**
-     * @return Specifies a list of allowed resources.
+     * @return Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
      * 
      */
     public List<String> resourceTypes() {
@@ -81,7 +81,7 @@ public final class AssignmentDynamicScopeFilter {
         return Optional.ofNullable(this.tagFilter);
     }
     /**
-     * @return A mapping of tags for the VM
+     * @return One or more `tags` blocks as defined below.
      * 
      */
     public List<AssignmentDynamicScopeFilterTag> tags() {

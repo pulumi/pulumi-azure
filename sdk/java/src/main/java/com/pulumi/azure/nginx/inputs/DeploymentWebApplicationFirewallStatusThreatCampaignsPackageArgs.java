@@ -15,16 +15,32 @@ public final class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageA
 
     public static final DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs Empty = new DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs();
 
+    /**
+     * The revision date and time of the threat campaigns package.
+     * 
+     */
     @Import(name="revisionDatetime")
     private @Nullable Output<String> revisionDatetime;
 
+    /**
+     * @return The revision date and time of the threat campaigns package.
+     * 
+     */
     public Optional<Output<String>> revisionDatetime() {
         return Optional.ofNullable(this.revisionDatetime);
     }
 
+    /**
+     * The version of the threat campaigns package.
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
+    /**
+     * @return The version of the threat campaigns package.
+     * 
+     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -54,20 +70,44 @@ public final class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageA
             $ = new DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param revisionDatetime The revision date and time of the threat campaigns package.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revisionDatetime(@Nullable Output<String> revisionDatetime) {
             $.revisionDatetime = revisionDatetime;
             return this;
         }
 
+        /**
+         * @param revisionDatetime The revision date and time of the threat campaigns package.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revisionDatetime(String revisionDatetime) {
             return revisionDatetime(Output.of(revisionDatetime));
         }
 
+        /**
+         * @param version The version of the threat campaigns package.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version The version of the threat campaigns package.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

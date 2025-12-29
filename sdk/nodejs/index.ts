@@ -98,7 +98,6 @@ import * as managementgroups from "./managementgroups";
 import * as managementresource from "./managementresource";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
-import * as mobile from "./mobile";
 import * as mongocluster from "./mongocluster";
 import * as monitoring from "./monitoring";
 import * as msi from "./msi";
@@ -237,7 +236,6 @@ export {
     managementresource,
     maps,
     marketplace,
-    mobile,
     mongocluster,
     monitoring,
     msi,

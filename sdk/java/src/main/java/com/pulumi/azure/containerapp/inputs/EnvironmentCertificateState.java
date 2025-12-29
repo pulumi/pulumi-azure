@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerapp.inputs;
 
+import com.pulumi.azure.containerapp.inputs.EnvironmentCertificateCertificateKeyVaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -19,6 +20,8 @@ public final class EnvironmentCertificateState extends com.pulumi.resources.Reso
     /**
      * The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
      */
     @Import(name="certificateBlobBase64")
     private @Nullable Output<String> certificateBlobBase64;
@@ -26,13 +29,36 @@ public final class EnvironmentCertificateState extends com.pulumi.resources.Reso
     /**
      * @return The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
      */
     public Optional<Output<String>> certificateBlobBase64() {
         return Optional.ofNullable(this.certificateBlobBase64);
     }
 
     /**
+     * A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
+     */
+    @Import(name="certificateKeyVault")
+    private @Nullable Output<EnvironmentCertificateCertificateKeyVaultArgs> certificateKeyVault;
+
+    /**
+     * @return A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     * 
+     */
+    public Optional<Output<EnvironmentCertificateCertificateKeyVaultArgs>> certificateKeyVault() {
+        return Optional.ofNullable(this.certificateKeyVault);
+    }
+
+    /**
      * The password for the Certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** required if `certificateBlobBase64` is specified.
      * 
      */
     @Import(name="certificatePassword")
@@ -40,6 +66,8 @@ public final class EnvironmentCertificateState extends com.pulumi.resources.Reso
 
     /**
      * @return The password for the Certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** required if `certificateBlobBase64` is specified.
      * 
      */
     public Optional<Output<String>> certificatePassword() {
@@ -170,6 +198,7 @@ public final class EnvironmentCertificateState extends com.pulumi.resources.Reso
 
     private EnvironmentCertificateState(EnvironmentCertificateState $) {
         this.certificateBlobBase64 = $.certificateBlobBase64;
+        this.certificateKeyVault = $.certificateKeyVault;
         this.certificatePassword = $.certificatePassword;
         this.containerAppEnvironmentId = $.containerAppEnvironmentId;
         this.expirationDate = $.expirationDate;
@@ -202,6 +231,8 @@ public final class EnvironmentCertificateState extends com.pulumi.resources.Reso
         /**
          * @param certificateBlobBase64 The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+         * 
          * @return builder
          * 
          */
@@ -213,6 +244,8 @@ public final class EnvironmentCertificateState extends com.pulumi.resources.Reso
         /**
          * @param certificateBlobBase64 The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
+         * 
          * @return builder
          * 
          */
@@ -221,7 +254,34 @@ public final class EnvironmentCertificateState extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param certificateKeyVault A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateKeyVault(@Nullable Output<EnvironmentCertificateCertificateKeyVaultArgs> certificateKeyVault) {
+            $.certificateKeyVault = certificateKeyVault;
+            return this;
+        }
+
+        /**
+         * @param certificateKeyVault A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateKeyVault(EnvironmentCertificateCertificateKeyVaultArgs certificateKeyVault) {
+            return certificateKeyVault(Output.of(certificateKeyVault));
+        }
+
+        /**
          * @param certificatePassword The password for the Certificate. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** required if `certificateBlobBase64` is specified.
          * 
          * @return builder
          * 
@@ -233,6 +293,8 @@ public final class EnvironmentCertificateState extends com.pulumi.resources.Reso
 
         /**
          * @param certificatePassword The password for the Certificate. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** required if `certificateBlobBase64` is specified.
          * 
          * @return builder
          * 

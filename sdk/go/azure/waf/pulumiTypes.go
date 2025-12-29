@@ -20,7 +20,7 @@ type PolicyCustomRule struct {
 	Action string `pulumi:"action"`
 	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+	// Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
 	GroupRateLimitBy *string `pulumi:"groupRateLimitBy"`
 	// One or more `matchConditions` blocks as defined below.
 	MatchConditions []PolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
@@ -54,7 +54,7 @@ type PolicyCustomRuleArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
 	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+	// Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
 	GroupRateLimitBy pulumi.StringPtrInput `pulumi:"groupRateLimitBy"`
 	// One or more `matchConditions` blocks as defined below.
 	MatchConditions PolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
@@ -133,7 +133,7 @@ func (o PolicyCustomRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyCustomRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+// Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
 func (o PolicyCustomRuleOutput) GroupRateLimitBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyCustomRule) *string { return v.GroupRateLimitBy }).(pulumi.StringPtrOutput)
 }

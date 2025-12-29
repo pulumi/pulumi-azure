@@ -93,8 +93,6 @@ export class AccountCostManagementExport extends pulumi.CustomResource {
 
     /**
      * Is the cost management export active? Default is `true`.
-     *
-     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      */
     declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
@@ -109,6 +107,9 @@ export class AccountCostManagementExport extends pulumi.CustomResource {
      * A `exportDataStorageLocation` block as defined below.
      */
     declare public readonly exportDataStorageLocation: pulumi.Output<outputs.billing.AccountCostManagementExportExportDataStorageLocation>;
+    /**
+     * Format for export. Valid values are `Csv` only. Default is `Csv`.
+     */
     declare public readonly fileFormat: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
@@ -190,8 +191,6 @@ export class AccountCostManagementExport extends pulumi.CustomResource {
 export interface AccountCostManagementExportState {
     /**
      * Is the cost management export active? Default is `true`.
-     *
-     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      */
     active?: pulumi.Input<boolean>;
     /**
@@ -206,6 +205,9 @@ export interface AccountCostManagementExportState {
      * A `exportDataStorageLocation` block as defined below.
      */
     exportDataStorageLocation?: pulumi.Input<inputs.billing.AccountCostManagementExportExportDataStorageLocation>;
+    /**
+     * Format for export. Valid values are `Csv` only. Default is `Csv`.
+     */
     fileFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
@@ -231,8 +233,6 @@ export interface AccountCostManagementExportState {
 export interface AccountCostManagementExportArgs {
     /**
      * Is the cost management export active? Default is `true`.
-     *
-     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      */
     active?: pulumi.Input<boolean>;
     /**
@@ -247,6 +247,9 @@ export interface AccountCostManagementExportArgs {
      * A `exportDataStorageLocation` block as defined below.
      */
     exportDataStorageLocation: pulumi.Input<inputs.billing.AccountCostManagementExportExportDataStorageLocation>;
+    /**
+     * Format for export. Valid values are `Csv` only. Default is `Csv`.
+     */
     fileFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.

@@ -61,7 +61,7 @@ class VmwareReplicatedVmArgs:
                > **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
                
                > **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] default_recovery_disk_type: The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        :param pulumi.Input[_builtins.str] default_recovery_disk_type: The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
                
                > **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
                
@@ -238,7 +238,7 @@ class VmwareReplicatedVmArgs:
     @pulumi.getter(name="defaultRecoveryDiskType")
     def default_recovery_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 
         > **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
 
@@ -456,7 +456,7 @@ class _VmwareReplicatedVmState:
                > **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
                
                > **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] default_recovery_disk_type: The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        :param pulumi.Input[_builtins.str] default_recovery_disk_type: The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
                
                > **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
                
@@ -574,7 +574,7 @@ class _VmwareReplicatedVmState:
     @pulumi.getter(name="defaultRecoveryDiskType")
     def default_recovery_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 
         > **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
 
@@ -949,7 +949,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
                > **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
                
                > **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] default_recovery_disk_type: The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        :param pulumi.Input[_builtins.str] default_recovery_disk_type: The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
                
                > **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
                
@@ -1204,7 +1204,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
                > **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
                
                > **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] default_recovery_disk_type: The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        :param pulumi.Input[_builtins.str] default_recovery_disk_type: The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
                
                > **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
                
@@ -1297,7 +1297,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
     @pulumi.getter(name="defaultRecoveryDiskType")
     def default_recovery_disk_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 
         > **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
 

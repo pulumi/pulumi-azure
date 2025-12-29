@@ -73,14 +73,14 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
      * 
      */
     @Import(name="immutability")
     private @Nullable Output<String> immutability;
 
     /**
-     * @return The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * @return The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
      * 
      */
     public Optional<Output<String>> immutability() {
@@ -306,7 +306,7 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param immutability The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+         * @param immutability The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param immutability The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+         * @param immutability The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
          * 
          * @return builder
          * 

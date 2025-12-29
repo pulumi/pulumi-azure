@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Pim.Inputs
         private InputList<Inputs.RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs>? _primaryApprovers;
 
         /// <summary>
-        /// The IDs of the users or groups who can approve the activation
+        /// One or more `PrimaryApprover` blocks as defined below.
         /// </summary>
         public InputList<Inputs.RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs> PrimaryApprovers
         {

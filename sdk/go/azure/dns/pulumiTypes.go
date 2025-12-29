@@ -459,9 +459,10 @@ type ZoneSoaRecord struct {
 	// The email contact for the SOA record.
 	Email string `pulumi:"email"`
 	// The expire time for the SOA record. Defaults to `2419200`.
-	ExpireTime *int    `pulumi:"expireTime"`
-	Fqdn       *string `pulumi:"fqdn"`
-	// The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+	ExpireTime *int `pulumi:"expireTime"`
+	// The fully qualified domain name.
+	Fqdn *string `pulumi:"fqdn"`
+	// The domain name of the authoritative name server for the SOA record.
 	HostName *string `pulumi:"hostName"`
 	// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
 	MinimumTtl *int `pulumi:"minimumTtl"`
@@ -492,9 +493,10 @@ type ZoneSoaRecordArgs struct {
 	// The email contact for the SOA record.
 	Email pulumi.StringInput `pulumi:"email"`
 	// The expire time for the SOA record. Defaults to `2419200`.
-	ExpireTime pulumi.IntPtrInput    `pulumi:"expireTime"`
-	Fqdn       pulumi.StringPtrInput `pulumi:"fqdn"`
-	// The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+	ExpireTime pulumi.IntPtrInput `pulumi:"expireTime"`
+	// The fully qualified domain name.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// The domain name of the authoritative name server for the SOA record.
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
 	// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
 	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
@@ -597,11 +599,12 @@ func (o ZoneSoaRecordOutput) ExpireTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ZoneSoaRecord) *int { return v.ExpireTime }).(pulumi.IntPtrOutput)
 }
 
+// The fully qualified domain name.
 func (o ZoneSoaRecordOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ZoneSoaRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+// The domain name of the authoritative name server for the SOA record.
 func (o ZoneSoaRecordOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ZoneSoaRecord) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
@@ -680,6 +683,7 @@ func (o ZoneSoaRecordPtrOutput) ExpireTime() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The fully qualified domain name.
 func (o ZoneSoaRecordPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ZoneSoaRecord) *string {
 		if v == nil {
@@ -689,7 +693,7 @@ func (o ZoneSoaRecordPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+// The domain name of the authoritative name server for the SOA record.
 func (o ZoneSoaRecordPtrOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ZoneSoaRecord) *string {
 		if v == nil {

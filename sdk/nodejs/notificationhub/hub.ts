@@ -84,7 +84,7 @@ export class Hub extends pulumi.CustomResource {
      */
     declare public readonly apnsCredential: pulumi.Output<outputs.notificationhub.HubApnsCredential | undefined>;
     /**
-     * A `browserCredential` block as defined below.
+     * A `browserCredential` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly browserCredential: pulumi.Output<outputs.notificationhub.HubBrowserCredential | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface HubState {
      */
     apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
     /**
-     * A `browserCredential` block as defined below.
+     * A `browserCredential` block as defined below. Changing this forces a new resource to be created.
      */
     browserCredential?: pulumi.Input<inputs.notificationhub.HubBrowserCredential>;
     /**
@@ -210,7 +210,7 @@ export interface HubArgs {
      */
     apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
     /**
-     * A `browserCredential` block as defined below.
+     * A `browserCredential` block as defined below. Changing this forces a new resource to be created.
      */
     browserCredential?: pulumi.Input<inputs.notificationhub.HubBrowserCredential>;
     /**

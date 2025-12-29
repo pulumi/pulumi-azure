@@ -34,14 +34,14 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
     }
 
     /**
-     * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
+     * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -205,7 +205,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
          * 
          * @return builder
          * 

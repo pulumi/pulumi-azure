@@ -70,7 +70,7 @@ type JobSchedule struct {
 
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
-	// The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
 	JobScheduleId pulumi.StringOutput `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -132,7 +132,7 @@ func GetJobSchedule(ctx *pulumi.Context,
 type jobScheduleState struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
-	// The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
 	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -153,7 +153,7 @@ type jobScheduleState struct {
 type JobScheduleState struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringPtrInput
-	// The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
 	JobScheduleId pulumi.StringPtrInput
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -178,7 +178,7 @@ func (JobScheduleState) ElementType() reflect.Type {
 type jobScheduleArgs struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
 	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -198,7 +198,7 @@ type jobScheduleArgs struct {
 type JobScheduleArgs struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringInput
-	// The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
 	JobScheduleId pulumi.StringPtrInput
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -306,7 +306,7 @@ func (o JobScheduleOutput) AutomationAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.AutomationAccountName }).(pulumi.StringOutput)
 }
 
-// The UUID identifying the Automation Job Schedule.
+// The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
 func (o JobScheduleOutput) JobScheduleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.JobScheduleId }).(pulumi.StringOutput)
 }

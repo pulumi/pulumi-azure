@@ -88,7 +88,7 @@ export class BackupVault extends pulumi.CustomResource {
      */
     declare public readonly identity: pulumi.Output<outputs.dataprotection.BackupVaultIdentity | undefined>;
     /**
-     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
      */
     declare public readonly immutability: pulumi.Output<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface BackupVaultState {
      */
     identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity>;
     /**
-     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
      */
     immutability?: pulumi.Input<string>;
     /**
@@ -255,7 +255,7 @@ export interface BackupVaultArgs {
      */
     identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity>;
     /**
-     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
      */
     immutability?: pulumi.Input<string>;
     /**

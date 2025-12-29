@@ -19,14 +19,14 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
     public static final KubernetesClusterWebAppRoutingArgs Empty = new KubernetesClusterWebAppRoutingArgs();
 
     /**
-     * Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+     * Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
      * 
      */
     @Import(name="defaultNginxController")
     private @Nullable Output<String> defaultNginxController;
 
     /**
-     * @return Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+     * @return Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
      * 
      */
     public Optional<Output<String>> defaultNginxController() {
@@ -90,7 +90,7 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultNginxController Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+         * @param defaultNginxController Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultNginxController Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+         * @param defaultNginxController Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
          * 
          * @return builder
          * 

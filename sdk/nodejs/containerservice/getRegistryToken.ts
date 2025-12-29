@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+ * * `Microsoft.ContainerRegistry` - 2025-04-01
  */
 export function getRegistryToken(args: GetRegistryTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,7 +97,7 @@ export interface GetRegistryTokenResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+ * * `Microsoft.ContainerRegistry` - 2025-04-01
  */
 export function getRegistryTokenOutput(args: GetRegistryTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

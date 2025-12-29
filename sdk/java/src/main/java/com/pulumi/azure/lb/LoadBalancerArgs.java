@@ -37,12 +37,16 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more `frontendIpConfiguration` blocks as documented below.
      * 
+     * &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
+     * 
      */
     @Import(name="frontendIpConfigurations")
     private @Nullable Output<List<LoadBalancerFrontendIpConfigurationArgs>> frontendIpConfigurations;
 
     /**
      * @return One or more `frontendIpConfiguration` blocks as documented below.
+     * 
+     * &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
      * 
      */
     public Optional<Output<List<LoadBalancerFrontendIpConfigurationArgs>>> frontendIpConfigurations() {
@@ -230,6 +234,8 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as documented below.
          * 
+         * &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
+         * 
          * @return builder
          * 
          */
@@ -241,6 +247,8 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as documented below.
          * 
+         * &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
+         * 
          * @return builder
          * 
          */
@@ -250,6 +258,8 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as documented below.
+         * 
+         * &gt; **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontendIpConfiguration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
          * 
          * @return builder
          * 

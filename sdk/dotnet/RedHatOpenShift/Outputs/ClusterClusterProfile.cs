@@ -22,7 +22,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         /// </summary>
         public readonly bool? FipsEnabled;
         /// <summary>
-        /// The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+        /// The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? ManagedResourceGroupName;
         /// <summary>

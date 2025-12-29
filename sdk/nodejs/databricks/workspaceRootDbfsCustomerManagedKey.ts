@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
+ * Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System (DBFS)
  *
  * ## Example Usage
  *
@@ -17,16 +17,6 @@ import * as utilities from "../utilities";
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
- * });
- * const exampleWorkspace = new azure.databricks.Workspace("example", {
- *     name: "databricks-test",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "premium",
- *     customerManagedKeyEnabled: true,
- *     tags: {
- *         Environment: "Production",
- *     },
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     name: "examplekeyvault",
@@ -69,6 +59,13 @@ import * as utilities from "../utilities";
  *     ],
  * }, {
  *     dependsOn: [terraform],
+ * });
+ * const exampleWorkspace = new azure.databricks.Workspace("example", {
+ *     name: "example-workspace",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "premium",
+ *     customerManagedKeyEnabled: true,
  * });
  * const databricks = new azure.keyvault.AccessPolicy("databricks", {
  *     keyVaultId: exampleKeyVault.id,
@@ -147,11 +144,11 @@ export class WorkspaceRootDbfsCustomerManagedKey extends pulumi.CustomResource {
 
     declare public readonly keyVaultId: pulumi.Output<string | undefined>;
     /**
-     * The resource ID of the Key Vault Key to be used.
+     * The ID of the Key Vault Key to be used.
      */
     declare public readonly keyVaultKeyId: pulumi.Output<string>;
     /**
-     * The resource ID of the Databricks Workspace.
+     * The Resource ID of the Databricks Workspace.
      */
     declare public readonly workspaceId: pulumi.Output<string>;
 
@@ -196,11 +193,11 @@ export class WorkspaceRootDbfsCustomerManagedKey extends pulumi.CustomResource {
 export interface WorkspaceRootDbfsCustomerManagedKeyState {
     keyVaultId?: pulumi.Input<string>;
     /**
-     * The resource ID of the Key Vault Key to be used.
+     * The ID of the Key Vault Key to be used.
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
-     * The resource ID of the Databricks Workspace.
+     * The Resource ID of the Databricks Workspace.
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -211,11 +208,11 @@ export interface WorkspaceRootDbfsCustomerManagedKeyState {
 export interface WorkspaceRootDbfsCustomerManagedKeyArgs {
     keyVaultId?: pulumi.Input<string>;
     /**
-     * The resource ID of the Key Vault Key to be used.
+     * The ID of the Key Vault Key to be used.
      */
     keyVaultKeyId: pulumi.Input<string>;
     /**
-     * The resource ID of the Databricks Workspace.
+     * The Resource ID of the Databricks Workspace.
      */
     workspaceId: pulumi.Input<string>;
 }

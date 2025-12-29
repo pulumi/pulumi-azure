@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class EventHubRetentionDescriptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+        /// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cleanupPolicy", required: true)]
         public Input<string> CleanupPolicy { get; set; } = null!;

@@ -51,6 +51,9 @@ namespace Pulumi.Azure.Automation.Inputs
         [Input("expiryTime")]
         public Input<string>? ExpiryTime { get; set; }
 
+        /// <summary>
+        /// The time offset in minutes for the expiry time.
+        /// </summary>
         [Input("expiryTimeOffsetMinutes")]
         public Input<double>? ExpiryTimeOffsetMinutes { get; set; }
 
@@ -84,6 +87,9 @@ namespace Pulumi.Azure.Automation.Inputs
         [Input("nextRun")]
         public Input<string>? NextRun { get; set; }
 
+        /// <summary>
+        /// The time offset in minutes for the next run time.
+        /// </summary>
         [Input("nextRunOffsetMinutes")]
         public Input<double>? NextRunOffsetMinutes { get; set; }
 
@@ -93,6 +99,9 @@ namespace Pulumi.Azure.Automation.Inputs
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
+        /// <summary>
+        /// The time offset in minutes for the start time.
+        /// </summary>
         [Input("startTimeOffsetMinutes")]
         public Input<double>? StartTimeOffsetMinutes { get; set; }
 

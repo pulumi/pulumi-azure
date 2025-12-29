@@ -18,6 +18,9 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
+        /// <summary>
+        /// An `IpConfiguration` block as defined below.
+        /// </summary>
         [Input("ipConfiguration", required: true)]
         public Input<Inputs.HadoopClusterPrivateLinkConfigurationIpConfigurationGetArgs> IpConfiguration { get; set; } = null!;
 

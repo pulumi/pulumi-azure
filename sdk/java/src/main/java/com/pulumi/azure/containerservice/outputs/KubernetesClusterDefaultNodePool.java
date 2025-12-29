@@ -39,6 +39,10 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable Boolean fipsEnabled;
+    /**
+     * @return Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable String gpuDriver;
     /**
      * @return Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -232,6 +236,10 @@ public final class KubernetesClusterDefaultNodePool {
     public Optional<Boolean> fipsEnabled() {
         return Optional.ofNullable(this.fipsEnabled);
     }
+    /**
+     * @return Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<String> gpuDriver() {
         return Optional.ofNullable(this.gpuDriver);
     }

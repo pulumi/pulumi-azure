@@ -71,7 +71,7 @@ export class ResourceAnchor extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly linkedCompartmentId: pulumi.Output<string>;
     /**
-     * The Azure Region where the Oracle Resource Anchor  exists.
+     * The Azure Region where the Oracle Resource Anchor exists.
      */
     declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export interface ResourceAnchorState {
      */
     linkedCompartmentId?: pulumi.Input<string>;
     /**
-     * The Azure Region where the Oracle Resource Anchor  exists.
+     * The Azure Region where the Oracle Resource Anchor exists.
      */
     location?: pulumi.Input<string>;
     /**

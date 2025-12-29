@@ -153,7 +153,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string?> DefaultLogStorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        /// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
         /// 
         /// &gt; **Note:** Only one of `DefaultRecoveryDiskType` or `ManagedDisk` must be specified.
         /// 
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? DefaultLogStorageAccountId { get; set; }
 
         /// <summary>
-        /// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        /// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
         /// 
         /// &gt; **Note:** Only one of `DefaultRecoveryDiskType` or `ManagedDisk` must be specified.
         /// 
@@ -531,7 +531,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? DefaultLogStorageAccountId { get; set; }
 
         /// <summary>
-        /// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        /// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
         /// 
         /// &gt; **Note:** Only one of `DefaultRecoveryDiskType` or `ManagedDisk` must be specified.
         /// 

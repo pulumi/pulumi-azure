@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Bot
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.HealthBot` - 2022-08-08
+    /// * `Microsoft.HealthBot` - 2025-05-25
     /// 
     /// ## Import
     /// 
@@ -82,7 +82,9 @@ namespace Pulumi.Azure.Bot
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        /// The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+        /// 
+        /// &gt; **Note:** Downgrading to `F0` forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -158,7 +160,9 @@ namespace Pulumi.Azure.Bot
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        /// The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+        /// 
+        /// &gt; **Note:** Downgrading to `F0` forces a new resource to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -208,7 +212,9 @@ namespace Pulumi.Azure.Bot
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
+        /// The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
+        /// 
+        /// &gt; **Note:** Downgrading to `F0` forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

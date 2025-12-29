@@ -2,12 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Container App Environment Certificate.
  *
  * ## Example Usage
+ *
+ * ### Certificate from .pfx file
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,6 +42,85 @@ import * as utilities from "../utilities";
  *         input: "path/to/certificate_file.pfx",
  *     }).then(invoke => invoke.result),
  *     certificatePassword: "$3cretSqu1rreL",
+ * });
+ * ```
+ *
+ * ### Certificate from Key Vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example-workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "PerGB2018",
+ *     retentionInDays: 30,
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-identity",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleEnvironment = new azure.containerapp.Environment("example", {
+ *     name: "example-environment",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example-keyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     enableRbacAuthorization: true,
+ * });
+ * const userKeyvaultAdmin = new azure.authorization.Assignment("user_keyvault_admin", {
+ *     scope: exampleKeyVault.id,
+ *     roleDefinitionName: "Key Vault Administrator",
+ *     principalId: current.then(current => current.objectId),
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
+ *     scope: exampleKeyVault.id,
+ *     roleDefinitionName: "Key Vault Secrets User",
+ *     principalId: exampleEnvironment.identity.apply(identity => identity?.principalId),
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "example-certificate",
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate: {
+ *         contents: std.filebase64({
+ *             input: "path/to/certificate_file.pfx",
+ *         }).then(invoke => invoke.result),
+ *         password: "",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         userKeyvaultAdmin,
+ *         exampleAssignment,
+ *     ],
+ * });
+ * const exampleEnvironmentCertificate = new azure.containerapp.EnvironmentCertificate("example", {
+ *     name: "example-certificate",
+ *     containerAppEnvironmentId: exampleEnvironment.id,
+ *     certificateKeyVault: {
+ *         identity: exampleUserAssignedIdentity.id,
+ *         keyVaultSecretId: exampleCertificate.versionlessSecretId,
+ *     },
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  *
@@ -86,12 +169,22 @@ export class EnvironmentCertificate extends pulumi.CustomResource {
 
     /**
      * The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+     *
+     * > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
      */
-    declare public readonly certificateBlobBase64: pulumi.Output<string>;
+    declare public readonly certificateBlobBase64: pulumi.Output<string | undefined>;
+    /**
+     * A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     */
+    declare public readonly certificateKeyVault: pulumi.Output<outputs.containerapp.EnvironmentCertificateCertificateKeyVault | undefined>;
     /**
      * The password for the Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** required if `certificateBlobBase64` is specified.
      */
-    declare public readonly certificatePassword: pulumi.Output<string>;
+    declare public readonly certificatePassword: pulumi.Output<string | undefined>;
     /**
      * The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
      */
@@ -139,6 +232,7 @@ export class EnvironmentCertificate extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EnvironmentCertificateState | undefined;
             resourceInputs["certificateBlobBase64"] = state?.certificateBlobBase64;
+            resourceInputs["certificateKeyVault"] = state?.certificateKeyVault;
             resourceInputs["certificatePassword"] = state?.certificatePassword;
             resourceInputs["containerAppEnvironmentId"] = state?.containerAppEnvironmentId;
             resourceInputs["expirationDate"] = state?.expirationDate;
@@ -150,16 +244,11 @@ export class EnvironmentCertificate extends pulumi.CustomResource {
             resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as EnvironmentCertificateArgs | undefined;
-            if (args?.certificateBlobBase64 === undefined && !opts.urn) {
-                throw new Error("Missing required property 'certificateBlobBase64'");
-            }
-            if (args?.certificatePassword === undefined && !opts.urn) {
-                throw new Error("Missing required property 'certificatePassword'");
-            }
             if (args?.containerAppEnvironmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppEnvironmentId'");
             }
             resourceInputs["certificateBlobBase64"] = args?.certificateBlobBase64;
+            resourceInputs["certificateKeyVault"] = args?.certificateKeyVault;
             resourceInputs["certificatePassword"] = args?.certificatePassword ? pulumi.secret(args.certificatePassword) : undefined;
             resourceInputs["containerAppEnvironmentId"] = args?.containerAppEnvironmentId;
             resourceInputs["name"] = args?.name;
@@ -183,10 +272,20 @@ export class EnvironmentCertificate extends pulumi.CustomResource {
 export interface EnvironmentCertificateState {
     /**
      * The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+     *
+     * > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
      */
     certificateBlobBase64?: pulumi.Input<string>;
     /**
+     * A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     */
+    certificateKeyVault?: pulumi.Input<inputs.containerapp.EnvironmentCertificateCertificateKeyVault>;
+    /**
      * The password for the Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** required if `certificateBlobBase64` is specified.
      */
     certificatePassword?: pulumi.Input<string>;
     /**
@@ -229,12 +328,22 @@ export interface EnvironmentCertificateState {
 export interface EnvironmentCertificateArgs {
     /**
      * The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+     *
+     * > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
      */
-    certificateBlobBase64: pulumi.Input<string>;
+    certificateBlobBase64?: pulumi.Input<string>;
+    /**
+     * A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
+     */
+    certificateKeyVault?: pulumi.Input<inputs.containerapp.EnvironmentCertificateCertificateKeyVault>;
     /**
      * The password for the Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** required if `certificateBlobBase64` is specified.
      */
-    certificatePassword: pulumi.Input<string>;
+    certificatePassword?: pulumi.Input<string>;
     /**
      * The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
      */

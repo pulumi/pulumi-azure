@@ -19,7 +19,6 @@ __all__ = ['ShareFileArgs', 'ShareFile']
 @pulumi.input_type
 class ShareFileArgs:
     def __init__(__self__, *,
-                 storage_share_id: pulumi.Input[_builtins.str],
                  content_disposition: Optional[pulumi.Input[_builtins.str]] = None,
                  content_encoding: Optional[pulumi.Input[_builtins.str]] = None,
                  content_md5: Optional[pulumi.Input[_builtins.str]] = None,
@@ -27,10 +26,11 @@ class ShareFileArgs:
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 source: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ShareFile resource.
-        :param pulumi.Input[_builtins.str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[_builtins.str] content_encoding: Specifies which content encodings have been applied to the file.
         :param pulumi.Input[_builtins.str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
@@ -40,8 +40,8 @@ class ShareFileArgs:
         :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
                
                > **Note:** The file specified with `source` can not be empty.
+        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "storage_share_id", storage_share_id)
         if content_disposition is not None:
             pulumi.set(__self__, "content_disposition", content_disposition)
         if content_encoding is not None:
@@ -58,18 +58,13 @@ class ShareFileArgs:
             pulumi.set(__self__, "path", path)
         if source is not None:
             pulumi.set(__self__, "source", source)
-
-    @_builtins.property
-    @pulumi.getter(name="storageShareId")
-    def storage_share_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_share_id")
-
-    @storage_share_id.setter
-    def storage_share_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_share_id", value)
+        if storage_share_id is not None:
+            warnings.warn("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_share_id is deprecated: This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
+        if storage_share_id is not None:
+            pulumi.set(__self__, "storage_share_id", storage_share_id)
+        if storage_share_url is not None:
+            pulumi.set(__self__, "storage_share_url", storage_share_url)
 
     @_builtins.property
     @pulumi.getter(name="contentDisposition")
@@ -166,6 +161,28 @@ class ShareFileArgs:
     def source(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "source", value)
 
+    @_builtins.property
+    @pulumi.getter(name="storageShareId")
+    @_utilities.deprecated("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
+    def storage_share_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "storage_share_id")
+
+    @storage_share_id.setter
+    def storage_share_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_share_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageShareUrl")
+    def storage_share_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_url")
+
+    @storage_share_url.setter
+    def storage_share_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_share_url", value)
+
 
 @pulumi.input_type
 class _ShareFileState:
@@ -179,7 +196,8 @@ class _ShareFileState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None,
                  source: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_share_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ShareFile resources.
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
@@ -192,7 +210,7 @@ class _ShareFileState:
         :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
                
                > **Note:** The file specified with `source` can not be empty.
-        :param pulumi.Input[_builtins.str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
         if content_disposition is not None:
             pulumi.set(__self__, "content_disposition", content_disposition)
@@ -213,7 +231,12 @@ class _ShareFileState:
         if source is not None:
             pulumi.set(__self__, "source", source)
         if storage_share_id is not None:
+            warnings.warn("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_share_id is deprecated: This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
+        if storage_share_id is not None:
             pulumi.set(__self__, "storage_share_id", storage_share_id)
+        if storage_share_url is not None:
+            pulumi.set(__self__, "storage_share_url", storage_share_url)
 
     @_builtins.property
     @pulumi.getter(name="contentDisposition")
@@ -324,15 +347,25 @@ class _ShareFileState:
 
     @_builtins.property
     @pulumi.getter(name="storageShareId")
+    @_utilities.deprecated("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
     def storage_share_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "storage_share_id")
 
     @storage_share_id.setter
     def storage_share_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_share_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageShareUrl")
+    def storage_share_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_url")
+
+    @storage_share_url.setter
+    def storage_share_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_share_url", value)
 
 
 @pulumi.type_token("azure:storage/shareFile:ShareFile")
@@ -350,6 +383,7 @@ class ShareFile(pulumi.CustomResource):
                  path: Optional[pulumi.Input[_builtins.str]] = None,
                  source: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -369,11 +403,11 @@ class ShareFile(pulumi.CustomResource):
             account_replication_type="LRS")
         example_share = azure.storage.Share("example",
             name="sharename",
-            storage_account_name=example_account.name,
+            storage_account_id=example_account.id,
             quota=50)
         example_share_file = azure.storage.ShareFile("example",
             name="my-awesome-content.zip",
-            storage_share_id=example_share.id,
+            storage_share_url=example_share.url,
             source="some-local-file.zip")
         ```
 
@@ -396,13 +430,13 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
                
                > **Note:** The file specified with `source` can not be empty.
-        :param pulumi.Input[_builtins.str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ShareFileArgs,
+                 args: Optional[ShareFileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -422,11 +456,11 @@ class ShareFile(pulumi.CustomResource):
             account_replication_type="LRS")
         example_share = azure.storage.Share("example",
             name="sharename",
-            storage_account_name=example_account.name,
+            storage_account_id=example_account.id,
             quota=50)
         example_share_file = azure.storage.ShareFile("example",
             name="my-awesome-content.zip",
-            storage_share_id=example_share.id,
+            storage_share_url=example_share.url,
             source="some-local-file.zip")
         ```
 
@@ -462,6 +496,7 @@ class ShareFile(pulumi.CustomResource):
                  path: Optional[pulumi.Input[_builtins.str]] = None,
                  source: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_share_url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -479,9 +514,8 @@ class ShareFile(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["path"] = path
             __props__.__dict__["source"] = source
-            if storage_share_id is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_share_id'")
             __props__.__dict__["storage_share_id"] = storage_share_id
+            __props__.__dict__["storage_share_url"] = storage_share_url
             __props__.__dict__["content_length"] = None
         super(ShareFile, __self__).__init__(
             'azure:storage/shareFile:ShareFile',
@@ -502,7 +536,8 @@ class ShareFile(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             path: Optional[pulumi.Input[_builtins.str]] = None,
             source: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_share_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ShareFile':
+            storage_share_id: Optional[pulumi.Input[_builtins.str]] = None,
+            storage_share_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'ShareFile':
         """
         Get an existing ShareFile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -520,7 +555,7 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
                
                > **Note:** The file specified with `source` can not be empty.
-        :param pulumi.Input[_builtins.str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -536,6 +571,7 @@ class ShareFile(pulumi.CustomResource):
         __props__.__dict__["path"] = path
         __props__.__dict__["source"] = source
         __props__.__dict__["storage_share_id"] = storage_share_id
+        __props__.__dict__["storage_share_url"] = storage_share_url
         return ShareFile(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -611,9 +647,15 @@ class ShareFile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="storageShareId")
+    @_utilities.deprecated("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
     def storage_share_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "storage_share_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageShareUrl")
+    def storage_share_url(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_url")
 

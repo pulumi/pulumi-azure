@@ -18,7 +18,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string? EndpointType;
         /// <summary>
-        /// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// Location of the primary volume.
         /// </summary>
         public readonly string RemoteVolumeLocation;
         /// <summary>

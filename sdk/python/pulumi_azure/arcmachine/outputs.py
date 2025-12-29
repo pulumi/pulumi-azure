@@ -59,7 +59,7 @@ class ArcMachineIdentity(dict):
                  principal_id: Optional[_builtins.str] = None,
                  tenant_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+        :param _builtins.str type: Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
         :param _builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param _builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -73,7 +73,7 @@ class ArcMachineIdentity(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+        Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 

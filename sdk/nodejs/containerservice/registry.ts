@@ -121,7 +121,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+ * * `Microsoft.ContainerRegistry` - 2025-04-01
  *
  * ## Import
  *
@@ -240,7 +240,7 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+     * The number of days to retain and untagged manifest after which it gets purged.
      */
     declare public readonly retentionPolicyInDays: pulumi.Output<number | undefined>;
     /**
@@ -420,7 +420,7 @@ export interface RegistryState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+     * The number of days to retain and untagged manifest after which it gets purged.
      */
     retentionPolicyInDays?: pulumi.Input<number>;
     /**
@@ -510,7 +510,7 @@ export interface RegistryArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+     * The number of days to retain and untagged manifest after which it gets purged.
      */
     retentionPolicyInDays?: pulumi.Input<number>;
     /**

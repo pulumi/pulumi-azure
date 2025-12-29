@@ -34,7 +34,7 @@ class EventHubArgs:
         The set of arguments for constructing a EventHub resource.
         :param pulumi.Input[_builtins.int] partition_count: Specifies the current number of shards on the Event Hub.
                
-               > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+               > **Note:** When using a shared parent EventHub Namespace, `partition_count` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partition_count` cannot be decreased.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         :param pulumi.Input['EventHubCaptureDescriptionArgs'] capture_description: A `capture_description` block as defined below.
@@ -42,7 +42,7 @@ class EventHubArgs:
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace.
         :param pulumi.Input['EventHubRetentionDescriptionArgs'] retention_description: A `retention_description` block as defined below.
         :param pulumi.Input[_builtins.str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
@@ -76,7 +76,7 @@ class EventHubArgs:
         """
         Specifies the current number of shards on the Event Hub.
 
-        > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+        > **Note:** When using a shared parent EventHub Namespace, `partition_count` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partition_count` cannot be decreased.
 
         > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         """
@@ -128,7 +128,7 @@ class EventHubArgs:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        Specifies the ID of the EventHub Namespace.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -201,10 +201,10 @@ class _EventHubState:
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace.
         :param pulumi.Input[_builtins.int] partition_count: Specifies the current number of shards on the Event Hub.
                
-               > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+               > **Note:** When using a shared parent EventHub Namespace, `partition_count` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partition_count` cannot be decreased.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_ids: The identifiers for partitions created for Event Hubs.
@@ -280,7 +280,7 @@ class _EventHubState:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        Specifies the ID of the EventHub Namespace.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -304,7 +304,7 @@ class _EventHubState:
         """
         Specifies the current number of shards on the Event Hub.
 
-        > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+        > **Note:** When using a shared parent EventHub Namespace, `partition_count` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partition_count` cannot be decreased.
 
         > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         """
@@ -427,10 +427,10 @@ class EventHub(pulumi.CustomResource):
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace.
         :param pulumi.Input[_builtins.int] partition_count: Specifies the current number of shards on the Event Hub.
                
-               > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+               > **Note:** When using a shared parent EventHub Namespace, `partition_count` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partition_count` cannot be decreased.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         :param pulumi.Input[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']] retention_description: A `retention_description` block as defined below.
@@ -562,10 +562,10 @@ class EventHub(pulumi.CustomResource):
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace.
         :param pulumi.Input[_builtins.int] partition_count: Specifies the current number of shards on the Event Hub.
                
-               > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+               > **Note:** When using a shared parent EventHub Namespace, `partition_count` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partition_count` cannot be decreased.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_ids: The identifiers for partitions created for Event Hubs.
@@ -618,7 +618,7 @@ class EventHub(pulumi.CustomResource):
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        Specifies the ID of the EventHub Namespace.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -634,7 +634,7 @@ class EventHub(pulumi.CustomResource):
         """
         Specifies the current number of shards on the Event Hub.
 
-        > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+        > **Note:** When using a shared parent EventHub Namespace, `partition_count` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partition_count` cannot be decreased.
 
         > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         """

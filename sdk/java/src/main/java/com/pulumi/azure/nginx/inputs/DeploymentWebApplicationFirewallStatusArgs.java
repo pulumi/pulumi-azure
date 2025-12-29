@@ -20,14 +20,14 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
     public static final DeploymentWebApplicationFirewallStatusArgs Empty = new DeploymentWebApplicationFirewallStatusArgs();
 
     /**
-     * Indicates the version of the attack signatures package used by NGINX App Protect.
+     * One or more `attackSignaturesPackage` blocks as defined below.
      * 
      */
     @Import(name="attackSignaturesPackages")
     private @Nullable Output<List<DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs>> attackSignaturesPackages;
 
     /**
-     * @return Indicates the version of the attack signatures package used by NGINX App Protect.
+     * @return One or more `attackSignaturesPackage` blocks as defined below.
      * 
      */
     public Optional<Output<List<DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs>>> attackSignaturesPackages() {
@@ -35,14 +35,14 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
     }
 
     /**
-     * Indicates the version of the bot signatures package used by NGINX App Protect.
+     * One or more `botSignaturesPackage` blocks as defined below.
      * 
      */
     @Import(name="botSignaturesPackages")
     private @Nullable Output<List<DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs>> botSignaturesPackages;
 
     /**
-     * @return Indicates the version of the bot signatures package used by NGINX App Protect.
+     * @return One or more `botSignaturesPackage` blocks as defined below.
      * 
      */
     public Optional<Output<List<DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs>>> botSignaturesPackages() {
@@ -50,14 +50,14 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
     }
 
     /**
-     * Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+     * One or more `componentVersions` blocks as defined below.
      * 
      */
     @Import(name="componentVersions")
     private @Nullable Output<List<DeploymentWebApplicationFirewallStatusComponentVersionArgs>> componentVersions;
 
     /**
-     * @return Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+     * @return One or more `componentVersions` blocks as defined below.
      * 
      */
     public Optional<Output<List<DeploymentWebApplicationFirewallStatusComponentVersionArgs>>> componentVersions() {
@@ -65,14 +65,14 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
     }
 
     /**
-     * Indicates the version of the threat campaigns package used by NGINX App Protect.
+     * One or more `threatCampaignsPackage` blocks as defined below.
      * 
      */
     @Import(name="threatCampaignsPackages")
     private @Nullable Output<List<DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs>> threatCampaignsPackages;
 
     /**
-     * @return Indicates the version of the threat campaigns package used by NGINX App Protect.
+     * @return One or more `threatCampaignsPackage` blocks as defined below.
      * 
      */
     public Optional<Output<List<DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs>>> threatCampaignsPackages() {
@@ -107,7 +107,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param attackSignaturesPackages Indicates the version of the attack signatures package used by NGINX App Protect.
+         * @param attackSignaturesPackages One or more `attackSignaturesPackage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param attackSignaturesPackages Indicates the version of the attack signatures package used by NGINX App Protect.
+         * @param attackSignaturesPackages One or more `attackSignaturesPackage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param attackSignaturesPackages Indicates the version of the attack signatures package used by NGINX App Protect.
+         * @param attackSignaturesPackages One or more `attackSignaturesPackage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param botSignaturesPackages Indicates the version of the bot signatures package used by NGINX App Protect.
+         * @param botSignaturesPackages One or more `botSignaturesPackage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param botSignaturesPackages Indicates the version of the bot signatures package used by NGINX App Protect.
+         * @param botSignaturesPackages One or more `botSignaturesPackage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param botSignaturesPackages Indicates the version of the bot signatures package used by NGINX App Protect.
+         * @param botSignaturesPackages One or more `botSignaturesPackage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param componentVersions Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+         * @param componentVersions One or more `componentVersions` blocks as defined below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param componentVersions Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+         * @param componentVersions One or more `componentVersions` blocks as defined below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param componentVersions Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+         * @param componentVersions One or more `componentVersions` blocks as defined below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param threatCampaignsPackages Indicates the version of the threat campaigns package used by NGINX App Protect.
+         * @param threatCampaignsPackages One or more `threatCampaignsPackage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param threatCampaignsPackages Indicates the version of the threat campaigns package used by NGINX App Protect.
+         * @param threatCampaignsPackages One or more `threatCampaignsPackage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class DeploymentWebApplicationFirewallStatusArgs extends com.pulumi
         }
 
         /**
-         * @param threatCampaignsPackages Indicates the version of the threat campaigns package used by NGINX App Protect.
+         * @param threatCampaignsPackages One or more `threatCampaignsPackage` blocks as defined below.
          * 
          * @return builder
          * 

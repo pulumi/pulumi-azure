@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class AppFlexConsumptionAlwaysReadyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The instance count of the `AlwaysReady` of the  Function App. The minimum number is `0`. The total number of `InstanceCount` should not exceed the `MaximumInstanceCount`.
+        /// The instance count of the `AlwaysReady` of the Function App. The minimum number is `0`. The total number of `InstanceCount` should not exceed the `MaximumInstanceCount`.
         /// </summary>
         [Input("instanceCount")]
         public Input<int>? InstanceCount { get; set; }

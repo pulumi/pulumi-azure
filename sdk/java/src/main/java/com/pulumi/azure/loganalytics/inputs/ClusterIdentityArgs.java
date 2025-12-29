@@ -18,7 +18,7 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
     public static final ClusterIdentityArgs Empty = new ClusterIdentityArgs();
 
     /**
-     * A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+     * A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
@@ -27,7 +27,7 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
@@ -67,7 +67,7 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+     * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
@@ -76,7 +76,7 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
@@ -113,7 +113,7 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
@@ -126,7 +126,7 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
@@ -138,7 +138,7 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
@@ -192,7 +192,7 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
          * 
@@ -205,7 +205,7 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
          * 

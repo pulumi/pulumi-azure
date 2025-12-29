@@ -2886,7 +2886,7 @@ type VmwareReplicatedVmManagedDisk struct {
 	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
 	// The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
 	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
-	// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 	TargetDiskType string `pulumi:"targetDiskType"`
 }
 
@@ -2908,7 +2908,7 @@ type VmwareReplicatedVmManagedDiskArgs struct {
 	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
 	// The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
 	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
-	// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
 }
 
@@ -2978,7 +2978,7 @@ func (o VmwareReplicatedVmManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.
 	return o.ApplyT(func(v VmwareReplicatedVmManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 func (o VmwareReplicatedVmManagedDiskOutput) TargetDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmwareReplicatedVmManagedDisk) string { return v.TargetDiskType }).(pulumi.StringOutput)
 }

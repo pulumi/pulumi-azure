@@ -29,7 +29,7 @@ public final class JobIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+     * @return The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
      * 
      */
     private String type;
@@ -57,7 +57,7 @@ public final class JobIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
+     * @return The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
      * 
      */
     public String type() {

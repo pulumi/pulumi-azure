@@ -54,7 +54,7 @@ class ServiceArgs:
                
                > **Note:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[_builtins.str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
                
                > **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
@@ -177,7 +177,7 @@ class ServiceArgs:
     @pulumi.getter(name="hostingMode")
     def hosting_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
 
         > **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         """
@@ -345,7 +345,7 @@ class _ServiceState:
                > **Note:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         :param pulumi.Input[_builtins.str] customer_managed_key_encryption_compliance_status: Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[_builtins.str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
                
                > **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
@@ -471,7 +471,7 @@ class _ServiceState:
     @pulumi.getter(name="hostingMode")
     def hosting_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
 
         > **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         """
@@ -775,7 +775,7 @@ class Service(pulumi.CustomResource):
                
                > **Note:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[_builtins.str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
                
                > **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -989,7 +989,7 @@ class Service(pulumi.CustomResource):
                > **Note:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         :param pulumi.Input[_builtins.str] customer_managed_key_encryption_compliance_status: Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[_builtins.str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
                
                > **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -1084,7 +1084,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="hostingMode")
     def hosting_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
 
         > **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         """

@@ -76,6 +76,21 @@ public final class BackupInstanceDiskState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The protection state of the Backup Instance Disk.
+     * 
+     */
+    @Import(name="protectionState")
+    private @Nullable Output<String> protectionState;
+
+    /**
+     * @return The protection state of the Backup Instance Disk.
+     * 
+     */
+    public Optional<Output<String>> protectionState() {
+        return Optional.ofNullable(this.protectionState);
+    }
+
+    /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
      * 
      */
@@ -127,6 +142,7 @@ public final class BackupInstanceDiskState extends com.pulumi.resources.Resource
         this.diskId = $.diskId;
         this.location = $.location;
         this.name = $.name;
+        this.protectionState = $.protectionState;
         this.snapshotResourceGroupName = $.snapshotResourceGroupName;
         this.snapshotSubscriptionId = $.snapshotSubscriptionId;
         this.vaultId = $.vaultId;
@@ -232,6 +248,27 @@ public final class BackupInstanceDiskState extends com.pulumi.resources.Resource
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance Disk.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(@Nullable Output<String> protectionState) {
+            $.protectionState = protectionState;
+            return this;
+        }
+
+        /**
+         * @param protectionState The protection state of the Backup Instance Disk.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(String protectionState) {
+            return protectionState(Output.of(protectionState));
         }
 
         /**

@@ -33,12 +33,12 @@ class CustomLocationArgs:
         """
         The set of arguments for constructing a CustomLocation resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Specifies the list of Cluster Extension IDs.
-        :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID.
+        :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] namespace: Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         :param pulumi.Input['CustomLocationAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Custom Location.
-        :param pulumi.Input[_builtins.str] host_type: Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        :param pulumi.Input[_builtins.str] host_type: Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
         """
@@ -73,7 +73,7 @@ class CustomLocationArgs:
     @pulumi.getter(name="hostResourceId")
     def host_resource_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the host resource ID.
+        Specifies the host resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_resource_id")
 
@@ -133,7 +133,7 @@ class CustomLocationArgs:
     @pulumi.getter(name="hostType")
     def host_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_type")
 
@@ -183,8 +183,8 @@ class _CustomLocationState:
         :param pulumi.Input['CustomLocationAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Specifies the list of Cluster Extension IDs.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Custom Location.
-        :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID.
-        :param pulumi.Input[_builtins.str] host_type: Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] host_type: Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
         :param pulumi.Input[_builtins.str] namespace: Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
@@ -249,7 +249,7 @@ class _CustomLocationState:
     @pulumi.getter(name="hostResourceId")
     def host_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the host resource ID.
+        Specifies the host resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_resource_id")
 
@@ -261,7 +261,7 @@ class _CustomLocationState:
     @pulumi.getter(name="hostType")
     def host_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_type")
 
@@ -352,8 +352,8 @@ class CustomLocation(pulumi.CustomResource):
         :param pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Specifies the list of Cluster Extension IDs.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Custom Location.
-        :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID.
-        :param pulumi.Input[_builtins.str] host_type: Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] host_type: Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
         :param pulumi.Input[_builtins.str] namespace: Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
@@ -457,8 +457,8 @@ class CustomLocation(pulumi.CustomResource):
         :param pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Specifies the list of Cluster Extension IDs.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Custom Location.
-        :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID.
-        :param pulumi.Input[_builtins.str] host_type: Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] host_type: Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
         :param pulumi.Input[_builtins.str] namespace: Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
@@ -507,7 +507,7 @@ class CustomLocation(pulumi.CustomResource):
     @pulumi.getter(name="hostResourceId")
     def host_resource_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the host resource ID.
+        Specifies the host resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_resource_id")
 
@@ -515,7 +515,7 @@ class CustomLocation(pulumi.CustomResource):
     @pulumi.getter(name="hostType")
     def host_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+        Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_type")
 

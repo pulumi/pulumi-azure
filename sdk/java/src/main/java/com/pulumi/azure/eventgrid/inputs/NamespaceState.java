@@ -97,14 +97,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+     * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      * 
      */
     @Import(name="publicNetworkAccess")
     private @Nullable Output<String> publicNetworkAccess;
 
     /**
-     * @return Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+     * @return Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      * 
      */
     public Optional<Output<String>> publicNetworkAccess() {
@@ -157,14 +157,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `topicSpacesConfiguration` block as defined below.
+     * A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="topicSpacesConfigurations")
     private @Nullable Output<List<NamespaceTopicSpacesConfigurationArgs>> topicSpacesConfigurations;
 
     /**
-     * @return A `topicSpacesConfiguration` block as defined below.
+     * @return A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<NamespaceTopicSpacesConfigurationArgs>>> topicSpacesConfigurations() {
@@ -320,7 +320,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccess Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+         * @param publicNetworkAccess Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccess Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+         * @param publicNetworkAccess Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicSpacesConfigurations A `topicSpacesConfiguration` block as defined below.
+         * @param topicSpacesConfigurations A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicSpacesConfigurations A `topicSpacesConfiguration` block as defined below.
+         * @param topicSpacesConfigurations A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicSpacesConfigurations A `topicSpacesConfiguration` block as defined below.
+         * @param topicSpacesConfigurations A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

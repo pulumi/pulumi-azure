@@ -65,7 +65,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? DotnetCoreVersion { get; set; }
 
         /// <summary>
-        /// The version of .NET to use when `CurrentStack` is set to `Dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
+        /// The version of .NET to use when `CurrentStack` is set to `Dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`.
         /// 
         /// &gt; **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
         /// Portal Value | API value
@@ -76,6 +76,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// .NET 7 (STS) | v7.0
         /// .NET 8 (LTS) | v8.0
         /// .NET 9 (STS) | v9.0
+        /// .NET 10 (LTS) | v10.0
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }

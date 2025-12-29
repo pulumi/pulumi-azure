@@ -73,6 +73,7 @@ class LinuxWebAppSlotArgs:
                > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
+        :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -402,6 +403,9 @@ class LinuxWebAppSlotArgs:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
     def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "virtual_network_backup_restore_enabled")
 
     @virtual_network_backup_restore_enabled.setter
@@ -535,6 +539,7 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
+        :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1006,6 +1011,9 @@ class _LinuxWebAppSlotState:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
     def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "virtual_network_backup_restore_enabled")
 
     @virtual_network_backup_restore_enabled.setter
@@ -1168,6 +1176,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
+        :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1410,6 +1419,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotSiteCredentialArgs', 'LinuxWebAppSlotSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
+        :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1721,6 +1731,9 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
     def virtual_network_backup_restore_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "virtual_network_backup_restore_enabled")
 
     @_builtins.property

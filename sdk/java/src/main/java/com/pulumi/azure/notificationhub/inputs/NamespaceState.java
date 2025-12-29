@@ -18,14 +18,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     public static final NamespaceState Empty = new NamespaceState();
 
     /**
-     * Is this Notification Hub Namespace enabled? Defaults to `true`.
+     * Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is this Notification Hub Namespace enabled? Defaults to `true`.
+     * @return Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -63,14 +63,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="namespaceType")
     private @Nullable Output<String> namespaceType;
 
     /**
-     * @return The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+     * @return The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> namespaceType() {
@@ -78,14 +78,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
      * 
      */
     @Import(name="replicationRegion")
     private @Nullable Output<String> replicationRegion;
 
     /**
-     * @return The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+     * @return The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
      * 
      */
     public Optional<Output<String>> replicationRegion() {
@@ -201,7 +201,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Is this Notification Hub Namespace enabled? Defaults to `true`.
+         * @param enabled Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Is this Notification Hub Namespace enabled? Defaults to `true`.
+         * @param enabled Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceType The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+         * @param namespaceType The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceType The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
+         * @param namespaceType The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationRegion The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+         * @param replicationRegion The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationRegion The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created.
+         * @param replicationRegion The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
          * 
          * @return builder
          * 

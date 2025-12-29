@@ -87,7 +87,7 @@ type Grafana struct {
 	DeterministicOutboundIpEnabled pulumi.BoolPtrOutput `pulumi:"deterministicOutboundIpEnabled"`
 	// The endpoint of the Grafana instance.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
+	// Which major version of Grafana to deploy. Possible values are `10`, `11`.
 	GrafanaMajorVersion pulumi.StringOutput `pulumi:"grafanaMajorVersion"`
 	// The full Grafana software semantic version deployed.
 	GrafanaVersion pulumi.StringOutput `pulumi:"grafanaVersion"`
@@ -159,7 +159,7 @@ type grafanaState struct {
 	DeterministicOutboundIpEnabled *bool `pulumi:"deterministicOutboundIpEnabled"`
 	// The endpoint of the Grafana instance.
 	Endpoint *string `pulumi:"endpoint"`
-	// Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
+	// Which major version of Grafana to deploy. Possible values are `10`, `11`.
 	GrafanaMajorVersion *string `pulumi:"grafanaMajorVersion"`
 	// The full Grafana software semantic version deployed.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
@@ -196,7 +196,7 @@ type GrafanaState struct {
 	DeterministicOutboundIpEnabled pulumi.BoolPtrInput
 	// The endpoint of the Grafana instance.
 	Endpoint pulumi.StringPtrInput
-	// Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
+	// Which major version of Grafana to deploy. Possible values are `10`, `11`.
 	GrafanaMajorVersion pulumi.StringPtrInput
 	// The full Grafana software semantic version deployed.
 	GrafanaVersion pulumi.StringPtrInput
@@ -235,7 +235,7 @@ type grafanaArgs struct {
 	AzureMonitorWorkspaceIntegrations []GrafanaAzureMonitorWorkspaceIntegration `pulumi:"azureMonitorWorkspaceIntegrations"`
 	// Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
 	DeterministicOutboundIpEnabled *bool `pulumi:"deterministicOutboundIpEnabled"`
-	// Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
+	// Which major version of Grafana to deploy. Possible values are `10`, `11`.
 	GrafanaMajorVersion string `pulumi:"grafanaMajorVersion"`
 	// An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
 	Identity *GrafanaIdentity `pulumi:"identity"`
@@ -267,7 +267,7 @@ type GrafanaArgs struct {
 	AzureMonitorWorkspaceIntegrations GrafanaAzureMonitorWorkspaceIntegrationArrayInput
 	// Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
 	DeterministicOutboundIpEnabled pulumi.BoolPtrInput
-	// Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
+	// Which major version of Grafana to deploy. Possible values are `10`, `11`.
 	GrafanaMajorVersion pulumi.StringInput
 	// An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
 	Identity GrafanaIdentityPtrInput
@@ -403,7 +403,7 @@ func (o GrafanaOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
+// Which major version of Grafana to deploy. Possible values are `10`, `11`.
 func (o GrafanaOutput) GrafanaMajorVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringOutput { return v.GrafanaMajorVersion }).(pulumi.StringOutput)
 }

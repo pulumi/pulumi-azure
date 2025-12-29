@@ -24,7 +24,7 @@ public final class ClusterClusterProfile {
      */
     private @Nullable Boolean fipsEnabled;
     /**
-     * @return The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+     * @return The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String managedResourceGroupName;
@@ -60,7 +60,7 @@ public final class ClusterClusterProfile {
         return Optional.ofNullable(this.fipsEnabled);
     }
     /**
-     * @return The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+     * @return The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> managedResourceGroupName() {

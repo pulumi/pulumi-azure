@@ -4972,7 +4972,7 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationSe
 type ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDisk struct {
 	// A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
 	Names []string `pulumi:"names"`
-	// The name of the Volume. Changing this forces a new resource to be created.
+	// The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Possible value for Application Server and Central Server is `default`.
 	//
@@ -4994,7 +4994,7 @@ type ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServe
 type ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs struct {
 	// A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
 	Names pulumi.StringArrayInput `pulumi:"names"`
-	// The name of the Volume. Changing this forces a new resource to be created.
+	// The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Possible value for Application Server and Central Server is `default`.
 	//
@@ -5060,7 +5060,7 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationSe
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the Volume. Changing this forces a new resource to be created.
+// The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 //
 // > **Note:** Possible value for Application Server and Central Server is `default`.
 //
@@ -5620,7 +5620,7 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServer
 type ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDisk struct {
 	// A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
 	Names []string `pulumi:"names"`
-	// The name of the Volume. Changing this forces a new resource to be created.
+	// The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Possible value for Application Server and Central Server is `default`.
 	//
@@ -5642,7 +5642,7 @@ type ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVir
 type ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs struct {
 	// A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
 	Names pulumi.StringArrayInput `pulumi:"names"`
-	// The name of the Volume. Changing this forces a new resource to be created.
+	// The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Possible value for Application Server and Central Server is `default`.
 	//
@@ -5708,7 +5708,7 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServer
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the Volume. Changing this forces a new resource to be created.
+// The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 //
 // > **Note:** Possible value for Application Server and Central Server is `default`.
 //
@@ -6268,7 +6268,7 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServe
 type ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDisk struct {
 	// A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
 	Names []string `pulumi:"names"`
-	// The name of the Volume. Changing this forces a new resource to be created.
+	// The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Possible value for Application Server and Central Server is `default`.
 	//
@@ -6290,7 +6290,7 @@ type ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVi
 type ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs struct {
 	// A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
 	Names pulumi.StringArrayInput `pulumi:"names"`
-	// The name of the Volume. Changing this forces a new resource to be created.
+	// The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Possible value for Application Server and Central Server is `default`.
 	//
@@ -6356,7 +6356,7 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServe
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the Volume. Changing this forces a new resource to be created.
+// The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 //
 // > **Note:** Possible value for Application Server and Central Server is `default`.
 //

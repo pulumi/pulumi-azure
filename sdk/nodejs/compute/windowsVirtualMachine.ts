@@ -256,7 +256,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly osImageNotification: pulumi.Output<outputs.compute.WindowsVirtualMachineOsImageNotification | undefined>;
     /**
-     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
      */
@@ -688,7 +688,7 @@ export interface WindowsVirtualMachineState {
      */
     osImageNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsImageNotification>;
     /**
-     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
      */
@@ -968,7 +968,7 @@ export interface WindowsVirtualMachineArgs {
      */
     osImageNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsImageNotification>;
     /**
-     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
      */

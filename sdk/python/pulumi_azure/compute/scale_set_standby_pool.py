@@ -33,7 +33,7 @@ class ScaleSetStandbyPoolArgs:
         :param pulumi.Input[_builtins.str] attached_virtual_machine_scale_set_id: Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
         :param pulumi.Input['ScaleSetStandbyPoolElasticityProfileArgs'] elasticity_profile: An `elasticity_profile` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
-        :param pulumi.Input[_builtins.str] virtual_machine_state: Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        :param pulumi.Input[_builtins.str] virtual_machine_state: Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Standby Pool.
@@ -89,7 +89,7 @@ class ScaleSetStandbyPoolArgs:
     @pulumi.getter(name="virtualMachineState")
     def virtual_machine_state(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         """
         return pulumi.get(self, "virtual_machine_state")
 
@@ -152,7 +152,7 @@ class _ScaleSetStandbyPoolState:
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Standby Pool.
-        :param pulumi.Input[_builtins.str] virtual_machine_state: Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        :param pulumi.Input[_builtins.str] virtual_machine_state: Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         """
         if attached_virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "attached_virtual_machine_scale_set_id", attached_virtual_machine_scale_set_id)
@@ -245,7 +245,7 @@ class _ScaleSetStandbyPoolState:
     @pulumi.getter(name="virtualMachineState")
     def virtual_machine_state(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         """
         return pulumi.get(self, "virtual_machine_state")
 
@@ -325,7 +325,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Standby Pool.
-        :param pulumi.Input[_builtins.str] virtual_machine_state: Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        :param pulumi.Input[_builtins.str] virtual_machine_state: Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         """
         ...
     @overload
@@ -458,7 +458,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Standby Pool.
-        :param pulumi.Input[_builtins.str] virtual_machine_state: Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        :param pulumi.Input[_builtins.str] virtual_machine_state: Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -525,7 +525,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
     @pulumi.getter(name="virtualMachineState")
     def virtual_machine_state(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
+        Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         """
         return pulumi.get(self, "virtual_machine_state")
 

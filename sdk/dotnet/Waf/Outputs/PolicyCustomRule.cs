@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+        /// Specifies what grouping the rate limit will count requests by. Possible values are `ClientAddr`, `ClientAddrXFFHeader`, `GeoLocation`, `GeoLocationXFFHeader` and `None`.
         /// </summary>
         public readonly string? GroupRateLimitBy;
         /// <summary>

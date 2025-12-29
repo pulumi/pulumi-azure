@@ -70,7 +70,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+     * The name of the Storage Account where the Storage Queue should be created.
      * 
      * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
@@ -79,7 +79,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> storageAccountId;
 
     /**
-     * @return The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+     * @return The name of the Storage Account where the Storage Queue should be created.
      * 
      * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
@@ -89,7 +89,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     * The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `storageAccountId`.
      * 
      * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
@@ -102,7 +102,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     * @return The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `storageAccountId`.
      * 
      * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
@@ -231,7 +231,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountId The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+         * @param storageAccountId The name of the Storage Account where the Storage Queue should be created.
          * 
          * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
@@ -244,7 +244,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountId The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+         * @param storageAccountId The name of the Storage Account where the Storage Queue should be created.
          * 
          * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
@@ -256,7 +256,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+         * @param storageAccountName The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `storageAccountId`.
          * 
          * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
          * 
@@ -273,7 +273,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+         * @param storageAccountName The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `storageAccountId`.
          * 
          * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
          * 

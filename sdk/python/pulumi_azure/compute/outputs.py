@@ -5639,7 +5639,7 @@ class OrchestratedVirtualMachineScaleSetSkuProfile(dict):
                  allocation_strategy: _builtins.str,
                  vm_sizes: Sequence[_builtins.str]):
         """
-        :param _builtins.str allocation_strategy: Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+        :param _builtins.str allocation_strategy: Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
         :param Sequence[_builtins.str] vm_sizes: Specifies the VM sizes for the virtual machine scale set.
         """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -5649,7 +5649,7 @@ class OrchestratedVirtualMachineScaleSetSkuProfile(dict):
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> _builtins.str:
         """
-        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
         """
         return pulumi.get(self, "allocation_strategy")
 

@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Oracle
         public Output<string> LinkedCompartmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Oracle Resource Anchor  exists.
+        /// The Azure Region where the Oracle Resource Anchor exists.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Oracle
         public Input<string>? LinkedCompartmentId { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Oracle Resource Anchor  exists.
+        /// The Azure Region where the Oracle Resource Anchor exists.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

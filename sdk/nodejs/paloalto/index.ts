@@ -55,6 +55,11 @@ export type NextGenerationFirewallVirtualHubPanorama = import("./nextGenerationF
 export const NextGenerationFirewallVirtualHubPanorama: typeof import("./nextGenerationFirewallVirtualHubPanorama").NextGenerationFirewallVirtualHubPanorama = null as any;
 utilities.lazyLoad(exports, ["NextGenerationFirewallVirtualHubPanorama"], () => require("./nextGenerationFirewallVirtualHubPanorama"));
 
+export { NextGenerationFirewallVirtualHubStrataCloudManagerArgs, NextGenerationFirewallVirtualHubStrataCloudManagerState } from "./nextGenerationFirewallVirtualHubStrataCloudManager";
+export type NextGenerationFirewallVirtualHubStrataCloudManager = import("./nextGenerationFirewallVirtualHubStrataCloudManager").NextGenerationFirewallVirtualHubStrataCloudManager;
+export const NextGenerationFirewallVirtualHubStrataCloudManager: typeof import("./nextGenerationFirewallVirtualHubStrataCloudManager").NextGenerationFirewallVirtualHubStrataCloudManager = null as any;
+utilities.lazyLoad(exports, ["NextGenerationFirewallVirtualHubStrataCloudManager"], () => require("./nextGenerationFirewallVirtualHubStrataCloudManager"));
+
 export { NextGenerationFirewallVirtualNetworkLocalRulestackArgs, NextGenerationFirewallVirtualNetworkLocalRulestackState } from "./nextGenerationFirewallVirtualNetworkLocalRulestack";
 export type NextGenerationFirewallVirtualNetworkLocalRulestack = import("./nextGenerationFirewallVirtualNetworkLocalRulestack").NextGenerationFirewallVirtualNetworkLocalRulestack;
 export const NextGenerationFirewallVirtualNetworkLocalRulestack: typeof import("./nextGenerationFirewallVirtualNetworkLocalRulestack").NextGenerationFirewallVirtualNetworkLocalRulestack = null as any;
@@ -64,6 +69,11 @@ export { NextGenerationFirewallVirtualNetworkPanoramaArgs, NextGenerationFirewal
 export type NextGenerationFirewallVirtualNetworkPanorama = import("./nextGenerationFirewallVirtualNetworkPanorama").NextGenerationFirewallVirtualNetworkPanorama;
 export const NextGenerationFirewallVirtualNetworkPanorama: typeof import("./nextGenerationFirewallVirtualNetworkPanorama").NextGenerationFirewallVirtualNetworkPanorama = null as any;
 utilities.lazyLoad(exports, ["NextGenerationFirewallVirtualNetworkPanorama"], () => require("./nextGenerationFirewallVirtualNetworkPanorama"));
+
+export { NextGenerationFirewallVirtualNetworkStrataCloudManagerArgs, NextGenerationFirewallVirtualNetworkStrataCloudManagerState } from "./nextGenerationFirewallVirtualNetworkStrataCloudManager";
+export type NextGenerationFirewallVirtualNetworkStrataCloudManager = import("./nextGenerationFirewallVirtualNetworkStrataCloudManager").NextGenerationFirewallVirtualNetworkStrataCloudManager;
+export const NextGenerationFirewallVirtualNetworkStrataCloudManager: typeof import("./nextGenerationFirewallVirtualNetworkStrataCloudManager").NextGenerationFirewallVirtualNetworkStrataCloudManager = null as any;
+utilities.lazyLoad(exports, ["NextGenerationFirewallVirtualNetworkStrataCloudManager"], () => require("./nextGenerationFirewallVirtualNetworkStrataCloudManager"));
 
 export { VirtualNetworkApplianceArgs, VirtualNetworkApplianceState } from "./virtualNetworkAppliance";
 export type VirtualNetworkAppliance = import("./virtualNetworkAppliance").VirtualNetworkAppliance;
@@ -93,10 +103,14 @@ const _module = {
                 return new NextGenerationFirewallVirtualHubLocalRulestack(name, <any>undefined, { urn })
             case "azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama":
                 return new NextGenerationFirewallVirtualHubPanorama(name, <any>undefined, { urn })
+            case "azure:paloalto/nextGenerationFirewallVirtualHubStrataCloudManager:NextGenerationFirewallVirtualHubStrataCloudManager":
+                return new NextGenerationFirewallVirtualHubStrataCloudManager(name, <any>undefined, { urn })
             case "azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack":
                 return new NextGenerationFirewallVirtualNetworkLocalRulestack(name, <any>undefined, { urn })
             case "azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama":
                 return new NextGenerationFirewallVirtualNetworkPanorama(name, <any>undefined, { urn })
+            case "azure:paloalto/nextGenerationFirewallVirtualNetworkStrataCloudManager:NextGenerationFirewallVirtualNetworkStrataCloudManager":
+                return new NextGenerationFirewallVirtualNetworkStrataCloudManager(name, <any>undefined, { urn })
             case "azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance":
                 return new VirtualNetworkAppliance(name, <any>undefined, { urn })
             default:
@@ -113,6 +127,8 @@ pulumi.runtime.registerResourceModule("azure", "paloalto/localRulestackPrefixLis
 pulumi.runtime.registerResourceModule("azure", "paloalto/localRulestackRule", _module)
 pulumi.runtime.registerResourceModule("azure", "paloalto/nextGenerationFirewallVirtualHubLocalRulestack", _module)
 pulumi.runtime.registerResourceModule("azure", "paloalto/nextGenerationFirewallVirtualHubPanorama", _module)
+pulumi.runtime.registerResourceModule("azure", "paloalto/nextGenerationFirewallVirtualHubStrataCloudManager", _module)
 pulumi.runtime.registerResourceModule("azure", "paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack", _module)
 pulumi.runtime.registerResourceModule("azure", "paloalto/nextGenerationFirewallVirtualNetworkPanorama", _module)
+pulumi.runtime.registerResourceModule("azure", "paloalto/nextGenerationFirewallVirtualNetworkStrataCloudManager", _module)
 pulumi.runtime.registerResourceModule("azure", "paloalto/virtualNetworkAppliance", _module)

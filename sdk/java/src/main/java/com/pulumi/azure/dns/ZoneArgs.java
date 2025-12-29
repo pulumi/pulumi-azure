@@ -49,14 +49,14 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `soaRecord` block as defined below.
+     * A `soaRecord` block as defined below.
      * 
      */
     @Import(name="soaRecord")
     private @Nullable Output<ZoneSoaRecordArgs> soaRecord;
 
     /**
-     * @return An `soaRecord` block as defined below.
+     * @return A `soaRecord` block as defined below.
      * 
      */
     public Optional<Output<ZoneSoaRecordArgs>> soaRecord() {
@@ -148,7 +148,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param soaRecord An `soaRecord` block as defined below.
+         * @param soaRecord A `soaRecord` block as defined below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param soaRecord An `soaRecord` block as defined below.
+         * @param soaRecord A `soaRecord` block as defined below.
          * 
          * @return builder
          * 

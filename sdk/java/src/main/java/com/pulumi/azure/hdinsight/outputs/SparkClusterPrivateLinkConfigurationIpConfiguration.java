@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SparkClusterPrivateLinkConfigurationIpConfiguration {
     /**
-     * @return Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+     * @return The name of the IP configuration.
      * 
      */
     private String name;
@@ -29,15 +29,19 @@ public final class SparkClusterPrivateLinkConfigurationIpConfiguration {
      */
     private @Nullable String privateIpAddress;
     /**
-     * @return The private IP allocation method. The only possible value now is `Dynamic`.
+     * @return The private IP allocation method. Possible values are `Dynamic` and `Static`.
      * 
      */
     private @Nullable String privateIpAllocationMethod;
+    /**
+     * @return The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+     * 
+     */
     private @Nullable String subnetId;
 
     private SparkClusterPrivateLinkConfigurationIpConfiguration() {}
     /**
-     * @return Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+     * @return The name of the IP configuration.
      * 
      */
     public String name() {
@@ -58,12 +62,16 @@ public final class SparkClusterPrivateLinkConfigurationIpConfiguration {
         return Optional.ofNullable(this.privateIpAddress);
     }
     /**
-     * @return The private IP allocation method. The only possible value now is `Dynamic`.
+     * @return The private IP allocation method. Possible values are `Dynamic` and `Static`.
      * 
      */
     public Optional<String> privateIpAllocationMethod() {
         return Optional.ofNullable(this.privateIpAllocationMethod);
     }
+    /**
+     * @return The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+     * 
+     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }

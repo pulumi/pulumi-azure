@@ -2541,7 +2541,7 @@ func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) Index(i p
 }
 
 type EventHubRetentionDescription struct {
-	// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+	// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
 	CleanupPolicy string `pulumi:"cleanupPolicy"`
 	// Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanupPolicy` is `Delete`.
 	RetentionTimeInHours *int `pulumi:"retentionTimeInHours"`
@@ -2561,7 +2561,7 @@ type EventHubRetentionDescriptionInput interface {
 }
 
 type EventHubRetentionDescriptionArgs struct {
-	// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+	// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
 	CleanupPolicy pulumi.StringInput `pulumi:"cleanupPolicy"`
 	// Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanupPolicy` is `Delete`.
 	RetentionTimeInHours pulumi.IntPtrInput `pulumi:"retentionTimeInHours"`
@@ -2646,7 +2646,7 @@ func (o EventHubRetentionDescriptionOutput) ToEventHubRetentionDescriptionPtrOut
 	}).(EventHubRetentionDescriptionPtrOutput)
 }
 
-// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
 func (o EventHubRetentionDescriptionOutput) CleanupPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubRetentionDescription) string { return v.CleanupPolicy }).(pulumi.StringOutput)
 }
@@ -2685,7 +2685,7 @@ func (o EventHubRetentionDescriptionPtrOutput) Elem() EventHubRetentionDescripti
 	}).(EventHubRetentionDescriptionOutput)
 }
 
-// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
 func (o EventHubRetentionDescriptionPtrOutput) CleanupPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHubRetentionDescription) *string {
 		if v == nil {

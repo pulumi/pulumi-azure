@@ -38,9 +38,21 @@ namespace Pulumi.Azure.ManagedRedis.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GeoReplicationLinkedDatabaseIds;
         /// <summary>
+        /// The ID of the Managed Redis Database Instance.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A list of `Module` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDefaultDatabaseModuleResult> Modules;
+        /// <summary>
+        /// The frequency of Append Only File (AOF) backups.
+        /// </summary>
+        public readonly string PersistenceAppendOnlyFileBackupFrequency;
+        /// <summary>
+        /// The frequency of Redis Database (RDB) backups.
+        /// </summary>
+        public readonly string PersistenceRedisDatabaseBackupFrequency;
         /// <summary>
         /// The TCP port of the database endpoint.
         /// </summary>
@@ -68,7 +80,13 @@ namespace Pulumi.Azure.ManagedRedis.Outputs
 
             ImmutableArray<string> geoReplicationLinkedDatabaseIds,
 
+            string id,
+
             ImmutableArray<Outputs.GetDefaultDatabaseModuleResult> modules,
+
+            string persistenceAppendOnlyFileBackupFrequency,
+
+            string persistenceRedisDatabaseBackupFrequency,
 
             int port,
 
@@ -82,7 +100,10 @@ namespace Pulumi.Azure.ManagedRedis.Outputs
             EvictionPolicy = evictionPolicy;
             GeoReplicationGroupName = geoReplicationGroupName;
             GeoReplicationLinkedDatabaseIds = geoReplicationLinkedDatabaseIds;
+            Id = id;
             Modules = modules;
+            PersistenceAppendOnlyFileBackupFrequency = persistenceAppendOnlyFileBackupFrequency;
+            PersistenceRedisDatabaseBackupFrequency = persistenceRedisDatabaseBackupFrequency;
             Port = port;
             PrimaryAccessKey = primaryAccessKey;
             SecondaryAccessKey = secondaryAccessKey;

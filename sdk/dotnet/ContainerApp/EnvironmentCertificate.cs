@@ -14,6 +14,8 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// ## Example Usage
     /// 
+    /// ### Certificate from .pfx file
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,6 +62,122 @@ namespace Pulumi.Azure.ContainerApp
     /// });
     /// ```
     /// 
+    /// ### Certificate from Key Vault
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     {
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Name = "example-identity",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
+    ///     {
+    ///         Name = "example-environment",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         Identity = new Azure.ContainerApp.Inputs.EnvironmentIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
+    ///     {
+    ///         Name = "example-keyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         EnableRbacAuthorization = true,
+    ///     });
+    /// 
+    ///     var userKeyvaultAdmin = new Azure.Authorization.Assignment("user_keyvault_admin", new()
+    ///     {
+    ///         Scope = exampleKeyVault.Id,
+    ///         RoleDefinitionName = "Key Vault Administrator",
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         Scope = exampleKeyVault.Id,
+    ///         RoleDefinitionName = "Key Vault Secrets User",
+    ///         PrincipalId = exampleEnvironment.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
+    ///     {
+    ///         Name = "example-certificate",
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///         {
+    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = "path/to/certificate_file.pfx",
+    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             Password = "",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             userKeyvaultAdmin,
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEnvironmentCertificate = new Azure.ContainerApp.EnvironmentCertificate("example", new()
+    ///     {
+    ///         Name = "example-certificate",
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         CertificateKeyVault = new Azure.ContainerApp.Inputs.EnvironmentCertificateCertificateKeyVaultArgs
+    ///         {
+    ///             Identity = exampleUserAssignedIdentity.Id,
+    ///             KeyVaultSecretId = exampleCertificate.VersionlessSecretId,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -80,15 +198,27 @@ namespace Pulumi.Azure.ContainerApp
     {
         /// <summary>
         /// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** One of `CertificateBlobBase64` and `CertificateKeyVault` must be set.
         /// </summary>
         [Output("certificateBlobBase64")]
-        public Output<string> CertificateBlobBase64 { get; private set; } = null!;
+        public Output<string?> CertificateBlobBase64 { get; private set; } = null!;
+
+        /// <summary>
+        /// A `CertificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** one of `CertificateBlobBase64` and `CertificateKeyVault` must be set.
+        /// </summary>
+        [Output("certificateKeyVault")]
+        public Output<Outputs.EnvironmentCertificateCertificateKeyVault?> CertificateKeyVault { get; private set; } = null!;
 
         /// <summary>
         /// The password for the Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** required if `CertificateBlobBase64` is specified.
         /// </summary>
         [Output("certificatePassword")]
-        public Output<string> CertificatePassword { get; private set; } = null!;
+        public Output<string?> CertificatePassword { get; private set; } = null!;
 
         /// <summary>
         /// The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
@@ -190,15 +320,27 @@ namespace Pulumi.Azure.ContainerApp
     {
         /// <summary>
         /// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** One of `CertificateBlobBase64` and `CertificateKeyVault` must be set.
         /// </summary>
-        [Input("certificateBlobBase64", required: true)]
-        public Input<string> CertificateBlobBase64 { get; set; } = null!;
+        [Input("certificateBlobBase64")]
+        public Input<string>? CertificateBlobBase64 { get; set; }
 
-        [Input("certificatePassword", required: true)]
+        /// <summary>
+        /// A `CertificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** one of `CertificateBlobBase64` and `CertificateKeyVault` must be set.
+        /// </summary>
+        [Input("certificateKeyVault")]
+        public Input<Inputs.EnvironmentCertificateCertificateKeyVaultArgs>? CertificateKeyVault { get; set; }
+
+        [Input("certificatePassword")]
         private Input<string>? _certificatePassword;
 
         /// <summary>
         /// The password for the Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** required if `CertificateBlobBase64` is specified.
         /// </summary>
         public Input<string>? CertificatePassword
         {
@@ -244,15 +386,27 @@ namespace Pulumi.Azure.ContainerApp
     {
         /// <summary>
         /// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** One of `CertificateBlobBase64` and `CertificateKeyVault` must be set.
         /// </summary>
         [Input("certificateBlobBase64")]
         public Input<string>? CertificateBlobBase64 { get; set; }
+
+        /// <summary>
+        /// A `CertificateKeyVault` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** one of `CertificateBlobBase64` and `CertificateKeyVault` must be set.
+        /// </summary>
+        [Input("certificateKeyVault")]
+        public Input<Inputs.EnvironmentCertificateCertificateKeyVaultGetArgs>? CertificateKeyVault { get; set; }
 
         [Input("certificatePassword")]
         private Input<string>? _certificatePassword;
 
         /// <summary>
         /// The password for the Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** required if `CertificateBlobBase64` is specified.
         /// </summary>
         public Input<string>? CertificatePassword
         {

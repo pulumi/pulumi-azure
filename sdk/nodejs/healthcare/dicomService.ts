@@ -114,7 +114,7 @@ export class DicomService extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly serviceUrl: pulumi.Output<string>;
     /**
-     * A `storage` block as defined below.
+     * A `storage` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly storage: pulumi.Output<outputs.healthcare.DicomServiceStorage>;
     /**
@@ -218,7 +218,7 @@ export interface DicomServiceState {
      */
     serviceUrl?: pulumi.Input<string>;
     /**
-     * A `storage` block as defined below.
+     * A `storage` block as defined below. Changing this forces a new resource to be created.
      */
     storage?: pulumi.Input<inputs.healthcare.DicomServiceStorage>;
     /**
@@ -264,7 +264,7 @@ export interface DicomServiceArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * A `storage` block as defined below.
+     * A `storage` block as defined below. Changing this forces a new resource to be created.
      */
     storage?: pulumi.Input<inputs.healthcare.DicomServiceStorage>;
     /**

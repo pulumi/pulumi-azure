@@ -85,6 +85,12 @@ export class NetworkManagerNetworkGroup extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+     *
+     * > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+     */
+    declare public readonly memberType: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -107,6 +113,7 @@ export class NetworkManagerNetworkGroup extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NetworkManagerNetworkGroupState | undefined;
             resourceInputs["description"] = state?.description;
+            resourceInputs["memberType"] = state?.memberType;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkManagerId"] = state?.networkManagerId;
         } else {
@@ -115,6 +122,7 @@ export class NetworkManagerNetworkGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'networkManagerId'");
             }
             resourceInputs["description"] = args?.description;
+            resourceInputs["memberType"] = args?.memberType;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkManagerId"] = args?.networkManagerId;
         }
@@ -131,6 +139,12 @@ export interface NetworkManagerNetworkGroupState {
      * A description of the Network Manager Network Group.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+     *
+     * > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+     */
+    memberType?: pulumi.Input<string>;
     /**
      * Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
      */
@@ -149,6 +163,12 @@ export interface NetworkManagerNetworkGroupArgs {
      * A description of the Network Manager Network Group.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+     *
+     * > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
+     */
+    memberType?: pulumi.Input<string>;
     /**
      * Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
      */

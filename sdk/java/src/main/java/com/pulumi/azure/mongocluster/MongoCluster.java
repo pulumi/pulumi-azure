@@ -7,11 +7,15 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mongocluster.MongoClusterArgs;
 import com.pulumi.azure.mongocluster.inputs.MongoClusterState;
 import com.pulumi.azure.mongocluster.outputs.MongoClusterConnectionString;
+import com.pulumi.azure.mongocluster.outputs.MongoClusterCustomerManagedKey;
+import com.pulumi.azure.mongocluster.outputs.MongoClusterIdentity;
+import com.pulumi.azure.mongocluster.outputs.MongoClusterRestore;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -175,6 +179,20 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.administratorUsername);
     }
     /**
+     * A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+     * 
+     */
+    @Export(name="authenticationMethods", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> authenticationMethods;
+
+    /**
+     * @return A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
+     * 
+     */
+    public Output<List<String>> authenticationMethods() {
+        return this.authenticationMethods;
+    }
+    /**
      * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      * 
      */
@@ -189,32 +207,64 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.computeTier);
     }
     /**
-     * The list of `connectionStrings` blocks as defined below.
+     * One or more `connectionStrings` blocks as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,MongoClusterConnectionString.class}, tree="[0,1]")
     private Output<List<MongoClusterConnectionString>> connectionStrings;
 
     /**
-     * @return The list of `connectionStrings` blocks as defined below.
+     * @return One or more `connectionStrings` blocks as defined below.
      * 
      */
     public Output<List<MongoClusterConnectionString>> connectionStrings() {
         return this.connectionStrings;
     }
     /**
-     * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+     * The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="createMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> createMode;
 
     /**
-     * @return The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+     * @return The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> createMode() {
         return Codegen.optional(this.createMode);
+    }
+    /**
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="customerManagedKey", refs={MongoClusterCustomerManagedKey.class}, tree="[0]")
+    private Output</* @Nullable */ MongoClusterCustomerManagedKey> customerManagedKey;
+
+    /**
+     * @return A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<MongoClusterCustomerManagedKey>> customerManagedKey() {
+        return Codegen.optional(this.customerManagedKey);
+    }
+    /**
+     * Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+     * 
+     */
+    @Export(name="dataApiModeEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> dataApiModeEnabled;
+
+    /**
+     * @return Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** `dataApiModeEnabled` can only be set when `createMode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
+     * 
+     */
+    public Output<Optional<Boolean>> dataApiModeEnabled() {
+        return Codegen.optional(this.dataApiModeEnabled);
     }
     /**
      * The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
@@ -229,6 +279,24 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> highAvailabilityMode() {
         return Codegen.optional(this.highAvailabilityMode);
+    }
+    /**
+     * An `identity` block as detailed below.
+     * 
+     * &gt; **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+     * 
+     */
+    @Export(name="identity", refs={MongoClusterIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ MongoClusterIdentity> identity;
+
+    /**
+     * @return An `identity` block as detailed below.
+     * 
+     * &gt; **Note:** When adding or removing `identity`, a resource recreation will be triggered.
+     * 
+     */
+    public Output<Optional<MongoClusterIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
@@ -300,6 +368,12 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    @Export(name="restore", refs={MongoClusterRestore.class}, tree="[0]")
+    private Output</* @Nullable */ MongoClusterRestore> restore;
+
+    public Output<Optional<MongoClusterRestore>> restore() {
+        return Codegen.optional(this.restore);
+    }
     /**
      * The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
      * 
@@ -355,6 +429,20 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> storageSizeInGb() {
         return Codegen.optional(this.storageSizeInGb);
+    }
+    /**
+     * The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="storageType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> storageType;
+
+    /**
+     * @return The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> storageType() {
+        return Codegen.optional(this.storageType);
     }
     /**
      * A mapping of tags to assign to the MongoDB Cluster.

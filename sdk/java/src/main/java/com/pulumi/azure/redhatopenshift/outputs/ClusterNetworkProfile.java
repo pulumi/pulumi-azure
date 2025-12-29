@@ -24,7 +24,7 @@ public final class ClusterNetworkProfile {
      */
     private String podCidr;
     /**
-     * @return Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+     * @return Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean preconfiguredNetworkSecurityGroupEnabled;
@@ -50,7 +50,7 @@ public final class ClusterNetworkProfile {
         return this.podCidr;
     }
     /**
-     * @return Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+     * @return Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> preconfiguredNetworkSecurityGroupEnabled() {

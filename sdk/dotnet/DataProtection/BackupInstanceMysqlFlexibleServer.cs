@@ -145,6 +145,12 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The protection state of the Backup Instance MySQL Flexible Server.
+        /// </summary>
+        [Output("protectionState")]
+        public Output<string> ProtectionState { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the source server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serverId")]
@@ -257,6 +263,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The protection state of the Backup Instance MySQL Flexible Server.
+        /// </summary>
+        [Input("protectionState")]
+        public Input<string>? ProtectionState { get; set; }
 
         /// <summary>
         /// The ID of the source server. Changing this forces a new resource to be created.

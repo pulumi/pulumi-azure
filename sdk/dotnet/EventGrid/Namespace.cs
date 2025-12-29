@@ -91,7 +91,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        /// Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `TopicSpacesConfiguration` block as defined below.
+        /// A `TopicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("topicSpacesConfigurations")]
         public Output<ImmutableArray<Outputs.NamespaceTopicSpacesConfiguration>> TopicSpacesConfigurations { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        /// Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.NamespaceTopicSpacesConfigurationArgs>? _topicSpacesConfigurations;
 
         /// <summary>
-        /// A `TopicSpacesConfiguration` block as defined below.
+        /// A `TopicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.NamespaceTopicSpacesConfigurationArgs> TopicSpacesConfigurations
         {
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
+        /// Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.NamespaceTopicSpacesConfigurationGetArgs>? _topicSpacesConfigurations;
 
         /// <summary>
-        /// A `TopicSpacesConfiguration` block as defined below.
+        /// A `TopicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.NamespaceTopicSpacesConfigurationGetArgs> TopicSpacesConfigurations
         {

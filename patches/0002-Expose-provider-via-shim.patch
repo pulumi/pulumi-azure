@@ -7,17 +7,21 @@ Add shim module containing a public method which constructs a new instance of th
 
 diff --git a/shim/shim.go b/shim/shim.go
 new file mode 100644
-index 0000000000..cd6b26156c
+index 0000000000..e5291c4749
 --- /dev/null
 +++ b/shim/shim.go
-@@ -0,0 +1,10 @@
+@@ -0,0 +1,14 @@
 +package shim
 +
 +import (
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-azurerm/internal/clients"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/provider"
 +)
 +
 +func NewProvider() *schema.Provider {
 +	return provider.AzureProvider()
 +}
++
++// expose client type
++type AzureClient = clients.Client

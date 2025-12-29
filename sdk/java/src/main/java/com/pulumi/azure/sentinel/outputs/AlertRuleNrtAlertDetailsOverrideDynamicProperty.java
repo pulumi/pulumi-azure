@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class AlertRuleNrtAlertDetailsOverrideDynamicProperty {
     /**
-     * @return The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+     * @return The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class AlertRuleNrtAlertDetailsOverrideDynamicProperty {
 
     private AlertRuleNrtAlertDetailsOverrideDynamicProperty() {}
     /**
-     * @return The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+     * @return The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
      * 
      */
     public String name() {

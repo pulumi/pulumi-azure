@@ -2262,7 +2262,7 @@ type VolumeGroupOracleVolume struct {
 	MountIpAddresses          []string `pulumi:"mountIpAddresses"`
 	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	Name string `pulumi:"name"`
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+	// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
 	NetworkFeatures *string `pulumi:"networkFeatures"`
 	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
 	//
@@ -2288,7 +2288,7 @@ type VolumeGroupOracleVolume struct {
 	ThroughputInMibps float64 `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumePath string `pulumi:"volumePath"`
-	// Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumeSpecName string `pulumi:"volumeSpecName"`
 	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
 	Zone *string `pulumi:"zone"`
@@ -2323,7 +2323,7 @@ type VolumeGroupOracleVolumeArgs struct {
 	MountIpAddresses          pulumi.StringArrayInput `pulumi:"mountIpAddresses"`
 	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+	// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
 	NetworkFeatures pulumi.StringPtrInput `pulumi:"networkFeatures"`
 	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
 	//
@@ -2349,7 +2349,7 @@ type VolumeGroupOracleVolumeArgs struct {
 	ThroughputInMibps pulumi.Float64Input `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumePath pulumi.StringInput `pulumi:"volumePath"`
-	// Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumeSpecName pulumi.StringInput `pulumi:"volumeSpecName"`
 	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
 	Zone pulumi.StringPtrInput `pulumi:"zone"`
@@ -2454,7 +2454,7 @@ func (o VolumeGroupOracleVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
 func (o VolumeGroupOracleVolumeOutput) NetworkFeatures() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.NetworkFeatures }).(pulumi.StringPtrOutput)
 }
@@ -2513,7 +2513,7 @@ func (o VolumeGroupOracleVolumeOutput) VolumePath() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.VolumePath }).(pulumi.StringOutput)
 }
 
-// Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupOracleVolumeOutput) VolumeSpecName() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.VolumeSpecName }).(pulumi.StringOutput)
 }
@@ -2546,7 +2546,7 @@ func (o VolumeGroupOracleVolumeArrayOutput) Index(i pulumi.IntInput) VolumeGroup
 type VolumeGroupOracleVolumeDataProtectionReplication struct {
 	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	EndpointType *string `pulumi:"endpointType"`
-	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Location of the primary volume.
 	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
@@ -2568,7 +2568,7 @@ type VolumeGroupOracleVolumeDataProtectionReplicationInput interface {
 type VolumeGroupOracleVolumeDataProtectionReplicationArgs struct {
 	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Location of the primary volume.
 	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
@@ -2658,7 +2658,7 @@ func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) EndpointType() p
 	return o.ApplyT(func(v VolumeGroupOracleVolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Location of the primary volume.
 func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
 }
@@ -2707,7 +2707,7 @@ func (o VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) EndpointType(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Location of the primary volume.
 func (o VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupOracleVolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -3287,7 +3287,7 @@ func (o VolumeGroupSapHanaVolumeArrayOutput) Index(i pulumi.IntInput) VolumeGrou
 type VolumeGroupSapHanaVolumeDataProtectionReplication struct {
 	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	EndpointType *string `pulumi:"endpointType"`
-	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Location of the primary volume.
 	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
@@ -3309,7 +3309,7 @@ type VolumeGroupSapHanaVolumeDataProtectionReplicationInput interface {
 type VolumeGroupSapHanaVolumeDataProtectionReplicationArgs struct {
 	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Location of the primary volume.
 	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
@@ -3399,7 +3399,7 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) EndpointType() 
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Location of the primary volume.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
 }
@@ -3448,7 +3448,7 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) EndpointType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Location of the primary volume.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {

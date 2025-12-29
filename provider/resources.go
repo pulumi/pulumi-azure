@@ -29,10 +29,10 @@ import (
 	_ "embed"
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/location"
 	"github.com/hashicorp/go-azure-sdk/sdk/auth"
 	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-azurerm/helpers/azure"
 	"github.com/hashicorp/terraform-provider-azurerm/shim"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -3315,14 +3315,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_app_environment":             {Tok: azureDataSource(azureContainerApp, "getEnvironment")},
 			"azurerm_container_app_environment_certificate": {Tok: azureDataSource(azureContainerApp, "getEnvironmentCertificate")},
 
-			"azurerm_mobile_network":              {Tok: azureDataSource(azureMobile, "getNetwork")},
-			"azurerm_mobile_network_service":      {Tok: azureDataSource(azureMobile, "getNetworkService")},
-			"azurerm_mobile_network_sim_group":    {Tok: azureDataSource(azureMobile, "getNetworkSimGroup")},
-			"azurerm_mobile_network_site":         {Tok: azureDataSource(azureMobile, "getNetworkSite")},
-			"azurerm_mobile_network_slice":        {Tok: azureDataSource(azureMobile, "getNetworkSlice")},
-			"azurerm_mobile_network_data_network": {Tok: azureDataSource(azureMobile, "getNetworkDataNetwork")},
-			"azurerm_mobile_network_sim_policy":   {Tok: azureDataSource(azureMobile, "getNetworkSimPolicy")},
-
 			"azurerm_virtual_desktop_host_pool": {Tok: azureDataSource(azureDesktopVirtualization, "getHostPool")},
 
 			"azurerm_orchestrated_virtual_machine_scale_set": {Tok: azureDataSource(azureCompute, "getOrchestratedVirtualMachineScaleSet")},
@@ -3686,7 +3678,14 @@ func defaultAzureLocation(ctx context.Context,
 		// it's possible (likely) during previews that the location will be unknown, so
 		// we special logic to propagate likewise unknown location values.
 		if rg, has := res.Properties["resourceGroupName"]; has {
-			if rg.IsComputed() || rg.IsOutput() {
+			if rg.IsOutput() {
+				output := rg.OutputValue()
+				if !output.Known {
+					return tfbridge.TerraformUnknownVariableValue, nil
+				}
+				rg = output.Element
+			}
+			if rg.IsComputed() {
 				return tfbridge.TerraformUnknownVariableValue, nil
 			}
 			if rg.IsString() {
@@ -3697,9 +3696,16 @@ func defaultAzureLocation(ctx context.Context,
 					contract.Assertf(ok, "missing resource azurerm_resource_group")
 					importer := rgRes.Importer()
 					contract.Assertf(importer != nil, "importer cannot be nil")
+					// resource_group `Read` now pulls the subscription ID from the resource ID so we need a valid
+					// subscription ID
+					subscriptionID := subscriptionIDFromMeta(p.Meta(ctx))
+					if subscriptionID == "" {
+						subscriptionID = os.Getenv("ARM_SUBSCRIPTION_ID")
+					}
+					contract.Assertf(subscriptionID != "", "could not find a valid subscription ID")
+					rgID := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", subscriptionID, rgName)
 					states, err := importer("azurerm_resource_group",
-						fmt.Sprintf("/subscriptions/_/resourceGroups/%s",
-							rg.StringValue()), p.Meta(ctx))
+						rgID, p.Meta(ctx))
 					if err != nil {
 						return nil, err
 					}
@@ -3718,13 +3724,20 @@ func defaultAzureLocation(ctx context.Context,
 							if err != nil {
 								return nil, err
 							}
-							rgRegion = azure.NormalizeLocation(obj["location"])
+							locationValue, ok := obj["location"].(string)
+							if !ok {
+								rgRegion = tfbridge.TerraformUnknownVariableValue
+								break
+							}
+							rgRegion = location.Normalize(locationValue)
 						}
 					default:
 						return nil, fmt.Errorf("expected 0 or 1 states for resource group %s",
 							rg.StringValue())
 					}
-					rgRegionMap[rgName] = rgRegion // memoize the value.
+					if rgRegion != tfbridge.TerraformUnknownVariableValue {
+						rgRegionMap[rgName] = rgRegion // memoize the value.
+					}
 				}
 				return rgRegion, nil
 			}
@@ -3732,6 +3745,20 @@ func defaultAzureLocation(ctx context.Context,
 
 		return nil, nil
 	}
+}
+
+func subscriptionIDFromMeta(meta interface{}) string {
+	if meta == nil {
+		return ""
+	}
+	client, ok := meta.(*shim.AzureClient)
+	if !ok {
+		return ""
+	}
+	if client != nil && client.Account != nil {
+		return client.Account.SubscriptionId
+	}
+	return ""
 }
 
 // lowercaseLettersAndNumbers applies the "Lowercase letters and numbers" naming convention to the given name.

@@ -65,7 +65,7 @@ class RegistryArgs:
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
-        :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -299,7 +299,7 @@ class RegistryArgs:
     @pulumi.getter(name="retentionPolicyInDays")
     def retention_policy_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        The number of days to retain and untagged manifest after which it gets purged.
         """
         return pulumi.get(self, "retention_policy_in_days")
 
@@ -398,7 +398,7 @@ class _RegistryState:
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged.
         :param pulumi.Input[_builtins.str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
@@ -679,7 +679,7 @@ class _RegistryState:
     @pulumi.getter(name="retentionPolicyInDays")
     def retention_policy_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        The number of days to retain and untagged manifest after which it gets purged.
         """
         return pulumi.get(self, "retention_policy_in_days")
 
@@ -866,7 +866,7 @@ class Registry(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+        * `Microsoft.ContainerRegistry` - 2025-04-01
 
         ## Import
 
@@ -900,7 +900,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged.
         :param pulumi.Input[_builtins.str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
@@ -1016,7 +1016,7 @@ class Registry(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+        * `Microsoft.ContainerRegistry` - 2025-04-01
 
         ## Import
 
@@ -1164,7 +1164,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged.
         :param pulumi.Input[_builtins.str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
@@ -1355,7 +1355,7 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter(name="retentionPolicyInDays")
     def retention_policy_in_days(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        The number of days to retain and untagged manifest after which it gets purged.
         """
         return pulumi.get(self, "retention_policy_in_days")
 

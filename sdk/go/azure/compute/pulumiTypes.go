@@ -12848,7 +12848,7 @@ func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Priorit
 }
 
 type OrchestratedVirtualMachineScaleSetSkuProfile struct {
-	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 	// Specifies the VM sizes for the virtual machine scale set.
 	VmSizes []string `pulumi:"vmSizes"`
@@ -12866,7 +12866,7 @@ type OrchestratedVirtualMachineScaleSetSkuProfileInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetSkuProfileArgs struct {
-	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 	// Specifies the VM sizes for the virtual machine scale set.
 	VmSizes pulumi.StringArrayInput `pulumi:"vmSizes"`
@@ -12949,7 +12949,7 @@ func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) ToOrchestratedVirtua
 	}).(OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput)
 }
 
-// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
 func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSkuProfile) string { return v.AllocationStrategy }).(pulumi.StringOutput)
 }
@@ -12983,7 +12983,7 @@ func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) Elem() Orchestrat
 	}).(OrchestratedVirtualMachineScaleSetSkuProfileOutput)
 }
 
-// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
 func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSkuProfile) *string {
 		if v == nil {

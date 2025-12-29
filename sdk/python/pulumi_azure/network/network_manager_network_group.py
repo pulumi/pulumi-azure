@@ -21,16 +21,22 @@ class NetworkManagerNetworkGroupArgs:
     def __init__(__self__, *,
                  network_manager_id: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerNetworkGroup resource.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Network Group.
+        :param pulumi.Input[_builtins.str] member_type: The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+               
+               > **Note:** `member_type` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scope_accesses`.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
         """
         pulumi.set(__self__, "network_manager_id", network_manager_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if member_type is not None:
+            pulumi.set(__self__, "member_type", member_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -59,6 +65,20 @@ class NetworkManagerNetworkGroupArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+
+        > **Note:** `member_type` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scope_accesses`.
+        """
+        return pulumi.get(self, "member_type")
+
+    @member_type.setter
+    def member_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "member_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -75,16 +95,22 @@ class NetworkManagerNetworkGroupArgs:
 class _NetworkManagerNetworkGroupState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerNetworkGroup resources.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Network Group.
+        :param pulumi.Input[_builtins.str] member_type: The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+               
+               > **Note:** `member_type` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scope_accesses`.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if member_type is not None:
+            pulumi.set(__self__, "member_type", member_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_manager_id is not None:
@@ -101,6 +127,20 @@ class _NetworkManagerNetworkGroupState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+
+        > **Note:** `member_type` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scope_accesses`.
+        """
+        return pulumi.get(self, "member_type")
+
+    @member_type.setter
+    def member_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "member_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -134,6 +174,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -185,6 +226,9 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Network Group.
+        :param pulumi.Input[_builtins.str] member_type: The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+               
+               > **Note:** `member_type` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scope_accesses`.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
         """
@@ -255,6 +299,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -267,6 +312,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
             __props__ = NetworkManagerNetworkGroupArgs.__new__(NetworkManagerNetworkGroupArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["member_type"] = member_type
             __props__.__dict__["name"] = name
             if network_manager_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_id'")
@@ -282,6 +328,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
+            member_type: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             network_manager_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerNetworkGroup':
         """
@@ -292,6 +339,9 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Network Group.
+        :param pulumi.Input[_builtins.str] member_type: The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+               
+               > **Note:** `member_type` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scope_accesses`.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
         """
@@ -300,6 +350,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         __props__ = _NetworkManagerNetworkGroupState.__new__(_NetworkManagerNetworkGroupState)
 
         __props__.__dict__["description"] = description
+        __props__.__dict__["member_type"] = member_type
         __props__.__dict__["name"] = name
         __props__.__dict__["network_manager_id"] = network_manager_id
         return NetworkManagerNetworkGroup(resource_name, opts=opts, __props__=__props__)
@@ -311,6 +362,16 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         A description of the Network Manager Network Group.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
+
+        > **Note:** `member_type` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scope_accesses`.
+        """
+        return pulumi.get(self, "member_type")
 
     @_builtins.property
     @pulumi.getter

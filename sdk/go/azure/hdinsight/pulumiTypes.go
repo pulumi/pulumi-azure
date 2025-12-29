@@ -1829,7 +1829,8 @@ func (o HBaseClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput 
 
 type HBaseClusterPrivateLinkConfiguration struct {
 	// The ID of the private link service group.
-	GroupId         string                                              `pulumi:"groupId"`
+	GroupId string `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration HBaseClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name string `pulumi:"name"`
@@ -1848,7 +1849,8 @@ type HBaseClusterPrivateLinkConfigurationInput interface {
 
 type HBaseClusterPrivateLinkConfigurationArgs struct {
 	// The ID of the private link service group.
-	GroupId         pulumi.StringInput                                       `pulumi:"groupId"`
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration HBaseClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1936,6 +1938,7 @@ func (o HBaseClusterPrivateLinkConfigurationOutput) GroupId() pulumi.StringOutpu
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o HBaseClusterPrivateLinkConfigurationOutput) IpConfiguration() HBaseClusterPrivateLinkConfigurationIpConfigurationOutput {
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfiguration) HBaseClusterPrivateLinkConfigurationIpConfiguration {
 		return v.IpConfiguration
@@ -1981,6 +1984,7 @@ func (o HBaseClusterPrivateLinkConfigurationPtrOutput) GroupId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o HBaseClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfiguration) *HBaseClusterPrivateLinkConfigurationIpConfiguration {
 		if v == nil {
@@ -2001,15 +2005,16 @@ func (o HBaseClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOu
 }
 
 type HBaseClusterPrivateLinkConfigurationIpConfiguration struct {
-	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name string `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
 	Primary *bool `pulumi:"primary"`
 	// The private IP address of the IP configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  *string `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // HBaseClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts HBaseClusterPrivateLinkConfigurationIpConfigurationArgs and HBaseClusterPrivateLinkConfigurationIpConfigurationOutput values.
@@ -2024,15 +2029,16 @@ type HBaseClusterPrivateLinkConfigurationIpConfigurationInput interface {
 }
 
 type HBaseClusterPrivateLinkConfigurationIpConfigurationArgs struct {
-	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 	// The private IP address of the IP configuration.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (HBaseClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
@@ -2112,7 +2118,7 @@ func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) ToHBaseCluste
 	}).(HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 }
 
-// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2127,13 +2133,14 @@ func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddr
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -2162,7 +2169,7 @@ func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Elem() HBa
 	}).(HBaseClusterPrivateLinkConfigurationIpConfigurationOutput)
 }
 
-// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -2192,7 +2199,7 @@ func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpA
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -2202,6 +2209,7 @@ func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpA
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -6405,7 +6413,8 @@ func (o HadoopClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput
 
 type HadoopClusterPrivateLinkConfiguration struct {
 	// The ID of the private link service group.
-	GroupId         string                                               `pulumi:"groupId"`
+	GroupId string `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration HadoopClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name string `pulumi:"name"`
@@ -6424,7 +6433,8 @@ type HadoopClusterPrivateLinkConfigurationInput interface {
 
 type HadoopClusterPrivateLinkConfigurationArgs struct {
 	// The ID of the private link service group.
-	GroupId         pulumi.StringInput                                        `pulumi:"groupId"`
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration HadoopClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -6512,6 +6522,7 @@ func (o HadoopClusterPrivateLinkConfigurationOutput) GroupId() pulumi.StringOutp
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o HadoopClusterPrivateLinkConfigurationOutput) IpConfiguration() HadoopClusterPrivateLinkConfigurationIpConfigurationOutput {
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfiguration) HadoopClusterPrivateLinkConfigurationIpConfiguration {
 		return v.IpConfiguration
@@ -6557,6 +6568,7 @@ func (o HadoopClusterPrivateLinkConfigurationPtrOutput) GroupId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o HadoopClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfiguration) *HadoopClusterPrivateLinkConfigurationIpConfiguration {
 		if v == nil {
@@ -6577,14 +6589,16 @@ func (o HadoopClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrO
 }
 
 type HadoopClusterPrivateLinkConfigurationIpConfiguration struct {
-	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name string `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
-	Primary          *bool   `pulumi:"primary"`
+	Primary *bool `pulumi:"primary"`
+	// The private IP address of the IP configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  *string `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // HadoopClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts HadoopClusterPrivateLinkConfigurationIpConfigurationArgs and HadoopClusterPrivateLinkConfigurationIpConfigurationOutput values.
@@ -6599,14 +6613,16 @@ type HadoopClusterPrivateLinkConfigurationIpConfigurationInput interface {
 }
 
 type HadoopClusterPrivateLinkConfigurationIpConfigurationArgs struct {
-	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
-	Primary          pulumi.BoolPtrInput   `pulumi:"primary"`
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IP address of the IP configuration.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (HadoopClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
@@ -6686,7 +6702,7 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) ToHadoopClus
 	}).(HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 }
 
-// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6696,17 +6712,19 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pu
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -6735,7 +6753,7 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Elem() Ha
 	}).(HadoopClusterPrivateLinkConfigurationIpConfigurationOutput)
 }
 
-// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -6755,6 +6773,7 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary()
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -6764,7 +6783,7 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -6774,6 +6793,7 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -11755,7 +11775,8 @@ func (o InteractiveQueryClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.Boo
 
 type InteractiveQueryClusterPrivateLinkConfiguration struct {
 	// The ID of the private link service group.
-	GroupId         string                                                         `pulumi:"groupId"`
+	GroupId string `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name string `pulumi:"name"`
@@ -11774,7 +11795,8 @@ type InteractiveQueryClusterPrivateLinkConfigurationInput interface {
 
 type InteractiveQueryClusterPrivateLinkConfigurationArgs struct {
 	// The ID of the private link service group.
-	GroupId         pulumi.StringInput                                                  `pulumi:"groupId"`
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -11862,6 +11884,7 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationOutput) GroupId() pulumi.
 	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o InteractiveQueryClusterPrivateLinkConfigurationOutput) IpConfiguration() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfiguration) InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration {
 		return v.IpConfiguration
@@ -11907,6 +11930,7 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) GroupId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfiguration) *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration {
 		if v == nil {
@@ -11927,15 +11951,16 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.
 }
 
 type InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration struct {
-	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name string `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
 	Primary *bool `pulumi:"primary"`
 	// The private IP address of the IP configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  *string `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs and InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput values.
@@ -11950,15 +11975,16 @@ type InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationInput interfa
 }
 
 type InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs struct {
-	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 	// The private IP address of the IP configuration.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
@@ -12038,7 +12064,7 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) To
 	}).(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 }
 
-// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12055,13 +12081,14 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) Pr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -12090,7 +12117,7 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 	}).(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput)
 }
 
-// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -12120,7 +12147,7 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -12130,6 +12157,7 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -16349,7 +16377,8 @@ func (o KafkaClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput 
 
 type KafkaClusterPrivateLinkConfiguration struct {
 	// The ID of the private link service group.
-	GroupId         string                                              `pulumi:"groupId"`
+	GroupId string `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration KafkaClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name string `pulumi:"name"`
@@ -16368,7 +16397,8 @@ type KafkaClusterPrivateLinkConfigurationInput interface {
 
 type KafkaClusterPrivateLinkConfigurationArgs struct {
 	// The ID of the private link service group.
-	GroupId         pulumi.StringInput                                       `pulumi:"groupId"`
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration KafkaClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -16456,6 +16486,7 @@ func (o KafkaClusterPrivateLinkConfigurationOutput) GroupId() pulumi.StringOutpu
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o KafkaClusterPrivateLinkConfigurationOutput) IpConfiguration() KafkaClusterPrivateLinkConfigurationIpConfigurationOutput {
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfiguration) KafkaClusterPrivateLinkConfigurationIpConfiguration {
 		return v.IpConfiguration
@@ -16501,6 +16532,7 @@ func (o KafkaClusterPrivateLinkConfigurationPtrOutput) GroupId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o KafkaClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfiguration) *KafkaClusterPrivateLinkConfigurationIpConfiguration {
 		if v == nil {
@@ -16521,15 +16553,16 @@ func (o KafkaClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOu
 }
 
 type KafkaClusterPrivateLinkConfigurationIpConfiguration struct {
-	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name string `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
 	Primary *bool `pulumi:"primary"`
 	// The private IP address of the IP configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  *string `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // KafkaClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts KafkaClusterPrivateLinkConfigurationIpConfigurationArgs and KafkaClusterPrivateLinkConfigurationIpConfigurationOutput values.
@@ -16544,15 +16577,16 @@ type KafkaClusterPrivateLinkConfigurationIpConfigurationInput interface {
 }
 
 type KafkaClusterPrivateLinkConfigurationIpConfigurationArgs struct {
-	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 	// The private IP address of the IP configuration.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (KafkaClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
@@ -16632,7 +16666,7 @@ func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) ToKafkaCluste
 	}).(KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 }
 
-// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -16647,13 +16681,14 @@ func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddr
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -16682,7 +16717,7 @@ func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Elem() Kaf
 	}).(KafkaClusterPrivateLinkConfigurationIpConfigurationOutput)
 }
 
-// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -16712,7 +16747,7 @@ func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpA
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -16722,6 +16757,7 @@ func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpA
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -21088,7 +21124,8 @@ func (o SparkClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput 
 
 type SparkClusterPrivateLinkConfiguration struct {
 	// The ID of the private link service group.
-	GroupId         string                                              `pulumi:"groupId"`
+	GroupId string `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration SparkClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name string `pulumi:"name"`
@@ -21107,7 +21144,8 @@ type SparkClusterPrivateLinkConfigurationInput interface {
 
 type SparkClusterPrivateLinkConfigurationArgs struct {
 	// The ID of the private link service group.
-	GroupId         pulumi.StringInput                                       `pulumi:"groupId"`
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// An `ipConfiguration` block as defined below.
 	IpConfiguration SparkClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
 	// The name of the private link configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -21195,6 +21233,7 @@ func (o SparkClusterPrivateLinkConfigurationOutput) GroupId() pulumi.StringOutpu
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o SparkClusterPrivateLinkConfigurationOutput) IpConfiguration() SparkClusterPrivateLinkConfigurationIpConfigurationOutput {
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfiguration) SparkClusterPrivateLinkConfigurationIpConfiguration {
 		return v.IpConfiguration
@@ -21240,6 +21279,7 @@ func (o SparkClusterPrivateLinkConfigurationPtrOutput) GroupId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// An `ipConfiguration` block as defined below.
 func (o SparkClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *SparkClusterPrivateLinkConfiguration) *SparkClusterPrivateLinkConfigurationIpConfiguration {
 		if v == nil {
@@ -21260,15 +21300,16 @@ func (o SparkClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOu
 }
 
 type SparkClusterPrivateLinkConfigurationIpConfiguration struct {
-	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name string `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
 	Primary *bool `pulumi:"primary"`
 	// The private IP address of the IP configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  *string `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // SparkClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts SparkClusterPrivateLinkConfigurationIpConfigurationArgs and SparkClusterPrivateLinkConfigurationIpConfigurationOutput values.
@@ -21283,15 +21324,16 @@ type SparkClusterPrivateLinkConfigurationIpConfigurationInput interface {
 }
 
 type SparkClusterPrivateLinkConfigurationIpConfigurationArgs struct {
-	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Indicates whether this IP configuration is primary.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 	// The private IP address of the IP configuration.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The private IP allocation method. The only possible value now is `Dynamic`.
+	// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (SparkClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
@@ -21371,7 +21413,7 @@ func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) ToSparkCluste
 	}).(SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 }
 
-// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -21386,13 +21428,14 @@ func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddr
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -21421,7 +21464,7 @@ func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Elem() Spa
 	}).(SparkClusterPrivateLinkConfigurationIpConfigurationOutput)
 }
 
-// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -21451,7 +21494,7 @@ func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpA
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private IP allocation method. The only possible value now is `Dynamic`.
+// The private IP allocation method. Possible values are `Dynamic` and `Static`.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -21461,6 +21504,7 @@ func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpA
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {

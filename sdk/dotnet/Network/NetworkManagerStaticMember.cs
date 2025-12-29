@@ -115,7 +115,9 @@ namespace Pulumi.Azure.Network
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        /// Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        /// 
+        /// &gt; **Note:** Subnet is supported only if the Network Manager has added `Routing` to `ScopeAccesses` and the Network Group has set `Subnet` as the `MemberType` value.
         /// </summary>
         [Output("targetVirtualNetworkId")]
         public Output<string> TargetVirtualNetworkId { get; private set; } = null!;
@@ -179,7 +181,9 @@ namespace Pulumi.Azure.Network
         public Input<string> NetworkGroupId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        /// Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        /// 
+        /// &gt; **Note:** Subnet is supported only if the Network Manager has added `Routing` to `ScopeAccesses` and the Network Group has set `Subnet` as the `MemberType` value.
         /// </summary>
         [Input("targetVirtualNetworkId", required: true)]
         public Input<string> TargetVirtualNetworkId { get; set; } = null!;
@@ -211,7 +215,9 @@ namespace Pulumi.Azure.Network
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        /// Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        /// 
+        /// &gt; **Note:** Subnet is supported only if the Network Manager has added `Routing` to `ScopeAccesses` and the Network Group has set `Subnet` as the `MemberType` value.
         /// </summary>
         [Input("targetVirtualNetworkId")]
         public Input<string>? TargetVirtualNetworkId { get; set; }

@@ -130,14 +130,14 @@ public class AutonomousDatabaseBackup extends com.pulumi.resources.CustomResourc
         return this.retentionPeriodInDays;
     }
     /**
-     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+     * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service.
+     * @return The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> type() {

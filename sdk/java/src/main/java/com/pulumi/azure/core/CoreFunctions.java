@@ -2526,7 +2526,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -2583,7 +2583,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -2640,7 +2640,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -2697,7 +2697,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -2754,7 +2754,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity` - 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity

@@ -16,6 +16,10 @@ public final class InteractiveQueryClusterPrivateLinkConfiguration {
      * 
      */
     private String groupId;
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     private InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration ipConfiguration;
     /**
      * @return The name of the private link configuration.
@@ -31,6 +35,10 @@ public final class InteractiveQueryClusterPrivateLinkConfiguration {
     public String groupId() {
         return this.groupId;
     }
+    /**
+     * @return An `ipConfiguration` block as defined below.
+     * 
+     */
     public InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration ipConfiguration() {
         return this.ipConfiguration;
     }

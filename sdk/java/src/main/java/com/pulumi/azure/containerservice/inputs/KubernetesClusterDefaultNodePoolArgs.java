@@ -77,9 +77,17 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         return Optional.ofNullable(this.fipsEnabled);
     }
 
+    /**
+     * Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="gpuDriver")
     private @Nullable Output<String> gpuDriver;
 
+    /**
+     * @return Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> gpuDriver() {
         return Optional.ofNullable(this.gpuDriver);
     }
@@ -710,11 +718,23 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
             return fipsEnabled(Output.of(fipsEnabled));
         }
 
+        /**
+         * @param gpuDriver Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gpuDriver(@Nullable Output<String> gpuDriver) {
             $.gpuDriver = gpuDriver;
             return this;
         }
 
+        /**
+         * @param gpuDriver Specifies the driver type for GPU nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gpuDriver(String gpuDriver) {
             return gpuDriver(Output.of(gpuDriver));
         }

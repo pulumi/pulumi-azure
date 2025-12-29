@@ -144,7 +144,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> EventStreamEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A `EventTriggerConfig` block as defined below.
+        /// A `EventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventTriggerConfig")]
         public Output<Outputs.JobEventTriggerConfig?> EventTriggerConfig { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `ManualTriggerConfig` block as defined below.
+        /// A `ManualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("manualTriggerConfig")]
         public Output<Outputs.JobManualTriggerConfig?> ManualTriggerConfig { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `ScheduleTriggerConfig` block as defined below.
+        /// A `ScheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Only one of `ManualTriggerConfig`, `EventTriggerConfig` or `ScheduleTriggerConfig` can be specified.
         /// </summary>
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string> ContainerAppEnvironmentId { get; set; } = null!;
 
         /// <summary>
-        /// A `EventTriggerConfig` block as defined below.
+        /// A `EventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventTriggerConfig")]
         public Input<Inputs.JobEventTriggerConfigArgs>? EventTriggerConfig { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `ManualTriggerConfig` block as defined below.
+        /// A `ManualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("manualTriggerConfig")]
         public Input<Inputs.JobManualTriggerConfigArgs>? ManualTriggerConfig { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `ScheduleTriggerConfig` block as defined below.
+        /// A `ScheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Only one of `ManualTriggerConfig`, `EventTriggerConfig` or `ScheduleTriggerConfig` can be specified.
         /// </summary>
@@ -420,7 +420,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? EventStreamEndpoint { get; set; }
 
         /// <summary>
-        /// A `EventTriggerConfig` block as defined below.
+        /// A `EventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventTriggerConfig")]
         public Input<Inputs.JobEventTriggerConfigGetArgs>? EventTriggerConfig { get; set; }
@@ -438,7 +438,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `ManualTriggerConfig` block as defined below.
+        /// A `ManualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("manualTriggerConfig")]
         public Input<Inputs.JobManualTriggerConfigGetArgs>? ManualTriggerConfig { get; set; }
@@ -492,7 +492,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `ScheduleTriggerConfig` block as defined below.
+        /// A `ScheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Only one of `ManualTriggerConfig`, `EventTriggerConfig` or `ScheduleTriggerConfig` can be specified.
         /// </summary>

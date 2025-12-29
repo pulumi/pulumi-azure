@@ -61,9 +61,29 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * The endpoint of the Cognitive Services Account
+     * The ID of the search service.
+     */
+    readonly customQuestionAnsweringSearchServiceId: string;
+    /**
+     * The subdomain name used for Entra ID token-based authentication.
+     */
+    readonly customSubdomainName: string;
+    /**
+     * A `customerManagedKey` block as defined below.
+     */
+    readonly customerManagedKeys: outputs.cognitive.GetAccountCustomerManagedKey[];
+    /**
+     * Whether dynamic throttling is enabled for this Cognitive Services Account.
+     */
+    readonly dynamicThrottlingEnabled: boolean;
+    /**
+     * The endpoint of the Cognitive Services Account.
      */
     readonly endpoint: string;
+    /**
+     * List of FQDNs allowed for the Cognitive Services Account.
+     */
+    readonly fqdns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -73,35 +93,75 @@ export interface GetAccountResult {
      */
     readonly identities: outputs.cognitive.GetAccountIdentity[];
     /**
-     * The kind of the Cognitive Services Account
+     * The type of the Cognitive Services Account.
      */
     readonly kind: string;
     /**
-     * Whether local authentication methods is enabled for the Cognitive Account.
+     * Whether local authentication methods are enabled for the Cognitive Services Account.
      */
     readonly localAuthEnabled: boolean;
     /**
-     * The Azure location where the Cognitive Services Account exists
+     * The Azure location where the Cognitive Services Account exists.
      */
     readonly location: string;
+    /**
+     * The Microsoft Entra Application (client) ID.
+     */
+    readonly metricsAdvisorAadClientId: string;
+    /**
+     * The Microsoft Entra Tenant ID.
+     */
+    readonly metricsAdvisorAadTenantId: string;
+    /**
+     * The super user of Metrics Advisor.
+     */
+    readonly metricsAdvisorSuperUserName: string;
+    /**
+     * The website name of Metrics Advisor.
+     */
+    readonly metricsAdvisorWebsiteName: string;
     readonly name: string;
     /**
-     * The primary access key of the Cognitive Services Account
+     * A `networkAcls` block as defined below.
+     */
+    readonly networkAcls: outputs.cognitive.GetAccountNetworkAcl[];
+    /**
+     * A `networkInjection` block as defined below.
+     */
+    readonly networkInjections: outputs.cognitive.GetAccountNetworkInjection[];
+    /**
+     * Whether outbound network access is restricted for the Cognitive Services Account.
+     */
+    readonly outboundNetworkAccessRestricted: boolean;
+    /**
+     * The primary access key of the Cognitive Services Account.
      */
     readonly primaryAccessKey: string;
     /**
-     * If `kind` is `QnAMaker` the link to the QNA runtime.
+     * Whether project management is enabled.
+     */
+    readonly projectManagementEnabled: boolean;
+    /**
+     * Whether public network access is allowed for the Cognitive Services Account.
+     */
+    readonly publicNetworkAccessEnabled: boolean;
+    /**
+     * The link to the QNA runtime.
      */
     readonly qnaRuntimeEndpoint: string;
     readonly resourceGroupName: string;
     /**
-     * The secondary access key of the Cognitive Services Account
+     * The secondary access key of the Cognitive Services Account.
      */
     readonly secondaryAccessKey: string;
     /**
-     * The SKU name of the Cognitive Services Account
+     * The SKU name of the Cognitive Services Account.
      */
     readonly skuName: string;
+    /**
+     * A `storage` block as defined below.
+     */
+    readonly storages: outputs.cognitive.GetAccountStorage[];
     /**
      * A mapping of tags to assigned to the resource.
      */

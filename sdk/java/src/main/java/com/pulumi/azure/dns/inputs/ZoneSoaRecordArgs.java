@@ -48,22 +48,30 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.expireTime);
     }
 
+    /**
+     * The fully qualified domain name.
+     * 
+     */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
+    /**
+     * @return The fully qualified domain name.
+     * 
+     */
     public Optional<Output<String>> fqdn() {
         return Optional.ofNullable(this.fqdn);
     }
 
     /**
-     * The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+     * The domain name of the authoritative name server for the SOA record.
      * 
      */
     @Import(name="hostName")
     private @Nullable Output<String> hostName;
 
     /**
-     * @return The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+     * @return The domain name of the authoritative name server for the SOA record.
      * 
      */
     public Optional<Output<String>> hostName() {
@@ -235,17 +243,29 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
             return expireTime(Output.of(expireTime));
         }
 
+        /**
+         * @param fqdn The fully qualified domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fqdn(@Nullable Output<String> fqdn) {
             $.fqdn = fqdn;
             return this;
         }
 
+        /**
+         * @param fqdn The fully qualified domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fqdn(String fqdn) {
             return fqdn(Output.of(fqdn));
         }
 
         /**
-         * @param hostName The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+         * @param hostName The domain name of the authoritative name server for the SOA record.
          * 
          * @return builder
          * 
@@ -256,7 +276,7 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostName The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+         * @param hostName The domain name of the authoritative name server for the SOA record.
          * 
          * @return builder
          * 

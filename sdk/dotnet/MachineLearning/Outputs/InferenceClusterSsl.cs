@@ -30,7 +30,7 @@ namespace Pulumi.Azure.MachineLearning.Outputs
         /// </summary>
         public readonly string? LeafDomainLabel;
         /// <summary>
-        /// Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        /// Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         public readonly bool? OverwriteExistingDomain;
 

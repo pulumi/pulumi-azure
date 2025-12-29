@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class DeploymentWebApplicationFirewallStatus
     {
         /// <summary>
-        /// Indicates the version of the attack signatures package used by NGINX App Protect.
+        /// One or more `AttackSignaturesPackage` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentWebApplicationFirewallStatusAttackSignaturesPackage> AttackSignaturesPackages;
         /// <summary>
-        /// Indicates the version of the bot signatures package used by NGINX App Protect.
+        /// One or more `BotSignaturesPackage` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentWebApplicationFirewallStatusBotSignaturesPackage> BotSignaturesPackages;
         /// <summary>
-        /// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+        /// One or more `ComponentVersions` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentWebApplicationFirewallStatusComponentVersion> ComponentVersions;
         /// <summary>
-        /// Indicates the version of the threat campaigns package used by NGINX App Protect.
+        /// One or more `ThreatCampaignsPackage` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentWebApplicationFirewallStatusThreatCampaignsPackage> ThreatCampaignsPackages;
 

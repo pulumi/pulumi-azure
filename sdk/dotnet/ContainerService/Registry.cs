@@ -170,7 +170,7 @@ namespace Pulumi.Azure.ContainerService
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+    /// * `Microsoft.ContainerRegistry` - 2025-04-01
     /// 
     /// ## Import
     /// 
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        /// The number of days to retain and untagged manifest after which it gets purged.
         /// </summary>
         [Output("retentionPolicyInDays")]
         public Output<int?> RetentionPolicyInDays { get; private set; } = null!;
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        /// The number of days to retain and untagged manifest after which it gets purged.
         /// </summary>
         [Input("retentionPolicyInDays")]
         public Input<int>? RetentionPolicyInDays { get; set; }
@@ -660,7 +660,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+        /// The number of days to retain and untagged manifest after which it gets purged.
         /// </summary>
         [Input("retentionPolicyInDays")]
         public Input<int>? RetentionPolicyInDays { get; set; }

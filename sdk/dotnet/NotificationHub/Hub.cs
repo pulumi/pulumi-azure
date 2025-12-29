@@ -75,7 +75,7 @@ namespace Pulumi.Azure.NotificationHub
         public Output<Outputs.HubApnsCredential?> ApnsCredential { get; private set; } = null!;
 
         /// <summary>
-        /// A `BrowserCredential` block as defined below.
+        /// A `BrowserCredential` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("browserCredential")]
         public Output<Outputs.HubBrowserCredential?> BrowserCredential { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.NotificationHub
         public Input<Inputs.HubApnsCredentialArgs>? ApnsCredential { get; set; }
 
         /// <summary>
-        /// A `BrowserCredential` block as defined below.
+        /// A `BrowserCredential` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("browserCredential")]
         public Input<Inputs.HubBrowserCredentialArgs>? BrowserCredential { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.NotificationHub
         public Input<Inputs.HubApnsCredentialGetArgs>? ApnsCredential { get; set; }
 
         /// <summary>
-        /// A `BrowserCredential` block as defined below.
+        /// A `BrowserCredential` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("browserCredential")]
         public Input<Inputs.HubBrowserCredentialGetArgs>? BrowserCredential { get; set; }

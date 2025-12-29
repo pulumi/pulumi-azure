@@ -64,14 +64,14 @@ public final class CustomLocationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the host resource ID.
+     * Specifies the host resource ID. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="hostResourceId", required=true)
     private Output<String> hostResourceId;
 
     /**
-     * @return Specifies the host resource ID.
+     * @return Specifies the host resource ID. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> hostResourceId() {
@@ -79,14 +79,14 @@ public final class CustomLocationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+     * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="hostType")
     private @Nullable Output<String> hostType;
 
     /**
-     * @return Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+     * @return Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> hostType() {
@@ -259,7 +259,7 @@ public final class CustomLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hostResourceId Specifies the host resource ID.
+         * @param hostResourceId Specifies the host resource ID. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class CustomLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hostResourceId Specifies the host resource ID.
+         * @param hostResourceId Specifies the host resource ID. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class CustomLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hostType Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+         * @param hostType Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class CustomLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hostType Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
+         * @param hostType Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -66,7 +66,7 @@ public final class VmwareReplicatedVmArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
      * 
      * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
      * 
@@ -79,7 +79,7 @@ public final class VmwareReplicatedVmArgs extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> defaultRecoveryDiskType;
 
     /**
-     * @return The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * @return The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
      * 
      * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
      * 
@@ -501,7 +501,7 @@ public final class VmwareReplicatedVmArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultRecoveryDiskType The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         * @param defaultRecoveryDiskType The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
          * 
          * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
          * 
@@ -518,7 +518,7 @@ public final class VmwareReplicatedVmArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultRecoveryDiskType The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         * @param defaultRecoveryDiskType The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
          * 
          * &gt; **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
          * 

@@ -28,7 +28,7 @@ public final class JobTemplateVolume {
      */
     private @Nullable String storageName;
     /**
-     * @return The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+     * @return The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
      * 
      */
     private @Nullable String storageType;
@@ -56,7 +56,7 @@ public final class JobTemplateVolume {
         return Optional.ofNullable(this.storageName);
     }
     /**
-     * @return The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
+     * @return The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
      * 
      */
     public Optional<String> storageType() {

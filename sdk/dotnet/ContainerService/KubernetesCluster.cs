@@ -369,6 +369,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> NodeOsUpgradeChannel { get; private set; } = null!;
 
         /// <summary>
+        /// A `NodeProvisioningProfile` block as defined below.
+        /// </summary>
+        [Output("nodeProvisioningProfile")]
+        public Output<Outputs.KubernetesClusterNodeProvisioningProfile> NodeProvisioningProfile { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -887,6 +893,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("nodeOsUpgradeChannel")]
         public Input<string>? NodeOsUpgradeChannel { get; set; }
+
+        /// <summary>
+        /// A `NodeProvisioningProfile` block as defined below.
+        /// </summary>
+        [Input("nodeProvisioningProfile")]
+        public Input<Inputs.KubernetesClusterNodeProvisioningProfileArgs>? NodeProvisioningProfile { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -1426,6 +1438,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("nodeOsUpgradeChannel")]
         public Input<string>? NodeOsUpgradeChannel { get; set; }
+
+        /// <summary>
+        /// A `NodeProvisioningProfile` block as defined below.
+        /// </summary>
+        [Input("nodeProvisioningProfile")]
+        public Input<Inputs.KubernetesClusterNodeProvisioningProfileGetArgs>? NodeProvisioningProfile { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.

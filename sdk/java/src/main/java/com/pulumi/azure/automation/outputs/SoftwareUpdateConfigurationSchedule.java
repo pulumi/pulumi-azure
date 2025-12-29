@@ -38,6 +38,10 @@ public final class SoftwareUpdateConfigurationSchedule {
      * 
      */
     private @Nullable String expiryTime;
+    /**
+     * @return The time offset in minutes for the expiry time.
+     * 
+     */
     private @Nullable Double expiryTimeOffsetMinutes;
     /**
      * @return The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
@@ -61,12 +65,20 @@ public final class SoftwareUpdateConfigurationSchedule {
      */
     private @Nullable SoftwareUpdateConfigurationScheduleMonthlyOccurrence monthlyOccurrence;
     private @Nullable String nextRun;
+    /**
+     * @return The time offset in minutes for the next run time.
+     * 
+     */
     private @Nullable Double nextRunOffsetMinutes;
     /**
      * @return Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
      * 
      */
     private @Nullable String startTime;
+    /**
+     * @return The time offset in minutes for the start time.
+     * 
+     */
     private @Nullable Double startTimeOffsetMinutes;
     /**
      * @return The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
@@ -106,6 +118,10 @@ public final class SoftwareUpdateConfigurationSchedule {
     public Optional<String> expiryTime() {
         return Optional.ofNullable(this.expiryTime);
     }
+    /**
+     * @return The time offset in minutes for the expiry time.
+     * 
+     */
     public Optional<Double> expiryTimeOffsetMinutes() {
         return Optional.ofNullable(this.expiryTimeOffsetMinutes);
     }
@@ -143,6 +159,10 @@ public final class SoftwareUpdateConfigurationSchedule {
     public Optional<String> nextRun() {
         return Optional.ofNullable(this.nextRun);
     }
+    /**
+     * @return The time offset in minutes for the next run time.
+     * 
+     */
     public Optional<Double> nextRunOffsetMinutes() {
         return Optional.ofNullable(this.nextRunOffsetMinutes);
     }
@@ -153,6 +173,10 @@ public final class SoftwareUpdateConfigurationSchedule {
     public Optional<String> startTime() {
         return Optional.ofNullable(this.startTime);
     }
+    /**
+     * @return The time offset in minutes for the start time.
+     * 
+     */
     public Optional<Double> startTimeOffsetMinutes() {
         return Optional.ofNullable(this.startTimeOffsetMinutes);
     }

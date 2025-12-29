@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Dynatrace
         public Output<ImmutableArray<Outputs.MonitorEnvironmentProperty>> EnvironmentProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of managed identity assigned to this resource.  A `Identity` block as defined below.
+        /// The kind of managed identity assigned to this resource. A `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.MonitorIdentity> Identity { get; private set; } = null!;
@@ -96,13 +96,13 @@ namespace Pulumi.Azure.Dynatrace
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+        /// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("marketplaceSubscription")]
         public Output<string> MarketplaceSubscription { get; private set; } = null!;
 
         /// <summary>
-        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `True`.
+        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("monitoringEnabled")]
         public Output<bool?> MonitoringEnabled { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Dynatrace
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// User's information. A `User` block as defined below. Chainging this forces a new resource to be created.
+        /// User's information. A `User` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("user")]
         public Output<Outputs.MonitorUser> User { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Dynatrace
         }
 
         /// <summary>
-        /// The kind of managed identity assigned to this resource.  A `Identity` block as defined below.
+        /// The kind of managed identity assigned to this resource. A `Identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.MonitorIdentityArgs> Identity { get; set; } = null!;
@@ -208,13 +208,13 @@ namespace Pulumi.Azure.Dynatrace
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+        /// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("marketplaceSubscription", required: true)]
         public Input<string> MarketplaceSubscription { get; set; } = null!;
 
         /// <summary>
-        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `True`.
+        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Dynatrace
         }
 
         /// <summary>
-        /// User's information. A `User` block as defined below. Chainging this forces a new resource to be created.
+        /// User's information. A `User` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("user", required: true)]
         public Input<Inputs.MonitorUserArgs> User { get; set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Dynatrace
         }
 
         /// <summary>
-        /// The kind of managed identity assigned to this resource.  A `Identity` block as defined below.
+        /// The kind of managed identity assigned to this resource. A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.MonitorIdentityGetArgs>? Identity { get; set; }
@@ -288,13 +288,13 @@ namespace Pulumi.Azure.Dynatrace
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
+        /// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("marketplaceSubscription")]
         public Input<string>? MarketplaceSubscription { get; set; }
 
         /// <summary>
-        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `True`.
+        /// Flag specifying if the resource monitoring is enabled or disabled. Default is `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.Dynatrace
         }
 
         /// <summary>
-        /// User's information. A `User` block as defined below. Chainging this forces a new resource to be created.
+        /// User's information. A `User` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("user")]
         public Input<Inputs.MonitorUserGetArgs>? User { get; set; }

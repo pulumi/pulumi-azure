@@ -129,6 +129,10 @@ export class BackupInstanceMysqlFlexibleServer extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The protection state of the Backup Instance MySQL Flexible Server.
+     */
+    declare public /*out*/ readonly protectionState: pulumi.Output<string>;
+    /**
      * The ID of the source server. Changing this forces a new resource to be created.
      */
     declare public readonly serverId: pulumi.Output<string>;
@@ -153,6 +157,7 @@ export class BackupInstanceMysqlFlexibleServer extends pulumi.CustomResource {
             resourceInputs["backupPolicyId"] = state?.backupPolicyId;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
+            resourceInputs["protectionState"] = state?.protectionState;
             resourceInputs["serverId"] = state?.serverId;
             resourceInputs["vaultId"] = state?.vaultId;
         } else {
@@ -171,6 +176,7 @@ export class BackupInstanceMysqlFlexibleServer extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["serverId"] = args?.serverId;
             resourceInputs["vaultId"] = args?.vaultId;
+            resourceInputs["protectionState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstanceMysqlFlexibleServer.__pulumiType, name, resourceInputs, opts);
@@ -193,6 +199,10 @@ export interface BackupInstanceMysqlFlexibleServerState {
      * Specifies the name of the Backup Instance for the MySQL Flexible Server. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The protection state of the Backup Instance MySQL Flexible Server.
+     */
+    protectionState?: pulumi.Input<string>;
     /**
      * The ID of the source server. Changing this forces a new resource to be created.
      */
