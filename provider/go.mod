@@ -8,9 +8,9 @@ require (
 	github.com/hashicorp/go-azure-sdk/sdk v0.20251202.1181053
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.38.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
-	github.com/pulumi/providertest v0.3.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.118.0
-	github.com/pulumi/pulumi/sdk/v3 v3.209.0
+	github.com/pulumi/providertest v0.6.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.118.1-0.20251229231105-6e9343f84afc
+	github.com/pulumi/pulumi/sdk/v3 v3.213.0
 	github.com/stretchr/testify v1.10.0
 )
 
@@ -164,12 +164,11 @@ require (
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.20.0 // indirect
+	github.com/pulumi/esc v0.21.0 // indirect
 	github.com/pulumi/inflector v0.2.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v1.12.0 // indirect
 	github.com/pulumi/pulumi-yaml v1.19.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.209.0 // indirect
-	github.com/pulumi/schema-tools v0.1.2 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.213.0 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 // indirect
 	github.com/rickb777/plural v1.4.4 // indirect
@@ -215,7 +214,7 @@ require (
 	golang.org/x/sys v0.38.0 // indirect
 	golang.org/x/term v0.37.0 // indirect
 	golang.org/x/text v0.31.0 // indirect
-	golang.org/x/time v0.5.0 // indirect
+	golang.org/x/time v0.12.0 // indirect
 	golang.org/x/tools v0.38.0 // indirect
 	google.golang.org/api v0.169.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
