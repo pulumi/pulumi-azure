@@ -52,7 +52,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = logicapps.NewIntegrationAccountMap(ctx, "example", &logicapps.IntegrationAccountMapArgs{
+//			_, err = logicapps.NewIntegrationAccountMapResource(ctx, "example", &logicapps.IntegrationAccountMapResourceArgs{
 //				Name:                   pulumi.String("example-iamap"),
 //				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
