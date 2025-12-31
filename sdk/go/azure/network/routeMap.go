@@ -54,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewRouteMap(ctx, "example", &network.RouteMapArgs{
+//			_, err = network.NewRouteMapResource(ctx, "example", &network.RouteMapResourceArgs{
 //				Name:         pulumi.String("example-rm"),
 //				VirtualHubId: exampleVirtualHub.ID(),
 //				Rules: network.RouteMapRuleArray{

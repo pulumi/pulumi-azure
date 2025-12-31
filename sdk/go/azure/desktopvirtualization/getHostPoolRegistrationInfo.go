@@ -47,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = desktopvirtualization.NewgetHostPoolRegistrationInfo(ctx, "example", &desktopvirtualization.getHostPoolRegistrationInfoArgs{
+//			_, err = desktopvirtualization.NewGetHostPoolRegistrationInfo(ctx, "example", &desktopvirtualization.GetHostPoolRegistrationInfoArgs{
 //				HostpoolId:     exampleHostPool.ID(),
 //				ExpirationDate: pulumi.String("2022-01-01T23:40:52Z"),
 //			})
