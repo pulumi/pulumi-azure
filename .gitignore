@@ -45,3 +45,6 @@ pulumi-azure.sln
 
 # Ignore local mise config
 mise.local.toml
+
+# Don't ignore schema.go if it's part of the Go SDK
+!sdk/go/**/schema.go
