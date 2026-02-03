@@ -14,6 +14,407 @@ namespace Pulumi.Azure.WorkloadsSAP
     /// 
     /// &gt; **Note:** Before using this resource, it's required to submit the request of registering the Resource Provider with Azure CLI `az provider register --namespace "Microsoft.Workloads"`. The Resource Provider can take a while to register, you can check the status by running `az provider show --namespace "Microsoft.Workloads" --query "registrationState"`. Once this outputs "Registered" the Resource Provider is available for use.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePrivateKey = new Tls.Index.PrivateKey("example", new()
+    ///     {
+    ///         Algorithm = "RSA",
+    ///         RsaBits = 4096,
+    ///     });
+    /// 
+    ///     var example = Tls.Index.PublicKey.Invoke(new()
+    ///     {
+    ///         PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Name = "example-uai",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         Scope = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         RoleDefinitionName = "Azure Center for SAP solutions service role",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var app = new Azure.Core.ResourceGroup("app", new()
+    ///     {
+    ///         Name = "example-sapapp",
+    ///         Location = "West Europe",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnet,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleThreeTierVirtualInstance = new Azure.WorkloadsSAP.ThreeTierVirtualInstance("example", new()
+    ///     {
+    ///         Name = "X05",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Environment = "NonProd",
+    ///         SapProduct = "S4HANA",
+    ///         ManagedResourceGroupName = "exampleManagedRG",
+    ///         AppLocation = app.Location,
+    ///         SapFqdn = "sap.bpaas.com",
+    ///         ThreeTierConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationArgs
+    ///         {
+    ///             AppResourceGroupName = app.Name,
+    ///             SecondaryIpEnabled = true,
+    ///             ApplicationServerConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs
+    ///             {
+    ///                 InstanceCount = 1,
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 VirtualMachineConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs
+    ///                 {
+    ///                     VirtualMachineSize = "Standard_D16ds_v4",
+    ///                     Image = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgs
+    ///                     {
+    ///                         Offer = "RHEL-SAP-HA",
+    ///                         Publisher = "RedHat",
+    ///                         Sku = "82sapha-gen2",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsProfile = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgs
+    ///                     {
+    ///                         AdminUsername = "testAdmin",
+    ///                         SshPrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///                         SshPublicKey = example.PublicKeyOpenssh,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             CentralServerConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs
+    ///             {
+    ///                 InstanceCount = 1,
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 VirtualMachineConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgs
+    ///                 {
+    ///                     VirtualMachineSize = "Standard_D16ds_v4",
+    ///                     Image = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgs
+    ///                     {
+    ///                         Offer = "RHEL-SAP-HA",
+    ///                         Publisher = "RedHat",
+    ///                         Sku = "82sapha-gen2",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsProfile = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgs
+    ///                     {
+    ///                         AdminUsername = "testAdmin",
+    ///                         SshPrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///                         SshPublicKey = example.PublicKeyOpenssh,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DatabaseServerConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs
+    ///             {
+    ///                 InstanceCount = 1,
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 DatabaseType = "HANA",
+    ///                 VirtualMachineConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs
+    ///                 {
+    ///                     VirtualMachineSize = "Standard_E16ds_v4",
+    ///                     Image = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgs
+    ///                     {
+    ///                         Offer = "RHEL-SAP-HA",
+    ///                         Publisher = "RedHat",
+    ///                         Sku = "82sapha-gen2",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsProfile = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgs
+    ///                     {
+    ///                         AdminUsername = "testAdmin",
+    ///                         SshPrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///                         SshPublicKey = example.PublicKeyOpenssh,
+    ///                     },
+    ///                 },
+    ///                 DiskVolumeConfigurations = new[]
+    ///                 {
+    ///                     new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs
+    ///                     {
+    ///                         VolumeName = "hana/data",
+    ///                         NumberOfDisks = 3,
+    ///                         SizeInGb = 128,
+    ///                         SkuName = "Premium_LRS",
+    ///                     },
+    ///                     new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs
+    ///                     {
+    ///                         VolumeName = "hana/log",
+    ///                         NumberOfDisks = 3,
+    ///                         SizeInGb = 128,
+    ///                         SkuName = "Premium_LRS",
+    ///                     },
+    ///                     new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs
+    ///                     {
+    ///                         VolumeName = "hana/shared",
+    ///                         NumberOfDisks = 1,
+    ///                         SizeInGb = 256,
+    ///                         SkuName = "Premium_LRS",
+    ///                     },
+    ///                     new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs
+    ///                     {
+    ///                         VolumeName = "usr/sap",
+    ///                         NumberOfDisks = 1,
+    ///                         SizeInGb = 128,
+    ///                         SkuName = "Premium_LRS",
+    ///                     },
+    ///                     new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs
+    ///                     {
+    ///                         VolumeName = "backup",
+    ///                         NumberOfDisks = 2,
+    ///                         SizeInGb = 256,
+    ///                         SkuName = "StandardSSD_LRS",
+    ///                     },
+    ///                     new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs
+    ///                     {
+    ///                         VolumeName = "os",
+    ///                         NumberOfDisks = 1,
+    ///                         SizeInGb = 64,
+    ///                         SkuName = "StandardSSD_LRS",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceNames = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs
+    ///             {
+    ///                 ApplicationServer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs
+    ///                 {
+    ///                     AvailabilitySetName = "appAvSet",
+    ///                     VirtualMachines = new[]
+    ///                     {
+    ///                         new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs
+    ///                         {
+    ///                             HostName = "apphostName0",
+    ///                             OsDiskName = "app0osdisk",
+    ///                             VirtualMachineName = "appvm0",
+    ///                             NetworkInterfaceNames = new[]
+    ///                             {
+    ///                                 "appnic0",
+    ///                             },
+    ///                             DataDisks = new[]
+    ///                             {
+    ///                                 new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs
+    ///                                 {
+    ///                                     VolumeName = "default",
+    ///                                     Names = new[]
+    ///                                     {
+    ///                                         "app0disk0",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs
+    ///                 {
+    ///                     AvailabilitySetName = "csAvSet",
+    ///                     LoadBalancer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs
+    ///                     {
+    ///                         Name = "ascslb",
+    ///                         BackendPoolNames = new[]
+    ///                         {
+    ///                             "ascsBackendPool",
+    ///                         },
+    ///                         FrontendIpConfigurationNames = new[]
+    ///                         {
+    ///                             "ascsip0",
+    ///                         },
+    ///                         HealthProbeNames = new[]
+    ///                         {
+    ///                             "ascsHealthProbe",
+    ///                         },
+    ///                     },
+    ///                     VirtualMachines = new[]
+    ///                     {
+    ///                         new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs
+    ///                         {
+    ///                             HostName = "ascshostName",
+    ///                             OsDiskName = "ascsosdisk",
+    ///                             VirtualMachineName = "ascsvm",
+    ///                             NetworkInterfaceNames = new[]
+    ///                             {
+    ///                                 "ascsnic",
+    ///                             },
+    ///                             DataDisks = new[]
+    ///                             {
+    ///                                 new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs
+    ///                                 {
+    ///                                     VolumeName = "default",
+    ///                                     Names = new[]
+    ///                                     {
+    ///                                         "ascsdisk",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs
+    ///                 {
+    ///                     AvailabilitySetName = "dbAvSet",
+    ///                     LoadBalancer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs
+    ///                     {
+    ///                         Name = "dblb",
+    ///                         BackendPoolNames = new[]
+    ///                         {
+    ///                             "dbBackendPool",
+    ///                         },
+    ///                         FrontendIpConfigurationNames = new[]
+    ///                         {
+    ///                             "dbip",
+    ///                         },
+    ///                         HealthProbeNames = new[]
+    ///                         {
+    ///                             "dbHealthProbe",
+    ///                         },
+    ///                     },
+    ///                     VirtualMachines = new[]
+    ///                     {
+    ///                         new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs
+    ///                         {
+    ///                             HostName = "dbprhost",
+    ///                             OsDiskName = "dbprosdisk",
+    ///                             VirtualMachineName = "dbvmpr",
+    ///                             NetworkInterfaceNames = new[]
+    ///                             {
+    ///                                 "dbprnic",
+    ///                             },
+    ///                             DataDisks = new[]
+    ///                             {
+    ///                                 new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs
+    ///                                 {
+    ///                                     VolumeName = "hanaData",
+    ///                                     Names = new[]
+    ///                                     {
+    ///                                         "hanadatapr0",
+    ///                                         "hanadatapr1",
+    ///                                     },
+    ///                                 },
+    ///                                 new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs
+    ///                                 {
+    ///                                     VolumeName = "hanaLog",
+    ///                                     Names = new[]
+    ///                                     {
+    ///                                         "hanalogpr0",
+    ///                                         "hanalogpr1",
+    ///                                         "hanalogpr2",
+    ///                                     },
+    ///                                 },
+    ///                                 new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs
+    ///                                 {
+    ///                                     VolumeName = "usrSap",
+    ///                                     Names = new[]
+    ///                                     {
+    ///                                         "usrsappr0",
+    ///                                     },
+    ///                                 },
+    ///                                 new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs
+    ///                                 {
+    ///                                     VolumeName = "hanaShared",
+    ///                                     Names = new[]
+    ///                                     {
+    ///                                         "hanasharedpr0",
+    ///                                         "hanasharedpr1",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 SharedStorage = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs
+    ///                 {
+    ///                     AccountName = "sharedexamplesa",
+    ///                     PrivateEndpointName = "examplePE",
+    ///                 },
+    ///             },
+    ///             TransportCreateAndMount = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs
+    ///             {
+    ///                 ResourceGroupId = app.Id,
+    ///                 StorageAccountName = "exampletranssa",
+    ///             },
+    ///         },
+    ///         Identity = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "Test" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Workloads` - 2024-09-01
+    /// 
     /// ## Import
     /// 
     /// SAP Three Tier Virtual Instances with new SAP Systems can be imported using the `resource id`, e.g.

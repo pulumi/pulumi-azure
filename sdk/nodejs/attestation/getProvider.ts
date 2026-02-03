@@ -6,6 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Attestation Provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const example = azurerm.index.Attestation({
+ *     name: "example-attestationprovider",
+ *     resourceGroupName: "example-resource-group",
+ * });
+ * export const id = example.id;
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Attestation` - 2020-10-01
  */
 export function getProvider(args: GetProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +78,26 @@ export interface GetProviderResult {
 }
 /**
  * Use this data source to access information about an existing Attestation Provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const example = azurerm.index.Attestation({
+ *     name: "example-attestationprovider",
+ *     resourceGroupName: "example-resource-group",
+ * });
+ * export const id = example.id;
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Attestation` - 2020-10-01
  */
 export function getProviderOutput(args: GetProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

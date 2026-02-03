@@ -11,6 +11,146 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Before using this resource, it's required to submit the request of registering the Resource Provider with Azure CLI `az provider register --namespace "Microsoft.Workloads"`. The Resource Provider can take a while to register, you can check the status by running `az provider show --namespace "Microsoft.Workloads" --query "registrationState"`. Once this outputs "Registered" the Resource Provider is available for use.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as tls from "@pulumi/tls";
+ *
+ * const current = azure.core.getSubscription({});
+ * const examplePrivateKey = new tls.index.PrivateKey("example", {
+ *     algorithm: "RSA",
+ *     rsaBits: 4096,
+ * });
+ * const example = tls.index.PublicKey({
+ *     privateKeyPem: examplePrivateKey.privateKeyPem,
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-uai",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
+ *     scope: current.then(current => current.id),
+ *     roleDefinitionName: "Azure Center for SAP solutions service role",
+ *     principalId: exampleUserAssignedIdentity.principalId,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const app = new azure.core.ResourceGroup("app", {
+ *     name: "example-sapapp",
+ *     location: "West Europe",
+ * }, {
+ *     dependsOn: [exampleSubnet],
+ * });
+ * const exampleSingleNodeVirtualInstance = new azure.workloadssap.SingleNodeVirtualInstance("example", {
+ *     name: "X05",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     environment: "NonProd",
+ *     sapProduct: "S4HANA",
+ *     managedResourceGroupName: "managedTestRG",
+ *     appLocation: app.location,
+ *     sapFqdn: "sap.bpaas.com",
+ *     singleServerConfiguration: {
+ *         appResourceGroupName: app.name,
+ *         subnetId: exampleSubnet.id,
+ *         databaseType: "HANA",
+ *         secondaryIpEnabled: true,
+ *         virtualMachineConfiguration: {
+ *             virtualMachineSize: "Standard_E32ds_v4",
+ *             image: {
+ *                 offer: "RHEL-SAP-HA",
+ *                 publisher: "RedHat",
+ *                 sku: "82sapha-gen2",
+ *                 version: "latest",
+ *             },
+ *             osProfile: {
+ *                 adminUsername: "testAdmin",
+ *                 sshPrivateKey: examplePrivateKey.privateKeyPem,
+ *                 sshPublicKey: example.publicKeyOpenssh,
+ *             },
+ *         },
+ *         diskVolumeConfigurations: [
+ *             {
+ *                 volumeName: "hana/data",
+ *                 numberOfDisks: 3,
+ *                 sizeInGb: 128,
+ *                 skuName: "Premium_LRS",
+ *             },
+ *             {
+ *                 volumeName: "hana/log",
+ *                 numberOfDisks: 3,
+ *                 sizeInGb: 128,
+ *                 skuName: "Premium_LRS",
+ *             },
+ *             {
+ *                 volumeName: "hana/shared",
+ *                 numberOfDisks: 1,
+ *                 sizeInGb: 256,
+ *                 skuName: "Premium_LRS",
+ *             },
+ *             {
+ *                 volumeName: "usr/sap",
+ *                 numberOfDisks: 1,
+ *                 sizeInGb: 128,
+ *                 skuName: "Premium_LRS",
+ *             },
+ *             {
+ *                 volumeName: "backup",
+ *                 numberOfDisks: 2,
+ *                 sizeInGb: 256,
+ *                 skuName: "StandardSSD_LRS",
+ *             },
+ *             {
+ *                 volumeName: "os",
+ *                 numberOfDisks: 1,
+ *                 sizeInGb: 64,
+ *                 skuName: "StandardSSD_LRS",
+ *             },
+ *         ],
+ *         virtualMachineResourceNames: {
+ *             hostName: "apphostName0",
+ *             osDiskName: "app0osdisk",
+ *             virtualMachineName: "appvm0",
+ *             networkInterfaceNames: ["appnic0"],
+ *             dataDisks: [{
+ *                 volumeName: "default",
+ *                 names: ["app0disk0"],
+ *             }],
+ *         },
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ * }, {
+ *     dependsOn: [exampleAssignment],
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Workloads` - 2024-09-01
+ *
  * ## Import
  *
  * SAP Single Node Virtual Instances with new SAP Systems can be imported using the `resource id`, e.g.

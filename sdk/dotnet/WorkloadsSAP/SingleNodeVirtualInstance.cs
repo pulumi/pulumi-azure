@@ -14,6 +14,210 @@ namespace Pulumi.Azure.WorkloadsSAP
     /// 
     /// &gt; **Note:** Before using this resource, it's required to submit the request of registering the Resource Provider with Azure CLI `az provider register --namespace "Microsoft.Workloads"`. The Resource Provider can take a while to register, you can check the status by running `az provider show --namespace "Microsoft.Workloads" --query "registrationState"`. Once this outputs "Registered" the Resource Provider is available for use.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var examplePrivateKey = new Tls.Index.PrivateKey("example", new()
+    ///     {
+    ///         Algorithm = "RSA",
+    ///         RsaBits = 4096,
+    ///     });
+    /// 
+    ///     var example = Tls.Index.PublicKey.Invoke(new()
+    ///     {
+    ///         PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Name = "example-uai",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         Scope = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         RoleDefinitionName = "Azure Center for SAP solutions service role",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var app = new Azure.Core.ResourceGroup("app", new()
+    ///     {
+    ///         Name = "example-sapapp",
+    ///         Location = "West Europe",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSubnet,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSingleNodeVirtualInstance = new Azure.WorkloadsSAP.SingleNodeVirtualInstance("example", new()
+    ///     {
+    ///         Name = "X05",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Environment = "NonProd",
+    ///         SapProduct = "S4HANA",
+    ///         ManagedResourceGroupName = "managedTestRG",
+    ///         AppLocation = app.Location,
+    ///         SapFqdn = "sap.bpaas.com",
+    ///         SingleServerConfiguration = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationArgs
+    ///         {
+    ///             AppResourceGroupName = app.Name,
+    ///             SubnetId = exampleSubnet.Id,
+    ///             DatabaseType = "HANA",
+    ///             SecondaryIpEnabled = true,
+    ///             VirtualMachineConfiguration = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs
+    ///             {
+    ///                 VirtualMachineSize = "Standard_E32ds_v4",
+    ///                 Image = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgs
+    ///                 {
+    ///                     Offer = "RHEL-SAP-HA",
+    ///                     Publisher = "RedHat",
+    ///                     Sku = "82sapha-gen2",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsProfile = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgs
+    ///                 {
+    ///                     AdminUsername = "testAdmin",
+    ///                     SshPrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///                     SshPublicKey = example.PublicKeyOpenssh,
+    ///                 },
+    ///             },
+    ///             DiskVolumeConfigurations = new[]
+    ///             {
+    ///                 new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs
+    ///                 {
+    ///                     VolumeName = "hana/data",
+    ///                     NumberOfDisks = 3,
+    ///                     SizeInGb = 128,
+    ///                     SkuName = "Premium_LRS",
+    ///                 },
+    ///                 new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs
+    ///                 {
+    ///                     VolumeName = "hana/log",
+    ///                     NumberOfDisks = 3,
+    ///                     SizeInGb = 128,
+    ///                     SkuName = "Premium_LRS",
+    ///                 },
+    ///                 new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs
+    ///                 {
+    ///                     VolumeName = "hana/shared",
+    ///                     NumberOfDisks = 1,
+    ///                     SizeInGb = 256,
+    ///                     SkuName = "Premium_LRS",
+    ///                 },
+    ///                 new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs
+    ///                 {
+    ///                     VolumeName = "usr/sap",
+    ///                     NumberOfDisks = 1,
+    ///                     SizeInGb = 128,
+    ///                     SkuName = "Premium_LRS",
+    ///                 },
+    ///                 new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs
+    ///                 {
+    ///                     VolumeName = "backup",
+    ///                     NumberOfDisks = 2,
+    ///                     SizeInGb = 256,
+    ///                     SkuName = "StandardSSD_LRS",
+    ///                 },
+    ///                 new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs
+    ///                 {
+    ///                     VolumeName = "os",
+    ///                     NumberOfDisks = 1,
+    ///                     SizeInGb = 64,
+    ///                     SkuName = "StandardSSD_LRS",
+    ///                 },
+    ///             },
+    ///             VirtualMachineResourceNames = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs
+    ///             {
+    ///                 HostName = "apphostName0",
+    ///                 OsDiskName = "app0osdisk",
+    ///                 VirtualMachineName = "appvm0",
+    ///                 NetworkInterfaceNames = new[]
+    ///                 {
+    ///                     "appnic0",
+    ///                 },
+    ///                 DataDisks = new[]
+    ///                 {
+    ///                     new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs
+    ///                     {
+    ///                         VolumeName = "default",
+    ///                         Names = new[]
+    ///                         {
+    ///                             "app0disk0",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Identity = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Workloads` - 2024-09-01
+    /// 
     /// ## Import
     /// 
     /// SAP Single Node Virtual Instances with new SAP Systems can be imported using the `resource id`, e.g.
