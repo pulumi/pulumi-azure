@@ -13,18 +13,108 @@ namespace Pulumi.Azure.Attestation
     {
         /// <summary>
         /// Use this data source to access information about an existing Attestation Provider.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azurerm = Pulumi.Azurerm;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azurerm.Index.Attestation.Invoke(new()
+        ///     {
+        ///         Name = "example-attestationprovider",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Id,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Attestation` - 2020-10-01
         /// </summary>
         public static Task<GetProviderResult> InvokeAsync(GetProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Attestation Provider.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azurerm = Pulumi.Azurerm;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azurerm.Index.Attestation.Invoke(new()
+        ///     {
+        ///         Name = "example-attestationprovider",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Id,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Attestation` - 2020-10-01
         /// </summary>
         public static Output<GetProviderResult> Invoke(GetProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Attestation Provider.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azurerm = Pulumi.Azurerm;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azurerm.Index.Attestation.Invoke(new()
+        ///     {
+        ///         Name = "example-attestationprovider",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Id,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Attestation` - 2020-10-01
         /// </summary>
         public static Output<GetProviderResult> Invoke(GetProviderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderInvokeArgs(), options.WithDefaults());

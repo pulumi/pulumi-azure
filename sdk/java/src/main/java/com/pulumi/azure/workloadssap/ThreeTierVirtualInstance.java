@@ -22,6 +22,333 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Before using this resource, it&#39;s required to submit the request of registering the Resource Provider with Azure CLI `az provider register --namespace &#34;Microsoft.Workloads&#34;`. The Resource Provider can take a while to register, you can check the status by running `az provider show --namespace &#34;Microsoft.Workloads&#34; --query &#34;registrationState&#34;`. Once this outputs &#34;Registered&#34; the Resource Provider is available for use.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.PrivateKeyArgs;
+ * import com.pulumi.tls.TlsFunctions;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.workloadssap.ThreeTierVirtualInstance;
+ * import com.pulumi.azure.workloadssap.ThreeTierVirtualInstanceArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs;
+ * import com.pulumi.azure.workloadssap.inputs.ThreeTierVirtualInstanceIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var examplePrivateKey = new PrivateKey("examplePrivateKey", PrivateKeyArgs.builder()
+ *             .algorithm("RSA")
+ *             .rsaBits(4096)
+ *             .build());
+ * 
+ *         final var example = TlsFunctions.PublicKey(Map.of("privateKeyPem", examplePrivateKey.privateKeyPem()));
+ * 
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
+ * 
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
+ *             .name("example-uai")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *             .scope(current.id())
+ *             .roleDefinitionName("Azure Center for SAP solutions service role")
+ *             .principalId(exampleUserAssignedIdentity.principalId())
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("example-subnet")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .build());
+ * 
+ *         var app = new ResourceGroup("app", ResourceGroupArgs.builder()
+ *             .name("example-sapapp")
+ *             .location("West Europe")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSubnet)
+ *                 .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("examplesa")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .build());
+ * 
+ *         var exampleThreeTierVirtualInstance = new ThreeTierVirtualInstance("exampleThreeTierVirtualInstance", ThreeTierVirtualInstanceArgs.builder()
+ *             .name("X05")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .environment("NonProd")
+ *             .sapProduct("S4HANA")
+ *             .managedResourceGroupName("exampleManagedRG")
+ *             .appLocation(app.location())
+ *             .sapFqdn("sap.bpaas.com")
+ *             .threeTierConfiguration(ThreeTierVirtualInstanceThreeTierConfigurationArgs.builder()
+ *                 .appResourceGroupName(app.name())
+ *                 .secondaryIpEnabled(true)
+ *                 .applicationServerConfiguration(ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs.builder()
+ *                     .instanceCount(1)
+ *                     .subnetId(exampleSubnet.id())
+ *                     .virtualMachineConfiguration(ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs.builder()
+ *                         .virtualMachineSize("Standard_D16ds_v4")
+ *                         .image(ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgs.builder()
+ *                             .offer("RHEL-SAP-HA")
+ *                             .publisher("RedHat")
+ *                             .sku("82sapha-gen2")
+ *                             .version("latest")
+ *                             .build())
+ *                         .osProfile(ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgs.builder()
+ *                             .adminUsername("testAdmin")
+ *                             .sshPrivateKey(examplePrivateKey.privateKeyPem())
+ *                             .sshPublicKey(example.publicKeyOpenssh())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .centralServerConfiguration(ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs.builder()
+ *                     .instanceCount(1)
+ *                     .subnetId(exampleSubnet.id())
+ *                     .virtualMachineConfiguration(ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgs.builder()
+ *                         .virtualMachineSize("Standard_D16ds_v4")
+ *                         .image(ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgs.builder()
+ *                             .offer("RHEL-SAP-HA")
+ *                             .publisher("RedHat")
+ *                             .sku("82sapha-gen2")
+ *                             .version("latest")
+ *                             .build())
+ *                         .osProfile(ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgs.builder()
+ *                             .adminUsername("testAdmin")
+ *                             .sshPrivateKey(examplePrivateKey.privateKeyPem())
+ *                             .sshPublicKey(example.publicKeyOpenssh())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .databaseServerConfiguration(ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs.builder()
+ *                     .instanceCount(1)
+ *                     .subnetId(exampleSubnet.id())
+ *                     .databaseType("HANA")
+ *                     .virtualMachineConfiguration(ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs.builder()
+ *                         .virtualMachineSize("Standard_E16ds_v4")
+ *                         .image(ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgs.builder()
+ *                             .offer("RHEL-SAP-HA")
+ *                             .publisher("RedHat")
+ *                             .sku("82sapha-gen2")
+ *                             .version("latest")
+ *                             .build())
+ *                         .osProfile(ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgs.builder()
+ *                             .adminUsername("testAdmin")
+ *                             .sshPrivateKey(examplePrivateKey.privateKeyPem())
+ *                             .sshPublicKey(example.publicKeyOpenssh())
+ *                             .build())
+ *                         .build())
+ *                     .diskVolumeConfigurations(                    
+ *                         ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                             .volumeName("hana/data")
+ *                             .numberOfDisks(3)
+ *                             .sizeInGb(128)
+ *                             .skuName("Premium_LRS")
+ *                             .build(),
+ *                         ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                             .volumeName("hana/log")
+ *                             .numberOfDisks(3)
+ *                             .sizeInGb(128)
+ *                             .skuName("Premium_LRS")
+ *                             .build(),
+ *                         ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                             .volumeName("hana/shared")
+ *                             .numberOfDisks(1)
+ *                             .sizeInGb(256)
+ *                             .skuName("Premium_LRS")
+ *                             .build(),
+ *                         ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                             .volumeName("usr/sap")
+ *                             .numberOfDisks(1)
+ *                             .sizeInGb(128)
+ *                             .skuName("Premium_LRS")
+ *                             .build(),
+ *                         ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                             .volumeName("backup")
+ *                             .numberOfDisks(2)
+ *                             .sizeInGb(256)
+ *                             .skuName("StandardSSD_LRS")
+ *                             .build(),
+ *                         ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                             .volumeName("os")
+ *                             .numberOfDisks(1)
+ *                             .sizeInGb(64)
+ *                             .skuName("StandardSSD_LRS")
+ *                             .build())
+ *                     .build())
+ *                 .resourceNames(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs.builder()
+ *                     .applicationServer(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs.builder()
+ *                         .availabilitySetName("appAvSet")
+ *                         .virtualMachines(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs.builder()
+ *                             .hostName("apphostName0")
+ *                             .osDiskName("app0osdisk")
+ *                             .virtualMachineName("appvm0")
+ *                             .networkInterfaceNames("appnic0")
+ *                             .dataDisks(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs.builder()
+ *                                 .volumeName("default")
+ *                                 .names("app0disk0")
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .centralServer(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs.builder()
+ *                         .availabilitySetName("csAvSet")
+ *                         .loadBalancer(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs.builder()
+ *                             .name("ascslb")
+ *                             .backendPoolNames("ascsBackendPool")
+ *                             .frontendIpConfigurationNames("ascsip0")
+ *                             .healthProbeNames("ascsHealthProbe")
+ *                             .build())
+ *                         .virtualMachines(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs.builder()
+ *                             .hostName("ascshostName")
+ *                             .osDiskName("ascsosdisk")
+ *                             .virtualMachineName("ascsvm")
+ *                             .networkInterfaceNames("ascsnic")
+ *                             .dataDisks(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs.builder()
+ *                                 .volumeName("default")
+ *                                 .names("ascsdisk")
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .databaseServer(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs.builder()
+ *                         .availabilitySetName("dbAvSet")
+ *                         .loadBalancer(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs.builder()
+ *                             .name("dblb")
+ *                             .backendPoolNames("dbBackendPool")
+ *                             .frontendIpConfigurationNames("dbip")
+ *                             .healthProbeNames("dbHealthProbe")
+ *                             .build())
+ *                         .virtualMachines(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs.builder()
+ *                             .hostName("dbprhost")
+ *                             .osDiskName("dbprosdisk")
+ *                             .virtualMachineName("dbvmpr")
+ *                             .networkInterfaceNames("dbprnic")
+ *                             .dataDisks(                            
+ *                                 ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs.builder()
+ *                                     .volumeName("hanaData")
+ *                                     .names(                                    
+ *                                         "hanadatapr0",
+ *                                         "hanadatapr1")
+ *                                     .build(),
+ *                                 ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs.builder()
+ *                                     .volumeName("hanaLog")
+ *                                     .names(                                    
+ *                                         "hanalogpr0",
+ *                                         "hanalogpr1",
+ *                                         "hanalogpr2")
+ *                                     .build(),
+ *                                 ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs.builder()
+ *                                     .volumeName("usrSap")
+ *                                     .names("usrsappr0")
+ *                                     .build(),
+ *                                 ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs.builder()
+ *                                     .volumeName("hanaShared")
+ *                                     .names(                                    
+ *                                         "hanasharedpr0",
+ *                                         "hanasharedpr1")
+ *                                     .build())
+ *                             .build())
+ *                         .build())
+ *                     .sharedStorage(ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs.builder()
+ *                         .accountName("sharedexamplesa")
+ *                         .privateEndpointName("examplePE")
+ *                         .build())
+ *                     .build())
+ *                 .transportCreateAndMount(ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs.builder()
+ *                     .resourceGroupId(app.id())
+ *                     .storageAccountName("exampletranssa")
+ *                     .build())
+ *                 .build())
+ *             .identity(ThreeTierVirtualInstanceIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
+ *             .tags(Map.of("Env", "Test"))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Workloads` - 2024-09-01
+ * 
  * ## Import
  * 
  * SAP Three Tier Virtual Instances with new SAP Systems can be imported using the `resource id`, e.g.

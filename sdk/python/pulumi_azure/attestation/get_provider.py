@@ -121,6 +121,24 @@ def get_provider(name: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing Attestation Provider.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azurerm as azurerm
+
+    example = azurerm.index.attestation(name="example-attestationprovider",
+        resource_group_name="example-resource-group")
+    pulumi.export("id", example["id"])
+    ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Attestation` - 2020-10-01
+
 
     :param _builtins.str name: The name of this Attestation Provider.
     :param _builtins.str resource_group_name: The name of the Resource Group where the Attestation Provider exists.
@@ -144,6 +162,24 @@ def get_provider_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderResult]:
     """
     Use this data source to access information about an existing Attestation Provider.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azurerm as azurerm
+
+    example = azurerm.index.attestation(name="example-attestationprovider",
+        resource_group_name="example-resource-group")
+    pulumi.export("id", example["id"])
+    ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Attestation` - 2020-10-01
 
 
     :param _builtins.str name: The name of this Attestation Provider.

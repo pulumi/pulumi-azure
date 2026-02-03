@@ -436,6 +436,134 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
 
         > **Note:** Before using this resource, it's required to submit the request of registering the Resource Provider with Azure CLI `az provider register --namespace "Microsoft.Workloads"`. The Resource Provider can take a while to register, you can check the status by running `az provider show --namespace "Microsoft.Workloads" --query "registrationState"`. Once this outputs "Registered" the Resource Provider is available for use.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_tls as tls
+
+        current = azure.core.get_subscription()
+        example_private_key = tls.index.PrivateKey("example",
+            algorithm=RSA,
+            rsa_bits=4096)
+        example = tls.index.public_key(private_key_pem=example_private_key["privateKeyPem"])
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_assignment = azure.authorization.Assignment("example",
+            scope=current.id,
+            role_definition_name="Azure Center for SAP solutions service role",
+            principal_id=example_user_assigned_identity.principal_id)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        app = azure.core.ResourceGroup("app",
+            name="example-sapapp",
+            location="West Europe",
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
+        example_single_node_virtual_instance = azure.workloadssap.SingleNodeVirtualInstance("example",
+            name="X05",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            environment="NonProd",
+            sap_product="S4HANA",
+            managed_resource_group_name="managedTestRG",
+            app_location=app.location,
+            sap_fqdn="sap.bpaas.com",
+            single_server_configuration={
+                "app_resource_group_name": app.name,
+                "subnet_id": example_subnet.id,
+                "database_type": "HANA",
+                "secondary_ip_enabled": True,
+                "virtual_machine_configuration": {
+                    "virtual_machine_size": "Standard_E32ds_v4",
+                    "image": {
+                        "offer": "RHEL-SAP-HA",
+                        "publisher": "RedHat",
+                        "sku": "82sapha-gen2",
+                        "version": "latest",
+                    },
+                    "os_profile": {
+                        "admin_username": "testAdmin",
+                        "ssh_private_key": example_private_key["privateKeyPem"],
+                        "ssh_public_key": example["publicKeyOpenssh"],
+                    },
+                },
+                "disk_volume_configurations": [
+                    {
+                        "volume_name": "hana/data",
+                        "number_of_disks": 3,
+                        "size_in_gb": 128,
+                        "sku_name": "Premium_LRS",
+                    },
+                    {
+                        "volume_name": "hana/log",
+                        "number_of_disks": 3,
+                        "size_in_gb": 128,
+                        "sku_name": "Premium_LRS",
+                    },
+                    {
+                        "volume_name": "hana/shared",
+                        "number_of_disks": 1,
+                        "size_in_gb": 256,
+                        "sku_name": "Premium_LRS",
+                    },
+                    {
+                        "volume_name": "usr/sap",
+                        "number_of_disks": 1,
+                        "size_in_gb": 128,
+                        "sku_name": "Premium_LRS",
+                    },
+                    {
+                        "volume_name": "backup",
+                        "number_of_disks": 2,
+                        "size_in_gb": 256,
+                        "sku_name": "StandardSSD_LRS",
+                    },
+                    {
+                        "volume_name": "os",
+                        "number_of_disks": 1,
+                        "size_in_gb": 64,
+                        "sku_name": "StandardSSD_LRS",
+                    },
+                ],
+                "virtual_machine_resource_names": {
+                    "host_name": "apphostName0",
+                    "os_disk_name": "app0osdisk",
+                    "virtual_machine_name": "appvm0",
+                    "network_interface_names": ["appnic0"],
+                    "data_disks": [{
+                        "volume_name": "default",
+                        "names": ["app0disk0"],
+                    }],
+                },
+            },
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Workloads` - 2024-09-01
+
         ## Import
 
         SAP Single Node Virtual Instances with new SAP Systems can be imported using the `resource id`, e.g.
@@ -469,6 +597,134 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
         Manages an SAP Single Node Virtual Instance with new SAP System.
 
         > **Note:** Before using this resource, it's required to submit the request of registering the Resource Provider with Azure CLI `az provider register --namespace "Microsoft.Workloads"`. The Resource Provider can take a while to register, you can check the status by running `az provider show --namespace "Microsoft.Workloads" --query "registrationState"`. Once this outputs "Registered" the Resource Provider is available for use.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_tls as tls
+
+        current = azure.core.get_subscription()
+        example_private_key = tls.index.PrivateKey("example",
+            algorithm=RSA,
+            rsa_bits=4096)
+        example = tls.index.public_key(private_key_pem=example_private_key["privateKeyPem"])
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_assignment = azure.authorization.Assignment("example",
+            scope=current.id,
+            role_definition_name="Azure Center for SAP solutions service role",
+            principal_id=example_user_assigned_identity.principal_id)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        app = azure.core.ResourceGroup("app",
+            name="example-sapapp",
+            location="West Europe",
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
+        example_single_node_virtual_instance = azure.workloadssap.SingleNodeVirtualInstance("example",
+            name="X05",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            environment="NonProd",
+            sap_product="S4HANA",
+            managed_resource_group_name="managedTestRG",
+            app_location=app.location,
+            sap_fqdn="sap.bpaas.com",
+            single_server_configuration={
+                "app_resource_group_name": app.name,
+                "subnet_id": example_subnet.id,
+                "database_type": "HANA",
+                "secondary_ip_enabled": True,
+                "virtual_machine_configuration": {
+                    "virtual_machine_size": "Standard_E32ds_v4",
+                    "image": {
+                        "offer": "RHEL-SAP-HA",
+                        "publisher": "RedHat",
+                        "sku": "82sapha-gen2",
+                        "version": "latest",
+                    },
+                    "os_profile": {
+                        "admin_username": "testAdmin",
+                        "ssh_private_key": example_private_key["privateKeyPem"],
+                        "ssh_public_key": example["publicKeyOpenssh"],
+                    },
+                },
+                "disk_volume_configurations": [
+                    {
+                        "volume_name": "hana/data",
+                        "number_of_disks": 3,
+                        "size_in_gb": 128,
+                        "sku_name": "Premium_LRS",
+                    },
+                    {
+                        "volume_name": "hana/log",
+                        "number_of_disks": 3,
+                        "size_in_gb": 128,
+                        "sku_name": "Premium_LRS",
+                    },
+                    {
+                        "volume_name": "hana/shared",
+                        "number_of_disks": 1,
+                        "size_in_gb": 256,
+                        "sku_name": "Premium_LRS",
+                    },
+                    {
+                        "volume_name": "usr/sap",
+                        "number_of_disks": 1,
+                        "size_in_gb": 128,
+                        "sku_name": "Premium_LRS",
+                    },
+                    {
+                        "volume_name": "backup",
+                        "number_of_disks": 2,
+                        "size_in_gb": 256,
+                        "sku_name": "StandardSSD_LRS",
+                    },
+                    {
+                        "volume_name": "os",
+                        "number_of_disks": 1,
+                        "size_in_gb": 64,
+                        "sku_name": "StandardSSD_LRS",
+                    },
+                ],
+                "virtual_machine_resource_names": {
+                    "host_name": "apphostName0",
+                    "os_disk_name": "app0osdisk",
+                    "virtual_machine_name": "appvm0",
+                    "network_interface_names": ["appnic0"],
+                    "data_disks": [{
+                        "volume_name": "default",
+                        "names": ["app0disk0"],
+                    }],
+                },
+            },
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Workloads` - 2024-09-01
 
         ## Import
 

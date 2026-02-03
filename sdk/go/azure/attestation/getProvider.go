@@ -12,6 +12,41 @@ import (
 )
 
 // Use this data source to access information about an existing Attestation Provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azurerm.Attestation(ctx, map[string]interface{}{
+//				"name":              "example-attestationprovider",
+//				"resourceGroupName": "example-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Attestation` - 2020-10-01
 func LookupProvider(ctx *pulumi.Context, args *LookupProviderArgs, opts ...pulumi.InvokeOption) (*LookupProviderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProviderResult

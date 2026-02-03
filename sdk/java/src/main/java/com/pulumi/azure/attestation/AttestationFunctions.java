@@ -18,12 +18,94 @@ public final class AttestationFunctions {
     /**
      * Use this data source to access information about an existing Attestation Provider.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azurerm.AzurermFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzurermFunctions.Attestation(Map.ofEntries(
+     *             Map.entry("name", "example-attestationprovider"),
+     *             Map.entry("resourceGroupName", "example-resource-group")
+     *         ));
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Attestation` - 2020-10-01
+     * 
      */
     public static Output<GetProviderResult> getProvider(GetProviderArgs args) {
         return getProvider(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Attestation Provider.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azurerm.AzurermFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzurermFunctions.Attestation(Map.ofEntries(
+     *             Map.entry("name", "example-attestationprovider"),
+     *             Map.entry("resourceGroupName", "example-resource-group")
+     *         ));
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Attestation` - 2020-10-01
      * 
      */
     public static CompletableFuture<GetProviderResult> getProviderPlain(GetProviderPlainArgs args) {
@@ -32,6 +114,47 @@ public final class AttestationFunctions {
     /**
      * Use this data source to access information about an existing Attestation Provider.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azurerm.AzurermFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzurermFunctions.Attestation(Map.ofEntries(
+     *             Map.entry("name", "example-attestationprovider"),
+     *             Map.entry("resourceGroupName", "example-resource-group")
+     *         ));
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Attestation` - 2020-10-01
+     * 
      */
     public static Output<GetProviderResult> getProvider(GetProviderArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:attestation/getProvider:getProvider", TypeShape.of(GetProviderResult.class), args, Utilities.withVersion(options));
@@ -39,12 +162,94 @@ public final class AttestationFunctions {
     /**
      * Use this data source to access information about an existing Attestation Provider.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azurerm.AzurermFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzurermFunctions.Attestation(Map.ofEntries(
+     *             Map.entry("name", "example-attestationprovider"),
+     *             Map.entry("resourceGroupName", "example-resource-group")
+     *         ));
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Attestation` - 2020-10-01
+     * 
      */
     public static Output<GetProviderResult> getProvider(GetProviderArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:attestation/getProvider:getProvider", TypeShape.of(GetProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Attestation Provider.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azurerm.AzurermFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzurermFunctions.Attestation(Map.ofEntries(
+     *             Map.entry("name", "example-attestationprovider"),
+     *             Map.entry("resourceGroupName", "example-resource-group")
+     *         ));
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Attestation` - 2020-10-01
      * 
      */
     public static CompletableFuture<GetProviderResult> getProviderPlain(GetProviderPlainArgs args, InvokeOptions options) {
