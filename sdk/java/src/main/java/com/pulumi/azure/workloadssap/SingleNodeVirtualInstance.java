@@ -22,6 +22,196 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Before using this resource, it&#39;s required to submit the request of registering the Resource Provider with Azure CLI `az provider register --namespace &#34;Microsoft.Workloads&#34;`. The Resource Provider can take a while to register, you can check the status by running `az provider show --namespace &#34;Microsoft.Workloads&#34; --query &#34;registrationState&#34;`. Once this outputs &#34;Registered&#34; the Resource Provider is available for use.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+ * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.PrivateKeyArgs;
+ * import com.pulumi.tls.TlsFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.workloadssap.SingleNodeVirtualInstance;
+ * import com.pulumi.azure.workloadssap.SingleNodeVirtualInstanceArgs;
+ * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationArgs;
+ * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs;
+ * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgs;
+ * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgs;
+ * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs;
+ * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
+ * 
+ *         var examplePrivateKey = new PrivateKey("examplePrivateKey", PrivateKeyArgs.builder()
+ *             .algorithm("RSA")
+ *             .rsaBits(4096)
+ *             .build());
+ * 
+ *         final var example = TlsFunctions.PublicKey(Map.of("privateKeyPem", examplePrivateKey.privateKeyPem()));
+ * 
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
+ *             .name("example-uai")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *             .scope(current.id())
+ *             .roleDefinitionName("Azure Center for SAP solutions service role")
+ *             .principalId(exampleUserAssignedIdentity.principalId())
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("example-subnet")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .build());
+ * 
+ *         var app = new ResourceGroup("app", ResourceGroupArgs.builder()
+ *             .name("example-sapapp")
+ *             .location("West Europe")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSubnet)
+ *                 .build());
+ * 
+ *         var exampleSingleNodeVirtualInstance = new SingleNodeVirtualInstance("exampleSingleNodeVirtualInstance", SingleNodeVirtualInstanceArgs.builder()
+ *             .name("X05")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .environment("NonProd")
+ *             .sapProduct("S4HANA")
+ *             .managedResourceGroupName("managedTestRG")
+ *             .appLocation(app.location())
+ *             .sapFqdn("sap.bpaas.com")
+ *             .singleServerConfiguration(SingleNodeVirtualInstanceSingleServerConfigurationArgs.builder()
+ *                 .appResourceGroupName(app.name())
+ *                 .subnetId(exampleSubnet.id())
+ *                 .databaseType("HANA")
+ *                 .secondaryIpEnabled(true)
+ *                 .virtualMachineConfiguration(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs.builder()
+ *                     .virtualMachineSize("Standard_E32ds_v4")
+ *                     .image(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgs.builder()
+ *                         .offer("RHEL-SAP-HA")
+ *                         .publisher("RedHat")
+ *                         .sku("82sapha-gen2")
+ *                         .version("latest")
+ *                         .build())
+ *                     .osProfile(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgs.builder()
+ *                         .adminUsername("testAdmin")
+ *                         .sshPrivateKey(examplePrivateKey.privateKeyPem())
+ *                         .sshPublicKey(example.publicKeyOpenssh())
+ *                         .build())
+ *                     .build())
+ *                 .diskVolumeConfigurations(                
+ *                     SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                         .volumeName("hana/data")
+ *                         .numberOfDisks(3)
+ *                         .sizeInGb(128)
+ *                         .skuName("Premium_LRS")
+ *                         .build(),
+ *                     SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                         .volumeName("hana/log")
+ *                         .numberOfDisks(3)
+ *                         .sizeInGb(128)
+ *                         .skuName("Premium_LRS")
+ *                         .build(),
+ *                     SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                         .volumeName("hana/shared")
+ *                         .numberOfDisks(1)
+ *                         .sizeInGb(256)
+ *                         .skuName("Premium_LRS")
+ *                         .build(),
+ *                     SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                         .volumeName("usr/sap")
+ *                         .numberOfDisks(1)
+ *                         .sizeInGb(128)
+ *                         .skuName("Premium_LRS")
+ *                         .build(),
+ *                     SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                         .volumeName("backup")
+ *                         .numberOfDisks(2)
+ *                         .sizeInGb(256)
+ *                         .skuName("StandardSSD_LRS")
+ *                         .build(),
+ *                     SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs.builder()
+ *                         .volumeName("os")
+ *                         .numberOfDisks(1)
+ *                         .sizeInGb(64)
+ *                         .skuName("StandardSSD_LRS")
+ *                         .build())
+ *                 .virtualMachineResourceNames(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs.builder()
+ *                     .hostName("apphostName0")
+ *                     .osDiskName("app0osdisk")
+ *                     .virtualMachineName("appvm0")
+ *                     .networkInterfaceNames("appnic0")
+ *                     .dataDisks(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs.builder()
+ *                         .volumeName("default")
+ *                         .names("app0disk0")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .identity(SingleNodeVirtualInstanceIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Workloads` - 2024-09-01
+ * 
  * ## Import
  * 
  * SAP Single Node Virtual Instances with new SAP Systems can be imported using the `resource id`, e.g.
