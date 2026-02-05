@@ -16206,6 +16206,36 @@
                     }
                 }
             },
+            "azurerm_network_security_perimeter": {
+                "current": "azure:network/networkSecurityPerimeter:NetworkSecurityPerimeter",
+                "majorVersion": 6
+            },
+            "azurerm_network_security_perimeter_access_rule": {
+                "current": "azure:network/networkSecurityPerimeterAccessRule:NetworkSecurityPerimeterAccessRule",
+                "majorVersion": 6,
+                "fields": {
+                    "address_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "fqdns": {
+                        "maxItemsOne": false
+                    },
+                    "service_tags": {
+                        "maxItemsOne": false
+                    },
+                    "subscription_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_network_security_perimeter_association": {
+                "current": "azure:network/networkSecurityPerimeterAssociation:NetworkSecurityPerimeterAssociation",
+                "majorVersion": 6
+            },
+            "azurerm_network_security_perimeter_profile": {
+                "current": "azure:network/networkSecurityPerimeterProfile:NetworkSecurityPerimeterProfile",
+                "majorVersion": 6
+            },
             "azurerm_network_security_rule": {
                 "current": "azure:network/networkSecurityRule:NetworkSecurityRule",
                 "majorVersion": 6,
@@ -29477,6 +29507,14 @@
                     }
                 }
             },
+            "azurerm_network_security_perimeter": {
+                "current": "azure:network/getNetworkSecurityPerimeter:getNetworkSecurityPerimeter",
+                "majorVersion": 6
+            },
+            "azurerm_network_security_perimeter_profile": {
+                "current": "azure:network/getNetworkSecurityPerimeterProfile:getNetworkSecurityPerimeterProfile",
+                "majorVersion": 6
+            },
             "azurerm_network_service_tags": {
                 "current": "azure:network/getServiceTags:getServiceTags",
                 "majorVersion": 6,
@@ -32328,7 +32366,11 @@
             "azurerm_logic_app_standard": {
                 "maxItemsOneOverrides": {
                     "site_config": true,
-                    "site_config.$.cors": true
+                    "site_config.$.cors": true,
+                    "site_config.$.ip_restriction.$.headers": true,
+                    "site_config.$.ip_restriction.$.headers.$.x_fd_health_probe": true,
+                    "site_config.$.scm_ip_restriction.$.headers": true,
+                    "site_config.$.scm_ip_restriction.$.headers.$.x_fd_health_probe": true
                 }
             },
             "azurerm_portal_dashboard": {
