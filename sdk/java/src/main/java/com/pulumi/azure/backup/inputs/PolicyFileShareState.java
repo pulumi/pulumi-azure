@@ -10,6 +10,7 @@ import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionWeeklyArgs;
 import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionYearlyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -33,6 +34,25 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<PolicyFileShareBackupArgs>> backup() {
         return Optional.ofNullable(this.backup);
+    }
+
+    /**
+     * The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+     * 
+     * &gt; **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+     * 
+     */
+    @Import(name="backupTier")
+    private @Nullable Output<String> backupTier;
+
+    /**
+     * @return The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+     * 
+     * &gt; **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+     * 
+     */
+    public Optional<Output<String>> backupTier() {
+        return Optional.ofNullable(this.backupTier);
     }
 
     /**
@@ -141,6 +161,21 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The number of days to retain the snapshots. Defaults to `0`.
+     * 
+     */
+    @Import(name="snapshotRetentionInDays")
+    private @Nullable Output<Integer> snapshotRetentionInDays;
+
+    /**
+     * @return The number of days to retain the snapshots. Defaults to `0`.
+     * 
+     */
+    public Optional<Output<Integer>> snapshotRetentionInDays() {
+        return Optional.ofNullable(this.snapshotRetentionInDays);
+    }
+
+    /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      * 
      * &gt; **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -163,6 +198,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
 
     private PolicyFileShareState(PolicyFileShareState $) {
         this.backup = $.backup;
+        this.backupTier = $.backupTier;
         this.name = $.name;
         this.recoveryVaultName = $.recoveryVaultName;
         this.resourceGroupName = $.resourceGroupName;
@@ -170,6 +206,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
         this.retentionMonthly = $.retentionMonthly;
         this.retentionWeekly = $.retentionWeekly;
         this.retentionYearly = $.retentionYearly;
+        this.snapshotRetentionInDays = $.snapshotRetentionInDays;
         this.timezone = $.timezone;
     }
 
@@ -210,6 +247,31 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
          */
         public Builder backup(PolicyFileShareBackupArgs backup) {
             return backup(Output.of(backup));
+        }
+
+        /**
+         * @param backupTier The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+         * 
+         * &gt; **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backupTier(@Nullable Output<String> backupTier) {
+            $.backupTier = backupTier;
+            return this;
+        }
+
+        /**
+         * @param backupTier The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+         * 
+         * &gt; **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backupTier(String backupTier) {
+            return backupTier(Output.of(backupTier));
         }
 
         /**
@@ -357,6 +419,27 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
          */
         public Builder retentionYearly(PolicyFileShareRetentionYearlyArgs retentionYearly) {
             return retentionYearly(Output.of(retentionYearly));
+        }
+
+        /**
+         * @param snapshotRetentionInDays The number of days to retain the snapshots. Defaults to `0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotRetentionInDays(@Nullable Output<Integer> snapshotRetentionInDays) {
+            $.snapshotRetentionInDays = snapshotRetentionInDays;
+            return this;
+        }
+
+        /**
+         * @param snapshotRetentionInDays The number of days to retain the snapshots. Defaults to `0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotRetentionInDays(Integer snapshotRetentionInDays) {
+            return snapshotRetentionInDays(Output.of(snapshotRetentionInDays));
         }
 
         /**

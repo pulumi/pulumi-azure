@@ -73,6 +73,8 @@ import * as utilities from "../utilities";
  *     sasToken: example.apply(example => example.sas),
  *     continueOnErrorsEnabled: true,
  *     forceAnUpdateWhenValueChanged: "first",
+ *     scriptLevel: "Database",
+ *     principalPermissionsAction: "RemovePermissionOnScriptCompletion",
  * });
  * ```
  *
@@ -136,6 +138,10 @@ export class Script extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+     */
+    declare public readonly principalPermissionsAction: pulumi.Output<string | undefined>;
+    /**
      * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      */
     declare public readonly sasToken: pulumi.Output<string | undefined>;
@@ -143,6 +149,10 @@ export class Script extends pulumi.CustomResource {
      * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      */
     declare public readonly scriptContent: pulumi.Output<string | undefined>;
+    /**
+     * The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+     */
+    declare public readonly scriptLevel: pulumi.Output<string | undefined>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
@@ -165,8 +175,10 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["databaseId"] = state?.databaseId;
             resourceInputs["forceAnUpdateWhenValueChanged"] = state?.forceAnUpdateWhenValueChanged;
             resourceInputs["name"] = state?.name;
+            resourceInputs["principalPermissionsAction"] = state?.principalPermissionsAction;
             resourceInputs["sasToken"] = state?.sasToken;
             resourceInputs["scriptContent"] = state?.scriptContent;
+            resourceInputs["scriptLevel"] = state?.scriptLevel;
             resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ScriptArgs | undefined;
@@ -177,8 +189,10 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["databaseId"] = args?.databaseId;
             resourceInputs["forceAnUpdateWhenValueChanged"] = args?.forceAnUpdateWhenValueChanged;
             resourceInputs["name"] = args?.name;
+            resourceInputs["principalPermissionsAction"] = args?.principalPermissionsAction;
             resourceInputs["sasToken"] = args?.sasToken ? pulumi.secret(args.sasToken) : undefined;
             resourceInputs["scriptContent"] = args?.scriptContent ? pulumi.secret(args.scriptContent) : undefined;
+            resourceInputs["scriptLevel"] = args?.scriptLevel;
             resourceInputs["url"] = args?.url;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -209,6 +223,10 @@ export interface ScriptState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+     */
+    principalPermissionsAction?: pulumi.Input<string>;
+    /**
      * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      */
     sasToken?: pulumi.Input<string>;
@@ -216,6 +234,10 @@ export interface ScriptState {
      * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      */
     scriptContent?: pulumi.Input<string>;
+    /**
+     * The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+     */
+    scriptLevel?: pulumi.Input<string>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
@@ -243,6 +265,10 @@ export interface ScriptArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+     */
+    principalPermissionsAction?: pulumi.Input<string>;
+    /**
      * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      */
     sasToken?: pulumi.Input<string>;
@@ -250,6 +276,10 @@ export interface ScriptArgs {
      * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      */
     scriptContent?: pulumi.Input<string>;
+    /**
+     * The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+     */
+    scriptLevel?: pulumi.Input<string>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */

@@ -2010,75 +2010,69 @@ class GetStandardSiteConfigResult(dict):
                  app_scale_limit: _builtins.int,
                  auto_swap_slot_name: _builtins.str,
                  cors: 'outputs.GetStandardSiteConfigCorsResult',
+                 dotnet_framework_version: _builtins.str,
                  elastic_instance_minimum: _builtins.int,
                  ftps_state: _builtins.str,
+                 health_check_path: _builtins.str,
                  http2_enabled: _builtins.bool,
                  ip_restrictions: Sequence['outputs.GetStandardSiteConfigIpRestrictionResult'],
                  linux_fx_version: _builtins.str,
                  min_tls_version: _builtins.str,
                  pre_warmed_instance_count: _builtins.int,
                  public_network_access_enabled: _builtins.bool,
+                 runtime_scale_monitoring_enabled: _builtins.bool,
                  scm_ip_restrictions: Sequence['outputs.GetStandardSiteConfigScmIpRestrictionResult'],
                  scm_min_tls_version: _builtins.str,
                  scm_type: _builtins.str,
+                 scm_use_main_ip_restriction: _builtins.bool,
+                 use32_bit_worker_process: _builtins.bool,
                  vnet_route_all_enabled: _builtins.bool,
-                 dotnet_framework_version: Optional[_builtins.str] = None,
-                 health_check_path: Optional[_builtins.str] = None,
-                 runtime_scale_monitoring_enabled: Optional[_builtins.bool] = None,
-                 scm_use_main_ip_restriction: Optional[_builtins.bool] = None,
-                 use32_bit_worker_process: Optional[_builtins.bool] = None,
-                 websockets_enabled: Optional[_builtins.bool] = None):
+                 websockets_enabled: _builtins.bool):
         """
         :param _builtins.bool always_on: Should the Logic App be loaded at all times?
         :param _builtins.int app_scale_limit: The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param _builtins.str auto_swap_slot_name: The Auto-swap slot name.
         :param 'GetStandardSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param _builtins.str dotnet_framework_version: The version of the .NET framework's CLR used in this Logic App.
         :param _builtins.int elastic_instance_minimum: The number of minimum instances for this Logic App Only affects apps on the Premium plan.
         :param _builtins.str ftps_state: The state of FTP / FTPS service for this Logic App.
+        :param _builtins.str health_check_path: Path which will be checked for this Logic App health.
         :param _builtins.bool http2_enabled: Specifies whether the HTTP2 protocol should be enabled.
         :param Sequence['GetStandardSiteConfigIpRestrictionArgs'] ip_restrictions: A list of `ip_restriction` objects representing IP restrictions as defined below.
         :param _builtins.str linux_fx_version: Linux App Framework and version for the Logic App.
         :param _builtins.str min_tls_version: The minimum supported TLS version for the Logic App.
         :param _builtins.int pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+        :param _builtins.bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
         :param Sequence['GetStandardSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
         :param _builtins.str scm_min_tls_version: The minimum version of TLS required for SSL requests to the SCM site.
         :param _builtins.str scm_type: The type of Source Control used by the Logic App in use by the Windows Function App.
-        :param _builtins.bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-        :param _builtins.str dotnet_framework_version: The version of the .NET framework's CLR used in this Logic App.
-        :param _builtins.str health_check_path: Path which will be checked for this Logic App health.
-        :param _builtins.bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
         :param _builtins.bool scm_use_main_ip_restriction: Should the Logic App `ip_restriction` configuration be used for the SCM too.
         :param _builtins.bool use32_bit_worker_process: Should the Logic App run in 32 bit mode, rather than 64 bit mode?
+        :param _builtins.bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         :param _builtins.bool websockets_enabled: Should WebSockets be enabled?
         """
         pulumi.set(__self__, "always_on", always_on)
         pulumi.set(__self__, "app_scale_limit", app_scale_limit)
         pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         pulumi.set(__self__, "cors", cors)
+        pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
         pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         pulumi.set(__self__, "ftps_state", ftps_state)
+        pulumi.set(__self__, "health_check_path", health_check_path)
         pulumi.set(__self__, "http2_enabled", http2_enabled)
         pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         pulumi.set(__self__, "linux_fx_version", linux_fx_version)
         pulumi.set(__self__, "min_tls_version", min_tls_version)
         pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
         pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
         pulumi.set(__self__, "scm_type", scm_type)
+        pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
         pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
-        if dotnet_framework_version is not None:
-            pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
-        if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
-        if runtime_scale_monitoring_enabled is not None:
-            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
-        if scm_use_main_ip_restriction is not None:
-            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
-        if use32_bit_worker_process is not None:
-            pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
-        if websockets_enabled is not None:
-            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        pulumi.set(__self__, "websockets_enabled", websockets_enabled)
 
     @_builtins.property
     @pulumi.getter(name="alwaysOn")
@@ -2113,6 +2107,14 @@ class GetStandardSiteConfigResult(dict):
         return pulumi.get(self, "cors")
 
     @_builtins.property
+    @pulumi.getter(name="dotnetFrameworkVersion")
+    def dotnet_framework_version(self) -> _builtins.str:
+        """
+        The version of the .NET framework's CLR used in this Logic App.
+        """
+        return pulumi.get(self, "dotnet_framework_version")
+
+    @_builtins.property
     @pulumi.getter(name="elasticInstanceMinimum")
     def elastic_instance_minimum(self) -> _builtins.int:
         """
@@ -2127,6 +2129,14 @@ class GetStandardSiteConfigResult(dict):
         The state of FTP / FTPS service for this Logic App.
         """
         return pulumi.get(self, "ftps_state")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> _builtins.str:
+        """
+        Path which will be checked for this Logic App health.
+        """
+        return pulumi.get(self, "health_check_path")
 
     @_builtins.property
     @pulumi.getter(name="http2Enabled")
@@ -2175,6 +2185,14 @@ class GetStandardSiteConfigResult(dict):
         return pulumi.get(self, "public_network_access_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> _builtins.bool:
+        """
+        Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Sequence['outputs.GetStandardSiteConfigScmIpRestrictionResult']:
         """
@@ -2199,6 +2217,22 @@ class GetStandardSiteConfigResult(dict):
         return pulumi.get(self, "scm_type")
 
     @_builtins.property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> _builtins.bool:
+        """
+        Should the Logic App `ip_restriction` configuration be used for the SCM too.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @_builtins.property
+    @pulumi.getter(name="use32BitWorkerProcess")
+    def use32_bit_worker_process(self) -> _builtins.bool:
+        """
+        Should the Logic App run in 32 bit mode, rather than 64 bit mode?
+        """
+        return pulumi.get(self, "use32_bit_worker_process")
+
+    @_builtins.property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> _builtins.bool:
         """
@@ -2207,48 +2241,8 @@ class GetStandardSiteConfigResult(dict):
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @_builtins.property
-    @pulumi.getter(name="dotnetFrameworkVersion")
-    def dotnet_framework_version(self) -> Optional[_builtins.str]:
-        """
-        The version of the .NET framework's CLR used in this Logic App.
-        """
-        return pulumi.get(self, "dotnet_framework_version")
-
-    @_builtins.property
-    @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[_builtins.str]:
-        """
-        Path which will be checked for this Logic App health.
-        """
-        return pulumi.get(self, "health_check_path")
-
-    @_builtins.property
-    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
-    def runtime_scale_monitoring_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
-        """
-        return pulumi.get(self, "runtime_scale_monitoring_enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="scmUseMainIpRestriction")
-    def scm_use_main_ip_restriction(self) -> Optional[_builtins.bool]:
-        """
-        Should the Logic App `ip_restriction` configuration be used for the SCM too.
-        """
-        return pulumi.get(self, "scm_use_main_ip_restriction")
-
-    @_builtins.property
-    @pulumi.getter(name="use32BitWorkerProcess")
-    def use32_bit_worker_process(self) -> Optional[_builtins.bool]:
-        """
-        Should the Logic App run in 32 bit mode, rather than 64 bit mode?
-        """
-        return pulumi.get(self, "use32_bit_worker_process")
-
-    @_builtins.property
     @pulumi.getter(name="websocketsEnabled")
-    def websockets_enabled(self) -> Optional[_builtins.bool]:
+    def websockets_enabled(self) -> _builtins.bool:
         """
         Should WebSockets be enabled?
         """
@@ -2287,31 +2281,37 @@ class GetStandardSiteConfigCorsResult(dict):
 @pulumi.output_type
 class GetStandardSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
+                 action: _builtins.str,
                  headers: 'outputs.GetStandardSiteConfigIpRestrictionHeadersResult',
                  ip_address: _builtins.str,
                  name: _builtins.str,
+                 priority: _builtins.int,
                  service_tag: _builtins.str,
-                 virtual_network_subnet_id: _builtins.str,
-                 action: Optional[_builtins.str] = None,
-                 priority: Optional[_builtins.int] = None):
+                 virtual_network_subnet_id: _builtins.str):
         """
+        :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range.
         :param 'GetStandardSiteConfigIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
         :param _builtins.str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param _builtins.str name: The name of the Logic App.
+        :param _builtins.int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
         :param _builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param _builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
-        :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range.
-        :param _builtins.int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
         """
+        pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "headers", headers)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "service_tag", service_tag)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> _builtins.str:
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range.
+        """
+        return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter
@@ -2338,6 +2338,14 @@ class GetStandardSiteConfigIpRestrictionResult(dict):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
     @pulumi.getter(name="serviceTag")
     def service_tag(self) -> _builtins.str:
         """
@@ -2353,48 +2361,28 @@ class GetStandardSiteConfigIpRestrictionResult(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    @_builtins.property
-    @pulumi.getter
-    def action(self) -> Optional[_builtins.str]:
-        """
-        Does this restriction `Allow` or `Deny` access for this IP range.
-        """
-        return pulumi.get(self, "action")
-
-    @_builtins.property
-    @pulumi.getter
-    def priority(self) -> Optional[_builtins.int]:
-        """
-        The priority for this IP Restriction. Restrictions are enforced in priority order.
-        """
-        return pulumi.get(self, "priority")
-
 
 @pulumi.output_type
 class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
     def __init__(__self__, *,
-                 x_azure_fdids: Optional[Sequence[_builtins.str]] = None,
-                 x_fd_health_probe: Optional[_builtins.str] = None,
-                 x_forwarded_fors: Optional[Sequence[_builtins.str]] = None,
-                 x_forwarded_hosts: Optional[Sequence[_builtins.str]] = None):
+                 x_azure_fdids: Sequence[_builtins.str],
+                 x_fd_health_probe: _builtins.str,
+                 x_forwarded_fors: Sequence[_builtins.str],
+                 x_forwarded_hosts: Sequence[_builtins.str]):
         """
         :param Sequence[_builtins.str] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation.
         :param _builtins.str x_fd_health_probe: A list to allow the Azure FrontDoor health probe header.
         :param Sequence[_builtins.str] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
         :param Sequence[_builtins.str] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains.
         """
-        if x_azure_fdids is not None:
-            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
-        if x_fd_health_probe is not None:
-            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
-        if x_forwarded_fors is not None:
-            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
-        if x_forwarded_hosts is not None:
-            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+        pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
 
     @_builtins.property
     @pulumi.getter(name="xAzureFdids")
-    def x_azure_fdids(self) -> Optional[Sequence[_builtins.str]]:
+    def x_azure_fdids(self) -> Sequence[_builtins.str]:
         """
         A list of allowed Azure FrontDoor IDs in UUID notation.
         """
@@ -2402,7 +2390,7 @@ class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="xFdHealthProbe")
-    def x_fd_health_probe(self) -> Optional[_builtins.str]:
+    def x_fd_health_probe(self) -> _builtins.str:
         """
         A list to allow the Azure FrontDoor health probe header.
         """
@@ -2410,7 +2398,7 @@ class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="xForwardedFors")
-    def x_forwarded_fors(self) -> Optional[Sequence[_builtins.str]]:
+    def x_forwarded_fors(self) -> Sequence[_builtins.str]:
         """
         A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
         """
@@ -2418,7 +2406,7 @@ class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="xForwardedHosts")
-    def x_forwarded_hosts(self) -> Optional[Sequence[_builtins.str]]:
+    def x_forwarded_hosts(self) -> Sequence[_builtins.str]:
         """
         A list of allowed 'X-Forwarded-Host' domains.
         """
@@ -2428,31 +2416,37 @@ class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
 @pulumi.output_type
 class GetStandardSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
+                 action: _builtins.str,
                  headers: 'outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult',
                  ip_address: _builtins.str,
                  name: _builtins.str,
+                 priority: _builtins.int,
                  service_tag: _builtins.str,
-                 virtual_network_subnet_id: _builtins.str,
-                 action: Optional[_builtins.str] = None,
-                 priority: Optional[_builtins.int] = None):
+                 virtual_network_subnet_id: _builtins.str):
         """
+        :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range.
         :param 'GetStandardSiteConfigScmIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
         :param _builtins.str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param _builtins.str name: The name of the Logic App.
+        :param _builtins.int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
         :param _builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param _builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
-        :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range.
-        :param _builtins.int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
         """
+        pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "headers", headers)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "service_tag", service_tag)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> _builtins.str:
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range.
+        """
+        return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter
@@ -2479,6 +2473,14 @@ class GetStandardSiteConfigScmIpRestrictionResult(dict):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
     @pulumi.getter(name="serviceTag")
     def service_tag(self) -> _builtins.str:
         """
@@ -2494,48 +2496,28 @@ class GetStandardSiteConfigScmIpRestrictionResult(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    @_builtins.property
-    @pulumi.getter
-    def action(self) -> Optional[_builtins.str]:
-        """
-        Does this restriction `Allow` or `Deny` access for this IP range.
-        """
-        return pulumi.get(self, "action")
-
-    @_builtins.property
-    @pulumi.getter
-    def priority(self) -> Optional[_builtins.int]:
-        """
-        The priority for this IP Restriction. Restrictions are enforced in priority order.
-        """
-        return pulumi.get(self, "priority")
-
 
 @pulumi.output_type
 class GetStandardSiteConfigScmIpRestrictionHeadersResult(dict):
     def __init__(__self__, *,
-                 x_azure_fdids: Optional[Sequence[_builtins.str]] = None,
-                 x_fd_health_probe: Optional[_builtins.str] = None,
-                 x_forwarded_fors: Optional[Sequence[_builtins.str]] = None,
-                 x_forwarded_hosts: Optional[Sequence[_builtins.str]] = None):
+                 x_azure_fdids: Sequence[_builtins.str],
+                 x_fd_health_probe: _builtins.str,
+                 x_forwarded_fors: Sequence[_builtins.str],
+                 x_forwarded_hosts: Sequence[_builtins.str]):
         """
         :param Sequence[_builtins.str] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation.
         :param _builtins.str x_fd_health_probe: A list to allow the Azure FrontDoor health probe header.
         :param Sequence[_builtins.str] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
         :param Sequence[_builtins.str] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains.
         """
-        if x_azure_fdids is not None:
-            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
-        if x_fd_health_probe is not None:
-            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
-        if x_forwarded_fors is not None:
-            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
-        if x_forwarded_hosts is not None:
-            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+        pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
 
     @_builtins.property
     @pulumi.getter(name="xAzureFdids")
-    def x_azure_fdids(self) -> Optional[Sequence[_builtins.str]]:
+    def x_azure_fdids(self) -> Sequence[_builtins.str]:
         """
         A list of allowed Azure FrontDoor IDs in UUID notation.
         """
@@ -2543,7 +2525,7 @@ class GetStandardSiteConfigScmIpRestrictionHeadersResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="xFdHealthProbe")
-    def x_fd_health_probe(self) -> Optional[_builtins.str]:
+    def x_fd_health_probe(self) -> _builtins.str:
         """
         A list to allow the Azure FrontDoor health probe header.
         """
@@ -2551,7 +2533,7 @@ class GetStandardSiteConfigScmIpRestrictionHeadersResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="xForwardedFors")
-    def x_forwarded_fors(self) -> Optional[Sequence[_builtins.str]]:
+    def x_forwarded_fors(self) -> Sequence[_builtins.str]:
         """
         A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
         """
@@ -2559,7 +2541,7 @@ class GetStandardSiteConfigScmIpRestrictionHeadersResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="xForwardedHosts")
-    def x_forwarded_hosts(self) -> Optional[Sequence[_builtins.str]]:
+    def x_forwarded_hosts(self) -> Sequence[_builtins.str]:
         """
         A list of allowed 'X-Forwarded-Host' domains.
         """

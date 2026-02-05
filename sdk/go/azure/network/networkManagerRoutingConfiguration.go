@@ -93,6 +93,8 @@ type NetworkManagerRoutingConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
 	NetworkManagerId pulumi.StringOutput `pulumi:"networkManagerId"`
+	// The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+	RouteTableUsageMode pulumi.StringPtrOutput `pulumi:"routeTableUsageMode"`
 }
 
 // NewNetworkManagerRoutingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -134,6 +136,8 @@ type networkManagerRoutingConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
 	NetworkManagerId *string `pulumi:"networkManagerId"`
+	// The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+	RouteTableUsageMode *string `pulumi:"routeTableUsageMode"`
 }
 
 type NetworkManagerRoutingConfigurationState struct {
@@ -143,6 +147,8 @@ type NetworkManagerRoutingConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
 	NetworkManagerId pulumi.StringPtrInput
+	// The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+	RouteTableUsageMode pulumi.StringPtrInput
 }
 
 func (NetworkManagerRoutingConfigurationState) ElementType() reflect.Type {
@@ -156,6 +162,8 @@ type networkManagerRoutingConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
 	NetworkManagerId string `pulumi:"networkManagerId"`
+	// The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+	RouteTableUsageMode *string `pulumi:"routeTableUsageMode"`
 }
 
 // The set of arguments for constructing a NetworkManagerRoutingConfiguration resource.
@@ -166,6 +174,8 @@ type NetworkManagerRoutingConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
 	NetworkManagerId pulumi.StringInput
+	// The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+	RouteTableUsageMode pulumi.StringPtrInput
 }
 
 func (NetworkManagerRoutingConfigurationArgs) ElementType() reflect.Type {
@@ -268,6 +278,11 @@ func (o NetworkManagerRoutingConfigurationOutput) Name() pulumi.StringOutput {
 // The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
 func (o NetworkManagerRoutingConfigurationOutput) NetworkManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerRoutingConfiguration) pulumi.StringOutput { return v.NetworkManagerId }).(pulumi.StringOutput)
+}
+
+// The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+func (o NetworkManagerRoutingConfigurationOutput) RouteTableUsageMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerRoutingConfiguration) pulumi.StringPtrOutput { return v.RouteTableUsageMode }).(pulumi.StringPtrOutput)
 }
 
 type NetworkManagerRoutingConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -64,6 +64,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// &gt; **Note:** When `NetworkDataPlane` is set to `Cilium`, the `NetworkPlugin` field can only be set to `Azure`.
         /// 
         /// &gt; **Note:** When `NetworkDataPlane` is set to `Cilium`, one of either `NetworkPluginMode = "overlay"` or `PodSubnetId` must be specified.
+        /// 
+        /// &gt; **Note:** Upgrading `NetworkDataPlane` from `Azure` to `Cilium` is supported and will perform an in-place upgrade by reimaging all nodes in the cluster. Changing from other values will force a new resource to be created. For more information on upgrading to Azure CNI Powered by Cilium see the [product documentation](https://learn.microsoft.com/azure/aks/upgrade-azure-cni).
         /// </summary>
         [Input("networkDataPlane")]
         public Input<string>? NetworkDataPlane { get; set; }
@@ -100,6 +102,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// &gt; **Note:** When `NetworkPolicy` is set to `Azure`, the `NetworkPlugin` field can only be set to `Azure`.
         /// 
         /// &gt; **Note:** When `NetworkPolicy` is set to `Cilium`, the `NetworkDataPlane` field must be set to `Cilium`.
+        /// 
+        /// &gt; **Note:** Upgrading `NetworkPolicy` from `Azure` to `Cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }

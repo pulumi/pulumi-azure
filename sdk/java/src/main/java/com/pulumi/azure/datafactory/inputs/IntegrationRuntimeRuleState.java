@@ -63,14 +63,14 @@ public final class IntegrationRuntimeRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dataFactoryId")
     private @Nullable Output<String> dataFactoryId;
 
     /**
-     * @return The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     * @return The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> dataFactoryId() {
@@ -248,7 +248,7 @@ public final class IntegrationRuntimeRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataFactoryId The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+         * @param dataFactoryId The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class IntegrationRuntimeRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataFactoryId The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+         * @param dataFactoryId The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -105,6 +105,8 @@ type SubnetRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
 	// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
 	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -147,6 +149,8 @@ func GetSubnetRouteTableAssociation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SubnetRouteTableAssociation resources.
 type subnetRouteTableAssociationState struct {
 	// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
 	RouteTableId *string `pulumi:"routeTableId"`
 	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -154,6 +158,8 @@ type subnetRouteTableAssociationState struct {
 
 type SubnetRouteTableAssociationState struct {
 	// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
 	RouteTableId pulumi.StringPtrInput
 	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
@@ -165,6 +171,8 @@ func (SubnetRouteTableAssociationState) ElementType() reflect.Type {
 
 type subnetRouteTableAssociationArgs struct {
 	// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
 	RouteTableId string `pulumi:"routeTableId"`
 	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
@@ -173,6 +181,8 @@ type subnetRouteTableAssociationArgs struct {
 // The set of arguments for constructing a SubnetRouteTableAssociation resource.
 type SubnetRouteTableAssociationArgs struct {
 	// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
 	RouteTableId pulumi.StringInput
 	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
@@ -266,6 +276,8 @@ func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutputWi
 }
 
 // The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+//
+// > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
 func (o SubnetRouteTableAssociationOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetRouteTableAssociation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }

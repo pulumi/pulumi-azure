@@ -41,6 +41,8 @@ from .get_network_manager_connectivity_configuration import *
 from .get_network_manager_ipam_pool import *
 from .get_network_manager_network_group import *
 from .get_network_security_group import *
+from .get_network_security_perimeter import *
+from .get_network_security_perimeter_profile import *
 from .get_network_watcher import *
 from .get_public_i_ps import *
 from .get_public_ip import *
@@ -92,6 +94,10 @@ from .network_manager_subscription_connection import *
 from .network_manager_verifier_workspace import *
 from .network_manager_verifier_workspace_reachability_analysis_intent import *
 from .network_security_group import *
+from .network_security_perimeter import *
+from .network_security_perimeter_access_rule import *
+from .network_security_perimeter_association import *
+from .network_security_perimeter_profile import *
 from .network_security_rule import *
 from .network_watcher import *
 from .network_watcher_flow_log import *

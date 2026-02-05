@@ -59,7 +59,8 @@ class PoolArgs:
         :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+               
+               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         :param pulumi.Input['PoolContainerConfigurationArgs'] container_configuration: The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]] data_disks: A `data_disks` block describes the data disk settings as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
@@ -83,10 +84,6 @@ class PoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
-               
-               > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-               
-               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "node_agent_sku_id", node_agent_sku_id)
@@ -95,6 +92,9 @@ class PoolArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
+        if certificates is not None:
+            warnings.warn("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""certificates is deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
         if container_configuration is not None:
@@ -209,6 +209,8 @@ class PoolArgs:
     def auto_scale(self) -> Optional[pulumi.Input['PoolAutoScaleArgs']]:
         """
         A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+
+        > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "auto_scale")
 
@@ -218,10 +220,8 @@ class PoolArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]]:
-        """
-        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-        """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
@@ -497,10 +497,6 @@ class PoolArgs:
     def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]]:
         """
         A `windows` block that describes the Windows configuration in the pool as defined below.
-
-        > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-
-        > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "windows")
 
@@ -546,7 +542,8 @@ class _PoolState:
         Input properties used for looking up and filtering Pool resources.
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+               
+               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         :param pulumi.Input['PoolContainerConfigurationArgs'] container_configuration: The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]] data_disks: A `data_disks` block describes the data disk settings as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
@@ -574,15 +571,14 @@ class _PoolState:
         :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[_builtins.str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
-               
-               > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-               
-               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
+        if certificates is not None:
+            warnings.warn("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""certificates is deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
         if container_configuration is not None:
@@ -657,6 +653,8 @@ class _PoolState:
     def auto_scale(self) -> Optional[pulumi.Input['PoolAutoScaleArgs']]:
         """
         A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+
+        > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "auto_scale")
 
@@ -666,10 +664,8 @@ class _PoolState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]]:
-        """
-        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-        """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
@@ -993,10 +989,6 @@ class _PoolState:
     def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]]:
         """
         A `windows` block that describes the Windows configuration in the pool as defined below.
-
-        > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-
-        > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "windows")
 
@@ -1050,7 +1042,6 @@ class Pool(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="testaccbatch",
@@ -1071,13 +1062,6 @@ class Pool(pulumi.CustomResource):
             tags={
                 "env": "test",
             })
-        example_certificate = azure.batch.Certificate("example",
-            resource_group_name=example.name,
-            account_name=example_account2.name,
-            certificate=std.filebase64(input="certificate.cer").result,
-            format="Cer",
-            thumbprint="312d31a79fa0cef49c00f769afc2b73e9f4edf34",
-            thumbprint_algorithm="SHA1")
         example_pool = azure.batch.Pool("example",
             name="testaccpool",
             resource_group_name=example.name,
@@ -1121,12 +1105,7 @@ class Pool(pulumi.CustomResource):
                         "scope": "Task",
                     },
                 },
-            },
-            certificates=[{
-                "id": example_certificate.id,
-                "store_location": "CurrentUser",
-                "visibilities": ["StartTask"],
-            }])
+            })
         ```
 
         ## API Providers
@@ -1148,7 +1127,8 @@ class Pool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict']]]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+               
+               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         :param pulumi.Input[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']] container_configuration: The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]] data_disks: A `data_disks` block describes the data disk settings as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
@@ -1176,10 +1156,6 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[_builtins.str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
-               
-               > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-               
-               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         ...
     @overload
@@ -1195,7 +1171,6 @@ class Pool(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="testaccbatch",
@@ -1216,13 +1191,6 @@ class Pool(pulumi.CustomResource):
             tags={
                 "env": "test",
             })
-        example_certificate = azure.batch.Certificate("example",
-            resource_group_name=example.name,
-            account_name=example_account2.name,
-            certificate=std.filebase64(input="certificate.cer").result,
-            format="Cer",
-            thumbprint="312d31a79fa0cef49c00f769afc2b73e9f4edf34",
-            thumbprint_algorithm="SHA1")
         example_pool = azure.batch.Pool("example",
             name="testaccpool",
             resource_group_name=example.name,
@@ -1266,12 +1234,7 @@ class Pool(pulumi.CustomResource):
                         "scope": "Task",
                     },
                 },
-            },
-            certificates=[{
-                "id": example_certificate.id,
-                "store_location": "CurrentUser",
-                "visibilities": ["StartTask"],
-            }])
+            })
         ```
 
         ## API Providers
@@ -1432,7 +1395,8 @@ class Pool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict']]]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+               
+               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         :param pulumi.Input[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']] container_configuration: The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]] data_disks: A `data_disks` block describes the data disk settings as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
@@ -1460,10 +1424,6 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[_builtins.str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
-               
-               > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-               
-               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1514,15 +1474,15 @@ class Pool(pulumi.CustomResource):
     def auto_scale(self) -> pulumi.Output[Optional['outputs.PoolAutoScale']]:
         """
         A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+
+        > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "auto_scale")
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
     def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.PoolCertificate']]]:
-        """
-        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-        """
         return pulumi.get(self, "certificates")
 
     @_builtins.property
@@ -1738,10 +1698,6 @@ class Pool(pulumi.CustomResource):
     def windows(self) -> pulumi.Output[Optional[Sequence['outputs.PoolWindow']]]:
         """
         A `windows` block that describes the Windows configuration in the pool as defined below.
-
-        > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-
-        > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "windows")
 

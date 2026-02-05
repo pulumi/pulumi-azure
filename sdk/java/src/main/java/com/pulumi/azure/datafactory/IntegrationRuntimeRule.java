@@ -130,14 +130,14 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.coreCount);
     }
     /**
-     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
-     * @return The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     * @return The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> dataFactoryId() {

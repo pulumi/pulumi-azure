@@ -6919,6 +6919,38 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/networkSecurityPerimeter",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkSecurityPerimeter:NetworkSecurityPerimeter": "NetworkSecurityPerimeter"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkSecurityPerimeterAccessRule",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkSecurityPerimeterAccessRule:NetworkSecurityPerimeterAccessRule": "NetworkSecurityPerimeterAccessRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkSecurityPerimeterAssociation",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkSecurityPerimeterAssociation:NetworkSecurityPerimeterAssociation": "NetworkSecurityPerimeterAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkSecurityPerimeterProfile",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkSecurityPerimeterProfile:NetworkSecurityPerimeterProfile": "NetworkSecurityPerimeterProfile"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/networkSecurityRule",
   "fqn": "pulumi_azure.network",
   "classes": {

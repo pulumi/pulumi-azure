@@ -125,6 +125,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * 
      * &gt; **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = &#34;overlay&#34;` or `podSubnetId` must be specified.
      * 
+     * &gt; **Note:** Upgrading `networkDataPlane` from `azure` to `cilium` is supported and will perform an in-place upgrade by reimaging all nodes in the cluster. Changing from other values will force a new resource to be created. For more information on upgrading to Azure CNI Powered by Cilium see the [product documentation](https://learn.microsoft.com/azure/aks/upgrade-azure-cni).
+     * 
      */
     @Import(name="networkDataPlane")
     private @Nullable Output<String> networkDataPlane;
@@ -135,6 +137,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * &gt; **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
      * 
      * &gt; **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = &#34;overlay&#34;` or `podSubnetId` must be specified.
+     * 
+     * &gt; **Note:** Upgrading `networkDataPlane` from `azure` to `cilium` is supported and will perform an in-place upgrade by reimaging all nodes in the cluster. Changing from other values will force a new resource to be created. For more information on upgrading to Azure CNI Powered by Cilium see the [product documentation](https://learn.microsoft.com/azure/aks/upgrade-azure-cni).
      * 
      */
     public Optional<Output<String>> networkDataPlane() {
@@ -209,6 +213,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * 
      * &gt; **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
      * 
+     * &gt; **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+     * 
      */
     @Import(name="networkPolicy")
     private @Nullable Output<String> networkPolicy;
@@ -219,6 +225,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * &gt; **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
      * 
      * &gt; **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
+     * 
+     * &gt; **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
      * 
      */
     public Optional<Output<String>> networkPolicy() {
@@ -502,6 +510,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * &gt; **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = &#34;overlay&#34;` or `podSubnetId` must be specified.
          * 
+         * &gt; **Note:** Upgrading `networkDataPlane` from `azure` to `cilium` is supported and will perform an in-place upgrade by reimaging all nodes in the cluster. Changing from other values will force a new resource to be created. For more information on upgrading to Azure CNI Powered by Cilium see the [product documentation](https://learn.microsoft.com/azure/aks/upgrade-azure-cni).
+         * 
          * @return builder
          * 
          */
@@ -516,6 +526,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * &gt; **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
          * 
          * &gt; **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = &#34;overlay&#34;` or `podSubnetId` must be specified.
+         * 
+         * &gt; **Note:** Upgrading `networkDataPlane` from `azure` to `cilium` is supported and will perform an in-place upgrade by reimaging all nodes in the cluster. Changing from other values will force a new resource to be created. For more information on upgrading to Azure CNI Powered by Cilium see the [product documentation](https://learn.microsoft.com/azure/aks/upgrade-azure-cni).
          * 
          * @return builder
          * 
@@ -610,6 +622,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * &gt; **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
          * 
+         * &gt; **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -624,6 +638,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * &gt; **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
          * 
          * &gt; **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
+         * 
+         * &gt; **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
          * 
          * @return builder
          * 

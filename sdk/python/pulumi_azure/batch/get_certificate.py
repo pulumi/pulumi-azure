@@ -131,6 +131,8 @@ def get_certificate(account_name: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing certificate in a Batch Account.
 
+    > **Note:** The `batch.Certificate` data source has been deprecated due to Azure retiring the Azure Batch Account Certificates Feature, and will be removed in v5.0 of the AzureRM provider.
+
     ## Example Usage
 
     ```python
@@ -177,6 +179,8 @@ def get_certificate_output(account_name: Optional[pulumi.Input[_builtins.str]] =
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to access information about an existing certificate in a Batch Account.
+
+    > **Note:** The `batch.Certificate` data source has been deprecated due to Azure retiring the Azure Batch Account Certificates Feature, and will be removed in v5.0 of the AzureRM provider.
 
     ## Example Usage
 

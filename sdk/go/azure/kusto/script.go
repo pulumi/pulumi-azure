@@ -110,6 +110,8 @@ import (
 //				}).(pulumi.StringPtrOutput)),
 //				ContinueOnErrorsEnabled:       pulumi.Bool(true),
 //				ForceAnUpdateWhenValueChanged: pulumi.String("first"),
+//				ScriptLevel:                   pulumi.String("Database"),
+//				PrincipalPermissionsAction:    pulumi.String("RemovePermissionOnScriptCompletion"),
 //			})
 //			if err != nil {
 //				return err
@@ -145,10 +147,14 @@ type Script struct {
 	ForceAnUpdateWhenValueChanged pulumi.StringOutput `pulumi:"forceAnUpdateWhenValueChanged"`
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+	PrincipalPermissionsAction pulumi.StringPtrOutput `pulumi:"principalPermissionsAction"`
 	// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
 	SasToken pulumi.StringPtrOutput `pulumi:"sasToken"`
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent pulumi.StringPtrOutput `pulumi:"scriptContent"`
+	// The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+	ScriptLevel pulumi.StringPtrOutput `pulumi:"scriptLevel"`
 	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
@@ -205,10 +211,14 @@ type scriptState struct {
 	ForceAnUpdateWhenValueChanged *string `pulumi:"forceAnUpdateWhenValueChanged"`
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name *string `pulumi:"name"`
+	// Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+	PrincipalPermissionsAction *string `pulumi:"principalPermissionsAction"`
 	// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
 	SasToken *string `pulumi:"sasToken"`
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent *string `pulumi:"scriptContent"`
+	// The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+	ScriptLevel *string `pulumi:"scriptLevel"`
 	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url *string `pulumi:"url"`
 }
@@ -222,10 +232,14 @@ type ScriptState struct {
 	ForceAnUpdateWhenValueChanged pulumi.StringPtrInput
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name pulumi.StringPtrInput
+	// Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+	PrincipalPermissionsAction pulumi.StringPtrInput
 	// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
 	SasToken pulumi.StringPtrInput
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent pulumi.StringPtrInput
+	// The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+	ScriptLevel pulumi.StringPtrInput
 	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringPtrInput
 }
@@ -243,10 +257,14 @@ type scriptArgs struct {
 	ForceAnUpdateWhenValueChanged *string `pulumi:"forceAnUpdateWhenValueChanged"`
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name *string `pulumi:"name"`
+	// Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+	PrincipalPermissionsAction *string `pulumi:"principalPermissionsAction"`
 	// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
 	SasToken *string `pulumi:"sasToken"`
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent *string `pulumi:"scriptContent"`
+	// The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+	ScriptLevel *string `pulumi:"scriptLevel"`
 	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url *string `pulumi:"url"`
 }
@@ -261,10 +279,14 @@ type ScriptArgs struct {
 	ForceAnUpdateWhenValueChanged pulumi.StringPtrInput
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name pulumi.StringPtrInput
+	// Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+	PrincipalPermissionsAction pulumi.StringPtrInput
 	// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
 	SasToken pulumi.StringPtrInput
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent pulumi.StringPtrInput
+	// The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+	ScriptLevel pulumi.StringPtrInput
 	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringPtrInput
 }
@@ -376,6 +398,11 @@ func (o ScriptOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+func (o ScriptOutput) PrincipalPermissionsAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.PrincipalPermissionsAction }).(pulumi.StringPtrOutput)
+}
+
 // The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
 func (o ScriptOutput) SasToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.SasToken }).(pulumi.StringPtrOutput)
@@ -384,6 +411,11 @@ func (o ScriptOutput) SasToken() pulumi.StringPtrOutput {
 // The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 func (o ScriptOutput) ScriptContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.ScriptContent }).(pulumi.StringPtrOutput)
+}
+
+// The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+func (o ScriptOutput) ScriptLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.ScriptLevel }).(pulumi.StringPtrOutput)
 }
 
 // The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.

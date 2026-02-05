@@ -173,7 +173,7 @@ export class AppFlexConsumption extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * The number of workers this function app can scale out to.
+     * The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
      */
     declare public readonly maximumInstanceCount: pulumi.Output<number | undefined>;
     /**
@@ -478,7 +478,7 @@ export interface AppFlexConsumptionState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The number of workers this function app can scale out to.
+     * The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
      */
     maximumInstanceCount?: pulumi.Input<number>;
     /**
@@ -639,7 +639,7 @@ export interface AppFlexConsumptionArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The number of workers this function app can scale out to.
+     * The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
      */
     maximumInstanceCount?: pulumi.Input<number>;
     /**

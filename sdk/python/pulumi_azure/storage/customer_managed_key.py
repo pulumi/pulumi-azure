@@ -19,50 +19,54 @@ __all__ = ['CustomerManagedKeyArgs', 'CustomerManagedKey']
 @pulumi.input_type
 class CustomerManagedKeyArgs:
     def __init__(__self__, *,
-                 key_name: pulumi.Input[_builtins.str],
                  storage_account_id: pulumi.Input[_builtins.str],
                  federated_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  key_version: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerManagedKey resource.
-        :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-        :param pulumi.Input[_builtins.str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        :param pulumi.Input[_builtins.str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of a user assigned identity.
         """
-        pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
         if federated_identity_client_id is not None:
             pulumi.set(__self__, "federated_identity_client_id", federated_identity_client_id)
+        if key_name is not None:
+            warnings.warn("""`key_name` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""key_name is deprecated: `key_name` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_id is not None:
+            warnings.warn("""`key_vault_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""key_vault_id is deprecated: `key_vault_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_uri is not None:
+            warnings.warn("""`key_vault_uri` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""key_vault_uri is deprecated: `key_vault_uri` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
         if key_vault_uri is not None:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
+            warnings.warn("""`key_version` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""key_version is deprecated: `key_version` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+        if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if managed_hsm_key_id is not None:
+            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
         if managed_hsm_key_id is not None:
             pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if user_assigned_identity_id is not None:
             pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
-
-    @_builtins.property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of Key Vault Key.
-        """
-        return pulumi.get(self, "key_name")
-
-    @key_name.setter
-    def key_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
@@ -89,7 +93,18 @@ class CustomerManagedKeyArgs:
         pulumi.set(self, "federated_identity_client_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="keyName")
+    @_utilities.deprecated("""`key_name` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="keyVaultId")
+    @_utilities.deprecated("""`key_vault_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "key_vault_id")
 
@@ -98,11 +113,21 @@ class CustomerManagedKeyArgs:
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Key Vault Key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="keyVaultUri")
+    @_utilities.deprecated("""`key_vault_uri` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
@@ -111,10 +136,8 @@ class CustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
+    @_utilities.deprecated("""`key_version` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
@@ -123,10 +146,8 @@ class CustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        """
         return pulumi.get(self, "managed_hsm_key_id")
 
     @managed_hsm_key_id.setter
@@ -152,6 +173,7 @@ class _CustomerManagedKeyState:
                  federated_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_name: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  key_version: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -160,23 +182,37 @@ class _CustomerManagedKeyState:
         """
         Input properties used for looking up and filtering CustomerManagedKey resources.
         :param pulumi.Input[_builtins.str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-        :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[_builtins.str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        :param pulumi.Input[_builtins.str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         if federated_identity_client_id is not None:
             pulumi.set(__self__, "federated_identity_client_id", federated_identity_client_id)
         if key_name is not None:
+            warnings.warn("""`key_name` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""key_name is deprecated: `key_name` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+        if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
         if key_vault_id is not None:
+            warnings.warn("""`key_vault_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""key_vault_id is deprecated: `key_vault_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+        if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_uri is not None:
+            warnings.warn("""`key_vault_uri` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""key_vault_uri is deprecated: `key_vault_uri` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
         if key_vault_uri is not None:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
+            warnings.warn("""`key_version` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""key_version is deprecated: `key_version` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+        if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if managed_hsm_key_id is not None:
+            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
         if managed_hsm_key_id is not None:
             pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if storage_account_id is not None:
@@ -198,10 +234,8 @@ class _CustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="keyName")
+    @_utilities.deprecated("""`key_name` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of Key Vault Key.
-        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -210,6 +244,7 @@ class _CustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
+    @_utilities.deprecated("""`key_vault_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "key_vault_id")
 
@@ -218,11 +253,21 @@ class _CustomerManagedKeyState:
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Key Vault Key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="keyVaultUri")
+    @_utilities.deprecated("""`key_vault_uri` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
@@ -231,10 +276,8 @@ class _CustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
+    @_utilities.deprecated("""`key_version` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
@@ -243,10 +286,8 @@ class _CustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        """
         return pulumi.get(self, "managed_hsm_key_id")
 
     @managed_hsm_key_id.setter
@@ -287,6 +328,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                  federated_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_name: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  key_version: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -375,8 +417,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                 ]))
         example_customer_managed_key = azure.storage.CustomerManagedKey("example",
             storage_account_id=example_account.id,
-            key_vault_id=example_key_vault.id,
-            key_name=example_key.name)
+            key_vault_key_id=example_key.id)
         ```
 
         ## API Providers
@@ -397,10 +438,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-        :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[_builtins.str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        :param pulumi.Input[_builtins.str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of a user assigned identity.
         """
@@ -492,8 +530,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                 ]))
         example_customer_managed_key = azure.storage.CustomerManagedKey("example",
             storage_account_id=example_account.id,
-            key_vault_id=example_key_vault.id,
-            key_name=example_key.name)
+            key_vault_key_id=example_key.id)
         ```
 
         ## API Providers
@@ -529,6 +566,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                  federated_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_name: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  key_version: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -544,10 +582,9 @@ class CustomerManagedKey(pulumi.CustomResource):
             __props__ = CustomerManagedKeyArgs.__new__(CustomerManagedKeyArgs)
 
             __props__.__dict__["federated_identity_client_id"] = federated_identity_client_id
-            if key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_name'")
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["key_vault_id"] = key_vault_id
+            __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["key_vault_uri"] = key_vault_uri
             __props__.__dict__["key_version"] = key_version
             __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
@@ -568,6 +605,7 @@ class CustomerManagedKey(pulumi.CustomResource):
             federated_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
             key_name: Optional[pulumi.Input[_builtins.str]] = None,
             key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
             key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
             key_version: Optional[pulumi.Input[_builtins.str]] = None,
             managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -581,10 +619,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-        :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[_builtins.str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        :param pulumi.Input[_builtins.str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of a user assigned identity.
         """
@@ -595,6 +630,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["federated_identity_client_id"] = federated_identity_client_id
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_vault_id"] = key_vault_id
+        __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["key_vault_uri"] = key_vault_uri
         __props__.__dict__["key_version"] = key_version
         __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
@@ -612,39 +648,40 @@ class CustomerManagedKey(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="keyName")
+    @_utilities.deprecated("""`key_name` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def key_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of Key Vault Key.
-        """
         return pulumi.get(self, "key_name")
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+    @_utilities.deprecated("""`key_vault_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+    def key_vault_id(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "key_vault_id")
 
     @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the Key Vault Key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @_builtins.property
     @pulumi.getter(name="keyVaultUri")
+    @_utilities.deprecated("""`key_vault_uri` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def key_vault_uri(self) -> pulumi.Output[_builtins.str]:
-        """
-        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        """
         return pulumi.get(self, "key_vault_uri")
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        """
+    @_utilities.deprecated("""`key_version` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+    def key_version(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "key_version")
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
-    def managed_hsm_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        """
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+    def managed_hsm_key_id(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "managed_hsm_key_id")
 
     @_builtins.property

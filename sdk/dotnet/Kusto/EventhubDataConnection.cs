@@ -87,6 +87,7 @@ namespace Pulumi.Azure.Kusto
     ///         TableName = "my-table",
     ///         MappingRuleName = "my-table-mapping",
     ///         DataFormat = "JSON",
+    ///         RetrievalStartDate = "2023-06-26T12:00:00Z",
     ///     });
     /// 
     /// });
@@ -187,6 +188,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+        /// </summary>
+        [Output("retrievalStartDate")]
+        public Output<string> RetrievalStartDate { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
@@ -325,6 +332,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+        /// </summary>
+        [Input("retrievalStartDate")]
+        public Input<string>? RetrievalStartDate { get; set; }
+
+        /// <summary>
         /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         /// </summary>
         [Input("tableName")]
@@ -421,6 +434,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+        /// </summary>
+        [Input("retrievalStartDate")]
+        public Input<string>? RetrievalStartDate { get; set; }
 
         /// <summary>
         /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.

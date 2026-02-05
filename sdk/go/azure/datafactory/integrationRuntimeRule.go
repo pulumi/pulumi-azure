@@ -81,7 +81,7 @@ type IntegrationRuntimeRule struct {
 	ComputeType pulumi.StringPtrOutput `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
 	CoreCount pulumi.IntPtrOutput `pulumi:"coreCount"`
-	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -134,7 +134,7 @@ type integrationRuntimeRuleState struct {
 	ComputeType *string `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
 	CoreCount *int `pulumi:"coreCount"`
-	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
@@ -155,7 +155,7 @@ type IntegrationRuntimeRuleState struct {
 	ComputeType pulumi.StringPtrInput
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
 	CoreCount pulumi.IntPtrInput
-	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryId pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
@@ -180,7 +180,7 @@ type integrationRuntimeRuleArgs struct {
 	ComputeType *string `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
 	CoreCount *int `pulumi:"coreCount"`
-	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryId string `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
@@ -202,7 +202,7 @@ type IntegrationRuntimeRuleArgs struct {
 	ComputeType pulumi.StringPtrInput
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
 	CoreCount pulumi.IntPtrInput
-	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryId pulumi.StringInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
@@ -318,7 +318,7 @@ func (o IntegrationRuntimeRuleOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeRule) pulumi.IntPtrOutput { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
-// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
 func (o IntegrationRuntimeRuleOutput) DataFactoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeRule) pulumi.StringOutput { return v.DataFactoryId }).(pulumi.StringOutput)
 }

@@ -96,6 +96,8 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Use this resource only when the subnet is managed as a standalone `azure.network.Subnet`. If the subnet is declared inline inside `azure.network.VirtualNetwork`, set `RouteTableId` in the inline `Subnet` block and do not create this association for the same subnet.
         /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
@@ -154,6 +156,8 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Use this resource only when the subnet is managed as a standalone `azure.network.Subnet`. If the subnet is declared inline inside `azure.network.VirtualNetwork`, set `RouteTableId` in the inline `Subnet` block and do not create this association for the same subnet.
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
@@ -174,6 +178,8 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Use this resource only when the subnet is managed as a standalone `azure.network.Subnet`. If the subnet is declared inline inside `azure.network.VirtualNetwork`, set `RouteTableId` in the inline `Subnet` block and do not create this association for the same subnet.
         /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }

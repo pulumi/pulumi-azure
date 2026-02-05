@@ -143,12 +143,16 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
     /**
      * The ID of the Route Table that should be associated with this subnet.
      * 
+     * &gt; **Note:** If you declare the subnet inline inside `azure.network.VirtualNetwork`, set `routeTableId` in that `subnet` block — do not also create an `azure.network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `azure.network.Subnet` resource.
+     * 
      */
     @Import(name="routeTableId")
     private @Nullable Output<String> routeTableId;
 
     /**
      * @return The ID of the Route Table that should be associated with this subnet.
+     * 
+     * &gt; **Note:** If you declare the subnet inline inside `azure.network.VirtualNetwork`, set `routeTableId` in that `subnet` block — do not also create an `azure.network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `azure.network.Subnet` resource.
      * 
      */
     public Optional<Output<String>> routeTableId() {
@@ -410,6 +414,8 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         /**
          * @param routeTableId The ID of the Route Table that should be associated with this subnet.
          * 
+         * &gt; **Note:** If you declare the subnet inline inside `azure.network.VirtualNetwork`, set `routeTableId` in that `subnet` block — do not also create an `azure.network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `azure.network.Subnet` resource.
+         * 
          * @return builder
          * 
          */
@@ -420,6 +426,8 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param routeTableId The ID of the Route Table that should be associated with this subnet.
+         * 
+         * &gt; **Note:** If you declare the subnet inline inside `azure.network.VirtualNetwork`, set `routeTableId` in that `subnet` block — do not also create an `azure.network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `azure.network.Subnet` resource.
          * 
          * @return builder
          * 

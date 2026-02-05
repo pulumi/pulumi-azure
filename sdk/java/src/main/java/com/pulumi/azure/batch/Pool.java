@@ -49,10 +49,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.batch.Certificate;
- * import com.pulumi.azure.batch.CertificateArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.batch.Pool;
  * import com.pulumi.azure.batch.PoolArgs;
  * import com.pulumi.azure.batch.inputs.PoolAutoScaleArgs;
@@ -61,7 +57,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.batch.inputs.PoolStartTaskArgs;
  * import com.pulumi.azure.batch.inputs.PoolStartTaskUserIdentityArgs;
  * import com.pulumi.azure.batch.inputs.PoolStartTaskUserIdentityAutoUserArgs;
- * import com.pulumi.azure.batch.inputs.PoolCertificateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -96,17 +91,6 @@ import javax.annotation.Nullable;
  *             .storageAccountId(exampleAccount.id())
  *             .storageAccountAuthenticationMode("StorageKeys")
  *             .tags(Map.of("env", "test"))
- *             .build());
- * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .resourceGroupName(example.name())
- *             .accountName(exampleAccount2.name())
- *             .certificate(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("certificate.cer")
- *                 .build()).result())
- *             .format("Cer")
- *             .thumbprint("312d31a79fa0cef49c00f769afc2b73e9f4edf34")
- *             .thumbprintAlgorithm("SHA1")
  *             .build());
  * 
  *         var examplePool = new Pool("examplePool", PoolArgs.builder()
@@ -152,11 +136,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .certificates(PoolCertificateArgs.builder()
- *                 .id(exampleCertificate.id())
- *                 .storeLocation("CurrentUser")
- *                 .visibilities("StartTask")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -199,6 +178,8 @@ public class Pool extends com.pulumi.resources.CustomResource {
     /**
      * A `autoScale` block that describes the scale settings when using auto scale as defined below.
      * 
+     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
+     * 
      */
     @Export(name="autoScale", refs={PoolAutoScale.class}, tree="[0]")
     private Output</* @Nullable */ PoolAutoScale> autoScale;
@@ -206,21 +187,21 @@ public class Pool extends com.pulumi.resources.CustomResource {
     /**
      * @return A `autoScale` block that describes the scale settings when using auto scale as defined below.
      * 
+     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
+     * 
      */
     public Output<Optional<PoolAutoScale>> autoScale() {
         return Codegen.optional(this.autoScale);
     }
     /**
-     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+     * @deprecated
+     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
     @Export(name="certificates", refs={List.class,PoolCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolCertificate>> certificates;
 
-    /**
-     * @return One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-     * 
-     */
     public Output<Optional<List<PoolCertificate>>> certificates() {
         return Codegen.optional(this.certificates);
     }
@@ -591,20 +572,12 @@ public class Pool extends com.pulumi.resources.CustomResource {
     /**
      * A `windows` block that describes the Windows configuration in the pool as defined below.
      * 
-     * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     * 
-     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
-     * 
      */
     @Export(name="windows", refs={List.class,PoolWindow.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolWindow>> windows;
 
     /**
      * @return A `windows` block that describes the Windows configuration in the pool as defined below.
-     * 
-     * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     * 
-     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      * 
      */
     public Output<Optional<List<PoolWindow>>> windows() {

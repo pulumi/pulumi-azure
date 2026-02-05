@@ -55,6 +55,8 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `autoScale` block that describes the scale settings when using auto scale as defined below.
      * 
+     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
+     * 
      */
     @Import(name="autoScale")
     private @Nullable Output<PoolAutoScaleArgs> autoScale;
@@ -62,22 +64,28 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `autoScale` block that describes the scale settings when using auto scale as defined below.
      * 
+     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
+     * 
      */
     public Optional<Output<PoolAutoScaleArgs>> autoScale() {
         return Optional.ofNullable(this.autoScale);
     }
 
     /**
-     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+     * @deprecated
+     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
     @Import(name="certificates")
     private @Nullable Output<List<PoolCertificateArgs>> certificates;
 
     /**
-     * @return One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+     * @deprecated
+     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
     public Optional<Output<List<PoolCertificateArgs>>> certificates() {
         return Optional.ofNullable(this.certificates);
     }
@@ -475,20 +483,12 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `windows` block that describes the Windows configuration in the pool as defined below.
      * 
-     * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     * 
-     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
-     * 
      */
     @Import(name="windows")
     private @Nullable Output<List<PoolWindowArgs>> windows;
 
     /**
      * @return A `windows` block that describes the Windows configuration in the pool as defined below.
-     * 
-     * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     * 
-     * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      * 
      */
     public Optional<Output<List<PoolWindowArgs>>> windows() {
@@ -572,6 +572,8 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param autoScale A `autoScale` block that describes the scale settings when using auto scale as defined below.
          * 
+         * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
+         * 
          * @return builder
          * 
          */
@@ -583,6 +585,8 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param autoScale A `autoScale` block that describes the scale settings when using auto scale as defined below.
          * 
+         * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
+         * 
          * @return builder
          * 
          */
@@ -591,32 +595,38 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificates One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
         public Builder certificates(@Nullable Output<List<PoolCertificateArgs>> certificates) {
             $.certificates = certificates;
             return this;
         }
 
         /**
-         * @param certificates One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
         public Builder certificates(List<PoolCertificateArgs> certificates) {
             return certificates(Output.of(certificates));
         }
 
         /**
-         * @param certificates One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+         * 
          */
+        @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
         public Builder certificates(PoolCertificateArgs... certificates) {
             return certificates(List.of(certificates));
         }
@@ -1240,10 +1250,6 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param windows A `windows` block that describes the Windows configuration in the pool as defined below.
          * 
-         * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-         * 
-         * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
-         * 
          * @return builder
          * 
          */
@@ -1255,10 +1261,6 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param windows A `windows` block that describes the Windows configuration in the pool as defined below.
          * 
-         * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-         * 
-         * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
-         * 
          * @return builder
          * 
          */
@@ -1268,10 +1270,6 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param windows A `windows` block that describes the Windows configuration in the pool as defined below.
-         * 
-         * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-         * 
-         * &gt; **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
          * 
          * @return builder
          * 

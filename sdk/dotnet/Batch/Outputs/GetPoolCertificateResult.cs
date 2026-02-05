@@ -14,20 +14,11 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class GetPoolCertificateResult
     {
         /// <summary>
-        /// The fully qualified ID of the certificate installed on the pool.
+        /// The Batch pool ID.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-        /// </summary>
         public readonly string StoreLocation;
-        /// <summary>
-        /// The name of the certificate store on the compute node into which the certificate is installed.
-        /// </summary>
         public readonly string StoreName;
-        /// <summary>
-        /// Which user accounts on the compute node have access to the private data of the certificate.
-        /// </summary>
         public readonly ImmutableArray<string> Visibilities;
 
         [OutputConstructor]

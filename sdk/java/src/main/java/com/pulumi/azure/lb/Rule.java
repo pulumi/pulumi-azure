@@ -240,14 +240,24 @@ public class Rule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.idleTimeoutInMinutes);
     }
     /**
-     * Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
+     * Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
+     * * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
+     * * `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers.
+     * * `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers.
+     * 
+     * &gt; **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
      * 
      */
     @Export(name="loadDistribution", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loadDistribution;
 
     /**
-     * @return Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
+     * @return Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
+     * * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
+     * * `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers.
+     * * `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers.
+     * 
+     * &gt; **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
      * 
      */
     public Output<Optional<String>> loadDistribution() {

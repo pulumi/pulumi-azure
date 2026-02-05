@@ -89,6 +89,10 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
      * The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
      */
     declare public readonly networkManagerId: pulumi.Output<string>;
+    /**
+     * The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+     */
+    declare public readonly routeTableUsageMode: pulumi.Output<string | undefined>;
 
     /**
      * Create a NetworkManagerRoutingConfiguration resource with the given unique name, arguments, and options.
@@ -106,6 +110,7 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
             resourceInputs["description"] = state?.description;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkManagerId"] = state?.networkManagerId;
+            resourceInputs["routeTableUsageMode"] = state?.routeTableUsageMode;
         } else {
             const args = argsOrState as NetworkManagerRoutingConfigurationArgs | undefined;
             if (args?.networkManagerId === undefined && !opts.urn) {
@@ -114,6 +119,7 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkManagerId"] = args?.networkManagerId;
+            resourceInputs["routeTableUsageMode"] = args?.routeTableUsageMode;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerRoutingConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -136,6 +142,10 @@ export interface NetworkManagerRoutingConfigurationState {
      * The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
      */
     networkManagerId?: pulumi.Input<string>;
+    /**
+     * The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+     */
+    routeTableUsageMode?: pulumi.Input<string>;
 }
 
 /**
@@ -154,4 +164,8 @@ export interface NetworkManagerRoutingConfigurationArgs {
      * The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
      */
     networkManagerId: pulumi.Input<string>;
+    /**
+     * The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+     */
+    routeTableUsageMode?: pulumi.Input<string>;
 }

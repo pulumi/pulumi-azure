@@ -126,6 +126,8 @@ import javax.annotation.Nullable;
  *             .sasToken(example.applyValue(_example -> _example.sas()))
  *             .continueOnErrorsEnabled(true)
  *             .forceAnUpdateWhenValueChanged("first")
+ *             .scriptLevel("Database")
+ *             .principalPermissionsAction("RemovePermissionOnScriptCompletion")
  *             .build());
  * 
  *     }
@@ -208,6 +210,20 @@ public class Script extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+     * 
+     */
+    @Export(name="principalPermissionsAction", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> principalPermissionsAction;
+
+    /**
+     * @return Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+     * 
+     */
+    public Output<Optional<String>> principalPermissionsAction() {
+        return Codegen.optional(this.principalPermissionsAction);
+    }
+    /**
      * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      * 
      */
@@ -234,6 +250,20 @@ public class Script extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> scriptContent() {
         return Codegen.optional(this.scriptContent);
+    }
+    /**
+     * The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="scriptLevel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> scriptLevel;
+
+    /**
+     * @return The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> scriptLevel() {
+        return Codegen.optional(this.scriptLevel);
     }
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.

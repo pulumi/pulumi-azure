@@ -18,65 +18,37 @@ public final class PoolCertificateArgs extends com.pulumi.resources.ResourceArgs
     public static final PoolCertificateArgs Empty = new PoolCertificateArgs();
 
     /**
-     * The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+     * The ID of the Batch Pool.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+     * @return The ID of the Batch Pool.
      * 
      */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-     * 
-     * &gt; **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a &#39;certs&#39; directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     * 
-     */
     @Import(name="storeLocation", required=true)
     private Output<String> storeLocation;
 
-    /**
-     * @return The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-     * 
-     * &gt; **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a &#39;certs&#39; directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     * 
-     */
     public Output<String> storeLocation() {
         return this.storeLocation;
     }
 
-    /**
-     * The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-     * 
-     */
     @Import(name="storeName")
     private @Nullable Output<String> storeName;
 
-    /**
-     * @return The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-     * 
-     */
     public Optional<Output<String>> storeName() {
         return Optional.ofNullable(this.storeName);
     }
 
-    /**
-     * Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-     * 
-     */
     @Import(name="visibilities")
     private @Nullable Output<List<String>> visibilities;
 
-    /**
-     * @return Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-     * 
-     */
     public Optional<Output<List<String>>> visibilities() {
         return Optional.ofNullable(this.visibilities);
     }
@@ -109,7 +81,7 @@ public final class PoolCertificateArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param id The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+         * @param id The ID of the Batch Pool.
          * 
          * @return builder
          * 
@@ -120,7 +92,7 @@ public final class PoolCertificateArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param id The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+         * @param id The ID of the Batch Pool.
          * 
          * @return builder
          * 
@@ -129,79 +101,33 @@ public final class PoolCertificateArgs extends com.pulumi.resources.ResourceArgs
             return id(Output.of(id));
         }
 
-        /**
-         * @param storeLocation The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-         * 
-         * &gt; **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a &#39;certs&#39; directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storeLocation(Output<String> storeLocation) {
             $.storeLocation = storeLocation;
             return this;
         }
 
-        /**
-         * @param storeLocation The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-         * 
-         * &gt; **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a &#39;certs&#39; directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storeLocation(String storeLocation) {
             return storeLocation(Output.of(storeLocation));
         }
 
-        /**
-         * @param storeName The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storeName(@Nullable Output<String> storeName) {
             $.storeName = storeName;
             return this;
         }
 
-        /**
-         * @param storeName The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storeName(String storeName) {
             return storeName(Output.of(storeName));
         }
 
-        /**
-         * @param visibilities Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibilities(@Nullable Output<List<String>> visibilities) {
             $.visibilities = visibilities;
             return this;
         }
 
-        /**
-         * @param visibilities Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibilities(List<String> visibilities) {
             return visibilities(Output.of(visibilities));
         }
 
-        /**
-         * @param visibilities Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibilities(String... visibilities) {
             return visibilities(List.of(visibilities));
         }

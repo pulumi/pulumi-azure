@@ -150,7 +150,7 @@ type AppFlexConsumption struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The number of workers this function app can scale out to.
+	// The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
 	MaximumInstanceCount pulumi.IntPtrOutput `pulumi:"maximumInstanceCount"`
 	// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -302,7 +302,7 @@ type appFlexConsumptionState struct {
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
 	Location *string `pulumi:"location"`
-	// The number of workers this function app can scale out to.
+	// The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
 	MaximumInstanceCount *int `pulumi:"maximumInstanceCount"`
 	// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name *string `pulumi:"name"`
@@ -396,7 +396,7 @@ type AppFlexConsumptionState struct {
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
 	Location pulumi.StringPtrInput
-	// The number of workers this function app can scale out to.
+	// The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
 	MaximumInstanceCount pulumi.IntPtrInput
 	// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringPtrInput
@@ -486,7 +486,7 @@ type appFlexConsumptionArgs struct {
 	InstanceMemoryInMb *int `pulumi:"instanceMemoryInMb"`
 	// The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
 	Location *string `pulumi:"location"`
-	// The number of workers this function app can scale out to.
+	// The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
 	MaximumInstanceCount *int `pulumi:"maximumInstanceCount"`
 	// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name *string `pulumi:"name"`
@@ -563,7 +563,7 @@ type AppFlexConsumptionArgs struct {
 	InstanceMemoryInMb pulumi.IntPtrInput
 	// The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
 	Location pulumi.StringPtrInput
-	// The number of workers this function app can scale out to.
+	// The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
 	MaximumInstanceCount pulumi.IntPtrInput
 	// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringPtrInput
@@ -787,7 +787,7 @@ func (o AppFlexConsumptionOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The number of workers this function app can scale out to.
+// The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
 func (o AppFlexConsumptionOutput) MaximumInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.IntPtrOutput { return v.MaximumInstanceCount }).(pulumi.IntPtrOutput)
 }

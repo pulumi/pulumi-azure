@@ -24,6 +24,8 @@ class SubnetRouteTableAssociationArgs:
         """
         The set of arguments for constructing a SubnetRouteTableAssociation resource.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+               
+               > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `route_table_id` in the inline `subnet` block and do not create this association for the same subnet.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
@@ -34,6 +36,8 @@ class SubnetRouteTableAssociationArgs:
     def route_table_id(self) -> pulumi.Input[_builtins.str]:
         """
         The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+
+        > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `route_table_id` in the inline `subnet` block and do not create this association for the same subnet.
         """
         return pulumi.get(self, "route_table_id")
 
@@ -62,6 +66,8 @@ class _SubnetRouteTableAssociationState:
         """
         Input properties used for looking up and filtering SubnetRouteTableAssociation resources.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+               
+               > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `route_table_id` in the inline `subnet` block and do not create this association for the same subnet.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
         if route_table_id is not None:
@@ -74,6 +80,8 @@ class _SubnetRouteTableAssociationState:
     def route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+
+        > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `route_table_id` in the inline `subnet` block and do not create this association for the same subnet.
         """
         return pulumi.get(self, "route_table_id")
 
@@ -158,6 +166,8 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+               
+               > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `route_table_id` in the inline `subnet` block and do not create this association for the same subnet.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
         ...
@@ -270,6 +280,8 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+               
+               > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `route_table_id` in the inline `subnet` block and do not create this association for the same subnet.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -285,6 +297,8 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
     def route_table_id(self) -> pulumi.Output[_builtins.str]:
         """
         The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+
+        > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `route_table_id` in the inline `subnet` block and do not create this association for the same subnet.
         """
         return pulumi.get(self, "route_table_id")
 

@@ -13,8 +13,6 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfig {
@@ -42,7 +40,7 @@ public final class GetStandardSiteConfig {
      * @return The version of the .NET framework&#39;s CLR used in this Logic App.
      * 
      */
-    private @Nullable String dotnetFrameworkVersion;
+    private String dotnetFrameworkVersion;
     /**
      * @return The number of minimum instances for this Logic App Only affects apps on the Premium plan.
      * 
@@ -57,7 +55,7 @@ public final class GetStandardSiteConfig {
      * @return Path which will be checked for this Logic App health.
      * 
      */
-    private @Nullable String healthCheckPath;
+    private String healthCheckPath;
     /**
      * @return Specifies whether the HTTP2 protocol should be enabled.
      * 
@@ -94,7 +92,7 @@ public final class GetStandardSiteConfig {
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
      * 
      */
-    private @Nullable Boolean runtimeScaleMonitoringEnabled;
+    private Boolean runtimeScaleMonitoringEnabled;
     /**
      * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
      * 
@@ -114,12 +112,12 @@ public final class GetStandardSiteConfig {
      * @return Should the Logic App `ipRestriction` configuration be used for the SCM too.
      * 
      */
-    private @Nullable Boolean scmUseMainIpRestriction;
+    private Boolean scmUseMainIpRestriction;
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode?
      * 
      */
-    private @Nullable Boolean use32BitWorkerProcess;
+    private Boolean use32BitWorkerProcess;
     /**
      * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
      * 
@@ -129,7 +127,7 @@ public final class GetStandardSiteConfig {
      * @return Should WebSockets be enabled?
      * 
      */
-    private @Nullable Boolean websocketsEnabled;
+    private Boolean websocketsEnabled;
 
     private GetStandardSiteConfig() {}
     /**
@@ -164,8 +162,8 @@ public final class GetStandardSiteConfig {
      * @return The version of the .NET framework&#39;s CLR used in this Logic App.
      * 
      */
-    public Optional<String> dotnetFrameworkVersion() {
-        return Optional.ofNullable(this.dotnetFrameworkVersion);
+    public String dotnetFrameworkVersion() {
+        return this.dotnetFrameworkVersion;
     }
     /**
      * @return The number of minimum instances for this Logic App Only affects apps on the Premium plan.
@@ -185,8 +183,8 @@ public final class GetStandardSiteConfig {
      * @return Path which will be checked for this Logic App health.
      * 
      */
-    public Optional<String> healthCheckPath() {
-        return Optional.ofNullable(this.healthCheckPath);
+    public String healthCheckPath() {
+        return this.healthCheckPath;
     }
     /**
      * @return Specifies whether the HTTP2 protocol should be enabled.
@@ -236,8 +234,8 @@ public final class GetStandardSiteConfig {
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
      * 
      */
-    public Optional<Boolean> runtimeScaleMonitoringEnabled() {
-        return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
+    public Boolean runtimeScaleMonitoringEnabled() {
+        return this.runtimeScaleMonitoringEnabled;
     }
     /**
      * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
@@ -264,15 +262,15 @@ public final class GetStandardSiteConfig {
      * @return Should the Logic App `ipRestriction` configuration be used for the SCM too.
      * 
      */
-    public Optional<Boolean> scmUseMainIpRestriction() {
-        return Optional.ofNullable(this.scmUseMainIpRestriction);
+    public Boolean scmUseMainIpRestriction() {
+        return this.scmUseMainIpRestriction;
     }
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode?
      * 
      */
-    public Optional<Boolean> use32BitWorkerProcess() {
-        return Optional.ofNullable(this.use32BitWorkerProcess);
+    public Boolean use32BitWorkerProcess() {
+        return this.use32BitWorkerProcess;
     }
     /**
      * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
@@ -285,8 +283,8 @@ public final class GetStandardSiteConfig {
      * @return Should WebSockets be enabled?
      * 
      */
-    public Optional<Boolean> websocketsEnabled() {
-        return Optional.ofNullable(this.websocketsEnabled);
+    public Boolean websocketsEnabled() {
+        return this.websocketsEnabled;
     }
 
     public static Builder builder() {
@@ -302,24 +300,24 @@ public final class GetStandardSiteConfig {
         private Integer appScaleLimit;
         private String autoSwapSlotName;
         private GetStandardSiteConfigCors cors;
-        private @Nullable String dotnetFrameworkVersion;
+        private String dotnetFrameworkVersion;
         private Integer elasticInstanceMinimum;
         private String ftpsState;
-        private @Nullable String healthCheckPath;
+        private String healthCheckPath;
         private Boolean http2Enabled;
         private List<GetStandardSiteConfigIpRestriction> ipRestrictions;
         private String linuxFxVersion;
         private String minTlsVersion;
         private Integer preWarmedInstanceCount;
         private Boolean publicNetworkAccessEnabled;
-        private @Nullable Boolean runtimeScaleMonitoringEnabled;
+        private Boolean runtimeScaleMonitoringEnabled;
         private List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions;
         private String scmMinTlsVersion;
         private String scmType;
-        private @Nullable Boolean scmUseMainIpRestriction;
-        private @Nullable Boolean use32BitWorkerProcess;
+        private Boolean scmUseMainIpRestriction;
+        private Boolean use32BitWorkerProcess;
         private Boolean vnetRouteAllEnabled;
-        private @Nullable Boolean websocketsEnabled;
+        private Boolean websocketsEnabled;
         public Builder() {}
         public Builder(GetStandardSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -380,8 +378,10 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder dotnetFrameworkVersion(@Nullable String dotnetFrameworkVersion) {
-
+        public Builder dotnetFrameworkVersion(String dotnetFrameworkVersion) {
+            if (dotnetFrameworkVersion == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "dotnetFrameworkVersion");
+            }
             this.dotnetFrameworkVersion = dotnetFrameworkVersion;
             return this;
         }
@@ -402,8 +402,10 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder healthCheckPath(@Nullable String healthCheckPath) {
-
+        public Builder healthCheckPath(String healthCheckPath) {
+            if (healthCheckPath == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "healthCheckPath");
+            }
             this.healthCheckPath = healthCheckPath;
             return this;
         }
@@ -459,8 +461,10 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
-
+        public Builder runtimeScaleMonitoringEnabled(Boolean runtimeScaleMonitoringEnabled) {
+            if (runtimeScaleMonitoringEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "runtimeScaleMonitoringEnabled");
+            }
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             return this;
         }
@@ -492,14 +496,18 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
-
+        public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
+            if (scmUseMainIpRestriction == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "scmUseMainIpRestriction");
+            }
             this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
         @CustomType.Setter
-        public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
-
+        public Builder use32BitWorkerProcess(Boolean use32BitWorkerProcess) {
+            if (use32BitWorkerProcess == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "use32BitWorkerProcess");
+            }
             this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
         }
@@ -512,8 +520,10 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
-
+        public Builder websocketsEnabled(Boolean websocketsEnabled) {
+            if (websocketsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "websocketsEnabled");
+            }
             this.websocketsEnabled = websocketsEnabled;
             return this;
         }

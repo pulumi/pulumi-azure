@@ -52,7 +52,7 @@ class CassandraClusterArgs:
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[_builtins.bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the resource.
-        :param pulumi.Input[_builtins.str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        :param pulumi.Input[_builtins.str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
         pulumi.set(__self__, "default_admin_password", default_admin_password)
         pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
@@ -242,7 +242,7 @@ class CassandraClusterArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "version")
 
@@ -285,7 +285,7 @@ class _CassandraClusterState:
         :param pulumi.Input[_builtins.bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the resource.
-        :param pulumi.Input[_builtins.str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        :param pulumi.Input[_builtins.str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
@@ -478,7 +478,7 @@ class _CassandraClusterState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "version")
 
@@ -538,7 +538,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the resource.
-        :param pulumi.Input[_builtins.str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        :param pulumi.Input[_builtins.str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
         ...
     @overload
@@ -665,7 +665,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the resource.
-        :param pulumi.Input[_builtins.str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        :param pulumi.Input[_builtins.str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -797,7 +797,7 @@ class CassandraCluster(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "version")
 

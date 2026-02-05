@@ -390,14 +390,14 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The number of workers this function app can scale out to.
+     * The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
      * 
      */
     @Export(name="maximumInstanceCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maximumInstanceCount;
 
     /**
-     * @return The number of workers this function app can scale out to.
+     * @return The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
      * 
      */
     public Output<Optional<Integer>> maximumInstanceCount() {

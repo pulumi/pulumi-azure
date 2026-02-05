@@ -137,6 +137,20 @@ public class NetworkManagerRoutingConfiguration extends com.pulumi.resources.Cus
     public Output<String> networkManagerId() {
         return this.networkManagerId;
     }
+    /**
+     * The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+     * 
+     */
+    @Export(name="routeTableUsageMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> routeTableUsageMode;
+
+    /**
+     * @return The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+     * 
+     */
+    public Output<Optional<String>> routeTableUsageMode() {
+        return Codegen.optional(this.routeTableUsageMode);
+    }
 
     /**
      *

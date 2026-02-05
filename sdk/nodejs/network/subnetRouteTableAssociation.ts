@@ -91,6 +91,8 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
 
     /**
      * The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Use this resource only when the subnet is managed as a standalone `azure.network.Subnet`. If the subnet is declared inline inside `azure.network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
      */
     declare public readonly routeTableId: pulumi.Output<string>;
     /**
@@ -135,6 +137,8 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
 export interface SubnetRouteTableAssociationState {
     /**
      * The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Use this resource only when the subnet is managed as a standalone `azure.network.Subnet`. If the subnet is declared inline inside `azure.network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
      */
     routeTableId?: pulumi.Input<string>;
     /**
@@ -149,6 +153,8 @@ export interface SubnetRouteTableAssociationState {
 export interface SubnetRouteTableAssociationArgs {
     /**
      * The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Use this resource only when the subnet is managed as a standalone `azure.network.Subnet`. If the subnet is declared inline inside `azure.network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
      */
     routeTableId: pulumi.Input<string>;
     /**

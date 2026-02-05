@@ -4,11 +4,10 @@
 package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfigIpRestrictionHeaders {
@@ -16,22 +15,22 @@ public final class GetStandardSiteConfigIpRestrictionHeaders {
      * @return A list of allowed Azure FrontDoor IDs in UUID notation.
      * 
      */
-    private @Nullable List<String> xAzureFdids;
+    private List<String> xAzureFdids;
     /**
      * @return A list to allow the Azure FrontDoor health probe header.
      * 
      */
-    private @Nullable String xFdHealthProbe;
+    private String xFdHealthProbe;
     /**
      * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation.
      * 
      */
-    private @Nullable List<String> xForwardedFors;
+    private List<String> xForwardedFors;
     /**
      * @return A list of allowed &#39;X-Forwarded-Host&#39; domains.
      * 
      */
-    private @Nullable List<String> xForwardedHosts;
+    private List<String> xForwardedHosts;
 
     private GetStandardSiteConfigIpRestrictionHeaders() {}
     /**
@@ -39,28 +38,28 @@ public final class GetStandardSiteConfigIpRestrictionHeaders {
      * 
      */
     public List<String> xAzureFdids() {
-        return this.xAzureFdids == null ? List.of() : this.xAzureFdids;
+        return this.xAzureFdids;
     }
     /**
      * @return A list to allow the Azure FrontDoor health probe header.
      * 
      */
-    public Optional<String> xFdHealthProbe() {
-        return Optional.ofNullable(this.xFdHealthProbe);
+    public String xFdHealthProbe() {
+        return this.xFdHealthProbe;
     }
     /**
      * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation.
      * 
      */
     public List<String> xForwardedFors() {
-        return this.xForwardedFors == null ? List.of() : this.xForwardedFors;
+        return this.xForwardedFors;
     }
     /**
      * @return A list of allowed &#39;X-Forwarded-Host&#39; domains.
      * 
      */
     public List<String> xForwardedHosts() {
-        return this.xForwardedHosts == null ? List.of() : this.xForwardedHosts;
+        return this.xForwardedHosts;
     }
 
     public static Builder builder() {
@@ -72,10 +71,10 @@ public final class GetStandardSiteConfigIpRestrictionHeaders {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<String> xAzureFdids;
-        private @Nullable String xFdHealthProbe;
-        private @Nullable List<String> xForwardedFors;
-        private @Nullable List<String> xForwardedHosts;
+        private List<String> xAzureFdids;
+        private String xFdHealthProbe;
+        private List<String> xForwardedFors;
+        private List<String> xForwardedHosts;
         public Builder() {}
         public Builder(GetStandardSiteConfigIpRestrictionHeaders defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,8 +85,10 @@ public final class GetStandardSiteConfigIpRestrictionHeaders {
         }
 
         @CustomType.Setter
-        public Builder xAzureFdids(@Nullable List<String> xAzureFdids) {
-
+        public Builder xAzureFdids(List<String> xAzureFdids) {
+            if (xAzureFdids == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestrictionHeaders", "xAzureFdids");
+            }
             this.xAzureFdids = xAzureFdids;
             return this;
         }
@@ -95,14 +96,18 @@ public final class GetStandardSiteConfigIpRestrictionHeaders {
             return xAzureFdids(List.of(xAzureFdids));
         }
         @CustomType.Setter
-        public Builder xFdHealthProbe(@Nullable String xFdHealthProbe) {
-
+        public Builder xFdHealthProbe(String xFdHealthProbe) {
+            if (xFdHealthProbe == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestrictionHeaders", "xFdHealthProbe");
+            }
             this.xFdHealthProbe = xFdHealthProbe;
             return this;
         }
         @CustomType.Setter
-        public Builder xForwardedFors(@Nullable List<String> xForwardedFors) {
-
+        public Builder xForwardedFors(List<String> xForwardedFors) {
+            if (xForwardedFors == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestrictionHeaders", "xForwardedFors");
+            }
             this.xForwardedFors = xForwardedFors;
             return this;
         }
@@ -110,8 +115,10 @@ public final class GetStandardSiteConfigIpRestrictionHeaders {
             return xForwardedFors(List.of(xForwardedFors));
         }
         @CustomType.Setter
-        public Builder xForwardedHosts(@Nullable List<String> xForwardedHosts) {
-
+        public Builder xForwardedHosts(List<String> xForwardedHosts) {
+            if (xForwardedHosts == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestrictionHeaders", "xForwardedHosts");
+            }
             this.xForwardedHosts = xForwardedHosts;
             return this;
         }

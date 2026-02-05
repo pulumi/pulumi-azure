@@ -16,7 +16,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// Does this restriction `Allow` or `Deny` access for this IP range.
         /// </summary>
-        public readonly string? Action;
+        public readonly string Action;
         /// <summary>
         /// The `Headers` block for this specific `IpRestriction` as defined below.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// The priority for this IP Restriction. Restrictions are enforced in priority order.
         /// </summary>
-        public readonly int? Priority;
+        public readonly int Priority;
         /// <summary>
         /// The Service Tag used for this IP Restriction.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
         [OutputConstructor]
         private GetStandardSiteConfigIpRestrictionResult(
-            string? action,
+            string action,
 
             Outputs.GetStandardSiteConfigIpRestrictionHeadersResult headers,
 
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             string name,
 
-            int? priority,
+            int priority,
 
             string serviceTag,
 

@@ -21,10 +21,14 @@ public final class ApplicationGatewaySku {
     /**
      * @return The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
      * 
+     * &gt; **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
+     * 
      */
     private String name;
     /**
-     * @return The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+     * @return The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+     * 
+     * &gt; **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
      * 
      */
     private String tier;
@@ -40,12 +44,16 @@ public final class ApplicationGatewaySku {
     /**
      * @return The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
      * 
+     * &gt; **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
+     * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+     * @return The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+     * 
+     * &gt; **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
      * 
      */
     public String tier() {

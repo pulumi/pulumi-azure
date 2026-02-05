@@ -321,12 +321,16 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      * 
+     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * 
      */
     @Import(name="storageSizeInGb", required=true)
     private Output<Integer> storageSizeInGb;
 
     /**
      * @return Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+     * 
+     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      * 
      */
     public Output<Integer> storageSizeInGb() {
@@ -870,6 +874,8 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param storageSizeInGb Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
          * 
+         * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+         * 
          * @return builder
          * 
          */
@@ -880,6 +886,8 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param storageSizeInGb Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+         * 
+         * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
          * 
          * @return builder
          * 

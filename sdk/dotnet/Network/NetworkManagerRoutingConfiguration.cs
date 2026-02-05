@@ -94,6 +94,12 @@ namespace Pulumi.Azure.Network
         [Output("networkManagerId")]
         public Output<string> NetworkManagerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+        /// </summary>
+        [Output("routeTableUsageMode")]
+        public Output<string?> RouteTableUsageMode { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NetworkManagerRoutingConfiguration resource with the given unique name, arguments, and options.
@@ -158,6 +164,12 @@ namespace Pulumi.Azure.Network
         [Input("networkManagerId", required: true)]
         public Input<string> NetworkManagerId { get; set; } = null!;
 
+        /// <summary>
+        /// The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+        /// </summary>
+        [Input("routeTableUsageMode")]
+        public Input<string>? RouteTableUsageMode { get; set; }
+
         public NetworkManagerRoutingConfigurationArgs()
         {
         }
@@ -183,6 +195,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("networkManagerId")]
         public Input<string>? NetworkManagerId { get; set; }
+
+        /// <summary>
+        /// The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+        /// </summary>
+        [Input("routeTableUsageMode")]
+        public Input<string>? RouteTableUsageMode { get; set; }
 
         public NetworkManagerRoutingConfigurationState()
         {

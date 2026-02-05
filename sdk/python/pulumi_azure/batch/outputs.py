@@ -553,12 +553,7 @@ class PoolCertificate(dict):
                  store_name: Optional[_builtins.str] = None,
                  visibilities: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str id: The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
-        :param _builtins.str store_location: The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-               
-               > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-        :param _builtins.str store_name: The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-        :param Sequence[_builtins.str] visibilities: Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
+        :param _builtins.str id: The ID of the Batch Pool.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "store_location", store_location)
@@ -571,34 +566,23 @@ class PoolCertificate(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+        The ID of the Batch Pool.
         """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="storeLocation")
     def store_location(self) -> _builtins.str:
-        """
-        The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-
-        > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-        """
         return pulumi.get(self, "store_location")
 
     @_builtins.property
     @pulumi.getter(name="storeName")
     def store_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-        """
         return pulumi.get(self, "store_name")
 
     @_builtins.property
     @pulumi.getter
     def visibilities(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-        """
         return pulumi.get(self, "visibilities")
 
 
@@ -2797,10 +2781,7 @@ class GetPoolCertificateResult(dict):
                  store_name: _builtins.str,
                  visibilities: Sequence[_builtins.str]):
         """
-        :param _builtins.str id: The fully qualified ID of the certificate installed on the pool.
-        :param _builtins.str store_location: The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-        :param _builtins.str store_name: The name of the certificate store on the compute node into which the certificate is installed.
-        :param Sequence[_builtins.str] visibilities: Which user accounts on the compute node have access to the private data of the certificate.
+        :param _builtins.str id: The Batch pool ID.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "store_location", store_location)
@@ -2811,32 +2792,23 @@ class GetPoolCertificateResult(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The fully qualified ID of the certificate installed on the pool.
+        The Batch pool ID.
         """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="storeLocation")
     def store_location(self) -> _builtins.str:
-        """
-        The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-        """
         return pulumi.get(self, "store_location")
 
     @_builtins.property
     @pulumi.getter(name="storeName")
     def store_name(self) -> _builtins.str:
-        """
-        The name of the certificate store on the compute node into which the certificate is installed.
-        """
         return pulumi.get(self, "store_name")
 
     @_builtins.property
     @pulumi.getter
     def visibilities(self) -> Sequence[_builtins.str]:
-        """
-        Which user accounts on the compute node have access to the private data of the certificate.
-        """
         return pulumi.get(self, "visibilities")
 
 
@@ -3974,7 +3946,7 @@ class GetPoolStorageImageReferenceResult(dict):
                  sku: _builtins.str,
                  version: _builtins.str):
         """
-        :param _builtins.str id: The fully qualified ID of the certificate installed on the pool.
+        :param _builtins.str id: The Batch pool ID.
         :param _builtins.str publisher: The name of the extension handler publisher.The name of the extension handler publisher.
         """
         pulumi.set(__self__, "id", id)
@@ -3987,7 +3959,7 @@ class GetPoolStorageImageReferenceResult(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The fully qualified ID of the certificate installed on the pool.
+        The Batch pool ID.
         """
         return pulumi.get(self, "id")
 

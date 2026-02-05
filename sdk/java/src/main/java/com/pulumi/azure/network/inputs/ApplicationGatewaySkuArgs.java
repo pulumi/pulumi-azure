@@ -35,6 +35,8 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
     /**
      * The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
      * 
+     * &gt; **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
@@ -42,20 +44,26 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
     /**
      * @return The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
      * 
+     * &gt; **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
+     * 
      */
     public Output<String> name() {
         return this.name;
     }
 
     /**
-     * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+     * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+     * 
+     * &gt; **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
      * 
      */
     @Import(name="tier", required=true)
     private Output<String> tier;
 
     /**
-     * @return The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+     * @return The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+     * 
+     * &gt; **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
      * 
      */
     public Output<String> tier() {
@@ -112,6 +120,8 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
         /**
          * @param name The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
          * 
+         * &gt; **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
+         * 
          * @return builder
          * 
          */
@@ -123,6 +133,8 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
         /**
          * @param name The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
          * 
+         * &gt; **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
+         * 
          * @return builder
          * 
          */
@@ -131,7 +143,9 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tier The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+         * @param tier The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+         * 
+         * &gt; **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
          * 
          * @return builder
          * 
@@ -142,7 +156,9 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tier The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+         * @param tier The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+         * 
+         * &gt; **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
          * 
          * @return builder
          * 

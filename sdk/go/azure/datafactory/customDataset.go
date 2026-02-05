@@ -181,7 +181,8 @@ type CustomDataset struct {
 	SchemaJson pulumi.StringPtrOutput `pulumi:"schemaJson"`
 	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// A JSON object that contains the properties of the Data Factory Dataset.
+	// A JSON object that contains the properties of the Data Factory Dataset. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
 	TypePropertiesJson pulumi.StringOutput `pulumi:"typePropertiesJson"`
 }
 
@@ -247,7 +248,8 @@ type customDatasetState struct {
 	SchemaJson *string `pulumi:"schemaJson"`
 	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
-	// A JSON object that contains the properties of the Data Factory Dataset.
+	// A JSON object that contains the properties of the Data Factory Dataset. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
 	TypePropertiesJson *string `pulumi:"typePropertiesJson"`
 }
 
@@ -272,7 +274,8 @@ type CustomDatasetState struct {
 	SchemaJson pulumi.StringPtrInput
 	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
-	// A JSON object that contains the properties of the Data Factory Dataset.
+	// A JSON object that contains the properties of the Data Factory Dataset. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
 	TypePropertiesJson pulumi.StringPtrInput
 }
 
@@ -301,7 +304,8 @@ type customDatasetArgs struct {
 	SchemaJson *string `pulumi:"schemaJson"`
 	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
-	// A JSON object that contains the properties of the Data Factory Dataset.
+	// A JSON object that contains the properties of the Data Factory Dataset. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
 	TypePropertiesJson string `pulumi:"typePropertiesJson"`
 }
 
@@ -327,7 +331,8 @@ type CustomDatasetArgs struct {
 	SchemaJson pulumi.StringPtrInput
 	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type pulumi.StringInput
-	// A JSON object that contains the properties of the Data Factory Dataset.
+	// A JSON object that contains the properties of the Data Factory Dataset. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
 	TypePropertiesJson pulumi.StringInput
 }
 
@@ -468,7 +473,8 @@ func (o CustomDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDataset) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// A JSON object that contains the properties of the Data Factory Dataset.
+// A JSON object that contains the properties of the Data Factory Dataset. Refer to
+// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
 func (o CustomDatasetOutput) TypePropertiesJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDataset) pulumi.StringOutput { return v.TypePropertiesJson }).(pulumi.StringOutput)
 }

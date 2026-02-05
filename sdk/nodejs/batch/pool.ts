@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "testaccbatch",
@@ -37,16 +36,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         env: "test",
  *     },
- * });
- * const exampleCertificate = new azure.batch.Certificate("example", {
- *     resourceGroupName: example.name,
- *     accountName: exampleAccount2.name,
- *     certificate: std.filebase64({
- *         input: "certificate.cer",
- *     }).then(invoke => invoke.result),
- *     format: "Cer",
- *     thumbprint: "312d31a79fa0cef49c00f769afc2b73e9f4edf34",
- *     thumbprintAlgorithm: "SHA1",
  * });
  * const examplePool = new azure.batch.Pool("example", {
  *     name: "testaccpool",
@@ -92,11 +81,6 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- *     certificates: [{
- *         id: exampleCertificate.id,
- *         storeLocation: "CurrentUser",
- *         visibilities: ["StartTask"],
- *     }],
  * });
  * ```
  *
@@ -149,10 +133,12 @@ export class Pool extends pulumi.CustomResource {
     declare public readonly accountName: pulumi.Output<string>;
     /**
      * A `autoScale` block that describes the scale settings when using auto scale as defined below.
+     *
+     * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
     declare public readonly autoScale: pulumi.Output<outputs.batch.PoolAutoScale | undefined>;
     /**
-     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      */
     declare public readonly certificates: pulumi.Output<outputs.batch.PoolCertificate[] | undefined>;
     /**
@@ -261,10 +247,6 @@ export class Pool extends pulumi.CustomResource {
     declare public readonly vmSize: pulumi.Output<string>;
     /**
      * A `windows` block that describes the Windows configuration in the pool as defined below.
-     *
-     * > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     *
-     * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
     declare public readonly windows: pulumi.Output<outputs.batch.PoolWindow[] | undefined>;
 
@@ -374,10 +356,12 @@ export interface PoolState {
     accountName?: pulumi.Input<string>;
     /**
      * A `autoScale` block that describes the scale settings when using auto scale as defined below.
+     *
+     * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
     autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
     /**
-     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
     /**
@@ -486,10 +470,6 @@ export interface PoolState {
     vmSize?: pulumi.Input<string>;
     /**
      * A `windows` block that describes the Windows configuration in the pool as defined below.
-     *
-     * > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     *
-     * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
     windows?: pulumi.Input<pulumi.Input<inputs.batch.PoolWindow>[]>;
 }
@@ -504,10 +484,12 @@ export interface PoolArgs {
     accountName: pulumi.Input<string>;
     /**
      * A `autoScale` block that describes the scale settings when using auto scale as defined below.
+     *
+     * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
     autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
     /**
-     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
     /**
@@ -616,10 +598,6 @@ export interface PoolArgs {
     vmSize: pulumi.Input<string>;
     /**
      * A `windows` block that describes the Windows configuration in the pool as defined below.
-     *
-     * > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     *
-     * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
     windows?: pulumi.Input<pulumi.Input<inputs.batch.PoolWindow>[]>;
 }

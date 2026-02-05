@@ -137,8 +137,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCustomerManagedKey = new CustomerManagedKey("exampleCustomerManagedKey", CustomerManagedKeyArgs.builder()
  *             .storageAccountId(exampleAccount.id())
- *             .keyVaultId(exampleKeyVault.id())
- *             .keyName(exampleKey.name())
+ *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
  *     }
@@ -179,66 +178,78 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.federatedIdentityClientId);
     }
     /**
-     * The name of Key Vault Key.
+     * @deprecated
+     * `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
-    /**
-     * @return The name of Key Vault Key.
-     * 
-     */
     public Output<String> keyName() {
         return this.keyName;
     }
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> keyVaultId;
-
-    public Output<Optional<String>> keyVaultId() {
-        return Codegen.optional(this.keyVaultId);
-    }
     /**
-     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     * @deprecated
+     * `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    private Output<String> keyVaultId;
+
+    public Output<String> keyVaultId() {
+        return this.keyVaultId;
+    }
+    /**
+     * The ID of the Key Vault Key.
+     * 
+     */
+    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
+    private Output<String> keyVaultKeyId;
+
+    /**
+     * @return The ID of the Key Vault Key.
+     * 
+     */
+    public Output<String> keyVaultKeyId() {
+        return this.keyVaultKeyId;
+    }
+    /**
+     * @deprecated
+     * `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     @Export(name="keyVaultUri", refs={String.class}, tree="[0]")
     private Output<String> keyVaultUri;
 
-    /**
-     * @return URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
-     * 
-     */
     public Output<String> keyVaultUri() {
         return this.keyVaultUri;
     }
     /**
-     * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+     * @deprecated
+     * `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     @Export(name="keyVersion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> keyVersion;
+    private Output<String> keyVersion;
 
-    /**
-     * @return The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-     * 
-     */
-    public Output<Optional<String>> keyVersion() {
-        return Codegen.optional(this.keyVersion);
+    public Output<String> keyVersion() {
+        return this.keyVersion;
     }
     /**
-     * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> managedHsmKeyId;
+    private Output<String> managedHsmKeyId;
 
-    /**
-     * @return Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
-     * 
-     */
-    public Output<Optional<String>> managedHsmKeyId() {
-        return Codegen.optional(this.managedHsmKeyId);
+    public Output<String> managedHsmKeyId() {
+        return this.managedHsmKeyId;
     }
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.

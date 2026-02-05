@@ -180,6 +180,16 @@ export const getNetworkSecurityGroup: typeof import("./getNetworkSecurityGroup")
 export const getNetworkSecurityGroupOutput: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkSecurityGroup","getNetworkSecurityGroupOutput"], () => require("./getNetworkSecurityGroup"));
 
+export { GetNetworkSecurityPerimeterArgs, GetNetworkSecurityPerimeterResult, GetNetworkSecurityPerimeterOutputArgs } from "./getNetworkSecurityPerimeter";
+export const getNetworkSecurityPerimeter: typeof import("./getNetworkSecurityPerimeter").getNetworkSecurityPerimeter = null as any;
+export const getNetworkSecurityPerimeterOutput: typeof import("./getNetworkSecurityPerimeter").getNetworkSecurityPerimeterOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSecurityPerimeter","getNetworkSecurityPerimeterOutput"], () => require("./getNetworkSecurityPerimeter"));
+
+export { GetNetworkSecurityPerimeterProfileArgs, GetNetworkSecurityPerimeterProfileResult, GetNetworkSecurityPerimeterProfileOutputArgs } from "./getNetworkSecurityPerimeterProfile";
+export const getNetworkSecurityPerimeterProfile: typeof import("./getNetworkSecurityPerimeterProfile").getNetworkSecurityPerimeterProfile = null as any;
+export const getNetworkSecurityPerimeterProfileOutput: typeof import("./getNetworkSecurityPerimeterProfile").getNetworkSecurityPerimeterProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSecurityPerimeterProfile","getNetworkSecurityPerimeterProfileOutput"], () => require("./getNetworkSecurityPerimeterProfile"));
+
 export { GetNetworkWatcherArgs, GetNetworkWatcherResult, GetNetworkWatcherOutputArgs } from "./getNetworkWatcher";
 export const getNetworkWatcher: typeof import("./getNetworkWatcher").getNetworkWatcher = null as any;
 export const getNetworkWatcherOutput: typeof import("./getNetworkWatcher").getNetworkWatcherOutput = null as any;
@@ -434,6 +444,26 @@ export { NetworkSecurityGroupArgs, NetworkSecurityGroupState } from "./networkSe
 export type NetworkSecurityGroup = import("./networkSecurityGroup").NetworkSecurityGroup;
 export const NetworkSecurityGroup: typeof import("./networkSecurityGroup").NetworkSecurityGroup = null as any;
 utilities.lazyLoad(exports, ["NetworkSecurityGroup"], () => require("./networkSecurityGroup"));
+
+export { NetworkSecurityPerimeterArgs, NetworkSecurityPerimeterState } from "./networkSecurityPerimeter";
+export type NetworkSecurityPerimeter = import("./networkSecurityPerimeter").NetworkSecurityPerimeter;
+export const NetworkSecurityPerimeter: typeof import("./networkSecurityPerimeter").NetworkSecurityPerimeter = null as any;
+utilities.lazyLoad(exports, ["NetworkSecurityPerimeter"], () => require("./networkSecurityPerimeter"));
+
+export { NetworkSecurityPerimeterAccessRuleArgs, NetworkSecurityPerimeterAccessRuleState } from "./networkSecurityPerimeterAccessRule";
+export type NetworkSecurityPerimeterAccessRule = import("./networkSecurityPerimeterAccessRule").NetworkSecurityPerimeterAccessRule;
+export const NetworkSecurityPerimeterAccessRule: typeof import("./networkSecurityPerimeterAccessRule").NetworkSecurityPerimeterAccessRule = null as any;
+utilities.lazyLoad(exports, ["NetworkSecurityPerimeterAccessRule"], () => require("./networkSecurityPerimeterAccessRule"));
+
+export { NetworkSecurityPerimeterAssociationArgs, NetworkSecurityPerimeterAssociationState } from "./networkSecurityPerimeterAssociation";
+export type NetworkSecurityPerimeterAssociation = import("./networkSecurityPerimeterAssociation").NetworkSecurityPerimeterAssociation;
+export const NetworkSecurityPerimeterAssociation: typeof import("./networkSecurityPerimeterAssociation").NetworkSecurityPerimeterAssociation = null as any;
+utilities.lazyLoad(exports, ["NetworkSecurityPerimeterAssociation"], () => require("./networkSecurityPerimeterAssociation"));
+
+export { NetworkSecurityPerimeterProfileArgs, NetworkSecurityPerimeterProfileState } from "./networkSecurityPerimeterProfile";
+export type NetworkSecurityPerimeterProfile = import("./networkSecurityPerimeterProfile").NetworkSecurityPerimeterProfile;
+export const NetworkSecurityPerimeterProfile: typeof import("./networkSecurityPerimeterProfile").NetworkSecurityPerimeterProfile = null as any;
+utilities.lazyLoad(exports, ["NetworkSecurityPerimeterProfile"], () => require("./networkSecurityPerimeterProfile"));
 
 export { NetworkSecurityRuleArgs, NetworkSecurityRuleState } from "./networkSecurityRule";
 export type NetworkSecurityRule = import("./networkSecurityRule").NetworkSecurityRule;
@@ -750,6 +780,14 @@ const _module = {
                 return new NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(name, <any>undefined, { urn })
             case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
+            case "azure:network/networkSecurityPerimeter:NetworkSecurityPerimeter":
+                return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
+            case "azure:network/networkSecurityPerimeterAccessRule:NetworkSecurityPerimeterAccessRule":
+                return new NetworkSecurityPerimeterAccessRule(name, <any>undefined, { urn })
+            case "azure:network/networkSecurityPerimeterAssociation:NetworkSecurityPerimeterAssociation":
+                return new NetworkSecurityPerimeterAssociation(name, <any>undefined, { urn })
+            case "azure:network/networkSecurityPerimeterProfile:NetworkSecurityPerimeterProfile":
+                return new NetworkSecurityPerimeterProfile(name, <any>undefined, { urn })
             case "azure:network/networkSecurityRule:NetworkSecurityRule":
                 return new NetworkSecurityRule(name, <any>undefined, { urn })
             case "azure:network/networkWatcher:NetworkWatcher":
@@ -889,6 +927,10 @@ pulumi.runtime.registerResourceModule("azure", "network/networkManagerSubscripti
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerVerifierWorkspace", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkSecurityPerimeter", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkSecurityPerimeterAccessRule", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkSecurityPerimeterAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkSecurityPerimeterProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityRule", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkWatcher", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkWatcherFlowLog", _module)

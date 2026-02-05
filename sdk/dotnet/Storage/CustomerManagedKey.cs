@@ -128,8 +128,7 @@ namespace Pulumi.Azure.Storage
     ///     var exampleCustomerManagedKey = new Azure.Storage.CustomerManagedKey("example", new()
     ///     {
     ///         StorageAccountId = exampleAccount.Id,
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         KeyName = exampleKey.Name,
+    ///         KeyVaultKeyId = exampleKey.Id,
     ///     });
     /// 
     /// });
@@ -159,32 +158,26 @@ namespace Pulumi.Azure.Storage
         [Output("federatedIdentityClientId")]
         public Output<string?> FederatedIdentityClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of Key Vault Key.
-        /// </summary>
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
 
         [Output("keyVaultId")]
-        public Output<string?> KeyVaultId { get; private set; } = null!;
+        public Output<string> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// URI pointing at the Key Vault. Required when using `FederatedIdentityClientId`. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
+        /// The ID of the Key Vault Key.
         /// </summary>
+        [Output("keyVaultKeyId")]
+        public Output<string> KeyVaultKeyId { get; private set; } = null!;
+
         [Output("keyVaultUri")]
         public Output<string> KeyVaultUri { get; private set; } = null!;
 
-        /// <summary>
-        /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        /// </summary>
         [Output("keyVersion")]
-        public Output<string?> KeyVersion { get; private set; } = null!;
+        public Output<string> KeyVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
-        /// </summary>
         [Output("managedHsmKeyId")]
-        public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
+        public Output<string> ManagedHsmKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -250,30 +243,24 @@ namespace Pulumi.Azure.Storage
         [Input("federatedIdentityClientId")]
         public Input<string>? FederatedIdentityClientId { get; set; }
 
-        /// <summary>
-        /// The name of Key Vault Key.
-        /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// URI pointing at the Key Vault. Required when using `FederatedIdentityClientId`. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
+        /// The ID of the Key Vault Key.
         /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
+
         [Input("keyVaultUri")]
         public Input<string>? KeyVaultUri { get; set; }
 
-        /// <summary>
-        /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        /// </summary>
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }
 
-        /// <summary>
-        /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
-        /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
 
@@ -303,9 +290,6 @@ namespace Pulumi.Azure.Storage
         [Input("federatedIdentityClientId")]
         public Input<string>? FederatedIdentityClientId { get; set; }
 
-        /// <summary>
-        /// The name of Key Vault Key.
-        /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
@@ -313,20 +297,17 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// URI pointing at the Key Vault. Required when using `FederatedIdentityClientId`. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
+        /// The ID of the Key Vault Key.
         /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
+
         [Input("keyVaultUri")]
         public Input<string>? KeyVaultUri { get; set; }
 
-        /// <summary>
-        /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        /// </summary>
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }
 
-        /// <summary>
-        /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
-        /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
 

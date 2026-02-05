@@ -107,6 +107,12 @@ export class PolicyFileShare extends pulumi.CustomResource {
      */
     declare public readonly backup: pulumi.Output<outputs.backup.PolicyFileShareBackup>;
     /**
+     * The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+     *
+     * > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+     */
+    declare public readonly backupTier: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -135,6 +141,10 @@ export class PolicyFileShare extends pulumi.CustomResource {
      */
     declare public readonly retentionYearly: pulumi.Output<outputs.backup.PolicyFileShareRetentionYearly | undefined>;
     /**
+     * The number of days to retain the snapshots. Defaults to `0`.
+     */
+    declare public readonly snapshotRetentionInDays: pulumi.Output<number | undefined>;
+    /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      *
      * > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -155,6 +165,7 @@ export class PolicyFileShare extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyFileShareState | undefined;
             resourceInputs["backup"] = state?.backup;
+            resourceInputs["backupTier"] = state?.backupTier;
             resourceInputs["name"] = state?.name;
             resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
@@ -162,6 +173,7 @@ export class PolicyFileShare extends pulumi.CustomResource {
             resourceInputs["retentionMonthly"] = state?.retentionMonthly;
             resourceInputs["retentionWeekly"] = state?.retentionWeekly;
             resourceInputs["retentionYearly"] = state?.retentionYearly;
+            resourceInputs["snapshotRetentionInDays"] = state?.snapshotRetentionInDays;
             resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as PolicyFileShareArgs | undefined;
@@ -178,6 +190,7 @@ export class PolicyFileShare extends pulumi.CustomResource {
                 throw new Error("Missing required property 'retentionDaily'");
             }
             resourceInputs["backup"] = args?.backup;
+            resourceInputs["backupTier"] = args?.backupTier;
             resourceInputs["name"] = args?.name;
             resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -185,6 +198,7 @@ export class PolicyFileShare extends pulumi.CustomResource {
             resourceInputs["retentionMonthly"] = args?.retentionMonthly;
             resourceInputs["retentionWeekly"] = args?.retentionWeekly;
             resourceInputs["retentionYearly"] = args?.retentionYearly;
+            resourceInputs["snapshotRetentionInDays"] = args?.snapshotRetentionInDays;
             resourceInputs["timezone"] = args?.timezone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -200,6 +214,12 @@ export interface PolicyFileShareState {
      * Configures the Policy backup frequency and times as documented in the `backup` block below.
      */
     backup?: pulumi.Input<inputs.backup.PolicyFileShareBackup>;
+    /**
+     * The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+     *
+     * > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+     */
+    backupTier?: pulumi.Input<string>;
     /**
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      */
@@ -229,6 +249,10 @@ export interface PolicyFileShareState {
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
     /**
+     * The number of days to retain the snapshots. Defaults to `0`.
+     */
+    snapshotRetentionInDays?: pulumi.Input<number>;
+    /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      *
      * > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -244,6 +268,12 @@ export interface PolicyFileShareArgs {
      * Configures the Policy backup frequency and times as documented in the `backup` block below.
      */
     backup: pulumi.Input<inputs.backup.PolicyFileShareBackup>;
+    /**
+     * The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+     *
+     * > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+     */
+    backupTier?: pulumi.Input<string>;
     /**
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      */
@@ -272,6 +302,10 @@ export interface PolicyFileShareArgs {
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
+    /**
+     * The number of days to retain the snapshots. Defaults to `0`.
+     */
+    snapshotRetentionInDays?: pulumi.Input<number>;
     /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      *

@@ -24,7 +24,6 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/batch"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,23 +57,6 @@ import (
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("test"),
 //				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "certificate.cer",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleCertificate, err := batch.NewCertificate(ctx, "example", &batch.CertificateArgs{
-//				ResourceGroupName:   example.Name,
-//				AccountName:         exampleAccount2.Name,
-//				Certificate:         pulumi.String(invokeFilebase64.Result),
-//				Format:              pulumi.String("Cer"),
-//				Thumbprint:          pulumi.String("312d31a79fa0cef49c00f769afc2b73e9f4edf34"),
-//				ThumbprintAlgorithm: pulumi.String("SHA1"),
 //			})
 //			if err != nil {
 //				return err
@@ -127,15 +109,6 @@ import (
 //						},
 //					},
 //				},
-//				Certificates: batch.PoolCertificateArray{
-//					&batch.PoolCertificateArgs{
-//						Id:            exampleCertificate.ID(),
-//						StoreLocation: pulumi.String("CurrentUser"),
-//						Visibilities: pulumi.StringArray{
-//							pulumi.String("StartTask"),
-//						},
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -166,8 +139,10 @@ type Pool struct {
 	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// A `autoScale` block that describes the scale settings when using auto scale as defined below.
+	//
+	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale PoolAutoScalePtrOutput `pulumi:"autoScale"`
-	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
 	Certificates PoolCertificateArrayOutput `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration PoolContainerConfigurationPtrOutput `pulumi:"containerConfiguration"`
@@ -222,10 +197,6 @@ type Pool struct {
 	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// A `windows` block that describes the Windows configuration in the pool as defined below.
-	//
-	// > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-	//
-	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	Windows PoolWindowArrayOutput `pulumi:"windows"`
 }
 
@@ -277,8 +248,10 @@ type poolState struct {
 	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
 	// A `autoScale` block that describes the scale settings when using auto scale as defined below.
+	//
+	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale *PoolAutoScale `pulumi:"autoScale"`
-	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
 	Certificates []PoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration *PoolContainerConfiguration `pulumi:"containerConfiguration"`
@@ -333,10 +306,6 @@ type poolState struct {
 	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize *string `pulumi:"vmSize"`
 	// A `windows` block that describes the Windows configuration in the pool as defined below.
-	//
-	// > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-	//
-	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	Windows []PoolWindow `pulumi:"windows"`
 }
 
@@ -344,8 +313,10 @@ type PoolState struct {
 	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
 	// A `autoScale` block that describes the scale settings when using auto scale as defined below.
+	//
+	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale PoolAutoScalePtrInput
-	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
 	Certificates PoolCertificateArrayInput
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration PoolContainerConfigurationPtrInput
@@ -400,10 +371,6 @@ type PoolState struct {
 	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringPtrInput
 	// A `windows` block that describes the Windows configuration in the pool as defined below.
-	//
-	// > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-	//
-	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	Windows PoolWindowArrayInput
 }
 
@@ -415,8 +382,10 @@ type poolArgs struct {
 	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
 	// A `autoScale` block that describes the scale settings when using auto scale as defined below.
+	//
+	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale *PoolAutoScale `pulumi:"autoScale"`
-	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
 	Certificates []PoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration *PoolContainerConfiguration `pulumi:"containerConfiguration"`
@@ -471,10 +440,6 @@ type poolArgs struct {
 	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize string `pulumi:"vmSize"`
 	// A `windows` block that describes the Windows configuration in the pool as defined below.
-	//
-	// > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-	//
-	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	Windows []PoolWindow `pulumi:"windows"`
 }
 
@@ -483,8 +448,10 @@ type PoolArgs struct {
 	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
 	// A `autoScale` block that describes the scale settings when using auto scale as defined below.
+	//
+	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale PoolAutoScalePtrInput
-	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
 	Certificates PoolCertificateArrayInput
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration PoolContainerConfigurationPtrInput
@@ -539,10 +506,6 @@ type PoolArgs struct {
 	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringInput
 	// A `windows` block that describes the Windows configuration in the pool as defined below.
-	//
-	// > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-	//
-	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	Windows PoolWindowArrayInput
 }
 
@@ -639,11 +602,13 @@ func (o PoolOutput) AccountName() pulumi.StringOutput {
 }
 
 // A `autoScale` block that describes the scale settings when using auto scale as defined below.
+//
+// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 func (o PoolOutput) AutoScale() PoolAutoScalePtrOutput {
 	return o.ApplyT(func(v *Pool) PoolAutoScalePtrOutput { return v.AutoScale }).(PoolAutoScalePtrOutput)
 }
 
-// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
+// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
 func (o PoolOutput) Certificates() PoolCertificateArrayOutput {
 	return o.ApplyT(func(v *Pool) PoolCertificateArrayOutput { return v.Certificates }).(PoolCertificateArrayOutput)
 }
@@ -779,10 +744,6 @@ func (o PoolOutput) VmSize() pulumi.StringOutput {
 }
 
 // A `windows` block that describes the Windows configuration in the pool as defined below.
-//
-// > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-//
-// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 func (o PoolOutput) Windows() PoolWindowArrayOutput {
 	return o.ApplyT(func(v *Pool) PoolWindowArrayOutput { return v.Windows }).(PoolWindowArrayOutput)
 }

@@ -128,10 +128,8 @@ class GetPoolResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
     def certificates(self) -> Sequence['outputs.GetPoolCertificateResult']:
-        """
-        One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
-        """
         return pulumi.get(self, "certificates")
 
     @_builtins.property

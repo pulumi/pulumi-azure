@@ -57,6 +57,8 @@ public final class KubernetesClusterNetworkProfile {
      * 
      * &gt; **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = &#34;overlay&#34;` or `podSubnetId` must be specified.
      * 
+     * &gt; **Note:** Upgrading `networkDataPlane` from `azure` to `cilium` is supported and will perform an in-place upgrade by reimaging all nodes in the cluster. Changing from other values will force a new resource to be created. For more information on upgrading to Azure CNI Powered by Cilium see the [product documentation](https://learn.microsoft.com/azure/aks/upgrade-azure-cni).
+     * 
      */
     private @Nullable String networkDataPlane;
     /**
@@ -88,6 +90,8 @@ public final class KubernetesClusterNetworkProfile {
      * &gt; **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
      * 
      * &gt; **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
+     * 
+     * &gt; **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
      * 
      */
     private @Nullable String networkPolicy;
@@ -175,6 +179,8 @@ public final class KubernetesClusterNetworkProfile {
      * 
      * &gt; **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = &#34;overlay&#34;` or `podSubnetId` must be specified.
      * 
+     * &gt; **Note:** Upgrading `networkDataPlane` from `azure` to `cilium` is supported and will perform an in-place upgrade by reimaging all nodes in the cluster. Changing from other values will force a new resource to be created. For more information on upgrading to Azure CNI Powered by Cilium see the [product documentation](https://learn.microsoft.com/azure/aks/upgrade-azure-cni).
+     * 
      */
     public Optional<String> networkDataPlane() {
         return Optional.ofNullable(this.networkDataPlane);
@@ -214,6 +220,8 @@ public final class KubernetesClusterNetworkProfile {
      * &gt; **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
      * 
      * &gt; **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
+     * 
+     * &gt; **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
      * 
      */
     public Optional<String> networkPolicy() {

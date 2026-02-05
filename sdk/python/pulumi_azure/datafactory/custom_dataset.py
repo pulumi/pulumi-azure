@@ -37,7 +37,8 @@ class CustomDatasetArgs:
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input['CustomDatasetLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
         :param pulumi.Input[_builtins.str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
+        :param pulumi.Input[_builtins.str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset. Refer to
+               datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Dataset.
@@ -105,7 +106,8 @@ class CustomDatasetArgs:
     @pulumi.getter(name="typePropertiesJson")
     def type_properties_json(self) -> pulumi.Input[_builtins.str]:
         """
-        A JSON object that contains the properties of the Data Factory Dataset.
+        A JSON object that contains the properties of the Data Factory Dataset. Refer to
+        datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         """
         return pulumi.get(self, "type_properties_json")
 
@@ -224,7 +226,8 @@ class _CustomDatasetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
+        :param pulumi.Input[_builtins.str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset. Refer to
+               datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -373,7 +376,8 @@ class _CustomDatasetState:
     @pulumi.getter(name="typePropertiesJson")
     def type_properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A JSON object that contains the properties of the Data Factory Dataset.
+        A JSON object that contains the properties of the Data Factory Dataset. Refer to
+        datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         """
         return pulumi.get(self, "type_properties_json")
 
@@ -515,7 +519,8 @@ class CustomDataset(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
+        :param pulumi.Input[_builtins.str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset. Refer to
+               datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         """
         ...
     @overload
@@ -718,7 +723,8 @@ class CustomDataset(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
+        :param pulumi.Input[_builtins.str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset. Refer to
+               datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -821,7 +827,8 @@ class CustomDataset(pulumi.CustomResource):
     @pulumi.getter(name="typePropertiesJson")
     def type_properties_json(self) -> pulumi.Output[_builtins.str]:
         """
-        A JSON object that contains the properties of the Data Factory Dataset.
+        A JSON object that contains the properties of the Data Factory Dataset. Refer to
+        datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         """
         return pulumi.get(self, "type_properties_json")
 

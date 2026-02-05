@@ -99,6 +99,8 @@ namespace Pulumi.Azure.Kusto
     ///         SasToken = example.Apply(getAccountBlobContainerSASResult =&gt; getAccountBlobContainerSASResult.Sas),
     ///         ContinueOnErrorsEnabled = true,
     ///         ForceAnUpdateWhenValueChanged = "first",
+    ///         ScriptLevel = "Database",
+    ///         PrincipalPermissionsAction = "RemovePermissionOnScriptCompletion",
     ///     });
     /// 
     /// });
@@ -147,6 +149,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+        /// </summary>
+        [Output("principalPermissionsAction")]
+        public Output<string?> PrincipalPermissionsAction { get; private set; } = null!;
+
+        /// <summary>
         /// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sasToken")]
@@ -157,6 +165,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("scriptContent")]
         public Output<string?> ScriptContent { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("scriptLevel")]
+        public Output<string?> ScriptLevel { get; private set; } = null!;
 
         /// <summary>
         /// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
@@ -239,6 +253,12 @@ namespace Pulumi.Azure.Kusto
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+        /// </summary>
+        [Input("principalPermissionsAction")]
+        public Input<string>? PrincipalPermissionsAction { get; set; }
+
         [Input("sasToken")]
         private Input<string>? _sasToken;
 
@@ -270,6 +290,12 @@ namespace Pulumi.Azure.Kusto
                 _scriptContent = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("scriptLevel")]
+        public Input<string>? ScriptLevel { get; set; }
 
         /// <summary>
         /// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
@@ -309,6 +335,12 @@ namespace Pulumi.Azure.Kusto
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+        /// </summary>
+        [Input("principalPermissionsAction")]
+        public Input<string>? PrincipalPermissionsAction { get; set; }
+
         [Input("sasToken")]
         private Input<string>? _sasToken;
 
@@ -340,6 +372,12 @@ namespace Pulumi.Azure.Kusto
                 _scriptContent = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("scriptLevel")]
+        public Input<string>? ScriptLevel { get; set; }
 
         /// <summary>
         /// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.

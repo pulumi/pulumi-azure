@@ -19,10 +19,14 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly int? Capacity;
         /// <summary>
         /// The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
+        /// 
+        /// &gt; **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `Name` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+        /// 
+        /// &gt; **Note:** `Standard` and `WAF` values are deprecated. `Tier` can no longer be created with or updated to these values. Refer to &lt;https://aka.ms/V1retirement&gt;.
         /// </summary>
         public readonly string Tier;
 

@@ -4942,13 +4942,13 @@ type GetStandardSiteConfig struct {
 	// A `cors` block as defined below.
 	Cors GetStandardSiteConfigCors `pulumi:"cors"`
 	// The version of the .NET framework's CLR used in this Logic App.
-	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
+	DotnetFrameworkVersion string `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
 	ElasticInstanceMinimum int `pulumi:"elasticInstanceMinimum"`
 	// The state of FTP / FTPS service for this Logic App.
 	FtpsState string `pulumi:"ftpsState"`
 	// Path which will be checked for this Logic App health.
-	HealthCheckPath *string `pulumi:"healthCheckPath"`
+	HealthCheckPath string `pulumi:"healthCheckPath"`
 	// Specifies whether the HTTP2 protocol should be enabled.
 	Http2Enabled bool `pulumi:"http2Enabled"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
@@ -4962,7 +4962,7 @@ type GetStandardSiteConfig struct {
 	// Deprecated: the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
-	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
+	RuntimeScaleMonitoringEnabled bool `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	ScmIpRestrictions []GetStandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The minimum version of TLS required for SSL requests to the SCM site.
@@ -4970,13 +4970,13 @@ type GetStandardSiteConfig struct {
 	// The type of Source Control used by the Logic App in use by the Windows Function App.
 	ScmType string `pulumi:"scmType"`
 	// Should the Logic App `ipRestriction` configuration be used for the SCM too.
-	ScmUseMainIpRestriction *bool `pulumi:"scmUseMainIpRestriction"`
+	ScmUseMainIpRestriction bool `pulumi:"scmUseMainIpRestriction"`
 	// Should the Logic App run in 32 bit mode, rather than 64 bit mode?
-	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	Use32BitWorkerProcess bool `pulumi:"use32BitWorkerProcess"`
 	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
 	VnetRouteAllEnabled bool `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
-	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
+	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
 }
 
 // GetStandardSiteConfigInput is an input type that accepts GetStandardSiteConfigArgs and GetStandardSiteConfigOutput values.
@@ -5000,13 +5000,13 @@ type GetStandardSiteConfigArgs struct {
 	// A `cors` block as defined below.
 	Cors GetStandardSiteConfigCorsInput `pulumi:"cors"`
 	// The version of the .NET framework's CLR used in this Logic App.
-	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
+	DotnetFrameworkVersion pulumi.StringInput `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
 	ElasticInstanceMinimum pulumi.IntInput `pulumi:"elasticInstanceMinimum"`
 	// The state of FTP / FTPS service for this Logic App.
 	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
 	// Path which will be checked for this Logic App health.
-	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
+	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
 	// Specifies whether the HTTP2 protocol should be enabled.
 	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
@@ -5020,7 +5020,7 @@ type GetStandardSiteConfigArgs struct {
 	// Deprecated: the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled pulumi.BoolInput `pulumi:"publicNetworkAccessEnabled"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
-	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
+	RuntimeScaleMonitoringEnabled pulumi.BoolInput `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	ScmIpRestrictions GetStandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The minimum version of TLS required for SSL requests to the SCM site.
@@ -5028,13 +5028,13 @@ type GetStandardSiteConfigArgs struct {
 	// The type of Source Control used by the Logic App in use by the Windows Function App.
 	ScmType pulumi.StringInput `pulumi:"scmType"`
 	// Should the Logic App `ipRestriction` configuration be used for the SCM too.
-	ScmUseMainIpRestriction pulumi.BoolPtrInput `pulumi:"scmUseMainIpRestriction"`
+	ScmUseMainIpRestriction pulumi.BoolInput `pulumi:"scmUseMainIpRestriction"`
 	// Should the Logic App run in 32 bit mode, rather than 64 bit mode?
-	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	Use32BitWorkerProcess pulumi.BoolInput `pulumi:"use32BitWorkerProcess"`
 	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
 	VnetRouteAllEnabled pulumi.BoolInput `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
-	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
+	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
 }
 
 func (GetStandardSiteConfigArgs) ElementType() reflect.Type {
@@ -5084,8 +5084,8 @@ func (o GetStandardSiteConfigOutput) Cors() GetStandardSiteConfigCorsOutput {
 }
 
 // The version of the .NET framework's CLR used in this Logic App.
-func (o GetStandardSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.DotnetFrameworkVersion }).(pulumi.StringOutput)
 }
 
 // The number of minimum instances for this Logic App Only affects apps on the Premium plan.
@@ -5099,8 +5099,8 @@ func (o GetStandardSiteConfigOutput) FtpsState() pulumi.StringOutput {
 }
 
 // Path which will be checked for this Logic App health.
-func (o GetStandardSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigOutput) HealthCheckPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.HealthCheckPath }).(pulumi.StringOutput)
 }
 
 // Specifies whether the HTTP2 protocol should be enabled.
@@ -5134,8 +5134,8 @@ func (o GetStandardSiteConfigOutput) PublicNetworkAccessEnabled() pulumi.BoolOut
 }
 
 // Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
-func (o GetStandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
+func (o GetStandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolOutput)
 }
 
 // A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
@@ -5154,13 +5154,13 @@ func (o GetStandardSiteConfigOutput) ScmType() pulumi.StringOutput {
 }
 
 // Should the Logic App `ipRestriction` configuration be used for the SCM too.
-func (o GetStandardSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolPtrOutput)
+func (o GetStandardSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolOutput)
 }
 
 // Should the Logic App run in 32 bit mode, rather than 64 bit mode?
-func (o GetStandardSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+func (o GetStandardSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) bool { return v.Use32BitWorkerProcess }).(pulumi.BoolOutput)
 }
 
 // Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
@@ -5169,8 +5169,8 @@ func (o GetStandardSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolOutput {
 }
 
 // Should WebSockets be enabled?
-func (o GetStandardSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
+func (o GetStandardSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) bool { return v.WebsocketsEnabled }).(pulumi.BoolOutput)
 }
 
 type GetStandardSiteConfigCors struct {
@@ -5236,7 +5236,7 @@ func (o GetStandardSiteConfigCorsOutput) SupportCredentials() pulumi.BoolOutput 
 
 type GetStandardSiteConfigIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range.
-	Action *string `pulumi:"action"`
+	Action string `pulumi:"action"`
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers GetStandardSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
@@ -5244,7 +5244,7 @@ type GetStandardSiteConfigIpRestriction struct {
 	// The name of the Logic App.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
-	Priority *int `pulumi:"priority"`
+	Priority int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -5264,7 +5264,7 @@ type GetStandardSiteConfigIpRestrictionInput interface {
 
 type GetStandardSiteConfigIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range.
-	Action pulumi.StringPtrInput `pulumi:"action"`
+	Action pulumi.StringInput `pulumi:"action"`
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers GetStandardSiteConfigIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
@@ -5272,7 +5272,7 @@ type GetStandardSiteConfigIpRestrictionArgs struct {
 	// The name of the Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	Priority pulumi.IntInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -5331,8 +5331,8 @@ func (o GetStandardSiteConfigIpRestrictionOutput) ToGetStandardSiteConfigIpRestr
 }
 
 // Does this restriction `Allow` or `Deny` access for this IP range.
-func (o GetStandardSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The `headers` block for this specific `ipRestriction` as defined below.
@@ -5351,8 +5351,8 @@ func (o GetStandardSiteConfigIpRestrictionOutput) Name() pulumi.StringOutput {
 }
 
 // The priority for this IP Restriction. Restrictions are enforced in priority order.
-func (o GetStandardSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o GetStandardSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 // The Service Tag used for this IP Restriction.
@@ -5389,7 +5389,7 @@ type GetStandardSiteConfigIpRestrictionHeaders struct {
 	// A list of allowed Azure FrontDoor IDs in UUID notation.
 	XAzureFdids []string `pulumi:"xAzureFdids"`
 	// A list to allow the Azure FrontDoor health probe header.
-	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	XFdHealthProbe string `pulumi:"xFdHealthProbe"`
 	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
 	XForwardedFors []string `pulumi:"xForwardedFors"`
 	// A list of allowed 'X-Forwarded-Host' domains.
@@ -5411,7 +5411,7 @@ type GetStandardSiteConfigIpRestrictionHeadersArgs struct {
 	// A list of allowed Azure FrontDoor IDs in UUID notation.
 	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
 	// A list to allow the Azure FrontDoor health probe header.
-	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	XFdHealthProbe pulumi.StringInput `pulumi:"xFdHealthProbe"`
 	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
 	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
 	// A list of allowed 'X-Forwarded-Host' domains.
@@ -5450,8 +5450,8 @@ func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.St
 }
 
 // A list to allow the Azure FrontDoor health probe header.
-func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestrictionHeaders) string { return v.XFdHealthProbe }).(pulumi.StringOutput)
 }
 
 // A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
@@ -5466,7 +5466,7 @@ func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulum
 
 type GetStandardSiteConfigScmIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range.
-	Action *string `pulumi:"action"`
+	Action string `pulumi:"action"`
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers GetStandardSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
@@ -5474,7 +5474,7 @@ type GetStandardSiteConfigScmIpRestriction struct {
 	// The name of the Logic App.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
-	Priority *int `pulumi:"priority"`
+	Priority int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -5494,7 +5494,7 @@ type GetStandardSiteConfigScmIpRestrictionInput interface {
 
 type GetStandardSiteConfigScmIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range.
-	Action pulumi.StringPtrInput `pulumi:"action"`
+	Action pulumi.StringInput `pulumi:"action"`
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers GetStandardSiteConfigScmIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
@@ -5502,7 +5502,7 @@ type GetStandardSiteConfigScmIpRestrictionArgs struct {
 	// The name of the Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	Priority pulumi.IntInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -5561,8 +5561,8 @@ func (o GetStandardSiteConfigScmIpRestrictionOutput) ToGetStandardSiteConfigScmI
 }
 
 // Does this restriction `Allow` or `Deny` access for this IP range.
-func (o GetStandardSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The `headers` block for this specific `ipRestriction` as defined below.
@@ -5583,8 +5583,8 @@ func (o GetStandardSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutput 
 }
 
 // The priority for this IP Restriction. Restrictions are enforced in priority order.
-func (o GetStandardSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o GetStandardSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 // The Service Tag used for this IP Restriction.
@@ -5621,7 +5621,7 @@ type GetStandardSiteConfigScmIpRestrictionHeaders struct {
 	// A list of allowed Azure FrontDoor IDs in UUID notation.
 	XAzureFdids []string `pulumi:"xAzureFdids"`
 	// A list to allow the Azure FrontDoor health probe header.
-	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	XFdHealthProbe string `pulumi:"xFdHealthProbe"`
 	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
 	XForwardedFors []string `pulumi:"xForwardedFors"`
 	// A list of allowed 'X-Forwarded-Host' domains.
@@ -5643,7 +5643,7 @@ type GetStandardSiteConfigScmIpRestrictionHeadersArgs struct {
 	// A list of allowed Azure FrontDoor IDs in UUID notation.
 	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
 	// A list to allow the Azure FrontDoor health probe header.
-	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	XFdHealthProbe pulumi.StringInput `pulumi:"xFdHealthProbe"`
 	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
 	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
 	// A list of allowed 'X-Forwarded-Host' domains.
@@ -5682,8 +5682,8 @@ func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi
 }
 
 // A list to allow the Azure FrontDoor health probe header.
-func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestrictionHeaders) string { return v.XFdHealthProbe }).(pulumi.StringOutput)
 }
 
 // A list of allowed 'X-Forwarded-For' IPs in CIDR notation.

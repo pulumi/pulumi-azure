@@ -125,7 +125,8 @@ export class LinkedCustomService extends pulumi.CustomResource {
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * A JSON object that contains the properties of the Data Factory Linked Service.
+     * A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
      */
     declare public readonly typePropertiesJson: pulumi.Output<string>;
 
@@ -214,7 +215,8 @@ export interface LinkedCustomServiceState {
      */
     type?: pulumi.Input<string>;
     /**
-     * A JSON object that contains the properties of the Data Factory Linked Service.
+     * A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
      */
     typePropertiesJson?: pulumi.Input<string>;
 }
@@ -256,7 +258,8 @@ export interface LinkedCustomServiceArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * A JSON object that contains the properties of the Data Factory Linked Service.
+     * A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
      */
     typePropertiesJson: pulumi.Input<string>;
 }

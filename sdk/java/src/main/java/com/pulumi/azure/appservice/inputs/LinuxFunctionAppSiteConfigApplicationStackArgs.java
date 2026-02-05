@@ -68,14 +68,14 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
     }
 
     /**
-     * The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+     * The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
      * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+     * @return The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -251,7 +251,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param nodeVersion The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+         * @param nodeVersion The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param nodeVersion The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+         * @param nodeVersion The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
          * 
          * @return builder
          * 

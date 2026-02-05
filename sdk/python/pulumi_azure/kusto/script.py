@@ -23,8 +23,10 @@ class ScriptArgs:
                  continue_on_errors_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
                  sas_token: Optional[pulumi.Input[_builtins.str]] = None,
                  script_content: Optional[pulumi.Input[_builtins.str]] = None,
+                 script_level: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Script resource.
@@ -32,8 +34,10 @@ class ScriptArgs:
         :param pulumi.Input[_builtins.bool] continue_on_errors_enabled: Flag that indicates whether to continue if one of the command fails.
         :param pulumi.Input[_builtins.str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
+        :param pulumi.Input[_builtins.str] principal_permissions_action: Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
         :param pulumi.Input[_builtins.str] sas_token: The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] script_level: The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] url: The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         pulumi.set(__self__, "database_id", database_id)
@@ -43,10 +47,14 @@ class ScriptArgs:
             pulumi.set(__self__, "force_an_update_when_value_changed", force_an_update_when_value_changed)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if principal_permissions_action is not None:
+            pulumi.set(__self__, "principal_permissions_action", principal_permissions_action)
         if sas_token is not None:
             pulumi.set(__self__, "sas_token", sas_token)
         if script_content is not None:
             pulumi.set(__self__, "script_content", script_content)
+        if script_level is not None:
+            pulumi.set(__self__, "script_level", script_level)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -99,6 +107,18 @@ class ScriptArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="principalPermissionsAction")
+    def principal_permissions_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+        """
+        return pulumi.get(self, "principal_permissions_action")
+
+    @principal_permissions_action.setter
+    def principal_permissions_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "principal_permissions_action", value)
+
+    @_builtins.property
     @pulumi.getter(name="sasToken")
     def sas_token(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -123,6 +143,18 @@ class ScriptArgs:
         pulumi.set(self, "script_content", value)
 
     @_builtins.property
+    @pulumi.getter(name="scriptLevel")
+    def script_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "script_level")
+
+    @script_level.setter
+    def script_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "script_level", value)
+
+    @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -142,8 +174,10 @@ class _ScriptState:
                  database_id: Optional[pulumi.Input[_builtins.str]] = None,
                  force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
                  sas_token: Optional[pulumi.Input[_builtins.str]] = None,
                  script_content: Optional[pulumi.Input[_builtins.str]] = None,
+                 script_level: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Script resources.
@@ -151,8 +185,10 @@ class _ScriptState:
         :param pulumi.Input[_builtins.str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[_builtins.str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
+        :param pulumi.Input[_builtins.str] principal_permissions_action: Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
         :param pulumi.Input[_builtins.str] sas_token: The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] script_level: The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] url: The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         if continue_on_errors_enabled is not None:
@@ -163,10 +199,14 @@ class _ScriptState:
             pulumi.set(__self__, "force_an_update_when_value_changed", force_an_update_when_value_changed)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if principal_permissions_action is not None:
+            pulumi.set(__self__, "principal_permissions_action", principal_permissions_action)
         if sas_token is not None:
             pulumi.set(__self__, "sas_token", sas_token)
         if script_content is not None:
             pulumi.set(__self__, "script_content", script_content)
+        if script_level is not None:
+            pulumi.set(__self__, "script_level", script_level)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -219,6 +259,18 @@ class _ScriptState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="principalPermissionsAction")
+    def principal_permissions_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+        """
+        return pulumi.get(self, "principal_permissions_action")
+
+    @principal_permissions_action.setter
+    def principal_permissions_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "principal_permissions_action", value)
+
+    @_builtins.property
     @pulumi.getter(name="sasToken")
     def sas_token(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -243,6 +295,18 @@ class _ScriptState:
         pulumi.set(self, "script_content", value)
 
     @_builtins.property
+    @pulumi.getter(name="scriptLevel")
+    def script_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "script_level")
+
+    @script_level.setter
+    def script_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "script_level", value)
+
+    @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -265,8 +329,10 @@ class Script(pulumi.CustomResource):
                  database_id: Optional[pulumi.Input[_builtins.str]] = None,
                  force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
                  sas_token: Optional[pulumi.Input[_builtins.str]] = None,
                  script_content: Optional[pulumi.Input[_builtins.str]] = None,
+                 script_level: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -329,7 +395,9 @@ class Script(pulumi.CustomResource):
             url=example_blob.id,
             sas_token=example.sas,
             continue_on_errors_enabled=True,
-            force_an_update_when_value_changed="first")
+            force_an_update_when_value_changed="first",
+            script_level="Database",
+            principal_permissions_action="RemovePermissionOnScriptCompletion")
         ```
 
         ## API Providers
@@ -353,8 +421,10 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[_builtins.str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
+        :param pulumi.Input[_builtins.str] principal_permissions_action: Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
         :param pulumi.Input[_builtins.str] sas_token: The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] script_level: The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] url: The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         ...
@@ -423,7 +493,9 @@ class Script(pulumi.CustomResource):
             url=example_blob.id,
             sas_token=example.sas,
             continue_on_errors_enabled=True,
-            force_an_update_when_value_changed="first")
+            force_an_update_when_value_changed="first",
+            script_level="Database",
+            principal_permissions_action="RemovePermissionOnScriptCompletion")
         ```
 
         ## API Providers
@@ -460,8 +532,10 @@ class Script(pulumi.CustomResource):
                  database_id: Optional[pulumi.Input[_builtins.str]] = None,
                  force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
                  sas_token: Optional[pulumi.Input[_builtins.str]] = None,
                  script_content: Optional[pulumi.Input[_builtins.str]] = None,
+                 script_level: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -478,8 +552,10 @@ class Script(pulumi.CustomResource):
             __props__.__dict__["database_id"] = database_id
             __props__.__dict__["force_an_update_when_value_changed"] = force_an_update_when_value_changed
             __props__.__dict__["name"] = name
+            __props__.__dict__["principal_permissions_action"] = principal_permissions_action
             __props__.__dict__["sas_token"] = None if sas_token is None else pulumi.Output.secret(sas_token)
             __props__.__dict__["script_content"] = None if script_content is None else pulumi.Output.secret(script_content)
+            __props__.__dict__["script_level"] = script_level
             __props__.__dict__["url"] = url
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sasToken", "scriptContent"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -497,8 +573,10 @@ class Script(pulumi.CustomResource):
             database_id: Optional[pulumi.Input[_builtins.str]] = None,
             force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
             sas_token: Optional[pulumi.Input[_builtins.str]] = None,
             script_content: Optional[pulumi.Input[_builtins.str]] = None,
+            script_level: Optional[pulumi.Input[_builtins.str]] = None,
             url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Script':
         """
         Get an existing Script resource's state with the given name, id, and optional extra
@@ -511,8 +589,10 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[_builtins.str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
+        :param pulumi.Input[_builtins.str] principal_permissions_action: Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
         :param pulumi.Input[_builtins.str] sas_token: The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] script_level: The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] url: The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -523,8 +603,10 @@ class Script(pulumi.CustomResource):
         __props__.__dict__["database_id"] = database_id
         __props__.__dict__["force_an_update_when_value_changed"] = force_an_update_when_value_changed
         __props__.__dict__["name"] = name
+        __props__.__dict__["principal_permissions_action"] = principal_permissions_action
         __props__.__dict__["sas_token"] = sas_token
         __props__.__dict__["script_content"] = script_content
+        __props__.__dict__["script_level"] = script_level
         __props__.__dict__["url"] = url
         return Script(resource_name, opts=opts, __props__=__props__)
 
@@ -561,6 +643,14 @@ class Script(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="principalPermissionsAction")
+    def principal_permissions_action(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+        """
+        return pulumi.get(self, "principal_permissions_action")
+
+    @_builtins.property
     @pulumi.getter(name="sasToken")
     def sas_token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -575,6 +665,14 @@ class Script(pulumi.CustomResource):
         The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_content")
+
+    @_builtins.property
+    @pulumi.getter(name="scriptLevel")
+    def script_level(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "script_level")
 
     @_builtins.property
     @pulumi.getter

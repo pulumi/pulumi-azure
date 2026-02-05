@@ -171,14 +171,14 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="serviceLevel", required=true)
     private Output<String> serviceLevel;
 
     /**
-     * @return Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Output<String> serviceLevel() {
@@ -548,7 +548,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serviceLevel Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param serviceLevel Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serviceLevel Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param serviceLevel Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 

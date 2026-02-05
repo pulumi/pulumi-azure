@@ -79,7 +79,9 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> CoordinatorPublicIpAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        /// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        /// 
+        /// &gt; **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `CoordinatorVcoreCount` is `2`. Setting `CoordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         /// </summary>
         [Output("coordinatorServerEdition")]
         public Output<string?> CoordinatorServerEdition { get; private set; } = null!;
@@ -291,7 +293,9 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? CoordinatorPublicIpAccessEnabled { get; set; }
 
         /// <summary>
-        /// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        /// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        /// 
+        /// &gt; **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `CoordinatorVcoreCount` is `2`. Setting `CoordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         /// </summary>
         [Input("coordinatorServerEdition")]
         public Input<string>? CoordinatorServerEdition { get; set; }
@@ -455,7 +459,9 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? CoordinatorPublicIpAccessEnabled { get; set; }
 
         /// <summary>
-        /// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        /// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        /// 
+        /// &gt; **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `CoordinatorVcoreCount` is `2`. Setting `CoordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         /// </summary>
         [Input("coordinatorServerEdition")]
         public Input<string>? CoordinatorServerEdition { get; set; }
