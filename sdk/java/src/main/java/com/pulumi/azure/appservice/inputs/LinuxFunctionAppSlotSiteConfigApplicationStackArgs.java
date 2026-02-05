@@ -64,14 +64,14 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
     }
 
     /**
-     * The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+     * The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
      * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -243,7 +243,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
          * 
          * @return builder
          * 

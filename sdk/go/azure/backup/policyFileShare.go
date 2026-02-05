@@ -112,6 +112,10 @@ type PolicyFileShare struct {
 
 	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup PolicyFileShareBackupOutput `pulumi:"backup"`
+	// The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+	//
+	// > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+	BackupTier pulumi.StringPtrOutput `pulumi:"backupTier"`
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -126,6 +130,8 @@ type PolicyFileShare struct {
 	RetentionWeekly PolicyFileShareRetentionWeeklyPtrOutput `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly PolicyFileShareRetentionYearlyPtrOutput `pulumi:"retentionYearly"`
+	// The number of days to retain the snapshots. Defaults to `0`.
+	SnapshotRetentionInDays pulumi.IntPtrOutput `pulumi:"snapshotRetentionInDays"`
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	//
 	// > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -176,6 +182,10 @@ func GetPolicyFileShare(ctx *pulumi.Context,
 type policyFileShareState struct {
 	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup *PolicyFileShareBackup `pulumi:"backup"`
+	// The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+	//
+	// > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+	BackupTier *string `pulumi:"backupTier"`
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -190,6 +200,8 @@ type policyFileShareState struct {
 	RetentionWeekly *PolicyFileShareRetentionWeekly `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly *PolicyFileShareRetentionYearly `pulumi:"retentionYearly"`
+	// The number of days to retain the snapshots. Defaults to `0`.
+	SnapshotRetentionInDays *int `pulumi:"snapshotRetentionInDays"`
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	//
 	// > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -199,6 +211,10 @@ type policyFileShareState struct {
 type PolicyFileShareState struct {
 	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup PolicyFileShareBackupPtrInput
+	// The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+	//
+	// > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+	BackupTier pulumi.StringPtrInput
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -213,6 +229,8 @@ type PolicyFileShareState struct {
 	RetentionWeekly PolicyFileShareRetentionWeeklyPtrInput
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly PolicyFileShareRetentionYearlyPtrInput
+	// The number of days to retain the snapshots. Defaults to `0`.
+	SnapshotRetentionInDays pulumi.IntPtrInput
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	//
 	// > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -226,6 +244,10 @@ func (PolicyFileShareState) ElementType() reflect.Type {
 type policyFileShareArgs struct {
 	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup PolicyFileShareBackup `pulumi:"backup"`
+	// The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+	//
+	// > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+	BackupTier *string `pulumi:"backupTier"`
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -240,6 +262,8 @@ type policyFileShareArgs struct {
 	RetentionWeekly *PolicyFileShareRetentionWeekly `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly *PolicyFileShareRetentionYearly `pulumi:"retentionYearly"`
+	// The number of days to retain the snapshots. Defaults to `0`.
+	SnapshotRetentionInDays *int `pulumi:"snapshotRetentionInDays"`
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	//
 	// > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -250,6 +274,10 @@ type policyFileShareArgs struct {
 type PolicyFileShareArgs struct {
 	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup PolicyFileShareBackupInput
+	// The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+	//
+	// > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+	BackupTier pulumi.StringPtrInput
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -264,6 +292,8 @@ type PolicyFileShareArgs struct {
 	RetentionWeekly PolicyFileShareRetentionWeeklyPtrInput
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly PolicyFileShareRetentionYearlyPtrInput
+	// The number of days to retain the snapshots. Defaults to `0`.
+	SnapshotRetentionInDays pulumi.IntPtrInput
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	//
 	// > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -362,6 +392,13 @@ func (o PolicyFileShareOutput) Backup() PolicyFileShareBackupOutput {
 	return o.ApplyT(func(v *PolicyFileShare) PolicyFileShareBackupOutput { return v.Backup }).(PolicyFileShareBackupOutput)
 }
 
+// The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+//
+// > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+func (o PolicyFileShareOutput) BackupTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyFileShare) pulumi.StringPtrOutput { return v.BackupTier }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the name of the policy. Changing this forces a new resource to be created.
 func (o PolicyFileShareOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyFileShare) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -395,6 +432,11 @@ func (o PolicyFileShareOutput) RetentionWeekly() PolicyFileShareRetentionWeeklyP
 // Configures the policy yearly retention as documented in the `retentionYearly` block below.
 func (o PolicyFileShareOutput) RetentionYearly() PolicyFileShareRetentionYearlyPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShare) PolicyFileShareRetentionYearlyPtrOutput { return v.RetentionYearly }).(PolicyFileShareRetentionYearlyPtrOutput)
+}
+
+// The number of days to retain the snapshots. Defaults to `0`.
+func (o PolicyFileShareOutput) SnapshotRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyFileShare) pulumi.IntPtrOutput { return v.SnapshotRetentionInDays }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`

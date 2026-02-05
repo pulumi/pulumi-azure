@@ -242,14 +242,14 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The number of workers this function app can scale out to.
+     * The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
      * 
      */
     @Import(name="maximumInstanceCount")
     private @Nullable Output<Integer> maximumInstanceCount;
 
     /**
-     * @return The number of workers this function app can scale out to.
+     * @return The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
      * 
      */
     public Optional<Output<Integer>> maximumInstanceCount() {
@@ -893,7 +893,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param maximumInstanceCount The number of workers this function app can scale out to.
+         * @param maximumInstanceCount The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
          * 
          * @return builder
          * 
@@ -904,7 +904,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param maximumInstanceCount The number of workers this function app can scale out to.
+         * @param maximumInstanceCount The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
          * 
          * @return builder
          * 

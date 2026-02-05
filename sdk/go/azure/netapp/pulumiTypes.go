@@ -2274,7 +2274,7 @@ type VolumeGroupOracleVolume struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle string `pulumi:"securityStyle"`
-	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SnapshotDirectoryVisible bool `pulumi:"snapshotDirectoryVisible"`
@@ -2335,7 +2335,7 @@ type VolumeGroupOracleVolumeArgs struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
-	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SnapshotDirectoryVisible pulumi.BoolInput `pulumi:"snapshotDirectoryVisible"`
@@ -2478,7 +2478,7 @@ func (o VolumeGroupOracleVolumeOutput) SecurityStyle() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.SecurityStyle }).(pulumi.StringOutput)
 }
 
-// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupOracleVolumeOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.ServiceLevel }).(pulumi.StringOutput)
 }
@@ -3047,7 +3047,7 @@ type VolumeGroupSapHanaVolume struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle string `pulumi:"securityStyle"`
-	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SnapshotDirectoryVisible bool `pulumi:"snapshotDirectoryVisible"`
@@ -3098,7 +3098,7 @@ type VolumeGroupSapHanaVolumeArgs struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
-	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SnapshotDirectoryVisible pulumi.BoolInput `pulumi:"snapshotDirectoryVisible"`
@@ -3224,7 +3224,7 @@ func (o VolumeGroupSapHanaVolumeOutput) SecurityStyle() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.SecurityStyle }).(pulumi.StringOutput)
 }
 
-// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.ServiceLevel }).(pulumi.StringOutput)
 }

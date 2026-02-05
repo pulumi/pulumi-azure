@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a certificate in an Azure Batch account.
  *
+ * > **Note:** The `azure.batch.Certificate` resource has been deprecated due to Azure retiring the Azure Batch Account Certificates Feature, and will be removed in v5.0 of the AzureRM provider.
+ *
  * ## Example Usage
  *
  * ```typescript

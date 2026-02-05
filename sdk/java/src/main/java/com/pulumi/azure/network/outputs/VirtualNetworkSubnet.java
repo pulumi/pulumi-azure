@@ -61,6 +61,8 @@ public final class VirtualNetworkSubnet {
     /**
      * @return The ID of the Route Table that should be associated with this subnet.
      * 
+     * &gt; **Note:** If you declare the subnet inline inside `azure.network.VirtualNetwork`, set `routeTableId` in that `subnet` block — do not also create an `azure.network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `azure.network.Subnet` resource.
+     * 
      */
     private @Nullable String routeTableId;
     /**
@@ -139,6 +141,8 @@ public final class VirtualNetworkSubnet {
     }
     /**
      * @return The ID of the Route Table that should be associated with this subnet.
+     * 
+     * &gt; **Note:** If you declare the subnet inline inside `azure.network.VirtualNetwork`, set `routeTableId` in that `subnet` block — do not also create an `azure.network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `azure.network.Subnet` resource.
      * 
      */
     public Optional<String> routeTableId() {

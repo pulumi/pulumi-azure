@@ -12591,7 +12591,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
         :param _builtins.str java_version: The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
                
                > **Note:** The value `21` is currently in Preview for `java_version`.
-        :param _builtins.str node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+        :param _builtins.str node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
         :param _builtins.str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
         :param _builtins.str python_version: The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param _builtins.bool use_custom_runtime: Should the Linux Function App use a custom runtime?
@@ -12644,7 +12644,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[_builtins.str]:
         """
-        The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+        The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
         """
         return pulumi.get(self, "node_version")
 
@@ -16267,7 +16267,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
         :param Sequence['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs'] dockers: a `docker` block as detailed below.
         :param _builtins.str dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
         :param _builtins.str java_version: The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
-        :param _builtins.str node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+        :param _builtins.str node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
         :param _builtins.str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
         :param _builtins.str python_version: The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param _builtins.bool use_custom_runtime: Should the Linux Function App use a custom runtime?
@@ -16318,7 +16318,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[_builtins.str]:
         """
-        The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+        The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
         """
         return pulumi.get(self, "node_version")
 
@@ -20403,7 +20403,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
                > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
                
                > **Note:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
-        :param _builtins.str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
+        :param _builtins.str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
@@ -20523,7 +20523,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[_builtins.str]:
         """
-        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
 
         > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -24683,7 +24683,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param _builtins.str java_version: The Version of Java to use. Possible values are `8`, `11`, `17` and `21`.
                
                > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
-        :param _builtins.str node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
+        :param _builtins.str node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
@@ -24801,7 +24801,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[_builtins.str]:
         """
-        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
 
         > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -31565,7 +31565,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
         """
         :param _builtins.str dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
         :param _builtins.str java_version: The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
-        :param _builtins.str node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
+        :param _builtins.str node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20`, `~22` and `~24`.
         :param _builtins.str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
                
                > **Note:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
@@ -31605,7 +31605,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[_builtins.str]:
         """
-        The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
+        The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20`, `~22` and `~24`.
         """
         return pulumi.get(self, "node_version")
 
@@ -35092,7 +35092,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
         """
         :param _builtins.str dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
         :param _builtins.str java_version: The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
-        :param _builtins.str node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, and `~22`.
+        :param _builtins.str node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
         :param _builtins.str powershell_core_version: The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
         :param _builtins.bool use_custom_runtime: Does the Function App use a custom Application Stack?
         :param _builtins.bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
@@ -35130,7 +35130,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[_builtins.str]:
         """
-        The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, and `~22`.
+        The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
         """
         return pulumi.get(self, "node_version")
 

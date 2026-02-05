@@ -13,14 +13,11 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountCustomerManagedKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `KeyVaultKeyId` and `ManagedHsmKeyId` may be specified.
+        /// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
 
-        /// <summary>
-        /// The ID of the managed HSM Key. Exactly one of `KeyVaultKeyId` and `ManagedHsmKeyId` may be specified.
-        /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
 

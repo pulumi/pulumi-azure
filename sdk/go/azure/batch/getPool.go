@@ -73,7 +73,7 @@ type LookupPoolResult struct {
 	AccountName string `pulumi:"accountName"`
 	// A `autoScale` block that describes the scale settings when using auto scale.
 	AutoScales []GetPoolAutoScale `pulumi:"autoScales"`
-	// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
 	Certificates []GetPoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
 	ContainerConfigurations []GetPoolContainerConfiguration `pulumi:"containerConfigurations"`
@@ -169,7 +169,7 @@ func (o LookupPoolResultOutput) AutoScales() GetPoolAutoScaleArrayOutput {
 	return o.ApplyT(func(v LookupPoolResult) []GetPoolAutoScale { return v.AutoScales }).(GetPoolAutoScaleArrayOutput)
 }
 
-// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
 func (o LookupPoolResultOutput) Certificates() GetPoolCertificateArrayOutput {
 	return o.ApplyT(func(v LookupPoolResult) []GetPoolCertificate { return v.Certificates }).(GetPoolCertificateArrayOutput)
 }

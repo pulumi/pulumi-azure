@@ -14,56 +14,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolCertificate {
     /**
-     * @return The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+     * @return The ID of the Batch Pool.
      * 
      */
     private String id;
-    /**
-     * @return The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-     * 
-     * &gt; **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a &#39;certs&#39; directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     * 
-     */
     private String storeLocation;
-    /**
-     * @return The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-     * 
-     */
     private @Nullable String storeName;
-    /**
-     * @return Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-     * 
-     */
     private @Nullable List<String> visibilities;
 
     private PoolCertificate() {}
     /**
-     * @return The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+     * @return The ID of the Batch Pool.
      * 
      */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-     * 
-     * &gt; **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a &#39;certs&#39; directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-     * 
-     */
     public String storeLocation() {
         return this.storeLocation;
     }
-    /**
-     * @return The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-     * 
-     */
     public Optional<String> storeName() {
         return Optional.ofNullable(this.storeName);
     }
-    /**
-     * @return Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-     * 
-     */
     public List<String> visibilities() {
         return this.visibilities == null ? List.of() : this.visibilities;
     }

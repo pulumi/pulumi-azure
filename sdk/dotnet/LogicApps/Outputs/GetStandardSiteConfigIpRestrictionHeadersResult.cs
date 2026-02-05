@@ -20,7 +20,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// A list to allow the Azure FrontDoor health probe header.
         /// </summary>
-        public readonly string? XFdHealthProbe;
+        public readonly string XFdHealthProbe;
         /// <summary>
         /// A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         private GetStandardSiteConfigIpRestrictionHeadersResult(
             ImmutableArray<string> xAzureFdids,
 
-            string? xFdHealthProbe,
+            string xFdHealthProbe,
 
             ImmutableArray<string> xForwardedFors,
 

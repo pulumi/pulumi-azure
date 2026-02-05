@@ -176,9 +176,6 @@ namespace Pulumi.Azure.Batch
         /// A `AutoScale` block that describes the scale settings when using auto scale.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolAutoScaleResult> AutoScales;
-        /// <summary>
-        /// One or more `Certificate` blocks that describe the certificates installed on each compute node in the pool.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolCertificateResult> Certificates;
         /// <summary>
         /// The container configuration used in the pool's VMs.

@@ -51,7 +51,9 @@ class PostgresqlClusterArgs:
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[_builtins.str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[_builtins.bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
-        :param pulumi.Input[_builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        :param pulumi.Input[_builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+               
+               > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinator_vcore_count` is `2`. Setting `coordinator_vcore_count = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         :param pulumi.Input[_builtins.int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
                
                > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
@@ -181,7 +183,9 @@ class PostgresqlClusterArgs:
     @pulumi.getter(name="coordinatorServerEdition")
     def coordinator_server_edition(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+
+        > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinator_vcore_count` is `2`. Setting `coordinator_vcore_count = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         """
         return pulumi.get(self, "coordinator_server_edition")
 
@@ -429,7 +433,9 @@ class _PostgresqlClusterState:
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[_builtins.str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[_builtins.bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
-        :param pulumi.Input[_builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        :param pulumi.Input[_builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+               
+               > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinator_vcore_count` is `2`. Setting `coordinator_vcore_count = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         :param pulumi.Input[_builtins.int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
                
                > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
@@ -545,7 +551,9 @@ class _PostgresqlClusterState:
     @pulumi.getter(name="coordinatorServerEdition")
     def coordinator_server_edition(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+
+        > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinator_vcore_count` is `2`. Setting `coordinator_vcore_count = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         """
         return pulumi.get(self, "coordinator_server_edition")
 
@@ -880,7 +888,9 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[_builtins.str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[_builtins.bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
-        :param pulumi.Input[_builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        :param pulumi.Input[_builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+               
+               > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinator_vcore_count` is `2`. Setting `coordinator_vcore_count = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         :param pulumi.Input[_builtins.int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
                
                > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
@@ -1069,7 +1079,9 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[_builtins.str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[_builtins.bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
-        :param pulumi.Input[_builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        :param pulumi.Input[_builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+               
+               > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinator_vcore_count` is `2`. Setting `coordinator_vcore_count = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         :param pulumi.Input[_builtins.int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
                
                > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
@@ -1153,7 +1165,9 @@ class PostgresqlCluster(pulumi.CustomResource):
     @pulumi.getter(name="coordinatorServerEdition")
     def coordinator_server_edition(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+
+        > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinator_vcore_count` is `2`. Setting `coordinator_vcore_count = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
         """
         return pulumi.get(self, "coordinator_server_edition")
 

@@ -30,7 +30,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
      * 
      */
     private @Nullable String nodeVersion;
@@ -78,7 +78,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
      * 
      */
     public Optional<String> nodeVersion() {

@@ -135,7 +135,8 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// A JSON object that contains the properties of the Data Factory Linked Service.
+        /// A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+        /// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
         /// </summary>
         [Output("typePropertiesJson")]
         public Output<string> TypePropertiesJson { get; private set; } = null!;
@@ -253,7 +254,8 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// A JSON object that contains the properties of the Data Factory Linked Service.
+        /// A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+        /// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
         /// </summary>
         [Input("typePropertiesJson", required: true)]
         public Input<string> TypePropertiesJson { get; set; } = null!;
@@ -333,7 +335,8 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// A JSON object that contains the properties of the Data Factory Linked Service.
+        /// A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+        /// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
         /// </summary>
         [Input("typePropertiesJson")]
         public Input<string>? TypePropertiesJson { get; set; }

@@ -85,7 +85,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
      */
     declare public readonly coreCount: pulumi.Output<number | undefined>;
     /**
-     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
     declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export interface IntegrationRuntimeRuleState {
      */
     coreCount?: pulumi.Input<number>;
     /**
-     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
@@ -210,7 +210,7 @@ export interface IntegrationRuntimeRuleArgs {
      */
     coreCount?: pulumi.Input<number>;
     /**
-     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
     dataFactoryId: pulumi.Input<string>;
     /**

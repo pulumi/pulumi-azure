@@ -121,6 +121,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent{}
 	case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
 		r = &NetworkSecurityGroup{}
+	case "azure:network/networkSecurityPerimeter:NetworkSecurityPerimeter":
+		r = &NetworkSecurityPerimeter{}
+	case "azure:network/networkSecurityPerimeterAccessRule:NetworkSecurityPerimeterAccessRule":
+		r = &NetworkSecurityPerimeterAccessRule{}
+	case "azure:network/networkSecurityPerimeterAssociation:NetworkSecurityPerimeterAssociation":
+		r = &NetworkSecurityPerimeterAssociation{}
+	case "azure:network/networkSecurityPerimeterProfile:NetworkSecurityPerimeterProfile":
+		r = &NetworkSecurityPerimeterProfile{}
 	case "azure:network/networkSecurityRule:NetworkSecurityRule":
 		r = &NetworkSecurityRule{}
 	case "azure:network/networkWatcher:NetworkWatcher":
@@ -466,6 +474,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/networkSecurityGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkSecurityPerimeter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkSecurityPerimeterAccessRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkSecurityPerimeterAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkSecurityPerimeterProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

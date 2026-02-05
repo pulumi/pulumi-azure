@@ -60,12 +60,28 @@ public final class NetworkManagerRoutingConfigurationState extends com.pulumi.re
         return Optional.ofNullable(this.networkManagerId);
     }
 
+    /**
+     * The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+     * 
+     */
+    @Import(name="routeTableUsageMode")
+    private @Nullable Output<String> routeTableUsageMode;
+
+    /**
+     * @return The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+     * 
+     */
+    public Optional<Output<String>> routeTableUsageMode() {
+        return Optional.ofNullable(this.routeTableUsageMode);
+    }
+
     private NetworkManagerRoutingConfigurationState() {}
 
     private NetworkManagerRoutingConfigurationState(NetworkManagerRoutingConfigurationState $) {
         this.description = $.description;
         this.name = $.name;
         this.networkManagerId = $.networkManagerId;
+        this.routeTableUsageMode = $.routeTableUsageMode;
     }
 
     public static Builder builder() {
@@ -147,6 +163,27 @@ public final class NetworkManagerRoutingConfigurationState extends com.pulumi.re
          */
         public Builder networkManagerId(String networkManagerId) {
             return networkManagerId(Output.of(networkManagerId));
+        }
+
+        /**
+         * @param routeTableUsageMode The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableUsageMode(@Nullable Output<String> routeTableUsageMode) {
+            $.routeTableUsageMode = routeTableUsageMode;
+            return this;
+        }
+
+        /**
+         * @param routeTableUsageMode The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableUsageMode(String routeTableUsageMode) {
+            return routeTableUsageMode(Output.of(routeTableUsageMode));
         }
 
         public NetworkManagerRoutingConfigurationState build() {

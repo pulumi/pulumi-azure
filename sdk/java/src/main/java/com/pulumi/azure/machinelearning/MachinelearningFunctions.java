@@ -47,7 +47,7 @@ public final class MachinelearningFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMachineLearningWorkspace.id());
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -96,7 +96,7 @@ public final class MachinelearningFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMachineLearningWorkspace.id());
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -145,7 +145,7 @@ public final class MachinelearningFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMachineLearningWorkspace.id());
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -194,7 +194,7 @@ public final class MachinelearningFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMachineLearningWorkspace.id());
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -243,7 +243,7 @@ public final class MachinelearningFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMachineLearningWorkspace.id());
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }

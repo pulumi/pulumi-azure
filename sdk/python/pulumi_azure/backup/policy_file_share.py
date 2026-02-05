@@ -25,10 +25,12 @@ class PolicyFileShareArgs:
                  recovery_vault_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  retention_daily: pulumi.Input['PolicyFileShareRetentionDailyArgs'],
+                 backup_tier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
                  retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
                  retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
+                 snapshot_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyFileShare resource.
@@ -36,10 +38,14 @@ class PolicyFileShareArgs:
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         :param pulumi.Input['PolicyFileShareRetentionDailyArgs'] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below.
+        :param pulumi.Input[_builtins.str] backup_tier: The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+               
+               > **Note:** When `backup_tier` is set to `vault-standard`, the `snapshot_retention_in_days` value must be less than the `retention_daily` count.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input['PolicyFileShareRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input['PolicyFileShareRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
         :param pulumi.Input['PolicyFileShareRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[_builtins.int] snapshot_retention_in_days: The number of days to retain the snapshots. Defaults to `0`.
         :param pulumi.Input[_builtins.str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
                
                > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -48,6 +54,8 @@ class PolicyFileShareArgs:
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "retention_daily", retention_daily)
+        if backup_tier is not None:
+            pulumi.set(__self__, "backup_tier", backup_tier)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if retention_monthly is not None:
@@ -56,6 +64,8 @@ class PolicyFileShareArgs:
             pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
             pulumi.set(__self__, "retention_yearly", retention_yearly)
+        if snapshot_retention_in_days is not None:
+            pulumi.set(__self__, "snapshot_retention_in_days", snapshot_retention_in_days)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -108,6 +118,20 @@ class PolicyFileShareArgs:
         pulumi.set(self, "retention_daily", value)
 
     @_builtins.property
+    @pulumi.getter(name="backupTier")
+    def backup_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+
+        > **Note:** When `backup_tier` is set to `vault-standard`, the `snapshot_retention_in_days` value must be less than the `retention_daily` count.
+        """
+        return pulumi.get(self, "backup_tier")
+
+    @backup_tier.setter
+    def backup_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "backup_tier", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -156,6 +180,18 @@ class PolicyFileShareArgs:
         pulumi.set(self, "retention_yearly", value)
 
     @_builtins.property
+    @pulumi.getter(name="snapshotRetentionInDays")
+    def snapshot_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of days to retain the snapshots. Defaults to `0`.
+        """
+        return pulumi.get(self, "snapshot_retention_in_days")
+
+    @snapshot_retention_in_days.setter
+    def snapshot_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "snapshot_retention_in_days", value)
+
+    @_builtins.property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -174,6 +210,7 @@ class PolicyFileShareArgs:
 class _PolicyFileShareState:
     def __init__(__self__, *,
                  backup: Optional[pulumi.Input['PolicyFileShareBackupArgs']] = None,
+                 backup_tier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -181,10 +218,14 @@ class _PolicyFileShareState:
                  retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
                  retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
                  retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
+                 snapshot_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyFileShare resources.
         :param pulumi.Input['PolicyFileShareBackupArgs'] backup: Configures the Policy backup frequency and times as documented in the `backup` block below.
+        :param pulumi.Input[_builtins.str] backup_tier: The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+               
+               > **Note:** When `backup_tier` is set to `vault-standard`, the `snapshot_retention_in_days` value must be less than the `retention_daily` count.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -192,12 +233,15 @@ class _PolicyFileShareState:
         :param pulumi.Input['PolicyFileShareRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input['PolicyFileShareRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
         :param pulumi.Input['PolicyFileShareRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[_builtins.int] snapshot_retention_in_days: The number of days to retain the snapshots. Defaults to `0`.
         :param pulumi.Input[_builtins.str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
                
                > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
+        if backup_tier is not None:
+            pulumi.set(__self__, "backup_tier", backup_tier)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if recovery_vault_name is not None:
@@ -212,6 +256,8 @@ class _PolicyFileShareState:
             pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
             pulumi.set(__self__, "retention_yearly", retention_yearly)
+        if snapshot_retention_in_days is not None:
+            pulumi.set(__self__, "snapshot_retention_in_days", snapshot_retention_in_days)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -226,6 +272,20 @@ class _PolicyFileShareState:
     @backup.setter
     def backup(self, value: Optional[pulumi.Input['PolicyFileShareBackupArgs']]):
         pulumi.set(self, "backup", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupTier")
+    def backup_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+
+        > **Note:** When `backup_tier` is set to `vault-standard`, the `snapshot_retention_in_days` value must be less than the `retention_daily` count.
+        """
+        return pulumi.get(self, "backup_tier")
+
+    @backup_tier.setter
+    def backup_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "backup_tier", value)
 
     @_builtins.property
     @pulumi.getter
@@ -312,6 +372,18 @@ class _PolicyFileShareState:
         pulumi.set(self, "retention_yearly", value)
 
     @_builtins.property
+    @pulumi.getter(name="snapshotRetentionInDays")
+    def snapshot_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of days to retain the snapshots. Defaults to `0`.
+        """
+        return pulumi.get(self, "snapshot_retention_in_days")
+
+    @snapshot_retention_in_days.setter
+    def snapshot_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "snapshot_retention_in_days", value)
+
+    @_builtins.property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -333,6 +405,7 @@ class PolicyFileShare(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup: Optional[pulumi.Input[Union['PolicyFileShareBackupArgs', 'PolicyFileShareBackupArgsDict']]] = None,
+                 backup_tier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -340,6 +413,7 @@ class PolicyFileShare(pulumi.CustomResource):
                  retention_monthly: Optional[pulumi.Input[Union['PolicyFileShareRetentionMonthlyArgs', 'PolicyFileShareRetentionMonthlyArgsDict']]] = None,
                  retention_weekly: Optional[pulumi.Input[Union['PolicyFileShareRetentionWeeklyArgs', 'PolicyFileShareRetentionWeeklyArgsDict']]] = None,
                  retention_yearly: Optional[pulumi.Input[Union['PolicyFileShareRetentionYearlyArgs', 'PolicyFileShareRetentionYearlyArgsDict']]] = None,
+                 snapshot_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -410,6 +484,9 @@ class PolicyFileShare(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PolicyFileShareBackupArgs', 'PolicyFileShareBackupArgsDict']] backup: Configures the Policy backup frequency and times as documented in the `backup` block below.
+        :param pulumi.Input[_builtins.str] backup_tier: The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+               
+               > **Note:** When `backup_tier` is set to `vault-standard`, the `snapshot_retention_in_days` value must be less than the `retention_daily` count.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -417,6 +494,7 @@ class PolicyFileShare(pulumi.CustomResource):
         :param pulumi.Input[Union['PolicyFileShareRetentionMonthlyArgs', 'PolicyFileShareRetentionMonthlyArgsDict']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input[Union['PolicyFileShareRetentionWeeklyArgs', 'PolicyFileShareRetentionWeeklyArgsDict']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
         :param pulumi.Input[Union['PolicyFileShareRetentionYearlyArgs', 'PolicyFileShareRetentionYearlyArgsDict']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[_builtins.int] snapshot_retention_in_days: The number of days to retain the snapshots. Defaults to `0`.
         :param pulumi.Input[_builtins.str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
                
                > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -508,6 +586,7 @@ class PolicyFileShare(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup: Optional[pulumi.Input[Union['PolicyFileShareBackupArgs', 'PolicyFileShareBackupArgsDict']]] = None,
+                 backup_tier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -515,6 +594,7 @@ class PolicyFileShare(pulumi.CustomResource):
                  retention_monthly: Optional[pulumi.Input[Union['PolicyFileShareRetentionMonthlyArgs', 'PolicyFileShareRetentionMonthlyArgsDict']]] = None,
                  retention_weekly: Optional[pulumi.Input[Union['PolicyFileShareRetentionWeeklyArgs', 'PolicyFileShareRetentionWeeklyArgsDict']]] = None,
                  retention_yearly: Optional[pulumi.Input[Union['PolicyFileShareRetentionYearlyArgs', 'PolicyFileShareRetentionYearlyArgsDict']]] = None,
+                 snapshot_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -528,6 +608,7 @@ class PolicyFileShare(pulumi.CustomResource):
             if backup is None and not opts.urn:
                 raise TypeError("Missing required property 'backup'")
             __props__.__dict__["backup"] = backup
+            __props__.__dict__["backup_tier"] = backup_tier
             __props__.__dict__["name"] = name
             if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
@@ -541,6 +622,7 @@ class PolicyFileShare(pulumi.CustomResource):
             __props__.__dict__["retention_monthly"] = retention_monthly
             __props__.__dict__["retention_weekly"] = retention_weekly
             __props__.__dict__["retention_yearly"] = retention_yearly
+            __props__.__dict__["snapshot_retention_in_days"] = snapshot_retention_in_days
             __props__.__dict__["timezone"] = timezone
         super(PolicyFileShare, __self__).__init__(
             'azure:backup/policyFileShare:PolicyFileShare',
@@ -553,6 +635,7 @@ class PolicyFileShare(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backup: Optional[pulumi.Input[Union['PolicyFileShareBackupArgs', 'PolicyFileShareBackupArgsDict']]] = None,
+            backup_tier: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -560,6 +643,7 @@ class PolicyFileShare(pulumi.CustomResource):
             retention_monthly: Optional[pulumi.Input[Union['PolicyFileShareRetentionMonthlyArgs', 'PolicyFileShareRetentionMonthlyArgsDict']]] = None,
             retention_weekly: Optional[pulumi.Input[Union['PolicyFileShareRetentionWeeklyArgs', 'PolicyFileShareRetentionWeeklyArgsDict']]] = None,
             retention_yearly: Optional[pulumi.Input[Union['PolicyFileShareRetentionYearlyArgs', 'PolicyFileShareRetentionYearlyArgsDict']]] = None,
+            snapshot_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
             timezone: Optional[pulumi.Input[_builtins.str]] = None) -> 'PolicyFileShare':
         """
         Get an existing PolicyFileShare resource's state with the given name, id, and optional extra
@@ -569,6 +653,9 @@ class PolicyFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PolicyFileShareBackupArgs', 'PolicyFileShareBackupArgsDict']] backup: Configures the Policy backup frequency and times as documented in the `backup` block below.
+        :param pulumi.Input[_builtins.str] backup_tier: The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+               
+               > **Note:** When `backup_tier` is set to `vault-standard`, the `snapshot_retention_in_days` value must be less than the `retention_daily` count.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -576,6 +663,7 @@ class PolicyFileShare(pulumi.CustomResource):
         :param pulumi.Input[Union['PolicyFileShareRetentionMonthlyArgs', 'PolicyFileShareRetentionMonthlyArgsDict']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input[Union['PolicyFileShareRetentionWeeklyArgs', 'PolicyFileShareRetentionWeeklyArgsDict']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
         :param pulumi.Input[Union['PolicyFileShareRetentionYearlyArgs', 'PolicyFileShareRetentionYearlyArgsDict']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[_builtins.int] snapshot_retention_in_days: The number of days to retain the snapshots. Defaults to `0`.
         :param pulumi.Input[_builtins.str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
                
                > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -585,6 +673,7 @@ class PolicyFileShare(pulumi.CustomResource):
         __props__ = _PolicyFileShareState.__new__(_PolicyFileShareState)
 
         __props__.__dict__["backup"] = backup
+        __props__.__dict__["backup_tier"] = backup_tier
         __props__.__dict__["name"] = name
         __props__.__dict__["recovery_vault_name"] = recovery_vault_name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -592,6 +681,7 @@ class PolicyFileShare(pulumi.CustomResource):
         __props__.__dict__["retention_monthly"] = retention_monthly
         __props__.__dict__["retention_weekly"] = retention_weekly
         __props__.__dict__["retention_yearly"] = retention_yearly
+        __props__.__dict__["snapshot_retention_in_days"] = snapshot_retention_in_days
         __props__.__dict__["timezone"] = timezone
         return PolicyFileShare(resource_name, opts=opts, __props__=__props__)
 
@@ -602,6 +692,16 @@ class PolicyFileShare(pulumi.CustomResource):
         Configures the Policy backup frequency and times as documented in the `backup` block below.
         """
         return pulumi.get(self, "backup")
+
+    @_builtins.property
+    @pulumi.getter(name="backupTier")
+    def backup_tier(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+
+        > **Note:** When `backup_tier` is set to `vault-standard`, the `snapshot_retention_in_days` value must be less than the `retention_daily` count.
+        """
+        return pulumi.get(self, "backup_tier")
 
     @_builtins.property
     @pulumi.getter
@@ -658,6 +758,14 @@ class PolicyFileShare(pulumi.CustomResource):
         Configures the policy yearly retention as documented in the `retention_yearly` block below.
         """
         return pulumi.get(self, "retention_yearly")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotRetentionInDays")
+    def snapshot_retention_in_days(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of days to retain the snapshots. Defaults to `0`.
+        """
+        return pulumi.get(self, "snapshot_retention_in_days")
 
     @_builtins.property
     @pulumi.getter

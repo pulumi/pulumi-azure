@@ -169,14 +169,16 @@ public final class CustomDatasetState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A JSON object that contains the properties of the Data Factory Dataset.
+     * A JSON object that contains the properties of the Data Factory Dataset. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
      * 
      */
     @Import(name="typePropertiesJson")
     private @Nullable Output<String> typePropertiesJson;
 
     /**
-     * @return A JSON object that contains the properties of the Data Factory Dataset.
+     * @return A JSON object that contains the properties of the Data Factory Dataset. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
      * 
      */
     public Optional<Output<String>> typePropertiesJson() {
@@ -438,7 +440,8 @@ public final class CustomDatasetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param typePropertiesJson A JSON object that contains the properties of the Data Factory Dataset.
+         * @param typePropertiesJson A JSON object that contains the properties of the Data Factory Dataset. Refer to
+         * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
          * 
          * @return builder
          * 
@@ -449,7 +452,8 @@ public final class CustomDatasetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param typePropertiesJson A JSON object that contains the properties of the Data Factory Dataset.
+         * @param typePropertiesJson A JSON object that contains the properties of the Data Factory Dataset. Refer to
+         * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
          * 
          * @return builder
          * 

@@ -522,6 +522,8 @@ public final class BatchFunctions {
     /**
      * Use this data source to access information about an existing certificate in a Batch Account.
      * 
+     * &gt; **Note:** The `azure.batch.Certificate` data source has been deprecated due to Azure retiring the Azure Batch Account Certificates Feature, and will be removed in v5.0 of the AzureRM provider.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -571,6 +573,8 @@ public final class BatchFunctions {
     }
     /**
      * Use this data source to access information about an existing certificate in a Batch Account.
+     * 
+     * &gt; **Note:** The `azure.batch.Certificate` data source has been deprecated due to Azure retiring the Azure Batch Account Certificates Feature, and will be removed in v5.0 of the AzureRM provider.
      * 
      * ## Example Usage
      * 
@@ -622,6 +626,8 @@ public final class BatchFunctions {
     /**
      * Use this data source to access information about an existing certificate in a Batch Account.
      * 
+     * &gt; **Note:** The `azure.batch.Certificate` data source has been deprecated due to Azure retiring the Azure Batch Account Certificates Feature, and will be removed in v5.0 of the AzureRM provider.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -672,6 +678,8 @@ public final class BatchFunctions {
     /**
      * Use this data source to access information about an existing certificate in a Batch Account.
      * 
+     * &gt; **Note:** The `azure.batch.Certificate` data source has been deprecated due to Azure retiring the Azure Batch Account Certificates Feature, and will be removed in v5.0 of the AzureRM provider.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -721,6 +729,8 @@ public final class BatchFunctions {
     }
     /**
      * Use this data source to access information about an existing certificate in a Batch Account.
+     * 
+     * &gt; **Note:** The `azure.batch.Certificate` data source has been deprecated due to Azure retiring the Azure Batch Account Certificates Feature, and will be removed in v5.0 of the AzureRM provider.
      * 
      * ## Example Usage
      * 

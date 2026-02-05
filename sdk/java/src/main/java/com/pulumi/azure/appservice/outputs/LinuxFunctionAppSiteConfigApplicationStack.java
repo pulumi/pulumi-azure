@@ -32,7 +32,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+     * @return The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
      * 
      */
     private @Nullable String nodeVersion;
@@ -82,7 +82,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+     * @return The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
      * 
      */
     public Optional<String> nodeVersion() {

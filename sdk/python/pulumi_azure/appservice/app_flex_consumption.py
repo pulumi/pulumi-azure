@@ -79,7 +79,7 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
-        :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to.
+        :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input['AppFlexConsumptionStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
@@ -424,7 +424,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="maximumInstanceCount")
     def maximum_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of workers this function app can scale out to.
+        The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         """
         return pulumi.get(self, "maximum_instance_count")
 
@@ -612,7 +612,7 @@ class _AppFlexConsumptionState:
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
-        :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to.
+        :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
@@ -948,7 +948,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="maximumInstanceCount")
     def maximum_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of workers this function app can scale out to.
+        The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         """
         return pulumi.get(self, "maximum_instance_count")
 
@@ -1346,7 +1346,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
-        :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to.
+        :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
@@ -1634,7 +1634,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
-        :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to.
+        :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
@@ -1862,7 +1862,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="maximumInstanceCount")
     def maximum_instance_count(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of workers this function app can scale out to.
+        The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         """
         return pulumi.get(self, "maximum_instance_count")
 

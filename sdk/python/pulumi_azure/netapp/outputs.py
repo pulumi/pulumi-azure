@@ -1109,7 +1109,7 @@ class VolumeGroupOracleVolume(dict):
                
                > **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
         :param _builtins.str security_style: Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param _builtins.str service_level: Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param _builtins.str service_level: Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.bool snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.int storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param _builtins.str subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -1207,7 +1207,7 @@ class VolumeGroupOracleVolume(dict):
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> _builtins.str:
         """
-        Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "service_level")
 
@@ -1637,7 +1637,7 @@ class VolumeGroupSapHanaVolume(dict):
                
                > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
         :param _builtins.str security_style: Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param _builtins.str service_level: Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param _builtins.str service_level: Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.bool snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.int storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param _builtins.str subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -1721,7 +1721,7 @@ class VolumeGroupSapHanaVolume(dict):
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> _builtins.str:
         """
-        Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "service_level")
 

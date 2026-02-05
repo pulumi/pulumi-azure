@@ -104,9 +104,10 @@ import (
 //					pulumi.String("sequence-number"),
 //					pulumi.String("to"),
 //				},
-//				TableName:       pulumi.String("my-table"),
-//				MappingRuleName: pulumi.String("my-table-mapping"),
-//				DataFormat:      pulumi.String("JSON"),
+//				TableName:          pulumi.String("my-table"),
+//				MappingRuleName:    pulumi.String("my-table-mapping"),
+//				DataFormat:         pulumi.String("JSON"),
+//				RetrievalStartDate: pulumi.String("2023-06-26T12:00:00Z"),
 //			})
 //			if err != nil {
 //				return err
@@ -156,6 +157,8 @@ type IotHubDataConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate pulumi.StringOutput `pulumi:"retrievalStartDate"`
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName pulumi.StringOutput `pulumi:"sharedAccessPolicyName"`
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
@@ -232,6 +235,8 @@ type iotHubDataConnectionState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate *string `pulumi:"retrievalStartDate"`
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
@@ -261,6 +266,8 @@ type IotHubDataConnectionState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate pulumi.StringPtrInput
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName pulumi.StringPtrInput
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
@@ -294,6 +301,8 @@ type iotHubDataConnectionArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate *string `pulumi:"retrievalStartDate"`
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName string `pulumi:"sharedAccessPolicyName"`
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
@@ -324,6 +333,8 @@ type IotHubDataConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate pulumi.StringPtrInput
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName pulumi.StringInput
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
@@ -470,6 +481,11 @@ func (o IotHubDataConnectionOutput) Name() pulumi.StringOutput {
 // Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 func (o IotHubDataConnectionOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+func (o IotHubDataConnectionOutput) RetrievalStartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.RetrievalStartDate }).(pulumi.StringOutput)
 }
 
 // Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.

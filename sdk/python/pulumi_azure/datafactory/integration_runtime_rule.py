@@ -30,7 +30,7 @@ class IntegrationRuntimeRuleArgs:
                  virtual_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeRule resource.
-        :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
@@ -62,7 +62,7 @@ class IntegrationRuntimeRuleArgs:
     @pulumi.getter(name="dataFactoryId")
     def data_factory_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_factory_id")
 
@@ -184,7 +184,7 @@ class _IntegrationRuntimeRuleState:
         :param pulumi.Input[_builtins.bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
-        :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -250,7 +250,7 @@ class _IntegrationRuntimeRuleState:
     @pulumi.getter(name="dataFactoryId")
     def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_factory_id")
 
@@ -377,7 +377,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
-        :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -500,7 +500,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
-        :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -550,7 +550,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
     @pulumi.getter(name="dataFactoryId")
     def data_factory_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_factory_id")
 

@@ -1359,16 +1359,11 @@ func (o PoolAutoScalePtrOutput) Formula() pulumi.StringPtrOutput {
 }
 
 type PoolCertificate struct {
-	// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
-	Id string `pulumi:"id"`
-	// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-	//
-	// > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-	StoreLocation string `pulumi:"storeLocation"`
-	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-	StoreName *string `pulumi:"storeName"`
-	// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-	Visibilities []string `pulumi:"visibilities"`
+	// The ID of the Batch Pool.
+	Id            string   `pulumi:"id"`
+	StoreLocation string   `pulumi:"storeLocation"`
+	StoreName     *string  `pulumi:"storeName"`
+	Visibilities  []string `pulumi:"visibilities"`
 }
 
 // PoolCertificateInput is an input type that accepts PoolCertificateArgs and PoolCertificateOutput values.
@@ -1383,16 +1378,11 @@ type PoolCertificateInput interface {
 }
 
 type PoolCertificateArgs struct {
-	// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-	//
-	// > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
-	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
-	// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-	Visibilities pulumi.StringArrayInput `pulumi:"visibilities"`
+	// The ID of the Batch Pool.
+	Id            pulumi.StringInput      `pulumi:"id"`
+	StoreLocation pulumi.StringInput      `pulumi:"storeLocation"`
+	StoreName     pulumi.StringPtrInput   `pulumi:"storeName"`
+	Visibilities  pulumi.StringArrayInput `pulumi:"visibilities"`
 }
 
 func (PoolCertificateArgs) ElementType() reflect.Type {
@@ -1446,24 +1436,19 @@ func (o PoolCertificateOutput) ToPoolCertificateOutputWithContext(ctx context.Co
 	return o
 }
 
-// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+// The ID of the Batch Pool.
 func (o PoolCertificateOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolCertificate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-//
-// > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 func (o PoolCertificateOutput) StoreLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
 }
 
-// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
 func (o PoolCertificateOutput) StoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
 }
 
-// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
 func (o PoolCertificateOutput) Visibilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
 }
@@ -6135,14 +6120,11 @@ func (o GetPoolAutoScaleArrayOutput) Index(i pulumi.IntInput) GetPoolAutoScaleOu
 }
 
 type GetPoolCertificate struct {
-	// The fully qualified ID of the certificate installed on the pool.
-	Id string `pulumi:"id"`
-	// The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-	StoreLocation string `pulumi:"storeLocation"`
-	// The name of the certificate store on the compute node into which the certificate is installed.
-	StoreName string `pulumi:"storeName"`
-	// Which user accounts on the compute node have access to the private data of the certificate.
-	Visibilities []string `pulumi:"visibilities"`
+	// The Batch pool ID.
+	Id            string   `pulumi:"id"`
+	StoreLocation string   `pulumi:"storeLocation"`
+	StoreName     string   `pulumi:"storeName"`
+	Visibilities  []string `pulumi:"visibilities"`
 }
 
 // GetPoolCertificateInput is an input type that accepts GetPoolCertificateArgs and GetPoolCertificateOutput values.
@@ -6157,14 +6139,11 @@ type GetPoolCertificateInput interface {
 }
 
 type GetPoolCertificateArgs struct {
-	// The fully qualified ID of the certificate installed on the pool.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
-	// The name of the certificate store on the compute node into which the certificate is installed.
-	StoreName pulumi.StringInput `pulumi:"storeName"`
-	// Which user accounts on the compute node have access to the private data of the certificate.
-	Visibilities pulumi.StringArrayInput `pulumi:"visibilities"`
+	// The Batch pool ID.
+	Id            pulumi.StringInput      `pulumi:"id"`
+	StoreLocation pulumi.StringInput      `pulumi:"storeLocation"`
+	StoreName     pulumi.StringInput      `pulumi:"storeName"`
+	Visibilities  pulumi.StringArrayInput `pulumi:"visibilities"`
 }
 
 func (GetPoolCertificateArgs) ElementType() reflect.Type {
@@ -6218,22 +6197,19 @@ func (o GetPoolCertificateOutput) ToGetPoolCertificateOutputWithContext(ctx cont
 	return o
 }
 
-// The fully qualified ID of the certificate installed on the pool.
+// The Batch pool ID.
 func (o GetPoolCertificateOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolCertificate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
 func (o GetPoolCertificateOutput) StoreLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
 }
 
-// The name of the certificate store on the compute node into which the certificate is installed.
 func (o GetPoolCertificateOutput) StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolCertificate) string { return v.StoreName }).(pulumi.StringOutput)
 }
 
-// Which user accounts on the compute node have access to the private data of the certificate.
 func (o GetPoolCertificateOutput) Visibilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
 }
@@ -8919,7 +8895,7 @@ func (o GetPoolStartTaskUserIdentityAutoUserArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetPoolStorageImageReference struct {
-	// The fully qualified ID of the certificate installed on the pool.
+	// The Batch pool ID.
 	Id    string `pulumi:"id"`
 	Offer string `pulumi:"offer"`
 	// The name of the extension handler publisher.The name of the extension handler publisher.
@@ -8940,7 +8916,7 @@ type GetPoolStorageImageReferenceInput interface {
 }
 
 type GetPoolStorageImageReferenceArgs struct {
-	// The fully qualified ID of the certificate installed on the pool.
+	// The Batch pool ID.
 	Id    pulumi.StringInput `pulumi:"id"`
 	Offer pulumi.StringInput `pulumi:"offer"`
 	// The name of the extension handler publisher.The name of the extension handler publisher.
@@ -9000,7 +8976,7 @@ func (o GetPoolStorageImageReferenceOutput) ToGetPoolStorageImageReferenceOutput
 	return o
 }
 
-// The fully qualified ID of the certificate installed on the pool.
+// The Batch pool ID.
 func (o GetPoolStorageImageReferenceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolStorageImageReference) string { return v.Id }).(pulumi.StringOutput)
 }

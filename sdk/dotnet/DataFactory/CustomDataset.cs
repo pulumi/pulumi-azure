@@ -205,7 +205,8 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// A JSON object that contains the properties of the Data Factory Dataset.
+        /// A JSON object that contains the properties of the Data Factory Dataset. Refer to
+        /// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         /// </summary>
         [Output("typePropertiesJson")]
         public Output<string> TypePropertiesJson { get; private set; } = null!;
@@ -335,7 +336,8 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// A JSON object that contains the properties of the Data Factory Dataset.
+        /// A JSON object that contains the properties of the Data Factory Dataset. Refer to
+        /// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         /// </summary>
         [Input("typePropertiesJson", required: true)]
         public Input<string> TypePropertiesJson { get; set; } = null!;
@@ -427,7 +429,8 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// A JSON object that contains the properties of the Data Factory Dataset.
+        /// A JSON object that contains the properties of the Data Factory Dataset. Refer to
+        /// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
         /// </summary>
         [Input("typePropertiesJson")]
         public Input<string>? TypePropertiesJson { get; set; }

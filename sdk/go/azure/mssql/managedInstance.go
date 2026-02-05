@@ -337,6 +337,8 @@ type ManagedInstance struct {
 	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+	//
+	// > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
 	StorageSizeInGb pulumi.IntOutput `pulumi:"storageSizeInGb"`
 	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -460,6 +462,8 @@ type managedInstanceState struct {
 	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+	//
+	// > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
 	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId *string `pulumi:"subnetId"`
@@ -523,6 +527,8 @@ type ManagedInstanceState struct {
 	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+	//
+	// > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
 	StorageSizeInGb pulumi.IntPtrInput
 	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId pulumi.StringPtrInput
@@ -586,6 +592,8 @@ type managedInstanceArgs struct {
 	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+	//
+	// > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
 	StorageSizeInGb int `pulumi:"storageSizeInGb"`
 	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId string `pulumi:"subnetId"`
@@ -646,6 +654,8 @@ type ManagedInstanceArgs struct {
 	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+	//
+	// > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
 	StorageSizeInGb pulumi.IntInput
 	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId pulumi.StringInput
@@ -860,6 +870,8 @@ func (o ManagedInstanceOutput) StorageAccountType() pulumi.StringPtrOutput {
 }
 
 // Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+//
+// > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
 func (o ManagedInstanceOutput) StorageSizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.IntOutput { return v.StorageSizeInGb }).(pulumi.IntOutput)
 }

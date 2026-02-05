@@ -9,8 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfigScmIpRestriction {
@@ -18,7 +16,7 @@ public final class GetStandardSiteConfigScmIpRestriction {
      * @return Does this restriction `Allow` or `Deny` access for this IP range.
      * 
      */
-    private @Nullable String action;
+    private String action;
     /**
      * @return The `headers` block for this specific `ipRestriction` as defined below.
      * 
@@ -38,7 +36,7 @@ public final class GetStandardSiteConfigScmIpRestriction {
      * @return The priority for this IP Restriction. Restrictions are enforced in priority order.
      * 
      */
-    private @Nullable Integer priority;
+    private Integer priority;
     /**
      * @return The Service Tag used for this IP Restriction.
      * 
@@ -55,8 +53,8 @@ public final class GetStandardSiteConfigScmIpRestriction {
      * @return Does this restriction `Allow` or `Deny` access for this IP range.
      * 
      */
-    public Optional<String> action() {
-        return Optional.ofNullable(this.action);
+    public String action() {
+        return this.action;
     }
     /**
      * @return The `headers` block for this specific `ipRestriction` as defined below.
@@ -83,8 +81,8 @@ public final class GetStandardSiteConfigScmIpRestriction {
      * @return The priority for this IP Restriction. Restrictions are enforced in priority order.
      * 
      */
-    public Optional<Integer> priority() {
-        return Optional.ofNullable(this.priority);
+    public Integer priority() {
+        return this.priority;
     }
     /**
      * @return The Service Tag used for this IP Restriction.
@@ -110,11 +108,11 @@ public final class GetStandardSiteConfigScmIpRestriction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String action;
+        private String action;
         private GetStandardSiteConfigScmIpRestrictionHeaders headers;
         private String ipAddress;
         private String name;
-        private @Nullable Integer priority;
+        private Integer priority;
         private String serviceTag;
         private String virtualNetworkSubnetId;
         public Builder() {}
@@ -130,8 +128,10 @@ public final class GetStandardSiteConfigScmIpRestriction {
         }
 
         @CustomType.Setter
-        public Builder action(@Nullable String action) {
-
+        public Builder action(String action) {
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigScmIpRestriction", "action");
+            }
             this.action = action;
             return this;
         }
@@ -160,8 +160,10 @@ public final class GetStandardSiteConfigScmIpRestriction {
             return this;
         }
         @CustomType.Setter
-        public Builder priority(@Nullable Integer priority) {
-
+        public Builder priority(Integer priority) {
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigScmIpRestriction", "priority");
+            }
             this.priority = priority;
             return this;
         }

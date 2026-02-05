@@ -51,6 +51,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly bool? PrivateLinkServiceNetworkPoliciesEnabled;
         /// <summary>
         /// The ID of the Route Table that should be associated with this subnet.
+        /// 
+        /// &gt; **Note:** If you declare the subnet inline inside `azure.network.VirtualNetwork`, set `RouteTableId` in that `Subnet` block — do not also create an `azure.network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `azure.network.Subnet` resource.
         /// </summary>
         public readonly string? RouteTableId;
         /// <summary>

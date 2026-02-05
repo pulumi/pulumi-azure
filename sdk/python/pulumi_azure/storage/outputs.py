@@ -683,8 +683,7 @@ class AccountCustomerManagedKey(dict):
         :param _builtins.str user_assigned_identity_id: The ID of a user assigned identity.
                
                > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
-        :param _builtins.str key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
-        :param _builtins.str managed_hsm_key_id: The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+        :param _builtins.str key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         """
         pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
         if key_vault_key_id is not None:
@@ -706,16 +705,14 @@ class AccountCustomerManagedKey(dict):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> Optional[_builtins.str]:
         """
-        The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+        The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def managed_hsm_key_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
-        """
         return pulumi.get(self, "managed_hsm_key_id")
 
 

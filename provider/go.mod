@@ -5,7 +5,7 @@ go 1.25.3
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
 	github.com/hashicorp/go-azure-helpers v0.75.1
-	github.com/hashicorp/go-azure-sdk/sdk v0.20251202.1181053
+	github.com/hashicorp/go-azure-sdk/sdk v0.20260114.1164646
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.38.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.6.0
@@ -91,7 +91,7 @@ require (
 	github.com/googleapis/gax-go/v2 v2.12.2 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-sdk/resource-manager v0.20251202.1181053 // indirect
+	github.com/hashicorp/go-azure-sdk/resource-manager v0.20260114.1164646 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.5.0 // indirect

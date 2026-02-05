@@ -12,52 +12,28 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolCertificate {
     /**
-     * @return The fully qualified ID of the certificate installed on the pool.
+     * @return The Batch pool ID.
      * 
      */
     private String id;
-    /**
-     * @return The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-     * 
-     */
     private String storeLocation;
-    /**
-     * @return The name of the certificate store on the compute node into which the certificate is installed.
-     * 
-     */
     private String storeName;
-    /**
-     * @return Which user accounts on the compute node have access to the private data of the certificate.
-     * 
-     */
     private List<String> visibilities;
 
     private GetPoolCertificate() {}
     /**
-     * @return The fully qualified ID of the certificate installed on the pool.
+     * @return The Batch pool ID.
      * 
      */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-     * 
-     */
     public String storeLocation() {
         return this.storeLocation;
     }
-    /**
-     * @return The name of the certificate store on the compute node into which the certificate is installed.
-     * 
-     */
     public String storeName() {
         return this.storeName;
     }
-    /**
-     * @return Which user accounts on the compute node have access to the private data of the certificate.
-     * 
-     */
     public List<String> visibilities() {
         return this.visibilities;
     }

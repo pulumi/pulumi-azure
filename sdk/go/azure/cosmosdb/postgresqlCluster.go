@@ -77,7 +77,9 @@ type PostgresqlCluster struct {
 	CitusVersion pulumi.StringOutput `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrOutput `pulumi:"coordinatorPublicIpAccessEnabled"`
-	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	//
+	// > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinatorVcoreCount` is `2`. Setting `coordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
 	CoordinatorServerEdition pulumi.StringPtrOutput `pulumi:"coordinatorServerEdition"`
 	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
@@ -174,7 +176,9 @@ type postgresqlClusterState struct {
 	CitusVersion *string `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled *bool `pulumi:"coordinatorPublicIpAccessEnabled"`
-	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	//
+	// > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinatorVcoreCount` is `2`. Setting `coordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
 	CoordinatorServerEdition *string `pulumi:"coordinatorServerEdition"`
 	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
@@ -229,7 +233,9 @@ type PostgresqlClusterState struct {
 	CitusVersion pulumi.StringPtrInput
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrInput
-	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	//
+	// > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinatorVcoreCount` is `2`. Setting `coordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
 	CoordinatorServerEdition pulumi.StringPtrInput
 	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
@@ -288,7 +294,9 @@ type postgresqlClusterArgs struct {
 	CitusVersion *string `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled *bool `pulumi:"coordinatorPublicIpAccessEnabled"`
-	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	//
+	// > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinatorVcoreCount` is `2`. Setting `coordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
 	CoordinatorServerEdition *string `pulumi:"coordinatorServerEdition"`
 	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
@@ -340,7 +348,9 @@ type PostgresqlClusterArgs struct {
 	CitusVersion pulumi.StringPtrInput
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrInput
-	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+	//
+	// > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinatorVcoreCount` is `2`. Setting `coordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
 	CoordinatorServerEdition pulumi.StringPtrInput
 	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
@@ -486,7 +496,9 @@ func (o PostgresqlClusterOutput) CoordinatorPublicIpAccessEnabled() pulumi.BoolP
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.BoolPtrOutput { return v.CoordinatorPublicIpAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+//
+// > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinatorVcoreCount` is `2`. Setting `coordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
 func (o PostgresqlClusterOutput) CoordinatorServerEdition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringPtrOutput { return v.CoordinatorServerEdition }).(pulumi.StringPtrOutput)
 }

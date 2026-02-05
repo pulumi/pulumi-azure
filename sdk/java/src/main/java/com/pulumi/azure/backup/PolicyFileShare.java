@@ -15,6 +15,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -135,6 +136,24 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
         return this.backup;
     }
     /**
+     * The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+     * 
+     * &gt; **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+     * 
+     */
+    @Export(name="backupTier", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> backupTier;
+
+    /**
+     * @return The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
+     * 
+     * &gt; **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
+     * 
+     */
+    public Output<Optional<String>> backupTier() {
+        return Codegen.optional(this.backupTier);
+    }
+    /**
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      * 
      */
@@ -231,6 +250,20 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<PolicyFileShareRetentionYearly>> retentionYearly() {
         return Codegen.optional(this.retentionYearly);
+    }
+    /**
+     * The number of days to retain the snapshots. Defaults to `0`.
+     * 
+     */
+    @Export(name="snapshotRetentionInDays", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> snapshotRetentionInDays;
+
+    /**
+     * @return The number of days to retain the snapshots. Defaults to `0`.
+     * 
+     */
+    public Output<Optional<Integer>> snapshotRetentionInDays() {
+        return Codegen.optional(this.snapshotRetentionInDays);
     }
     /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`

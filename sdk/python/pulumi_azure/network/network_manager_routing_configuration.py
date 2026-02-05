@@ -21,18 +21,22 @@ class NetworkManagerRoutingConfigurationArgs:
     def __init__(__self__, *,
                  network_manager_id: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_table_usage_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerRoutingConfiguration resource.
         :param pulumi.Input[_builtins.str] network_manager_id: The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager Routing Configuration.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
+        :param pulumi.Input[_builtins.str] route_table_usage_mode: The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
         """
         pulumi.set(__self__, "network_manager_id", network_manager_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if route_table_usage_mode is not None:
+            pulumi.set(__self__, "route_table_usage_mode", route_table_usage_mode)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerId")
@@ -70,18 +74,32 @@ class NetworkManagerRoutingConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="routeTableUsageMode")
+    def route_table_usage_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+        """
+        return pulumi.get(self, "route_table_usage_mode")
+
+    @route_table_usage_mode.setter
+    def route_table_usage_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "route_table_usage_mode", value)
+
 
 @pulumi.input_type
 class _NetworkManagerRoutingConfigurationState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_table_usage_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerRoutingConfiguration resources.
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager Routing Configuration.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
+        :param pulumi.Input[_builtins.str] route_table_usage_mode: The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -89,6 +107,8 @@ class _NetworkManagerRoutingConfigurationState:
             pulumi.set(__self__, "name", name)
         if network_manager_id is not None:
             pulumi.set(__self__, "network_manager_id", network_manager_id)
+        if route_table_usage_mode is not None:
+            pulumi.set(__self__, "route_table_usage_mode", route_table_usage_mode)
 
     @_builtins.property
     @pulumi.getter
@@ -126,6 +146,18 @@ class _NetworkManagerRoutingConfigurationState:
     def network_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "network_manager_id", value)
 
+    @_builtins.property
+    @pulumi.getter(name="routeTableUsageMode")
+    def route_table_usage_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+        """
+        return pulumi.get(self, "route_table_usage_mode")
+
+    @route_table_usage_mode.setter
+    def route_table_usage_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "route_table_usage_mode", value)
+
 
 @pulumi.type_token("azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration")
 class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
@@ -136,6 +168,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_table_usage_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager Routing Configuration.
@@ -184,6 +217,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager Routing Configuration.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
+        :param pulumi.Input[_builtins.str] route_table_usage_mode: The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
         """
         ...
     @overload
@@ -251,6 +285,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_table_usage_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,6 +300,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
             if network_manager_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_id'")
             __props__.__dict__["network_manager_id"] = network_manager_id
+            __props__.__dict__["route_table_usage_mode"] = route_table_usage_mode
         super(NetworkManagerRoutingConfiguration, __self__).__init__(
             'azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration',
             resource_name,
@@ -277,7 +313,8 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_manager_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerRoutingConfiguration':
+            network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+            route_table_usage_mode: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerRoutingConfiguration':
         """
         Get an existing NetworkManagerRoutingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -288,6 +325,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager Routing Configuration.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
+        :param pulumi.Input[_builtins.str] route_table_usage_mode: The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -296,6 +334,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["network_manager_id"] = network_manager_id
+        __props__.__dict__["route_table_usage_mode"] = route_table_usage_mode
         return NetworkManagerRoutingConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -321,4 +360,12 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
         The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
         """
         return pulumi.get(self, "network_manager_id")
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableUsageMode")
+    def route_table_usage_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
+        """
+        return pulumi.get(self, "route_table_usage_mode")
 

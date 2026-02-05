@@ -114,7 +114,8 @@ type LinkedCustomService struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Please refer to Microsoft.DataFactory factories/linkedservices for the type values syntax. Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// A JSON object that contains the properties of the Data Factory Linked Service.
+	// A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
 	TypePropertiesJson pulumi.StringOutput `pulumi:"typePropertiesJson"`
 }
 
@@ -173,7 +174,8 @@ type linkedCustomServiceState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Please refer to Microsoft.DataFactory factories/linkedservices for the type values syntax. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
-	// A JSON object that contains the properties of the Data Factory Linked Service.
+	// A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
 	TypePropertiesJson *string `pulumi:"typePropertiesJson"`
 }
 
@@ -194,7 +196,8 @@ type LinkedCustomServiceState struct {
 	Parameters pulumi.StringMapInput
 	// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Please refer to Microsoft.DataFactory factories/linkedservices for the type values syntax. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
-	// A JSON object that contains the properties of the Data Factory Linked Service.
+	// A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
 	TypePropertiesJson pulumi.StringPtrInput
 }
 
@@ -219,7 +222,8 @@ type linkedCustomServiceArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Please refer to Microsoft.DataFactory factories/linkedservices for the type values syntax. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
-	// A JSON object that contains the properties of the Data Factory Linked Service.
+	// A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
 	TypePropertiesJson string `pulumi:"typePropertiesJson"`
 }
 
@@ -241,7 +245,8 @@ type LinkedCustomServiceArgs struct {
 	Parameters pulumi.StringMapInput
 	// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Please refer to Microsoft.DataFactory factories/linkedservices for the type values syntax. Changing this forces a new resource to be created.
 	Type pulumi.StringInput
-	// A JSON object that contains the properties of the Data Factory Linked Service.
+	// A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+	// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
 	TypePropertiesJson pulumi.StringInput
 }
 
@@ -374,7 +379,8 @@ func (o LinkedCustomServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedCustomService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// A JSON object that contains the properties of the Data Factory Linked Service.
+// A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+// datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
 func (o LinkedCustomServiceOutput) TypePropertiesJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedCustomService) pulumi.StringOutput { return v.TypePropertiesJson }).(pulumi.StringOutput)
 }

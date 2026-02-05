@@ -6555,7 +6555,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+         * The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -7559,7 +7559,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+         * The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -8693,7 +8693,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
          *
          * > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -9850,7 +9850,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
          *
          * > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -11691,7 +11691,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
+         * The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20`, `~22` and `~24`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -12654,7 +12654,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, and `~22`.
+         * The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -16827,22 +16827,11 @@ export namespace batch {
 
     export interface PoolCertificate {
         /**
-         * The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+         * The ID of the Batch Pool.
          */
         id: pulumi.Input<string>;
-        /**
-         * The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-         *
-         * > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-         */
         storeLocation: pulumi.Input<string>;
-        /**
-         * The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-         */
         storeName?: pulumi.Input<string>;
-        /**
-         * Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-         */
         visibilities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -25640,7 +25629,9 @@ export namespace containerservice {
          */
         osDiskType?: pulumi.Input<string>;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+         *
+         * > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
          */
         osSku?: pulumi.Input<string>;
         /**
@@ -26393,6 +26384,8 @@ export namespace containerservice {
          * > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
          *
          * > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
+         *
+         * > **Note:** Upgrading `networkDataPlane` from `azure` to `cilium` is supported and will perform an in-place upgrade by reimaging all nodes in the cluster. Changing from other values will force a new resource to be created. For more information on upgrading to Azure CNI Powered by Cilium see the [product documentation](https://learn.microsoft.com/azure/aks/upgrade-azure-cni).
          */
         networkDataPlane?: pulumi.Input<string>;
         /**
@@ -26421,6 +26414,8 @@ export namespace containerservice {
          * > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
          *
          * > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
+         *
+         * > **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
          */
         networkPolicy?: pulumi.Input<string>;
         /**
@@ -43355,7 +43350,7 @@ export namespace netapp {
          */
         securityStyle: pulumi.Input<string>;
         /**
-         * Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         serviceLevel: pulumi.Input<string>;
         /**
@@ -43490,7 +43485,7 @@ export namespace netapp {
          */
         securityStyle: pulumi.Input<string>;
         /**
-         * Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         serviceLevel: pulumi.Input<string>;
         /**
@@ -44235,10 +44230,14 @@ export namespace network {
         capacity?: pulumi.Input<number>;
         /**
          * The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
+         *
+         * > **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to <https://aka.ms/V1retirement>.
          */
         name: pulumi.Input<string>;
         /**
-         * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+         * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+         *
+         * > **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to <https://aka.ms/V1retirement>.
          */
         tier: pulumi.Input<string>;
     }
@@ -46644,6 +46643,8 @@ export namespace network {
         privateLinkServiceNetworkPoliciesEnabled?: pulumi.Input<boolean>;
         /**
          * The ID of the Route Table that should be associated with this subnet.
+         *
+         * > **Note:** If you declare the subnet inline inside `azure.network.VirtualNetwork`, set `routeTableId` in that `subnet` block — do not also create an `azure.network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `azure.network.Subnet` resource.
          */
         routeTableId?: pulumi.Input<string>;
         /**
@@ -52190,11 +52191,11 @@ export namespace storage {
 
     export interface AccountCustomerManagedKey {
         /**
-         * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+         * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
          */
         keyVaultKeyId?: pulumi.Input<string>;
         /**
-         * The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+         * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          */
         managedHsmKeyId?: pulumi.Input<string>;
         /**

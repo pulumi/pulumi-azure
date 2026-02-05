@@ -207,7 +207,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The number of workers this function app can scale out to.
+        /// The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         /// </summary>
         [Output("maximumInstanceCount")]
         public Output<int?> MaximumInstanceCount { get; private set; } = null!;
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The number of workers this function app can scale out to.
+        /// The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         /// </summary>
         [Input("maximumInstanceCount")]
         public Input<int>? MaximumInstanceCount { get; set; }
@@ -770,7 +770,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The number of workers this function app can scale out to.
+        /// The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         /// </summary>
         [Input("maximumInstanceCount")]
         public Input<int>? MaximumInstanceCount { get; set; }

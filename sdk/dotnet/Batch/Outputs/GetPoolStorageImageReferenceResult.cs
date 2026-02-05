@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class GetPoolStorageImageReferenceResult
     {
         /// <summary>
-        /// The fully qualified ID of the certificate installed on the pool.
+        /// The Batch pool ID.
         /// </summary>
         public readonly string Id;
         public readonly string Offer;

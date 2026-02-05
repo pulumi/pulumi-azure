@@ -11686,7 +11686,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
+         * The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
          */
         nodeVersion?: string;
         /**
@@ -12690,7 +12690,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
+         * The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
          */
         nodeVersion?: string;
         /**
@@ -13824,7 +13824,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
          *
          * > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -14981,7 +14981,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `javaVersion`.
          *
          * > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -16822,7 +16822,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
+         * The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20`, `~22` and `~24`.
          */
         nodeVersion?: string;
         /**
@@ -17785,7 +17785,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, and `~22`.
+         * The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
          */
         nodeVersion?: string;
         /**
@@ -22408,20 +22408,11 @@ export namespace batch {
 
     export interface GetPoolCertificate {
         /**
-         * The fully qualified ID of the certificate installed on the pool.
+         * The Batch pool ID.
          */
         id: string;
-        /**
-         * The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-         */
         storeLocation: string;
-        /**
-         * The name of the certificate store on the compute node into which the certificate is installed.
-         */
         storeName: string;
-        /**
-         * Which user accounts on the compute node have access to the private data of the certificate.
-         */
         visibilities: string[];
     }
 
@@ -22843,7 +22834,7 @@ export namespace batch {
 
     export interface GetPoolStorageImageReference {
         /**
-         * The fully qualified ID of the certificate installed on the pool.
+         * The Batch pool ID.
          */
         id: string;
         offer: string;
@@ -22927,22 +22918,11 @@ export namespace batch {
 
     export interface PoolCertificate {
         /**
-         * The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+         * The ID of the Batch Pool.
          */
         id: string;
-        /**
-         * The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
-         *
-         * > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-         */
         storeLocation: string;
-        /**
-         * The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
-         */
         storeName?: string;
-        /**
-         * Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
-         */
         visibilities?: string[];
     }
 
@@ -34231,7 +34211,9 @@ export namespace containerservice {
          */
         osDiskType?: string;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+         *
+         * > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
          */
         osSku: string;
         /**
@@ -34984,6 +34966,8 @@ export namespace containerservice {
          * > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
          *
          * > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
+         *
+         * > **Note:** Upgrading `networkDataPlane` from `azure` to `cilium` is supported and will perform an in-place upgrade by reimaging all nodes in the cluster. Changing from other values will force a new resource to be created. For more information on upgrading to Azure CNI Powered by Cilium see the [product documentation](https://learn.microsoft.com/azure/aks/upgrade-azure-cni).
          */
         networkDataPlane?: string;
         /**
@@ -35012,6 +34996,8 @@ export namespace containerservice {
          * > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
          *
          * > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
+         *
+         * > **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
          */
         networkPolicy: string;
         /**
@@ -49177,7 +49163,7 @@ export namespace logicapps {
         /**
          * The version of the .NET framework's CLR used in this Logic App.
          */
-        dotnetFrameworkVersion?: string;
+        dotnetFrameworkVersion: string;
         /**
          * The number of minimum instances for this Logic App Only affects apps on the Premium plan.
          */
@@ -49189,7 +49175,7 @@ export namespace logicapps {
         /**
          * Path which will be checked for this Logic App health.
          */
-        healthCheckPath?: string;
+        healthCheckPath: string;
         /**
          * Specifies whether the HTTP2 protocol should be enabled.
          */
@@ -49217,7 +49203,7 @@ export namespace logicapps {
         /**
          * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
          */
-        runtimeScaleMonitoringEnabled?: boolean;
+        runtimeScaleMonitoringEnabled: boolean;
         /**
          * A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
          */
@@ -49233,11 +49219,11 @@ export namespace logicapps {
         /**
          * Should the Logic App `ipRestriction` configuration be used for the SCM too.
          */
-        scmUseMainIpRestriction?: boolean;
+        scmUseMainIpRestriction: boolean;
         /**
          * Should the Logic App run in 32 bit mode, rather than 64 bit mode?
          */
-        use32BitWorkerProcess?: boolean;
+        use32BitWorkerProcess: boolean;
         /**
          * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
          */
@@ -49245,7 +49231,7 @@ export namespace logicapps {
         /**
          * Should WebSockets be enabled?
          */
-        websocketsEnabled?: boolean;
+        websocketsEnabled: boolean;
     }
 
     export interface GetStandardSiteConfigCors {
@@ -49263,7 +49249,7 @@ export namespace logicapps {
         /**
          * Does this restriction `Allow` or `Deny` access for this IP range.
          */
-        action?: string;
+        action: string;
         /**
          * The `headers` block for this specific `ipRestriction` as defined below.
          */
@@ -49279,7 +49265,7 @@ export namespace logicapps {
         /**
          * The priority for this IP Restriction. Restrictions are enforced in priority order.
          */
-        priority?: number;
+        priority: number;
         /**
          * The Service Tag used for this IP Restriction.
          */
@@ -49294,26 +49280,26 @@ export namespace logicapps {
         /**
          * A list of allowed Azure FrontDoor IDs in UUID notation.
          */
-        xAzureFdids?: string[];
+        xAzureFdids: string[];
         /**
          * A list to allow the Azure FrontDoor health probe header.
          */
-        xFdHealthProbe?: string;
+        xFdHealthProbe: string;
         /**
          * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
          */
-        xForwardedFors?: string[];
+        xForwardedFors: string[];
         /**
          * A list of allowed 'X-Forwarded-Host' domains.
          */
-        xForwardedHosts?: string[];
+        xForwardedHosts: string[];
     }
 
     export interface GetStandardSiteConfigScmIpRestriction {
         /**
          * Does this restriction `Allow` or `Deny` access for this IP range.
          */
-        action?: string;
+        action: string;
         /**
          * The `headers` block for this specific `ipRestriction` as defined below.
          */
@@ -49329,7 +49315,7 @@ export namespace logicapps {
         /**
          * The priority for this IP Restriction. Restrictions are enforced in priority order.
          */
-        priority?: number;
+        priority: number;
         /**
          * The Service Tag used for this IP Restriction.
          */
@@ -49344,19 +49330,19 @@ export namespace logicapps {
         /**
          * A list of allowed Azure FrontDoor IDs in UUID notation.
          */
-        xAzureFdids?: string[];
+        xAzureFdids: string[];
         /**
          * A list to allow the Azure FrontDoor health probe header.
          */
-        xFdHealthProbe?: string;
+        xFdHealthProbe: string;
         /**
          * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
          */
-        xForwardedFors?: string[];
+        xForwardedFors: string[];
         /**
          * A list of allowed 'X-Forwarded-Host' domains.
          */
-        xForwardedHosts?: string[];
+        xForwardedHosts: string[];
     }
 
     export interface GetStandardSiteCredential {
@@ -55339,7 +55325,7 @@ export namespace netapp {
          */
         securityStyle: string;
         /**
-         * Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         serviceLevel: string;
         /**
@@ -55474,7 +55460,7 @@ export namespace netapp {
          */
         securityStyle: string;
         /**
-         * Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         serviceLevel: string;
         /**
@@ -56220,10 +56206,14 @@ export namespace network {
         capacity?: number;
         /**
          * The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
+         *
+         * > **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to <https://aka.ms/V1retirement>.
          */
         name: string;
         /**
-         * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+         * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+         *
+         * > **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to <https://aka.ms/V1retirement>.
          */
         tier: string;
     }
@@ -60445,6 +60435,8 @@ export namespace network {
         privateLinkServiceNetworkPoliciesEnabled?: boolean;
         /**
          * The ID of the Route Table that should be associated with this subnet.
+         *
+         * > **Note:** If you declare the subnet inline inside `azure.network.VirtualNetwork`, set `routeTableId` in that `subnet` block — do not also create an `azure.network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `azure.network.Subnet` resource.
          */
         routeTableId?: string;
         /**
@@ -67719,13 +67711,13 @@ export namespace storage {
 
     export interface AccountCustomerManagedKey {
         /**
-         * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+         * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
          */
-        keyVaultKeyId?: string;
+        keyVaultKeyId: string;
         /**
-         * The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+         * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          */
-        managedHsmKeyId?: string;
+        managedHsmKeyId: string;
         /**
          * The ID of a user assigned identity.
          *

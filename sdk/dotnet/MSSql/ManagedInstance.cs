@@ -412,6 +412,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+        /// 
+        /// &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         /// </summary>
         [Output("storageSizeInGb")]
         public Output<int> StorageSizeInGb { get; private set; } = null!;
@@ -632,6 +634,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+        /// 
+        /// &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         /// </summary>
         [Input("storageSizeInGb", required: true)]
         public Input<int> StorageSizeInGb { get; set; } = null!;
@@ -824,6 +828,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+        /// 
+        /// &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         /// </summary>
         [Input("storageSizeInGb")]
         public Input<int>? StorageSizeInGb { get; set; }

@@ -64,6 +64,7 @@ import * as utilities from "../utilities";
  *     tableName: "my-table",
  *     mappingRuleName: "my-table-mapping",
  *     dataFormat: "JSON",
+ *     retrievalStartDate: "2023-06-26T12:00:00Z",
  * });
  * ```
  *
@@ -163,6 +164,10 @@ export class EventhubDataConnection extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
+     * Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+     */
+    declare public readonly retrievalStartDate: pulumi.Output<string>;
+    /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
     declare public readonly tableName: pulumi.Output<string | undefined>;
@@ -193,6 +198,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             resourceInputs["mappingRuleName"] = state?.mappingRuleName;
             resourceInputs["name"] = state?.name;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retrievalStartDate"] = state?.retrievalStartDate;
             resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as EventhubDataConnectionArgs | undefined;
@@ -224,6 +230,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             resourceInputs["mappingRuleName"] = args?.mappingRuleName;
             resourceInputs["name"] = args?.name;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retrievalStartDate"] = args?.retrievalStartDate;
             resourceInputs["tableName"] = args?.tableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -288,6 +295,10 @@ export interface EventhubDataConnectionState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+     */
+    retrievalStartDate?: pulumi.Input<string>;
+    /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
     tableName?: pulumi.Input<string>;
@@ -349,6 +360,10 @@ export interface EventhubDataConnectionArgs {
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+     */
+    retrievalStartDate?: pulumi.Input<string>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */

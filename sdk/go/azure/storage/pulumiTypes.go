@@ -1502,9 +1502,9 @@ func (o AccountCustomDomainPtrOutput) UseSubdomain() pulumi.BoolPtrOutput {
 }
 
 type AccountCustomerManagedKey struct {
-	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The ID of a user assigned identity.
 	//
@@ -1524,9 +1524,9 @@ type AccountCustomerManagedKeyInput interface {
 }
 
 type AccountCustomerManagedKeyArgs struct {
-	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
 	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
-	// The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId pulumi.StringPtrInput `pulumi:"managedHsmKeyId"`
 	// The ID of a user assigned identity.
 	//
@@ -1611,12 +1611,12 @@ func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyPtrOutputWit
 	}).(AccountCustomerManagedKeyPtrOutput)
 }
 
-// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
 func (o AccountCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountCustomerManagedKey) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 func (o AccountCustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountCustomerManagedKey) *string { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }
@@ -1652,7 +1652,7 @@ func (o AccountCustomerManagedKeyPtrOutput) Elem() AccountCustomerManagedKeyOutp
 	}).(AccountCustomerManagedKeyOutput)
 }
 
-// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
 func (o AccountCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountCustomerManagedKey) *string {
 		if v == nil {
@@ -1662,7 +1662,7 @@ func (o AccountCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 func (o AccountCustomerManagedKeyPtrOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountCustomerManagedKey) *string {
 		if v == nil {

@@ -77,6 +77,21 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+     * 
+     */
+    @Import(name="principalPermissionsAction")
+    private @Nullable Output<String> principalPermissionsAction;
+
+    /**
+     * @return Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+     * 
+     */
+    public Optional<Output<String>> principalPermissionsAction() {
+        return Optional.ofNullable(this.principalPermissionsAction);
+    }
+
+    /**
      * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      * 
      */
@@ -107,6 +122,21 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="scriptLevel")
+    private @Nullable Output<String> scriptLevel;
+
+    /**
+     * @return The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> scriptLevel() {
+        return Optional.ofNullable(this.scriptLevel);
+    }
+
+    /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      * 
      */
@@ -128,8 +158,10 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
         this.databaseId = $.databaseId;
         this.forceAnUpdateWhenValueChanged = $.forceAnUpdateWhenValueChanged;
         this.name = $.name;
+        this.principalPermissionsAction = $.principalPermissionsAction;
         this.sasToken = $.sasToken;
         this.scriptContent = $.scriptContent;
+        this.scriptLevel = $.scriptLevel;
         this.url = $.url;
     }
 
@@ -236,6 +268,27 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param principalPermissionsAction Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalPermissionsAction(@Nullable Output<String> principalPermissionsAction) {
+            $.principalPermissionsAction = principalPermissionsAction;
+            return this;
+        }
+
+        /**
+         * @param principalPermissionsAction Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalPermissionsAction(String principalPermissionsAction) {
+            return principalPermissionsAction(Output.of(principalPermissionsAction));
+        }
+
+        /**
          * @param sasToken The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -275,6 +328,27 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder scriptContent(String scriptContent) {
             return scriptContent(Output.of(scriptContent));
+        }
+
+        /**
+         * @param scriptLevel The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptLevel(@Nullable Output<String> scriptLevel) {
+            $.scriptLevel = scriptLevel;
+            return this;
+        }
+
+        /**
+         * @param scriptLevel The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptLevel(String scriptLevel) {
+            return scriptLevel(Output.of(scriptLevel));
         }
 
         /**

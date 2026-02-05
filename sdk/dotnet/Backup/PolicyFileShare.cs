@@ -115,6 +115,14 @@ namespace Pulumi.Azure.Backup
         public Output<Outputs.PolicyFileShareBackup> Backup { get; private set; } = null!;
 
         /// <summary>
+        /// The backup tier to use. Possible values are `vault-standard` and `Snapshot`. Defaults to `Snapshot`.
+        /// 
+        /// &gt; **Note:** When `BackupTier` is set to `vault-standard`, the `SnapshotRetentionInDays` value must be less than the `RetentionDaily` count.
+        /// </summary>
+        [Output("backupTier")]
+        public Output<string?> BackupTier { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -155,6 +163,12 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Output("retentionYearly")]
         public Output<Outputs.PolicyFileShareRetentionYearly?> RetentionYearly { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of days to retain the snapshots. Defaults to `0`.
+        /// </summary>
+        [Output("snapshotRetentionInDays")]
+        public Output<int?> SnapshotRetentionInDays { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
@@ -217,6 +231,14 @@ namespace Pulumi.Azure.Backup
         public Input<Inputs.PolicyFileShareBackupArgs> Backup { get; set; } = null!;
 
         /// <summary>
+        /// The backup tier to use. Possible values are `vault-standard` and `Snapshot`. Defaults to `Snapshot`.
+        /// 
+        /// &gt; **Note:** When `BackupTier` is set to `vault-standard`, the `SnapshotRetentionInDays` value must be less than the `RetentionDaily` count.
+        /// </summary>
+        [Input("backupTier")]
+        public Input<string>? BackupTier { get; set; }
+
+        /// <summary>
         /// Specifies the name of the policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -259,6 +281,12 @@ namespace Pulumi.Azure.Backup
         public Input<Inputs.PolicyFileShareRetentionYearlyArgs>? RetentionYearly { get; set; }
 
         /// <summary>
+        /// The number of days to retain the snapshots. Defaults to `0`.
+        /// </summary>
+        [Input("snapshotRetentionInDays")]
+        public Input<int>? SnapshotRetentionInDays { get; set; }
+
+        /// <summary>
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// 
         /// &gt; **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
@@ -279,6 +307,14 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("backup")]
         public Input<Inputs.PolicyFileShareBackupGetArgs>? Backup { get; set; }
+
+        /// <summary>
+        /// The backup tier to use. Possible values are `vault-standard` and `Snapshot`. Defaults to `Snapshot`.
+        /// 
+        /// &gt; **Note:** When `BackupTier` is set to `vault-standard`, the `SnapshotRetentionInDays` value must be less than the `RetentionDaily` count.
+        /// </summary>
+        [Input("backupTier")]
+        public Input<string>? BackupTier { get; set; }
 
         /// <summary>
         /// Specifies the name of the policy. Changing this forces a new resource to be created.
@@ -321,6 +357,12 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("retentionYearly")]
         public Input<Inputs.PolicyFileShareRetentionYearlyGetArgs>? RetentionYearly { get; set; }
+
+        /// <summary>
+        /// The number of days to retain the snapshots. Defaults to `0`.
+        /// </summary>
+        [Input("snapshotRetentionInDays")]
+        public Input<int>? SnapshotRetentionInDays { get; set; }
 
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`

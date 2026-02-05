@@ -69,7 +69,7 @@ export interface GetPoolResult {
      */
     readonly autoScales: outputs.batch.GetPoolAutoScale[];
     /**
-     * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      */
     readonly certificates: outputs.batch.GetPoolCertificate[];
     /**

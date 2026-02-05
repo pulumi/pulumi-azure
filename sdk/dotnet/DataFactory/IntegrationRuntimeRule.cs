@@ -82,7 +82,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<int?> CoreCount { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dataFactoryId")]
         public Output<string> DataFactoryId { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<int>? CoreCount { get; set; }
 
         /// <summary>
-        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataFactoryId", required: true)]
         public Input<string> DataFactoryId { get; set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<int>? CoreCount { get; set; }
 
         /// <summary>
-        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataFactoryId")]
         public Input<string>? DataFactoryId { get; set; }

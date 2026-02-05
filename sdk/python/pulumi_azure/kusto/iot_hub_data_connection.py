@@ -31,6 +31,7 @@ class IotHubDataConnectionArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IotHubDataConnection resource.
@@ -46,6 +47,7 @@ class IotHubDataConnectionArgs:
         :param pulumi.Input[_builtins.str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] retrieval_start_date: Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
         :param pulumi.Input[_builtins.str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -66,6 +68,8 @@ class IotHubDataConnectionArgs:
             pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if retrieval_start_date is not None:
+            pulumi.set(__self__, "retrieval_start_date", retrieval_start_date)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -214,6 +218,18 @@ class IotHubDataConnectionArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="retrievalStartDate")
+    def retrieval_start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+        """
+        return pulumi.get(self, "retrieval_start_date")
+
+    @retrieval_start_date.setter
+    def retrieval_start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "retrieval_start_date", value)
+
+    @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -240,6 +256,7 @@ class _IotHubDataConnectionState:
                  mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -255,6 +272,7 @@ class _IotHubDataConnectionState:
         :param pulumi.Input[_builtins.str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] retrieval_start_date: Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
         :param pulumi.Input[_builtins.str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
         """
@@ -280,6 +298,8 @@ class _IotHubDataConnectionState:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if retrieval_start_date is not None:
+            pulumi.set(__self__, "retrieval_start_date", retrieval_start_date)
         if shared_access_policy_name is not None:
             pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         if table_name is not None:
@@ -418,6 +438,18 @@ class _IotHubDataConnectionState:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="retrievalStartDate")
+    def retrieval_start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+        """
+        return pulumi.get(self, "retrieval_start_date")
+
+    @retrieval_start_date.setter
+    def retrieval_start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "retrieval_start_date", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedAccessPolicyName")
     def shared_access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -459,6 +491,7 @@ class IotHubDataConnection(pulumi.CustomResource):
                  mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -523,7 +556,8 @@ class IotHubDataConnection(pulumi.CustomResource):
             ],
             table_name="my-table",
             mapping_rule_name="my-table-mapping",
-            data_format="JSON")
+            data_format="JSON",
+            retrieval_start_date="2023-06-26T12:00:00Z")
         ```
 
         ## API Providers
@@ -554,6 +588,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] retrieval_start_date: Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
         :param pulumi.Input[_builtins.str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
         """
@@ -624,7 +659,8 @@ class IotHubDataConnection(pulumi.CustomResource):
             ],
             table_name="my-table",
             mapping_rule_name="my-table-mapping",
-            data_format="JSON")
+            data_format="JSON",
+            retrieval_start_date="2023-06-26T12:00:00Z")
         ```
 
         ## API Providers
@@ -668,6 +704,7 @@ class IotHubDataConnection(pulumi.CustomResource):
                  mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -700,6 +737,7 @@ class IotHubDataConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retrieval_start_date"] = retrieval_start_date
             if shared_access_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_policy_name'")
             __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
@@ -725,6 +763,7 @@ class IotHubDataConnection(pulumi.CustomResource):
             mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+            retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
             shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
             table_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'IotHubDataConnection':
         """
@@ -745,6 +784,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] retrieval_start_date: Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
         :param pulumi.Input[_builtins.str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
         """
@@ -763,6 +803,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         __props__.__dict__["mapping_rule_name"] = mapping_rule_name
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["retrieval_start_date"] = retrieval_start_date
         __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
         __props__.__dict__["table_name"] = table_name
         return IotHubDataConnection(resource_name, opts=opts, __props__=__props__)
@@ -854,6 +895,14 @@ class IotHubDataConnection(pulumi.CustomResource):
         Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="retrievalStartDate")
+    def retrieval_start_date(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+        """
+        return pulumi.get(self, "retrieval_start_date")
 
     @_builtins.property
     @pulumi.getter(name="sharedAccessPolicyName")

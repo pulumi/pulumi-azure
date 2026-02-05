@@ -72,6 +72,7 @@ import * as utilities from "../utilities";
  *     tableName: "my-table",
  *     mappingRuleName: "my-table-mapping",
  *     dataFormat: "JSON",
+ *     retrievalStartDate: "2023-06-26T12:00:00Z",
  * });
  * ```
  *
@@ -163,6 +164,10 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
+     * Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+     */
+    declare public readonly retrievalStartDate: pulumi.Output<string>;
+    /**
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
     declare public readonly sharedAccessPolicyName: pulumi.Output<string>;
@@ -195,6 +200,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["mappingRuleName"] = state?.mappingRuleName;
             resourceInputs["name"] = state?.name;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retrievalStartDate"] = state?.retrievalStartDate;
             resourceInputs["sharedAccessPolicyName"] = state?.sharedAccessPolicyName;
             resourceInputs["tableName"] = state?.tableName;
         } else {
@@ -228,6 +234,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["mappingRuleName"] = args?.mappingRuleName;
             resourceInputs["name"] = args?.name;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retrievalStartDate"] = args?.retrievalStartDate;
             resourceInputs["sharedAccessPolicyName"] = args?.sharedAccessPolicyName;
             resourceInputs["tableName"] = args?.tableName;
         }
@@ -284,6 +291,10 @@ export interface IotHubDataConnectionState {
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+     */
+    retrievalStartDate?: pulumi.Input<string>;
     /**
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
@@ -342,6 +353,10 @@ export interface IotHubDataConnectionArgs {
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+     */
+    retrievalStartDate?: pulumi.Input<string>;
     /**
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */

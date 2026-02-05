@@ -47,7 +47,12 @@ class RuleArgs:
         :param pulumi.Input[_builtins.bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[_builtins.bool] floating_ip_enabled: Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
-        :param pulumi.Input[_builtins.str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
+        :param pulumi.Input[_builtins.str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
+               * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
+               * `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers.
+               * `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers.
+               
+               > **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[_builtins.bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule?
@@ -218,7 +223,12 @@ class RuleArgs:
     @pulumi.getter(name="loadDistribution")
     def load_distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
+        Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
+        * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
+        * `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers.
+        * `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers.
+
+        > **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
         """
         return pulumi.get(self, "load_distribution")
 
@@ -293,7 +303,12 @@ class _RuleState:
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[_builtins.int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
-        :param pulumi.Input[_builtins.str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
+        :param pulumi.Input[_builtins.str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
+               * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
+               * `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers.
+               * `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers.
+               
+               > **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_id: A reference to a Probe used by this Load Balancing Rule.
@@ -458,7 +473,12 @@ class _RuleState:
     @pulumi.getter(name="loadDistribution")
     def load_distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
+        Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
+        * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
+        * `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers.
+        * `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers.
+
+        > **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
         """
         return pulumi.get(self, "load_distribution")
 
@@ -611,7 +631,12 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[_builtins.int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
-        :param pulumi.Input[_builtins.str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
+        :param pulumi.Input[_builtins.str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
+               * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
+               * `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers.
+               * `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers.
+               
+               > **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_id: A reference to a Probe used by this Load Balancing Rule.
@@ -782,7 +807,12 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[_builtins.int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
-        :param pulumi.Input[_builtins.str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
+        :param pulumi.Input[_builtins.str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
+               * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
+               * `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers.
+               * `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers.
+               
+               > **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_id: A reference to a Probe used by this Load Balancing Rule.
@@ -890,7 +920,12 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="loadDistribution")
     def load_distribution(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
+        Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
+        * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
+        * `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers.
+        * `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers.
+
+        > **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
         """
         return pulumi.get(self, "load_distribution")
 

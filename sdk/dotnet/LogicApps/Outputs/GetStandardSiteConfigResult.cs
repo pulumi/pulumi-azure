@@ -32,7 +32,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// The version of the .NET framework's CLR used in this Logic App.
         /// </summary>
-        public readonly string? DotnetFrameworkVersion;
+        public readonly string DotnetFrameworkVersion;
         /// <summary>
         /// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// Path which will be checked for this Logic App health.
         /// </summary>
-        public readonly string? HealthCheckPath;
+        public readonly string HealthCheckPath;
         /// <summary>
         /// Specifies whether the HTTP2 protocol should be enabled.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
         /// </summary>
-        public readonly bool? RuntimeScaleMonitoringEnabled;
+        public readonly bool RuntimeScaleMonitoringEnabled;
         /// <summary>
         /// A list of `ScmIpRestriction` objects representing SCM IP restrictions as defined below.
         /// </summary>
@@ -85,11 +85,11 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// Should the Logic App `IpRestriction` configuration be used for the SCM too.
         /// </summary>
-        public readonly bool? ScmUseMainIpRestriction;
+        public readonly bool ScmUseMainIpRestriction;
         /// <summary>
         /// Should the Logic App run in 32 bit mode, rather than 64 bit mode?
         /// </summary>
-        public readonly bool? Use32BitWorkerProcess;
+        public readonly bool Use32BitWorkerProcess;
         /// <summary>
         /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         /// </summary>
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
-        public readonly bool? WebsocketsEnabled;
+        public readonly bool WebsocketsEnabled;
 
         [OutputConstructor]
         private GetStandardSiteConfigResult(
@@ -109,13 +109,13 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             Outputs.GetStandardSiteConfigCorsResult cors,
 
-            string? dotnetFrameworkVersion,
+            string dotnetFrameworkVersion,
 
             int elasticInstanceMinimum,
 
             string ftpsState,
 
-            string? healthCheckPath,
+            string healthCheckPath,
 
             bool http2Enabled,
 
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             bool publicNetworkAccessEnabled,
 
-            bool? runtimeScaleMonitoringEnabled,
+            bool runtimeScaleMonitoringEnabled,
 
             ImmutableArray<Outputs.GetStandardSiteConfigScmIpRestrictionResult> scmIpRestrictions,
 
@@ -137,13 +137,13 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             string scmType,
 
-            bool? scmUseMainIpRestriction,
+            bool scmUseMainIpRestriction,
 
-            bool? use32BitWorkerProcess,
+            bool use32BitWorkerProcess,
 
             bool vnetRouteAllEnabled,
 
-            bool? websocketsEnabled)
+            bool websocketsEnabled)
         {
             AlwaysOn = alwaysOn;
             AppScaleLimit = appScaleLimit;

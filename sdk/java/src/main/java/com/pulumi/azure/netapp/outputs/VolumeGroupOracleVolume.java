@@ -86,7 +86,7 @@ public final class VolumeGroupOracleVolume {
      */
     private String securityStyle;
     /**
-     * @return Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     private String serviceLevel;
@@ -224,7 +224,7 @@ public final class VolumeGroupOracleVolume {
         return this.securityStyle;
     }
     /**
-     * @return Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public String serviceLevel() {

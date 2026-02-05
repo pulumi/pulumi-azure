@@ -67,7 +67,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string SecurityStyle;
         /// <summary>
-        /// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string ServiceLevel;
         /// <summary>

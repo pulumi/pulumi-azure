@@ -17,14 +17,14 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     public static final AccountCustomerManagedKeyArgs Empty = new AccountCustomerManagedKeyArgs();
 
     /**
-     * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+     * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
      */
     @Import(name="keyVaultKeyId")
     private @Nullable Output<String> keyVaultKeyId;
 
     /**
-     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
      */
     public Optional<Output<String>> keyVaultKeyId() {
@@ -32,16 +32,20 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
-     * @return The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<String>> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }
@@ -92,7 +96,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
          * 
          * @return builder
          * 
@@ -103,7 +107,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
          * 
          * @return builder
          * 
@@ -113,22 +117,26 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param managedHsmKeyId The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
         public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
             $.managedHsmKeyId = managedHsmKeyId;
             return this;
         }
 
         /**
-         * @param managedHsmKeyId The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
         public Builder managedHsmKeyId(String managedHsmKeyId) {
             return managedHsmKeyId(Output.of(managedHsmKeyId));
         }

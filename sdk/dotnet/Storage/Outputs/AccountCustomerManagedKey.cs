@@ -14,12 +14,9 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountCustomerManagedKey
     {
         /// <summary>
-        /// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `KeyVaultKeyId` and `ManagedHsmKeyId` may be specified.
+        /// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         /// </summary>
         public readonly string? KeyVaultKeyId;
-        /// <summary>
-        /// The ID of the managed HSM Key. Exactly one of `KeyVaultKeyId` and `ManagedHsmKeyId` may be specified.
-        /// </summary>
         public readonly string? ManagedHsmKeyId;
         /// <summary>
         /// The ID of a user assigned identity.

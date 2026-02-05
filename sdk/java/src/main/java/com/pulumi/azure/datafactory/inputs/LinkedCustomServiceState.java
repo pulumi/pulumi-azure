@@ -139,14 +139,16 @@ public final class LinkedCustomServiceState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A JSON object that contains the properties of the Data Factory Linked Service.
+     * A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
      * 
      */
     @Import(name="typePropertiesJson")
     private @Nullable Output<String> typePropertiesJson;
 
     /**
-     * @return A JSON object that contains the properties of the Data Factory Linked Service.
+     * @return A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
      * 
      */
     public Optional<Output<String>> typePropertiesJson() {
@@ -364,7 +366,8 @@ public final class LinkedCustomServiceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param typePropertiesJson A JSON object that contains the properties of the Data Factory Linked Service.
+         * @param typePropertiesJson A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+         * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
          * 
          * @return builder
          * 
@@ -375,7 +378,8 @@ public final class LinkedCustomServiceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param typePropertiesJson A JSON object that contains the properties of the Data Factory Linked Service.
+         * @param typePropertiesJson A JSON object that contains the properties of the Data Factory Linked Service. Refer to
+         * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlobStorage`-typed Linked Service will be unmarshaled into `AzureBlobStorageLinkedServiceTypeProperties struct`.
          * 
          * @return builder
          * 

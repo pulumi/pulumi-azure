@@ -89,16 +89,17 @@ import (
 //				return err
 //			}
 //			_, err = kusto.NewEventhubDataConnection(ctx, "eventhub_connection", &kusto.EventhubDataConnectionArgs{
-//				Name:              pulumi.String("my-kusto-eventhub-data-connection"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       cluster.Name,
-//				DatabaseName:      database.Name,
-//				EventhubId:        eventhub.ID(),
-//				ConsumerGroup:     consumerGroup.Name,
-//				TableName:         pulumi.String("my-table"),
-//				MappingRuleName:   pulumi.String("my-table-mapping"),
-//				DataFormat:        pulumi.String("JSON"),
+//				Name:               pulumi.String("my-kusto-eventhub-data-connection"),
+//				ResourceGroupName:  example.Name,
+//				Location:           example.Location,
+//				ClusterName:        cluster.Name,
+//				DatabaseName:       database.Name,
+//				EventhubId:         eventhub.ID(),
+//				ConsumerGroup:      consumerGroup.Name,
+//				TableName:          pulumi.String("my-table"),
+//				MappingRuleName:    pulumi.String("my-table-mapping"),
+//				DataFormat:         pulumi.String("JSON"),
+//				RetrievalStartDate: pulumi.String("2023-06-26T12:00:00Z"),
 //			})
 //			if err != nil {
 //				return err
@@ -152,6 +153,8 @@ type EventhubDataConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate pulumi.StringOutput `pulumi:"retrievalStartDate"`
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 }
@@ -227,6 +230,8 @@ type eventhubDataConnectionState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate *string `pulumi:"retrievalStartDate"`
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
 	TableName *string `pulumi:"tableName"`
 }
@@ -258,6 +263,8 @@ type EventhubDataConnectionState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate pulumi.StringPtrInput
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
 	TableName pulumi.StringPtrInput
 }
@@ -293,6 +300,8 @@ type eventhubDataConnectionArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate *string `pulumi:"retrievalStartDate"`
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
 	TableName *string `pulumi:"tableName"`
 }
@@ -325,6 +334,8 @@ type EventhubDataConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+	RetrievalStartDate pulumi.StringPtrInput
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
 	TableName pulumi.StringPtrInput
 }
@@ -479,6 +490,11 @@ func (o EventhubDataConnectionOutput) Name() pulumi.StringOutput {
 // Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
 func (o EventhubDataConnectionOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventhubDataConnection) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+func (o EventhubDataConnectionOutput) RetrievalStartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventhubDataConnection) pulumi.StringOutput { return v.RetrievalStartDate }).(pulumi.StringOutput)
 }
 
 // Specifies the target table name used for the message ingestion. Table must exist before resource is created.

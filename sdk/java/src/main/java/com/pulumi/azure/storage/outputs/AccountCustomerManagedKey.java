@@ -13,14 +13,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountCustomerManagedKey {
     /**
-     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
      */
     private @Nullable String keyVaultKeyId;
     /**
-     * @return The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     private @Nullable String managedHsmKeyId;
     /**
      * @return The ID of a user assigned identity.
@@ -32,16 +34,18 @@ public final class AccountCustomerManagedKey {
 
     private AccountCustomerManagedKey() {}
     /**
-     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
      */
     public Optional<String> keyVaultKeyId() {
         return Optional.ofNullable(this.keyVaultKeyId);
     }
     /**
-     * @return The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     public Optional<String> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolStorageImageReference {
     /**
-     * @return The fully qualified ID of the certificate installed on the pool.
+     * @return The Batch pool ID.
      * 
      */
     private String id;
@@ -26,7 +26,7 @@ public final class GetPoolStorageImageReference {
 
     private GetPoolStorageImageReference() {}
     /**
-     * @return The fully qualified ID of the certificate installed on the pool.
+     * @return The Batch pool ID.
      * 
      */
     public String id() {

@@ -38,6 +38,10 @@ import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupPlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkManagerPlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
 import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupPlainArgs;
+import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterPlainArgs;
+import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
+import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfilePlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
 import com.pulumi.azure.network.inputs.GetNetworkWatcherPlainArgs;
 import com.pulumi.azure.network.inputs.GetPublicIPArgs;
@@ -93,6 +97,8 @@ import com.pulumi.azure.network.outputs.GetNetworkManagerIpamPoolResult;
 import com.pulumi.azure.network.outputs.GetNetworkManagerNetworkGroupResult;
 import com.pulumi.azure.network.outputs.GetNetworkManagerResult;
 import com.pulumi.azure.network.outputs.GetNetworkSecurityGroupResult;
+import com.pulumi.azure.network.outputs.GetNetworkSecurityPerimeterProfileResult;
+import com.pulumi.azure.network.outputs.GetNetworkSecurityPerimeterResult;
 import com.pulumi.azure.network.outputs.GetNetworkWatcherResult;
 import com.pulumi.azure.network.outputs.GetPublicIPResult;
 import com.pulumi.azure.network.outputs.GetPublicIPsResult;
@@ -4589,6 +4595,526 @@ public final class NetworkFunctions {
      */
     public static CompletableFuture<GetNetworkSecurityGroupResult> getNetworkSecurityGroupPlain(GetNetworkSecurityGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", TypeShape.of(GetNetworkSecurityGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static Output<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs args) {
+        return getNetworkSecurityPerimeter(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static CompletableFuture<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeterPlain(GetNetworkSecurityPerimeterPlainArgs args) {
+        return getNetworkSecurityPerimeterPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static Output<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getNetworkSecurityPerimeter:getNetworkSecurityPerimeter", TypeShape.of(GetNetworkSecurityPerimeterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static Output<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getNetworkSecurityPerimeter:getNetworkSecurityPerimeter", TypeShape.of(GetNetworkSecurityPerimeterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static CompletableFuture<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeterPlain(GetNetworkSecurityPerimeterPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:network/getNetworkSecurityPerimeter:getNetworkSecurityPerimeter", TypeShape.of(GetNetworkSecurityPerimeterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter Profile.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
+     *             .name("existing")
+     *             .networkSecurityPerimeterId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetNetworkSecurityPerimeterProfile.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static Output<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs args) {
+        return getNetworkSecurityPerimeterProfile(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter Profile.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
+     *             .name("existing")
+     *             .networkSecurityPerimeterId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetNetworkSecurityPerimeterProfile.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static CompletableFuture<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfilePlain(GetNetworkSecurityPerimeterProfilePlainArgs args) {
+        return getNetworkSecurityPerimeterProfilePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter Profile.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
+     *             .name("existing")
+     *             .networkSecurityPerimeterId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetNetworkSecurityPerimeterProfile.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static Output<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getNetworkSecurityPerimeterProfile:getNetworkSecurityPerimeterProfile", TypeShape.of(GetNetworkSecurityPerimeterProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter Profile.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
+     *             .name("existing")
+     *             .networkSecurityPerimeterId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetNetworkSecurityPerimeterProfile.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static Output<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getNetworkSecurityPerimeterProfile:getNetworkSecurityPerimeterProfile", TypeShape.of(GetNetworkSecurityPerimeterProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Network Security Perimeter Profile.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         final var exampleGetNetworkSecurityPerimeterProfile = NetworkFunctions.getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs.builder()
+     *             .name("existing")
+     *             .networkSecurityPerimeterId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetNetworkSecurityPerimeterProfile.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2025-01-01
+     * 
+     */
+    public static CompletableFuture<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfilePlain(GetNetworkSecurityPerimeterProfilePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:network/getNetworkSecurityPerimeterProfile:getNetworkSecurityPerimeterProfile", TypeShape.of(GetNetworkSecurityPerimeterProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Network Watcher.

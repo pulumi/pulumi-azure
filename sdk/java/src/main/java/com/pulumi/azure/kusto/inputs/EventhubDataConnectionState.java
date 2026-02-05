@@ -212,6 +212,21 @@ public final class EventhubDataConnectionState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+     * 
+     */
+    @Import(name="retrievalStartDate")
+    private @Nullable Output<String> retrievalStartDate;
+
+    /**
+     * @return Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+     * 
+     */
+    public Optional<Output<String>> retrievalStartDate() {
+        return Optional.ofNullable(this.retrievalStartDate);
+    }
+
+    /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      * 
      */
@@ -242,6 +257,7 @@ public final class EventhubDataConnectionState extends com.pulumi.resources.Reso
         this.mappingRuleName = $.mappingRuleName;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.retrievalStartDate = $.retrievalStartDate;
         this.tableName = $.tableName;
     }
 
@@ -544,6 +560,27 @@ public final class EventhubDataConnectionState extends com.pulumi.resources.Reso
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param retrievalStartDate Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retrievalStartDate(@Nullable Output<String> retrievalStartDate) {
+            $.retrievalStartDate = retrievalStartDate;
+            return this;
+        }
+
+        /**
+         * @param retrievalStartDate Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retrievalStartDate(String retrievalStartDate) {
+            return retrievalStartDate(Output.of(retrievalStartDate));
         }
 
         /**

@@ -335,6 +335,8 @@ export class ManagedInstance extends pulumi.CustomResource {
     declare public readonly storageAccountType: pulumi.Output<string | undefined>;
     /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+     *
+     * > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      */
     declare public readonly storageSizeInGb: pulumi.Output<number>;
     /**
@@ -551,6 +553,8 @@ export interface ManagedInstanceState {
     storageAccountType?: pulumi.Input<string>;
     /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+     *
+     * > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      */
     storageSizeInGb?: pulumi.Input<number>;
     /**
@@ -663,6 +667,8 @@ export interface ManagedInstanceArgs {
     storageAccountType?: pulumi.Input<string>;
     /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
+     *
+     * > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      */
     storageSizeInGb: pulumi.Input<number>;
     /**

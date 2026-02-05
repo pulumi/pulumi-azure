@@ -19,7 +19,6 @@ namespace Pulumi.Azure.Batch
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -50,19 +49,6 @@ namespace Pulumi.Azure.Batch
     ///         {
     ///             { "env", "test" },
     ///         },
-    ///     });
-    /// 
-    ///     var exampleCertificate = new Azure.Batch.Certificate("example", new()
-    ///     {
-    ///         ResourceGroupName = example.Name,
-    ///         AccountName = exampleAccount2.Name,
-    ///         BatchCertificate = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "certificate.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Format = "Cer",
-    ///         Thumbprint = "312d31a79fa0cef49c00f769afc2b73e9f4edf34",
-    ///         ThumbprintAlgorithm = "SHA1",
     ///     });
     /// 
     ///     var examplePool = new Azure.Batch.Pool("example", new()
@@ -121,18 +107,6 @@ namespace Pulumi.Azure.Batch
     ///                 },
     ///             },
     ///         },
-    ///         Certificates = new[]
-    ///         {
-    ///             new Azure.Batch.Inputs.PoolCertificateArgs
-    ///             {
-    ///                 Id = exampleCertificate.Id,
-    ///                 StoreLocation = "CurrentUser",
-    ///                 Visibilities = new[]
-    ///                 {
-    ///                     "StartTask",
-    ///                 },
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });
@@ -164,13 +138,12 @@ namespace Pulumi.Azure.Batch
 
         /// <summary>
         /// A `AutoScale` block that describes the scale settings when using auto scale as defined below.
+        /// 
+        /// &gt; **Note:** `FixedScale` and `AutoScale` blocks cannot be used both at the same time.
         /// </summary>
         [Output("autoScale")]
         public Output<Outputs.PoolAutoScale?> AutoScale { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more `Certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-        /// </summary>
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.PoolCertificate>> Certificates { get; private set; } = null!;
 
@@ -332,10 +305,6 @@ namespace Pulumi.Azure.Batch
 
         /// <summary>
         /// A `Windows` block that describes the Windows configuration in the pool as defined below.
-        /// 
-        /// &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `Certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-        /// 
-        /// &gt; **Note:** `FixedScale` and `AutoScale` blocks cannot be used both at the same time.
         /// </summary>
         [Output("windows")]
         public Output<ImmutableArray<Outputs.PoolWindow>> Windows { get; private set; } = null!;
@@ -394,16 +363,15 @@ namespace Pulumi.Azure.Batch
 
         /// <summary>
         /// A `AutoScale` block that describes the scale settings when using auto scale as defined below.
+        /// 
+        /// &gt; **Note:** `FixedScale` and `AutoScale` blocks cannot be used both at the same time.
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.PoolAutoScaleArgs>? AutoScale { get; set; }
 
         [Input("certificates")]
         private InputList<Inputs.PoolCertificateArgs>? _certificates;
-
-        /// <summary>
-        /// One or more `Certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-        /// </summary>
+        [Obsolete(@"the `Certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.")]
         public InputList<Inputs.PoolCertificateArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<Inputs.PoolCertificateArgs>());
@@ -619,10 +587,6 @@ namespace Pulumi.Azure.Batch
 
         /// <summary>
         /// A `Windows` block that describes the Windows configuration in the pool as defined below.
-        /// 
-        /// &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `Certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-        /// 
-        /// &gt; **Note:** `FixedScale` and `AutoScale` blocks cannot be used both at the same time.
         /// </summary>
         public InputList<Inputs.PoolWindowArgs> Windows
         {
@@ -646,16 +610,15 @@ namespace Pulumi.Azure.Batch
 
         /// <summary>
         /// A `AutoScale` block that describes the scale settings when using auto scale as defined below.
+        /// 
+        /// &gt; **Note:** `FixedScale` and `AutoScale` blocks cannot be used both at the same time.
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.PoolAutoScaleGetArgs>? AutoScale { get; set; }
 
         [Input("certificates")]
         private InputList<Inputs.PoolCertificateGetArgs>? _certificates;
-
-        /// <summary>
-        /// One or more `Certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-        /// </summary>
+        [Obsolete(@"the `Certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.")]
         public InputList<Inputs.PoolCertificateGetArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<Inputs.PoolCertificateGetArgs>());
@@ -871,10 +834,6 @@ namespace Pulumi.Azure.Batch
 
         /// <summary>
         /// A `Windows` block that describes the Windows configuration in the pool as defined below.
-        /// 
-        /// &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `Certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-        /// 
-        /// &gt; **Note:** `FixedScale` and `AutoScale` blocks cannot be used both at the same time.
         /// </summary>
         public InputList<Inputs.PoolWindowGetArgs> Windows
         {

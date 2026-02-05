@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "example-workspace",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existingAzurermMachineLearningWorkspace.id;
+ * export const id = existing.then(existing => existing.id);
  * ```
  *
  * ## API Providers
@@ -87,7 +87,7 @@ export interface GetWorkspaceResult {
  *     name: "example-workspace",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = existingAzurermMachineLearningWorkspace.id;
+ * export const id = existing.then(existing => existing.id);
  * ```
  *
  * ## API Providers

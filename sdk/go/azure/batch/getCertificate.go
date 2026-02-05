@@ -13,6 +13,8 @@ import (
 
 // Use this data source to access information about an existing certificate in a Batch Account.
 //
+// > **Note:** The `batch.Certificate` data source has been deprecated due to Azure retiring the Azure Batch Account Certificates Feature, and will be removed in v5.0 of the AzureRM provider.
+//
 // ## Example Usage
 //
 // ```go

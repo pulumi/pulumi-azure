@@ -135,8 +135,7 @@ import (
 //			}
 //			_, err = storage.NewCustomerManagedKey(ctx, "example", &storage.CustomerManagedKeyArgs{
 //				StorageAccountId: exampleAccount.ID(),
-//				KeyVaultId:       exampleKeyVault.ID(),
-//				KeyName:          exampleKey.Name,
+//				KeyVaultKeyId:    exampleKey.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -166,15 +165,18 @@ type CustomerManagedKey struct {
 
 	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
 	FederatedIdentityClientId pulumi.StringPtrOutput `pulumi:"federatedIdentityClientId"`
-	// The name of Key Vault Key.
-	KeyName    pulumi.StringOutput    `pulumi:"keyName"`
-	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Deprecated: `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
+	// The ID of the Key Vault Key.
+	KeyVaultKeyId pulumi.StringOutput `pulumi:"keyVaultKeyId"`
+	// Deprecated: `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultUri pulumi.StringOutput `pulumi:"keyVaultUri"`
-	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-	KeyVersion pulumi.StringPtrOutput `pulumi:"keyVersion"`
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
-	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
+	// Deprecated: `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+	KeyVersion pulumi.StringOutput `pulumi:"keyVersion"`
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+	ManagedHsmKeyId pulumi.StringOutput `pulumi:"managedHsmKeyId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// The ID of a user assigned identity.
@@ -188,9 +190,6 @@ func NewCustomerManagedKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KeyName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
 	if args.StorageAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountId'")
 	}
@@ -219,14 +218,17 @@ func GetCustomerManagedKey(ctx *pulumi.Context,
 type customerManagedKeyState struct {
 	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
 	FederatedIdentityClientId *string `pulumi:"federatedIdentityClientId"`
-	// The name of Key Vault Key.
-	KeyName    *string `pulumi:"keyName"`
+	// Deprecated: `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+	KeyName *string `pulumi:"keyName"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// The ID of the Key Vault Key.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// Deprecated: `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+	// Deprecated: `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVersion *string `pulumi:"keyVersion"`
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -237,14 +239,17 @@ type customerManagedKeyState struct {
 type CustomerManagedKeyState struct {
 	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
 	FederatedIdentityClientId pulumi.StringPtrInput
-	// The name of Key Vault Key.
-	KeyName    pulumi.StringPtrInput
+	// Deprecated: `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+	KeyName pulumi.StringPtrInput
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// The ID of the Key Vault Key.
+	KeyVaultKeyId pulumi.StringPtrInput
+	// Deprecated: `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultUri pulumi.StringPtrInput
-	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+	// Deprecated: `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVersion pulumi.StringPtrInput
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
@@ -259,14 +264,17 @@ func (CustomerManagedKeyState) ElementType() reflect.Type {
 type customerManagedKeyArgs struct {
 	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
 	FederatedIdentityClientId *string `pulumi:"federatedIdentityClientId"`
-	// The name of Key Vault Key.
-	KeyName    string  `pulumi:"keyName"`
+	// Deprecated: `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+	KeyName *string `pulumi:"keyName"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// The ID of the Key Vault Key.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// Deprecated: `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+	// Deprecated: `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVersion *string `pulumi:"keyVersion"`
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -278,14 +286,17 @@ type customerManagedKeyArgs struct {
 type CustomerManagedKeyArgs struct {
 	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
 	FederatedIdentityClientId pulumi.StringPtrInput
-	// The name of Key Vault Key.
-	KeyName    pulumi.StringInput
+	// Deprecated: `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+	KeyName pulumi.StringPtrInput
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput
-	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// The ID of the Key Vault Key.
+	KeyVaultKeyId pulumi.StringPtrInput
+	// Deprecated: `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultUri pulumi.StringPtrInput
-	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+	// Deprecated: `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	KeyVersion pulumi.StringPtrInput
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
@@ -385,28 +396,34 @@ func (o CustomerManagedKeyOutput) FederatedIdentityClientId() pulumi.StringPtrOu
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.FederatedIdentityClientId }).(pulumi.StringPtrOutput)
 }
 
-// The name of Key Vault Key.
+// Deprecated: `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 func (o CustomerManagedKeyOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
 
-func (o CustomerManagedKeyOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+func (o CustomerManagedKeyOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
-// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
+// The ID of the Key Vault Key.
+func (o CustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// Deprecated: `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 func (o CustomerManagedKeyOutput) KeyVaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
 
-// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-func (o CustomerManagedKeyOutput) KeyVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVersion }).(pulumi.StringPtrOutput)
+// Deprecated: `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+func (o CustomerManagedKeyOutput) KeyVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyVersion }).(pulumi.StringOutput)
 }
 
-// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
-func (o CustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
+// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+func (o CustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.ManagedHsmKeyId }).(pulumi.StringOutput)
 }
 
 // The ID of the Storage Account. Changing this forces a new resource to be created.

@@ -184,7 +184,8 @@ export class CustomDataset extends pulumi.CustomResource {
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * A JSON object that contains the properties of the Data Factory Dataset.
+     * A JSON object that contains the properties of the Data Factory Dataset. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
      */
     declare public readonly typePropertiesJson: pulumi.Output<string>;
 
@@ -288,7 +289,8 @@ export interface CustomDatasetState {
      */
     type?: pulumi.Input<string>;
     /**
-     * A JSON object that contains the properties of the Data Factory Dataset.
+     * A JSON object that contains the properties of the Data Factory Dataset. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
      */
     typePropertiesJson?: pulumi.Input<string>;
 }
@@ -338,7 +340,8 @@ export interface CustomDatasetArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * A JSON object that contains the properties of the Data Factory Dataset.
+     * A JSON object that contains the properties of the Data Factory Dataset. Refer to
+     * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
      */
     typePropertiesJson: pulumi.Input<string>;
 }
