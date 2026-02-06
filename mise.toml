@@ -1,8 +1,0 @@
-[tools]
-golangci-lint = "2.5.0"
-"vfox-pulumi:pulumi/pulumi-random" = "4.18.5"
-"vfox-pulumi:pulumi/pulumi-azuread" = "6.8.0"
-"vfox-pulumi:pulumiverse/pulumi-time" = "0.1.1"
-"vfox-pulumi:pulumi/pulumi-local" = "0.1.6"
-"vfox-pulumi:pulumi/pulumi-std" = "2.2.0"
-"vfox-pulumi:pulumi/pulumi-converter-terraform" = "1.2.4"
